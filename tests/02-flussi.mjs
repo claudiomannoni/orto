@@ -244,7 +244,6 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   check('import semplice elenco (senza id): id generato, 1 coltura', cs.length === 1 && cs[0].nome === 'Basilico' && typeof cs[0].id === 'string' && cs[0].id.length > 5, JSON.stringify(cs));
 
   // file non validi: i dati devono restare
-  const prima = JSON.stringify(await leggiDb(page, 'colture'));
   const brutti = [
     ['non JSON', 'questo non è json {'],
     ['JSON ma non backup (oggetto)', '{"ciao":1}'],
@@ -257,6 +256,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   ];
   for (const [nome, contenuto] of brutti) {
     ultimoMsg = '';
+    const prima = JSON.stringify(await leggiDb(page, 'colture')); // ogni caso parte dai dati di prima
     await page.setInputFiles('input[type=file]', { name: 'x.json', mimeType: 'application/json', buffer: Buffer.from(contenuto) });
     await page.waitForTimeout(350);
     const t = await toast(page);
@@ -264,6 +264,16 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
     check(`file non valido (${nome}): messaggio "File non valido…", nessuna conferma, dati intatti`, /^File non valido/.test(t) && ultimoMsg === '' && dopo === prima, `toast="${t}" dialogo="${ultimoMsg}"`);
     if (nome === 'non JSON') check('file non valido: messaggio JSON corretto', t === 'File non valido: non è un JSON', t);
     if (nome === 'JSON ma non backup (oggetto)') check('file non valido: messaggio formato corretto', t === 'File non valido: non è un backup dell\'orto', t);
+    if (nome === 'coltura con data impossibile') {
+      await vai(page, 'colture', Q);
+      const testoCarta = await page.$eval('.lista', (e) => e.innerText.replace(/\n+/g, ' / ')).catch(() => '(nessuna carta)');
+      nota(`dopo import di data impossibile la schermata Colture mostra: ${testoCarta}`);
+      await svuotaDati(page);
+      await page.setInputFiles('input[type=file]', { name: 'v1.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(v1)) }).catch(() => {});
+      await vai(page, 'impostazioni', Q);
+      await page.setInputFiles('input[type=file]', { name: 'v1.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(v1)) });
+      await page.waitForTimeout(400);
+    }
     await page.waitForTimeout(100);
   }
   // un backup con ai_chiave inserita a mano non deve importarla
