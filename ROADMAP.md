@@ -33,8 +33,9 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [x] Verifica del verificatore sulla fase 2: 431 controlli (motore, contenuti, interfaccia), difetti trovati e corretti
 - [x] Primo avvio guidato: sei domande (zona, spazio, acqua, tempo, metodo, esperienza), modificabili in Impostazioni, rifacibile da lì. Prova: `tests/06-primo-avvio.mjs`. Spazio, acqua e tempo per ora si salvano ma il motore non li usa ancora
 - [x] Calendario: schermata con i 12 mesi e tutti i lavori della zona nel mese, per tipo (semine, trapianti, cure, lavorazioni, raccolte). Prova: `tests/07-calendario.mjs`
-- [x] 11 schede coltura (5 di prova + broccolo, porro, carciofo, carota, lattuga, bietola per novembre e dicembre). Fonti aperte e lette; le nuove sono quasi tutte a certezza media, la lattuga a bassa. Restano da fare i mesi da gennaio a ottobre e le altre colture
-- [ ] Da fare dopo la prova: calendario lunare; schede per gli altri mesi (da ottobre dell'anno dopo in poi servono le semine primaverili ed estive)
+- [x] 19 schede coltura: 5 di prova, 6 per novembre-dicembre (broccolo, porro, carciofo, carota, lattuga, bietola) e 8 per gennaio-aprile (pomodoro, peperone, melanzana, zucchina, patata, asparago, ravanello, rucola). Fonti aperte e lette, certezza quasi sempre media; il gelo della zona non è verificato, quindi le date di trapianto delle colture di primavera sono da verificare. Mancano maggio-ottobre
+- [x] Calendario lunare: fasi calcolate (errore sotto il giorno), sezione "La luna" nel Calendario. Rosso porta la tradizione, Rossella dice che non ci sono prove solide. Prova: `tests/fase2-luna.mjs`
+- [ ] Da fare: schede per maggio-ottobre (semine estive e autunnali, raccolte); icone illustrate per le colture nuove (oggi usano `generica.svg`)
 
 ## Futuro, non ora
 
