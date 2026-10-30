@@ -39,8 +39,20 @@ export function osserva(page, problemi) {
   page.on('response', (r) => { if (r.status() >= 400) problemi.push(`HTTP ${r.status()}: ${r.url()}`); });
 }
 
+// Su un profilo vuoto l'app apre il primo avvio guidato: le prove che non lo riguardano lo saltano
+// («Salta per ora») e tornano alla schermata che avevano chiesto. Il primo avvio si prova in 06-primo-avvio.mjs.
 export async function attendiApp(page) {
   await page.waitForSelector('#schermata > *', { timeout: 10000 });
+  const salta = page.locator('#schermata .azioni .btn.pericolo');
+  if (await salta.count()) {
+    const richiesta = await page.evaluate(() => new URL(performance.getEntriesByType('navigation')[0].name).hash);
+    await salta.click();
+    await page.waitForSelector('#schermata h2.titolo-schermata:has-text("Oggi in campagna")');
+    if (richiesta && !['#/benvenuto', '#/oggi', '#'].includes(richiesta)) {
+      await page.evaluate((h) => { location.hash = h; }, richiesta);
+      await page.waitForTimeout(200);
+    }
+  }
   await page.waitForTimeout(150);
 }
 
@@ -95,6 +107,8 @@ export async function svuotaDati(page) {
       const nomi = [...db.objectStoreNames];
       const tx = db.transaction(nomi, 'readwrite');
       nomi.forEach((n) => tx.objectStore(n).clear());
+      // Dati vuoti sì, ma non si rifà il primo avvio ogni volta (si prova in 06-primo-avvio.mjs).
+      if (nomi.includes('impostazioni')) tx.objectStore('impostazioni').put({ chiave: 'primo_avvio_fatto', valore: true });
       tx.oncomplete = () => { db.close(); ok(); };
     };
   }));

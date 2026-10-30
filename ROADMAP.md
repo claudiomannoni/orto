@@ -5,7 +5,7 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 | Fase | Contenuto | Stato |
 |---|---|---|
 | 1 | Base: nome, stile, mascotte, struttura del progetto | in corso |
-| 2 | Primo avvio guidato + calendario del mese + "Oggi in campagna" + calendario lunare | prova fatta con 5 colture di novembre (senza primo avvio e senza luna); il resto da fare |
+| 2 | Primo avvio guidato + calendario del mese + "Oggi in campagna" + calendario lunare | prova fatta con 5 colture di novembre, più il primo avvio guidato (senza luna); il resto da fare |
 | 3 | Zone, misure, bussola, profilo del terreno, diario fotografico | da fare |
 | 4 | Diagnosi da foto con Rosso e Rossella (IA) | da fare |
 | 5 | Lombrichi e compost, galline, alberi e olivi | da fare |
@@ -31,7 +31,8 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [x] "Oggi in campagna": al massimo 5 lavori in ordine di importanza, con perché, metodi, glossario, Rosso e Rossella, "Fatto / Non oggi" e "Metti nel calendario"
 - [ ] Fonti vere per i dati (serve che la sessione possa aprire siti agricoli: ARSIAL, CREA, servizi regionali)
 - [x] Verifica del verificatore sulla fase 2: 431 controlli (motore, contenuti, interfaccia), difetti trovati e corretti
-- [ ] Da fare dopo la prova: primo avvio guidato, calendario completo di tutti i mesi, calendario lunare
+- [x] Primo avvio guidato: sei domande (zona, spazio, acqua, tempo, metodo, esperienza), modificabili in Impostazioni, rifacibile da lì. Prova: `tests/06-primo-avvio.mjs`. Spazio, acqua e tempo per ora si salvano ma il motore non li usa ancora
+- [ ] Da fare dopo la prova: calendario completo di tutti i mesi, calendario lunare
 
 ## Futuro, non ora
 

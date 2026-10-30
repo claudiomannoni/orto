@@ -7,14 +7,23 @@ import { zone } from '../contenuti.js';
 import { provaChiave } from '../ai/ai.js';
 import { APP_VERSIONE } from '../versione.js';
 import { toast } from '../ui/toast.js';
+import { SUPERFICI, ACQUE, TEMPI, METODI, ESPERIENZE } from './benvenuto.js';
 
-const METODI = ['nessuno', 'biologico', 'tradizionale', 'sinergico'];
-const ESPERIENZE = ['principiante', 'intermedio', 'esperto'];
-
-function selezione(nome, opzioni, valore) {
-  return el('select', { name: nome, onchange: async (e) => { await imposta(nome, e.target.value); toast(t('impostazioni.salvato')); } },
-    opzioni.map(([v, testo]) => el('option', { value: v, selected: v === valore }, testo)));
+// opzionale: aggiunge «Non indicato» (per le risposte che il primo avvio può lasciare vuote).
+function selezione(nome, opzioni, valore, { opzionale = false } = {}) {
+  const tutte = opzionale ? [['', t('impostazioni.non_indicato')], ...opzioni] : opzioni;
+  const originali = new Map(opzioni.map(([v]) => [String(v), v]));
+  return el('select', {
+    name: nome,
+    onchange: async (e) => {
+      const scelto = e.target.value;
+      await imposta(nome, scelto === '' ? null : originali.get(scelto) ?? scelto);
+      toast(t('impostazioni.salvato'));
+    },
+  }, tutte.map(([v, testo]) => el('option', { value: v, selected: String(v) === String(valore ?? '') }, testo)));
 }
+
+const scelte = (tema, ids) => ids.map((id) => [id, t(`scelta.${tema}.${id}`)]);
 
 async function sezioneOrto(s) {
   const elencoZone = await zone();
@@ -26,6 +35,10 @@ async function sezioneOrto(s) {
     el('label', {}, t('impostazioni.zona'), selezione('zona', opzioniZone, s.zona)),
     el('label', {}, t('impostazioni.metodo'), selezione('metodo', METODI.map((m) => [m, t(`metodo.${m}`)]), s.metodo)),
     el('label', {}, t('impostazioni.esperienza'), selezione('esperienza', ESPERIENZE.map((x) => [x, t(`esperienza.${x}`)]), s.esperienza)),
+    el('label', {}, t('impostazioni.superficie'), selezione('superficie_mq', scelte('superficie', SUPERFICI), s.superficie_mq, { opzionale: true })),
+    el('label', {}, t('impostazioni.acqua'), selezione('acqua', scelte('acqua', ACQUE), s.acqua, { opzionale: true })),
+    el('label', {}, t('impostazioni.tempo'), selezione('tempo', scelte('tempo', TEMPI), s.tempo, { opzionale: true })),
+    el('a', { class: 'btn', href: '#/benvenuto' }, t('impostazioni.rifai')),
   );
 }
 

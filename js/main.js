@@ -9,19 +9,40 @@ const schermate = {
   oggi: () => import('./screens/oggi.js'),
   colture: () => import('./screens/colture.js'),
   impostazioni: () => import('./screens/impostazioni.js'),
+  benvenuto: () => import('./screens/benvenuto.js'),
 };
 
 const contenitore = document.getElementById('schermata');
 const barra = document.getElementById('barra');
 
+// Il primo avvio guidato non sta nella barra in basso: si apre da solo la prima volta
+// e da Impostazioni quando si vuole rifarlo.
+const PRIMO_AVVIO = 'benvenuto';
+let rottaCorrente = null;
+
+async function primoAvvioDaFare() {
+  try {
+    return !(await leggi()).primo_avvio_fatto;
+  } catch (errore) {
+    console.error(errore);
+    return false;
+  }
+}
+
 async function mostra() {
   const richiesta = location.hash.replace(/^#\//, '');
-  const rotta = ROTTE.includes(richiesta) ? richiesta : 'oggi';
+  const rotta = ROTTE.includes(richiesta) || richiesta === PRIMO_AVVIO ? richiesta : 'oggi';
+  if (rotta !== PRIMO_AVVIO && await primoAvvioDaFare()) {
+    location.replace(`#/${PRIMO_AVVIO}`);
+    return;
+  }
+  rottaCorrente = rotta;
+  barra.hidden = rotta === PRIMO_AVVIO;
   aggiornaBarra(barra, rotta);
   contenitore.replaceChildren();
   try {
     const modulo = await schermate[rotta]();
-    await modulo.monta(contenitore);
+    await modulo.monta(contenitore, { alTermine: () => { location.hash = '#/oggi'; } });
   } catch (errore) {
     console.error(errore);
     toast(t('errore.generico'));
@@ -43,8 +64,9 @@ async function avvia() {
   costruisciBarra(barra);
   window.addEventListener('hashchange', mostra);
   // Tornando all'app dopo un po' (magari il giorno dopo) i giorni si aggiornano.
+  // Non durante il primo avvio: ripartirebbe dalla prima domanda.
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') mostra();
+    if (document.visibilityState === 'visible' && rottaCorrente !== PRIMO_AVVIO) mostra();
   });
   await mostra();
 

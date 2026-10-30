@@ -108,7 +108,7 @@ Ogni informazione con `certezza` ha anche `fonti`: elenco di id che esistono in 
 Stores:
 
 - `colture` (keyPath `id`): già esistente dalla prima versione. Campi: `id`, `nome`, `varieta`, `dataSemina`, `dove` (`semenzaio` | `orto`), `note`, `creata`. Nuovi, facoltativi: `schedaId` (id della scheda coltura), `zonaId`, `schemaVersion` (2).
-- `impostazioni` (keyPath `chiave`): coppie `{ chiave, valore }`. Chiavi: `zona` (default `castelli-romani`), `metodo` (`biologico` | `tradizionale` | `sinergico` | `nessuno`), `esperienza`, `superficie_mq`, `acqua`, `tempo`, `lingua` (`it`), `ai_provider` (`gemini`), `ai_modello`, `ai_chiave` (mai nel backup), `primo_avvio_fatto`.
+- `impostazioni` (keyPath `chiave`): coppie `{ chiave, valore }`. Chiavi: `zona` (default `castelli-romani`), `metodo` (`biologico` | `tradizionale` | `sinergico` | `nessuno`), `esperienza`, `superficie_mq` (numero: il tetto della fascia scelta nel primo avvio, 10 | 30 | 100 | 300, dove 300 vuol dire oltre 200 m²; `null` se non indicata), `acqua` (`poca` | `media` | `molta` | `null`), `tempo` (`poco` | `medio` | `molto` | `null`), `lingua` (`it`), `ai_provider` (`gemini`), `ai_modello`, `ai_chiave` (mai nel backup), `primo_avvio_fatto`.
 - `zone` (keyPath `id`): create ma vuote fino alla fase 3. Campi previsti: `id`, `nome`, `tipo` (`aiuola` | `terreno`), `misure`, `esposizione`, `terreno`.
 - `eventi` (keyPath `id`): registro di ciò che succede. Campi: `id`, `tipo` (`lavoro_fatto` | `lavoro_saltato` | `nota` | ...), `zonaId`, `colturaId` (id utente), `schedaId`, `lavoroId`, `data`, `esito` (`ok` | `problema` | `saltato`), `note`, `creato` (ISO), `condivisibile` (sempre `false` per ora: la condivisione per zona, con consenso, è futura).
 

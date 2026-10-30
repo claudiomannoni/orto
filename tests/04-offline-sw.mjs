@@ -45,7 +45,7 @@ const Q = '?oggi=2026-10-30';
     const tutti = [];
     const giro = (d, rel = '') => { for (const f of fs.readdirSync(d, { withFileTypes: true })) { if (['.git', '.claude', 'tests', 'docs', 'scripts'].includes(f.name) && rel === '') continue; const r = rel ? `${rel}/${f.name}` : f.name; f.isDirectory() ? giro(path.join(d, f.name), r) : tutti.push(r); } };
     giro(disco);
-    const esclusi = /^(README\.md|ROADMAP\.md|BRIEF\.md|CLAUDE\.md|\.nojekyll|sw\.js)$/;
+    const esclusi = /^(README\.md|ROADMAP\.md|BRIEF\.md|CLAUDE\.md|AGENTS\.md|\.gitignore|\.nojekyll|sw\.js)$/;
     const nonInCache = tutti.filter((f) => !esclusi.test(f) && !elenco.includes(f));
     check('cache: nessun file dell\'app (assets/icone/js/css/data) fuori dall\'elenco', nonInCache.length === 0, nonInCache.join(','));
   }

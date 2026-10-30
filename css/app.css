@@ -301,3 +301,24 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .metodo .contro li::before { content: "− "; color: var(--rosso); font-weight: 800; }
 .parole { display: flex; gap: 8px; flex-wrap: wrap; }
 .btn.piccolo { min-height: 44px; padding: 0 16px; font-size: .95rem; box-shadow: none; }
+
+/* ---------- Primo avvio guidato ---------- */
+.barra[hidden] { display: none; }
+.passo { color: var(--inchiostro-2); font-weight: 700; margin-bottom: -6px; }
+.avanzamento { width: 100%; height: 12px; accent-color: var(--verde); }
+.opzioni { display: grid; gap: 12px; }
+.btn.opzione {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 18px;
+  text-align: left;
+  border-radius: 20px;
+  border-color: var(--bordo);
+  color: var(--inchiostro);
+}
+.btn.opzione[aria-pressed="true"] { border-color: var(--verde); background: var(--verde-chiaro); }
+.opzione-titolo { font-size: 1.15rem; }
+.opzione-desc { font-size: .95rem; font-weight: 400; color: var(--inchiostro-2); }
+.azioni { display: grid; gap: 10px; }

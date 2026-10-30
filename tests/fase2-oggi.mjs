@@ -1,7 +1,7 @@
 // Prova della Fase 2 ("Oggi in campagna"). Uso: node fase2-oggi.mjs http://localhost:8201
 import fs from 'node:fs';
 import path from 'node:path';
-import { chromium, BASE, AQUI, PIXEL9, osserva } from './lib.mjs';
+import { chromium, BASE, AQUI, PIXEL9, osserva, attendiApp } from './lib.mjs';
 const SHOT = path.join(AQUI, 'schermate', 'fase2');
 fs.mkdirSync(SHOT, { recursive: true });
 let ok = 0, ko = 0;
@@ -12,7 +12,7 @@ const nuova = async (extra = {}) => {
   const ctx = await browser.newContext({ ...PIXEL9, ...extra });
   const page = await ctx.newPage(); osserva(page, problemi); return { ctx, page };
 };
-const pronta = async (page, url) => { await page.goto(`${BASE}/${url}`); await page.waitForSelector('#schermata h2.titolo-schermata'); await page.waitForTimeout(250); };
+const pronta = async (page, url) => { await page.goto(`${BASE}/${url}`); await attendiApp(page); await page.waitForSelector('#schermata h2.titolo-schermata'); await page.waitForTimeout(250); };
 const titoli = (page) => page.$$eval('li.lavoro h3', (h) => h.map((x) => x.textContent));
 const db = (page, fn, arg) => page.evaluate(async ({ fn, arg }) => {
   const r = indexedDB.open('orto'); const d = await new Promise((o, k) => { r.onsuccess = () => o(r.result); r.onerror = () => k(r.error); });
