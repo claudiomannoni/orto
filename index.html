@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2e7d32">
+  <meta name="description" content="Gestisci le colture del tuo orto, anche offline.">
+  <title>Il mio orto</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🌱 Il mio orto</h1>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Nuova coltura</h2>
+      <form id="form-coltura" autocomplete="off">
+        <label>Nome *
+          <input name="nome" required placeholder="es. Pomodoro" maxlength="60">
+        </label>
+        <label>Varietà
+          <input name="varieta" placeholder="es. Cuore di bue" maxlength="60">
+        </label>
+        <label>Data di semina *
+          <input name="dataSemina" type="date" required>
+        </label>
+        <fieldset class="segmented">
+          <legend>Dove</legend>
+          <label><input type="radio" name="dove" value="semenzaio" checked> Semenzaio</label>
+          <label><input type="radio" name="dove" value="orto"> Orto</label>
+        </fieldset>
+        <label>Note
+          <textarea name="note" rows="3" placeholder="es. 3 semi per vasetto"></textarea>
+        </label>
+        <button type="submit" class="btn primary">Aggiungi coltura</button>
+      </form>
+    </section>
+
+    <section>
+      <h2 class="section-title">Le mie colture <span id="conteggio" class="badge">0</span></h2>
+      <p id="vuoto" class="empty">Nessuna coltura ancora. Aggiungine una qui sopra.</p>
+      <ul id="lista" class="lista"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Backup</h2>
+      <p class="hint">I dati restano solo su questo telefono. Esporta un backup ogni tanto.</p>
+      <div class="row">
+        <button id="btn-esporta" class="btn">Esporta backup</button>
+        <button id="btn-importa" class="btn">Importa backup</button>
+        <input id="file-import" type="file" accept="application/json,.json" hidden>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlg-promemoria">
+    <form method="dialog" id="form-promemoria">
+      <h2>Promemoria in Google Calendar</h2>
+      <label>Titolo
+        <input name="titolo" required>
+      </label>
+      <label>Data
+        <input name="data" type="date" required>
+      </label>
+      <label>Descrizione
+        <textarea name="descrizione" rows="4"></textarea>
+      </label>
+      <div class="row">
+        <button value="annulla" class="btn" formnovalidate>Annulla</button>
+        <button value="ok" class="btn primary">Apri Calendar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
