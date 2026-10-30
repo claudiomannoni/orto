@@ -1,0 +1,21 @@
+{
+  "versione": 1,
+  "id": "lattuga",
+  "nome": "Lattuga",
+  "alias": ["lattughe", "insalata"],
+  "nome_scientifico": "Lactuca sativa",
+  "famiglia": "Asteraceae",
+  "icona": "assets/colture/generica.svg",
+  "descrizione": "Ortaggio da foglia con molte varietà e cicli diversi. La stagione e la resistenza al freddo cambiano secondo il tipo coltivato.",
+  "giorni_alla_raccolta": { "min": null, "max": null, "certezza": "bassa", "fonti": [] },
+  "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },
+  "consociazioni": { "amiche": [], "nemiche": [], "note": "Non inserite: indicazioni non verificate.", "certezza": "bassa", "fonti": [] },
+  "rotazione": { "dopo": [], "prima_di": [], "note": "Rotazione specifica non inserita perché non verificata.", "certezza": "bassa", "fonti": [] },
+  "avvisi": [],
+  "calendario": { "castelli-romani": [
+    { "id": "lattuga-raccolta", "operazione": "raccolta", "titolo": "Raccogli le insalate pronte", "mesi": [11], "perche": "Il calendario CREA indica le insalate fra i prodotti stagionali di novembre. La voce comprende tipi diversi e non dimostra che ogni lattuga dell'orto sia pronta o adatta al freddo locale.", "glossario": [], "metodi": [{ "tipo": "tradizionale", "come": "Raccogli le foglie o il cespo quando ha raggiunto lo sviluppo adatto alla varietà coltivata.", "pro": ["Si può raccogliere secondo necessità"], "contro": ["Il momento varia molto fra i tipi di lattuga"] }], "rosso": "Dice il nonno: per l'insalata, foglia croccante e coltello pronto.", "rossella": "Il calendario è generale per le insalate; la varietà e l'esposizione decidono nel tuo orto.", "certezza": "bassa", "fonti": ["f1"] }
+  ] },
+  "lavori": [],
+  "da_verificare": ["Varietà di lattuga adatte alla semina o al trapianto autunnale a 200-600 m.", "Possibilità di raccolta in dicembre nei Castelli: la fonte CREA indica insalate in novembre ma non fornisce una raccomandazione locale per la lattuga.", "Profondità, distanze e tempi alla raccolta per la varietà scelta."],
+  "fonti": { "f1": { "titolo": "Prodotti di stagione", "ente": "CREA – Alimenti e Nutrizione", "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html", "consultata": "2026-10-30", "nota": "Il calendario CREA include le insalate in novembre; non distingue le varietà di lattuga." } }
+}

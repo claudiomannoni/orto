@@ -1,0 +1,25 @@
+{
+  "versione": 1,
+  "id": "porri",
+  "nome": "Porro",
+  "alias": ["porri"],
+  "nome_scientifico": "Allium porrum",
+  "famiglia": "Amaryllidaceae",
+  "icona": "assets/colture/generica.svg",
+  "descrizione": "Ortaggio da foglia con fusto bianco, coltivato in cicli diversi e raccolto soprattutto in autunno-inverno.",
+  "giorni_alla_raccolta": { "min": 90, "max": 120, "certezza": "media", "fonti": ["f1"] },
+  "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },
+  "consociazioni": { "amiche": [], "nemiche": [], "note": "Non inserite: indicazioni non verificate.", "certezza": "bassa", "fonti": [] },
+  "rotazione": { "dopo": [], "prima_di": [], "note": "Rotazione specifica non inserita perché non verificata.", "certezza": "bassa", "fonti": [] },
+  "avvisi": [],
+  "calendario": { "castelli-romani": [
+    { "id": "porri-raccolta", "operazione": "raccolta", "titolo": "Raccogli i porri pronti", "mesi": [11, 12], "perche": "CREA segnala i porri fra i prodotti stagionali autunnali e invernali. La scheda agronomica consultata indica la raccolta quando il fusto raggiunge 2-3 cm; controlla le piante, senza presumere una data uguale per tutte.", "glossario": [], "metodi": [{ "tipo": "tradizionale", "come": "Estrai solo i porri che hanno raggiunto la pezzatura desiderata.", "pro": ["Raccolta scalare"], "contro": ["La dimensione dipende da varietà e durata del ciclo"] }], "rosso": "Dice il nonno: il porro si tira quando il fusto è pronto, non per calendario.", "rossella": "La fonte indica il diametro come criterio; la stagione locale e le dimensioni variano.", "certezza": "media", "fonti": ["f1", "f2"] },
+    { "id": "porri-rincalzo", "operazione": "cura", "titolo": "Rincalza i porri tardivi", "mesi": [11], "perche": "La fonte agronomica descrive la rincalzatura nelle colture tardive: serve ad aumentare la parte bianca del fusto e la resistenza al freddo. Non è una pratica da applicare automaticamente a ogni impianto.", "glossario": ["rincalzare"], "metodi": [{ "tipo": "tradizionale", "come": "Accumula con cautela un po' di terra attorno alla base, se la coltura tardiva lo richiede.", "pro": ["Può allungare la parte bianca"], "contro": ["Richiede lavoro e non è necessaria per tutti i sistemi"] }], "rosso": "Dice il nonno: più terra sul piede, più bianco nel piatto.", "rossella": "La pratica è descritta per colture tardive, ma va adattata alle piante presenti.", "certezza": "media", "fonti": ["f1"] }
+  ] },
+  "lavori": [],
+  "da_verificare": ["Mesi di semina e trapianto adatti ai Castelli Romani; la fonte descrive cicli generali e varietà diverse.", "Le date 3-4 mesi dal trapianto sono indicative e non sono convertite in promemoria perché manca una data d'impianto registrata per questa scheda.", "Le distanze adatte a un piccolo orto e la tolleranza al gelo locale."],
+  "fonti": {
+    "f1": { "titolo": "Porro – Allium porrum L.", "ente": "Agraria.org, Atlante delle coltivazioni erbacee", "url": "https://www.agraria.org/coltivazionierbacee/porro.htm", "consultata": "2026-10-30", "nota": "Periodo autunno-invernale, rincalzatura delle colture tardive e raccolta a fusto di 2-3 cm; 3-4 mesi dal trapianto." },
+    "f2": { "titolo": "Prodotti di stagione", "ente": "CREA – Alimenti e Nutrizione", "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html", "consultata": "2026-10-30", "nota": "Calendario stagionale dei porri, compresi novembre e dicembre." }
+  }
+}
