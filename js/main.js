@@ -7,6 +7,7 @@ import { toast } from './ui/toast.js';
 
 const schermate = {
   oggi: () => import('./screens/oggi.js'),
+  calendario: () => import('./screens/calendario.js'),
   colture: () => import('./screens/colture.js'),
   impostazioni: () => import('./screens/impostazioni.js'),
   benvenuto: () => import('./screens/benvenuto.js'),

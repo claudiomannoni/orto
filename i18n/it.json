@@ -183,5 +183,16 @@
   "scelta.metodo.tradizionale": "Tradizionale",
   "scelta.metodo.tradizionale.desc": "Si vanga e si concima come si fa di solito",
   "scelta.metodo.sinergico": "Sinergico",
-  "scelta.metodo.sinergico.desc": "Terreno sempre coperto e senza vangatura"
+  "scelta.metodo.sinergico.desc": "Terreno sempre coperto e senza vangatura",
+  "nav.calendario": "Calendario",
+  "mese.scegli": "Scegli il mese",
+  "mese.corrente": "Questo mese: tutto quello che si può fare. In «Oggi» vedi solo i lavori più importanti.",
+  "mese.spiega": "Tutto quello che si può fare in questo mese, nella tua zona.",
+  "mese.vuoto": "Per questo mese non ho lavori nel calendario. Per ora le schede coprono poche colture.",
+  "mese.operazione.semina": "Semine",
+  "mese.operazione.trapianto": "Trapianti",
+  "mese.operazione.cura": "Cure",
+  "mese.operazione.lavorazione": "Lavorazioni",
+  "mese.operazione.raccolta": "Raccolte",
+  "mese.operazione.altro": "Altri lavori"
 }

@@ -4,7 +4,7 @@ import { chromium, BASE, CARTELLA_SCHERMATE as OUT, nuovoContesto, osserva, vai,
 import path from 'node:path';
 
 const browser = await chromium.launch();
-const ROTTE = ['oggi', 'colture', 'impostazioni'];
+const ROTTE = ['oggi', 'calendario', 'colture', 'impostazioni'];
 
 for (const tema of ['light', 'dark']) {
   const ctx = await nuovoContesto(browser, { colorScheme: tema });
@@ -29,7 +29,7 @@ for (const tema of ['light', 'dark']) {
     check(`[${tema}] ${r} (vuoto): bersagli >= 44 px`, piccoli.length === 0, JSON.stringify(piccoli));
     check(`[${tema}] ${r} (vuoto): pulsanti .btn >= 56 px`, btnBassi.length === 0, JSON.stringify(btnBassi));
     const barra = b.filter((x) => x.tag === 'a' && !x.cls);
-    check(`[${tema}] ${r}: barra in basso con 3 voci e >= 56 px`, barra.length === 3 && barra.every((x) => x.h >= 56), JSON.stringify(barra));
+    check(`[${tema}] ${r}: barra in basso con 4 voci e >= 56 px`, barra.length === 4 && barra.every((x) => x.h >= 56), JSON.stringify(barra));
   }
 
   // B) con colture, anche una con testi lunghissimi

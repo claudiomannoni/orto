@@ -17,7 +17,7 @@ function testoMotivo({ motivo, n }) {
 }
 
 // Se il titolo non nomina già la coltura ("Semina le fave"), la aggiungiamo ("Prepara il terreno · Cipolla").
-function titoloLavoro({ lavoro, coltura, scheda: coltivazione }) {
+export function titoloLavoro({ lavoro, coltura, scheda: coltivazione }) {
   if (coltura) return `${lavoro.titolo} · ${coltura.nome}`;
   const radice = normalizza(coltivazione.nome).slice(0, 3);
   return normalizza(lavoro.titolo).includes(radice) ? lavoro.titolo : `${lavoro.titolo} · ${coltivazione.nome}`;

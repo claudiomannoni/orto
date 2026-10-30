@@ -302,6 +302,36 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .parole { display: flex; gap: 8px; flex-wrap: wrap; }
 .btn.piccolo { min-height: 44px; padding: 0 16px; font-size: .95rem; box-shadow: none; }
 
+/* ---------- Calendario ---------- */
+.mesi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.btn.mese { padding: 0; text-transform: capitalize; box-shadow: none; }
+.btn.mese.oggi { border-color: var(--giallo-chiaro); background: var(--giallo-chiaro); color: var(--terra); }
+.btn.mese[aria-pressed="true"] { background: var(--pulsante); border-color: var(--pulsante); color: var(--pulsante-testo); }
+.titolo-mese::first-letter { text-transform: uppercase; }
+.gruppi { display: grid; gap: 18px; }
+.gruppo { display: grid; gap: 10px; }
+.gruppo h3 { font-size: 1.1rem; }
+.voce {
+  width: 100%;
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  font: inherit;
+  text-align: left;
+  color: var(--inchiostro);
+  background: var(--carta);
+  border: 2px solid var(--bordo);
+  border-radius: var(--raggio);
+  box-shadow: 0 4px 0 var(--ombra);
+  cursor: pointer;
+}
+.voce:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ombra); }
+.voce .lavoro-testi { display: grid; gap: 4px; }
+.voce .icona-coltura { width: 48px; height: 48px; }
+
 /* ---------- Primo avvio guidato ---------- */
 .barra[hidden] { display: none; }
 .passo { color: var(--inchiostro-2); font-weight: 700; margin-bottom: -6px; }
