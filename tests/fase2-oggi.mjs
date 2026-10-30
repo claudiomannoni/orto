@@ -158,7 +158,8 @@ const misure = (page) => page.evaluate(() => {
       if (ha) { con++; if (!/Il tuo metodo/.test(h[0]) || h[0].split('\n')[0].trim().toLowerCase() !== metodo) bad.push(`${await c.locator('h3').innerText()}: ${h.join('|')}`); if (h.filter((x) => /Il tuo metodo/.test(x)).length !== 1) bad.push('etichette !=1 in ' + h.join('|')); }
       else if (h.some((x) => /Il tuo metodo/.test(x))) bad.push('etichetta senza il metodo in ' + h.join('|'));
     }
-    check(`metodo "${metodo}": primo e con "Il tuo metodo" (in ${con}/${n} lavori che lo hanno)`, !bad.length && con > 0, bad.join(' ;; ') || `con=${con}`);
+    check(`metodo "${metodo}": primo e con "Il tuo metodo" (in ${con}/${n} lavori che lo hanno)`, !bad.length && (con > 0 || metodo === 'sinergico'), bad.join(' ;; ') || `con=${con}`);
+    // Il metodo sinergico lo hanno solo aglio e fave (le schede nuove hanno solo quelli con fonte): il 10/11 non sono fra i primi 5.
     if (metodo === 'sinergico') await page.screenshot({ path: path.join(SHOT, 'metodo-sinergico-chiaro.png'), fullPage: true });
   }
   await ctx.close();

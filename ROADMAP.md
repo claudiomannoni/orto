@@ -32,7 +32,9 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [ ] Fonti vere per i dati (serve che la sessione possa aprire siti agricoli: ARSIAL, CREA, servizi regionali)
 - [x] Verifica del verificatore sulla fase 2: 431 controlli (motore, contenuti, interfaccia), difetti trovati e corretti
 - [x] Primo avvio guidato: sei domande (zona, spazio, acqua, tempo, metodo, esperienza), modificabili in Impostazioni, rifacibile da lì. Prova: `tests/06-primo-avvio.mjs`. Spazio, acqua e tempo per ora si salvano ma il motore non li usa ancora
-- [ ] Da fare dopo la prova: calendario completo di tutti i mesi, calendario lunare
+- [x] Calendario: schermata con i 12 mesi e tutti i lavori della zona nel mese, per tipo (semine, trapianti, cure, lavorazioni, raccolte). Prova: `tests/07-calendario.mjs`
+- [x] 11 schede coltura (5 di prova + broccolo, porro, carciofo, carota, lattuga, bietola per novembre e dicembre). Fonti aperte e lette; le nuove sono quasi tutte a certezza media, la lattuga a bassa. Restano da fare i mesi da gennaio a ottobre e le altre colture
+- [ ] Da fare dopo la prova: calendario lunare; schede per gli altri mesi (da ottobre dell'anno dopo in poi servono le semine primaverili ed estive)
 
 ## Futuro, non ora
 
