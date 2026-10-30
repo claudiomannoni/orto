@@ -332,6 +332,13 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .voce .lavoro-testi { display: grid; gap: 4px; }
 .voce .icona-coltura { width: 48px; height: 48px; }
 
+.luna-oggi { display: flex; align-items: center; gap: 14px; }
+.luna-oggi p { display: grid; gap: 4px; justify-items: start; }
+.luna-buio { fill: var(--inchiostro-2); }
+.luna-luce { fill: var(--giallo-chiaro); stroke: var(--bordo); stroke-width: 1; }
+.fasi { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.fasi li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 2px dashed var(--bordo); padding-bottom: 6px; }
+
 /* ---------- Primo avvio guidato ---------- */
 .barra[hidden] { display: none; }
 .passo { color: var(--inchiostro-2); font-weight: 700; margin-bottom: -6px; }

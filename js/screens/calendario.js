@@ -7,6 +7,8 @@ import { catalogo } from '../contenuti.js';
 import { conversazione } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { titoloLavoro } from './oggi.js';
+import { faseLunare, fasiDelMese } from '../motore/luna.js';
+import { disegnaLuna } from '../ui/luna.js';
 
 const OPERAZIONI = ['semina', 'trapianto', 'cura', 'lavorazione', 'raccolta'];
 
@@ -70,6 +72,30 @@ function voceLavoro(voce, mese) {
   );
 }
 
+const giornoMese = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString('it-IT', { day: 'numeric', month: 'long' });
+
+// La luna del mese: le quattro fasi e, se è il mese di oggi, com'è oggi con Rosso e Rossella.
+// La tradizione è presentata come tradizione; Rossella dice che non ci sono prove solide.
+function sezioneLuna(anno, mese, oggi, meseOggi) {
+  const fasi = fasiDelMese(anno, mese);
+  const adesso = mese === meseOggi ? faseLunare(oggi) : null;
+  return el('section', { class: 'card luna-sezione' },
+    el('h3', {}, t('luna.titolo')),
+    adesso ? el('div', { class: 'luna-oggi' },
+      disegnaLuna(adesso.ciclo),
+      el('p', {}, el('strong', {}, adesso.nome ? t(`luna.fase.${adesso.nome}`) : t(`luna.stato.${adesso.stato}`)),
+        el('span', { class: 'etichetta certezza bassa' }, t('luna.certezza'))),
+    ) : null,
+    adesso ? conversazione([
+      { chi: 'rosso', testo: t(`luna.rosso.${adesso.stato}`), variante: 'ride' },
+      { chi: 'rossella', testo: t('luna.rossella'), variante: 'pensa' },
+    ]) : null,
+    el('ul', { class: 'fasi' }, fasi.map((f) => el('li', {},
+      el('span', {}, t(`luna.fase.${f.tipo}`)), el('strong', {}, giornoMese(f.data))))),
+    el('p', { class: 'aiuto' }, t('luna.circa')),
+  );
+}
+
 export async function monta(contenitore) {
   const [impostazioni, schede] = await Promise.all([leggi(), catalogo()]);
   const oggi = oggiISO();
@@ -80,6 +106,7 @@ export async function monta(contenitore) {
   const sottotitolo = el('p', { class: 'data-lunga' });
   const elenco = el('div', { class: 'gruppi' });
   const mesi = el('div', { class: 'mesi', role: 'group', 'aria-label': t('mese.scegli') });
+  const luna = el('div', {});
 
   function disegna() {
     titolo.textContent = nomeMese(mese, 'long');
@@ -91,6 +118,7 @@ export async function monta(contenitore) {
       onclick: () => { mese = m; disegna(); },
     }, nomeMese(m, 'short'))));
 
+    luna.replaceChildren(sezioneLuna(Number(oggi.slice(0, 4)), mese, oggi, meseOggi));
     const lavori = lavoriDelMese(schede, impostazioni.zona, mese);
     if (!lavori.length) {
       elenco.replaceChildren(el('p', { class: 'card vuoto-testo' }, t('mese.vuoto')));
@@ -109,5 +137,5 @@ export async function monta(contenitore) {
   }
 
   disegna();
-  contenitore.append(mesi, titolo, sottotitolo, elenco);
+  contenitore.append(mesi, titolo, sottotitolo, elenco, luna);
 }

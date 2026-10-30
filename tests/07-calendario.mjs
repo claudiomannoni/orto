@@ -57,6 +57,20 @@ check('questo mese: spiegazione dedicata', (await page.locator('.data-lunga').in
 await page.locator('.mesi .btn', { hasText: 'dic' }).click();
 check('altro mese: spiegazione dedicata', !(await page.locator('.data-lunga').innerText()).startsWith('Questo mese'));
 
+// La luna
+await page.locator('.mesi .btn', { hasText: 'nov' }).click();
+const luna = await page.locator('.luna-sezione').innerText();
+check('luna: sezione presente', luna.includes('La luna'));
+check('luna: 10/11 è crescente, con Rosso e Rossella', luna.includes('Luna crescente') && luna.includes('ROSSO') && luna.includes('ROSSELLA'), luna.slice(0, 120));
+check('luna: la tradizione è dichiarata e Rossella dice che non ci sono prove solide', luna.includes('Tradizione') && luna.includes('prove solide'));
+check('luna: quattro fasi del mese', (await page.locator('.fasi li').count()) === 4);
+check('luna: il disegno c\'è', (await page.locator('.luna-oggi svg.luna').count()) === 1);
+await page.locator('.mesi .btn', { hasText: 'mar' }).click();
+check('luna: in un altro mese niente stato di oggi ma le fasi sì', (await page.locator('.luna-oggi').count()) === 0 && (await page.locator('.fasi li').count()) >= 3);
+const sc = await scroll(page);
+check('luna: nessuno scroll orizzontale', sc.sw <= sc.iw && sc.bw <= sc.iw, JSON.stringify(sc));
+await page.locator('.mesi .btn', { hasText: 'nov' }).click();
+
 // Navigando via barra
 await page.locator('#barra a[data-rotta=colture]').click();
 await page.waitForSelector('h2.titolo-schermata:has-text("Le mie colture")');

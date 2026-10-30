@@ -194,5 +194,17 @@
   "mese.operazione.cura": "Cure",
   "mese.operazione.lavorazione": "Lavorazioni",
   "mese.operazione.raccolta": "Raccolte",
-  "mese.operazione.altro": "Altri lavori"
+  "mese.operazione.altro": "Altri lavori",
+  "luna.titolo": "La luna",
+  "luna.certezza": "Tradizione, nessuna prova solida",
+  "luna.stato.crescente": "Luna crescente",
+  "luna.stato.calante": "Luna calante",
+  "luna.fase.nuova": "Luna nuova",
+  "luna.fase.primo_quarto": "Primo quarto",
+  "luna.fase.piena": "Luna piena",
+  "luna.fase.ultimo_quarto": "Ultimo quarto",
+  "luna.rosso.crescente": "Luna crescente: si semina quello che cresce sopra terra, insalate, cavoli, pomodori. Così dice la tradizione.",
+  "luna.rosso.calante": "Luna calante: tocca a radici e bulbi, carote, cipolle, aglio, patate, e alle potature. Così dice la tradizione.",
+  "luna.rossella": "Non ci sono prove solide che la luna cambi la crescita degli ortaggi. Conta il tempo e la stagione: la luna seguila pure, se ti piace.",
+  "luna.circa": "Le date sono indicative, a meno di un giorno."
 }
