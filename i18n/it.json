@@ -1,35 +1,17 @@
 {
   "app.nome": "Orto in Tasca",
   "app.slogan": "Il tuo agronomo in tasca",
-
   "nav.principale": "Navigazione principale",
   "nav.oggi": "Oggi",
   "nav.colture": "Colture",
   "nav.impostazioni": "Impostazioni",
-
   "mascotte.rossella": "Rossella",
   "mascotte.rosso": "Rosso",
-
-  "tempo.oggi": "oggi",
-  "tempo.ieri": "ieri",
-  "tempo.domani": "domani",
-  "tempo.giorni_fa": "{n} giorni fa",
-  "tempo.fra_giorni": "fra {n} giorni",
-
   "oggi.titolo": "Oggi in campagna",
-  "oggi.rosso.1": "Buondì! Allora, cosa si semina oggi?",
-  "oggi.rossella.1": "Piano, Rosso. Prima segniamo cosa c'è già in terra, poi decidiamo con ordine.",
-  "oggi.riepilogo.nessuna": "Non hai ancora nessuna coltura. Cominciamo dalla prima?",
-  "oggi.riepilogo.uno": "Hai 1 coltura in corso.",
-  "oggi.riepilogo.altri": "Hai {n} colture in corso.",
-  "oggi.ultima": "Ultima semina: {nome}, {quando}.",
-  "oggi.aggiungi_prima": "Aggiungi la prima coltura",
   "oggi.vai_colture": "Vai alle colture",
-
   "colture.titolo": "Le mie colture",
   "colture.nuova": "Nuova coltura",
   "colture.vuoto": "Qui compariranno le tue colture.",
-
   "form.nome": "Nome",
   "form.nome.esempio": "Pomodoro",
   "form.varieta": "Varietà",
@@ -42,7 +24,6 @@
   "form.note.esempio": "3 semi per vasetto",
   "form.aggiungi": "Aggiungi coltura",
   "form.annulla": "Annulla",
-
   "coltura.seminata_il": "Seminata il {data}",
   "coltura.giorni.dopo.uno": "giorno dalla semina",
   "coltura.giorni.dopo.altri": "giorni dalla semina",
@@ -53,7 +34,6 @@
   "coltura.elimina.conferma": "Eliminare {nome}?",
   "coltura.aggiunta": "Coltura aggiunta",
   "coltura.eliminata": "Coltura eliminata",
-
   "promemoria.titolo": "Promemoria in Google Calendar",
   "promemoria.campo.titolo": "Titolo",
   "promemoria.campo.data": "Data",
@@ -63,7 +43,6 @@
   "promemoria.coltura": "Coltura: {nome}",
   "promemoria.seminata": "Seminata il {data} in {dove}",
   "promemoria.note": "Note: {note}",
-
   "impostazioni.titolo": "Impostazioni",
   "impostazioni.orto": "Il mio orto",
   "impostazioni.zona": "Zona climatica",
@@ -78,7 +57,6 @@
   "esperienza.principiante": "Principiante",
   "esperienza.intermedio": "Ho un po' di esperienza",
   "esperienza.esperto": "Esperto",
-
   "ia.titolo": "Intelligenza artificiale",
   "ia.spiega": "Serve per le funzioni con l'IA (per esempio riconoscere un problema da una foto). La chiave si ottiene gratis da Google AI Studio, resta solo su questo telefono e non finisce nel backup.",
   "ia.chiave": "Chiave Gemini",
@@ -98,7 +76,6 @@
   "ia.errore.quota": "Troppe richieste: riprova fra un po'",
   "ia.errore.rete": "Nessuna connessione",
   "ia.errore.altro": "Errore: {dettaglio}",
-
   "backup.titolo": "Backup",
   "backup.spiega": "I dati restano solo su questo telefono. Esporta un backup ogni tanto.",
   "backup.esporta": "Esporta backup",
@@ -108,10 +85,37 @@
   "backup.conferma": "Sostituire i dati attuali con quelli del backup ({n} colture)?",
   "backup.errore.json": "File non valido: non è un JSON",
   "backup.errore.formato": "File non valido: non è un backup dell'orto",
-
   "info.titolo": "Informazioni",
   "info.testo": "I dati restano sul telefono e l'app funziona anche senza connessione.",
   "info.versione": "Versione {v}",
-
-  "errore.generico": "Qualcosa non ha funzionato. Riprova."
+  "errore.generico": "Qualcosa non ha funzionato. Riprova.",
+  "oggi.rosso.lavori": "Oggi c'è da sporcarsi le mani!",
+  "oggi.rossella.lavori": "Li ho messi in ordine di importanza: parti dal primo e vai con calma. Tocca un lavoro per vedere il perché.",
+  "oggi.rosso.niente": "Oggi niente da fare? Mi sa che ci tocca riposare.",
+  "oggi.rossella.niente": "Succede. Intanto puoi segnare le colture che hai in terra: così saprò come aiutarti.",
+  "oggi.rosso.finito": "Fatto tutto! Una bella giornata di campagna.",
+  "oggi.rossella.finito": "Bravo. Per oggi basta: la terra ha bisogno anche di tempo.",
+  "lavoro.motivo.possibile": "Si può fare ora",
+  "lavoro.motivo.ottimale": "Periodo migliore",
+  "lavoro.motivo.ultima_finestra": "Ultimo mese utile",
+  "lavoro.motivo.in_finestra": "Giorno {n} dalla semina",
+  "lavoro.motivo.ritardo.uno": "In ritardo di 1 giorno",
+  "lavoro.motivo.ritardo.altri": "In ritardo di {n} giorni",
+  "lavoro.certezza.alta": "Verificato",
+  "lavoro.certezza.media": "Abbastanza sicuro",
+  "lavoro.certezza.bassa": "Da verificare",
+  "lavoro.certezza.nota": "Questo consiglio non è ancora confermato da fonti controllate: usalo come indicazione, non come regola.",
+  "lavoro.avviso": "Attenzione",
+  "lavoro.perche": "Perché si fa così",
+  "lavoro.metodi": "Come si può fare",
+  "lavoro.metodo.preferito": "Il tuo metodo",
+  "lavoro.glossario": "Parole da sapere",
+  "lavoro.fatto": "Fatto",
+  "lavoro.non_oggi": "Non oggi",
+  "lavoro.calendario": "Metti nel calendario",
+  "lavoro.fatto.toast": "Segnato come fatto",
+  "lavoro.saltato.toast": "Va bene, lo rivedi domani",
+  "calendario.titolo": "Orto: {titolo}",
+  "foglio.chiudi": "Ho capito",
+  "oggi.rossella.lavori_prova": "Li ho messi in ordine di importanza: parti dal primo. Attenzione: in questa prova i consigli vengono da conoscenza generale, non da fonti controllate. Dove non sono sicura trovi \"Da verificare\"."
 }

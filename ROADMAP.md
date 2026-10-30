@@ -27,8 +27,10 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 
 ## Fase 2 — prova
 
-- [ ] 5 colture di novembre per i Castelli Romani, con fonti e certezza
-- [ ] "Oggi in campagna" con Rosso e Rossella
+- [x] 5 colture di novembre per i Castelli Romani (fave, aglio, piselli, spinaci, cipolla). Nessuna fonte è stata ancora consultata: tutto è a certezza "bassa" e l'app lo dice ("Da verificare")
+- [x] "Oggi in campagna": al massimo 5 lavori in ordine di importanza, con perché, metodi, glossario, Rosso e Rossella, "Fatto / Non oggi" e "Metti nel calendario"
+- [ ] Fonti vere per i dati (serve che la sessione possa aprire siti agricoli: ARSIAL, CREA, servizi regionali)
+- [ ] Verifica del verificatore sulla fase 2
 - [ ] Da fare dopo la prova: primo avvio guidato, calendario completo di tutti i mesi, calendario lunare
 
 ## Futuro, non ora

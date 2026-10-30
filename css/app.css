@@ -245,3 +245,59 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
   .toast { transition: none; }
   .btn:active { transform: none; }
 }
+
+/* ---------- Oggi in campagna: i lavori ---------- */
+.lavori { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.lavoro { position: relative; padding-top: 20px; }
+.lavoro .numero {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--giallo-chiaro);
+  border: 3px solid var(--bordo);
+  font-weight: 800;
+}
+.dettagli summary {
+  display: grid;
+  grid-template-columns: 56px 1fr 28px;
+  gap: 12px;
+  align-items: center;
+  min-height: var(--tocco);
+  cursor: pointer;
+  list-style: none;
+}
+.dettagli summary::-webkit-details-marker { display: none; }
+.dettagli summary::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-right: 4px solid var(--inchiostro-2);
+  border-bottom: 4px solid var(--inchiostro-2);
+  transform: rotate(45deg);
+  justify-self: center;
+}
+.dettagli[open] summary::after { transform: rotate(-135deg); }
+.lavoro .icona-coltura { width: 56px; height: 56px; }
+.lavoro-testi h3 { overflow-wrap: anywhere; }
+.etichette { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.etichetta.certezza.bassa { background: var(--rosso-chiaro); color: var(--rosso); }
+.etichetta.certezza.media { background: var(--giallo-chiaro); color: var(--terra); }
+.etichetta.certezza.alta { background: var(--verde-chiaro); color: var(--verde); }
+.corpo { display: grid; gap: 12px; padding-top: 14px; }
+.corpo h4 { font-size: 1rem; margin-top: 6px; }
+.avviso { background: var(--rosso-chiaro); border: 2px solid var(--rosso); border-radius: 16px; padding: 10px 14px; }
+.nota-certezza { color: var(--inchiostro-2); font-size: .95rem; }
+.metodi { display: grid; gap: 10px; }
+.metodo { border: 2px solid var(--bordo); border-radius: 16px; padding: 12px 14px; display: grid; gap: 6px; }
+.metodo.preferito { border-color: var(--verde); background: var(--verde-chiaro); }
+.metodo h4 { margin: 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.metodo ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 2px; font-size: .95rem; }
+.metodo .pro li::before { content: "+ "; color: var(--verde); font-weight: 800; }
+.metodo .contro li::before { content: "− "; color: var(--rosso); font-weight: 800; }
+.parole { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn.piccolo { min-height: 44px; padding: 0 16px; font-size: .95rem; box-shadow: none; }
