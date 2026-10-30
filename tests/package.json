@@ -1,0 +1,8 @@
+{
+  "name": "orto-prove",
+  "private": true,
+  "description": "Solo per le prove automatiche: l'app non ha dipendenze.",
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

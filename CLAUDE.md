@@ -2,17 +2,21 @@
 
 PWA per guidare chi fa l'orto dalla semina alla raccolta. Il nome è provvisorio, in attesa del sì dell'autore. Cos'è, stile, mascotte, regole: `BRIEF.md`. Fasi: `ROADMAP.md`. Formato dei dati: `docs/schema-dati.md`. Come provarla: `README.md`.
 
+## Dove si lavora
+
+Si può lavorare sia nel cloud sia sul PC di Claudio (guida: `docs/LAVORARE-SUL-PC.md`). Sul PC la cartella `CERVELLO` sta accanto a questa (`../CERVELLO`): leggi i file da lì, direttamente dal disco.
+
 ## All'avvio: leggi il cervello
 
-Prima di lavorare leggi queste pagine del repository privato `claudiomannoni/CERVELLO`
-(sola lettura: non modificarlo mai, nemmeno bordo e log). Rileggile se la sessione è nuova: cambiano.
+Prima di lavorare leggi queste pagine del cervello (repository privato `claudiomannoni/CERVELLO`,
+sola lettura: non modificarlo mai, nemmeno bordo e log, finché Claudio non dice il contrario a parole). Rileggile se la sessione è nuova: cambiano.
 
 - `wiki/persone/claudio.md` — chi sono
 - `wiki/regole/risposte.md` — come voglio le risposte
 - `wiki/regole/metodo.md` — come lavoriamo
 - `wiki/vita/campagna.md` — l'orto e la campagna
 
-Se il repository non è nella sessione, aggiungilo in sola lettura e clonalo; se non riesci, dillo prima di andare avanti. Per leggere l'ultima versione senza toccare il clone: `git fetch` e poi `git show FETCH_HEAD:<percorso>`.
+Nel cloud: se il repository non è nella sessione, aggiungilo in sola lettura e clonalo; se non riesci, dillo prima di andare avanti. Per leggere l'ultima versione senza toccare il clone: `git fetch` e poi `git show FETCH_HEAD:<percorso>`. Sul PC: leggi i file in `../CERVELLO/wiki/...` (se la cartella non c'è, chiedi il percorso).
 
 ## Poi leggi il brief
 

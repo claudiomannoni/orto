@@ -29,6 +29,10 @@ Cos'è e dove va: `BRIEF.md`. Fasi: `ROADMAP.md`. Formato dei dati: `docs/schema
     tests/                  prove automatiche
     .claude/agents/         gli agenti di lavoro
 
+## Lavorare sul proprio PC
+
+Vedi `docs/LAVORARE-SUL-PC.md`.
+
 ## Provarla in locale
 
 Il service worker funziona solo su `http://localhost` o `https://`: serve un piccolo server. Dalla cartella del progetto:

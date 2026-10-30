@@ -1,6 +1,6 @@
 # Prove automatiche (verificatore)
 
-Script Playwright (Chromium, profilo Pixel 9: 412 x 923, scala 2.625, touch, `it-IT`). Non servono installazioni: Playwright è già disponibile.
+Script Playwright (Chromium, profilo Pixel 9: 412 x 923, scala 2.625, touch, `it-IT`). Nel cloud Playwright è già disponibile; sul PC, una volta sola: `cd tests`, `npm install`, `npx playwright install chromium` (vedi `docs/LAVORARE-SUL-PC.md`).
 Non modificano l'app: scrivono solo qui in `tests/` (screenshot in `tests/schermate/<fase>/`).
 
 ## Come rilanciarle
