@@ -1,0 +1,121 @@
+{
+  "versione": 1,
+  "id": "ravanelli",
+  "nome": "Ravanello",
+  "alias": [
+    "ravanelli"
+  ],
+  "nome_scientifico": "Raphanus sativus",
+  "famiglia": "Brassicaceae",
+  "icona": "assets/colture/generica.svg",
+  "descrizione": "Radice a ciclo breve, seminata direttamente e raccolta giovane.",
+  "giorni_alla_raccolta": {
+    "min": null,
+    "max": null,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": null,
+    "distanza_file_cm": null,
+    "distanza_piante_cm": null,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [],
+    "nemiche": [],
+    "note": "Non inserite: indicazioni non verificate.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [],
+    "prima_di": [],
+    "note": "Indicazioni specifiche non verificate.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "avvisi": [],
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "ravanelli-primo",
+        "operazione": "semina",
+        "titolo": "Semina i ravanelli direttamente",
+        "mesi": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "perche": "La fonte regionale descrive semine precoci in cassone a febbraio-marzo o in piena terra appena il suolo è agibile. Il dato proviene da una regione con clima diverso.",
+        "glossario": [
+          "semina"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Segui le indicazioni di semina della fonte e controlla l’umidità del terreno.",
+            "pro": [
+              "Metodo semplice da applicare"
+            ],
+            "contro": [
+              "Tempi e risultati dipendono da varietà e condizioni locali"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: si guarda il cielo e la terra prima di mettersi al lavoro.",
+        "rossella": "Il periodo è generale e non convalidato per ogni quota dei Castelli.",
+        "certezza": "bassa",
+        "fonti": [
+          "f3"
+        ]
+      },
+      {
+        "id": "ravanelli-secondo",
+        "operazione": "raccolta",
+        "titolo": "Controlla i ravanelli e raccogli quelli pronti",
+        "mesi": [
+          3,
+          4,
+          5
+        ],
+        "perche": "La raccolta dipende dalla varietà e dalla crescita; la fonte indica un ciclo breve di 30-60 giorni. Controlla le radici senza aspettare che diventino troppo grandi.",
+        "glossario": [],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Esegui il lavoro nel periodo indicato, osservando il terreno e le piante.",
+            "pro": [
+              "Metodo semplice da applicare"
+            ],
+            "contro": [
+              "Tempi e risultati dipendono da varietà e condizioni locali"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: si guarda il cielo e la terra prima di mettersi al lavoro.",
+        "rossella": "Il periodo è generale e non convalidato per ogni quota dei Castelli.",
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      }
+    ]
+  },
+  "lavori": [],
+  "da_verificare": [
+    "Date, distanze e gestione adatte a quota e microclima dei Castelli Romani.",
+    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà."
+  ],
+  "fonti": {
+    "f3": {
+      "titolo": "L’informatore agricolo: Ravanello",
+      "ente": "Regione Autonoma Valle d’Aosta",
+      "url": "https://www.regione.vda.it/gestione/riviweb/templates/aspx/informatorenew.aspx?pkArt=1096",
+      "consultata": "2026-10-31",
+      "nota": "Semina precoce in cassone in febbraio-marzo o a dimora quando il terreno è agibile; terreno drenato e fresco, ciclo e cure."
+    }
+  }
+}
