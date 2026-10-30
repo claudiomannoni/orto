@@ -46,8 +46,10 @@
       "ortaggi da foglia"
     ],
     "note": "Legume: non ripeterlo sullo stesso posto per 3-4 anni.",
-    "certezza": "bassa",
-    "fonti": []
+    "certezza": "media",
+    "fonti": [
+      "f1"
+    ]
   },
   "avvisi": [],
   "calendario": {
@@ -60,7 +62,9 @@
           10,
           11
         ],
-        "ottimale": [],
+        "ottimale": [
+          11
+        ],
         "perche": "Il pisello seminato presto a novembre dà piselli prima, ma le piantine giovani temono le gelate più delle fave. A circa 340 m il rischio è reale: o usi varietà rustiche da autunno e proteggi, oppure aspetti febbraio-marzo.",
         "glossario": [
           "semina",
@@ -91,8 +95,10 @@
         ],
         "rosso": "Piselli per San Martino... si dice, ma poi c'è il gelo.",
         "rossella": "Per il Centro Italia si legge ottobre-novembre, ma a 340 m non ho nulla di verificato: o proteggi, o aspetta.",
-        "certezza": "bassa",
-        "fonti": []
+        "certezza": "media",
+        "fonti": [
+          "f1"
+        ]
       },
       {
         "id": "piselli-semina-fine-inverno",
@@ -102,7 +108,9 @@
           2,
           3
         ],
-        "ottimale": [],
+        "ottimale": [
+          2
+        ],
         "perche": "Se non vuoi rischiare il gelo di novembre, il pisello si semina bene a fine inverno: cresce con temperature più sicure.",
         "glossario": [
           "semina"
@@ -121,8 +129,10 @@
         ],
         "rosso": "Se non fai gelare, non c'è problema.",
         "rossella": "Scelta prudente: non ho dati sui Castelli, ma il rischio si riduce.",
-        "certezza": "bassa",
-        "fonti": []
+        "certezza": "media",
+        "fonti": [
+          "f1"
+        ]
       }
     ]
   },
@@ -222,8 +232,16 @@
     "Semina di novembre a 200-600 m: non confermata. Per i Castelli la finestra potrebbe essere ottobre - inizio novembre solo in zone riparate.",
     "Varietà adatte alla semina autunnale: non indicate perché non verificate.",
     "Consociazioni: tradizione.",
-    "Nessuna fonte è stata ancora consultata (i siti non erano raggiungibili durante la ricerca): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
-    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+    "Calendario non specifico per quota e microclimi dei Castelli.",
+    "Giorni alla raccolta, distanze per orto domestico e consociazioni non confermati."
   ],
-  "fonti": {}
+  "fonti": {
+    "f1": {
+      "titolo": "Pisello (Pisum sativum): coltivazioni erbacee",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/pisello.htm",
+      "consultata": "2026-10-30",
+      "nota": "Indicazioni generiche su semina autunnale in Centro-Sud, febbraio, profondit? e rotazione; prevalentemente coltura da pieno campo."
+    }
+  }
 }

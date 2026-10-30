@@ -60,7 +60,9 @@
           11,
           12
         ],
-        "ottimale": [],
+        "ottimale": [
+          11
+        ],
         "perche": "L'aglio ha bisogno di freddo per formare la testa: piantato fra ottobre e dicembre sverna sottoterra e riparte a fine inverno. A 340 m novembre è una buona finestra; se salti, febbraio-marzo resta possibile ma con teste più piccole.",
         "glossario": [
           "messa-a-dimora",
@@ -105,8 +107,10 @@
         ],
         "rosso": "Dice il nonno: l'aglio si pianta a luna calante e a novembre, e a Natale è già verde.",
         "rossella": "La luna non ha prove. A novembre vale perché il freddo serve davvero alla testa. Spicchi sani, punta in su.",
-        "certezza": "bassa",
-        "fonti": []
+        "certezza": "media",
+        "fonti": [
+          "f1"
+        ]
       }
     ]
   },
@@ -217,8 +221,16 @@
     "Quantità di freddo necessaria a formare la testa: non verificata.",
     "Uso di aglio da supermercato: sconsigliato per rischio malattie, da confermare.",
     "Consociazioni e luna: tradizione.",
-    "Nessuna fonte è stata ancora consultata (i siti non erano raggiungibili durante la ricerca): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
-    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+    "Fonte CREA su Aglio Rosso Maremmano: date e dimensioni non generalizzabili a tutte le variet? o validate per i Castelli.",
+    "Profondit?, distanze, ciclo 200-240 giorni, consociazioni e rotazione non confermati per la coltura orticola locale."
   ],
-  "fonti": {}
+  "fonti": {
+    "f1": {
+      "titolo": "Aglio Rosso Maremmano: portale Anagrafe nazionale della biodiversit?",
+      "ente": "CREA ? Rete Rurale Nazionale",
+      "url": "https://rica.crea.gov.it/APP/anb/risorsa-IT09tx00046820012",
+      "consultata": "2026-10-30",
+      "nota": "Per questa variet? locale: impianto a novembre, bulbilli circa 3 cm, raccolta a fine giugno; non generalizzato ad ogni variet?."
+    }
+  }
 }

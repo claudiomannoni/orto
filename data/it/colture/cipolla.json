@@ -20,8 +20,10 @@
     "profondita_cm": 2,
     "distanza_file_cm": 30,
     "distanza_piante_cm": 10,
-    "certezza": "bassa",
-    "fonti": []
+    "certezza": "media",
+    "fonti": [
+      "f2"
+    ]
   },
   "consociazioni": {
     "amiche": [
@@ -44,8 +46,10 @@
       "ortaggi da frutto"
     ],
     "note": "Evita dopo aglio, porro o altre alliacee: aspetta 3-4 anni.",
-    "certezza": "bassa",
-    "fonti": []
+    "certezza": "media",
+    "fonti": [
+      "f2"
+    ]
   },
   "avvisi": [],
   "calendario": {
@@ -59,7 +63,10 @@
           11,
           12
         ],
-        "ottimale": [],
+        "ottimale": [
+          10,
+          11
+        ],
         "perche": "Le cipolle si coltivano da seme a settembre-ottobre in semenzaio e si trapiantano in autunno: svernano e danno bulbi a inizio estate. Per i Castelli servono varietà adatte all'autunno; a novembre meglio piantine già pronte o bulbetti.",
         "glossario": [
           "trapianto",
@@ -93,8 +100,10 @@
         ],
         "rosso": "Cipolle fatte a San Martino, a San Giovanni son pronte.",
         "rossella": "Le date di Rosso sono tradizione. Per le varietà adatte ai Castelli non ho una fonte sicura.",
-        "certezza": "bassa",
-        "fonti": []
+        "certezza": "media",
+        "fonti": [
+          "f1"
+        ]
       },
       {
         "id": "cipolla-prepara-terreno",
@@ -236,8 +245,25 @@
     "Semina diretta in campo a novembre: non sostenuta da fonti consultate. Per i Castelli il trapianto è la scelta prudente.",
     "Varietà da autunno adatte ai Castelli: non indicate perché non verificate.",
     "Consociazioni: tradizione.",
-    "Nessuna fonte è stata ancora consultata (i siti non erano raggiungibili durante la ricerca): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
-    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+    "La fonte CREA riguarda variet? locali di Certaldo: periodo e raccolta non trasferibili automaticamente ai Castelli.",
+    "Giorni alla raccolta e distanze di trapianto della scheda non confermati.",
+    "Trapianto autunnale non confermato per una variet? adatta ai Castelli.",
+    "Consociazioni non confermate da fonti autorevoli."
   ],
-  "fonti": {}
+  "fonti": {
+    "f1": {
+      "titolo": "Cipolla di Certaldo: portale Anagrafe nazionale della biodiversit?",
+      "ente": "CREA ? Rete Rurale Nazionale",
+      "url": "https://rica.crea.gov.it/APP/anb/risorsa-IT09tx00046790010",
+      "consultata": "2026-10-30",
+      "nota": "Semina, trapianto e raccolta descritti per specifiche variet? locali Statina e Vernina."
+    },
+    "f2": {
+      "titolo": "Cipolla (Allium cepa): coltivazioni erbacee",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/cipolla.htm",
+      "consultata": "2026-10-30",
+      "nota": "Indicazioni generiche su profondit?, epoche di semina, rotazione triennale e raccolta."
+    }
+  }
 }
