@@ -1,0 +1,24 @@
+{
+  "versione": 1,
+  "id": "carote",
+  "nome": "Carota",
+  "alias": ["carote"],
+  "nome_scientifico": "Daucus carota subsp. sativus",
+  "famiglia": "Apiaceae",
+  "icona": "assets/colture/generica.svg",
+  "descrizione": "Radice da orto che si semina direttamente. Il calendario di raccolta dipende da varietà, semina e condizioni del terreno.",
+  "giorni_alla_raccolta": { "min": 90, "max": 150, "certezza": "media", "fonti": ["f1"] },
+  "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },
+  "consociazioni": { "amiche": [], "nemiche": [], "note": "Non inserite: indicazioni non verificate.", "certezza": "bassa", "fonti": [] },
+  "rotazione": { "dopo": [], "prima_di": [], "note": "Rotazione specifica per l'orto familiare da verificare.", "certezza": "bassa", "fonti": [] },
+  "avvisi": [],
+  "calendario": { "castelli-romani": [
+    { "id": "carote-raccolta", "operazione": "raccolta", "titolo": "Raccogli le carote mature", "mesi": [11, 12], "perche": "CREA indica le carote fra i prodotti stagionali in novembre e dicembre; la Regione Lazio riporta raccolte da ottobre a maggio per un contesto aziendale. Questi dati non garantiscono la maturazione di una semina specifica nel tuo orto.", "glossario": [], "metodi": [{ "tipo": "tradizionale", "come": "Controlla le dimensioni delle radici e raccogli solo quelle pronte, allentando il terreno senza spezzarle.", "pro": ["Puoi raccogliere in più volte"], "contro": ["La maturità va controllata nel terreno"] }], "rosso": "Dice il nonno: la carota si tira quando la spalla fa capolino.", "rossella": "Le fonti confermano la stagione generale, non la maturità delle tue carote.", "certezza": "media", "fonti": ["f1", "f2"] }
+  ] },
+  "lavori": [],
+  "da_verificare": ["Semina autunnale a novembre nei Castelli: non raccomandata qui senza fonte locale e varietà adatta.", "Sesti di impianto per piccolo orto e tempi dalla semina per le cultivar disponibili.", "Il dato regionale di raccolta si riferisce a un'azienda agricola, non è un calendario validato per ogni quota dei Castelli."],
+  "fonti": {
+    "f1": { "titolo": "Atto n. G06535 del 30/05/2024", "ente": "Regione Lazio", "url": "https://www.regione.lazio.it/sites/default/files/amministrazione-trasparente/criteri-e-modalita/G06535-30052024.pdf", "consultata": "2026-10-30", "nota": "Riporta per le carote raccolta ottobre-maggio, semine agosto-inizio febbraio e ciclo di circa 90-150 giorni in relazione alle condizioni ambientali." },
+    "f2": { "titolo": "Prodotti di stagione", "ente": "CREA – Alimenti e Nutrizione", "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html", "consultata": "2026-10-30", "nota": "Calendario CREA: carote indicate in stagione anche a novembre e dicembre." }
+  }
+}

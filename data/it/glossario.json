@@ -166,6 +166,28 @@
       "vedi_anche": [
         "sarchiatura"
       ]
+    },
+    {
+      "id": "carduccio",
+      "termine": "Carduccio",
+      "definizione": "Germoglio che nasce alla base del carciofo. Si può staccare con una parte di radice per ottenere una nuova pianta.",
+      "vedi_anche": [
+        "trapianto"
+      ]
+    },
+    {
+      "id": "capolino",
+      "termine": "Capolino",
+      "definizione": "La parte compatta del carciofo che raccogliamo e mangiamo, formata da molti piccoli fiori ancora chiusi.",
+      "vedi_anche": [
+        "trapianto"
+      ]
+    },
+    {
+      "id": "sfogliatura",
+      "termine": "Sfogliatura",
+      "definizione": "Raccolta che consiste nello staccare le foglie una alla volta, invece di tagliare tutta la pianta.",
+      "vedi_anche": []
     }
   ]
 }
