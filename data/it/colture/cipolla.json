@@ -1,0 +1,243 @@
+{
+  "versione": 1,
+  "id": "cipolla",
+  "nome": "Cipolla",
+  "alias": [
+    "cipolle",
+    "cipollotto"
+  ],
+  "nome_scientifico": "Allium cepa",
+  "famiglia": "Amaryllidaceae",
+  "icona": "assets/colture/cipolla.svg",
+  "descrizione": "In autunno si mettono a dimora piantine o bulbetti per un raccolto a inizio estate. Meglio non seminare direttamente a novembre.",
+  "giorni_alla_raccolta": {
+    "min": 200,
+    "max": 260,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": 2,
+    "distanza_file_cm": 30,
+    "distanza_piante_cm": 10,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [
+      "carote"
+    ],
+    "nemiche": [
+      "fave",
+      "piselli"
+    ],
+    "note": "Tradizione dell'orto, senza prove solide.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [
+      "cereali",
+      "legumi"
+    ],
+    "prima_di": [
+      "ortaggi da frutto"
+    ],
+    "note": "Evita dopo aglio, porro o altre alliacee: aspetta 3-4 anni.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "avvisi": [],
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "cipolla-trapianto",
+        "operazione": "trapianto",
+        "titolo": "Trapianta le cipolline",
+        "mesi": [
+          10,
+          11,
+          12
+        ],
+        "ottimale": [],
+        "perche": "Le cipolle si coltivano da seme a settembre-ottobre in semenzaio e si trapiantano in autunno: svernano e danno bulbi a inizio estate. Per i Castelli servono varietà adatte all'autunno; a novembre meglio piantine già pronte o bulbetti.",
+        "glossario": [
+          "trapianto",
+          "bulbillo",
+          "semenzaio",
+          "sesto-di-impianto",
+          "attecchimento"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Piantine o bulbetti a 2 cm, uno ogni 10 cm, file a 30 cm. Terreno sciolto, mai ristagno.",
+            "pro": [
+              "Raccolto a inizio estate"
+            ],
+            "contro": [
+              "Non tutte le varietà reggono l'inverno"
+            ]
+          },
+          {
+            "tipo": "biologico",
+            "come": "Come sopra, con pacciamatura di paglia dopo l'attecchimento.",
+            "pro": [
+              "Meno erbacce",
+              "Più riparo dal freddo"
+            ],
+            "contro": [
+              "La paglia può attirare lumache"
+            ]
+          }
+        ],
+        "rosso": "Cipolle fatte a San Martino, a San Giovanni son pronte.",
+        "rossella": "Le date di Rosso sono tradizione. Per le varietà adatte ai Castelli non ho fonti aperte.",
+        "certezza": "bassa",
+        "fonti": []
+      },
+      {
+        "id": "cipolla-prepara-terreno",
+        "operazione": "lavorazione",
+        "titolo": "Prepara il terreno",
+        "mesi": [
+          10,
+          11
+        ],
+        "ottimale": [],
+        "perche": "Prima di mettere le cipolle, smuovi la terra e togli i sassi. La cipolla ha radici corte e vuole un letto sciolto.",
+        "glossario": [
+          "lavorazione-del-terreno",
+          "rotazione"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Vanga o forca, poi livella.",
+            "pro": [
+              "Terreno pronto per il trapianto"
+            ],
+            "contro": [
+              "Fatica"
+            ]
+          }
+        ],
+        "rosso": "Terra fine, cipolla bella.",
+        "rossella": "Un terreno smosso aiuta le radici corte. Ristagni da evitare.",
+        "certezza": "bassa",
+        "fonti": []
+      }
+    ]
+  },
+  "lavori": [
+    {
+      "id": "cipolla-attecchimento",
+      "operazione": "cura",
+      "titolo": "Controlla l'attecchimento",
+      "dopo_giorni": [
+        14,
+        28
+      ],
+      "perche": "Dopo circa 2-4 settimane le piantine devono avere foglie dritte e verdi. Quelle che cedono vanno sostituite.",
+      "glossario": [
+        "attecchimento",
+        "trapianto"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Controlla le file, sostituisci le mancanti.",
+          "pro": [
+            "Veloce"
+          ],
+          "contro": [
+            "Piantine di scorta"
+          ]
+        }
+      ],
+      "rosso": "Cipolla storta, cipolla morta.",
+      "rossella": "Non è sempre così: vale se le radici non hanno attecchito.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "cipolla-erbacce",
+      "operazione": "cura",
+      "titolo": "Togli le erbacce",
+      "dopo_giorni": [
+        40,
+        90
+      ],
+      "perche": "La cipolla ha foglie strette e poca ombra: le erbacce la soffocano. Sarchiare con delicatezza evita di ferire i bulbi.",
+      "glossario": [
+        "sarchiatura",
+        "pacciamatura"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Sarchiatura leggera.",
+          "pro": [
+            "Terreno arieggiato"
+          ],
+          "contro": [
+            "Rischio di ferire il bulbo"
+          ]
+        },
+        {
+          "tipo": "biologico",
+          "come": "Pacciamatura di paglia.",
+          "pro": [
+            "Meno lavoro"
+          ],
+          "contro": [
+            "Va rinnovata"
+          ]
+        }
+      ],
+      "rosso": "Cipolla pulita, cipolla bella.",
+      "rossella": "Vale per tutte le colture con foglie strette.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "cipolla-copri",
+      "operazione": "cura",
+      "titolo": "Copri dal freddo forte",
+      "dopo_giorni": [
+        30,
+        100
+      ],
+      "perche": "Le piantine piccole possono soffrire con le gelate forti. Una coperta di paglia o un telo le aiuta.",
+      "glossario": [
+        "gelata",
+        "pacciamatura",
+        "tessuto-non-tessuto"
+      ],
+      "metodi": [
+        {
+          "tipo": "biologico",
+          "come": "Paglia o telo nelle notti più fredde.",
+          "pro": [
+            "Facile"
+          ],
+          "contro": [
+            "Da togliere dopo"
+          ]
+        }
+      ],
+      "rosso": "La cipolla non ha paura del freddo.",
+      "rossella": "Le piantine adulte no, le piccole sì. Soglia per i Castelli: da verificare.",
+      "certezza": "bassa",
+      "fonti": []
+    }
+  ],
+  "da_verificare": [
+    "Semina diretta in campo a novembre: non sostenuta da fonti aperte. Per i Castelli il trapianto è la scelta prudente.",
+    "Varietà da autunno adatte ai Castelli: non indicate perché non verificate.",
+    "Consociazioni: tradizione.",
+    "Nessuna fonte aperta e letta in questa sessione (i siti non erano raggiungibili): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
+    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+  ],
+  "fonti": {}
+}

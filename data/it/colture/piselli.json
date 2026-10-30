@@ -1,0 +1,229 @@
+{
+  "versione": 1,
+  "id": "piselli",
+  "nome": "Pisello",
+  "alias": [
+    "piselli",
+    "pisello da orto"
+  ],
+  "nome_scientifico": "Pisum sativum",
+  "famiglia": "Fabaceae",
+  "icona": "assets/colture/piselli.svg",
+  "descrizione": "Legume tenero: può seminarsi in autunno o a fine inverno. In collina la semina di novembre è rischiosa.",
+  "giorni_alla_raccolta": {
+    "min": 100,
+    "max": 160,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": 4,
+    "distanza_file_cm": 40,
+    "distanza_piante_cm": 5,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [
+      "carote",
+      "spinaci"
+    ],
+    "nemiche": [
+      "aglio",
+      "cipolla"
+    ],
+    "note": "Tradizione dell'orto, senza prove solide.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [
+      "cereali",
+      "ortaggi da frutto"
+    ],
+    "prima_di": [
+      "cavoli",
+      "ortaggi da foglia"
+    ],
+    "note": "Legume: non ripeterlo sullo stesso posto per 3-4 anni.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "avvisi": [],
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "piselli-semina-autunno",
+        "operazione": "semina",
+        "titolo": "Semina i piselli (con prudenza)",
+        "mesi": [
+          10,
+          11
+        ],
+        "ottimale": [],
+        "perche": "Il pisello seminato presto a novembre dà piselli prima, ma le piantine giovani temono le gelate più delle fave. A circa 340 m il rischio è reale: o usi varietà rustiche da autunno e proteggi, oppure aspetti febbraio-marzo.",
+        "glossario": [
+          "semina",
+          "gelata",
+          "sesto-di-impianto"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Semi a 4 cm, uno ogni 5 cm, file a 40 cm. Fine ottobre - inizio novembre.",
+            "pro": [
+              "Raccolto anticipato"
+            ],
+            "contro": [
+              "Rischio gelo sulle piantine"
+            ]
+          },
+          {
+            "tipo": "biologico",
+            "come": "Come sopra, con varietà rustiche da seme autunnale e telo per le notti sotto zero.",
+            "pro": [
+              "Più sicuro"
+            ],
+            "contro": [
+              "Più lavoro"
+            ]
+          }
+        ],
+        "rosso": "Piselli per San Martino... si dice, ma poi c'è il gelo.",
+        "rossella": "Le fonti che ho visto nei risultati dicono ottobre-novembre per il Centro, ma a 340 m non ho nulla di verificato: o proteggi, o aspetta.",
+        "certezza": "bassa",
+        "fonti": []
+      },
+      {
+        "id": "piselli-semina-fine-inverno",
+        "operazione": "semina",
+        "titolo": "Alternativa: semina a febbraio-marzo",
+        "mesi": [
+          2,
+          3
+        ],
+        "ottimale": [],
+        "perche": "Se non vuoi rischiare il gelo di novembre, il pisello si semina bene a fine inverno: cresce con temperature più sicure.",
+        "glossario": [
+          "semina"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Come sopra, a febbraio-marzo.",
+            "pro": [
+              "Meno rischio gelo"
+            ],
+            "contro": [
+              "Raccolto più tardi"
+            ]
+          }
+        ],
+        "rosso": "Se non fai gelare, non c'è problema.",
+        "rossella": "Scelta prudente: non ho dati sui Castelli, ma il rischio si riduce.",
+        "certezza": "bassa",
+        "fonti": []
+      }
+    ]
+  },
+  "lavori": [
+    {
+      "id": "piselli-germinazione",
+      "operazione": "cura",
+      "titolo": "Controlla che siano nati",
+      "dopo_giorni": [
+        10,
+        25
+      ],
+      "perche": "I piselli nascono in 1-3 settimane, più lenti col freddo. Se mancano file intere, risemina subito.",
+      "glossario": [
+        "germinazione",
+        "semina"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Controlla le file e risemina nei vuoti.",
+          "pro": [
+            "Veloce"
+          ],
+          "contro": [
+            "Seme in più"
+          ]
+        }
+      ],
+      "rosso": "Se non nascono, il terreno era troppo freddo.",
+      "rossella": "Può essere freddo, ma anche ristagno o semi mangiati. Guarda il terreno.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "piselli-gelo",
+      "operazione": "cura",
+      "titolo": "Proteggi dalle gelate",
+      "dopo_giorni": [
+        15,
+        90
+      ],
+      "perche": "Le piantine piccole sono le più fragili: una notte sotto zero può rovinarle. Il telo è la protezione più facile.",
+      "glossario": [
+        "gelata",
+        "tessuto-non-tessuto"
+      ],
+      "metodi": [
+        {
+          "tipo": "biologico",
+          "come": "Telo di tessuto non tessuto la sera, via la mattina.",
+          "pro": [
+            "Facile",
+            "Si riusa"
+          ],
+          "contro": [
+            "Va tolto di giorno"
+          ]
+        }
+      ],
+      "rosso": "Una frasca sopra e via.",
+      "rossella": "La frasca aiuta poco; il telo è più efficace. Soglia per i Castelli: da verificare.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "piselli-sostegni",
+      "operazione": "cura",
+      "titolo": "Metti i sostegni",
+      "dopo_giorni": [
+        30,
+        60
+      ],
+      "perche": "Molte varietà sono rampicanti: senza rami o rete cadono e marciscono. Metti i sostegni prima che crescano.",
+      "glossario": [
+        "rincalzare"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Rami secchi o rete a maglie larghe lungo la fila.",
+          "pro": [
+            "Piselli puliti e sani"
+          ],
+          "contro": [
+            "Va montato"
+          ]
+        }
+      ],
+      "rosso": "Con i rami dei potati si fa tutto.",
+      "rossella": "Vale solo per le varietà rampicanti. Le nane stanno da sole.",
+      "certezza": "bassa",
+      "fonti": []
+    }
+  ],
+  "da_verificare": [
+    "Semina di novembre a 200-600 m: non confermata. Per i Castelli la finestra potrebbe essere ottobre - inizio novembre solo in zone riparate.",
+    "Varietà adatte alla semina autunnale: non indicate perché non verificate.",
+    "Consociazioni: tradizione.",
+    "Nessuna fonte aperta e letta in questa sessione (i siti non erano raggiungibili): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
+    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+  ],
+  "fonti": {}
+}

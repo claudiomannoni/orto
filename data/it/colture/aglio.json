@@ -1,0 +1,224 @@
+{
+  "versione": 1,
+  "id": "aglio",
+  "nome": "Aglio",
+  "alias": [
+    "agli",
+    "testa d'aglio"
+  ],
+  "nome_scientifico": "Allium sativum",
+  "famiglia": "Amaryllidaceae",
+  "icona": "assets/colture/aglio.svg",
+  "descrizione": "Si pianta da spicchi in autunno e si raccoglie all'inizio dell'estate. Regge bene il freddo.",
+  "giorni_alla_raccolta": {
+    "min": 200,
+    "max": 240,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": 5,
+    "distanza_file_cm": 30,
+    "distanza_piante_cm": 12,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [
+      "pomodori",
+      "carote"
+    ],
+    "nemiche": [
+      "fave",
+      "piselli"
+    ],
+    "note": "Tradizione dell'orto, senza prove solide.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [
+      "cereali",
+      "legumi"
+    ],
+    "prima_di": [
+      "ortaggi da frutto"
+    ],
+    "note": "Evita di ripeterlo dopo cipolla, porro o altre alliacee: aspetta 3-4 anni.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "avvisi": [],
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "aglio-messa-a-dimora",
+        "operazione": "semina",
+        "titolo": "Pianta gli spicchi d'aglio",
+        "mesi": [
+          10,
+          11,
+          12
+        ],
+        "ottimale": [],
+        "perche": "L'aglio ha bisogno di freddo per formare la testa: piantato fra ottobre e dicembre sverna sottoterra e riparte a fine inverno. A 340 m novembre è una buona finestra; se salti, febbraio-marzo resta possibile ma con teste più piccole.",
+        "glossario": [
+          "messa-a-dimora",
+          "spicchio",
+          "sesto-di-impianto",
+          "lavorazione-del-terreno"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Spicchi sani, punta in su, a 4-6 cm, ogni 10-15 cm in file a 30 cm. Terreno ben drenato.",
+            "pro": [
+              "Semplice",
+              "Regge l'inverno"
+            ],
+            "contro": [
+              "Il ristagno d'acqua fa marcire gli spicchi"
+            ]
+          },
+          {
+            "tipo": "biologico",
+            "come": "Come sopra, usando teste di aglio da seme sano (non quello del supermercato) e pacciamando con paglia dopo.",
+            "pro": [
+              "Meno malattie",
+              "Meno erbacce"
+            ],
+            "contro": [
+              "Il seme sano costa un po'"
+            ]
+          },
+          {
+            "tipo": "sinergico",
+            "come": "Spicchi nell'aiuola già pacciamata, spostando la copertura buco per buco.",
+            "pro": [
+              "Terreno coperto",
+              "Poca manutenzione"
+            ],
+            "contro": [
+              "Più lavoro iniziale"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: l'aglio si pianta a luna calante e a novembre, e a Natale è già verde.",
+        "rossella": "La luna non ha prove. A novembre vale perché il freddo serve davvero alla testa. Spicchi sani, punta in su.",
+        "certezza": "bassa",
+        "fonti": []
+      }
+    ]
+  },
+  "lavori": [
+    {
+      "id": "aglio-emergenza",
+      "operazione": "cura",
+      "titolo": "Controlla che spuntino",
+      "dopo_giorni": [
+        21,
+        40
+      ],
+      "perche": "Dopo 3-5 settimane devono spuntare le foglie verdi. Se qualche spicchio è marcito, rimpiazzalo subito.",
+      "glossario": [
+        "messa-a-dimora",
+        "attecchimento"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Guarda la fila: dove manca il verde, scava piano e controlla lo spicchio.",
+          "pro": [
+            "Veloce"
+          ],
+          "contro": [
+            "Solo se piove molto serve davvero"
+          ]
+        }
+      ],
+      "rosso": "Le foglie verdi a Natale? Dicono che è l'anno buono.",
+      "rossella": "È solo un segno che lo spicchio ha attecchito. Se manca, scava e controlla.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "aglio-erbacce",
+      "operazione": "cura",
+      "titolo": "Togli le erbacce",
+      "dopo_giorni": [
+        45,
+        90
+      ],
+      "perche": "L'aglio ha foglie strette e fa poca ombra: le erbacce gli rubano acqua e luce. Meglio toglierle da piccole.",
+      "glossario": [
+        "sarchiatura",
+        "pacciamatura"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Sarchiatura leggera, senza ferire la testa sotto terra.",
+          "pro": [
+            "Terreno arieggiato"
+          ],
+          "contro": [
+            "Si può tagliare la testa se profondi"
+          ]
+        },
+        {
+          "tipo": "biologico",
+          "come": "Pacciamatura di paglia fra le file.",
+          "pro": [
+            "Meno lavoro nel tempo"
+          ],
+          "contro": [
+            "Va rinnovata"
+          ]
+        }
+      ],
+      "rosso": "Aglio pulito, aglio sano.",
+      "rossella": "Concordo, e le erbacce a primavera sono una concorrenza vera.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "aglio-gelo",
+      "operazione": "cura",
+      "titolo": "Proteggi se la gelata è forte",
+      "dopo_giorni": [
+        30,
+        100
+      ],
+      "perche": "Le teste sotto terra sono al sicuro, ma le foglie giovani possono prendere una botta con gelate forti. In dubbio, una coperta di paglia.",
+      "glossario": [
+        "gelata",
+        "pacciamatura"
+      ],
+      "metodi": [
+        {
+          "tipo": "biologico",
+          "come": "Strato di paglia sopra la fila prima delle notti più fredde.",
+          "pro": [
+            "Facile"
+          ],
+          "contro": [
+            "Può trattenere umidità"
+          ]
+        }
+      ],
+      "rosso": "L'aglio non ha paura di niente.",
+      "rossella": "Il bulbo sì, ma le foglie tenere meno. Non ho una soglia per i Castelli.",
+      "certezza": "bassa",
+      "fonti": []
+    }
+  ],
+  "da_verificare": [
+    "Data ottimale per i Castelli non confermata.",
+    "Quantità di freddo necessaria a formare la testa: non verificata.",
+    "Uso di aglio da supermercato: sconsigliato per rischio malattie, da confermare.",
+    "Consociazioni e luna: tradizione.",
+    "Nessuna fonte aperta e letta in questa sessione (i siti non erano raggiungibili): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
+    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+  ],
+  "fonti": {}
+}

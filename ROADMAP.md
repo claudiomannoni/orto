@@ -16,13 +16,14 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 
 ## Fase 1 — Base
 
-- [x] Sito base e backup della versione precedente (colture, promemoria, offline)
-- [ ] Nome provvisorio "Orto in Tasca" (da confermare)
-- [ ] Stile colorato, pulsanti grandi, tema chiaro e scuro
-- [ ] Mascotte Rossella e Rosso
-- [ ] Struttura: navigazione, impostazioni, traduzioni, modulo IA separato, formato dati con migrazione
-- [ ] Backup nuovo formato, accetta anche il vecchio
-- [ ] Verifica su misura Pixel 9, offline, migrazione
+- [x] Colture, promemoria su Calendar, backup e offline della versione precedente, portati nella nuova struttura
+- [x] Nome provvisorio "Orto in Tasca" (da confermare: vedi nota sul nome)
+- [x] Stile colorato, pulsanti grandi, tema chiaro e scuro
+- [x] Mascotte Rossella e Rosso, logo, icone delle prime 5 colture
+- [x] Struttura: navigazione, impostazioni, traduzioni, modulo IA separato, formato dati con migrazione
+- [x] Backup nuovo formato, accetta anche il vecchio
+- [ ] Verifica del verificatore su misura Pixel 9, offline, migrazione
+- [ ] Prova della chiave Gemini con una chiave vera (non provata: nessuna chiave a disposizione)
 
 ## Fase 2 — prova
 

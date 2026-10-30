@@ -1,0 +1,28 @@
+{
+  "versione": 1,
+  "zone": [
+    {
+      "id": "castelli-romani",
+      "nome": "Castelli Romani",
+      "descrizione": "Colline vulcaniche a sud-est di Roma, fra circa 200 e 600 metri. Gli inverni sono più freschi che a Roma città e le gelate sono più probabili, soprattutto nelle conche e nelle notti serene.",
+      "quota_m": [
+        200,
+        600
+      ],
+      "clima": "Mediterraneo temperato di collina: estati calde e asciutte, autunni piovosi, inverni freschi con notti fredde. Neve rara ma possibile nei paesi più alti.",
+      "gelo": {
+        "ultimo_medio": "Indicativamente fine marzo - inizio aprile, ma a quote alte può arrivare qualche gelata tardiva (dato non verificato su serie storiche).",
+        "primo_medio": "Indicativamente seconda metà di novembre; a circa 340 m le prime brinate leggere possono arrivare già a inizio-metà novembre (dato non verificato).",
+        "certezza": "bassa",
+        "fonti": []
+      },
+      "note": "Suoli di origine vulcanica, in genere sciolti e fertili ma asciutti d'estate. Nelle notti limpide l'aria fredda si accumula nelle conche: la stessa quota può avere gelate molto diverse da un orto all'altro. Il primo utente sta a circa 340 m.",
+      "da_verificare": [
+        "Date medie di ultima e prima gelata: nessuna serie storica aperta e letta. Cercare ARSIAL (servizio agrometeo) e ARPA Lazio per stazioni vicine (Frascati, Velletri, Rocca di Papa).",
+        "Differenza di temperatura fra 200 m e 600 m: non quantificata. Una ricerca ha riportato minime fino a circa -5 C a Monte Compatri (576 m) in inverno, da una pagina turistica non aperta: non usata come dato.",
+        "Nessuna fonte è stata aperta in questa sessione (vedi rapporto): tutto il contenuto della zona è conoscenza generale, certezza bassa."
+      ]
+    }
+  ],
+  "fonti": {}
+}

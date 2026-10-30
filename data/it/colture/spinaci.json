@@ -1,0 +1,195 @@
+{
+  "versione": 1,
+  "id": "spinaci",
+  "nome": "Spinacio",
+  "alias": [
+    "spinaci"
+  ],
+  "nome_scientifico": "Spinacia oleracea",
+  "famiglia": "Amaranthaceae",
+  "icona": "assets/colture/spinaci.svg",
+  "descrizione": "Ortaggio a foglia che ama il fresco e regge bene il freddo. L'autunno è la stagione migliore.",
+  "giorni_alla_raccolta": {
+    "min": 60,
+    "max": 150,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": 2,
+    "distanza_file_cm": 25,
+    "distanza_piante_cm": 8,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [
+      "piselli"
+    ],
+    "nemiche": [],
+    "note": "Tradizione dell'orto, senza prove solide.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [
+      "cereali",
+      "legumi"
+    ],
+    "prima_di": [
+      "ortaggi da frutto"
+    ],
+    "note": "Non ripeterlo per 2-3 anni sullo stesso posto.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "avvisi": [],
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "spinaci-semina",
+        "operazione": "semina",
+        "titolo": "Semina gli spinaci",
+        "mesi": [
+          9,
+          10,
+          11
+        ],
+        "ottimale": [],
+        "perche": "Gli spinaci crescono bene col fresco e con giornate corte. A 340 m novembre è tra gli ultimi momenti utili: poi il freddo li rallenta molto. In compenso, il gelo spesso rende le foglie più dolci.",
+        "glossario": [
+          "semina",
+          "diradare",
+          "sesto-di-impianto",
+          "lavorazione-del-terreno"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Semi a 2 cm in file a 25 cm. Terreno smosso, fresco e non zuppo.",
+            "pro": [
+              "Semplice",
+              "Resiste al freddo"
+            ],
+            "contro": [
+              "Cresce lento a novembre"
+            ]
+          },
+          {
+            "tipo": "biologico",
+            "come": "Come sopra, con compost maturo e telo per le notti fredde.",
+            "pro": [
+              "Più protetto"
+            ],
+            "contro": [
+              "Serve il telo"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: spinaci dopo la prima gelata sono più dolci.",
+        "rossella": "Il freddo fa accumulare zuccheri, è vero. Per le date a 340 m non ho una fonte aperta: prudenza.",
+        "certezza": "bassa",
+        "fonti": []
+      }
+    ]
+  },
+  "lavori": [
+    {
+      "id": "spinaci-germinazione",
+      "operazione": "cura",
+      "titolo": "Controlla la nascita",
+      "dopo_giorni": [
+        7,
+        15
+      ],
+      "perche": "Gli spinaci nascono in 1-2 settimane, più lenti col freddo. Se non nascono, il terreno è troppo freddo o troppo bagnato.",
+      "glossario": [
+        "germinazione"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Guarda la fila e risemina se è vuota.",
+          "pro": [
+            "Veloce"
+          ],
+          "contro": [
+            "Seme in più"
+          ]
+        }
+      ],
+      "rosso": "Il seme vecchio non nasce.",
+      "rossella": "Vero in parte: il seme di spinaci perde presto la germinabilità.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "spinaci-dirada",
+      "operazione": "cura",
+      "titolo": "Dirada le piantine",
+      "dopo_giorni": [
+        15,
+        30
+      ],
+      "perche": "Nate fitte si fanno concorrenza e restano piccole. Lasciane una ogni 8-10 cm; quelle tolte si mangiano.",
+      "glossario": [
+        "diradare",
+        "sesto-di-impianto"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Togli le più deboli a mano, lasciando 8-10 cm.",
+          "pro": [
+            "Piante più grandi"
+          ],
+          "contro": [
+            "Un lavoro in più"
+          ]
+        }
+      ],
+      "rosso": "Se non diradi, fai un tappeto di foglie piccole.",
+      "rossella": "Ha ragione: la concorrenza riduce la crescita.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "spinaci-gelo",
+      "operazione": "cura",
+      "titolo": "Copri nelle notti forti",
+      "dopo_giorni": [
+        30,
+        100
+      ],
+      "perche": "Gli spinaci adulti reggono bene il freddo, quelli piccoli meno. Un telo nelle notti molto fredde evita danni.",
+      "glossario": [
+        "gelata",
+        "tessuto-non-tessuto"
+      ],
+      "metodi": [
+        {
+          "tipo": "biologico",
+          "come": "Telo di tessuto non tessuto la sera.",
+          "pro": [
+            "Facile"
+          ],
+          "contro": [
+            "Va tolto di giorno"
+          ]
+        }
+      ],
+      "rosso": "Gli spinaci non hanno paura del freddo.",
+      "rossella": "Gli adulti sì; i piccoli meno. Soglia per i Castelli: da verificare.",
+      "certezza": "bassa",
+      "fonti": []
+    }
+  ],
+  "da_verificare": [
+    "Data ultima utile di semina a 340 m: non confermata.",
+    "Resistenza al gelo: dai risultati di ricerca, buona, ma non verificata su pagina aperta.",
+    "Consociazioni: tradizione.",
+    "Nessuna fonte aperta e letta in questa sessione (i siti non erano raggiungibili): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
+    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+  ],
+  "fonti": {}
+}

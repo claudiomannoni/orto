@@ -1,0 +1,231 @@
+{
+  "versione": 1,
+  "id": "fave",
+  "nome": "Fava",
+  "alias": [
+    "fave",
+    "favetta",
+    "baccello"
+  ],
+  "nome_scientifico": "Vicia faba",
+  "famiglia": "Fabaceae",
+  "icona": "assets/colture/fave.svg",
+  "descrizione": "Legume che si semina in autunno e si raccoglie in primavera. Rustico, ma i giovani germogli temono il gelo forte.",
+  "giorni_alla_raccolta": {
+    "min": 150,
+    "max": 210,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": 5,
+    "distanza_file_cm": 60,
+    "distanza_piante_cm": 12,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [
+      "piselli",
+      "spinaci"
+    ],
+    "nemiche": [
+      "aglio",
+      "cipolla"
+    ],
+    "note": "Tradizione dell'orto, senza prove solide.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [
+      "cereali",
+      "ortaggi da frutto"
+    ],
+    "prima_di": [
+      "cavoli",
+      "ortaggi da foglia"
+    ],
+    "note": "Legume: non ripeterlo sullo stesso terreno per 3-4 anni e non farlo dopo altri legumi. Lascia azoto nel terreno.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "avvisi": [
+    "Favismo: chi ha il deficit di G6PD non deve mangiare fave né stare vicino alla pianta in fiore. Se non sei sicuro, chiedi al medico prima di coltivarle o mangiarle."
+  ],
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "fave-semina",
+        "operazione": "semina",
+        "titolo": "Semina le fave",
+        "mesi": [
+          10,
+          11,
+          12
+        ],
+        "ottimale": [],
+        "perche": "A novembre il terreno è ancora tiepido e umido, e il seme ha tempo di radicare prima dei mesi freddi: in primavera la pianta parte già forte. In collina il rischio è il gelo forte sulle piantine appena nate: meglio semi a 5 cm, non in superficie.",
+        "glossario": [
+          "semina",
+          "sesto-di-impianto",
+          "lavorazione-del-terreno",
+          "favismo"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Semi a 5 cm, uno ogni 10-15 cm, file a circa 60 cm. Terreno ben smosso, senza concime fresco.",
+            "pro": [
+              "Semplice",
+              "Raccolto in aprile-maggio"
+            ],
+            "contro": [
+              "Un gelo forte dopo la nascita può bruciare le piantine"
+            ]
+          },
+          {
+            "tipo": "biologico",
+            "come": "Come sopra, con compost maturo poco prima, e pacciamatura leggera di paglia dopo la nascita.",
+            "pro": [
+              "Terreno più vivo",
+              "La paglia ripara dal freddo"
+            ],
+            "contro": [
+              "La paglia può attirare lumache"
+            ]
+          },
+          {
+            "tipo": "sinergico",
+            "come": "Semi su aiuola rialzata con pacciamatura già stesa; si mette un seme per buco aprendo la copertura.",
+            "pro": [
+              "Terreno sempre coperto",
+              "Meno erbacce"
+            ],
+            "contro": [
+              "Più lavoro iniziale"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: le fave si seminano per i Morti, il 2 novembre, che prendono il freddo giusto.",
+        "rossella": "Il periodo ottobre-novembre è quello tipico, ma a 340 m non ho fonti aperte per dirti la data giusta: tradizione e prudenza.",
+        "certezza": "bassa",
+        "fonti": []
+      }
+    ]
+  },
+  "lavori": [
+    {
+      "id": "fave-germinazione",
+      "operazione": "cura",
+      "titolo": "Controlla che siano nate",
+      "dopo_giorni": [
+        20,
+        35
+      ],
+      "perche": "Le fave spuntano in circa 2-4 settimane, più lente se fa freddo. Se dopo un mese vedi buchi, puoi riseminare a mano nei vuoti.",
+      "glossario": [
+        "germinazione",
+        "semina"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Guarda le file, conta i buchi e risemina nei vuoti con altri semi.",
+          "pro": [
+            "Veloce",
+            "Riempie le file"
+          ],
+          "contro": [
+            "Seme in più"
+          ]
+        }
+      ],
+      "rosso": "Se le fave non spuntano, aspetta: col freddo si fanno desiderare.",
+      "rossella": "Concordo: il tempo dipende dalla temperatura del terreno. Dopo circa un mese, controlla davvero.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "fave-proteggi-gelo",
+      "operazione": "cura",
+      "titolo": "Proteggi dal gelo forte",
+      "dopo_giorni": [
+        25,
+        90
+      ],
+      "perche": "Le piantine giovani sono più delicate delle adulte. Se è prevista una notte sotto zero, coprire per la notte limita i danni.",
+      "glossario": [
+        "gelata",
+        "tessuto-non-tessuto",
+        "pacciamatura"
+      ],
+      "metodi": [
+        {
+          "tipo": "biologico",
+          "come": "Stendi tessuto non tessuto la sera e toglilo la mattina; oppure paglia attorno alla base.",
+          "pro": [
+            "Facile",
+            "Si riusa"
+          ],
+          "contro": [
+            "Va tolto di giorno"
+          ]
+        },
+        {
+          "tipo": "tradizionale",
+          "come": "Terra tirata attorno al piede delle piante e frasche appoggiate.",
+          "pro": [
+            "Niente da comprare"
+          ],
+          "contro": [
+            "Meno efficace del telo"
+          ]
+        }
+      ],
+      "rosso": "La fava se la cava da sola: il freddo la fa più dura.",
+      "rossella": "Da grandi, in genere sì; da piccole no. Non so la soglia esatta per i Castelli: in dubbio, copri.",
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "fave-rincalza",
+      "operazione": "cura",
+      "titolo": "Rincalza le fave",
+      "dopo_giorni": [
+        45,
+        75
+      ],
+      "perche": "Quando le piante sono alte una spanna, un po' di terra alla base le tiene ferme col vento e fa radicare meglio il fusto.",
+      "glossario": [
+        "rincalzare",
+        "sarchiatura"
+      ],
+      "metodi": [
+        {
+          "tipo": "tradizionale",
+          "come": "Con la zappetta tira la terra attorno al fusto mentre togli le erbacce.",
+          "pro": [
+            "Due lavori in uno"
+          ],
+          "contro": [
+            "Si fa a mano"
+          ]
+        }
+      ],
+      "rosso": "Una fava rincalzata sta su come un soldato.",
+      "rossella": "L'uso è comune; la resa non l'ho trovata misurata. Utile contro il vento.",
+      "certezza": "bassa",
+      "fonti": []
+    }
+  ],
+  "da_verificare": [
+    "Data di semina ottimale a 200-600 m: non confermata da fonti. Ottimale lasciato vuoto di proposito.",
+    "Soglia di freddo che le piantine di fava sopportano: non confermata.",
+    "Proteggi dal gelo e rincalzo: pratiche comuni, non verificate per i Castelli.",
+    "Consociazioni: tradizione.",
+    "Nessuna fonte aperta e letta in questa sessione (i siti non erano raggiungibili): tutti i dati di questa scheda sono conoscenza generale e restano a certezza bassa finche non si citano fonti.",
+    "Fonti candidate da aprire: schede tecniche regionali di produzione integrata (Emilia-Romagna, Marche) e bollettini agrometeo ARSIAL Lazio; sono indicazioni per il Nord/Centro, non per i Castelli."
+  ],
+  "fonti": {}
+}

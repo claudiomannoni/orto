@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img"><title>Simbolo</title><defs><clipPath id="c"><rect width="512" height="512" rx="116"/></clipPath></defs>
+<rect width="512" height="512" rx="116" fill="#4caf50"/>
+<g clip-path="url(#c)"><circle cx="256" cy="236" r="178" fill="#fff8e1"/><circle cx="256" cy="236" r="178" fill="none" stroke="#ffd54f" stroke-width="14"/>
+<path d="M0 410 Q130 372 256 396 T512 392 V512 H0Z" fill="#795548"/><path d="M0 410 Q130 372 256 396 T512 392" fill="none" stroke="#4a2a22" stroke-width="10"/>
+<circle cx="110" cy="460" r="12" fill="#5d4037"/><circle cx="400" cy="450" r="10" fill="#5d4037"/><circle cx="300" cy="478" r="9" fill="#5d4037"/></g>
+<path d="M170 430 C170 330 340 350 340 270 C340 215 230 230 246 170" fill="none" stroke="#4a2a22" stroke-width="96" stroke-linecap="round"/>
+<path d="M170 430 C170 330 340 350 340 270 C340 215 230 230 246 170" fill="none" stroke="#d0473c" stroke-width="76" stroke-linecap="round"/>
+<path d="M170 430 C170 330 340 350 340 270 C340 215 230 230 246 170" fill="none" stroke="#f6d3aa" stroke-width="76" pathLength="100" stroke-dasharray="0 56 9 100"/>
+<circle cx="246" cy="168" r="58" fill="#4a2a22"/><circle cx="246" cy="168" r="48" fill="#d0473c"/>
+<circle cx="228" cy="172" r="12" fill="#fffdf6"/><circle cx="266" cy="172" r="12" fill="#fffdf6"/><circle cx="231" cy="174" r="6" fill="#4a2a22"/><circle cx="269" cy="174" r="6" fill="#4a2a22"/>
+<path d="M232 196 Q247 210 262 196" fill="none" stroke="#4a2a22" stroke-width="6" stroke-linecap="round"/>
+<path d="M246 120 C246 100 244 84 238 70" fill="none" stroke="#4a2a22" stroke-width="14" stroke-linecap="round"/>
+<path d="M246 120 C246 100 244 84 238 70" fill="none" stroke="#2e7d32" stroke-width="7" stroke-linecap="round"/>
+<path d="M240 82 C210 90 186 70 182 44 C214 40 238 56 240 82Z" fill="#66bb6a" stroke="#4a2a22" stroke-width="7" stroke-linejoin="round"/>
+<path d="M242 76 C268 76 292 56 292 32 C264 30 244 48 242 76Z" fill="#43a047" stroke="#4a2a22" stroke-width="7" stroke-linejoin="round"/></svg>

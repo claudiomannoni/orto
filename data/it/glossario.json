@@ -1,0 +1,171 @@
+{
+  "versione": 1,
+  "termini": [
+    {
+      "id": "semina",
+      "termine": "Semina",
+      "definizione": "Mettere i semi nel terreno (o in un vaso) perché nascano le piantine.",
+      "vedi_anche": [
+        "germinazione"
+      ]
+    },
+    {
+      "id": "trapianto",
+      "termine": "Trapianto",
+      "definizione": "Spostare una piantina già nata (in semenzaio o in vaso) nel posto dove crescerà fino al raccolto.",
+      "esempio": "Le piantine di cipolla si trapiantano in file.",
+      "vedi_anche": [
+        "semenzaio"
+      ]
+    },
+    {
+      "id": "messa-a-dimora",
+      "termine": "Messa a dimora",
+      "definizione": "Piantare nel terreno un bulbo, uno spicchio o una piantina, invece di un seme.",
+      "esempio": "Gli spicchi d'aglio si mettono a dimora.",
+      "vedi_anche": [
+        "spicchio",
+        "trapianto"
+      ]
+    },
+    {
+      "id": "germinazione",
+      "termine": "Germinazione",
+      "definizione": "Il momento in cui il seme si sveglia e spunta la prima piantina. Dipende da umidità e temperatura del terreno.",
+      "vedi_anche": [
+        "semina"
+      ]
+    },
+    {
+      "id": "semenzaio",
+      "termine": "Semenzaio",
+      "definizione": "Cassetta, vasetto o angolo di terra protetto dove si fanno nascere i semi prima di trapiantare le piantine.",
+      "vedi_anche": [
+        "trapianto"
+      ]
+    },
+    {
+      "id": "diradare",
+      "termine": "Diradare",
+      "definizione": "Togliere le piantine in più quando sono nate troppo fitte, così quelle che restano hanno spazio, luce e acqua.",
+      "esempio": "Gli spinaci nati a mazzetti si diradano lasciando qualche centimetro fra una pianta e l'altra.",
+      "vedi_anche": [
+        "semina"
+      ]
+    },
+    {
+      "id": "rincalzare",
+      "termine": "Rincalzare",
+      "definizione": "Tirare un po' di terra attorno alla base delle piante, per tenerle ferme, proteggerle dal freddo e far radicare meglio il fusto.",
+      "vedi_anche": [
+        "sarchiatura"
+      ]
+    },
+    {
+      "id": "sarchiatura",
+      "termine": "Sarchiatura",
+      "definizione": "Smuovere con una zappetta i primi centimetri di terra fra le piante per togliere le erbacce e rompere la crosta che si forma dopo la pioggia.",
+      "vedi_anche": [
+        "rincalzare",
+        "pacciamatura"
+      ]
+    },
+    {
+      "id": "pacciamatura",
+      "termine": "Pacciamatura",
+      "definizione": "Coprire il terreno con paglia, foglie secche, erba tagliata o altro. Tiene l'umidità, frena le erbacce e ripara le radici dal freddo.",
+      "vedi_anche": [
+        "sarchiatura"
+      ]
+    },
+    {
+      "id": "tessuto-non-tessuto",
+      "termine": "Tessuto non tessuto",
+      "definizione": "Telo leggero e bianco che si stende sulle piante. Lascia passare aria, luce e acqua e le difende dalle brinate e dal freddo moderato.",
+      "esempio": "Si appoggia sulle piante e si fissa ai bordi con sassi o picchetti.",
+      "vedi_anche": [
+        "gelata"
+      ]
+    },
+    {
+      "id": "gelata",
+      "termine": "Gelata",
+      "definizione": "Notte in cui la temperatura scende sotto zero. Le piante giovani e tenere ne soffrono; quelle rustiche, spesso, no. La brinata è la versione leggera.",
+      "vedi_anche": [
+        "tessuto-non-tessuto"
+      ]
+    },
+    {
+      "id": "spicchio",
+      "termine": "Spicchio",
+      "definizione": "Ogni pezzetto in cui si divide la testa d'aglio. Ogni spicchio sano, piantato, diventa una nuova testa.",
+      "vedi_anche": [
+        "messa-a-dimora"
+      ]
+    },
+    {
+      "id": "bulbillo",
+      "termine": "Bulbillo",
+      "definizione": "Piccolo bulbo di cipolla (detto anche cipollina da trapianto) che si pianta direttamente invece di partire dal seme.",
+      "vedi_anche": [
+        "messa-a-dimora"
+      ]
+    },
+    {
+      "id": "sesto-di-impianto",
+      "termine": "Sesto di impianto",
+      "definizione": "Le distanze da rispettare: fra le file e fra una pianta e l'altra sulla stessa fila.",
+      "vedi_anche": [
+        "diradare"
+      ]
+    },
+    {
+      "id": "rotazione",
+      "termine": "Rotazione",
+      "definizione": "Non coltivare ogni anno la stessa famiglia di ortaggi nello stesso posto: si alternano, per non esaurire il terreno e non accumulare malattie.",
+      "vedi_anche": [
+        "legume"
+      ]
+    },
+    {
+      "id": "legume",
+      "termine": "Legume",
+      "definizione": "Pianta della famiglia delle Fabacee (fave, piselli, fagioli...). Le sue radici ospitano batteri che catturano azoto dall'aria e lo lasciano nel terreno.",
+      "vedi_anche": [
+        "rotazione"
+      ]
+    },
+    {
+      "id": "favismo",
+      "termine": "Favismo",
+      "definizione": "Carenza ereditaria di un enzima (G6PD): in chi ce l'ha, mangiare fave (e respirare il polline) può rompere i globuli rossi. Non è un'allergia. Con il dubbio, chiedere al medico.",
+      "vedi_anche": [
+        "legume"
+      ]
+    },
+    {
+      "id": "consociazione",
+      "termine": "Consociazione",
+      "definizione": "Coltivare vicine piante diverse, sperando che si aiutino. Le prove scientifiche sono deboli: è più tradizione che dato.",
+      "vedi_anche": [
+        "rotazione"
+      ]
+    },
+    {
+      "id": "attecchimento",
+      "termine": "Attecchimento",
+      "definizione": "Quando una piantina trapiantata o un bulbo messo a dimora ha messo radici nuove e riparte a crescere.",
+      "vedi_anche": [
+        "trapianto"
+      ]
+    },
+    {
+      "id": "lavorazione-del-terreno",
+      "termine": "Lavorazione del terreno",
+      "definizione": "Smuovere e arieggiare la terra prima di seminare (vanga, forca, zappa), togliendo sassi ed erbacce.",
+      "vedi_anche": [
+        "sarchiatura"
+      ]
+    }
+  ]
+}

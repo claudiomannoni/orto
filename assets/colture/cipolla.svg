@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img"><title>cipolla</title><g transform="translate(0 -5)"><path d="M64 36 C50 30 52 14 58 6 C62 18 62 26 64 36 M64 36 C72 28 78 16 86 12 C84 24 74 32 64 36Z" fill="#66bb6a" stroke="#4a2a22" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M64 30 C90 32 116 54 116 82 C116 106 92 118 64 118 C36 118 12 106 12 82 C12 54 38 32 64 30Z" fill="#e8a735" stroke="#4a2a22" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M64 30 C44 52 40 94 54 116 M64 30 C84 52 88 94 74 116 M64 30 C30 48 22 90 34 112 M64 30 C98 48 106 90 94 112" fill="none" stroke="#b9771b" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M44 124 l-4 4 M58 122 l-2 6 M70 122 l2 6 M84 124 l4 4" stroke="#4a2a22" stroke-width="3.5" stroke-linecap="round"/>
+<ellipse cx="38" cy="62" rx="8" ry="5" transform="rotate(-35 38 62)" fill="#f7cd7a" opacity=".8"/></g></svg>
