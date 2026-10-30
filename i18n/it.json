@@ -61,7 +61,7 @@
   "ia.spiega": "Serve per le funzioni con l'IA (per esempio riconoscere un problema da una foto). La chiave si ottiene gratis da Google AI Studio, resta solo su questo telefono e non finisce nel backup.",
   "ia.chiave": "Chiave Gemini",
   "ia.chiave.esempio": "Incolla qui la tua chiave",
-  "ia.chiave.presente": "Chiave salvata (scrivine una nuova per cambiarla)",
+  "ia.chiave.presente": "Chiave salvata",
   "ia.modello": "Modello",
   "ia.salva": "Salva",
   "ia.prova": "Prova la chiave",
@@ -80,9 +80,6 @@
   "backup.spiega": "I dati restano solo su questo telefono. Esporta un backup ogni tanto.",
   "backup.esporta": "Esporta backup",
   "backup.importa": "Importa backup",
-  "backup.esportato": "Backup esportato ({n} colture)",
-  "backup.importato": "Importate {n} colture",
-  "backup.conferma": "Sostituire i dati attuali con quelli del backup ({n} colture)?",
   "backup.errore.json": "File non valido: non è un JSON",
   "backup.errore.formato": "File non valido: non è un backup dell'orto",
   "info.titolo": "Informazioni",
@@ -117,5 +114,11 @@
   "lavoro.saltato.toast": "Va bene, lo rivedi domani",
   "calendario.titolo": "Orto: {titolo}",
   "foglio.chiudi": "Ho capito",
-  "oggi.rossella.lavori_prova": "Li ho messi in ordine di importanza: parti dal primo. Attenzione: in questa prova i consigli vengono da conoscenza generale, non da fonti controllate. Dove non sono sicura trovi \"Da verificare\"."
+  "oggi.rossella.lavori_prova": "Li ho messi in ordine di importanza: parti dal primo. Attenzione: questi consigli vengono da conoscenza generale, non da fonti che ho controllato. Dove non sono sicura trovi \"Da verificare\".",
+  "backup.esportato.uno": "Backup esportato (1 coltura)",
+  "backup.esportato.altri": "Backup esportato ({n} colture)",
+  "backup.importato.uno": "Importata 1 coltura",
+  "backup.importato.altri": "Importate {n} colture",
+  "backup.conferma.uno": "Sostituire i dati attuali con quelli del backup (1 coltura)?",
+  "backup.conferma.altri": "Sostituire i dati attuali con quelli del backup ({n} colture)?"
 }

@@ -1,21 +1,21 @@
 // Il motore di "Oggi in campagna": sceglie i lavori del giorno, in ordine di importanza.
 // Funzioni pure (niente DOM, niente database): si provano con dati finti.
-import { meseDi, giorniDa, daISO } from '../util.js';
+import { meseDi, daISO } from '../util.js';
 
 const MASSIMO = 5;
 
 // Quanto conta un lavoro, da 0 a 100 circa. Le regole sono semplici e si leggono:
 //  - lavoro del calendario nel suo mese: base 50; nel mese migliore +20; nell'ultimo mese utile +25
-//  - lavoro legato a una coltura già seminata, dentro la sua finestra di giorni: base 70,
+//  - lavoro legato a una coltura già seminata, dentro la sua finestra di giorni: base 80,
 //    sale fino a +20 man mano che la finestra si chiude
-//  - lavoro in ritardo (fino a 7 giorni oltre la finestra): 65
+//  - lavoro in ritardo (fino a 7 giorni oltre la finestra): 78
 const PESO = {
   calendario: 50,
   ottimale: 20,
   ultimoMese: 25,
-  finestra: 70,
+  finestra: 80,
   finestraUrgenza: 20,
-  ritardo: 65,
+  ritardo: 78,
   giorniDiRitardo: 7,
 };
 
@@ -59,7 +59,7 @@ function dalleColture({ oggi, schede, colture, eventi }) {
   for (const coltura of colture) {
     const scheda = schede.find((s) => s.id === coltura.schedaId);
     if (!scheda) continue;
-    const giorni = giorniDa(coltura.dataSemina);
+    const giorni = giorniTra(coltura.dataSemina, oggi);
     for (const lavoro of scheda.lavori ?? []) {
       if (!lavoro.dopo_giorni) continue;
       const [min, max] = lavoro.dopo_giorni;

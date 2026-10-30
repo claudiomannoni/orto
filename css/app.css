@@ -173,7 +173,7 @@ textarea { padding: 12px 14px; resize: vertical; }
 .etichetta.semenzaio { background: var(--giallo-chiaro); color: var(--terra); }
 .giorni { text-align: right; }
 .giorni strong { display: block; font-size: 1.9rem; line-height: 1; color: var(--verde); }
-.giorni span { display: block; font-size: .75rem; color: var(--inchiostro-2); max-width: 8ch; margin-left: auto; line-height: 1.15; }
+.giorni span { display: block; font-size: .85rem; color: var(--inchiostro-2); max-width: 9ch; margin-left: auto; line-height: 1.15; }
 .coltura .note, .coltura .riga { grid-column: 1 / -1; }
 .note { white-space: pre-wrap; overflow-wrap: anywhere; }
 .esito { color: var(--inchiostro-2); min-height: 1.4em; }

@@ -40,12 +40,13 @@ export function daISO(iso) {
 // Il giorno "di oggi". Con ?oggi=AAAA-MM-GG nell'indirizzo si può provare un altro giorno.
 export function oggiISO() {
   const forzato = new URLSearchParams(location.search).get('oggi');
-  if (forzato && FORMATO_ISO.test(forzato)) return forzato;
+  if (dataValida(forzato)) return forzato;
   return isoLocale(new Date());
 }
 
+// Formato giusto e data che esiste davvero (2026-13-45 e 2026-02-30 no).
 export function dataValida(iso) {
-  return typeof iso === 'string' && FORMATO_ISO.test(iso);
+  return typeof iso === 'string' && FORMATO_ISO.test(iso) && isoLocale(daISO(iso)) === iso;
 }
 
 export function giorniDa(iso) {

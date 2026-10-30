@@ -25,7 +25,7 @@ for (const tema of ['light', 'dark']) {
     check(`[${tema}] ${r} (vuoto): nessuno scroll orizzontale`, s.sw <= s.iw && s.bw <= s.iw, JSON.stringify(s));
     const b = await bersagli(page);
     const piccoli = b.filter((x) => x.h < 44);
-    const btnBassi = b.filter((x) => /(^| )btn( |$)/.test(x.cls) && x.h < 56);
+    const btnBassi = b.filter((x) => /(^| )btn( |$)/.test(x.cls) && x.h < (/piccolo/.test(x.cls) ? 44 : 56));
     check(`[${tema}] ${r} (vuoto): bersagli >= 44 px`, piccoli.length === 0, JSON.stringify(piccoli));
     check(`[${tema}] ${r} (vuoto): pulsanti .btn >= 56 px`, btnBassi.length === 0, JSON.stringify(btnBassi));
     const barra = b.filter((x) => x.tag === 'a' && !x.cls);

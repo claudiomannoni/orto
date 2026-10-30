@@ -1,6 +1,6 @@
 // Impostazioni: il mio orto, intelligenza artificiale, backup, informazioni.
 import { el, oggiISO } from '../util.js';
-import { t } from '../i18n.js';
+import { t, tn } from '../i18n.js';
 import { leggi, imposta, rimuovi } from '../store/impostazioni.js';
 import { creaBackup, scarica, leggiFile, applica } from '../store/backup.js';
 import { zone } from '../contenuti.js';
@@ -85,9 +85,9 @@ function sezioneBackup() {
       toast(t(`backup.errore.${e.codice === 'json' ? 'json' : 'formato'}`));
       return;
     }
-    if (!confirm(t('backup.conferma', { n: dati.colture.length }))) return;
+    if (!confirm(tn('backup.conferma', dati.colture.length))) return;
     await applica(dati);
-    toast(t('backup.importato', { n: dati.colture.length }));
+    toast(tn('backup.importato', dati.colture.length));
     // Ricarica la schermata per mostrare i dati nuovi.
     window.dispatchEvent(new HashChangeEvent('hashchange'));
   });
@@ -98,7 +98,7 @@ function sezioneBackup() {
       el('button', { class: 'btn', type: 'button', onclick: async () => {
         const backup = await creaBackup();
         scarica(backup, `orto-backup-${oggiISO()}.json`);
-        toast(t('backup.esportato', { n: backup.colture.length }));
+        toast(tn('backup.esportato', backup.colture.length));
       } }, t('backup.esporta')),
       el('button', { class: 'btn', type: 'button', onclick: () => file.click() }, t('backup.importa')),
     ),

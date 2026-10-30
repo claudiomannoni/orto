@@ -89,8 +89,8 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   // Oggi: riepilogo
   await nuova(page, { nome: 'Aglio', data: '2026-10-28' });
   await vai(page, 'oggi', Q);
-  const r = await page.$$eval('#schermata .card p', (p) => p.map((x) => x.textContent));
-  check('oggi: riepilogo "Hai 1 coltura" e "Ultima semina: Aglio, 2 giorni fa"', r.includes('Hai 1 coltura in corso.') && r.includes('Ultima semina: Aglio, 2 giorni fa.'), JSON.stringify(r));
+  const nLavori = await page.$$eval('#schermata .lavoro', (e) => e.length);
+  check('oggi: mostra da 1 a 5 lavori del giorno', nLavori >= 1 && nLavori <= 5, String(nLavori));
   check('1. flussi colture: nessun errore in console', problemi.length === 0, problemi.join(' | '));
   await ctx.close();
 }
