@@ -26,7 +26,8 @@ for (const f of files) {
   const cal = Object.values(d.calendario ?? {}).flat();
   const lavori = [...cal, ...(d.lavori ?? [])];
   const idv = lavori.map((l) => l.id); check(`${f}: id lavori unici`, new Set(idv).size === idv.length, idv);
-  check(`${f}: almeno un lavoro con mese 11`, cal.some((l) => l.mesi?.includes(11)));
+  // Ogni scheda ha almeno un lavoro nel calendario, in mesi validi (non si impone più novembre: le colture di primavera non lo hanno).
+  check(`${f}: almeno un lavoro nel calendario, con mesi da 1 a 12`, cal.length > 0 && cal.every((l) => l.mesi?.length > 0 && l.mesi.every((m) => Number.isInteger(m) && m >= 1 && m <= 12)));
   // certezza/fonti anche a livello scheda
   for (const campo of ['giorni_alla_raccolta', 'semina', 'consociazioni', 'rotazione']) {
     const c = d[campo]; if (!c) continue;
