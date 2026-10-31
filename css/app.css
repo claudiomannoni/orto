@@ -590,3 +590,4 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .barra-mese { display: grid; grid-template-rows: 1fr auto; height: 100%; justify-items: center; gap: 2px; }
 .barra { align-self: end; width: 100%; min-height: 2px; border-radius: 6px 6px 0 0; background: var(--verde); }
 .etichetta-mese { font-size: .75rem; }
+.acqua { border-top: 2px solid var(--bordo); margin-top: 8px; padding-top: 8px; }

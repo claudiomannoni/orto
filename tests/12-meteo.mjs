@@ -32,6 +32,24 @@ check('nessuno scroll orizzontale', sc.sw <= sc.iw && sc.bw <= sc.iw, JSON.strin
 await page.reload();
 await page.waitForSelector('.meteo .meteo-giorno');
 check('entro 3 ore le previsioni si prendono dalla memoria: nessuna nuova richiesta', ctx.richiesteMeteo.length === 1, String(ctx.richiesteMeteo.length));
+
+// 2b. Acqua: quanta pioggia è caduta nei 7 giorni passati e se annaffiare
+check('acqua: la richiesta chiede anche i 7 giorni passati', ctx.richiesteMeteo[0].includes('past_days=7'), ctx.richiesteMeteo[0]);
+check('acqua: luglio senza pioggia e fa 16 gradi: «guarda il terreno»', /Acqua: Guarda il terreno/.test(await page.locator('.meteo .acqua').innerText()), await page.locator('.meteo .acqua').innerText());
+ctx.meteoFinto = (oggi, i) => (i === 0 ? { tmax: 31 } : {});
+await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').delete('meteo_cache'); tx.oncomplete = () => { db.close(); ok(); }; }; }));
+await page.reload();
+await page.waitForSelector('.meteo .acqua');
+check('acqua: caldo e settimana asciutta: «conviene annaffiare»', /Oggi conviene annaffiare/.test(await page.locator('.meteo .acqua').innerText()) && /pochissima pioggia \(0 mm\)/.test(await page.locator('.meteo .acqua').innerText()), await page.locator('.meteo .acqua').innerText());
+ctx.meteoFinto = (oggi, i) => (i >= -6 && i <= -1 ? { pioggia: 10 } : {});
+await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').delete('meteo_cache'); tx.oncomplete = () => { db.close(); ok(); }; }; }));
+await page.reload();
+await page.waitForSelector('.meteo .acqua');
+check('acqua: settimana piovosa (60 mm): «puoi saltare»', /Oggi puoi saltare l'annaffiatura/.test(await page.locator('.meteo .acqua').innerText()) && /60 mm/.test(await page.locator('.meteo .acqua').innerText()), await page.locator('.meteo .acqua').innerText());
+check('acqua: dichiara che è di massima', /di massima/.test(await page.locator('.meteo .acqua').innerText()));
+ctx.meteoFinto = null;
+await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').delete('meteo_cache'); tx.oncomplete = () => { db.close(); ok(); }; }; }));
+
 await ctx.close();
 
 // 3. Gelata, brina, pioggia forte, caldo, vento

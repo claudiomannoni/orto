@@ -93,6 +93,11 @@ Rimandato, in ordine: Oggi che tiene conto del meteo (pioggia/gelo cambiano i la
 - «Il tuo orto dall'alto» in Colture: le zone come aiuole, con la crescita stimata di ogni coltura (2.21). Solo 7 schede su 27 hanno i giorni alla raccolta: le altre mostrano «Seminata da N giorni» (da completare con fonti).
 - «Lo sapevi?» in Oggi: 90 curiosità con fonte (Codex), una al giorno (2.22). Domande suggerite di «Chiedi a Rossella» scelte dalla ricerca di Perplexity sulle domande più frequenti dei forum.
 
+- Saluto del giorno (OpenCode), glossario a 71 termini (Codex), giorni alla raccolta per 15 colture (Codex, fonti estere, certezza bassa), 120 domande di quiz (2.26-2.27).
+- «Il mio raccolto»: si segna quanto si raccoglie (anche subito dopo un lavoro di raccolta in Oggi), totali per coltura e per mese; compare nella storia (2.28, modulo OpenCode).
+- Pioggia e annaffiature: la carta meteo di Oggi dice quanta pioggia è caduta negli ultimi 7 giorni e se conviene annaffiare (2.29, modulo OpenCode; soglie indicative, da affinare).
+- Prossimi, in ordine scelto da Claudio: foto della bustina dei semi, «cosa cucino?», resoconto della settimana. L'IA su PC Asus con modello locale è per dopo.
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).

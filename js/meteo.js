@@ -41,7 +41,7 @@ async function scaricaPrevisioni({ senzaRete = false, forza = false } = {}) {
     if (cache && cache.lat === pos.lat && cache.lon === pos.lon && cache.giorni?.length) return { giorni: cache.giorni, quando: cache.quando, vecchio: true, posizione: pos };
     throw Object.assign(new Error('nessuna previsione salvata'), { codice: 'rete' });
   }
-  const url = `${ENDPOINT}?latitude=${pos.lat}&longitude=${pos.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=auto&forecast_days=7`;
+  const url = `${ENDPOINT}?latitude=${pos.lat}&longitude=${pos.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max&timezone=auto&forecast_days=7&past_days=7`; // i 7 giorni passati servono per sapere quanta pioggia è già caduta
   const controllo = new AbortController();
   const timer = setTimeout(() => controllo.abort(), TEMPO_MASSIMO);
   try {

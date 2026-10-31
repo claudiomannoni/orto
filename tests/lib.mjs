@@ -28,7 +28,7 @@ export function check(nome, ok, dettaglio = '') {
 export function nota(testo) { console.log(`NOTA  ${testo}`); }
 
 // Meteo finto (Open-Meteo non si contatta mai nelle prove: sarebbe lento e imprevedibile). Sette giorni a partire da
-// «oggi» (?oggi= nell'indirizzo della pagina, o la data vera): sereno, 6-16 gradi, niente pioggia. Una prova può cambiare
+// «oggi» (?oggi= nell'indirizzo della pagina, o la data vera), più i 7 giorni passati (i da -7 a -1): sereno, 6-16 gradi, niente pioggia. Una prova può cambiare
 // ctx.meteoFinto = (oggi, i) => ({ tmin, tmax, pioggia, prob, vento, codice }) per un giorno i (0 = oggi).
 const aggiungiGiorni = (iso, n) => { const d = new Date(`${iso}T12:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
 export async function simulaMeteo(ctx) {
@@ -39,7 +39,7 @@ export async function simulaMeteo(ctx) {
     ctx.richiesteMeteo.push(req.url());
     let oggi = new Date().toISOString().slice(0, 10);
     try { const q = new URL(req.frame().url()).searchParams.get('oggi'); if (q) oggi = q; } catch { /* data vera */ }
-    const giorni = Array.from({ length: 7 }, (_, i) => ({ data: aggiungiGiorni(oggi, i), ...{ tmin: 6, tmax: 16, pioggia: 0, prob: 5, vento: 12, codice: 0 }, ...(ctx.meteoFinto?.(oggi, i) ?? {}) }));
+    const giorni = Array.from({ length: 14 }, (_, k) => k - 7).map((i) => ({ data: aggiungiGiorni(oggi, i), ...{ tmin: 6, tmax: 16, pioggia: 0, prob: 5, vento: 12, codice: 0 }, ...(ctx.meteoFinto?.(oggi, i) ?? {}) }));
     await route.fulfill({
       status: 200,
       headers: { 'access-control-allow-origin': '*', 'content-type': 'application/json' },
