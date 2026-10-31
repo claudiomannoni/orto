@@ -89,6 +89,10 @@ Rimandato, in ordine: Oggi che tiene conto del meteo (pioggia/gelo cambiano i la
 - Oggi riordinata: meteo e lavori in alto, vermetti e progressi sotto (2.17).
 - «Condividi il mio orto»: figurina PNG (livello, numeri, vermetti) col foglio di condivisione del telefono, o scaricata (2.18).
 
+- Quattro traguardi del quiz (2.20).
+- «Il tuo orto dall'alto» in Colture: le zone come aiuole, con la crescita stimata di ogni coltura (2.21). Solo 7 schede su 27 hanno i giorni alla raccolta: le altre mostrano «Seminata da N giorni» (da completare con fonti).
+- «Lo sapevi?» in Oggi: 90 curiosità con fonte (Codex), una al giorno (2.22). Domande suggerite di «Chiedi a Rossella» scelte dalla ricerca di Perplexity sulle domande più frequenti dei forum.
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).

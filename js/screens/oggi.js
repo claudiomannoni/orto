@@ -3,7 +3,7 @@ import { el, oggiISO, formattaDataLunga, normalizza, aggiungi, aggiungiGiorni, d
 import { t, tn } from '../i18n.js';
 import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../store/dati.js';
 import { leggi } from '../store/impostazioni.js';
-import { catalogo, glossario, quiz } from '../contenuti.js';
+import { catalogo, glossario, quiz, curiosita } from '../contenuti.js';
 import { calcolaLavori } from '../motore/oggi.js';
 import { conversazione, festeggia } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -19,6 +19,7 @@ import { filtraSeguite } from '../motore/seguite.js';
 import { previsioni } from '../meteo.js';
 import { consiglioMeteo } from '../motore/meteo.js';
 import { serieQuiz } from '../motore/quiz.js';
+import { curiositaDelGiorno } from '../motore/curiosita.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -157,6 +158,15 @@ export async function monta(contenitore) {
     domandeQuiz[oggi] === undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
     el('a', { class: 'btn', href: '#/chiedi' }, t('oggi.gioca.chiedi'))) : null;
 
+  // «Lo sapevi?»: una curiosità al giorno, con la sua fonte e i commenti dei vermetti.
+  const cur = curiositaDelGiorno((await curiosita())?.curiosita, oggi);
+  const cartaSapevi = cur ? el('section', { class: 'card sapevi' },
+    el('h3', {}, t('sapevi.titolo')),
+    el('p', {}, cur.testo),
+    cur.rosso ? el('p', { class: 'aiuto' }, el('strong', {}, `${t('mascotte.rosso')}: `), String(cur.rosso).replace(/^Rosso:\s*/, '')) : null,
+    cur.rossella ? el('p', { class: 'aiuto' }, el('strong', {}, `${t('mascotte.rossella')}: `), String(cur.rossella).replace(/^Rossella:\s*/, '')) : null,
+    cur.fonte && /^https:/.test(cur.fonte) ? el('p', { class: 'aiuto' }, el('a', { class: 'btn piccolo', href: cur.fonte, target: '_blank', rel: 'noopener noreferrer' }, t('sapevi.fonte'))) : null) : null;
+
   const lista = el('ol', { class: 'lavori' });
   const zonaConversazione = el('div', {});
 
@@ -206,6 +216,7 @@ export async function monta(contenitore) {
     ),
     // Prima quello che serve oggi (il tempo e i lavori); poi i vermetti che commentano, i progressi e l'invito a scaricare l'app.
     cartaGioca,
+    cartaSapevi,
     zonaConversazione,
     carta,
     bloccoInstalla({ rimandabile: true }),

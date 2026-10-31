@@ -69,3 +69,8 @@ export function trovaScheda(schede, nome) {
 export async function quiz() {
   return json(`data/${lingua}/quiz.json`);
 }
+
+// Le curiosità di «Lo sapevi?» (data/it/curiosita.json), o null.
+export async function curiosita() {
+  return json(`data/${lingua}/curiosita.json`);
+}

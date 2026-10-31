@@ -10,6 +10,7 @@ const imp = async () => Object.fromEntries((await leggiDb(page, 'impostazioni'))
 
 await vai(page, 'oggi');
 check('Oggi invita al quiz del giorno', (await page.locator('.gioca a[href="#/quiz"]').count()) === 1 && /Giorni di fila: 0/.test(await page.locator('.gioca').innerText()));
+check('Oggi ha «Lo sapevi?» con la fonte e senza doppio nome davanti ai commenti', /Lo sapevi\?/.test(await page.locator('.sapevi').innerText()) && (await page.locator('.sapevi a[href^="https://"]').count()) === 1 && !/Rosso: Rosso:|Rossella: Rossella:/.test(await page.locator('.sapevi').innerText()));
 check('Oggi invita a Rossella', (await page.locator('.gioca a[href="#/chiedi"]').count()) === 1);
 await vai(page, 'impara');
 check('Impara ha il pulsante del quiz', (await page.getByRole('link', { name: 'Gioca al quiz del giorno' }).count()) === 1);
