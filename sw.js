@@ -1,7 +1,7 @@
 // Service worker: tiene in cache i file dell'app per l'uso offline.
 // Nome della cache ed elenco dei file li scrive `node scripts/aggiorna-cache.mjs`
 // (da lanciare dopo ogni modifica, insieme all'aumento di APP_VERSIONE in js/versione.js).
-const VERSIONE = 'orto-2.8.1';
+const VERSIONE = 'orto-2.9.0';
 const FILE = [
   // <<FILE
   './',
@@ -35,6 +35,22 @@ const FILE = [
   './assets/colture/zucchine.svg',
   './assets/illustrazioni/vuoto.svg',
   './assets/logo.svg',
+  './assets/mascotte/accessori/rossella-autunno.svg',
+  './assets/mascotte/accessori/rossella-estate.svg',
+  './assets/mascotte/accessori/rossella-festa.svg',
+  './assets/mascotte/accessori/rossella-halloween.svg',
+  './assets/mascotte/accessori/rossella-inverno.svg',
+  './assets/mascotte/accessori/rossella-natale.svg',
+  './assets/mascotte/accessori/rossella-pioggia.svg',
+  './assets/mascotte/accessori/rossella-primavera.svg',
+  './assets/mascotte/accessori/rosso-autunno.svg',
+  './assets/mascotte/accessori/rosso-estate.svg',
+  './assets/mascotte/accessori/rosso-festa.svg',
+  './assets/mascotte/accessori/rosso-halloween.svg',
+  './assets/mascotte/accessori/rosso-inverno.svg',
+  './assets/mascotte/accessori/rosso-natale.svg',
+  './assets/mascotte/accessori/rosso-pioggia.svg',
+  './assets/mascotte/accessori/rosso-primavera.svg',
   './assets/mascotte/coppia.svg',
   './assets/mascotte/rossella-pensa.svg',
   './assets/mascotte/rossella.svg',
@@ -42,6 +58,7 @@ const FILE = [
   './assets/mascotte/rosso.svg',
   './css/app.css',
   './css/tokens.css',
+  './data/it/battute.json',
   './data/it/colture/aglio.json',
   './data/it/colture/asparagi.json',
   './data/it/colture/basilico.json',
@@ -88,6 +105,7 @@ const FILE = [
   './js/motore/luna.js',
   './js/motore/oggi.js',
   './js/motore/terreno.js',
+  './js/motore/vestiti.js',
   './js/screens/benvenuto.js',
   './js/screens/calendario.js',
   './js/screens/colture.js',

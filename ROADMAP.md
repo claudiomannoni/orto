@@ -45,6 +45,14 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [x] Profilo del terreno: 7 domande, 10 erbe spontanee indicatrici (certezza bassa), test del barattolo, 9 consigli, 4 fonti. Il profilo (tessitura, acqua, sostanza organica) si ricava dalle risposte; la misura del barattolo vale più delle risposte. Prove: `tests/fase3-profilo.mjs`, `tests/fase3-terreno.mjs`
 - [ ] Diario fotografico datato per zona e coltura (serve un nuovo store e una decisione su come metterlo nel backup: le foto pesano)
 - [ ] Consigli del terreno dentro «Oggi» e nel calendario (per esempio: terreno argilloso, non lavorare da bagnato)
+- [ ] **Foto in campo per capire il terreno** (idea del 31/10/2026): si fotografano il terreno e le erbe spontanee del posto; Gemini propone quali erbe riconosce e che indizi danno sul terreno, e l'utente conferma (le proposte riempiono la lista delle erbe indicatrici e il questionario, mai in automatico). Serve la fase 4 (foto + Gemini), foto ridotte prima dell'invio per risparmiare quota, avviso che la foto va a Google, risposta sempre segnata «da verificare»
+
+## Vermetti vivi (31/10/2026)
+
+- [x] Vestiti per stagioni e feste: inverno (sciarpa e berretto), estate (occhiali da sole), primavera (fiori e farfalle), autunno (foglie), Halloween (zucca e cappello da strega), Natale, festa (cappellino e coriandoli), pioggia (ombrello). Il vestito del giorno viene dal calendario; in Impostazioni si può scegliere a mano
+- [x] Toccandoli saltano e dicono una battuta; a volte si punzecchiano (uno parla, l'altro risponde); al sesto tocco cambiano vestito. Respirano piano, e con «riduci movimento» non si animano
+- [x] Battute: 16 generiche per ciascuno, 6 per stagione o festa, 5 per il cambio d'abito, 8+ scambi (`data/it/battute.json`, scritte da Codex e ritoccate). Prove: `tests/fase4-vestiti.mjs`, `tests/09-vermetti.mjs`, `tests/mascotte-battute.mjs`
+- [ ] Altre feste (Pasqua, Carnevale, compleanno dell'orto), il vestito per la pioggia in automatico col meteo, battute che commentano i lavori fatti, nuovi vestiti ogni tanto
 
 ## Futuro, non ora
 
