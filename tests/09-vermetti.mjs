@@ -9,7 +9,7 @@ async function nuovaPagina(extra = {}) {
   osserva(page, problemi);
   return { ctx, page };
 }
-const vestiti = (page) => page.$$eval('.avatar[data-chi] .vestito', (i) => i.map((x) => x.getAttribute('src').replace(/^.*\//, '')));
+const vestiti = (page) => page.$$eval('.avatar[data-chi]', (i) => i.map((x) => `${x.dataset.chi}-${x.dataset.vestito}.svg`));
 
 let { ctx, page } = await nuovaPagina();
 
@@ -17,7 +17,7 @@ let { ctx, page } = await nuovaPagina();
 const giorni = [['2026-10-31', 'halloween'], ['2026-12-25', 'natale'], ['2027-01-01', 'festa'], ['2026-07-15', 'estate'], ['2026-11-10', 'autunno'], ['2026-02-10', 'inverno'], ['2026-04-10', 'primavera'], ['2026-04-05', 'pasqua'], ['2026-02-12', 'carnevale']];
 for (const [data, v] of giorni) {
   await vai(page, 'oggi', `?oggi=${data}`);
-  await page.waitForSelector('.avatar .vestito', { state: 'attached' });
+  await page.waitForSelector('.avatar canvas', { state: 'attached' });
   const src = await vestiti(page);
   check(`${data}: Rosso e Rossella in «${v}»`, src.length >= 2 && src.includes(`rosso-${v}.svg`) && src.includes(`rossella-${v}.svg`), src.join(','));
 }
@@ -58,7 +58,7 @@ await page.waitForTimeout(300);
 const dopo = await vestiti(page);
 check('al sesto tocco cambiano vestito (tutti e due, in un altro)', dopo.length === prima.length && dopo.every((v, i) => v !== prima[i]) && new Set(dopo.map((x) => x.replace(/^.*-/, ''))).size === 1, `${prima} -> ${dopo}`);
 await page.reload();
-await page.waitForSelector('.avatar .vestito', { state: 'attached' });
+await page.waitForSelector('.avatar canvas', { state: 'attached' });
 const ricarica = await vestiti(page);
 check('il cambio è solo per la sessione: ricaricando torna il vestito del calendario', ricarica.includes('rosso-halloween.svg'), ricarica.join(','));
 
@@ -76,7 +76,7 @@ await page.selectOption('select[name=vestiti]', 'pioggia');
 await page.waitForTimeout(200);
 check('scegliendo «Pioggia» i vermetti si cambiano subito', (await vestiti(page)).every((v) => v.endsWith('-pioggia.svg')), (await vestiti(page)).join(','));
 await page.goto(`${BASE}/?oggi=2026-07-15#/oggi`);
-await page.waitForSelector('.avatar .vestito', { state: 'attached' });
+await page.waitForSelector('.avatar canvas', { state: 'attached' });
 check('la scelta resta anche in «Oggi»', (await vestiti(page)).every((v) => v.endsWith('-pioggia.svg')), (await vestiti(page)).join(','));
 await page.goto(`${BASE}/?oggi=2026-07-15#/impostazioni`);
 await page.waitForSelector('select[name=vestiti]');
@@ -90,10 +90,10 @@ await page.evaluate(() => new Promise((ok) => {
 }));
 await vai(page, 'oggi', '?oggi=2026-07-15');
 await page.reload(); // la data del primo avvio si legge all'apertura dell'app
-await page.waitForSelector('.avatar .vestito', { state: 'attached' });
+await page.waitForSelector('.avatar canvas', { state: 'attached' });
 check('compleanno dell\'orto: un anno dopo il primo avvio i vermetti hanno il cappellino', (await vestiti(page)).includes('rosso-compleanno.svg') && (await vestiti(page)).includes('rossella-compleanno.svg'), (await vestiti(page)).join(','));
 await vai(page, 'oggi', '?oggi=2026-07-16');
-await page.waitForSelector('.avatar .vestito', { state: 'attached' });
+await page.waitForSelector('.avatar canvas', { state: 'attached' });
 check('il giorno dopo il compleanno tornano alla stagione', (await vestiti(page)).includes('rosso-estate.svg'));
 
 // 7c. «Fatto»: un vermetto compare in basso e dice una battuta; «Non oggi» no

@@ -3,7 +3,8 @@
 import { t } from '../i18n.js';
 import { leggi } from '../store/impostazioni.js';
 import { statoProgressi } from '../store/progressi.js';
-import { percorsoMascotte, percorsoVestito, vestitoAttuale } from './mascotte.js';
+import { vestitoAttuale } from './mascotte.js';
+import { disegnaVermetto, LATO } from './vermetto.js';
 
 const LARGHEZZA = 1080;
 const ALTEZZA = 1350;
@@ -72,15 +73,9 @@ export async function creaFigurina(dati) {
 
   // I due vermetti, ognuno col suo vestito del giorno
   const vestito = vestitoAttuale();
-  const [rosso, rossella, vRosso, vRossella] = await Promise.all([
-    carica(percorsoMascotte('rosso')), carica(percorsoMascotte('rossella', 'pensa')),
-    carica(percorsoVestito('rosso', vestito)), carica(percorsoVestito('rossella', vestito)),
-  ]);
   const lato = 400;
-  for (const [corpo, abito, x] of [[rosso, vRosso, 70], [rossella, vRossella, 610]]) {
-    if (corpo) ctx.drawImage(corpo, x, 620, lato, lato);
-    if (abito) ctx.drawImage(abito, x, 620, lato, lato);
-  }
+  disegnaVermetto(ctx, { chi: 'rosso', vestito, ride: true, tempo: 0.4 }, 70, 620, lato / LATO);
+  disegnaVermetto(ctx, { chi: 'rossella', vestito, pensa: true, tempo: 1.2 }, 610, 620, lato / LATO);
 
   // Tre numeri
   ctx.fillStyle = '#ffffff';

@@ -25,12 +25,10 @@ for (let m = 1; m <= 12; m++) for (let g = 1; g <= new Date(2027, m, 0).getDate(
   if (!VESTITI.includes(vestitoDelGiorno(iso))) tutti = false;
 }
 check(`tutti i ${giorni} giorni del 2027 hanno un vestito valido`, tutti && giorni === 365);
-const mancano = VESTITI.flatMap((v) => ['rosso', 'rossella'].map((c) => `assets/mascotte/accessori/${c}-${v}.svg`)).filter((f) => !fs.existsSync(path.join(radice, f)));
-check('per ogni vestito esiste il disegno di Rosso e di Rossella', mancano.length === 0, mancano.join(','));
-const piccoli = VESTITI.flatMap((v) => ['rosso', 'rossella'].map((c) => `assets/mascotte/accessori/${c}-${v}.svg`)).filter((f) => fs.existsSync(path.join(radice, f)) && fs.statSync(path.join(radice, f)).size > 20000);
-check('ogni SVG pesa meno di 20 KB', piccoli.length === 0, piccoli.join(','));
-const strani = VESTITI.flatMap((v) => ['rosso', 'rossella'].map((c) => `assets/mascotte/accessori/${c}-${v}.svg`)).filter((f) => fs.existsSync(path.join(radice, f)) && /<script|<image|href=|<text/i.test(fs.readFileSync(path.join(radice, f), 'utf8')));
-check('negli SVG niente script, immagini, link o testo', strani.length === 0, strani.join(','));
+const disegni = fs.readFileSync(path.join(radice, 'js/ui/vermetto.js'), 'utf8');
+const mancano = VESTITI.filter((v) => !disegni.includes(`
+  ${v}(c, h, hr`));
+check('per ogni vestito esiste il disegno nel codice di Rosso e Rossella', mancano.length === 0, mancano.join(','));
 
 check('ogni vestito ha il suo gruppo di battute; uno sconosciuto usa quelle generiche', VESTITI.every((v) => contestoDelVestito(v) === v) && contestoDelVestito('boh') === 'tocco');
 

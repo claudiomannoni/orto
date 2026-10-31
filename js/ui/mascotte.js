@@ -3,7 +3,7 @@
 import { el, oggiISO } from '../util.js';
 import { t } from '../i18n.js';
 import { battute } from '../contenuti.js';
-import { haOcchi, creaOcchi, percorsoSenzaPupille, avviaSguardo } from './occhi.js';
+import { creaVermetto, cambiaVestito, ridiAncora } from './vermetto.js';
 import { VESTITI, vestitoDelGiorno, contestoDelVestito, altroVestito } from '../motore/vestiti.js';
 
 // Il vestito scelto in Impostazioni ('auto' = lo decide il calendario) e quello cambiato a tocco, solo per questa sessione.
@@ -32,18 +32,12 @@ export function impostaPioggia(valore) {
 
 export const vestitoAttuale = () => temporaneo ?? (preferenza === 'auto' ? vestitoDelGiorno(oggiISO(), { nato, piove }) : preferenza);
 
-// variante: 'pensa' (Rossella) o 'ride' (Rosso); senza variante, l'espressione neutra.
-export function percorsoMascotte(chi, variante) {
-  return `assets/mascotte/${chi}${variante ? `-${variante}` : ''}.svg`;
-}
-
-export const percorsoVestito = (chi, vestito) => `assets/mascotte/accessori/${chi}-${vestito}.svg`;
-
 function aggiornaVestiti() {
   const vestito = vestitoAttuale();
   document.querySelectorAll('.avatar[data-chi]').forEach((a) => {
-    const img = a.querySelector('.vestito');
-    if (img) img.src = percorsoVestito(a.dataset.chi, vestito);
+    a.dataset.vestito = vestito;
+    const tela = a.querySelector('.corpo-vermetto');
+    if (tela) cambiaVestito(tela, vestito);
   });
 }
 
@@ -99,32 +93,16 @@ async function alTocco(avatar) {
   parla(avatar, await battutaDi(chi, contestoDelVestito(vestitoAttuale())));
 }
 
+// variante: 'pensa' (Rossella, sguardo in su) o 'ride' (Rosso). Il vermetto è disegnato nel codice (vermetto.js).
 export function avatar(chi, variante) {
   const nome = t(`mascotte.${chi}`);
-  // Con gli occhi che seguono il dito: Rosso sta con gli occhi aperti (ride solo quando lo tocchi), Rossella tiene la sua espressione.
-  const conOcchi = haOcchi(chi);
-  const aperta = chi === 'rosso' ? undefined : variante;
-  const corpo = el('img', { class: 'corpo-vermetto', src: conOcchi ? percorsoSenzaPupille(chi, aperta) : percorsoMascotte(chi, variante), alt: '', width: 72, height: 72, draggable: 'false' });
-  const occhi = conOcchi ? creaOcchi(chi) : null;
+  const corpo = creaVermetto(chi, variante, vestitoAttuale());
   const a = el('div', {
-    class: `avatar ${chi}`, 'data-chi': chi, role: 'button', tabindex: '0', 'aria-label': t('mascotte.tocca', { nome }),
-  },
-  corpo,
-  occhi,
-  el('img', { class: 'vestito', src: percorsoVestito(chi, vestitoAttuale()), alt: '', width: 72, height: 72, draggable: 'false' }));
-  if (conOcchi) {
-    avviaSguardo();
-    // Rosso, toccato, ride a occhi chiusi per un momento.
-    if (chi === 'rosso') {
-      a.addEventListener('click', () => {
-        corpo.src = percorsoMascotte('rosso', 'ride');
-        occhi.style.visibility = 'hidden';
-        setTimeout(() => { corpo.src = percorsoSenzaPupille('rosso'); occhi.style.visibility = ''; }, 800);
-      });
-    }
-  }
-  a.addEventListener('click', () => alTocco(a));
-  a.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); alTocco(a); } });
+    class: `avatar ${chi}`, 'data-chi': chi, 'data-vestito': vestitoAttuale(), role: 'button', tabindex: '0', 'aria-label': t('mascotte.tocca', { nome }),
+  }, corpo);
+  const ride = () => { ridiAncora(corpo); };
+  a.addEventListener('click', () => { ride(); alTocco(a); });
+  a.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ride(); alTocco(a); } });
   return a;
 }
 
