@@ -3,7 +3,7 @@ import { el, oggiISO, formattaDataLunga, normalizza, aggiungi, aggiungiGiorni, d
 import { t, tn } from '../i18n.js';
 import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../store/dati.js';
 import { leggi } from '../store/impostazioni.js';
-import { catalogo, glossario, quiz, curiosita } from '../contenuti.js';
+import { catalogo, glossario, quiz, curiosita, animali } from '../contenuti.js';
 import { calcolaLavori } from '../motore/oggi.js';
 import { conversazione, festeggia, vestitoAttuale } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -225,7 +225,7 @@ export async function monta(contenitore) {
   }
 
   // I vermetti liberi usano questo stato per dare consigli utili (js/ui/vermi-liberi.js).
-  window.dispatchEvent(new CustomEvent('stato-oggi', { detail: { lavori: lavori.map((v) => ({ titolo: v.lavoro.titolo })), quizFatto: domandeQuiz ? Boolean(quizFatto) : null, haColture: colture.length > 0, curiosita: cur ?? null } }));
+  window.dispatchEvent(new CustomEvent('stato-oggi', { detail: { lavori: lavori.map((v) => ({ titolo: v.lavoro.titolo })), quizFatto: domandeQuiz ? Boolean(quizFatto) : null, haColture: colture.length > 0, curiosita: cur ?? null, haSchedeAnimali: Boolean((await animali())?.schede?.length) } }));
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'saluto' }, testoSaluto(impostazioni)),

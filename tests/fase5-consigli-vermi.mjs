@@ -132,5 +132,9 @@ check("scegli: non modifica l'elenco", (() => {
   return ids(elenco) === prima;
 })());
 
+const conAnimali = consigliDeiVermi({ haSchedeAnimali: true }).find((c) => c.id === 'lombricoltura');
+check("lombricoltura: con le schede c'è, rimanda a #/animali", conAnimali?.chi === 'rosso' && conAnimali.rotta === '#/animali?scheda=lombricoltura' && conAnimali.peso === 1);
+check("lombricoltura: senza le schede non c'è", !consigliDeiVermi({}).some((c) => c.id === 'lombricoltura') && !consigliDeiVermi({ haSchedeAnimali: false }).some((c) => c.id === 'lombricoltura'));
+
 console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);
 process.exit(ko ? 1 : 0);

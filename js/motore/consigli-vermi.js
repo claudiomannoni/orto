@@ -58,6 +58,14 @@ export function consigliDeiVermi(stato) {
     });
   }
 
+  // I lombrichi (cioè loro) servono all'orto: se ci sono le schede, un rimando a «Lombricoltura».
+  if (s.haSchedeAnimali === true) {
+    consigli.push({
+      id: 'lombricoltura', chi: 'rosso', chiave: 'verme.consiglio.lombricoltura',
+      vars: {}, rotta: '#/animali?scheda=lombricoltura', peso: 1,
+    });
+  }
+
   // Il dottore delle piante va sempre ricordato.
   consigli.push({
     id: 'foto', chi: 'rosso', chiave: 'verme.consiglio.foto',

@@ -289,7 +289,7 @@ const rotta = () => location.hash.replace(/^#\//, '').split('?')[0] || 'oggi';
 
 async function mostraConsiglio(adesso) {
   if (consiglio || !statoOggi || !visibile || ridotto() || document.hidden || visti.length >= MAX_CONSIGLI) return;
-  if (['benvenuto', 'dottore', 'impostazioni'].includes(rotta()) || document.querySelector('dialog[open]')) return;
+  if (rotta() !== 'oggi' || document.querySelector('dialog[open]')) return; // i consigli stanno nella schermata «Oggi»
   let piove = null;
   try { piove = await pioveOggiDaCache(); } catch { piove = null; }
   const voce = scegliConsiglio(consigliDeiVermi({ ...statoOggi, piove }), visti, giroConsigli++);
