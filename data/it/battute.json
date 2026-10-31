@@ -180,6 +180,108 @@
         "Cambio look completato, ora aggiorno gli appunti sul tessuto.",
         "Mi vesto a festa, ma le conclusioni restano da verificare."
       ]
+    },
+    "pasqua": {
+      "rosso": [
+        "Orecchie da coniglio sopra la paglia: il nonno direbbe che è primavera doppia.",
+        "Quest’uovo decorato è bello, ma il mio cappello resta il pezzo forte.",
+        "Le colombe di pasta? Io porto il proverbio, così facciamo una gita completa.",
+        "Con queste orecchie sento arrivare la primavera, dice il nonno.",
+        "Ho decorato l’uovo con cura: la tradizione oggi ha il guscio colorato.",
+        "La gita fuori porta? Prima trovo la porta, poi consulto il nonno."
+      ],
+      "rossella": [
+        "Le orecchie sono finte; il taccuino, invece, è davvero pieno.",
+        "Ho decorato un uovo: campione pasquale, senza conclusioni affrettate.",
+        "Rosso ha le orecchie sopra la paglia: stratificazione curiosa.",
+        "La primavera è arrivata; sul taccuino segno anche il coniglio.",
+        "Le colombe di pasta sono decorazioni: non le userò come prova.",
+        "Per la gita porto gli appunti: occupano meno spazio di un uovo."
+      ]
+    },
+    "carnevale": {
+      "rosso": [
+        "Il cappello da giullare è sopra la paglia: il nonno ride ancora.",
+        "Ho coriandoli ovunque; la tradizione oggi fa un po’ di pulizia domani.",
+        "Questo cappello ha più punte del mio proverbio preferito.",
+        "Rosso in maschera? Il nonno dice che sotto c’è sempre la paglia.",
+        "Un coriandolo sul naso: finalmente un accessorio alla mia altezza.",
+        "Il mio costume è leggero: il proverbio pesa quanto basta."
+      ],
+      "rossella": [
+        "Il cappello da giullare è buffo; la mia prudenza non va in maschera.",
+        "Ho trovato coriandoli nel taccuino: classificazione ancora aperta.",
+        "Rosso ha tre punte sul cappello; io ho tre note da ricontrollare.",
+        "Il mio costume è allegro, ma gli appunti restano seri.",
+        "Un coriandolo è finito tra le pagine: dato colorato, origine ignota.",
+        "Carnevale: oggi il taccuino si traveste da tasca per coriandoli."
+      ]
+    },
+    "compleanno": {
+      "rosso": [
+        "Un anno d’orto: il nonno dice che il tempo vola, noi giriamo sotto.",
+        "Cappellino e coriandoli: oggi festeggia anche la terra, dice il nonno.",
+        "L’orto compie un anno e io ho ancora la paglia originale.",
+        "Ho portato i coriandoli; il nonno ha portato un proverbio di scorta.",
+        "Un anno dal primo avvio: la tradizione brinda con un cappellino.",
+        "Questo cappellino è storto: il nonno dice che porta fortuna al festeggiato."
+      ],
+      "rossella": [
+        "Un anno dal primo avvio: segno la data sul taccuino, senza candeline.",
+        "I coriandoli sono tanti; il dato preciso è che l’orto compie un anno.",
+        "Ho il cappellino e una nota: primo compleanno dell’orto.",
+        "Rosso festeggia con un proverbio; io controllo il calendario.",
+        "Un anno di appunti: il taccuino chiede una torta di carta.",
+        "Cappellino pronto; conclusione prudente: oggi si festeggia l’orto."
+      ]
+    },
+    "pioggia": {
+      "rosso": [
+        "Ombrello giallo e cappello di paglia: il nonno chiama questo doppio tetto.",
+        "Le gocce fanno toc toc; il nonno risponde con un proverbio.",
+        "Con l’ombrello giallo sembro un sole che ha cambiato idea.",
+        "La pioggia tamburella: il nonno dice che la terra ascolta.",
+        "Sotto l’ombrello c’è posto per me e per un proverbio asciutto.",
+        "Gocce sul cappello? La paglia oggi fa la doccia, dice il nonno."
+      ],
+      "rossella": [
+        "Ombrello giallo aperto: le gocce sono fuori, gli appunti al riparo.",
+        "Rosso ha due copricapi; io ho verificato che l’ombrello sia aperto.",
+        "Le gocce fanno rumore: annotazione sonora, senza misurarle a orecchio.",
+        "Il mio ombrello è giallo: un colore evidente, nessuna teoria inclusa.",
+        "Piove sull’ombrello, non sul taccuino: controllo riuscito.",
+        "Le gocce scivolano via; le domande restano sul taccuino."
+      ]
+    },
+    "fatto": {
+      "rosso": [
+        "Bel lavoro: il nonno dice che la costanza mette radici.",
+        "Fatto e finito: il nonno direbbe che oggi la terra sorride.",
+        "Bravo risultato: il proverbio del nonno oggi si è dato da fare.",
+        "Il lavoro è riuscito; il nonno aggiunge: anche un piccolo passo conta.",
+        "Complimenti: il nonno dice che chi insiste raccoglie soddisfazione.",
+        "Un altro fatto bene: la tradizione oggi può riposare contenta.",
+        "Ottimo giro. La pazienza ha il suo raccolto, e oggi ne hai preso un po'.",
+        "Ce l’hai fatta: il nonno avrebbe già preparato un proverbio celebrativo.",
+        "Lavoro concluso: il nonno approva, e lui non regala approvazioni.",
+        "Ben fatto. Anche il lombrico più lento arriva, basta non fermarsi.",
+        "Missione compiuta. Questa sì che è una giornata da cappello di paglia.",
+        "Lavoro finito: adesso la terra lavora per te, almeno un po'."
+      ],
+      "rossella": [
+        "Ottimo risultato: segno sul taccuino che il lavoro è riuscito.",
+        "Fatto: registro un passo completato, senza aggiungere promesse.",
+        "Complimenti, il risultato c’è; sul taccuino metto una spunta.",
+        "Bel progresso: la nota di oggi è breve e molto positiva.",
+        "Lavoro riuscito: aggiungo una spunta, non una conclusione affrettata.",
+        "Ce l’hai fatta: il taccuino registra un risultato concreto.",
+        "Un passo completato: lo segno, con soddisfazione misurata.",
+        "Ottimo: il dato di oggi è semplice, lavoro concluso con successo.",
+        "Risultato raggiunto: la mia matita può finalmente fare una pausa.",
+        "Complimenti: metto una spunta sul taccuino e continuo a osservare.",
+        "Fatto bene: la nota è chiara, il prossimo passo può aspettare.",
+        "Il lavoro è riuscito: sul taccuino oggi compare una spunta convinta."
+      ]
     }
   },
   "scambi": [
@@ -327,6 +429,91 @@
       "contesto": "festa",
       "rosso": "Oggi il proverbio è: si balla con prudenza.",
       "rossella": "Io lo verifico domani, dopo aver riposato."
+    },
+    {
+      "contesto": "pasqua",
+      "rosso": "Le orecchie mi stanno dritte, Rosso.",
+      "rossella": "È la paglia che le tiene su, dice il nonno."
+    },
+    {
+      "contesto": "pasqua",
+      "rosso": "L’uovo è decorato con cura.",
+      "rossella": "Io ho decorato il cappello: tradizione in primo piano."
+    },
+    {
+      "contesto": "pasqua",
+      "rosso": "La primavera porta colori e domande.",
+      "rossella": "E il nonno porta colombe di pasta per la gita."
+    },
+    {
+      "contesto": "carnevale",
+      "rosso": "Il tuo cappello ha parecchie punte.",
+      "rossella": "Sono proverbi appuntiti, dice il nonno."
+    },
+    {
+      "contesto": "carnevale",
+      "rosso": "Ho trovato coriandoli nei miei appunti.",
+      "rossella": "Io ne ho trovati nel cappello: archivio tradizionale."
+    },
+    {
+      "contesto": "carnevale",
+      "rosso": "Oggi siamo entrambi in maschera.",
+      "rossella": "La mia paglia però si riconosce subito."
+    },
+    {
+      "contesto": "compleanno",
+      "rosso": "L’orto compie un anno dal primo avvio.",
+      "rossella": "Il nonno dice che è già un veterano in erba."
+    },
+    {
+      "contesto": "compleanno",
+      "rosso": "Ho segnato il primo compleanno sul taccuino.",
+      "rossella": "Io ho messo il cappellino: nota festiva approvata."
+    },
+    {
+      "contesto": "compleanno",
+      "rosso": "Quanti coriandoli per un solo anno!",
+      "rossella": "Il nonno dice che la tradizione festeggia in grande."
+    },
+    {
+      "contesto": "pioggia",
+      "rosso": "Il tuo ombrello è giallo, Rosso.",
+      "rossella": "Così il nonno mi trova anche tra le gocce."
+    },
+    {
+      "contesto": "pioggia",
+      "rosso": "Piove sull’ombrello, taccuino asciutto.",
+      "rossella": "Il mio proverbio invece è pronto per ogni tempo."
+    },
+    {
+      "contesto": "pioggia",
+      "rosso": "Senti come picchiettano le gocce?",
+      "rossella": "Sì: il nonno le chiama applausi per la paglia."
+    },
+    {
+      "contesto": "fatto",
+      "rosso": "Bel lavoro, Rosso: lo segno sul taccuino.",
+      "rossella": "Il nonno dice che il risultato merita una pausa."
+    },
+    {
+      "contesto": "fatto",
+      "rosso": "Fatto e completato!",
+      "rossella": "Una spunta è un dato; il nonno aggiunge un proverbio."
+    },
+    {
+      "contesto": "fatto",
+      "rosso": "Il risultato è riuscito, complimenti.",
+      "rossella": "Grazie, Rossella: oggi persino la tradizione ha una spunta."
+    },
+    {
+      "contesto": "fatto",
+      "rosso": "Un altro passo concluso, Rosso.",
+      "rossella": "Il nonno dice che i passi fanno strada."
+    },
+    {
+      "contesto": "fatto",
+      "rosso": "Ho registrato il successo sul taccuino.",
+      "rossella": "E io registro che il tuo taccuino lavora parecchio."
     }
   ]
 }
