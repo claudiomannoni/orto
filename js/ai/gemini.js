@@ -41,7 +41,7 @@ export async function chiedi({ chiave, modello, testo, immagine, immagini = [], 
     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': chiave },
     body: JSON.stringify(corpo),
   });
-  const sovraccarico = (r) => r.status === 503 || r.status === 500;
+  const sovraccarico = (r) => r.status === 503;
   let risposta;
   try {
     risposta = await invia(modello);
