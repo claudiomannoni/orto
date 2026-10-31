@@ -79,7 +79,7 @@ await page.locator('#solo-mie').click();
 const tuttiLavori = await page.locator('.lista .voce').count();
 check('calendario: filtro riduce l\'elenco', soloMie < tuttiLavori, `${soloMie} < ${tuttiLavori}`);
 await vai(page, 'oggi', '?oggi=2026-11-10');
-const titoliOggi = await page.locator('#schermata').innerText();
+const titoliOggi = await page.locator('.lavori').innerText();
 check('Oggi: con una coltura seguita non compaiono lavori di altre (es. pomodoro)', !/pomodor/i.test(titoliOggi));
 await vai(page, 'coltura?id=fave');
 await page.locator('#segui').click();
