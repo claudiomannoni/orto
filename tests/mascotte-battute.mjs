@@ -16,10 +16,10 @@ try {
   process.exit(1);
 }
 
-const contesti = ['tocco', 'inverno', 'estate', 'primavera', 'autunno', 'halloween', 'natale', 'festa', 'cambio_abito', 'pasqua', 'carnevale', 'compleanno', 'pioggia', 'fatto'];
+const contesti = ['tocco', 'inverno', 'estate', 'primavera', 'autunno', 'halloween', 'natale', 'festa', 'cambio_abito', 'pasqua', 'carnevale', 'compleanno', 'pioggia', 'fatto', 'traguardo', 'livello'];
 check('versione = 1', dati.versione === 1, dati.versione);
 check('contesti presenti', contesti.every((c) => Object.hasOwn(dati.contesti ?? {}, c)));
-const minimi = { tocco: 14, inverno: 6, estate: 6, primavera: 6, autunno: 6, halloween: 6, natale: 6, festa: 6, cambio_abito: 5, pasqua: 6, carnevale: 6, compleanno: 6, pioggia: 6, fatto: 12 };
+const minimi = { tocco: 14, inverno: 6, estate: 6, primavera: 6, autunno: 6, halloween: 6, natale: 6, festa: 6, cambio_abito: 5, pasqua: 6, carnevale: 6, compleanno: 6, pioggia: 6, fatto: 12, traguardo: 8, livello: 6 };
 const battute = [];
 for (const contesto of contesti) {
   const gruppo = dati.contesti?.[contesto] ?? {};
@@ -51,6 +51,7 @@ for (const { id, testo } of battute) {
 check('scambi: elenco', Array.isArray(dati.scambi));
 const scambi = Array.isArray(dati.scambi) ? dati.scambi : [];
 check('scambi tocco: almeno 8', scambi.filter((s) => s?.contesto === 'tocco').length >= 8);
+for (const c of ['traguardo', 'livello']) check(`scambi ${c}: almeno 3`, scambi.filter((s) => s?.contesto === c).length >= 3);
 for (const contesto of contesti.filter((c) => c !== 'cambio_abito')) {
   if (contesto !== 'tocco') check(`scambi ${contesto}: almeno 3`, scambi.filter((s) => s?.contesto === contesto).length >= 3);
 }

@@ -282,9 +282,55 @@
         "Fatto bene: la nota è chiara, il prossimo passo può aspettare.",
         "Il lavoro è riuscito: sul taccuino oggi compare una spunta convinta."
       ]
+    },
+    "traguardo": {
+      "rosso": [
+        "Il nonno dice: ogni passo segnato merita una riga nel diario.",
+        "Un buon proverbio si festeggia con calma, dice il nonno.",
+        "La tradizione vuole una pausa breve per guardare il cammino.",
+        "Il nonno diceva: il lavoro fatto parla da sé, senza fanfare.",
+        "Tengo il cappello fermo: c'è una bella pagina da aggiungere.",
+        "Il nonno avrebbe annuito e poi sarebbe tornato al suo giro.",
+        "Un passo dopo l'altro, dice il nonno: così si fa strada.",
+        "La paglia del cappello è pronta per una piccola festa, dice il nonno."
+      ],
+      "rossella": [
+        "Lo annoto sul taccuino: un progresso concreto, da ricordare.",
+        "Il taccuino registra il passo; le promesse restano fuori dagli appunti.",
+        "Una nota positiva, con la prudenza di sempre.",
+        "Segno la data e il progresso: così resta una traccia precisa.",
+        "Il taccuino è contento; io controllo che la nota sia chiara.",
+        "Un risultato del percorso, non una previsione: lo scrivo con cura.",
+        "Ho aggiunto una riga agli appunti e una domanda per il prossimo giro.",
+        "La costanza merita una nota; le conclusioni aspettano le prove."
+      ]
+    },
+    "livello": {
+      "rosso": [
+        "Il nonno dice: si impara un po' a ogni giro nell'orto.",
+        "La tradizione insegna con calma, diceva il nonno.",
+        "Tengo il cappello dritto: il nonno approva questo passo avanti.",
+        "Un passo alla volta, dice il nonno, senza saltare i solchi.",
+        "Il nonno diceva che l'esperienza si costruisce tornando al campo.",
+        "La paglia è fiera, ma il nonno resta con i piedi per terra."
+      ],
+      "rossella": [
+        "Aggiorno il taccuino: hai accumulato esperienza nel percorso.",
+        "Un nuovo passaggio, annotato con cura e senza fretta.",
+        "Segno il progresso; la prudenza continua a essere utile.",
+        "Il taccuino conferma il cammino, non predice i risultati.",
+        "Nuova riga negli appunti: osservare resta il metodo migliore.",
+        "Registro questo passo e tengo aperto il taccuino alle domande."
+      ]
     }
   },
   "scambi": [
+    { "contesto": "traguardo", "rosso": "Il nonno dice: una tappa si ricorda con un proverbio.", "rossella": "Io la ricordo con una data precisa sul taccuino." },
+    { "contesto": "traguardo", "rosso": "Un bel passo, dice il nonno: ora lasciamo parlare il campo.", "rossella": "Lo annoto, ma il campo richiede osservazioni nel tempo." },
+    { "contesto": "traguardo", "rosso": "Il nonno avrebbe offerto una sedia e una storia.", "rossella": "Io offro una pagina ordinata, con spazio per altre note." },
+    { "contesto": "livello", "rosso": "Il nonno dice: l'esperienza cresce tornando al lavoro.", "rossella": "E annotando con attenzione quello che si osserva." },
+    { "contesto": "livello", "rosso": "Tengo il cappello pronto per il prossimo giro, dice il nonno.", "rossella": "Io tengo il taccuino pronto per le prossime domande." },
+    { "contesto": "livello", "rosso": "Un altro passo sul sentiero, secondo la tradizione.", "rossella": "Lo registro come progresso, senza trarre conclusioni affrettate." },
     {
       "contesto": "tocco",
       "rosso": "Il nonno dice che un proverbio vale una pala.",
