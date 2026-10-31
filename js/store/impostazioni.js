@@ -13,17 +13,22 @@ export const PREDEFINITE = {
   tempo: null,
   lingua: 'it',
   ai_provider: 'gemini',
-  ai_modello: 'gemini-2.5-flash',
+  ai_modello: 'gemini-3.5-flash',
   primo_avvio_fatto: false,
 };
 
 // Chiavi che non escono mai dal telefono: niente backup, niente condivisione.
 export const PRIVATE = ['ai_chiave'];
 
+// Modelli Gemini che Google ha ritirato: chi li ha salvati (o li aveva come predefinito) passa a quello attuale.
+// Quando ne ritirerà altri, nelle impostazioni c'è «Cerca i modelli disponibili».
+const MODELLI_RITIRATI = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-2.0-flash', 'gemini-2.0-flash-001', 'gemini-2.0-flash-lite', 'gemini-2.0-flash-lite-001', 'gemini-1.5-flash'];
+
 export async function leggi() {
   const righe = await tutte('impostazioni');
   const impostazioni = { ...PREDEFINITE };
   for (const riga of righe) impostazioni[riga.chiave] = riga.valore;
+  if (MODELLI_RITIRATI.includes(impostazioni.ai_modello)) impostazioni.ai_modello = PREDEFINITE.ai_modello;
   return impostazioni;
 }
 

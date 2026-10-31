@@ -16,7 +16,7 @@ export async function disponibile() {
 }
 
 // testo: la domanda. immagine (facoltativa): { tipo: 'image/jpeg', base64: '...' }.
-// Lancia un errore con codice: 'nochiave' | 'provider' | 'chiave' | 'quota' | 'rete' | 'altro'.
+// Lancia un errore con codice: 'nochiave' | 'provider' | 'chiave' | 'modello' | 'quota' | 'rete' | 'altro'.
 export async function chiedi({ testo, immagine }) {
   const impostazioni = await leggi();
   const provider = PROVIDER[impostazioni.ai_provider];
@@ -28,6 +28,15 @@ export async function chiedi({ testo, immagine }) {
     testo,
     immagine,
   });
+}
+
+// I modelli che la chiave dell'utente può usare adesso.
+export async function modelliDisponibili() {
+  const impostazioni = await leggi();
+  const provider = PROVIDER[impostazioni.ai_provider];
+  if (!provider) throw errore('provider');
+  if (!impostazioni.ai_chiave) throw errore('nochiave');
+  return provider.elencoModelli({ chiave: impostazioni.ai_chiave });
 }
 
 export async function provaChiave() {

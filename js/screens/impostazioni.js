@@ -4,7 +4,7 @@ import { t, tn } from '../i18n.js';
 import { leggi, imposta, rimuovi, pulisciNome } from '../store/impostazioni.js';
 import { creaBackup, scarica, leggiFile, applica } from '../store/backup.js';
 import { zone } from '../contenuti.js';
-import { provaChiave } from '../ai/ai.js';
+import { provaChiave, modelliDisponibili } from '../ai/ai.js';
 import { APP_VERSIONE } from '../versione.js';
 import { toast } from '../ui/toast.js';
 import { SUPERFICI, ACQUE, TEMPI, METODI, ESPERIENZE } from './benvenuto.js';
@@ -81,6 +81,29 @@ function sezioneIA(s) {
       esito.textContent = t(`ia.errore.${e.codice ?? 'altro'}`, { dettaglio: e.message });
     }
   };
+  // Google ritira i modelli ogni tanto: qui si chiede alla chiave quali può usare adesso e se ne sceglie uno.
+  const modelli = el('div', {});
+  const cercaModelli = async () => {
+    await salva();
+    esito.textContent = t('ia.modelli.cerco');
+    try {
+      const nomi = await modelliDisponibili();
+      if (!nomi.length) { esito.textContent = t('ia.modelli.nessuno'); return; }
+      modelli.replaceChildren(el('select', {
+        name: 'ai_modello_scelta',
+        'aria-label': t('ia.modelli.scegli'),
+        onchange: async (e) => {
+          if (!e.target.value) return;
+          campoModello.value = e.target.value;
+          await imposta('ai_modello', e.target.value);
+          esito.textContent = t('ia.modelli.scelto', { modello: e.target.value });
+        },
+      }, [el('option', { value: '' }, t('ia.modelli.scegli')), ...nomi.map((n) => el('option', { value: n, selected: n === campoModello.value }, n))]));
+      esito.textContent = t('ia.modelli.trovati', { n: nomi.length });
+    } catch (e) {
+      esito.textContent = t(`ia.errore.${e.codice ?? 'altro'}`, { dettaglio: e.message });
+    }
+  };
   const togli = async () => {
     await rimuovi('ai_chiave');
     campoChiave.placeholder = t('ia.chiave.esempio');
@@ -92,6 +115,8 @@ function sezioneIA(s) {
     el('p', { class: 'aiuto' }, t('ia.spiega')),
     el('label', {}, t('ia.chiave'), campoChiave),
     el('label', {}, t('ia.modello'), campoModello),
+    el('button', { class: 'btn', type: 'button', onclick: cercaModelli }, t('ia.modelli.cerca')),
+    modelli,
     el('div', { class: 'riga' },
       el('button', { class: 'btn', type: 'button', onclick: salva }, t('ia.salva')),
       el('button', { class: 'btn', type: 'button', onclick: prova }, t('ia.prova')),

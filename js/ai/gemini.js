@@ -6,6 +6,28 @@ function errore(codice, dettaglio) {
   return Object.assign(new Error(dettaglio || codice), { codice });
 }
 
+// I modelli di testo che questa chiave può usare, dal più recente. Serve quando Google ritira un modello.
+export async function elencoModelli({ chiave }) {
+  let risposta;
+  try {
+    risposta = await fetch(`${BASE}?pageSize=200`, { headers: { 'x-goog-api-key': chiave } });
+  } catch {
+    throw errore('rete');
+  }
+  if (!risposta.ok) {
+    if (risposta.status === 401 || risposta.status === 403 || risposta.status === 400) throw errore('chiave');
+    throw errore('altro', `HTTP ${risposta.status}`);
+  }
+  const dati = await risposta.json();
+  const nomi = (dati?.models ?? [])
+    .filter((m) => (m.supportedGenerationMethods ?? []).includes('generateContent'))
+    .map((m) => String(m.name ?? '').replace(/^models\//, ''))
+    .filter((n) => /^gemini-/.test(n) && !/(embedding|tts|image|live|audio|robotics|computer-use|aqa)/.test(n));
+  // Prima i "flash" (veloci e gratuiti), poi gli altri; dentro ogni gruppo il numero di versione più alto per primo.
+  const peso = (n) => (/flash/.test(n) && !/lite/.test(n) ? 0 : /flash/.test(n) ? 1 : 2);
+  return [...new Set(nomi)].sort((a, b) => peso(a) - peso(b) || b.localeCompare(a, 'en', { numeric: true }));
+}
+
 export async function chiedi({ chiave, modello, testo, immagine }) {
   const parti = [{ text: testo }];
   if (immagine) parti.push({ inlineData: { mimeType: immagine.tipo, data: immagine.base64 } });
@@ -25,6 +47,8 @@ export async function chiedi({ chiave, modello, testo, immagine }) {
     let dettaglio = '';
     try { dettaglio = (await risposta.json())?.error?.message ?? ''; } catch { /* nessun dettaglio */ }
     if (risposta.status === 429) throw errore('quota', dettaglio);
+    // Modello ritirato o con un nome che non esiste: non è colpa della chiave.
+    if (risposta.status === 404 || /no longer available|is not found|not supported for generateContent/i.test(dettaglio)) throw errore('modello', modello);
     if (risposta.status === 400 || risposta.status === 401 || risposta.status === 403) throw errore('chiave', dettaglio);
     throw errore('altro', dettaglio || `HTTP ${risposta.status}`);
   }
