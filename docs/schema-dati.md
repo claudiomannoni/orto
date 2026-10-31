@@ -103,13 +103,67 @@ Ogni informazione con `certezza` ha anche `fonti`: elenco di id che esistono in 
       ]
     }
 
+### `terreno.json` (profilo del terreno)
+
+Contenuti per capire il terreno di una zona: un questionario, le piante spontanee indicatrici e il test del barattolo. L'app ricava tre valori (`tessitura`, `drenaggio`, `humus`, vedi sezione 2) e mostra i consigli.
+
+    {
+      "versione": 1,
+      "questionario": [{
+        "id": "stringa-fra-le-mani",
+        "testo": "Domanda in italiano semplice",
+        "perche": "1-2 righe: cosa ci dice questa domanda",
+        "opzioni": [{
+          "id": "si-modella",
+          "testo": "Risposta",
+          "valori": { "tessitura": "argilloso", "drenaggio": "lento" }
+        }],
+        "certezza": "media",
+        "fonti": ["f1"]
+      }],
+      "piante_indicatrici": [{
+        "id": "romice",
+        "nome": "Romice",
+        "nome_scientifico": "Rumex obtusifolius",
+        "indica": [{ "asse": "drenaggio", "valore": "lento" }],
+        "come_riconoscerla": "2 righe",
+        "note": "limiti dell'indicazione",
+        "certezza": "bassa",
+        "fonti": []
+      }],
+      "test_barattolo": {
+        "titolo": "Test del barattolo",
+        "materiali": ["barattolo di vetro con coperchio", "..."],
+        "passi": [{ "testo": "un passo, una frase" }],
+        "lettura": "come leggere gli strati e quanto aspettare",
+        "tipi": [{ "id": "sabbioso", "nome": "...", "come_si_riconosce": "...", "sabbia_pct": [70, 100], "argilla_pct": [0, 15] }],
+        "certezza": "media",
+        "fonti": ["f1"]
+      },
+      "consigli": [{
+        "asse": "tessitura",
+        "valore": "argilloso",
+        "testo": "consiglio pratico e prudente",
+        "certezza": "media",
+        "fonti": ["f1"]
+      }],
+      "da_verificare": ["..."],
+      "fonti": { }
+    }
+
+- Assi e valori ammessi in `valori`, `indica` e `consigli`: `tessitura` (`sabbioso` | `medio` | `argilloso`), `drenaggio` (`rapido` | `buono` | `lento`), `humus` (`povero` | `medio` | `ricco`). Una risposta può portare uno, due o tre assi, o nessuno.
+- Le piante indicatrici hanno prove deboli: certezza `bassa` salvo fonte che dica altro, e `note` dice cosa non possono dire (il pH, per esempio, non si legge da una pianta sola).
+- Come tutti i contenuti: niente dati inventati, ogni fonte aperta e letta.
+
 ## 2. Dati dell'utente (IndexedDB, database `orto`, versione 2)
 
 Stores:
 
 - `colture` (keyPath `id`): già esistente dalla prima versione. Campi: `id`, `nome`, `varieta`, `dataSemina`, `dove` (`semenzaio` | `orto`), `note`, `creata`. Nuovi, facoltativi: `schedaId` (id della scheda coltura), `zonaId`, `schemaVersion` (2).
 - `impostazioni` (keyPath `chiave`): coppie `{ chiave, valore }`. Chiavi: `zona` (default `castelli-romani`), `metodo` (`biologico` | `tradizionale` | `sinergico` | `nessuno`), `esperienza`, `superficie_mq` (numero: il tetto della fascia scelta nel primo avvio, 10 | 30 | 100 | 300, dove 300 vuol dire oltre 200 m²; `null` se non indicata), `acqua` (`poca` | `media` | `molta` | `null`), `tempo` (`poco` | `medio` | `molto` | `null`), `lingua` (`it`), `ai_provider` (`gemini`), `ai_modello`, `ai_chiave` (mai nel backup), `primo_avvio_fatto`.
-- `zone` (keyPath `id`): create ma vuote fino alla fase 3. Campi previsti: `id`, `nome`, `tipo` (`aiuola` | `terreno`), `misure`, `esposizione`, `terreno`.
+- `zone` (keyPath `id`): le zone di coltivazione dell'utente (fase 3). Campi: `id`, `nome`, `tipo` (`aiuola` | `terreno`), `stato` (`coltivata` | `da_preparare`), `misure` (`{ lunghezza_m, larghezza_m }`, numeri o `null`), `superficie_mq` (lunghezza x larghezza, o `null`), `esposizione` (`{ gradi }`: 0-359, la direzione verso cui guarda la zona; 0 = nord; `null` se non indicata), `terreno` (`null` oppure `{ tessitura, drenaggio, humus, risposte, barattolo, piante, aggiornato }`, vedi sotto), `note`, `creata`, `schemaVersion` (3). Non confondere con l'impostazione `zona`, che è la zona climatica.
+  - `terreno.tessitura`: `sabbioso` | `medio` | `argilloso` | `null`. `terreno.drenaggio`: `rapido` | `buono` | `lento` | `null`. `terreno.humus`: `povero` | `medio` | `ricco` | `null`.
+  - `terreno.risposte`: `{ idDomanda: idOpzione }` del questionario. `terreno.barattolo`: `null` oppure `{ sabbia_pct, limo_pct, argilla_pct }` (somma circa 100). `terreno.piante`: id delle piante indicatrici segnate dall'utente.
 - `eventi` (keyPath `id`): registro di ciò che succede. Campi: `id`, `tipo` (`lavoro_fatto` | `lavoro_saltato` | `nota` | ...), `zonaId`, `colturaId` (id utente), `schedaId`, `lavoroId`, `data`, `esito` (`ok` | `problema` | `saltato`), `note`, `creato` (ISO), `condivisibile` (sempre `false` per ora: la condivisione per zona, con consenso, è futura).
 
 ### Backup
