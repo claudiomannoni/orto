@@ -1,0 +1,827 @@
+{
+  "versione": 1,
+  "relazioni": [
+    {
+      "a": "pomodori",
+      "b": "basilico",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2",
+        "f5"
+      ]
+    },
+    {
+      "a": "peperoni",
+      "b": "basilico",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "carote",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "prezzemolo",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "cetrioli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "cipolla",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "aglio",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "asparagi",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "lattuga",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "spinaci",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "ravanelli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "carote",
+      "b": "piselli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "carote",
+      "b": "lattuga",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "carote",
+      "b": "cipolla",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2",
+        "f3"
+      ]
+    },
+    {
+      "a": "carote",
+      "b": "aglio",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "carote",
+      "b": "porri",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "carote",
+      "b": "ravanelli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "lattuga",
+      "b": "ravanelli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "lattuga",
+      "b": "cetrioli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "lattuga",
+      "b": "cipolla",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "lattuga",
+      "b": "aglio",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "broccoli",
+      "b": "bietola",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "broccoli",
+      "b": "spinaci",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "broccoli",
+      "b": "cipolla",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "broccoli",
+      "b": "aglio",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "broccoli",
+      "b": "porri",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "cavolfiori",
+      "b": "bietola",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "cavolfiori",
+      "b": "spinaci",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "cavolfiori",
+      "b": "cipolla",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "verze",
+      "b": "bietola",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "verze",
+      "b": "spinaci",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "piselli",
+      "b": "ravanelli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "piselli",
+      "b": "cetrioli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "piselli",
+      "b": "patate",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "fagiolini",
+      "b": "cetrioli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "fagiolini",
+      "b": "patate",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da più fonti di estensione universitaria (USA); il beneficio non è garantito.",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "fagiolini",
+      "b": "carote",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "zucchine",
+      "b": "ravanelli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "zucchine",
+      "b": "zucche",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "zucche",
+      "b": "ravanelli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "cetrioli",
+      "b": "ravanelli",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "melanzane",
+      "b": "fagiolini",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "prezzemolo",
+      "b": "asparagi",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "asparagi",
+      "b": "basilico",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "finocchi",
+      "b": "lattuga",
+      "tipo": "amica",
+      "perche": "Indicata come compatibile da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "fagiolini",
+      "b": "cipolla",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "fagiolini",
+      "b": "aglio",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "piselli",
+      "b": "cipolla",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "piselli",
+      "b": "aglio",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "patate",
+      "b": "pomodori",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "patate",
+      "b": "cetrioli",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "patate",
+      "b": "zucche",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "patate",
+      "b": "zucchine",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "finocchi",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "broccoli",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "cavolfiori",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "pomodori",
+      "b": "verze",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "prezzemolo",
+      "b": "carote",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    },
+    {
+      "a": "prezzemolo",
+      "b": "lattuga",
+      "tipo": "nemica",
+      "perche": "Sconsigliata da una tabella di estensione universitaria (USA).",
+      "certezza": "bassa",
+      "fonti": [
+        "f2"
+      ]
+    }
+  ],
+  "rotazione": {
+    "regole": [
+      {
+        "id": "rotazione-famiglie",
+        "testo": "Sposta ogni anno le colture e non mettere la stessa famiglia nella stessa aiuola per due anni di fila.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "id": "rotazione-patogeni",
+        "testo": "La rotazione aiuta contro i patogeni del suolo se la coltura successiva non è sensibile agli stessi patogeni.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "id": "alternanza-stagioni",
+        "testo": "Dopo colture di stagione fresca possono seguire colture calde; poi altre fresche o una coltura di copertura.",
+        "certezza": "media",
+        "fonti": [
+          "f4"
+        ]
+      },
+      {
+        "id": "anni-non-specificati",
+        "testo": "Le fonti consultate non indicano un numero universale di anni valido per tutte le famiglie e tutti gli orti.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      }
+    ],
+    "gruppi": [
+      {
+        "famiglia": "Solanaceae",
+        "colture": [
+          "pomodori",
+          "peperoni",
+          "melanzane",
+          "patate"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Fabaceae",
+        "colture": [
+          "fagiolini",
+          "fave",
+          "piselli"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Brassicaceae",
+        "colture": [
+          "broccoli",
+          "cavolfiori",
+          "verze",
+          "ravanelli",
+          "rucola"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Cucurbitaceae",
+        "colture": [
+          "cetrioli",
+          "zucche",
+          "zucchine"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Amaryllidaceae",
+        "colture": [
+          "aglio",
+          "cipolla",
+          "porri"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Apiaceae",
+        "colture": [
+          "carote",
+          "finocchi",
+          "prezzemolo"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Asteraceae",
+        "colture": [
+          "carciofi",
+          "lattuga"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Amaranthaceae",
+        "colture": [
+          "bietola",
+          "spinaci"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Asparagaceae",
+        "colture": [
+          "asparagi"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      },
+      {
+        "famiglia": "Lamiaceae",
+        "colture": [
+          "basilico"
+        ],
+        "dopo": [],
+        "nota": "Alterna con una famiglia diversa; le fonti consultate non fissano una coltura successiva per questa famiglia.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f4"
+        ]
+      }
+    ]
+  },
+  "da_verificare": [
+    "Le consociazioni della tabella Virginia Extension sono indicazioni generali: mancano prove specifiche per molte coppie e per il clima italiano.",
+    "Verificare con prove locali le coppie sconsigliate e i loro effetti sulle varietà coltivate.",
+    "Le fonti non fissano un intervallo universale in anni per ogni famiglia: applicare la regola di non ripetizione consecutiva."
+  ],
+  "fonti": {
+    "f1": {
+      "titolo": "Vegetable Gardening in Oregon",
+      "ente": "Oregon State University Extension Service",
+      "url": "https://extension.oregonstate.edu/pub/ec-871-0",
+      "consultata": "2026-10-31",
+      "nota": "Rotazione: evitare di coltivare la stessa famiglia nello stesso posto in anni consecutivi; tabella delle famiglie."
+    },
+    "f2": {
+      "titolo": "Companion Planting in Gardening (SPES-620P)",
+      "ente": "Virginia Cooperative Extension, Virginia Tech e Virginia State University",
+      "url": "https://www.pubs.ext.vt.edu/content/pubs_ext_vt_edu/en/SPES/spes-620.html",
+      "consultata": "2026-10-31",
+      "nota": "Tabella di coppie consigliate e sconsigliate per orto; usata come elenco generale, non come prova sperimentale per ogni coppia."
+    },
+    "f3": {
+      "titolo": "Three ways to use companion planting",
+      "ente": "Royal Horticultural Society",
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/companion-planting",
+      "consultata": "2026-10-31",
+      "nota": "Limiti delle consociazioni, carote-cipolle, tagete-pomodori, lattuga-alyssum e coltura delle tre sorelle."
+    },
+    "f4": {
+      "titolo": "Vegetable Succession and Companion Planting",
+      "ente": "University of Maryland Extension",
+      "url": "https://extension.umd.edu/resource/vegetable-succession-and-companion-planting",
+      "consultata": "2026-10-31",
+      "nota": "Alternanza stagionale, famiglie botaniche, rotazione e consociazione per uso dello spazio."
+    },
+    "f5": {
+      "titolo": "Companion Planting: Myth or Truth?",
+      "ente": "Mississippi State University Extension Service",
+      "url": "https://extension.msstate.edu/blogs/extension-for-real-life/companion-planting-myth-or-truth",
+      "consultata": "2026-10-31",
+      "nota": "Spiega che molte affermazioni sono incerte e riassume studi su basilico/tagete e insetti."
+    }
+  }
+}
