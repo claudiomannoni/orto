@@ -38,7 +38,7 @@ export async function monta(contenitore) {
   const scegliGalleria = el('button', { class: 'btn', type: 'button', id: 'dottore-galleria' }, t('dottore.galleria'));
 
   // Tutto sincrono: il telefono apre la fotocamera solo se il gesto è ancora «fresco», dopo un await non lo è più.
-  const apri = (campoFile) => {
+  const apri = (campoFile, dallaCamera = false) => {
     if (!haChiave) { sostituisci(area, el('p', { class: 'avviso' }, t('foto.serve_chiave'))); return; }
     if (!restanti) { sostituisci(area, el('p', { class: 'avviso' }, t('foto.errore.tetto'))); return; }
     if (!consenso) {
@@ -46,13 +46,42 @@ export async function monta(contenitore) {
       consenso = true;
       imposta('ai_foto_ok', true);
     }
-    campoFile.click();
+    if (dallaCamera && navigator.mediaDevices?.getUserMedia) avviaCamera(campoFile);
+    else campoFile.click();
   };
-  scatta.addEventListener('click', () => apri(input));
+
+  // La fotocamera dentro la pagina: su molti Android aprire l'app fotocamera chiude questa pagina e la foto si perde.
+  async function avviaCamera(riserva) {
+    let flusso;
+    try {
+      flusso = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false });
+    } catch {
+      riserva.click(); // nessun permesso o nessuna camera: si usa quella di sistema
+      return;
+    }
+    const video = el('video', { class: 'dottore-video', autoplay: true, muted: true, playsinline: true });
+    video.srcObject = flusso;
+    const chiudi = () => { flusso.getTracks().forEach((x) => x.stop()); sostituisci(anteprima); };
+    const scatto = el('button', { class: 'btn primario grande', type: 'button', id: 'dottore-click' }, t('dottore.click'));
+    scatto.addEventListener('click', () => {
+      if (!video.videoWidth) return;
+      const tela = document.createElement('canvas');
+      tela.width = video.videoWidth;
+      tela.height = video.videoHeight;
+      tela.getContext('2d').drawImage(video, 0, 0);
+      tela.toBlob((blob) => { chiudi(); if (blob) elabora(new File([blob], 'pianta.jpg', { type: 'image/jpeg' })); }, 'image/jpeg', 0.9);
+    });
+    sostituisci(anteprima, video, el('div', { class: 'riga' }, scatto, el('button', { class: 'btn', type: 'button', onclick: chiudi }, t('form.annulla'))));
+  }
+  scatta.addEventListener('click', () => apri(input, true));
   scegliGalleria.addEventListener('click', () => apri(galleria));
 
   const alloScatto = async (campoFile) => {
     const file = campoFile.files[0];
+    try { await elabora(file); } finally { campoFile.value = ''; }
+  };
+
+  async function elabora(file) {
     if (!file) return;
     scatta.disabled = true;
     sostituisci(area, el('p', { class: 'aiuto' }, t('dottore.guardo')));
@@ -77,9 +106,8 @@ export async function monta(contenitore) {
       sostituisci(area, el('p', { class: 'avviso', role: 'alert' }, testoErrore(e)));
     } finally {
       scatta.disabled = false;
-      campoFile.value = '';
     }
-  };
+  }
   input.addEventListener('change', () => alloScatto(input));
   galleria.addEventListener('change', () => alloScatto(galleria));
 

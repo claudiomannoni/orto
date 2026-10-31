@@ -1,0 +1,31 @@
+// La fotocamera dentro la pagina (camera finta di Chromium). Uso: node tests/27-camera.mjs http://localhost:8101
+import { chromium, nuovoContesto, check, osserva, finale, vai } from './lib.mjs';
+const browser = await chromium.launch({ args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'] });
+const problemi = [];
+const ctx = await nuovoContesto(browser, { serviceWorkers: 'block', permissions: ['camera'] });
+const page = await ctx.newPage();
+osserva(page, problemi);
+page.on('dialog', (d) => d.accept());
+const buona = JSON.stringify({ pianta: { nome: 'Basilico', confidenza: 'media' }, stato: 'sana', problemi: [], avvisi: '' });
+const CORS = { 'access-control-allow-origin': '*', 'access-control-allow-headers': '*', 'access-control-allow-methods': '*' };
+let richieste = 0;
+await page.route('**/generativelanguage.googleapis.com/**', (route) => {
+  if (route.request().method() === 'OPTIONS') return route.fulfill({ status: 204, headers: CORS });
+  richieste++;
+  return route.fulfill({ status: 200, headers: { ...CORS, 'content-type': 'application/json' }, body: JSON.stringify({ candidates: [{ content: { parts: [{ text: buona }] } }] }) });
+});
+await vai(page, 'oggi');
+await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const tx = d.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').put({ chiave: 'ai_chiave', valore: 'AIzaSyFINTA-camera-1234567890' }); tx.oncomplete = () => { d.close(); ok(); }; }; }));
+await vai(page, 'dottore');
+await page.waitForSelector('#dottore-scatta');
+await page.click('#dottore-scatta');
+await page.waitForSelector('video.dottore-video');
+await page.waitForFunction(() => document.querySelector('video.dottore-video').videoWidth > 0);
+await page.click('#dottore-click');
+await page.waitForSelector('.dottore-risultato .diagnosi');
+check('scatto dalla camera in pagina: diagnosi mostrata e una richiesta', /Basilico/.test(await page.locator('.dottore-risultato').innerText()) && richieste === 1);
+check('la camera si spegne dopo lo scatto', await page.evaluate(() => !document.querySelector('video.dottore-video')));
+const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked/.test(p));
+check('nessun errore in console', veri.length === 0, veri.join(' | '));
+await browser.close();
+process.exit(finale() ? 1 : 0);

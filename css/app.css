@@ -614,3 +614,4 @@ button.tessera-azione { font: inherit; text-align: left; cursor: pointer; }
 .meteo-dettagli summary { min-height: 44px; display: flex; align-items: center; }
 
 .solo-lettori { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; pointer-events: none; }
+.dottore-video { width: 100%; max-height: 60vh; border-radius: 14px; background: #000; object-fit: cover; }
