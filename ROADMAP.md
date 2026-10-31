@@ -36,7 +36,15 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [x] 27 schede coltura, con lavori in tutti i 12 mesi: 5 di prova, 6 per novembre-dicembre (broccolo, porro, carciofo, carota, lattuga, bietola), 8 per gennaio-aprile (pomodoro, peperone, melanzana, zucchina, patata, asparago, ravanello, rucola) e 8 per maggio-ottobre (fagiolino, zucca, cetriolo, finocchio, cavolfiore, verza, basilico, prezzemolo). Fonti aperte e lette, certezza quasi sempre media (prezzemolo e lattuga bassa). Tutti i calendari sono generali, non specifici per i Castelli: date per quota e microclima, gelo e fabbisogno d'acqua estivo restano da verificare. Gennaio ha solo 2 lavori
 - [x] Calendario lunare: fasi calcolate (errore sotto il giorno), sezione "La luna" nel Calendario. Rosso porta la tradizione, Rossella dice che non ci sono prove solide. Prova: `tests/fase2-luna.mjs`
 - [x] Icone illustrate per tutte le 27 colture (SVG originali, in `assets/colture/`)
-- [ ] Da fare: più colture e più lavori nei mesi scarsi (gennaio), consociazioni e rotazioni con fonti, dati verificati sul gelo e sul clima della zona (ARSIAL, ARPA Lazio); poi la fase 3 (zone, bussola, terreno)
+- [ ] Da fare: più colture e più lavori nei mesi scarsi (gennaio), consociazioni e rotazioni con fonti, dati verificati sul gelo e sul clima della zona (ARSIAL, ARPA Lazio)
+
+## Fase 3 — zone, misure, bussola, terreno
+
+- [x] Zone (aiuole e terreni, già coltivati o da preparare) con misure e superficie; le colture si possono legare a una zona. Prova: `tests/08-zone.mjs`
+- [x] Esposizione dalla bussola del telefono (sensore su Android, `webkitCompassHeading` su iOS, otto direzioni a tocco se il sensore non c'è) con la nota di Rossella sul sole. **Il sensore vero non è provato: nei test è simulato**
+- [x] Profilo del terreno: 7 domande, 10 erbe spontanee indicatrici (certezza bassa), test del barattolo, 9 consigli, 4 fonti. Il profilo (tessitura, acqua, sostanza organica) si ricava dalle risposte; la misura del barattolo vale più delle risposte. Prove: `tests/fase3-profilo.mjs`, `tests/fase3-terreno.mjs`
+- [ ] Diario fotografico datato per zona e coltura (serve un nuovo store e una decisione su come metterlo nel backup: le foto pesano)
+- [ ] Consigli del terreno dentro «Oggi» e nel calendario (per esempio: terreno argilloso, non lavorare da bagnato)
 
 ## Futuro, non ora
 

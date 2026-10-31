@@ -340,6 +340,7 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .fasi li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 2px dashed var(--bordo); padding-bottom: 6px; }
 
 /* ---------- Zone, bussola, terreno ---------- */
+[hidden] { display: none !important; }
 .zona { gap: 10px; }
 .dato { display: grid; gap: 2px; }
 .dato-nome { font-size: .85rem; color: var(--inchiostro-2); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
