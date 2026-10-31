@@ -339,6 +339,31 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .fasi { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .fasi li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 2px dashed var(--bordo); padding-bottom: 6px; }
 
+/* ---------- Zone, bussola, terreno ---------- */
+.zona { gap: 10px; }
+.dato { display: grid; gap: 2px; }
+.dato-nome { font-size: .85rem; color: var(--inchiostro-2); font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.bussola { position: relative; width: 168px; height: 168px; margin: 8px auto; border: 4px solid var(--bordo); border-radius: 50%; background: var(--sfondo); }
+.bussola-freccia { position: absolute; inset: 0; transition: transform .15s linear; }
+.bussola-freccia::before { content: "N"; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); font-weight: 800; color: var(--rosso); }
+.bussola-freccia::after { content: ""; position: absolute; left: 50%; top: 32px; transform: translateX(-50%); border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 60px solid var(--rosso); }
+.bussola-davanti { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 14px solid var(--inchiostro); }
+.bussola-lettura { text-align: center; min-height: 1.4em; }
+.direzioni { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.direzioni .btn { padding: 0 8px; }
+.direzioni .btn[aria-pressed="true"] { border-color: var(--verde); background: var(--verde-chiaro); }
+.sezione-terreno { border: 2px solid var(--bordo); border-radius: var(--raggio); padding: 4px 14px; }
+.sezione-terreno > summary { min-height: var(--tocco); display: flex; align-items: center; font-weight: 800; cursor: pointer; }
+.domanda { padding: 8px 0; }
+.domanda label { flex: 1 1 100%; }
+.pianta { display: flex; gap: 10px; align-items: flex-start; border-bottom: 2px dashed var(--bordo); padding: 10px 0; font-weight: 400; }
+.pianta input { width: 24px; height: 24px; min-height: 0; margin-top: 4px; accent-color: var(--verde); flex: none; }
+.pianta > span { display: grid; gap: 2px; }
+.elenco-semplice { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.consigli { display: grid; gap: 10px; }
+.consigli > div { display: grid; gap: 4px; justify-items: start; }
+.terreno-form { padding-bottom: 8px; }
+
 /* ---------- Primo avvio guidato ---------- */
 .barra[hidden] { display: none; }
 .passo { color: var(--inchiostro-2); font-weight: 700; margin-bottom: -6px; }

@@ -11,6 +11,8 @@ const ICONE = {
 };
 
 export const ROTTE = ['oggi', 'calendario', 'colture', 'impostazioni'];
+// Schermate che non hanno una voce propria nella barra: si evidenzia quella da cui si arriva.
+export const SOTTOROTTE = { zone: 'colture' };
 
 function icona(nome) {
   const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

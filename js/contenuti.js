@@ -39,6 +39,11 @@ export async function glossario() {
   return Object.fromEntries((dati?.termini ?? []).map((termine) => [termine.id, termine]));
 }
 
+// Contenuti per capire il terreno (questionario, piante indicatrici, test del barattolo, consigli), o null.
+export async function terreno() {
+  return json(`data/${lingua}/terreno.json`);
+}
+
 export function trovaScheda(schede, nome) {
   const cercato = normalizza(nome);
   if (!cercato) return null;

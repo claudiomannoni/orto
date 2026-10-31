@@ -2,7 +2,7 @@
 import { caricaTesti, t } from './i18n.js';
 import { leggi } from './store/impostazioni.js';
 import { impostaLingua } from './contenuti.js';
-import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE } from './ui/nav.js';
+import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 
 const schermate = {
@@ -11,6 +11,7 @@ const schermate = {
   colture: () => import('./screens/colture.js'),
   impostazioni: () => import('./screens/impostazioni.js'),
   benvenuto: () => import('./screens/benvenuto.js'),
+  zone: () => import('./screens/zone.js'),
 };
 
 const contenitore = document.getElementById('schermata');
@@ -32,14 +33,14 @@ async function primoAvvioDaFare() {
 
 async function mostra() {
   const richiesta = location.hash.replace(/^#\//, '');
-  const rotta = ROTTE.includes(richiesta) || richiesta === PRIMO_AVVIO ? richiesta : 'oggi';
+  const rotta = ROTTE.includes(richiesta) || richiesta in SOTTOROTTE || richiesta === PRIMO_AVVIO ? richiesta : 'oggi';
   if (rotta !== PRIMO_AVVIO && await primoAvvioDaFare()) {
     location.replace(`#/${PRIMO_AVVIO}`);
     return;
   }
   rottaCorrente = rotta;
   barra.hidden = rotta === PRIMO_AVVIO;
-  aggiornaBarra(barra, rotta);
+  aggiornaBarra(barra, SOTTOROTTE[rotta] ?? rotta);
   contenitore.replaceChildren();
   try {
     const modulo = await schermate[rotta]();

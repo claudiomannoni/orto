@@ -2,6 +2,7 @@
 import { el, oggiISO, giorniDa, aggiungiGiorni, formattaData } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
+import { elencoZone } from '../store/zone.js';
 import { catalogo, trovaScheda } from '../contenuti.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
@@ -9,6 +10,7 @@ import { toast } from '../ui/toast.js';
 
 let schede = [];
 let colture = [];
+let zone = [];
 let lista;
 let conteggio;
 
@@ -33,6 +35,7 @@ function scheda(coltura) {
       el('p', { class: 'meta' },
         el('span', { class: `etichetta ${coltura.dove}` }, t(`form.dove.${coltura.dove}`)),
         ' ', t('coltura.seminata_il', { data: formattaData(coltura.dataSemina) }),
+        zone.find((z) => z.id === coltura.zonaId) ? ` · ${zone.find((z) => z.id === coltura.zonaId).nome}` : '',
       ),
     ),
     el('div', { class: 'giorni' }, el('strong', {}, String(numero)), el('span', {}, etichetta)),
@@ -86,6 +89,8 @@ function apriNuova() {
       el('label', {}, el('input', { type: 'radio', name: 'dove', value: 'semenzaio', checked: true }), t('form.dove.semenzaio')),
       el('label', {}, el('input', { type: 'radio', name: 'dove', value: 'orto' }), t('form.dove.orto')),
     ),
+    zone.length ? el('label', {}, t('form.zona'),
+      el('select', { name: 'zonaId' }, [el('option', { value: '' }, t('form.zona.nessuna')), ...zone.map((z) => el('option', { value: z.id }, z.nome))])) : null,
     el('label', {}, t('form.note'), el('textarea', { name: 'note', rows: 3, placeholder: t('form.note.esempio') })),
     el('div', { class: 'riga' },
       el('button', { class: 'btn', type: 'button', onclick: () => foglio.close() }, t('form.annulla')),
@@ -104,6 +109,7 @@ function apriNuova() {
       dove: dati.get('dove'),
       note: dati.get('note'),
       schedaId: trovaScheda(schede, nome)?.id,
+      zonaId: dati.get('zonaId'),
     });
     if (!coltura.nome || !coltura.dataSemina) return;
     await salvaColtura(coltura);
@@ -116,12 +122,13 @@ function apriNuova() {
 }
 
 export async function monta(contenitore) {
-  [colture, schede] = await Promise.all([elencoColture(), catalogo()]);
+  [colture, schede, zone] = await Promise.all([elencoColture(), catalogo(), elencoZone()]);
   conteggio = el('span', { class: 'conteggio' }, '0');
   lista = el('ul', { class: 'lista' });
   contenitore.append(
     el('h2', { class: 'titolo-schermata' }, t('colture.titolo'), ' ', conteggio),
     el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
+    el('a', { class: 'btn', href: '#/zone' }, t('colture.le_mie_zone')),
     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
     lista,
   );
