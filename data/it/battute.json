@@ -1,0 +1,332 @@
+{
+  "versione": 1,
+  "contesti": {
+    "tocco": {
+      "rosso": [
+        "Il nonno diceva: chi lavora la terra, poi si siede con soddisfazione.",
+        "Ho il cappello da contadino, ma sotto sono tutto muscoli di lombrico.",
+        "Io non corro: rispetto i tempi della tradizione.",
+        "Il mio taccuino è il terreno, ci scrivo passandoci.",
+        "Un proverbio? Aspetta che lo dissotterro.",
+        "Sono un lombrico: il mio mestiere è girare, e lo faccio bene.",
+        "Il nonno chiamava questo un giorno da vangare; io preferisco girare.",
+        "Non ho maniche, ma so rimboccarmele lo stesso.",
+        "La terra mi conosce: ci siamo incontrati parecchie volte.",
+        "Il cappello è di paglia, il carattere è di coccio.",
+        "Io porto esperienza; le prove le lascia a Rossella.",
+        "Se mi cerchi, sono qui sotto, a fare il mio girotondo.",
+        "Dicono che sono testardo; il nonno lo chiamava costanza.",
+        "Una pausa? La metto in agenda sotto: riposo del lombrico.",
+        "Il mio passo è lento, ma il giro è completo.",
+        "La terra è la mia strada, e non pago il pedaggio."
+      ],
+      "rossella": [
+        "Non ho occhi: per orientarmi uso il tatto e l'umidità intorno.",
+        "Il lombrico lavora il terreno e contribuisce a formare humus.",
+        "Ho gli occhialini, ma per leggere uso soprattutto il tatto.",
+        "Rosso dice che il nonno lo sapeva; io cerco anche le prove.",
+        "Un dato alla volta: il taccuino non si compila da solo.",
+        "Sono prudente, non lenta: sto controllando ogni parola.",
+        "Non prometto miracoli: al massimo una nota ben ordinata.",
+        "Rosso ha un proverbio per tutto; io ho una matita per gli appunti.",
+        "La scienza non sa tutto, ma sa dire quando è incerta.",
+        "Non ho occhi, eppure le mie verifiche vedono lontano.",
+        "Se una prova è debole, la scrivo chiaro sul taccuino.",
+        "Lavoriamo sottoterra: almeno lì nessuno ci chiede la cravatta.",
+        "Il mio appunto preferito? Da verificare, senza fretta.",
+        "Rosso porta la tradizione; io controllo che non inciampi.",
+        "Un lombrico curioso è già a metà di una buona domanda.",
+        "Ho finito gli appunti, ma non le domande."
+      ]
+    },
+    "inverno": {
+      "rosso": [
+        "Cappello di paglia e sciarpa: il nonno diceva che lo stile scalda.",
+        "Con questo cappotto sembro un contadino in vacanza sulla neve.",
+        "La sciarpa è nuova, il cappello è fedele alla tradizione.",
+        "Mi sono vestito a strati: sotto c'è sempre un lombrico.",
+        "Il cappotto è elegante; il cappello di paglia non ha voluto uscire.",
+        "In inverno la mia paglia fa contrasto con la sciarpa. Dice il nonno."
+      ],
+      "rossella": [
+        "Occhialini sotto la sciarpa: i miei appunti restano al caldo.",
+        "Il cappotto è comodo, anche se il taccuino sporge un po'.",
+        "Le mie lenti sono tonde; la sciarpa cerca di imitarle.",
+        "Ho messo il cappotto, ma le osservazioni restano prudenti.",
+        "Questo inverno annoto tutto, compreso il mio nuovo colletto.",
+        "Rosso conserva la paglia; io tengo al caldo gli occhialini."
+      ]
+    },
+    "estate": {
+      "rosso": [
+        "Occhiali da sole? Io ho già il cappello, dice il nonno.",
+        "Con questo caldo la paglia è in tenuta da festa.",
+        "Gli occhiali mi danno un'aria da contadino in tournée.",
+        "Estate: il cappello fa ombra e il proverbio fa compagnia.",
+        "Mi sono vestito leggero: il lombrico resta rosso di suo.",
+        "Questi occhiali sono scuri, ma la mia tradizione è chiarissima."
+      ],
+      "rossella": [
+        "Occhiali da sole sopra gli occhialini: doppia lente, doppio appunto.",
+        "Ho due paia di occhiali e ancora nessun occhio, che organizzazione.",
+        "Gli occhiali sono per il look; gli appunti restano nel taccuino.",
+        "In estate porto le lenti scure sopra quelle tonde.",
+        "Rosso dice che la paglia basta; io ho scelto il doppio accessorio.",
+        "Il mio outfit estivo ha più strati di una spiegazione prudente."
+      ]
+    },
+    "primavera": {
+      "rosso": [
+        "Un fiore sul cappello: il nonno lo chiamava eleganza campestre.",
+        "La primavera mi mette in testa idee colorate e petali.",
+        "Ho abbellito la paglia: tradizione con un tocco floreale.",
+        "Questo fiore non è un proverbio, ma gli sta bene accanto.",
+        "Mi sento un giardino ambulante, con una sola direzione: avanti.",
+        "Il nonno diceva: un fiore sul cappello rallegra anche il lombrico."
+      ],
+      "rossella": [
+        "Ho un fiore tra gli appunti: lo studio della primavera è colorato.",
+        "Il fiore è decorativo; le mie conclusioni restano da controllare.",
+        "Occhialini e petali: oggi il taccuino profuma di primavera.",
+        "Rosso ha scelto la paglia fiorita; io annoto il cambio di stagione.",
+        "Un fiore non dimostra una teoria, però sta bene nei capelli.",
+        "Mi sono messa un fiore: la prudenza può essere primaverile."
+      ]
+    },
+    "autunno": {
+      "rosso": [
+        "Una foglia sul cappello: il nonno la chiamava moda di stagione.",
+        "Sono vestito d'autunno, ma il cappello resta di paglia.",
+        "Le foglie cadono, la mia testardaggine resta ben salda.",
+        "Mi sono messo una foglia: raccolta di stile, dice il nonno.",
+        "Con questo colore sembro un proverbio appena caduto dall'albero.",
+        "L'autunno mi dona: persino la paglia si sente in stagione."
+      ],
+      "rossella": [
+        "La foglia è un accessorio, non una prova scientifica.",
+        "In autunno il mio taccuino prende il colore delle foglie.",
+        "Rosso indossa la tradizione; io una foglia da osservare.",
+        "Ho scelto una foglia: classificazione, per ora, decorativa.",
+        "Le foglie cambiano colore; i miei appunti cambiano pagina.",
+        "Questo look autunnale è approvato dal comitato del taccuino."
+      ]
+    },
+    "halloween": {
+      "rosso": [
+        "La zucca in testa è leggera; il cappello di paglia è sotto.",
+        "Costume da zucca: il nonno dice che la paglia fa da manico.",
+        "Sono una zucca gentile, con un lombrico testardo dentro.",
+        "La mia zucca non spaventa: al massimo fa ombra al cappello.",
+        "Rossella fa la strega, io la zucca: la tradizione di casa si adegua.",
+        "Con questa zucca sembro pronto per una raccolta di risate."
+      ],
+      "rossella": [
+        "La zucca è un costume allegro; le mie note restano serissime.",
+        "Occhialini e zucca: ho trovato un nuovo modo di fare ricerca.",
+        "Questa zucca non contiene formule, solo un sorriso cucito.",
+        "Rosso ha la paglia sotto la zucca; io ho gli appunti al sicuro.",
+        "La mia strega è finta e molto interessata al taccuino.",
+        "Halloween è più divertente quando anche le note hanno un cappello."
+      ]
+    },
+    "natale": {
+      "rosso": [
+        "Cappello di Babbo Natale sopra la paglia: doppia tradizione.",
+        "Ho chiesto un regalo al nonno: una sciarpa per il cappello.",
+        "La neve è finta, ma il mio sorriso natalizio è collaudato.",
+        "Con questo cappello porto regali e un proverbio per ciascuno.",
+        "Il mio pacco è piccolo: sono un lombrico, viaggio leggero e senza valigie.",
+        "Babbo Natale ha visto la paglia e mi ha lasciato il cappello rosso."
+      ],
+      "rossella": [
+        "Il cappello natalizio non copre gli appunti: ho fatto una prova.",
+        "Ho messo gli occhialini sotto il berretto: Natale è salvo.",
+        "Questo regalo contiene un taccuino nuovo, finalmente senza scarabocchi.",
+        "La neve è decorativa; le mie conclusioni restano senza fiocchi.",
+        "Rosso porta i proverbi in dono; io aggiungo una nota cauta.",
+        "Il mio cappello ha un pon pon e nessuna pretesa scientifica."
+      ]
+    },
+    "festa": {
+      "rosso": [
+        "Il cappellino è storto: il nonno dice che così porta allegria.",
+        "Ho i coriandoli sul cappello e la paglia sotto, come sempre.",
+        "Per la festa ho lucidato il sorriso, non il proverbio.",
+        "Il mio cappellino fa festa; io continuo a fare il contadino.",
+        "Coriandoli ovunque: la tradizione oggi è fare un po' di confusione.",
+        "Sono pronto a festeggiare, con la paglia in prima fila."
+      ],
+      "rossella": [
+        "Coriandoli nel taccuino: archivio festivo, da riordinare domani.",
+        "Il mio cappellino è allegro, le mie conclusioni sempre caute.",
+        "Ho festoni e occhialini: manca solo spazio per altri appunti.",
+        "Rosso ha scelto la paglia; io ho scelto il cappellino a pois.",
+        "I coriandoli sono tanti, ma nessuno vale come dato verificato.",
+        "Per oggi il taccuino riposa: festa anche per le note."
+      ]
+    },
+    "cambio_abito": {
+      "rosso": [
+        "Nuovo vestito, vecchia paglia: il nonno approva il compromesso.",
+        "Mi cambio d'abito, ma non di proverbio.",
+        "Questo vestito è nuovo; la testardaggine è della stagione scorsa.",
+        "Cambio cappello? Mai. Cambio il resto? Forse, dice il nonno.",
+        "Pronto per il cambio: datemi un momento per sistemare la paglia."
+      ],
+      "rossella": [
+        "Abito nuovo, taccuino sempre con me: metodo collaudato.",
+        "Ho cambiato vestito, non il grado di prudenza.",
+        "Questo accessorio è nuovo; la mia curiosità è di sempre.",
+        "Cambio look completato, ora aggiorno gli appunti sul tessuto.",
+        "Mi vesto a festa, ma le conclusioni restano da verificare."
+      ]
+    }
+  },
+  "scambi": [
+    {
+      "contesto": "tocco",
+      "rosso": "Il nonno dice che un proverbio vale una pala.",
+      "rossella": "Io ne ho cercate le prove, ma ho trovato solo il taccuino."
+    },
+    {
+      "contesto": "tocco",
+      "rosso": "Sai perché porto la paglia? Tradizione di famiglia.",
+      "rossella": "E gli occhialini? Promemoria che non ho occhi."
+    },
+    {
+      "contesto": "tocco",
+      "rosso": "Oggi ho lavorato tanto: ho fatto un giro completo.",
+      "rossella": "Confermo il giro; sul tanto non ho ancora misurato."
+    },
+    {
+      "contesto": "tocco",
+      "rosso": "Il nonno dice che la terra premia la pazienza.",
+      "rossella": "La pazienza sì; sul premio, lasciamo parlare la tradizione."
+    },
+    {
+      "contesto": "tocco",
+      "rosso": "Rossella, ho un proverbio nuovo di zecca.",
+      "rossella": "Lo annoto, poi vediamo se regge una verifica."
+    },
+    {
+      "contesto": "tocco",
+      "rosso": "Ho finito il lavoro e ho le mani pulite.",
+      "rossella": "Non ne hai, Rosso, ma apprezzo il risultato."
+    },
+    {
+      "contesto": "tocco",
+      "rosso": "La mia esperienza sta tutta sotto il cappello.",
+      "rossella": "E i miei appunti stanno tutti sotto gli occhialini."
+    },
+    {
+      "contesto": "tocco",
+      "rosso": "Un lombrico non ha fretta: lo diceva il nonno.",
+      "rossella": "Su questo posso confermare: stiamo parlando con calma."
+    },
+    {
+      "contesto": "inverno",
+      "rosso": "Sciarpa e paglia: il nonno dice che il contrasto è elegante.",
+      "rossella": "Io noto che gli occhialini sono al caldo, finalmente."
+    },
+    {
+      "contesto": "inverno",
+      "rosso": "Il mio cappotto è pronto per la neve finta.",
+      "rossella": "E il taccuino è pronto per annotare il costume."
+    },
+    {
+      "contesto": "inverno",
+      "rosso": "La paglia non va in letargo, dice il nonno.",
+      "rossella": "L'accessorio no, ma il proverbio lo tengo sotto osservazione."
+    },
+    {
+      "contesto": "estate",
+      "rosso": "Gli occhiali da sole fanno coppia con la mia paglia.",
+      "rossella": "I miei sono sopra gli occhialini, per un look doppio."
+    },
+    {
+      "contesto": "estate",
+      "rosso": "Con questo cappello l'estate è tutta tradizione.",
+      "rossella": "Con queste lenti, la tradizione è anche molto scura."
+    },
+    {
+      "contesto": "estate",
+      "rosso": "Mi basta la paglia per essere elegante, dice il nonno.",
+      "rossella": "Io ho aggiunto gli occhiali: nessun dato sull'eleganza."
+    },
+    {
+      "contesto": "primavera",
+      "rosso": "Il fiore sul cappello è un omaggio al giardino.",
+      "rossella": "Bello, ma non basta a dimostrare una teoria."
+    },
+    {
+      "contesto": "primavera",
+      "rosso": "La paglia fiorita era una moda del nonno.",
+      "rossella": "La segno come tradizione, con un petalo a margine."
+    },
+    {
+      "contesto": "primavera",
+      "rosso": "Con un fiore mi sento già in festa.",
+      "rossella": "Io mi sento pronta a catalogarlo con cura."
+    },
+    {
+      "contesto": "autunno",
+      "rosso": "Ho una foglia sul cappello: raccolta personale.",
+      "rossella": "La classifico come accessorio, non come dato."
+    },
+    {
+      "contesto": "autunno",
+      "rosso": "La mia paglia non teme le foglie, dice il nonno.",
+      "rossella": "E il mio taccuino non teme le pagine colorate."
+    },
+    {
+      "contesto": "autunno",
+      "rosso": "Questo look è caduto dall'albero, proprio come le foglie.",
+      "rossella": "L'abbigliamento è stagionale; il gioco di parole pure."
+    },
+    {
+      "contesto": "halloween",
+      "rosso": "La zucca mi sta bene, parola del nonno.",
+      "rossella": "La tengo per buona come opinione di famiglia."
+    },
+    {
+      "contesto": "halloween",
+      "rosso": "Sotto la zucca c'è sempre il cappello di paglia.",
+      "rossella": "Io controllo solo che i miei occhialini siano al loro posto."
+    },
+    {
+      "contesto": "halloween",
+      "rosso": "La mia strega è finta e saluta con garbo.",
+      "rossella": "La mia zucca è finta e prende appunti."
+    },
+    {
+      "contesto": "natale",
+      "rosso": "Ho messo il cappello rosso per fare gli auguri.",
+      "rossella": "E io il taccuino, per annotare chi porta i regali."
+    },
+    {
+      "contesto": "natale",
+      "rosso": "Il nonno dice che la paglia sta bene anche a Natale.",
+      "rossella": "Lo registro come gusto personale, con pon pon."
+    },
+    {
+      "contesto": "natale",
+      "rosso": "Il mio pacco è leggero, ma pieno di buone intenzioni.",
+      "rossella": "Il mio contiene appunti: peso variabile, contenuto verificabile."
+    },
+    {
+      "contesto": "festa",
+      "rosso": "Coriandoli sulla paglia: il nonno approverebbe.",
+      "rossella": "Approvo, ma qualcuno li deve contare: per il verbale."
+    },
+    {
+      "contesto": "festa",
+      "rosso": "Il cappellino è storto, ma la festa è dritta.",
+      "rossella": "Annotazione: Rosso ha inventato una geometria festiva."
+    },
+    {
+      "contesto": "festa",
+      "rosso": "Oggi il proverbio è: si balla con prudenza.",
+      "rossella": "Io lo verifico domani, dopo aver riposato."
+    }
+  ]
+}
