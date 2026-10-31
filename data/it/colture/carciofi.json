@@ -2,25 +2,133 @@
   "versione": 1,
   "id": "carciofi",
   "nome": "Carciofo",
-  "alias": ["carciofi"],
+  "alias": [
+    "carciofi"
+  ],
   "nome_scientifico": "Cynara cardunculus var. scolymus",
   "famiglia": "Asteraceae",
   "icona": "assets/colture/carciofi.svg",
   "descrizione": "Ortaggio perenne coltivato per i capolini. Le varietà autunnali possono produrre a cavallo dell'inverno; quelle primaverili hanno un calendario diverso.",
-  "giorni_alla_raccolta": { "min": null, "max": null, "certezza": "bassa", "fonti": [] },
-  "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },
-  "consociazioni": { "amiche": [], "nemiche": [], "note": "Non inserite: indicazioni non verificate.", "certezza": "bassa", "fonti": [] },
-  "rotazione": { "dopo": [], "prima_di": [], "note": "La coltura è poliennale; successioni e durata locale sono da verificare.", "certezza": "bassa", "fonti": [] },
+  "giorni_alla_raccolta": {
+    "min": null,
+    "max": null,
+    "certezza": null,
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": null,
+    "distanza_file_cm": null,
+    "distanza_piante_cm": null,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [],
+    "nemiche": [],
+    "note": "Non inserite: indicazioni non verificate.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [],
+    "prima_di": [],
+    "note": "La coltura è poliennale; successioni e durata locale sono da verificare.",
+    "certezza": "bassa",
+    "fonti": []
+  },
   "avvisi": [],
-  "calendario": { "castelli-romani": [
-    { "id": "carciofi-trapianto", "operazione": "trapianto", "titolo": "Trapianta i carducci", "mesi": [11], "perche": "CREA riporta per il Carciofo Moretto la possibilità di prelevare e trapiantare carducci da ottobre a marzo. È un'indicazione riferita a un ecotipo dell'Emilia-Romagna, da non trasferire automaticamente alle varietà dei Castelli.", "glossario": ["trapianto"], "metodi": [{ "tipo": "tradizionale", "come": "Metti a dimora carducci ben sviluppati solo se hai materiale adatto e il terreno non è saturo d'acqua.", "pro": ["Consente di moltiplicare la carciofaia"], "contro": ["Epoca e attecchimento locali non confermati"] }], "rosso": "Dice il nonno: si pianta il carduccio e si aspetta il carciofo.", "rossella": "Il trapianto autunnale è documentato per un ecotipo; per i Castelli la riuscita va verificata.", "certezza": "media", "fonti": ["f1"] },
-    { "id": "carciofi-raccolta", "operazione": "raccolta", "titolo": "Raccogli i capolini pronti", "mesi": [11, 12], "perche": "Le varietà autunnali possono iniziare la produzione in ottobre-novembre e proseguire dopo una pausa invernale. Verifica il tipo di varietà: le fonti non confermano che la tua pianta sia autunnale né che produca nei Castelli a novembre.", "glossario": [], "metodi": [{ "tipo": "tradizionale", "come": "Controlla le piante e raccogli i capolini quando hanno raggiunto lo sviluppo adatto alla varietà.", "pro": ["Raccolta al punto di consumo"], "contro": ["Non esiste una data unica per tutte le varietà"] }], "rosso": "Dice il nonno: il carciofo si coglie sodo, prima che si apra.", "rossella": "La produzione invernale riguarda varietà specifiche; specie e calendario locale sono da accertare.", "certezza": "media", "fonti": ["f2", "f3"] }
-  ] },
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "carciofi-trapianto",
+        "operazione": "trapianto",
+        "titolo": "Trapianta i carducci",
+        "mesi": [
+          11
+        ],
+        "perche": "CREA riporta per il Carciofo Moretto la possibilità di prelevare e trapiantare carducci da ottobre a marzo. È un'indicazione riferita a un ecotipo dell'Emilia-Romagna, da non trasferire automaticamente alle varietà dei Castelli.",
+        "glossario": [
+          "trapianto"
+        ],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Metti a dimora carducci ben sviluppati solo se hai materiale adatto e il terreno non è saturo d'acqua.",
+            "pro": [
+              "Consente di moltiplicare la carciofaia"
+            ],
+            "contro": [
+              "Epoca e attecchimento locali non confermati"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: si pianta il carduccio e si aspetta il carciofo.",
+        "rossella": "Il trapianto autunnale è documentato per un ecotipo; per i Castelli la riuscita va verificata.",
+        "certezza": "media",
+        "fonti": [
+          "f1"
+        ]
+      },
+      {
+        "id": "carciofi-raccolta",
+        "operazione": "raccolta",
+        "titolo": "Raccogli i capolini pronti",
+        "mesi": [
+          11,
+          12
+        ],
+        "perche": "Le varietà autunnali possono iniziare la produzione in ottobre-novembre e proseguire dopo una pausa invernale. Verifica il tipo di varietà: le fonti non confermano che la tua pianta sia autunnale né che produca nei Castelli a novembre.",
+        "glossario": [],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Controlla le piante e raccogli i capolini quando hanno raggiunto lo sviluppo adatto alla varietà.",
+            "pro": [
+              "Raccolta al punto di consumo"
+            ],
+            "contro": [
+              "Non esiste una data unica per tutte le varietà"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: il carciofo si coglie sodo, prima che si apra.",
+        "rossella": "La produzione invernale riguarda varietà specifiche; specie e calendario locale sono da accertare.",
+        "certezza": "media",
+        "fonti": [
+          "f2",
+          "f3"
+        ]
+      }
+    ]
+  },
   "lavori": [],
-  "da_verificare": ["Adattamento delle varietà autunnali ai Castelli Romani e rischio gelo per la cultivar scelta.", "Epoca di impianto, distanze e tempi alla raccolta per l'orto locale.", "L'ecotipo CREA Moretto è coltivato in Emilia-Romagna; non equivale a una raccomandazione per i Castelli."],
+  "da_verificare": [
+    "Adattamento delle varietà autunnali ai Castelli Romani e rischio gelo per la cultivar scelta.",
+    "Epoca di impianto, distanze e tempi alla raccolta per l'orto locale.",
+    "L'ecotipo CREA Moretto è coltivato in Emilia-Romagna; non equivale a una raccomandazione per i Castelli.",
+    "Giorni alla prima raccolta non inseriti: le fonti aperte descrivono ecotipi e periodi stagionali, non un intervallo generalizzabile dal trapianto o dalla semina."
+  ],
   "fonti": {
-    "f1": { "titolo": "Carciofo Moretto – Portale Anagrafe nazionale biodiversità", "ente": "CREA – Rete Rurale Nazionale", "url": "https://rica.crea.gov.it/APP/anb/risorsa-IT08tx00042650189", "consultata": "2026-10-30", "nota": "Per l'ecotipo Moretto: trapianto dei carducci da ottobre a marzo e raccolta da fine aprile a giugno." },
-    "f2": { "titolo": "Carciofo – Cynara cardunculus", "ente": "Agraria.org, Atlante delle coltivazioni erbacee", "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm", "consultata": "2026-10-30", "nota": "Descrive varietà autunnali con produzione iniziale a ottobre-novembre e cicli autunno-primaverili nel bacino mediterraneo." },
-    "f3": { "titolo": "Prodotti di stagione", "ente": "CREA – Alimenti e Nutrizione", "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html", "consultata": "2026-10-30", "nota": "Calendario generale di disponibilità stagionale del carciofo." }
+    "f1": {
+      "titolo": "Carciofo Moretto – Portale Anagrafe nazionale biodiversità",
+      "ente": "CREA – Rete Rurale Nazionale",
+      "url": "https://rica.crea.gov.it/APP/anb/risorsa-IT08tx00042650189",
+      "consultata": "2026-10-30",
+      "nota": "Per l'ecotipo Moretto: trapianto dei carducci da ottobre a marzo e raccolta da fine aprile a giugno."
+    },
+    "f2": {
+      "titolo": "Carciofo – Cynara cardunculus",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm",
+      "consultata": "2026-10-30",
+      "nota": "Descrive varietà autunnali con produzione iniziale a ottobre-novembre e cicli autunno-primaverili nel bacino mediterraneo."
+    },
+    "f3": {
+      "titolo": "Prodotti di stagione",
+      "ente": "CREA – Alimenti e Nutrizione",
+      "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html",
+      "consultata": "2026-10-30",
+      "nota": "Calendario generale di disponibilità stagionale del carciofo."
+    }
   }
 }

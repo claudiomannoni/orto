@@ -2,20 +2,98 @@
   "versione": 1,
   "id": "broccoli",
   "nome": "Broccolo",
-  "alias": ["broccoli", "cavolo broccolo"],
+  "alias": [
+    "broccoli",
+    "cavolo broccolo"
+  ],
   "nome_scientifico": "Brassica oleracea var. italica",
   "famiglia": "Brassicaceae",
   "icona": "assets/colture/broccoli.svg",
   "descrizione": "Ortaggio da infiorescenza, presente fra i prodotti di stagione autunnali e invernali. Epoca e cultivar vanno scelte in base al clima locale.",
-  "giorni_alla_raccolta": { "min": null, "max": null, "certezza": "bassa", "fonti": [] },
-  "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },
-  "consociazioni": { "amiche": [], "nemiche": [], "note": "Non inserite: indicazioni non verificate.", "certezza": "bassa", "fonti": [] },
-  "rotazione": { "dopo": [], "prima_di": [], "note": "Alternanza da definire con una fonte specifica per il broccolo.", "certezza": "bassa", "fonti": [] },
+  "giorni_alla_raccolta": {
+    "min": 55,
+    "max": 65,
+    "certezza": "bassa",
+    "fonti": [
+      "f2"
+    ]
+  },
+  "semina": {
+    "profondita_cm": null,
+    "distanza_file_cm": null,
+    "distanza_piante_cm": null,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [],
+    "nemiche": [],
+    "note": "Non inserite: indicazioni non verificate.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [],
+    "prima_di": [],
+    "note": "Alternanza da definire con una fonte specifica per il broccolo.",
+    "certezza": "bassa",
+    "fonti": []
+  },
   "avvisi": [],
-  "calendario": { "castelli-romani": [
-    { "id": "broccoli-raccolta", "operazione": "raccolta", "titolo": "Raccogli i broccoli maturi", "mesi": [11, 12], "perche": "CREA include i broccoli fra i prodotti stagionali in novembre e dicembre. La disponibilità non garantisce che ogni varietà o pianta dell'orto sia pronta: raccogli solo le infiorescenze formate.", "glossario": [], "metodi": [{ "tipo": "tradizionale", "come": "Controlla le piante e raccogli solo quando il capolino è ben formato, senza aspettare che fiorisca.", "pro": ["Si raccoglie al punto desiderato"], "contro": ["Il momento dipende dalla varietà e dal clima"] }], "rosso": "Dice il nonno: il broccolo si taglia quando è bello chiuso.", "rossella": "La stagione generale è confermata; maturità e data nel tuo orto dipendono dalla cultivar.", "certezza": "media", "fonti": ["f1"] }
-  ] },
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "broccoli-raccolta",
+        "operazione": "raccolta",
+        "titolo": "Raccogli i broccoli maturi",
+        "mesi": [
+          11,
+          12
+        ],
+        "perche": "CREA include i broccoli fra i prodotti stagionali in novembre e dicembre. La disponibilità non garantisce che ogni varietà o pianta dell'orto sia pronta: raccogli solo le infiorescenze formate.",
+        "glossario": [],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Controlla le piante e raccogli solo quando il capolino è ben formato, senza aspettare che fiorisca.",
+            "pro": [
+              "Si raccoglie al punto desiderato"
+            ],
+            "contro": [
+              "Il momento dipende dalla varietà e dal clima"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: il broccolo si taglia quando è bello chiuso.",
+        "rossella": "La stagione generale è confermata; maturità e data nel tuo orto dipendono dalla cultivar.",
+        "certezza": "media",
+        "fonti": [
+          "f1"
+        ]
+      }
+    ]
+  },
   "lavori": [],
-  "da_verificare": ["Finestra di semina e trapianto adatta a 200-600 m nei Castelli Romani.", "Tempi, distanze, fabbisogni e soglie di raccolta per cultivar da orto.", "La stagione CREA è generale per l'Italia, non prova la raccolta locale di ogni impianto."],
-  "fonti": { "f1": { "titolo": "Prodotti di stagione", "ente": "CREA – Alimenti e Nutrizione", "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html", "consultata": "2026-10-30", "nota": "Calendario CREA: broccoli indicati in stagione a novembre e dicembre." } }
+  "da_verificare": [
+    "Finestra di semina e trapianto adatta a 200-600 m nei Castelli Romani.",
+    "Tempi, distanze, fabbisogni e soglie di raccolta per cultivar da orto.",
+    "La stagione CREA è generale per l'Italia, non prova la raccolta locale di ogni impianto.",
+    "dal trapianto; fonte non dà l’età del semenzaio, quindi non convertito in giorni dalla semina."
+  ],
+  "fonti": {
+    "f1": {
+      "titolo": "Prodotti di stagione",
+      "ente": "CREA – Alimenti e Nutrizione",
+      "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html",
+      "consultata": "2026-10-30",
+      "nota": "Calendario CREA: broccoli indicati in stagione a novembre e dicembre."
+    },
+    "f2": {
+      "titolo": "Crop and field planning tools for vegetable farmers",
+      "ente": "University of Minnesota Extension (USA)",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/crop-and-field-planning-tools-for-vegetable-farmers",
+      "consultata": "2026-10-31",
+      "nota": "Tabella con giorni dal trapianto alla prima raccolta, età del trapianto e, per alcune colture, giorni dalla semina. Dati per Minnesota, clima diverso; quando sommo età del trapianto e giorni successivi al trapianto, il totale è un intervallo calcolato dai dati espliciti della tabella."
+    }
+  }
 }

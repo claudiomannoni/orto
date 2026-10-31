@@ -10,10 +10,12 @@
   "icona": "assets/colture/fagiolini.svg",
   "descrizione": "Legume da baccello seminato nella stagione calda.",
   "giorni_alla_raccolta": {
-    "min": null,
-    "max": null,
+    "min": 45,
+    "max": 65,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f4"
+    ]
   },
   "semina": {
     "profondita_cm": null,
@@ -108,7 +110,8 @@
   "da_verificare": [
     "Calendario generale: verificare date per quota, varietà e microclima dei Castelli Romani.",
     "Caldo e siccità estivi locali: verificare necessità e modalità di irrigazione e ombreggiatura.",
-    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate."
+    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate.",
+    "maturità; origine del conteggio non specificata nella tabella."
   ],
   "fonti": {
     "f1": {
@@ -131,6 +134,13 @@
       "url": "https://www.vivaioleserre.it/calendario-delle-coltivazioni/",
       "consultata": "2026-10-31",
       "nota": "Tabella generale dei periodi di trapianto in campo per basilico e prezzemolo."
+    },
+    "f4": {
+      "titolo": "Climate resilience resources for vegetable growers in Minnesota",
+      "ente": "University of Minnesota Extension (USA)",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/climate-resilience-resources-for-vegetable-growers",
+      "consultata": "2026-10-31",
+      "nota": "Tabella di giorni alla maturità per ortaggi in Minnesota; fonte universitaria estera, clima diverso. Gli intervalli sono riportati come indicati, con origine del conteggio non sempre esplicitata."
     }
   }
 }

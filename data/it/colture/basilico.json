@@ -12,7 +12,7 @@
   "giorni_alla_raccolta": {
     "min": null,
     "max": null,
-    "certezza": "bassa",
+    "certezza": null,
     "fonti": []
   },
   "semina": {
@@ -106,7 +106,8 @@
   "da_verificare": [
     "Calendario generale: verificare date per quota, varietà e microclima dei Castelli Romani.",
     "Caldo e siccità estivi locali: verificare necessità e modalità di irrigazione e ombreggiatura.",
-    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate."
+    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate.",
+    "Giorni alla prima raccolta non inseriti: le fonti aperte non danno un intervallo attendibile."
   ],
   "fonti": {
     "f1": {

@@ -2,23 +2,115 @@
   "versione": 1,
   "id": "bietola",
   "nome": "Bietola da coste",
-  "alias": ["bietola", "bietole", "bietola da coste"],
+  "alias": [
+    "bietola",
+    "bietole",
+    "bietola da coste"
+  ],
   "nome_scientifico": "Beta vulgaris var. cicla",
   "famiglia": "Amaranthaceae",
   "icona": "assets/colture/bietola.svg",
   "descrizione": "Ortaggio da foglia e coste, coltivabile anche nel periodo autunno-invernale. Può essere raccolto tagliando la pianta o staccando le foglie.",
-  "giorni_alla_raccolta": { "min": null, "max": null, "certezza": "bassa", "fonti": [] },
-  "semina": { "profondita_cm": null, "distanza_file_cm": 30, "distanza_piante_cm": 15, "certezza": "media", "fonti": ["f1"] },
-  "consociazioni": { "amiche": [], "nemiche": [], "note": "Non inserite: indicazioni non verificate.", "certezza": "bassa", "fonti": [] },
-  "rotazione": { "dopo": ["spinaci", "barbabietola", "mais"], "prima_di": [], "note": "La fonte sconsiglia la successione dopo spinacio, barbabietola e mais; indicazione generale, da applicare con rotazione dell'orto.", "certezza": "media", "fonti": ["f1"] },
+  "giorni_alla_raccolta": {
+    "min": 40,
+    "max": 60,
+    "certezza": "bassa",
+    "fonti": [
+      "f3"
+    ]
+  },
+  "semina": {
+    "profondita_cm": null,
+    "distanza_file_cm": 30,
+    "distanza_piante_cm": 15,
+    "certezza": "media",
+    "fonti": [
+      "f1"
+    ]
+  },
+  "consociazioni": {
+    "amiche": [],
+    "nemiche": [],
+    "note": "Non inserite: indicazioni non verificate.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [
+      "spinaci",
+      "barbabietola",
+      "mais"
+    ],
+    "prima_di": [],
+    "note": "La fonte sconsiglia la successione dopo spinacio, barbabietola e mais; indicazione generale, da applicare con rotazione dell'orto.",
+    "certezza": "media",
+    "fonti": [
+      "f1"
+    ]
+  },
   "avvisi": [],
-  "calendario": { "castelli-romani": [
-    { "id": "bietola-raccolta", "operazione": "raccolta", "titolo": "Raccogli le foglie di bietola", "mesi": [11, 12], "perche": "La fonte descrive la bietola da coste come coltura autunno-vernina e indica la raccolta per sfogliatura successiva o taglio dell'intera pianta. CREA la include fra i prodotti di stagione tutto l'anno.", "glossario": [], "metodi": [{ "tipo": "tradizionale", "come": "Stacca le foglie esterne oppure taglia la pianta intera quando è sviluppata.", "pro": ["La sfogliatura permette raccolte successive"], "contro": ["La ripresa dipende dalla stagione e dallo stato della pianta"] }], "rosso": "Dice il nonno: si prendono prima le foglie di fuori e il cuore resta.", "rossella": "La raccolta scalare è descritta dalla fonte; la velocità di ricrescita in inverno può variare.", "certezza": "media", "fonti": ["f1", "f2"] }
-  ] },
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "bietola-raccolta",
+        "operazione": "raccolta",
+        "titolo": "Raccogli le foglie di bietola",
+        "mesi": [
+          11,
+          12
+        ],
+        "perche": "La fonte descrive la bietola da coste come coltura autunno-vernina e indica la raccolta per sfogliatura successiva o taglio dell'intera pianta. CREA la include fra i prodotti di stagione tutto l'anno.",
+        "glossario": [],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Stacca le foglie esterne oppure taglia la pianta intera quando è sviluppata.",
+            "pro": [
+              "La sfogliatura permette raccolte successive"
+            ],
+            "contro": [
+              "La ripresa dipende dalla stagione e dallo stato della pianta"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: si prendono prima le foglie di fuori e il cuore resta.",
+        "rossella": "La raccolta scalare è descritta dalla fonte; la velocità di ricrescita in inverno può variare.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f2"
+        ]
+      }
+    ]
+  },
   "lavori": [],
-  "da_verificare": ["Semina o trapianto autunnali nei Castelli e varietà più adatte alle gelate locali.", "La fonte agronomica propone distanze di coltura estensiva; non sono convalidate come sesto ideale per un orto domestico.", "Tempi dalla semina alla prima raccolta non confermati."],
+  "da_verificare": [
+    "Semina o trapianto autunnali nei Castelli e varietà più adatte alle gelate locali.",
+    "La fonte agronomica propone distanze di coltura estensiva; non sono convalidate come sesto ideale per un orto domestico.",
+    "Tempi dalla semina alla prima raccolta non confermati.",
+    "dalla semina; ciclo generale in fonte, conteggio non specificato con precisione."
+  ],
   "fonti": {
-    "f1": { "titolo": "Bietola da coste – Beta vulgaris L. var. cycla", "ente": "Agraria.org, Atlante delle coltivazioni erbacee", "url": "https://www.agraria.org/coltivazionierbacee/bietoladacoste.htm", "consultata": "2026-10-30", "nota": "Coltura autunno-vernina, semina o trapianto, distanze di semina, raccolta scalare o dell'intera pianta e rotazioni sconsigliate." },
-    "f2": { "titolo": "Prodotti di stagione", "ente": "CREA – Alimenti e Nutrizione", "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html", "consultata": "2026-10-30", "nota": "Calendario CREA indica le bietole in stagione tutto l'anno." }
+    "f1": {
+      "titolo": "Bietola da coste – Beta vulgaris L. var. cycla",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/bietoladacoste.htm",
+      "consultata": "2026-10-30",
+      "nota": "Coltura autunno-vernina, semina o trapianto, distanze di semina, raccolta scalare o dell'intera pianta e rotazioni sconsigliate."
+    },
+    "f2": {
+      "titolo": "Prodotti di stagione",
+      "ente": "CREA – Alimenti e Nutrizione",
+      "url": "https://sapermangiare.an.crea.gov.it/528/prodotti-di-stagione.html",
+      "consultata": "2026-10-30",
+      "nota": "Calendario CREA indica le bietole in stagione tutto l'anno."
+    },
+    "f3": {
+      "titolo": "Climate resilience resources for vegetable growers in Minnesota",
+      "ente": "University of Minnesota Extension (USA)",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/climate-resilience-resources-for-vegetable-growers",
+      "consultata": "2026-10-31",
+      "nota": "Tabella di giorni alla maturità per ortaggi in Minnesota; fonte universitaria estera, clima diverso. Gli intervalli sono riportati come indicati, con origine del conteggio non sempre esplicitata."
+    }
   }
 }

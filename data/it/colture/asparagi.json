@@ -12,7 +12,7 @@
   "giorni_alla_raccolta": {
     "min": null,
     "max": null,
-    "certezza": "bassa",
+    "certezza": null,
     "fonti": []
   },
   "semina": {
@@ -106,7 +106,8 @@
   "lavori": [],
   "da_verificare": [
     "Date, distanze e gestione adatte a quota e microclima dei Castelli Romani.",
-    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà."
+    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà.",
+    "Giorni alla prima raccolta non inseriti: dipendono dall’età dell’impianto e le fonti aperte non danno un intervallo utilizzabile."
   ],
   "fonti": {
     "f1": {

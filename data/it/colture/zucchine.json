@@ -10,10 +10,12 @@
   "icona": "assets/colture/zucchine.svg",
   "descrizione": "Ortaggio da frutto a ciclo estivo, seminato in semenzaio o direttamente in campo.",
   "giorni_alla_raccolta": {
-    "min": null,
-    "max": null,
+    "min": 54,
+    "max": 71,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f2"
+    ]
   },
   "semina": {
     "profondita_cm": null,
@@ -107,7 +109,8 @@
   "lavori": [],
   "da_verificare": [
     "Date, distanze e gestione adatte a quota e microclima dei Castelli Romani.",
-    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà."
+    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà.",
+    "dalla semina, intervallo calcolato sommando età della piantina (14–21 giorni) e raccolta dal trapianto (40–50 giorni)."
   ],
   "fonti": {
     "f1": {
@@ -116,6 +119,13 @@
       "url": "https://www.ingegnoli.it/ita/sementi/sementi-da-orto",
       "consultata": "2026-10-31",
       "nota": "Mesi di semina protetta e diretta per solanacee e cucurbitacee; patate e zampe di asparago in primavera; vale per Centro-Nord e invita a considerare la varietà."
+    },
+    "f2": {
+      "titolo": "An educator’s guide to vegetable gardening",
+      "ente": "Oregon State University Extension Service (USA)",
+      "url": "https://extension.oregonstate.edu/es/catalog/em-9032-educators-guide-vegetable-gardening",
+      "consultata": "2026-10-31",
+      "nota": "Tabelle dell’appendice A (giorni dalla semina) e B (giorni dal trapianto e età della piantina); dati per Oregon, clima diverso. Per i trapianti sommo solo gli intervalli espliciti di età della piantina e giorni dal trapianto."
     }
   }
 }

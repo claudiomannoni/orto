@@ -10,10 +10,12 @@
   "icona": "assets/colture/rucola.svg",
   "descrizione": "Foglia aromatica a ciclo breve, seminata direttamente in file o a spaglio.",
   "giorni_alla_raccolta": {
-    "min": null,
-    "max": null,
+    "min": 25,
+    "max": 45,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f1"
+    ]
   },
   "semina": {
     "profondita_cm": null,
@@ -109,7 +111,8 @@
   "lavori": [],
   "da_verificare": [
     "Date, distanze e gestione adatte a quota e microclima dei Castelli Romani.",
-    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà."
+    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà.",
+    "dalla semina diretta; raccolta a taglio indicata dalla fonte."
   ],
   "fonti": {
     "f2": {
@@ -125,6 +128,13 @@
       "url": "https://www.regione.lazio.it/sites/default/files/documentazione/2026/AGC-DD-G06913-03-06-2025-Allegato3.pdf",
       "consultata": "2026-10-31",
       "nota": "Caratteristiche colturali della rucola e semina diretta; non stabilisce mesi per l’orto familiare."
+    },
+    "f1": {
+      "titolo": "Crop and field planning tools for vegetable farmers",
+      "ente": "University of Minnesota Extension (USA)",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/crop-and-field-planning-tools-for-vegetable-farmers",
+      "consultata": "2026-10-31",
+      "nota": "Tabella con giorni dal trapianto alla prima raccolta, età del trapianto e, per alcune colture, giorni dalla semina. Dati per Minnesota, clima diverso; quando sommo età del trapianto e giorni successivi al trapianto, il totale è un intervallo calcolato dai dati espliciti della tabella."
     }
   }
 }

@@ -10,10 +10,12 @@
   "icona": "assets/colture/cetrioli.svg",
   "descrizione": "Pianta da frutto estiva, seminata in primavera.",
   "giorni_alla_raccolta": {
-    "min": null,
-    "max": null,
+    "min": 44,
+    "max": 67,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f4"
+    ]
   },
   "semina": {
     "profondita_cm": null,
@@ -106,7 +108,8 @@
   "da_verificare": [
     "Calendario generale: verificare date per quota, varietà e microclima dei Castelli Romani.",
     "Caldo e siccità estivi locali: verificare necessità e modalità di irrigazione e ombreggiatura.",
-    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate."
+    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate.",
+    "dalla semina, intervallo calcolato sommando età della piantina (14–21 giorni) e raccolta dal trapianto (30–46 giorni), varietà da taglio."
   ],
   "fonti": {
     "f1": {
@@ -129,6 +132,13 @@
       "url": "https://www.vivaioleserre.it/calendario-delle-coltivazioni/",
       "consultata": "2026-10-31",
       "nota": "Tabella generale dei periodi di trapianto in campo per basilico e prezzemolo."
+    },
+    "f4": {
+      "titolo": "An educator’s guide to vegetable gardening",
+      "ente": "Oregon State University Extension Service (USA)",
+      "url": "https://extension.oregonstate.edu/es/catalog/em-9032-educators-guide-vegetable-gardening",
+      "consultata": "2026-10-31",
+      "nota": "Tabelle dell’appendice A (giorni dalla semina) e B (giorni dal trapianto e età della piantina); dati per Oregon, clima diverso. Per i trapianti sommo solo gli intervalli espliciti di età della piantina e giorni dal trapianto."
     }
   }
 }

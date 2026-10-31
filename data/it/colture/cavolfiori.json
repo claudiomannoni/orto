@@ -10,10 +10,12 @@
   "icona": "assets/colture/cavolfiori.svg",
   "descrizione": "Cavolo da infiorescenza avviato in semenzaio per produzioni autunnali e invernali.",
   "giorni_alla_raccolta": {
-    "min": null,
-    "max": null,
+    "min": 75,
+    "max": 80,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f4"
+    ]
   },
   "semina": {
     "profondita_cm": null,
@@ -78,7 +80,8 @@
   "da_verificare": [
     "Calendario generale: verificare date per quota, varietà e microclima dei Castelli Romani.",
     "Caldo e siccità estivi locali: verificare necessità e modalità di irrigazione e ombreggiatura.",
-    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate."
+    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate.",
+    "dal trapianto; fonte non dà l’età del semenzaio, quindi non convertito in giorni dalla semina."
   ],
   "fonti": {
     "f1": {
@@ -101,6 +104,13 @@
       "url": "https://www.vivaioleserre.it/calendario-delle-coltivazioni/",
       "consultata": "2026-10-31",
       "nota": "Tabella generale dei periodi di trapianto in campo per basilico e prezzemolo."
+    },
+    "f4": {
+      "titolo": "Crop and field planning tools for vegetable farmers",
+      "ente": "University of Minnesota Extension (USA)",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/crop-and-field-planning-tools-for-vegetable-farmers",
+      "consultata": "2026-10-31",
+      "nota": "Tabella con giorni dal trapianto alla prima raccolta, età del trapianto e, per alcune colture, giorni dalla semina. Dati per Minnesota, clima diverso; quando sommo età del trapianto e giorni successivi al trapianto, il totale è un intervallo calcolato dai dati espliciti della tabella."
     }
   }
 }

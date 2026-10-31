@@ -10,10 +10,12 @@
   "icona": "assets/colture/ravanelli.svg",
   "descrizione": "Radice a ciclo breve, seminata direttamente e raccolta giovane.",
   "giorni_alla_raccolta": {
-    "min": null,
-    "max": null,
+    "min": 28,
+    "max": 40,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f1"
+    ]
   },
   "semina": {
     "profondita_cm": null,
@@ -107,7 +109,8 @@
   "lavori": [],
   "da_verificare": [
     "Date, distanze e gestione adatte a quota e microclima dei Castelli Romani.",
-    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà."
+    "Ultima gelata locale non verificata; adattare il calendario alle condizioni osservate e alla varietà.",
+    "dalla semina."
   ],
   "fonti": {
     "f3": {
@@ -116,6 +119,13 @@
       "url": "https://www.regione.vda.it/gestione/riviweb/templates/aspx/informatorenew.aspx?pkArt=1096",
       "consultata": "2026-10-31",
       "nota": "Semina precoce in cassone in febbraio-marzo o a dimora quando il terreno è agibile; terreno drenato e fresco, ciclo e cure."
+    },
+    "f1": {
+      "titolo": "An educator’s guide to vegetable gardening",
+      "ente": "Oregon State University Extension Service (USA)",
+      "url": "https://extension.oregonstate.edu/es/catalog/em-9032-educators-guide-vegetable-gardening",
+      "consultata": "2026-10-31",
+      "nota": "Tabelle dell’appendice A (giorni dalla semina) e B (giorni dal trapianto e età della piantina); dati per Oregon, clima diverso. Per i trapianti sommo solo gli intervalli espliciti di età della piantina e giorni dal trapianto."
     }
   }
 }
