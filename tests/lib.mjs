@@ -27,8 +27,34 @@ export function check(nome, ok, dettaglio = '') {
 }
 export function nota(testo) { console.log(`NOTA  ${testo}`); }
 
+// Meteo finto (Open-Meteo non si contatta mai nelle prove: sarebbe lento e imprevedibile). Sette giorni a partire da
+// «oggi» (?oggi= nell'indirizzo della pagina, o la data vera): sereno, 6-16 gradi, niente pioggia. Una prova può cambiare
+// ctx.meteoFinto = (oggi, i) => ({ tmin, tmax, pioggia, prob, vento, codice }) per un giorno i (0 = oggi).
+const aggiungiGiorni = (iso, n) => { const d = new Date(`${iso}T12:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+export async function simulaMeteo(ctx) {
+  ctx.meteoFinto = null;
+  ctx.richiesteMeteo = [];
+  await ctx.route('**/api.open-meteo.com/**', async (route) => {
+    const req = route.request();
+    ctx.richiesteMeteo.push(req.url());
+    let oggi = new Date().toISOString().slice(0, 10);
+    try { const q = new URL(req.frame().url()).searchParams.get('oggi'); if (q) oggi = q; } catch { /* data vera */ }
+    const giorni = Array.from({ length: 7 }, (_, i) => ({ data: aggiungiGiorni(oggi, i), ...{ tmin: 6, tmax: 16, pioggia: 0, prob: 5, vento: 12, codice: 0 }, ...(ctx.meteoFinto?.(oggi, i) ?? {}) }));
+    await route.fulfill({
+      status: 200,
+      headers: { 'access-control-allow-origin': '*', 'content-type': 'application/json' },
+      body: JSON.stringify({ daily: {
+        time: giorni.map((g) => g.data), weather_code: giorni.map((g) => g.codice), temperature_2m_min: giorni.map((g) => g.tmin), temperature_2m_max: giorni.map((g) => g.tmax),
+        precipitation_sum: giorni.map((g) => g.pioggia), precipitation_probability_max: giorni.map((g) => g.prob), wind_speed_10m_max: giorni.map((g) => g.vento),
+      } }),
+    });
+  });
+}
+
 export async function nuovoContesto(browser, extra = {}) {
-  return browser.newContext({ ...PIXEL9, ...extra });
+  const ctx = await browser.newContext({ ...PIXEL9, ...extra });
+  await simulaMeteo(ctx);
+  return ctx;
 }
 
 // Raccoglie errori di console, eccezioni, richieste fallite e risposte >= 400.

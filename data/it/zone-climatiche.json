@@ -21,7 +21,12 @@
         "Date medie di ultima e prima gelata e numero di notti con minima sotto 0 °C: non ricavati. Il rapporto SCIA consultato definisce invece i giorni con gelo come giorni con temperatura massima sotto 0 °C, misura diversa dalle brinate utili per l’orto.",
         "La stazione ARSIAL di Velletri “Cantina Sperimentale” è a 320 m, ma la fonte consultata ne dà solo località e quota: servono le serie giornaliere per calcolare le gelate.",
         "Differenza di temperatura fra 200 m e 600 m: non quantificata da una fonte consultata. La quota da sola non basta a stimare le minime locali, che dipendono anche da esposizione e conche."
-      ]
+      ],
+      "posizione": {
+        "lat": 41.81,
+        "lon": 12.68,
+        "nota": "Centro approssimativo della zona (Frascati), usato solo per il meteo"
+      }
     }
   ],
   "fonti": {

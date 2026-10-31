@@ -1,5 +1,5 @@
 // Le colture dell'utente: elenco, aggiunta, promemoria, eliminazione.
-import { el, oggiISO, giorniDa, aggiungiGiorni, formattaData } from '../util.js';
+import { el, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
@@ -127,7 +127,7 @@ export async function monta(contenitore) {
   [colture, schede, zone] = await Promise.all([elencoColture(), catalogo(), elencoZone()]);
   conteggio = el('span', { class: 'conteggio' }, '0');
   lista = el('ul', { class: 'lista' });
-  contenitore.append(
+  aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('colture.titolo'), ' ', conteggio),
     el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
     el('div', { class: 'riga' },

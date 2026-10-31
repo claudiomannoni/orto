@@ -1,6 +1,6 @@
 // Calendario: tutti i lavori possibili in un mese, per la zona scelta nelle impostazioni.
 // "Oggi in campagna" mostra solo i più importanti; qui si vede il quadro intero e si guarda avanti.
-import { el, oggiISO, meseDi } from '../util.js';
+import { el, oggiISO, meseDi, aggiungi } from '../util.js';
 import { t } from '../i18n.js';
 import { leggi } from '../store/impostazioni.js';
 import { catalogo } from '../contenuti.js';
@@ -137,5 +137,5 @@ export async function monta(contenitore) {
   }
 
   disegna();
-  contenitore.append(mesi, titolo, sottotitolo, elenco, luna);
+  aggiungi(contenitore, mesi, titolo, sottotitolo, elenco, luna);
 }

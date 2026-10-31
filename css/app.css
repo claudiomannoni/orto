@@ -407,6 +407,11 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .fasi { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .fasi li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 2px dashed var(--bordo); padding-bottom: 6px; }
 
+.meteo { min-height: 168px; align-content: start; } /* riserva lo spazio: arrivando le previsioni il resto della pagina non salta */
+.meteo-giorni { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.meteo-giorno { display: grid; gap: 2px; align-content: start; padding: 8px; border: 2px solid var(--bordo); border-radius: 14px; text-align: center; font-size: .9rem; }
+.meteo-gradi { font-weight: 800; }
+.avviso-gelo, .avviso-brina { border-color: #1565c0; background: #e3f2fd; color: #0d47a1; }
 .nome-orto { margin-top: -8px; font-weight: 800; color: var(--verde); overflow-wrap: anywhere; }
 
 /* ---------- Zone, bussola, terreno ---------- */

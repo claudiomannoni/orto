@@ -1,5 +1,5 @@
 // Impostazioni: il mio orto, intelligenza artificiale, backup, informazioni.
-import { el, oggiISO } from '../util.js';
+import { el, oggiISO, aggiungi } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { leggi, imposta, rimuovi, pulisciNome } from '../store/impostazioni.js';
 import { creaBackup, scarica, leggiFile, applica } from '../store/backup.js';
@@ -10,6 +10,7 @@ import { toast } from '../ui/toast.js';
 import { SUPERFICI, ACQUE, TEMPI, METODI, ESPERIENZE } from './benvenuto.js';
 import { avatar, impostaVestiti } from '../ui/mascotte.js';
 import { bloccoInstalla } from '../ui/installa.js';
+import { arrotondaCoordinata, coordinateValide } from '../motore/meteo.js';
 import { VESTITI } from '../motore/vestiti.js';
 
 // Campo di testo che salva da solo quando si esce (nome dell'orto, nome del coltivatore).
@@ -78,6 +79,37 @@ function sezioneVermetti(s) {
     riga,
     el('label', {}, t('impostazioni.vestiti'), selettore),
   );
+}
+
+// Il meteo: di solito basta il centro della zona; volendo, la posizione del telefono (arrotondata, solo per le previsioni).
+function sezioneMeteo(s) {
+  const stato = el('p', { class: 'aiuto posizione-meteo', role: 'status' });
+  const testoPosizione = (p) => (p ? t('impostazioni.meteo.posizione_telefono', { lat: p.lat, lon: p.lon }) : t('impostazioni.meteo.posizione_zona'));
+  stato.textContent = testoPosizione(s.meteo_posizione);
+  const usa = el('button', { class: 'btn', type: 'button' }, t('impostazioni.meteo.usa_posizione'));
+  usa.addEventListener('click', () => {
+    stato.textContent = t('impostazioni.meteo.cerco');
+    if (!navigator.geolocation) { stato.textContent = t('impostazioni.meteo.negata'); return; }
+    navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+      const p = { lat: arrotondaCoordinata(coords.latitude), lon: arrotondaCoordinata(coords.longitude) };
+      if (!coordinateValide(p.lat, p.lon)) { stato.textContent = t('impostazioni.meteo.negata'); return; }
+      await imposta('meteo_posizione', p);
+      await imposta('meteo_cache', null);
+      stato.textContent = testoPosizione(p);
+      toast(t('impostazioni.meteo.fatto'));
+    }, () => { stato.textContent = t('impostazioni.meteo.negata'); }, { maximumAge: 600000, timeout: 15000 });
+  });
+  const zona = el('button', { class: 'btn', type: 'button', onclick: async () => {
+    await imposta('meteo_posizione', null);
+    await imposta('meteo_cache', null);
+    stato.textContent = testoPosizione(null);
+    toast(t('impostazioni.meteo.fatto'));
+  } }, t('impostazioni.meteo.usa_zona'));
+  return el('section', { class: 'card' },
+    el('h3', {}, t('impostazioni.meteo')),
+    el('p', { class: 'aiuto' }, t('impostazioni.meteo.spiega')),
+    stato,
+    el('div', { class: 'riga' }, usa, zona));
 }
 
 function sezioneIA(s) {
@@ -190,11 +222,12 @@ function sezioneBackup() {
 
 export async function monta(contenitore) {
   const s = await leggi();
-  contenitore.append(
+  aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
     bloccoInstalla(),
     await sezioneOrto(s),
     sezioneVermetti(s),
+    sezioneMeteo(s),
     sezioneIA(s),
     sezioneBackup(),
     el('section', { class: 'card' },

@@ -1,5 +1,5 @@
 // "Oggi in campagna": i lavori del giorno, in ordine di importanza.
-import { el, oggiISO, formattaDataLunga, normalizza } from '../util.js';
+import { el, oggiISO, formattaDataLunga, normalizza, aggiungi } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../store/dati.js';
 import { leggi } from '../store/impostazioni.js';
@@ -13,6 +13,7 @@ import { etichettaOrto } from '../ui/identita.js';
 import { bloccoInstalla } from '../ui/installa.js';
 import { controllaProgressi } from '../store/progressi.js';
 import { cartaProgressi } from '../ui/progressi.js';
+import { cartaMeteo } from '../ui/meteo.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -150,11 +151,12 @@ export async function monta(contenitore) {
     mostraConversazione('niente');
   }
 
-  contenitore.append(
+  aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
     carta,
+    cartaMeteo(),
     bloccoInstalla({ rimandabile: true }),
     zonaConversazione,
     lavori.length ? lista : el('section', { class: 'card vuoto' },

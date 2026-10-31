@@ -24,6 +24,7 @@ for (const [data, v] of giorni) {
 
 // 2. Tutti i disegni si caricano (nessun 404) e il vestito è sopra il corpo, stessa misura
 await vai(page, 'oggi', '?oggi=2026-10-31');
+await page.waitForSelector('.meteo .meteo-giorno'); // il meteo arriva e sposta la pagina: si aspetta prima di toccare
 const misure = await page.$eval('.avatar.rosso', (a) => {
   const r = a.getBoundingClientRect(); const [c, v] = [...a.querySelectorAll('img')].map((i) => i.getBoundingClientRect());
   return { a: [r.width, r.height], c: [c.width, c.height], v: [v.width, v.height], x: [c.x - v.x, c.y - v.y] };
@@ -34,7 +35,7 @@ const rotte = await page.$$eval('.avatar img', (i) => i.map((x) => x.complete &&
 check('tutte le immagini dei vermetti sono caricate', rotte.length >= 4 && rotte.every(Boolean), JSON.stringify(rotte));
 
 // 3. Il tocco: salto e battuta, che poi sparisce
-await page.click('.avatar.rosso', { force: true });
+await page.dispatchEvent('.avatar.rosso', 'click');
 check('tocco: il vermetto salta', await page.$eval('.avatar.rosso', (a) => a.classList.contains('salta')));
 await page.waitForSelector('.avatar .sbuffo', { timeout: 4000 });
 const testo = await page.$eval('.avatar .sbuffo', (s) => s.textContent);
@@ -52,7 +53,7 @@ check('da tastiera (Invio) il vermetto reagisce', await page.$eval('.avatar.ross
 
 // 5. Cambio d'abito: al sesto tocco
 const prima = await vestiti(page);
-for (let i = 0; i < 6; i++) { await page.click('.avatar.rosso', { force: true }); await page.waitForTimeout(80); }
+for (let i = 0; i < 6; i++) { await page.dispatchEvent('.avatar.rosso', 'click'); await page.waitForTimeout(80); }
 await page.waitForTimeout(300);
 const dopo = await vestiti(page);
 check('al sesto tocco cambiano vestito (tutti e due, in un altro)', dopo.length === prima.length && dopo.every((v, i) => v !== prima[i]) && new Set(dopo.map((x) => x.replace(/^.*-/, ''))).size === 1, `${prima} -> ${dopo}`);
@@ -62,7 +63,7 @@ const ricarica = await vestiti(page);
 check('il cambio è solo per la sessione: ricaricando torna il vestito del calendario', ricarica.includes('rosso-halloween.svg'), ricarica.join(','));
 
 // 6. Nessuno scroll orizzontale con la battuta aperta
-await page.click('.avatar.rossella', { force: true });
+await page.dispatchEvent('.avatar.rossella', 'click');
 const sc = await scroll(page);
 check('nessuno scroll orizzontale col fumetto', sc.sw <= sc.iw && sc.bw <= sc.iw, JSON.stringify(sc));
 
@@ -97,6 +98,7 @@ check('il giorno dopo il compleanno tornano alla stagione', (await vestiti(page)
 
 // 7c. «Fatto»: un vermetto compare in basso e dice una battuta; «Non oggi» no
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.waitForSelector('.meteo .meteo-giorno');
 await page.waitForSelector('li.lavoro');
 await page.locator('li.lavoro').nth(1).getByRole('button', { name: 'Non oggi' }).click();
 await page.waitForTimeout(500);
@@ -122,7 +124,7 @@ await ctx.close();
 await page.route('**/data/it/battute.json', (r) => r.fulfill({ status: 404, body: '' }));
 await vai(page, 'oggi', '?oggi=2026-07-15');
 await page.waitForSelector('.avatar');
-await page.click('.avatar.rosso', { force: true });
+await page.dispatchEvent('.avatar.rosso', 'click');
 await page.waitForTimeout(500);
 check('senza battute: il vermetto salta e l\'app resta in piedi', await page.$eval('.avatar.rosso', (a) => a.classList.contains('salta')) && (await page.locator('.sbuffo').count()) === 0);
 await ctx.close();

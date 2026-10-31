@@ -313,7 +313,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   const nomi = await nomiInLista(page);
   check('migrazione: le 3 colture della v1 sono in elenco', nomi.length === 3 && nomi.includes('Fave') && nomi.includes('Pomodoro · Cuore di bue') && nomi.includes('Zucchina · Romanesca'), nomi.join(' | '));
   const info = await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const o = { v: d.version, st: [...d.objectStoreNames].sort() }; d.close(); ok(o); }; }));
-  check('migrazione: database ora v2 con store colture/eventi/impostazioni/zone', info.v === 2 && info.st.join() === 'colture,eventi,impostazioni,zone', JSON.stringify(info));
+  check('migrazione: database ora v3 con store colture/eventi/foto/impostazioni/zone', info.v === 3 && info.st.join() === 'colture,eventi,foto,impostazioni,zone', JSON.stringify(info));
   const cs = await leggiDb(page, 'colture');
   check('migrazione: record originali intatti (id, nome, data, note)', cs.length === 3 && cs.find((c) => c.id === 'v1-aaa')?.note === '3 semi per vasetto' && cs.find((c) => c.id === 'v1-ccc')?.dataSemina === '2026-05-02', JSON.stringify(cs.map((c) => c.id)));
   await page.screenshot({ path: path.join(OUT, 'migrazione-da-v1.png'), fullPage: true });

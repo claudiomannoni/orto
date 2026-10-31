@@ -32,7 +32,7 @@ const MODELLI_FINTI = [
   { name: 'models/text-embedding-004', supportedGenerationMethods: ['embedContent'] },
   { name: 'models/imagen-4', supportedGenerationMethods: ['predict'] },
 ];
-page.on('request', (r) => { const u = new URL(r.url()); if (u.origin !== new URL(BASE).origin && !/generativelanguage/.test(u.host)) altreOrigini.push(r.url()); });
+page.on('request', (r) => { const u = new URL(r.url()); if (u.origin !== new URL(BASE).origin && !/generativelanguage|open-meteo/.test(u.host)) altreOrigini.push(r.url()); });
 await page.route('**/generativelanguage.googleapis.com/**', async (route) => {
   const req = route.request();
   if (req.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: CORS });

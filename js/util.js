@@ -2,6 +2,17 @@
 
 export const $ = (sel, radice = document) => radice.querySelector(sel);
 
+// Aggiunge dei figli a un contenitore saltando quelli vuoti (null, undefined, false):
+// il «append» nativo scriverebbe la parola "null" nella pagina.
+export function aggiungi(contenitore, ...figli) {
+  contenitore.append(...figli.flat().filter((f) => f != null && f !== false));
+}
+
+// Come aggiungi, ma al posto di quello che c'era (replaceChildren nativo scriverebbe «null» per un figlio vuoto).
+export function sostituisci(contenitore, ...figli) {
+  contenitore.replaceChildren(...figli.flat().filter((f) => f != null && f !== false));
+}
+
 // Parametri dopo il «?» nell'indirizzo della schermata: #/diario?zona=abc -> URLSearchParams { zona: 'abc' }.
 export function parametriRotta() {
   return new URLSearchParams(location.hash.split('?')[1] ?? '');

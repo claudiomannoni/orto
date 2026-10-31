@@ -27,7 +27,7 @@ const giornoDiPasqua = (anno) => { const [m, g] = pasqua(anno); return giornoNum
 //  - da giovedì a martedì grasso: Carnevale (cappello da giullare)
 //  - il resto dell'anno: la stagione (inverno dicembre-febbraio, primavera marzo-maggio,
 //    estate giugno-agosto, autunno settembre-novembre)
-export function vestitoDelGiorno(iso, { nato = null } = {}) {
+function vestitoDelCalendario(iso, nato) {
   const anno = Number(iso.slice(0, 4));
   const mese = Number(iso.slice(5, 7));
   const giorno = Number(iso.slice(8, 10));
@@ -43,6 +43,13 @@ export function vestitoDelGiorno(iso, { nato = null } = {}) {
   if (mese <= 5) return 'primavera';
   if (mese <= 8) return 'estate';
   return 'autunno';
+}
+
+// Come vestitoDelCalendario, ma se oggi piove (secondo il meteo) l'ombrello prende il posto dei vestiti di stagione.
+// Le feste restano: a Natale con la pioggia si è comunque a Natale. piove: true/false.
+export function vestitoDelGiorno(iso, { nato = null, piove = false } = {}) {
+  const v = vestitoDelCalendario(iso, nato);
+  return piove && ['inverno', 'estate', 'primavera', 'autunno'].includes(v) ? 'pioggia' : v;
 }
 
 // Quale gruppo di battute commenta il vestito (ognuno ha le sue; "tocco" sono quelle generiche).

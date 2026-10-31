@@ -1,5 +1,5 @@
 // Le mie zone: aiuole già coltivate e terreni da preparare, con misure, esposizione e profilo del terreno.
-import { el } from '../util.js';
+import { el, aggiungi } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoZone, salvaZona, eliminaZona, normalizzaZona, direzioneDa } from '../store/zone.js';
 import { elencoColture, salvaColtura } from '../store/dati.js';
@@ -151,7 +151,7 @@ export async function monta(contenitore) {
   conteggio = el('span', { class: 'conteggio' }, '0');
   lista = el('ul', { class: 'lista' });
   vuoto = el('p', { class: 'vuoto-testo', id: 'zone-vuoto' }, t('zone.vuoto'));
-  contenitore.append(
+  aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('zone.titolo'), ' ', conteggio),
     el('button', { class: 'btn primario grande', type: 'button', onclick: () => apriForm() }, `+ ${t('zone.nuova')}`),
     vuoto,

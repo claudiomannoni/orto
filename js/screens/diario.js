@@ -1,6 +1,6 @@
 // Diario fotografico: le foto datate dell'orto, per zona e coltura. Restano sul telefono.
 // Da qui si guardano, si fa il time-lapse e si può chiedere a Rossella cosa vede in una pianta.
-import { el, oggiISO, parametriRotta, formattaData } from '../util.js';
+import { el, oggiISO, parametriRotta, formattaData, aggiungi } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoFoto, salvaFoto, eliminaFoto, nuovaFoto, filtra, perMese, dallaPiuVecchia } from '../store/foto.js';
 import { elencoZone } from '../store/zone.js';
@@ -269,7 +269,7 @@ export async function monta(contenitore) {
       name: `filtro-${nome}`,
       onchange: (e) => { filtro[chiave] = e.target.value || null; disegna(); },
     }, [el('option', { value: '' }, t('diario.tutte')), ...voci.map(([v, testo]) => el('option', { value: v, selected: v === attuale }, testo))]));
-  contenitore.append(
+  aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('diario.titolo'), ' ', conteggio),
     el('button', { class: 'btn primario grande', type: 'button', onclick: apriAggiunta }, `+ ${t('diario.aggiungi')}`),
     vuoto,

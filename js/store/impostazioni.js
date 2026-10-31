@@ -8,6 +8,8 @@ export const PREDEFINITE = {
   vestiti: 'auto',
   installa_rimandato: null,
   orto_nato: null,
+  meteo_posizione: null, // { lat, lon } scelti dall'utente (arrotondati); null = il centro della zona
+  meteo_cache: null, // ultime previsioni scaricate
   traguardi: null, // { id: data } dei traguardi già presi
   livello_raggiunto: null,
   ai_foto_ok: false,

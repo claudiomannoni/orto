@@ -21,7 +21,15 @@ export function impostaVestiti(valore, dataNascita) {
   aggiornaVestiti();
 }
 
-export const vestitoAttuale = () => temporaneo ?? (preferenza === 'auto' ? vestitoDelGiorno(oggiISO(), { nato }) : preferenza);
+// Oggi piove? (lo dice il meteo, appena si sa): con «Automatico» i vermetti prendono l'ombrello.
+let piove = false;
+export function impostaPioggia(valore) {
+  if (piove === Boolean(valore)) return;
+  piove = Boolean(valore);
+  aggiornaVestiti();
+}
+
+export const vestitoAttuale = () => temporaneo ?? (preferenza === 'auto' ? vestitoDelGiorno(oggiISO(), { nato, piove }) : preferenza);
 
 // variante: 'pensa' (Rossella) o 'ride' (Rosso); senza variante, l'espressione neutra.
 export function percorsoMascotte(chi, variante) {

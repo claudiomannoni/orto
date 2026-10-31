@@ -46,8 +46,13 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [ ] Diario fotografico datato per zona e coltura (serve un nuovo store e una decisione su come metterlo nel backup: le foto pesano)
 - [ ] Consigli del terreno dentro «Oggi» e nel calendario (per esempio: terreno argilloso, non lavorare da bagnato)
 - [x] **Foto in campo per capire il terreno** (31/10/2026): nel profilo del terreno, «Foto in campo»: si scattano o scelgono fino a 3 foto (terreno da vicino ed erbe spontanee), ridotte a 1024 px prima dell'invio; Rossella (Gemini) propone le erbe che riconosce (collegate a quelle di `terreno.json`, un id inventato non vale) e gli indizi sul terreno; l'utente conferma, mai in automatico, e le proposte contano come un'erba (mezza risposta). Le foto non si salvano. Avviso che vanno a Google (permesso la prima volta), tetto di 10 foto al giorno per non finire la quota, ogni risposta segnata come proposta con «L'IA è poco sicura». Prove: `tests/fase4-foto.mjs`, `tests/11-foto.mjs` (con Gemini simulato). **Non provata con una foto e una chiave vere**
-- [ ] Salvare le foto nel diario fotografico (per zona e coltura) e il time-lapse: serve un nuovo store e la decisione su come mettere le foto nel backup (pesano)
-- [ ] Diagnosi di piante malate da foto (Rossella): stessa base delle foto in campo, con prompt prudente e senza consigli sui prodotti
+- [x] **Diario fotografico** (31/10/2026): foto datate per zona e coltura, nuovo archivio sul telefono (database v3, migrazione da v2 provata), foto ridotte a 1024 px con miniatura, griglia per mese, filtri, visore con nota, **time-lapse** (play/pausa, più veloce/più lento). Backup normale senza foto; «Esporta backup con foto» le include (file grande), importandolo senza foto quelle del diario restano. Prova: `tests/13-diario.mjs`
+- [x] **Diagnosi di piante da foto** (Rossella): dal visore, «Chiedi a Rossella»: dice se la pianta sembra sana, cause possibili con confidenza e cosa controllare; mai prodotti né dosi; sempre «ipotesi da verificare» e rimando a un tecnico (consorzio agrario o servizio fitosanitario). Salvata sulla foto. Stesso tetto di 10 foto al giorno. **Non provata con una foto e una chiave vere**
+
+## Meteo (31/10/2026)
+
+- [x] Meteo in «Oggi» da Open-Meteo (gratuito, senza chiave): oggi, domani e dopodomani, e avvisi per l'orto: gelata (minima da 0° in giù), brina (fino a 3°), pioggia forte (10 mm), caldo (33°), vento (40 km/h). Previsioni salvate sul telefono (non si riscaricano entro 3 ore; senza internet si usano le ultime, con «x ore fa»). Posizione: centro della zona (Frascati, approssimato) o la posizione del telefono arrotondata a circa 1 km, scelta in Impostazioni. Prova: `tests/12-meteo.mjs` (con Open-Meteo simulato), `tests/fase5-meteo.mjs`. **Non provato con il vero Open-Meteo dal telefono**
+- [ ] Consigli dell'orto che tengono conto del meteo (per esempio non annaffiare se piove, semine rimandate per il gelo) dentro il motore di «Oggi»
 
 ## Vermetti vivi (31/10/2026)
 
@@ -55,7 +60,9 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [x] Toccandoli saltano e dicono una battuta; a volte si punzecchiano (uno parla, l'altro risponde); al sesto tocco cambiano vestito. Respirano piano, e con «riduci movimento» non si animano
 - [x] Battute: 16 generiche per ciascuno, 6 per stagione o festa, 5 per il cambio d'abito, 8+ scambi (`data/it/battute.json`, scritte da Codex e ritoccate). Prove: `tests/fase4-vestiti.mjs`, `tests/09-vermetti.mjs`, `tests/mascotte-battute.mjs`
 - [x] Altri vestiti: Pasqua (orecchie da coniglio e uovo, da giovedì santo a Pasquetta), Carnevale (cappello da giullare, da giovedì a martedì grasso), compleanno dell'orto (un anno dopo il primo avvio, cappellino e palloncino). Quando tocchi «Fatto» un vermetto compare in basso e fa i complimenti (12 battute per ciascuno, 5 scambi)
-- [ ] Il vestito per la pioggia in automatico col meteo, battute che commentano le colture dell'utente, traguardi e livelli con i vermetti, nuovi vestiti ogni tanto
+- [x] I vermetti prendono l'ombrello quando piove (secondo il meteo; le feste battono la pioggia, e se scegli un vestito a mano resta quello)
+- [x] **Livelli e traguardi**: 10 livelli e 36 traguardi (lavori fatti, colture, zone, terreno capito, foto, diagnosi, giorni attivi, giorni di fila, stagioni), punti da lavori, colture, zone, foto e traguardi. Carta del livello in «Oggi», foglio con l'elenco; quando si sblocca qualcosa i vermetti festeggiano con battute apposite. Chi usava già l'app prende i traguardi che aveva già senza una festa per tutti insieme. Prova: `tests/14-progressi.mjs`, `tests/fase5-progressi.mjs`
+- [ ] Battute che commentano le colture dell'utente, nuovi vestiti ogni tanto
 - [ ] Date vere del gelo: servono le serie giornaliere della stazione ARSIAL di Velletri (320 m); le fonti trovate finora confermano la stazione ma non danno le date
 
 ## Futuro, non ora

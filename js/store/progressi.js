@@ -8,6 +8,8 @@ import { toast } from '../ui/toast.js';
 import { t } from '../i18n.js';
 import { festeggia } from '../ui/mascotte.js';
 
+const PAUSA_FESTEGGIAMENTO = 1300;
+
 async function leggiTutto() {
   const [eventi, colture, zone, foto] = await Promise.all([tutte('eventi'), tutte('colture'), tutte('zone'), tutte('foto')]);
   return { eventi, colture, zone, foto: foto.map(({ id, data, diagnosi }) => ({ id, data, diagnosi })) }; // non servono le immagini
@@ -43,15 +45,21 @@ export async function controllaProgressi() {
     const adesso = isoLocale(new Date());
     await imposta('traguardi', { ...gia, ...Object.fromEntries(nuovi.map((id) => [id, adesso])) });
     await imposta('livello_raggiunto', stato.livello?.id ?? 1);
-    if (livelloSalito) {
-      toast(t('progressi.livello_nuovo', { nome: stato.livello.nome }));
-      const chi = Math.random() < 0.5 ? 'rosso' : 'rossella';
-      festeggia('livello', { chi, testo: stato.livello[chi] }); // la battuta del livello raggiunto, detta da uno dei due
-    } else {
-      const primo = stato.dati.traguardi.find((x) => x.id === nuovi[0]);
-      toast(t('progressi.traguardo_nuovo', { titolo: primo?.titolo ?? '' }));
-      festeggia('traguardo');
-    }
+    // Il messaggio dice tutto quello che c'è di nuovo (un traguardo e magari anche il livello); i vermetti festeggiano
+    // il livello se è salito, altrimenti il traguardo.
+    const messaggi = [];
+    if (nuovi.length) messaggi.push(t('progressi.traguardo_nuovo', { titolo: stato.dati.traguardi.find((x) => x.id === nuovi[0])?.titolo ?? '' }));
+    if (livelloSalito) messaggi.push(t('progressi.livello_nuovo', { nome: stato.livello.nome }));
+    // Un attimo dopo, così non copre il messaggio dell'azione appena fatta («Coltura aggiunta», «Segnato come fatto»).
+    setTimeout(() => {
+      toast(messaggi.join(' · '));
+      if (livelloSalito) {
+        const chi = Math.random() < 0.5 ? 'rosso' : 'rossella';
+        festeggia('livello', { chi, testo: stato.livello[chi] }); // la battuta del livello raggiunto, detta da uno dei due
+      } else {
+        festeggia('traguardo');
+      }
+    }, PAUSA_FESTEGGIAMENTO);
     return { ...stato, nuovi, livelloSalito };
   } catch (errore) {
     console.warn('Progressi non aggiornati', errore);

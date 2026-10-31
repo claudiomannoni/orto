@@ -1,7 +1,7 @@
 // «Scarica l'app»: l'invito a installare l'app sul telefono.
 // Su Android (Chrome) il browser offre l'installazione con un evento: qui lo si tiene da parte
 // e lo si usa quando si tocca il pulsante. Su iPhone non c'è: si spiegano i due tocchi.
-import { el } from '../util.js';
+import { el, sostituisci } from '../util.js';
 import { t } from '../i18n.js';
 import { leggi, imposta } from '../store/impostazioni.js';
 import { toast } from './toast.js';
@@ -57,7 +57,7 @@ export function bloccoInstalla({ rimandabile = false } = {}) {
     disegnato = true;
     if (giaInstallata()) { radice.hidden = true; return; }
     if (rimandabile && inPausa((await leggi()).installa_rimandato)) { radice.hidden = true; return; }
-    radice.replaceChildren(
+    sostituisci(radice,
       el('h3', {}, t('installa.titolo')),
       el('p', {}, t('installa.spiega')),
       richiesta

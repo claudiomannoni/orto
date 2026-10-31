@@ -6,7 +6,8 @@ import { impostaLingua } from './contenuti.js';
 import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
-import { impostaVestiti } from './ui/mascotte.js';
+import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
+import { pioveOggiDaCache } from './meteo.js';
 import './ui/installa.js'; // ascolta subito l'offerta di installazione del browser
 
 const schermate = {
@@ -86,6 +87,8 @@ async function avvia() {
     if (document.visibilityState === 'visible' && rottaCorrente !== PRIMO_AVVIO) mostra();
   });
   await mostra();
+  // Se le ultime previsioni dicono che piove, i vermetti hanno già l'ombrello (poi «Oggi» le aggiorna).
+  pioveOggiDaCache().then(impostaPioggia).catch(() => {});
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch((errore) => console.warn('Service worker non registrato', errore));

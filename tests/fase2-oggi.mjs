@@ -1,7 +1,7 @@
 // Prova della Fase 2 ("Oggi in campagna"). Uso: node fase2-oggi.mjs http://localhost:8201
 import fs from 'node:fs';
 import path from 'node:path';
-import { chromium, BASE, AQUI, PIXEL9, osserva, attendiApp } from './lib.mjs';
+import { chromium, BASE, AQUI, PIXEL9, osserva, attendiApp, simulaMeteo } from './lib.mjs';
 const SHOT = path.join(AQUI, 'schermate', 'fase2');
 fs.mkdirSync(SHOT, { recursive: true });
 let ok = 0, ko = 0;
@@ -10,6 +10,7 @@ const browser = await chromium.launch();
 const problemi = [];
 const nuova = async (extra = {}) => {
   const ctx = await browser.newContext({ ...PIXEL9, ...extra });
+  await simulaMeteo(ctx);
   const page = await ctx.newPage(); osserva(page, problemi); return { ctx, page };
 };
 const pronta = async (page, url) => { await page.goto(`${BASE}/${url}`); await attendiApp(page); await page.waitForSelector('#schermata h2.titolo-schermata'); await page.waitForTimeout(250); };
