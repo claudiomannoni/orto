@@ -188,6 +188,300 @@
       "termine": "Sfogliatura",
       "definizione": "Raccolta che consiste nello staccare le foglie una alla volta, invece di tagliare tutta la pianta.",
       "vedi_anche": []
+    },
+    {
+      "id": "ph-del-terreno",
+      "termine": "pH del terreno",
+      "definizione": "Misura quanto il terreno è acido o alcalino; influenza quali nutrienti le radici riescono ad assorbire.",
+      "esempio": "Un'analisi del terreno può misurarne il pH.",
+      "vedi_anche": ["tessitura-del-terreno"]
+    },
+    {
+      "id": "humus",
+      "termine": "Humus",
+      "definizione": "Parte scura e stabile della sostanza organica, formata dalla lenta decomposizione di resti vegetali e animali.",
+      "vedi_anche": ["compost", "lombrichi"]
+    },
+    {
+      "id": "compost",
+      "termine": "Compost",
+      "definizione": "Materiale ottenuto dalla decomposizione controllata di scarti organici, usato per arricchire il terreno.",
+      "esempio": "Foglie e scarti vegetali possono diventare compost.",
+      "vedi_anche": ["humus", "concimazione-organica"]
+    },
+    {
+      "id": "sovescio",
+      "termine": "Sovescio",
+      "definizione": "Coltura seminata per coprire il terreno e poi tagliata e lasciata o incorporata nel suolo come sostanza organica.",
+      "vedi_anche": ["rotazione", "azoto"]
+    },
+    {
+      "id": "pacciamare",
+      "termine": "Pacciamare",
+      "definizione": "Coprire la superficie del terreno con materiale organico o un telo per conservarne l'umidità e limitare le erbe spontanee.",
+      "vedi_anche": ["pacciamatura"]
+    },
+    {
+      "id": "irrigazione-a-goccia",
+      "termine": "Irrigazione a goccia",
+      "definizione": "Metodo che porta l'acqua lentamente vicino alle radici attraverso tubi con piccoli erogatori.",
+      "esempio": "Un tubo gocciolante irriga i pomodori lungo la fila.",
+      "vedi_anche": ["ristagno-idrico"]
+    },
+    {
+      "id": "ristagno-idrico",
+      "termine": "Ristagno idrico",
+      "definizione": "Accumulo di acqua nel terreno che non defluisce; se dura, riduce l'aria disponibile alle radici.",
+      "vedi_anche": ["drenaggio"]
+    },
+    {
+      "id": "argilla",
+      "termine": "Argilla",
+      "definizione": "Componente del terreno fatta di particelle molto fini, che tende a trattenere acqua e nutrienti.",
+      "vedi_anche": ["tessitura-del-terreno", "drenaggio"]
+    },
+    {
+      "id": "sabbia",
+      "termine": "Sabbia",
+      "definizione": "Componente del terreno con particelle relativamente grandi; lascia passare l'acqua rapidamente e ne trattiene poca.",
+      "vedi_anche": ["tessitura-del-terreno", "drenaggio"]
+    },
+    {
+      "id": "limo",
+      "termine": "Limo",
+      "definizione": "Componente del terreno con particelle più fini della sabbia e più grossolane dell'argilla.",
+      "vedi_anche": ["tessitura-del-terreno"]
+    },
+    {
+      "id": "drenaggio",
+      "termine": "Drenaggio",
+      "definizione": "Capacità del terreno di far defluire l'acqua in eccesso, mantenendo aria negli spazi tra le particelle.",
+      "vedi_anche": ["ristagno-idrico", "tessitura-del-terreno"]
+    },
+    {
+      "id": "tessitura-del-terreno",
+      "termine": "Tessitura del terreno",
+      "definizione": "Proporzione di sabbia, limo e argilla nel terreno; influisce su quanta acqua e aria può trattenere.",
+      "vedi_anche": ["argilla", "sabbia", "limo"]
+    },
+    {
+      "id": "concimazione-organica",
+      "termine": "Concimazione organica",
+      "definizione": "Apporto al terreno di materiali di origine vegetale o animale che forniscono sostanza organica e nutrienti.",
+      "vedi_anche": ["compost", "azoto", "fosforo", "potassio"]
+    },
+    {
+      "id": "azoto",
+      "termine": "Azoto",
+      "definizione": "Nutriente necessario alla crescita delle piante, in particolare alla formazione di foglie e fusti.",
+      "vedi_anche": ["concimazione-organica", "legume"]
+    },
+    {
+      "id": "fosforo",
+      "termine": "Fosforo",
+      "definizione": "Nutriente vegetale coinvolto nel trasferimento di energia e nello sviluppo di radici, fiori e semi.",
+      "vedi_anche": ["concimazione-organica"]
+    },
+    {
+      "id": "potassio",
+      "termine": "Potassio",
+      "definizione": "Nutriente vegetale che contribuisce a regolare l'acqua nelle cellule e sostiene diversi processi di crescita.",
+      "vedi_anche": ["concimazione-organica"]
+    },
+    {
+      "id": "insetti-utili",
+      "termine": "Insetti utili",
+      "definizione": "Insetti che aiutano l'orto, per esempio impollinando i fiori o nutrendosi di alcuni insetti dannosi.",
+      "esempio": "Coccinelle e larve di sirfide possono predare gli afidi.",
+      "vedi_anche": ["afidi", "lotta-integrata"]
+    },
+    {
+      "id": "afidi",
+      "termine": "Afidi",
+      "definizione": "Piccoli insetti dal corpo molle che succhiano la linfa e spesso si raccolgono sui germogli e sotto le foglie.",
+      "vedi_anche": ["insetti-utili", "lotta-integrata"]
+    },
+    {
+      "id": "oidio",
+      "termine": "Oidio",
+      "definizione": "Malattia causata da funghi, riconoscibile da una patina bianca e farinosa su foglie e altri tessuti della pianta.",
+      "vedi_anche": ["peronospora"]
+    },
+    {
+      "id": "peronospora",
+      "termine": "Peronospora",
+      "definizione": "Malattia causata da organismi simili a funghi; può provocare macchie sulle foglie e compromettere la pianta.",
+      "vedi_anche": ["oidio"]
+    },
+    {
+      "id": "marciume-apicale",
+      "termine": "Marciume apicale",
+      "definizione": "Alterazione del frutto con una zona scura e infossata all'estremità opposta al picciolo, frequente nel pomodoro.",
+      "esempio": "Sul pomodoro compare una macchia scura sul fondo del frutto.",
+      "vedi_anche": ["irrigazione-a-goccia"]
+    },
+    {
+      "id": "allegagione",
+      "termine": "Allegagione",
+      "definizione": "Fase in cui, dopo la fioritura e l'impollinazione, il fiore inizia a svilupparsi in frutto.",
+      "vedi_anche": ["impollinazione"]
+    },
+    {
+      "id": "monta-a-seme",
+      "termine": "Monta a seme",
+      "definizione": "Rapida emissione del fusto fiorale e produzione di fiori e semi, spesso prima del raccolto desiderato.",
+      "vedi_anche": ["vernalizzazione"]
+    },
+    {
+      "id": "cimatura",
+      "termine": "Cimatura",
+      "definizione": "Rimozione della punta di un fusto o germoglio per limitarne l'allungamento o favorire altri getti.",
+      "vedi_anche": ["scacchiatura"]
+    },
+    {
+      "id": "scacchiatura",
+      "termine": "Scacchiatura",
+      "definizione": "Eliminazione selettiva dei germogli laterali che crescono all'ascella delle foglie, per esempio nel pomodoro.",
+      "vedi_anche": ["cimatura", "tutoraggio"]
+    },
+    {
+      "id": "tutoraggio",
+      "termine": "Tutoraggio",
+      "definizione": "Sostegno dato a una pianta con un tutore, una rete o una struttura a cui legarla o farla arrampicare.",
+      "esempio": "Un palo tiene dritto il fusto del pomodoro carico di frutti.",
+      "vedi_anche": ["sesto-di-impianto"]
+    },
+    {
+      "id": "rincalzatura",
+      "termine": "Rincalzatura",
+      "definizione": "Operazione che accumula terra attorno alla base di una pianta; è l'azione di rincalzare.",
+      "vedi_anche": ["rincalzare"]
+    },
+    {
+      "id": "vernalizzazione",
+      "termine": "Vernalizzazione",
+      "definizione": "Esposizione al freddo che permette ad alcune piante di completare il ciclo e poi fiorire.",
+      "vedi_anche": ["monta-a-seme"]
+    },
+    {
+      "id": "ibrido-f1",
+      "termine": "Ibrido F1",
+      "definizione": "Prima generazione ottenuta incrociando due linee parentali selezionate; i semi raccolti non riproducono in modo uniforme la pianta.",
+      "vedi_anche": ["seme"]
+    },
+    {
+      "id": "varieta-antica",
+      "termine": "Varietà antica",
+      "definizione": "Varietà coltivata da molto tempo e conservata nel tempo; il termine non indica da solo una certificazione ufficiale.",
+      "vedi_anche": ["ibrido-f1", "seme-biologico"]
+    },
+    {
+      "id": "seme-biologico",
+      "termine": "Seme biologico",
+      "definizione": "Seme prodotto secondo le regole dell'agricoltura biologica e commercializzato con la relativa certificazione.",
+      "vedi_anche": ["biologico"]
+    },
+    {
+      "id": "germinabilita",
+      "termine": "Germinabilità",
+      "definizione": "Capacità dei semi di germinare in condizioni adatte; spesso è espressa come percentuale dei semi che germinano.",
+      "vedi_anche": ["germinazione", "semina"]
+    },
+    {
+      "id": "lombrichi",
+      "termine": "Lombrichi",
+      "definizione": "Animali del suolo che scavano gallerie e contribuiscono a mescolare e arieggiare il terreno.",
+      "vedi_anche": ["humus", "lombricompost"]
+    },
+    {
+      "id": "lombricompost",
+      "termine": "Lombricompost",
+      "definizione": "Materiale simile a compost prodotto dalla trasformazione di residui organici attraverso l'attività dei lombrichi.",
+      "vedi_anche": ["lombrichi", "compost"]
+    },
+    {
+      "id": "cassone-rialzato",
+      "termine": "Cassone rialzato",
+      "definizione": "Contenitore aperto sopra e riempito di terreno, costruito sopra il livello del suolo per coltivare un'aiuola rialzata.",
+      "vedi_anche": ["lavorazione-del-terreno", "drenaggio"]
+    },
+    {
+      "id": "no-dig",
+      "termine": "No-dig",
+      "definizione": "Metodo di coltivazione che evita di vangare o rivoltare il terreno e prepara le aiuole aggiungendo materiale organico in superficie.",
+      "vedi_anche": ["compost", "lavorazione-del-terreno"]
+    },
+    {
+      "id": "biologico",
+      "termine": "Biologico",
+      "definizione": "Metodo di produzione regolato da norme che limitano i mezzi ammessi e richiedono controlli e certificazione.",
+      "vedi_anche": ["seme-biologico", "lotta-integrata"]
+    },
+    {
+      "id": "lotta-integrata",
+      "termine": "Lotta integrata",
+      "definizione": "Gestione dei parassiti che combina prevenzione, osservazione e metodi diversi, scegliendo gli interventi in base al problema.",
+      "vedi_anche": ["insetti-utili", "afidi"]
+    },
+    {
+      "id": "gelata-tardiva",
+      "termine": "Gelata tardiva",
+      "definizione": "Gelata che arriva in primavera, dopo la ripresa vegetativa, e può danneggiare germogli, fiori o frutti giovani.",
+      "vedi_anche": ["gelata", "brina"]
+    },
+    {
+      "id": "brina",
+      "termine": "Brina",
+      "definizione": "Deposito di cristalli di ghiaccio che si forma su superfici fredde quando il vapore acqueo gela.",
+      "vedi_anche": ["gelata", "gelata-tardiva"]
+    },
+    {
+      "id": "impollinazione",
+      "termine": "Impollinazione",
+      "definizione": "Trasferimento del polline alla parte del fiore che lo riceve; è un passaggio della riproduzione di molte piante.",
+      "vedi_anche": ["allegagione", "insetti-utili"]
+    },
+    {
+      "id": "fiore",
+      "termine": "Fiore",
+      "definizione": "Organo riproduttivo della pianta, da cui dopo l'impollinazione possono svilupparsi semi e, in molte specie, frutti.",
+      "vedi_anche": ["impollinazione", "allegagione"]
+    },
+    {
+      "id": "erba-spontanea",
+      "termine": "Erba spontanea",
+      "definizione": "Pianta che nasce e cresce da sé nel luogo coltivato, senza essere stata seminata intenzionalmente.",
+      "vedi_anche": ["sarchiatura", "pacciamatura"]
+    },
+    {
+      "id": "seme",
+      "termine": "Seme",
+      "definizione": "Struttura che contiene l'embrione di una nuova pianta e può germinare quando trova condizioni adatte.",
+      "vedi_anche": ["semina", "germinazione", "germinabilita"]
+    },
+    {
+      "id": "sostanza-organica",
+      "termine": "Sostanza organica",
+      "definizione": "Insieme dei resti e dei materiali di origine vivente presenti nel terreno, in vari stadi di decomposizione.",
+      "vedi_anche": ["humus", "compost"]
+    },
+    {
+      "id": "piante-di-copertura",
+      "termine": "Piante di copertura",
+      "definizione": "Piante coltivate per coprire il terreno tra o prima delle colture principali, riducendo il suolo lasciato nudo.",
+      "vedi_anche": ["sovescio", "pacciamatura"]
+    },
+    {
+      "id": "piantina",
+      "termine": "Piantina",
+      "definizione": "Giovane pianta nata da seme o ottenuta per propagazione, pronta a continuare la crescita.",
+      "vedi_anche": ["semenzaio", "trapianto"]
+    },
+    {
+      "id": "radice",
+      "termine": "Radice",
+      "definizione": "Parte della pianta che di solito cresce nel terreno, la ancora e assorbe acqua e nutrienti.",
+      "vedi_anche": ["trapianto", "attecchimento"]
     }
   ]
 }
