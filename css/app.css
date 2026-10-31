@@ -405,6 +405,10 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .consigli { display: grid; gap: 10px; }
 .consigli > div { display: grid; gap: 4px; justify-items: start; }
 .terreno-form { padding-bottom: 8px; }
+.anteprime { display: flex; flex-wrap: wrap; gap: 10px; }
+.anteprima { margin: 0; display: grid; gap: 4px; justify-items: center; }
+.anteprima img { width: 96px; height: 96px; object-fit: cover; border: 2px solid var(--bordo); border-radius: 14px; }
+.proposte-foto, .elenco-proposte { display: grid; gap: 10px; }
 
 /* ---------- Primo avvio guidato ---------- */
 .barra[hidden] { display: none; }

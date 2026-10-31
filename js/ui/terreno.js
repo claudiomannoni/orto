@@ -4,6 +4,7 @@ import { t } from '../i18n.js';
 import { terreno as caricaTerreno } from '../contenuti.js';
 import { apriFoglio } from './foglio.js';
 import { calcolaProfilo, barattoloValido, ASSI } from '../motore/terreno.js';
+import { sezioneFoto } from './foto-terreno.js';
 
 // "Sabbioso · Drenaggio buono · Humus ricco", o null se non si sa niente.
 export function riassuntoTerreno(terreno) {
@@ -35,7 +36,9 @@ export async function apriTerreno({ zona, alSalvare }) {
     risposte: { ...(zona.terreno?.risposte ?? {}) },
     piante: [...(zona.terreno?.piante ?? [])],
     barattolo: zona.terreno?.barattolo ?? null,
+    indiziFoto: { ...(zona.terreno?.foto?.indizi ?? {}) },
   };
+  const caselle = new Map(); // erba -> casella nella lista, per segnarla anche dalle foto
   const risultato = el('section', { class: 'card risultato-terreno', 'aria-live': 'polite' });
 
   function disegnaRisultato() {
@@ -62,13 +65,17 @@ export async function apriTerreno({ zona, alSalvare }) {
       }), o.testo))));
 
   const piante = (dati.piante_indicatrici ?? []).map((p) => el('label', { class: 'pianta' },
-    el('input', {
-      type: 'checkbox', value: p.id, checked: stato.piante.includes(p.id),
-      onchange: (e) => {
-        stato.piante = e.target.checked ? [...stato.piante, p.id] : stato.piante.filter((x) => x !== p.id);
-        disegnaRisultato();
-      },
-    }),
+    (() => {
+      const casella = el('input', {
+        type: 'checkbox', value: p.id, checked: stato.piante.includes(p.id),
+        onchange: (e) => {
+          stato.piante = e.target.checked ? [...stato.piante, p.id] : stato.piante.filter((x) => x !== p.id);
+          disegnaRisultato();
+        },
+      });
+      caselle.set(p.id, casella);
+      return casella;
+    })(),
     el('span', {},
       el('strong', {}, p.nome), p.nome_scientifico ? el('em', {}, ` ${p.nome_scientifico}`) : null,
       el('span', { class: 'aiuto' }, p.come_riconoscerla ?? ''),
@@ -119,6 +126,7 @@ export async function apriTerreno({ zona, alSalvare }) {
         tessitura: profilo.tessitura, drenaggio: profilo.drenaggio, humus: profilo.humus,
         risposte: stato.risposte, barattolo: stato.barattolo && barattoloValido(stato.barattolo) ? stato.barattolo : null,
         piante: stato.piante, aggiornato: new Date().toISOString(),
+        foto: Object.keys(stato.indiziFoto).length ? { indizi: stato.indiziFoto, data: new Date().toISOString() } : null,
       });
       foglio.close();
     },
@@ -128,6 +136,7 @@ export async function apriTerreno({ zona, alSalvare }) {
     titolo: t('terreno.titolo'),
     contenuto: el('div', { class: 'form terreno-form' },
       el('p', { class: 'aiuto' }, t('terreno.spiega')),
+      sezioneFoto({ dati, stato, caselle, aggiorna: disegnaRisultato }),
       el('details', { class: 'sezione-terreno', open: true }, el('summary', {}, t('terreno.questionario')), el('div', { class: 'corpo' }, domande)),
       el('details', { class: 'sezione-terreno' }, el('summary', {}, t('terreno.piante')),
         el('div', { class: 'corpo' }, el('p', { class: 'aiuto' }, t('terreno.piante.spiega')), piante)),

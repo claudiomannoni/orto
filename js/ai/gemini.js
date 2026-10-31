@@ -28,16 +28,19 @@ export async function elencoModelli({ chiave }) {
   return [...new Set(nomi)].sort((a, b) => peso(a) - peso(b) || b.localeCompare(a, 'en', { numeric: true }));
 }
 
-export async function chiedi({ chiave, modello, testo, immagine }) {
+// immagini: elenco di { tipo, base64 } (anche una sola); json: chiede a Gemini di rispondere in JSON.
+export async function chiedi({ chiave, modello, testo, immagine, immagini = [], json = false }) {
   const parti = [{ text: testo }];
-  if (immagine) parti.push({ inlineData: { mimeType: immagine.tipo, data: immagine.base64 } });
+  for (const img of [...(immagine ? [immagine] : []), ...immagini]) parti.push({ inlineData: { mimeType: img.tipo, data: img.base64 } });
+  const corpo = { contents: [{ parts: parti }] };
+  if (json) corpo.generationConfig = { responseMimeType: 'application/json', temperature: 0.2 };
 
   let risposta;
   try {
     risposta = await fetch(`${BASE}/${encodeURIComponent(modello)}:generateContent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': chiave },
-      body: JSON.stringify({ contents: [{ parts: parti }] }),
+      body: JSON.stringify(corpo),
     });
   } catch {
     throw errore('rete');

@@ -17,7 +17,7 @@ export async function disponibile() {
 
 // testo: la domanda. immagine (facoltativa): { tipo: 'image/jpeg', base64: '...' }.
 // Lancia un errore con codice: 'nochiave' | 'provider' | 'chiave' | 'modello' | 'quota' | 'rete' | 'altro'.
-export async function chiedi({ testo, immagine }) {
+export async function chiedi({ testo, immagine, immagini, json }) {
   const impostazioni = await leggi();
   const provider = PROVIDER[impostazioni.ai_provider];
   if (!provider) throw errore('provider');
@@ -27,6 +27,8 @@ export async function chiedi({ testo, immagine }) {
     modello: impostazioni.ai_modello,
     testo,
     immagine,
+    immagini,
+    json,
   });
 }
 

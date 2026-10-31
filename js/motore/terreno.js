@@ -26,7 +26,8 @@ export function barattoloValido({ sabbia_pct: s, limo_pct: l, argilla_pct: a } =
 }
 
 // dati = terreno.json. Restituisce { tessitura, drenaggio, humus } (null dove non si sa).
-export function calcolaProfilo({ risposte = {}, piante = [], barattolo = null }, dati) {
+// indiziFoto: { tessitura?, drenaggio?, humus? } che l'utente ha accettato dall'analisi delle foto (conta come una pianta).
+export function calcolaProfilo({ risposte = {}, piante = [], barattolo = null, indiziFoto = {} }, dati) {
   const voti = { tessitura: {}, drenaggio: {}, humus: {} };
   const aggiungi = (asse, valore, peso) => {
     if (voti[asse] && ASSI[asse].includes(valore)) voti[asse][valore] = (voti[asse][valore] ?? 0) + peso;
@@ -39,6 +40,7 @@ export function calcolaProfilo({ risposte = {}, piante = [], barattolo = null },
     if (!piante.includes(pianta.id)) continue;
     for (const { asse, valore } of pianta.indica ?? []) aggiungi(asse, valore, PESO_PIANTA);
   }
+  for (const [asse, valore] of Object.entries(indiziFoto ?? {})) aggiungi(asse, valore, PESO_PIANTA);
   const profilo = {};
   for (const asse of Object.keys(ASSI)) {
     const ordinati = Object.entries(voti[asse]).sort((a, b) => b[1] - a[1]);
