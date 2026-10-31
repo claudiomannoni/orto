@@ -6,6 +6,7 @@ import { t } from '../i18n.js';
 import { vestitoAttuale, alTocco } from './mascotte.js';
 import { disegnaVestito, disegnaFirma, COLORI } from './vermetto.js';
 import { consigliDeiVermi, scegliConsiglio } from '../motore/consigli-vermi.js';
+import { umoreDeiVermi, chiaveBentornato } from '../motore/assenza.js';
 import { pioveOggiDaCache } from '../meteo.js';
 
 const ALTEZZA = 120; // altezza dello strato trasparente sopra la barra
@@ -111,6 +112,7 @@ function scava(v) {
 
 function passo(v, dt, ptrVicino) {
   const testa = v.p[0];
+  if (v.stato === 'dorme') { v.fase += dt * 0.02; return; } // fermo, finché qualcuno non lo sveglia
   const stoSopra = v.stato === 'cammina';
   const chiusoSopra = SUOLO - v.r;
   if (v.stato === 'cammina') {
@@ -211,7 +213,7 @@ function disegnaVerme(c, v) {
   const h = punti[0];
   const f = v.verso;
   const guardaIl = performance.now() - puntatore.ultimo < 2500 ? Math.atan2(puntatore.y - h.y, puntatore.x - h.x) : (f > 0 ? 0 : Math.PI);
-  const chiuso = v.occhio < 0 || v.ride > 0;
+  const chiuso = v.occhio < 0 || v.ride > 0 || v.stato === 'dorme';
   [[f * 3, -4], [f * 10, -4]].forEach(([ox, oy]) => {
     const x = h.x + ox; const y = h.y + oy;
     if (chiuso) {
@@ -232,6 +234,11 @@ function disegnaVerme(c, v) {
   // il vestito del giorno, sopra la testa (il collo è il penultimo punto dell'elenco)
   disegnaVestito(c, vestitoAttuale(), h, v.r, [...punti].reverse());
   c.restore();
+  if (v.stato === 'dorme') {
+    c.fillStyle = SCURO; c.font = 'bold 13px system-ui, sans-serif'; c.textAlign = 'center';
+    [0, 1, 2].forEach((k) => { c.globalAlpha = 0.9 - ((v.fase * 3 + k * 0.7) % 2.1) * 0.4; c.fillText('z', h.x + f * (14 + k * 7), h.y - 12 - k * 9 - ((v.fase * 20) % 6)); });
+    c.globalAlpha = 1;
+  }
   // la terra smossa: rigonfiamento sopra il verme sotto terra, e i granelli
   if (v.stato === 'sotto' || (v.stato === 'scava' && h.y > SUOLO - 4)) {
     const alt = v.stato === 'sotto' ? 7 + Math.sin(v.fase * 9) * 1.2 : 5;
@@ -281,18 +288,19 @@ function aggiornaTocchi() {
 // ---- Consigli utili: ogni tanto un verme si ferma e dice una cosa che serve (lavori di oggi, pioggia, quiz...). Si tocca per andare lì. ----
 const MAX_CONSIGLI = 5; // a sessione, per non diventare fastidiosi
 let statoOggi = null;
+let bentornato = null; // { giorni } da dire appena si apre «Oggi»
 let consiglio = null; // { v, voce, nodo, fine }
 let visti = [];
 let giroConsigli = 0;
 let proximo = 0;
 const rotta = () => location.hash.replace(/^#\//, '').split('?')[0] || 'oggi';
 
-async function mostraConsiglio(adesso) {
+async function mostraConsiglio(adesso, forzato = null) {
   if (consiglio || !statoOggi || !visibile || ridotto() || document.hidden || visti.length >= MAX_CONSIGLI) return;
   if (rotta() !== 'oggi' || document.querySelector('dialog[open]')) return; // i consigli stanno nella schermata «Oggi»
   let piove = null;
-  try { piove = await pioveOggiDaCache(); } catch { piove = null; }
-  const voce = scegliConsiglio(consigliDeiVermi({ ...statoOggi, piove }), visti, giroConsigli++);
+  if (!forzato) { try { piove = await pioveOggiDaCache(); } catch { piove = null; } }
+  const voce = forzato ?? scegliConsiglio(consigliDeiVermi({ ...statoOggi, piove }), visti, giroConsigli++);
   if (!voce) return;
   const v = vermi.find((x) => x.chi === voce.chi) ?? vermi[0];
   if (v.stato === 'sotto') { v.stato = 'esce'; v.vy = -9.5; scoppio(v, v.p[0].x, 9); }
@@ -300,7 +308,7 @@ async function mostraConsiglio(adesso) {
   nodo.addEventListener('click', () => { chiudiConsiglio(); if (voce.rotta) location.hash = voce.rotta; });
   document.body.append(nodo);
   consiglio = { v, voce, nodo, fine: adesso + 9500 };
-  visti.push(voce.id);
+  if (!forzato) visti.push(voce.id);
   v.riposo = 600; v.ride = 40;
 }
 function chiudiConsiglio() { consiglio?.nodo.remove(); consiglio = null; }
@@ -374,7 +382,29 @@ export function avviaVermiLiberi() {
   addEventListener('vermi-festa', () => perOgniVerme((v) => {
     if (v.stato === 'sotto') { v.stato = 'esce'; v.vy = -9.5; scoppio(v, v.p[0].x, 9); } else if (v.stato === 'cammina') { v.vy = -9; v.ride = 70; }
   }));
-  addEventListener('stato-oggi', (e) => { statoOggi = e.detail; if (!proximo) proximo = performance.now() + 20000; });
+  addEventListener('stato-oggi', (e) => {
+    statoOggi = e.detail;
+    if (!proximo) proximo = performance.now() + 20000;
+    if (bentornato) {
+      const chiave = chiaveBentornato(bentornato.giorni);
+      const giorni = bentornato.giorni;
+      bentornato = null;
+      if (chiave) setTimeout(() => mostraConsiglio(performance.now(), { id: 'bentornato', chi: 'rosso', chiave, vars: { n: giorni }, rotta: null }), 1500);
+    }
+  });
+  // Da quanti giorni manchi: dopo una settimana i vermi dormono (si svegliano al primo tocco o movimento); il bentornato lo dicono in «Oggi».
+  addEventListener('assenza', (e) => {
+    const giorni = e.detail?.giorni ?? 0;
+    bentornato = { giorni };
+    if (umoreDeiVermi(giorni) === 'dorme') {
+      perOgniVerme((v) => { v.stato = 'dorme'; v.vx = 0; });
+      const sveglia = () => {
+        removeEventListener('pointerdown', sveglia);
+        setTimeout(() => perOgniVerme((v) => { if (v.stato === 'dorme') { v.stato = 'cammina'; v.vy = -8; v.ride = 50; scoppio(v, v.p[0].x, 4); } }), 400);
+      };
+      addEventListener('pointerdown', sveglia);
+    }
+  });
   addEventListener('vermi-consiglio', () => { proximo = 0; mostraConsiglio(performance.now()); }); // per le prove
   addEventListener('vermi-scavano', () => perOgniVerme(scava));
   addEventListener('vermi-esci', () => perOgniVerme((v) => { if (v.stato === 'sotto') { v.stato = 'esce'; v.vy = -9.5; scoppio(v, v.p[0].x, 9); } }));

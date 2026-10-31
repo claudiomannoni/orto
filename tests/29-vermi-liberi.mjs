@@ -58,6 +58,21 @@ check('il consiglio ha il suo vermetto (Rosso o Rossella)', ['rosso', 'rossella'
 await page.locator('.consiglio-verme').click();
 await page.waitForFunction(() => !document.querySelector('.consiglio-verme'), null, { timeout: 3000 });
 check('toccato, il consiglio si chiude', true);
+// assenza lunga: i vermi dormono, si svegliano al tocco, e dicono il bentornato
+const dopo = await nuovoContesto(browser, { serviceWorkers: 'block' });
+const pagina2 = await dopo.newPage();
+osserva(pagina2, problemi);
+await vai(pagina2, 'oggi', '?oggi=2026-06-01');
+await pagina2.waitForSelector('.vermi-liberi canvas');
+await vai(pagina2, 'oggi', '?oggi=2026-06-20'); // 19 giorni dopo
+await pagina2.waitForSelector('.vermi-liberi canvas');
+await pagina2.waitForTimeout(400);
+check('dopo 19 giorni di assenza i vermi dormono', (await pagina2.$$eval('.tocco-vermetto', (b) => b.map((x) => x.dataset.stato))).every((s) => s === 'dorme'));
+await pagina2.waitForSelector('.consiglio-verme', { timeout: 6000 });
+check('dicono il bentornato con i giorni', /19 giorni/.test(await pagina2.locator('.consiglio-verme').innerText()), await pagina2.locator('.consiglio-verme').innerText());
+await pagina2.mouse.click(200, 300);
+await pagina2.waitForFunction(() => [...document.querySelectorAll('.tocco-vermetto')].every((b) => b.dataset.stato !== 'dorme'), null, { timeout: 4000 });
+check('al primo tocco si svegliano', true);
 const veri = problemi.filter((p) => !/Service Worker registration blocked/.test(p));
 check('nessun errore in console', veri.length === 0, veri.join(' | '));
 await browser.close();

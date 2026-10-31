@@ -115,6 +115,7 @@ Dopo aver guardato come sono fatte le app di piante e orto di successo (cure e p
 - Rosso e Rossella sono ora disegnati nel codice ovunque (conversazioni, battute flash, impostazioni, figurina da condividere), con 11 vestiti; tolte le vecchie immagini e `occhi.js` (2.37.2).
 - Vermi liberi (2.38): niente più finestrella; Rosso e Rossella girano sul bordo dello schermo sopra la barra, scavano, vanno sotto terra e escono altrove; saltano fuori quando l'app festeggia.
 - Vermi più utili e discreti (2.39): Rosso (rosso scuro, sopracciglia folte) e Rossella (rosa, occhiali, ciglia, fiocco) si distinguono; diventano trasparenti e lasciano passare i tocchi sopra icone e testo; ogni tanto dicono un consiglio utile e cliccabile (lavori di oggi, pioggia, quiz, curiosità, foto). Modulo dei consigli scritto da OpenCode (gratis), controllato da Claude.
+- Vermi che dormono (2.40): se manchi da una settimana i vermi dormono (con le zeta) e si svegliano al primo tocco; il bentornato dice quanti giorni sono passati. Modulo assenza scritto da OpenCode glm (gratis).
 - Pulizia: eliminati i worktree di Codex, aggiunti `docs/STATO.md` e `scripts/prova-tutto.mjs` (2.37.4).
 
 ## Futuro, non ora

@@ -1,7 +1,8 @@
 // Avvio dell'app: traduzioni, testata, barra in basso, schermate.
 import { caricaTesti, t } from './i18n.js';
 import { leggi, imposta, assicuraIdentita } from './store/impostazioni.js';
-import { isoLocale } from './util.js';
+import { isoLocale, oggiISO } from './util.js';
+import { giorniDiAssenza } from './motore/assenza.js';
 import { impostaLingua } from './contenuti.js';
 import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, aggiornaTestata, ROTTE, SOTTOROTTE } from './ui/nav.js';
@@ -98,6 +99,15 @@ async function avvia() {
   costruisciTestata(document.getElementById('testata'));
   costruisciBarra(barra);
   avviaVermiLiberi();
+  // Da quanti giorni non si apriva l'app: i vermetti dormono se è tanto, e danno il bentornato.
+  try {
+    const prima = await leggi();
+    const oggi = oggiISO();
+    window.dispatchEvent(new CustomEvent('assenza', { detail: { giorni: prima.primo_avvio_fatto ? giorniDiAssenza(prima.ultimo_uso, oggi) : 0 } }));
+    await imposta('ultimo_uso', oggi);
+  } catch (errore) {
+    console.error(errore);
+  }
   window.addEventListener('hashchange', mostra);
   // Tornando all'app dopo un po' (magari il giorno dopo) i giorni si aggiornano.
   // Non durante il primo avvio: ripartirebbe dalla prima domanda.
