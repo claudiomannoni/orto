@@ -3,6 +3,7 @@ import { el, oggiISO, giorniDa, aggiungiGiorni, formattaData } from '../util.js'
 import { t, tn } from '../i18n.js';
 import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
+import { controllaProgressi } from '../store/progressi.js';
 import { catalogo, trovaScheda } from '../contenuti.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
@@ -113,6 +114,7 @@ function apriNuova() {
     });
     if (!coltura.nome || !coltura.dataSemina) return;
     await salvaColtura(coltura);
+    controllaProgressi();
     colture.push(coltura);
     mostraLista();
     foglio.close();
@@ -128,7 +130,9 @@ export async function monta(contenitore) {
   contenitore.append(
     el('h2', { class: 'titolo-schermata' }, t('colture.titolo'), ' ', conteggio),
     el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
-    el('a', { class: 'btn', href: '#/zone' }, t('colture.le_mie_zone')),
+    el('div', { class: 'riga' },
+      el('a', { class: 'btn', href: '#/zone' }, t('colture.le_mie_zone')),
+      el('a', { class: 'btn', href: '#/diario' }, t('colture.diario'))),
     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
     lista,
   );

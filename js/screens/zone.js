@@ -7,6 +7,7 @@ import { apriFoglio } from '../ui/foglio.js';
 import { apriBussola } from '../ui/bussola.js';
 import { apriTerreno, riassuntoTerreno } from '../ui/terreno.js';
 import { toast } from '../ui/toast.js';
+import { controllaProgressi } from '../store/progressi.js';
 
 let zone = [];
 let colture = [];
@@ -51,6 +52,7 @@ function schedaZona(zona) {
       el('button', { class: 'btn', type: 'button', onclick: () => esposizione(zona) }, t('zone.bussola')),
       el('button', { class: 'btn', type: 'button', onclick: () => terrenoZona(zona) }, t('zone.capisci_terreno')),
     ),
+    el('a', { class: 'btn', href: `#/diario?zona=${encodeURIComponent(zona.id)}` }, t('zone.foto')),
     el('div', { class: 'riga' },
       el('button', { class: 'btn', type: 'button', onclick: () => apriForm(zona) }, t('zone.modifica')),
       el('button', { class: 'btn pericolo', type: 'button', onclick: () => rimuovi(zona) }, t('coltura.elimina')),
@@ -68,6 +70,7 @@ function mostraLista() {
 async function aggiorna(zona, cambi) {
   const nuova = normalizzaZona({ ...zona, ...cambi });
   await salvaZona(nuova);
+  controllaProgressi();
   zone = zone.map((z) => (z.id === nuova.id ? nuova : z));
   mostraLista();
   return nuova;
@@ -134,6 +137,7 @@ function apriForm(zona) {
     });
     if (!base.nome) return;
     await salvaZona(base);
+    controllaProgressi();
     zone = nuova ? [...zone, base] : zone.map((x) => (x.id === base.id ? base : x));
     mostraLista();
     foglio.close();

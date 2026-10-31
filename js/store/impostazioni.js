@@ -8,6 +8,8 @@ export const PREDEFINITE = {
   vestiti: 'auto',
   installa_rimandato: null,
   orto_nato: null,
+  traguardi: null, // { id: data } dei traguardi già presi
+  livello_raggiunto: null,
   ai_foto_ok: false,
   ai_foto_conteggio: null,
   nome_orto: '',

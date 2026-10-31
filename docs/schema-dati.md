@@ -155,7 +155,7 @@ Contenuti per capire il terreno di una zona: un questionario, le piante spontane
 - Le piante indicatrici hanno prove deboli: certezza `bassa` salvo fonte che dica altro, e `note` dice cosa non possono dire (il pH, per esempio, non si legge da una pianta sola).
 - Come tutti i contenuti: niente dati inventati, ogni fonte aperta e letta.
 
-## 2. Dati dell'utente (IndexedDB, database `orto`, versione 2)
+## 2. Dati dell'utente (IndexedDB, database `orto`, versione 3: la 3 aggiunge lo store `foto`)
 
 Stores:
 
@@ -166,6 +166,9 @@ Stores:
   - `terreno.risposte`: `{ idDomanda: idOpzione }` del questionario. `terreno.barattolo`: `null` oppure `{ sabbia_pct, limo_pct, argilla_pct }` (somma circa 100). `terreno.piante`: id delle piante indicatrici segnate dall'utente. `terreno.foto`: `null` oppure `{ indizi: { tessitura?, drenaggio?, humus? }, data }`, gli indizi che l'utente ha accettato dall'analisi delle foto (le foto non si salvano; contano come un'erba, cioè mezza risposta).
   - Impostazioni legate alle foto: `ai_foto_ok` (l'utente ha accettato che le foto vadano a Google) e `ai_foto_conteggio` (`{ data, n }`: foto analizzate oggi, tetto di 10 al giorno per non finire la quota gratuita).
 - `eventi` (keyPath `id`): registro di ciò che succede. Campi: `id`, `tipo` (`lavoro_fatto` | `lavoro_saltato` | `nota` | ...), `zonaId`, `colturaId` (id utente), `schedaId`, `lavoroId`, `data`, `esito` (`ok` | `problema` | `saltato`), `note`, `creato` (ISO), `condivisibile` (sempre `false` per ora: la condivisione per zona, con consenso, è futura).
+
+- `foto` (keyPath `id`, dalla versione 3 del database): il diario fotografico. Campi: `id`, `data` (AAAA-MM-GG), `creata` (ISO), `zonaId` e `colturaId` (o `null`), `nota` (max 500), `immagine` (Blob JPEG, lato lungo al massimo 1024 px), `miniatura` (data URL JPEG, lato lungo 240 px), `larghezza`, `altezza`, `diagnosi` (`null` oppure `{ data, risultato }`: `risultato` = `{ pianta: { nome, confidenza } | null, stato: sana | dubbio | problema | non_si_vede, problemi: [{ nome, confidenza, perche, cosa_controllare }], avvisi }`, sempre ipotesi da verificare), `schemaVersion` (3). Le foto non lasciano mai il telefono, tranne quando l'utente chiede a Rossella di guardarne una (permesso la prima volta).
+- Impostazioni di progresso: `traguardi` (`{ id: data }` dei traguardi presi), `livello_raggiunto`, `orto_nato` (data del primo avvio), `vestiti` (`auto` o un vestito dei vermetti), `installa_rimandato`.
 
 ### Backup
 
@@ -180,4 +183,5 @@ Stores:
     }
 
 - Senza `ai_chiave`, mai.
+- Le foto del diario ci sono solo nel backup «con foto» (chiave `foto`: le stesse della sezione sopra, con `immagine` come data URL). Importando un backup senza `foto` quelle già nel diario restano; con `foto` vengono sostituite.
 - L'import accetta anche il backup della prima versione (`{ "app": "il-mio-orto", "versione": 1, "colture": [...] }`) e un semplice elenco di colture. L'import sostituisce i dati dopo conferma.

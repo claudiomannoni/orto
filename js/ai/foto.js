@@ -82,8 +82,14 @@ export async function analizzaFoto({ immagini, indicatrici = [] }) {
   if (!immagini?.length || immagini.length > MASSIMO_FOTO) throw errore('foto', 'numero di foto non valido');
   if (!(await restantiOggi())) throw errore('tetto');
   const risposta = await chiedi({ testo: costruisciPrompt(indicatrici), immagini, json: true });
-  // Si conta solo se Google ha risposto: un errore di rete o di chiave non consuma il tetto.
-  const { ai_foto_conteggio: c } = await leggi();
-  await imposta('ai_foto_conteggio', { data: oggiISO(), n: (c?.data === oggiISO() ? c.n : 0) + 1 });
+  await registraUso(); // si conta solo se Google ha risposto: un errore di rete o di chiave non consuma il tetto
   return leggiRisposta(risposta, indicatrici);
 }
+
+// Una richiesta con foto in più per oggi (il tetto vale per tutte le funzioni con le foto).
+export async function registraUso() {
+  const { ai_foto_conteggio: c } = await leggi();
+  await imposta('ai_foto_conteggio', { data: oggiISO(), n: (c?.data === oggiISO() ? c.n : 0) + 1 });
+}
+
+export { errore as erroreFoto, taglia as tagliaTesto };

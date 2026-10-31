@@ -3,12 +3,13 @@
 // e le colture già salvate restano dove sono.
 
 const NOME_DB = 'orto';
-const VERSIONE_DB = 2;
+const VERSIONE_DB = 3;
 const STORES = {
   colture: 'id',
   impostazioni: 'chiave',
   zone: 'id',
   eventi: 'id',
+  foto: 'id', // dalla versione 3: il diario fotografico
 };
 
 let promessa = null;

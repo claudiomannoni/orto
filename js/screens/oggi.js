@@ -11,6 +11,8 @@ import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
 import { etichettaOrto } from '../ui/identita.js';
 import { bloccoInstalla } from '../ui/installa.js';
+import { controllaProgressi } from '../store/progressi.js';
+import { cartaProgressi } from '../ui/progressi.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -105,8 +107,8 @@ function scheda(voce, indice, { termini, impostazioni, alChiudere }) {
 
 export async function monta(contenitore) {
   const oggi = oggiISO();
-  const [colture, eventi, schede, impostazioni, termini] = await Promise.all([
-    elencoColture(), elencoEventi(), catalogo(), leggi(), glossario(),
+  const [colture, eventi, schede, impostazioni, termini, carta] = await Promise.all([
+    elencoColture(), elencoEventi(), catalogo(), leggi(), glossario(), cartaProgressi().catch(() => null),
   ]);
   const lavori = calcolaLavori({ oggi, zonaId: impostazioni.zona, schede, colture, eventi });
 
@@ -130,7 +132,11 @@ export async function monta(contenitore) {
     }));
     carta.remove();
     toast(t(tipo === 'lavoro_fatto' ? 'lavoro.fatto.toast' : 'lavoro.saltato.toast'));
-    if (tipo === 'lavoro_fatto') festeggia('fatto');
+    if (tipo === 'lavoro_fatto') {
+      // Se c'è un traguardo o un livello nuovo, festeggiano quello; altrimenti i complimenti di tutti i giorni.
+      const r = await controllaProgressi();
+      if (!r?.nuovi?.length && !r?.livelloSalito) festeggia('fatto');
+    }
     if (!lista.children.length) mostraConversazione('finito');
   };
 
@@ -148,6 +154,7 @@ export async function monta(contenitore) {
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
+    carta,
     bloccoInstalla({ rimandabile: true }),
     zonaConversazione,
     lavori.length ? lista : el('section', { class: 'card vuoto' },

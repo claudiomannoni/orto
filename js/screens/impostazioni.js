@@ -170,12 +170,18 @@ function sezioneBackup() {
   return el('section', { class: 'card' },
     el('h3', {}, t('backup.titolo')),
     el('p', { class: 'aiuto' }, t('backup.spiega')),
+    el('p', { class: 'aiuto' }, t('backup.foto_nota')),
     el('div', { class: 'riga' },
       el('button', { class: 'btn', type: 'button', onclick: async () => {
         const backup = await creaBackup();
         scarica(backup, `orto-backup-${oggiISO()}.json`);
         toast(tn('backup.esportato', backup.colture.length));
       } }, t('backup.esporta')),
+      el('button', { class: 'btn', type: 'button', onclick: async () => {
+        const backup = await creaBackup({ conFoto: true });
+        scarica(backup, `orto-backup-con-foto-${oggiISO()}.json`);
+        toast(tn('backup.esportato', backup.colture.length));
+      } }, t('backup.esporta_foto')),
       el('button', { class: 'btn', type: 'button', onclick: () => file.click() }, t('backup.importa')),
     ),
     file,

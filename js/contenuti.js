@@ -39,6 +39,11 @@ export async function glossario() {
   return Object.fromEntries((dati?.termini ?? []).map((termine) => [termine.id, termine]));
 }
 
+// Livelli e traguardi (data/it/traguardi.json), o null.
+export async function traguardi() {
+  return json(`data/${lingua}/traguardi.json`);
+}
+
 // Le battute dei vermetti per stagioni, feste e tocchi, o null.
 export async function battute() {
   return json(`data/${lingua}/battute.json`);

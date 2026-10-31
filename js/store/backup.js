@@ -4,12 +4,15 @@ import { tutte, sostituisci } from './db.js';
 import { leggi as leggiImpostazioni, imposta, pubbliche, PRIVATE } from './impostazioni.js';
 import { normalizzaColtura } from './dati.js';
 import { dataValida, nuovoId } from '../util.js';
+import { elencoFoto, normalizzaFoto } from './foto.js';
+import { blobInDataUrl, dataUrlInBlob } from '../ui/foto.js';
 
-export async function creaBackup() {
+// conFoto: aggiunge anche le foto del diario (come data URL: il file diventa grande).
+export async function creaBackup({ conFoto = false } = {}) {
   const [impostazioni, colture, zone, eventi] = await Promise.all([
     leggiImpostazioni(), tutte('colture'), tutte('zone'), tutte('eventi'),
   ]);
-  return {
+  const backup = {
     formato: 'orto-backup',
     versione: 2,
     esportato: new Date().toISOString(),
@@ -18,6 +21,11 @@ export async function creaBackup() {
     zone,
     eventi,
   };
+  if (conFoto) {
+    const foto = await elencoFoto();
+    backup.foto = await Promise.all(foto.map(async (f) => ({ ...f, immagine: await blobInDataUrl(f.immagine) })));
+  }
+  return backup;
 }
 
 export function scarica(backup, nomeFile) {
@@ -56,17 +64,23 @@ export async function leggiFile(file) {
   const impostazioni = dati && typeof dati.impostazioni === 'object' && dati.impostazioni && !Array.isArray(dati.impostazioni)
     ? Object.fromEntries(Object.entries(dati.impostazioni).filter(([k]) => !PRIVATE.includes(k)))
     : {};
+  // Le foto ci sono solo nel backup «con foto»: senza, quelle già nel diario restano dove sono.
+  let foto = null;
+  if (Array.isArray(dati.foto)) {
+    foto = dati.foto.map((f) => (f && typeof f === 'object' ? normalizzaFoto({ ...f, immagine: dataUrlInBlob(f.immagine) }) : null)).filter(Boolean);
+  }
   return {
     colture: colture.map(normalizzaColtura),
     zone: elenco(dati.zone),
     eventi: elenco(dati.eventi),
+    foto,
     impostazioni,
   };
 }
 
-// Sostituisce colture, zone ed eventi; le impostazioni del backup si aggiungono
+// Sostituisce colture, zone ed eventi (e le foto, se il backup le ha); le impostazioni del backup si aggiungono
 // a quelle attuali (la chiave IA, che non è nel backup, resta com'è).
 export async function applica(dati) {
-  await sostituisci({ colture: dati.colture, zone: dati.zone, eventi: dati.eventi });
+  await sostituisci({ colture: dati.colture, zone: dati.zone, eventi: dati.eventi, ...(dati.foto ? { foto: dati.foto } : {}) });
   for (const [chiave, valore] of Object.entries(dati.impostazioni)) await imposta(chiave, valore);
 }

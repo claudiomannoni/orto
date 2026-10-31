@@ -3,6 +3,7 @@ import { caricaTesti, t } from './i18n.js';
 import { leggi, imposta, assicuraIdentita } from './store/impostazioni.js';
 import { isoLocale } from './util.js';
 import { impostaLingua } from './contenuti.js';
+import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 import { impostaVestiti } from './ui/mascotte.js';
@@ -15,6 +16,7 @@ const schermate = {
   impostazioni: () => import('./screens/impostazioni.js'),
   benvenuto: () => import('./screens/benvenuto.js'),
   zone: () => import('./screens/zone.js'),
+  diario: () => import('./screens/diario.js'),
 };
 
 const contenitore = document.getElementById('schermata');
@@ -35,7 +37,7 @@ async function primoAvvioDaFare() {
 }
 
 async function mostra() {
-  const richiesta = location.hash.replace(/^#\//, '');
+  const richiesta = location.hash.replace(/^#\//, '').split('?')[0];
   const rotta = ROTTE.includes(richiesta) || richiesta in SOTTOROTTE || richiesta === PRIMO_AVVIO ? richiesta : 'oggi';
   if (rotta !== PRIMO_AVVIO && await primoAvvioDaFare()) {
     location.replace(`#/${PRIMO_AVVIO}`);
@@ -67,6 +69,8 @@ async function avvia() {
     }
     lingua = iniziali.lingua || 'it';
     impostaVestiti(iniziali.vestiti, iniziali.orto_nato);
+    impostaLingua(lingua); // i contenuti (traguardi, battute...) si leggono nella lingua giusta
+    await inizializzaProgressi();
   } catch (errore) {
     console.error(errore);
   }

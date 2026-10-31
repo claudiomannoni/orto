@@ -104,12 +104,16 @@ export function avatar(chi, variante) {
 
 // Un vermetto compare in basso e dice una battuta (per esempio dopo un lavoro fatto), poi se ne va.
 // Sta sopra a tutto: si vede anche se la conversazione in alto è fuori schermo.
-export async function festeggia(contesto = 'fatto') {
-  const chi = Math.random() < 0.5 ? 'rosso' : 'rossella';
-  const dati = await battute();
-  const pool = dati?.contesti?.[contesto]?.[chi] ?? [];
-  if (!pool.length) return;
-  const testo = pool[Math.floor(Math.random() * pool.length)];
+// Con { chi, testo } dice proprio quella battuta (per esempio quella di un livello); senza, ne pesca una del contesto.
+export async function festeggia(contesto = 'fatto', { chi: scelto = null, testo: fisso = null } = {}) {
+  const chi = scelto ?? (Math.random() < 0.5 ? 'rosso' : 'rossella');
+  let testo = fisso;
+  if (!testo) {
+    const dati = await battute();
+    const pool = dati?.contesti?.[contesto]?.[chi] ?? [];
+    if (!pool.length) return;
+    testo = pool[Math.floor(Math.random() * pool.length)];
+  }
   document.querySelector('.vermetto-flash')?.remove();
   const nodo = el('div', { class: `vermetto-flash ${chi}`, role: 'status' },
     avatar(chi, chi === 'rosso' ? 'ride' : 'pensa'),

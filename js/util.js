@@ -2,6 +2,11 @@
 
 export const $ = (sel, radice = document) => radice.querySelector(sel);
 
+// Parametri dopo il «?» nell'indirizzo della schermata: #/diario?zona=abc -> URLSearchParams { zona: 'abc' }.
+export function parametriRotta() {
+  return new URLSearchParams(location.hash.split('?')[1] ?? '');
+}
+
 export function el(tag, attrs = {}, ...figli) {
   const e = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {

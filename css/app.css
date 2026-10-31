@@ -438,6 +438,23 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .anteprima { margin: 0; display: grid; gap: 4px; justify-items: center; }
 .anteprima img { width: 96px; height: 96px; object-fit: cover; border: 2px solid var(--bordo); border-radius: 14px; }
 .proposte-foto, .elenco-proposte { display: grid; gap: 10px; }
+.griglia-foto { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.mese-foto { display: grid; gap: 8px; }
+.mese-foto h3 { text-transform: capitalize; }
+.foto-voce { position: relative; aspect-ratio: 1; padding: 0; border: 2px solid var(--bordo); border-radius: 14px; overflow: hidden; background: var(--carta); cursor: pointer; }
+.foto-voce img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.foto-voce span { position: absolute; left: 4px; bottom: 4px; padding: 0 8px; border-radius: 10px; background: rgba(0, 0, 0, .6); color: #fff; font-size: .8rem; font-weight: 800; }
+.visore-foto { width: 100%; max-height: 52dvh; object-fit: contain; border-radius: 16px; background: #000; }
+.filtri > label { flex: 1 1 150px; }
+.timelapse-data { text-align: center; }
+.diagnosi { gap: 8px; }
+.problema { display: grid; gap: 2px; border-bottom: 2px dashed var(--bordo); padding-bottom: 8px; }
+.traguardi { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.traguardo { display: grid; gap: 2px; justify-items: start; padding: 10px 14px; border: 2px solid var(--bordo); border-radius: 16px; }
+.traguardo.preso { border-color: var(--verde); background: var(--verde-chiaro); }
+.traguardo.da-prendere { opacity: .72; }
+.carta-progressi { text-align: left; font: inherit; color: var(--inchiostro); cursor: pointer; width: 100%; }
+.carta-livello { font-weight: 800; font-size: 1.1rem; }
 
 /* ---------- Primo avvio guidato ---------- */
 .barra[hidden] { display: none; }
