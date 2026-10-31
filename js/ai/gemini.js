@@ -35,16 +35,28 @@ export async function chiedi({ chiave, modello, testo, immagine, immagini = [], 
   const corpo = { contents: [{ parts: parti }] };
   if (json) corpo.generationConfig = { responseMimeType: 'application/json', temperature: 0.2 };
 
+  // Google a volte è sovraccarico (503): si riprova due volte, poi si prova il modello «flash» sempre aggiornato.
+  const invia = (nome) => fetch(`${BASE}/${encodeURIComponent(nome)}:generateContent`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': chiave },
+    body: JSON.stringify(corpo),
+  });
+  const sovraccarico = (r) => r.status === 503 || r.status === 500;
   let risposta;
   try {
-    risposta = await fetch(`${BASE}/${encodeURIComponent(modello)}:generateContent`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': chiave },
-      body: JSON.stringify(corpo),
-    });
+    risposta = await invia(modello);
+    for (let giro = 0; giro < 2 && sovraccarico(risposta); giro++) {
+      await new Promise((ok) => setTimeout(ok, 1500 * (giro + 1)));
+      risposta = await invia(modello);
+    }
+    if (sovraccarico(risposta) && modello !== 'gemini-flash-latest') {
+      const altra = await invia('gemini-flash-latest');
+      if (altra.ok) risposta = altra;
+    }
   } catch {
     throw errore('rete');
   }
+  if (sovraccarico(risposta)) throw errore('sovraccarico');
 
   if (!risposta.ok) {
     let dettaglio = '';

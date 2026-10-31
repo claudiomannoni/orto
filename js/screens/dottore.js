@@ -55,8 +55,8 @@ export async function monta(contenitore) {
     let flusso;
     try {
       flusso = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false });
-    } catch {
-      riserva.click(); // nessun permesso o nessuna camera: si usa quella di sistema
+    } catch (e) {
+      sostituisci(area, el('p', { class: 'avviso', role: 'alert' }, t('dottore.camera_no', { motivo: e?.name ?? 'errore' })));
       return;
     }
     const video = el('video', { class: 'dottore-video', autoplay: true, muted: true, playsinline: true });
