@@ -6,6 +6,7 @@ export const PREDEFINITE = {
   metodo: 'nessuno',
   esperienza: 'principiante',
   colture_scelte: [], // id delle schede che l'utente segue; vuoto = tutte
+  guida_viste: [], // le schermate di cui si è già letta la guida
   quiz_risultati: {}, // { 'AAAA-MM-GG': punti } del quiz del giorno
   testo: 'normale', // dimensione del testo: normale | grande | enorme
   contrasto: false, // contrasto alto

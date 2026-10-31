@@ -76,3 +76,13 @@ export async function quiz() {
 export async function curiosita() {
   return json(`data/${lingua}/curiosita.json`);
 }
+
+// Lombricoltura, api e pollaio (data/it/animali.json), o null.
+export async function animali() {
+  return json(`data/${lingua}/animali.json`);
+}
+
+// Coltivazioni particolari e da rendita (data/it/rendita.json), o null.
+export async function rendita() {
+  return json(`data/${lingua}/rendita.json`);
+}

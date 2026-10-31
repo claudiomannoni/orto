@@ -1,0 +1,273 @@
+{
+  "versione": 1,
+  "schede": [
+    {
+      "id": "lombricoltura",
+      "nome": "Lombricoltura",
+      "in_breve": "Un lombricomposter domestico trasforma scarti vegetali in vermicompost. Eisenia fetida e Eisenia andrei sono specie citate dal CREA per il compostaggio.",
+      "perche": [
+        "Riduce la quota di scarti organici da gestire.",
+        "Produce materiale organico da usare nell’orto.",
+        "Permette di osservare da vicino la decomposizione."
+      ],
+      "cosa_serve": [
+        {
+          "voce": "Contenitore aerato",
+          "nota": "Proteggilo da pioggia battente, sole diretto e ristagni."
+        },
+        {
+          "voce": "Lettiera umida",
+          "nota": "Carta e cartone non plastificati possono assorbire l’umidità."
+        },
+        {
+          "voce": "Scarti vegetali",
+          "nota": "Aggiungili in quantità moderate e coprili con materiale asciutto."
+        }
+      ],
+      "come_si_parte": [
+        "Prepara un contenitore con aerazione e drenaggio, al riparo.",
+        "Inumidisci una lettiera di carta o cartone senza allagarla.",
+        "Inserisci Eisenia fetida o E. andrei e attendi che si ambientino.",
+        "Aggiungi piccoli quantitativi di scarti vegetali e coprili.",
+        "Raccogli il vermicompost maturo separandolo dai lombrichi."
+      ],
+      "ogni_giorno_o_settimana": [
+        "Controlla che la lettiera resti umida e non fradicia.",
+        "Aggiungi poco cibo solo quando il precedente è in gran parte trasformato.",
+        "Copri gli scarti freschi con lettiera asciutta per limitare odori."
+      ],
+      "calendario": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [],
+        "12": []
+      },
+      "errori_comuni": [
+        "Versare molto cibo tutto insieme.",
+        "Lasciare il contenitore al sole o sotto la pioggia.",
+        "Lasciare ristagnare acqua nella lettiera."
+      ],
+      "segnali_di_allarme": [
+        {
+          "segno": "Odore forte e sgradevole",
+          "cosa_fare": "Sospendi il cibo, arieggia e aggiungi lettiera asciutta."
+        },
+        {
+          "segno": "Lettiera asciutta o allagata",
+          "cosa_fare": "Correggi gradualmente l’umidità; se il problema persiste chiedi a un servizio compostaggio."
+        }
+      ],
+      "obblighi": [],
+      "numeri": [
+        {
+          "cosa": "Il CREA riporta che queste specie possono trasformare al giorno materiale organico pari al loro peso; è un dato divulgativo non garantito per ogni impianto.",
+          "valore": "pari al peso corporeo",
+          "unita": "rapporto giornaliero",
+          "fonte_url": "https://www.crea.gov.it/documents/59764/0/20200727_QuadernoDidatticoEasyRead_DEFweb_LR.pdf/e4e49f5d-fcf2-c6b2-a32d-b916cefa0b02?t=1626437456532",
+          "certezza": "media"
+        }
+      ],
+      "collegamento_orto": "Usa il vermicompost maturo in piccole quantità come ammendante; il CREA lo descrive come materiale da mescolare al terreno.",
+      "fonti": [
+        {
+          "titolo": "Il compostaggio a casa, Quaderno didattico",
+          "url": "https://www.crea.gov.it/documents/59764/0/20200727_QuadernoDidatticoEasyRead_DEFweb_LR.pdf/e4e49f5d-fcf2-c6b2-a32d-b916cefa0b02?t=1626437456532",
+          "ente": "CREA"
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "nome": "Api",
+      "in_breve": "Un piccolo apiario richiede formazione, visite regolari e rispetto degli adempimenti sanitari. Anche un apiario per autoconsumo va registrato in BDN.",
+      "perche": [
+        "Favorisce l’impollinazione delle piante visitate dalle api.",
+        "Permette di osservare il ciclo di una colonia.",
+        "Può fornire miele, se la colonia e la stagione lo consentono."
+      ],
+      "cosa_serve": [
+        {
+          "voce": "Postazione idonea",
+          "nota": "Valuta accesso, acqua, ombra parziale e vicinato con un apicoltore esperto."
+        },
+        {
+          "voce": "Formazione e assistenza",
+          "nota": "Affiancati a un’associazione apistica o a un apicoltore esperto."
+        },
+        {
+          "voce": "Attrezzatura protettiva",
+          "nota": "Definiscila con chi ti forma; non improvvisare le visite."
+        }
+      ],
+      "come_si_parte": [
+        "Contatta associazione apistica e servizio veterinario prima di iniziare.",
+        "Segui un corso pratico e affianca visite a un apicoltore esperto.",
+        "Individua la postazione e verifica le regole locali con ASL e Comune.",
+        "Registra l’attività e l’apiario in BDN con l’assistenza competente.",
+        "Organizza visite e gestione sanitaria con assistenza apistica."
+      ],
+      "ogni_giorno_o_settimana": [
+        "Durante la stagione attiva osserva volo, scorte e spazio con visite non improvvisate.",
+        "Registra spostamenti e aggiornamenti richiesti in BDN.",
+        "Per malattie e trattamenti chiedi al veterinario / all’ASL / all’associazione apistica."
+      ],
+      "calendario": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+          "Effettua il censimento BDN tra 1 novembre e 31 dicembre."
+        ],
+        "12": []
+      },
+      "errori_comuni": [
+        "Iniziare senza formazione e senza supporto.",
+        "Aprire spesso l’arnia senza uno scopo.",
+        "Trascurare censimento e registrazioni BDN."
+      ],
+      "segnali_di_allarme": [
+        {
+          "segno": "Moria insolita o molte api morte",
+          "cosa_fare": "Non applicare trattamenti autonomi: chiedi subito al veterinario / all’ASL / all’associazione apistica."
+        },
+        {
+          "segno": "Colonia molto debole o senza attività",
+          "cosa_fare": "Chiedi una visita a un apicoltore esperto e al servizio veterinario."
+        }
+      ],
+      "obblighi": [
+        {
+          "testo": "Tutte le attività apistiche e gli apiari devono essere registrati in BDN; il censimento annuale è tra 1 novembre e 31 dicembre. Verifica con la tua ASL e il tuo Comune.",
+          "fonte_url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-apistica/",
+          "certezza": "alta"
+        }
+      ],
+      "numeri": [
+        {
+          "cosa": "Finestra per il censimento annuale in BDN",
+          "valore": "1 novembre–31 dicembre",
+          "unita": "ogni anno",
+          "fonte_url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-apistica/",
+          "certezza": "alta"
+        }
+      ],
+      "collegamento_orto": "Le api visitano i fiori dell’orto e degli alberi vicini; la presenza non garantisce l’impollinazione di ogni coltura.",
+      "fonti": [
+        {
+          "titolo": "Anagrafe apistica",
+          "url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-apistica/",
+          "ente": "Ministero della Salute"
+        }
+      ]
+    },
+    {
+      "id": "pollaio",
+      "nome": "Pollaio familiare",
+      "in_breve": "Poche galline richiedono ricovero asciutto, acqua e alimentazione adeguata ogni giorno. Prima di costruire, verifica registrazione e regole locali.",
+      "perche": [
+        "Uova per uso familiare, secondo deposizione e stagione.",
+        "Letame e lettiera possono entrare nel compostaggio gestito correttamente.",
+        "Le galline razzolano e becchettano in un’area controllata."
+      ],
+      "cosa_serve": [
+        {
+          "voce": "Ricovero sicuro",
+          "nota": "Proteggi da intemperie e predatori e garantisci aria e spazio adeguati."
+        },
+        {
+          "voce": "Acqua e alimento",
+          "nota": "Acqua pulita sempre disponibile; alimentazione completa e adatta alle ovaiole."
+        },
+        {
+          "voce": "Recinto e lettiera",
+          "nota": "Predisponi area asciutta, pulibile e separata dall’orto."
+        }
+      ],
+      "come_si_parte": [
+        "Chiedi al servizio veterinario locale quali registrazioni si applicano al tuo caso.",
+        "Progetta ricovero e recinto con protezione da predatori e facile pulizia.",
+        "Prepara acqua, mangiatoie, lettiera e gestione quotidiana.",
+        "Introduci le galline solo dopo aver predisposto ricovero e assistenza veterinaria.",
+        "Rimuovi regolarmente lettiera sporca e gestisci il letame con prudenza."
+      ],
+      "ogni_giorno_o_settimana": [
+        "Controlla ogni giorno acqua, alimento, chiusure e comportamento.",
+        "Rimuovi materiale bagnato e mantieni puliti abbeveratoi e mangiatoie.",
+        "Se compaiono sintomi, chiedi al veterinario / all’ASL."
+      ],
+      "calendario": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [],
+        "12": []
+      },
+      "errori_comuni": [
+        "Lasciare acqua sporca o vuota.",
+        "Usare un ricovero umido o non protetto dai predatori.",
+        "Ignorare cambiamenti di appetito, postura o deposizione."
+      ],
+      "segnali_di_allarme": [
+        {
+          "segno": "Abbattimento, difficoltà respiratoria o mortalità insolita",
+          "cosa_fare": "Limita i contatti con altri animali e chiedi subito al veterinario / all’ASL."
+        },
+        {
+          "segno": "Ferite o accesso di predatori",
+          "cosa_fare": "Metti gli animali al sicuro e chiedi assistenza veterinaria se feriti."
+        }
+      ],
+      "obblighi": [
+        {
+          "testo": "Il Ministero indica l’esclusione dall’obbligo BDN per allevamenti non commerciali con meno di 50 capi; verifica il tuo caso con la tua ASL e il tuo Comune.",
+          "fonte_url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-avicola/",
+          "certezza": "alta"
+        }
+      ],
+      "numeri": [
+        {
+          "cosa": "Soglia indicata dal Ministero per esclusione dalla registrazione BDN di allevamenti non commerciali",
+          "valore": "meno di 50",
+          "unita": "capi",
+          "fonte_url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-avicola/",
+          "certezza": "alta"
+        }
+      ],
+      "collegamento_orto": "La lettiera e il letame possono essere compostati; non distribuire materiale fresco direttamente sulle colture alimentari.",
+      "fonti": [
+        {
+          "titolo": "Anagrafe avicola",
+          "url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-avicola/",
+          "ente": "Ministero della Salute"
+        },
+        {
+          "titolo": "Small-scale poultry production",
+          "url": "https://www.fao.org/4/y5169e/y5169e05.htm",
+          "ente": "FAO"
+        }
+      ]
+    }
+  ]
+}

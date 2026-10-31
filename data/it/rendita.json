@@ -1,0 +1,485 @@
+{
+  "versione": 1,
+  "schede": [
+    {
+      "id": "zafferano",
+      "nome": "Zafferano",
+      "in_breve": "Il Crocus sativus fiorisce in autunno e si raccoglie a mano. La resa dipende da impianto, annata e lavoro; non è possibile promettere ricavi.",
+      "dove_e_come": "Scegli un’aiuola soleggiata e ben drenata. Per suolo, esposizione e gestione locali, verifica con un tecnico: il dato consultato descrive un’azienda del Sud Italia.",
+      "quando": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [
+          "Impianto dei bulbi in agosto, come nel caso aziendale documentato."
+        ],
+        "9": [],
+        "10": [
+          "Raccolta manuale dei fiori in autunno."
+        ],
+        "11": [
+          "Raccolta dei fiori e separazione degli stimmi; nel caso consultato prosegue in novembre."
+        ],
+        "12": []
+      },
+      "cosa_serve": [
+        {
+          "voce": "Bulbi sani",
+          "nota": "Specie e provenienza devono essere verificate; non usare bulbi ornamentali trattati."
+        },
+        {
+          "voce": "Aiuola drenante",
+          "nota": "Evita ristagni; le condizioni precise del tuo suolo vanno valutate localmente."
+        },
+        {
+          "voce": "Tempo per la raccolta",
+          "nota": "Fiori e stimmi richiedono raccolta e lavorazione manuali."
+        }
+      ],
+      "resa_realistica": {
+        "testo": "da verificare: CREA riporta 55–65 g di prodotto secco annuo per una specifica azienda con circa 2.000 bulbi; non è una previsione trasferibile a un piccolo orto.",
+        "fonte_url": "https://meplasus.crea.gov.it/wp-content/uploads/2024/05/filiera-in-tour-MEPLASUS.pdf",
+        "certezza": "media"
+      },
+      "come_si_vende_o_si_usa": [
+        "In cucina si usano gli stimmi essiccati; per uso alimentare cura identificazione, essiccazione e conservazione.",
+        "Eventuale vendita richiede verifica degli adempimenti alimentari, fiscali e comunali."
+      ],
+      "vendita_e_legge": [
+        {
+          "testo": "Per vendita, essiccazione e confezionamento verifica prima gli obblighi con il tuo Comune/ASL/commercialista.",
+          "fonte_url": "https://www.impresainungiorno.gov.it/it/web/l-impresa-e-il-comune/home",
+          "certezza": "media"
+        }
+      ],
+      "errori_comuni": [
+        "Aspettarsi una resa costante da un dato aziendale singolo.",
+        "Lasciare i bulbi in terreno con ristagno senza averne verificato il drenaggio."
+      ],
+      "rischi": [
+        {
+          "cosa": "Bulbi ornamentali o stimmi confusi con altre parti della pianta.",
+          "cosa_fare": "Usa solo materiale identificato come Crocus sativus e chiedi a un esperto in caso di dubbio."
+        }
+      ],
+      "fonti": [
+        {
+          "titolo": "Filiera in tour: zafferano e altre produzioni",
+          "url": "https://meplasus.crea.gov.it/wp-content/uploads/2024/05/filiera-in-tour-MEPLASUS.pdf",
+          "ente": "CREA"
+        },
+        {
+          "titolo": "Lo Sportello Unico per le Attività Produttive",
+          "url": "https://www.impresainungiorno.gov.it/it/web/l-impresa-e-il-comune/home",
+          "ente": "Ministero delle Imprese e del Made in Italy"
+        }
+      ]
+    },
+    {
+      "id": "funghi-pleurotus",
+      "nome": "Pleurotus (orecchione)",
+      "in_breve": "Il Pleurotus può crescere su substrati vegetali preparati, come paglia, oppure su legno adatto. Coltivazione, igiene e resa dipendono da specie e condizioni controllate.",
+      "dove_e_come": "Serve un ambiente pulito, ombreggiato e umido, con ricambio d’aria. Paglia o tronchetti devono essere adatti e preparati correttamente; per i dettagli locali chiedi a un servizio micologico o a un tecnico.",
+      "quando": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [],
+        "12": []
+      },
+      "cosa_serve": [
+        {
+          "voce": "Substrato pulito",
+          "nota": "Paglia o legno idoneo; evita materiali ammuffiti o contaminati."
+        },
+        {
+          "voce": "Area protetta",
+          "nota": "Ombra, umidità gestibile e aerazione; evitare contatto con sporco e animali."
+        },
+        {
+          "voce": "Identificazione certa",
+          "nota": "Coltiva e consuma solo materiale identificato con certezza."
+        }
+      ],
+      "resa_realistica": {
+        "testo": "da verificare: non è stata individuata una fonte consultata che quantifichi la resa domestica in condizioni comparabili.",
+        "fonte_url": "",
+        "certezza": "bassa"
+      },
+      "come_si_vende_o_si_usa": [
+        "Consuma solo funghi coltivati da ceppo identificato e in buone condizioni.",
+        "Prima di vendere prodotto fresco o trasformato, verifica le norme con ASL e Comune."
+      ],
+      "vendita_e_legge": [
+        {
+          "testo": "Il Ministero descrive regole per la commercializzazione dei funghi e requisiti generali igienico-sanitari. Verifica l’applicazione alla tua attività con il tuo Comune/ASL/commercialista.",
+          "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/commercializzazione-dei-funghi/",
+          "certezza": "alta"
+        }
+      ],
+      "errori_comuni": [
+        "Usare substrato ammuffito o contaminato.",
+        "Confondere la coltivazione controllata con la raccolta spontanea.",
+        "Dare per scontata la resa o la possibilità di vendita."
+      ],
+      "rischi": [
+        {
+          "cosa": "Funghi spontanei o contaminanti non identificati.",
+          "cosa_fare": "Mai raccogliere o consumare funghi non coltivati/non identificati; chiedi all’Ispettorato micologico ASL."
+        },
+        {
+          "cosa": "Muffe, odori anomali o contaminazione del substrato.",
+          "cosa_fare": "Non consumare il prodotto dubbio; chiedi a un micologo o tecnico qualificato."
+        }
+      ],
+      "fonti": [
+        {
+          "titolo": "Commercializzazione dei funghi",
+          "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/commercializzazione-dei-funghi/",
+          "ente": "Ministero della Salute"
+        },
+        {
+          "titolo": "Ispettorati micologici",
+          "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/ispettorati-micologici/",
+          "ente": "Ministero della Salute"
+        }
+      ]
+    },
+    {
+      "id": "funghi-shiitake",
+      "nome": "Shiitake su tronchetti",
+      "in_breve": "Lo shiitake cresce su tronchi di latifoglie adatte, inoculati e tenuti all’ombra. La colonizzazione richiede tempo e il calendario statunitense consultato va adattato con cautela al Lazio.",
+      "dove_e_come": "Scegli tronchi freschi di latifoglia adatta, con corteccia integra, in luogo ombreggiato e riparato dal vento. Le specie legnose e i tempi vanno valutati localmente.",
+      "quando": {
+        "1": [
+          "In zone con inverno mite si può valutare il taglio solo dopo aver verificato la dormienza e le regole locali."
+        ],
+        "2": [],
+        "3": [
+          "L’inoculo in primavera è indicato dalle guide universitarie consultate, secondo clima e legno."
+        ],
+        "4": [
+          "Possibile periodo di inoculo in primavera se tronchi e condizioni sono idonei."
+        ],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+          "La guida consultata colloca il taglio del legno dormiente tra novembre e marzo; verificare specie e clima locali."
+        ],
+        "12": [
+          "La guida consultata colloca il taglio del legno dormiente tra novembre e marzo; verificare specie e clima locali."
+        ]
+      },
+      "cosa_serve": [
+        {
+          "voce": "Tronchi di latifoglia",
+          "nota": "Usa legno sano, fresco e con corteccia integra; non abbattere alberi senza autorizzazione."
+        },
+        {
+          "voce": "Ombra e umidità",
+          "nota": "Ripara i tronchi da sole e vento; controlla l’essiccazione."
+        },
+        {
+          "voce": "Inoculo identificato",
+          "nota": "Segui istruzioni tecniche per la specie e il ceppo scelti."
+        }
+      ],
+      "resa_realistica": {
+        "testo": "da verificare: le rese riportate da guide estere dipendono da legno, ceppo, clima e gestione e non sono trasferibili con affidabilità ai Castelli Romani.",
+        "fonte_url": "https://www.extension.msstate.edu/publications/shiitake-production-hardwood-logs",
+        "certezza": "media"
+      },
+      "come_si_vende_o_si_usa": [
+        "Consuma solo funghi coltivati da inoculo identificato e ben riconosciuti.",
+        "La vendita alimentare richiede verifiche sanitarie e amministrative prima di iniziare."
+      ],
+      "vendita_e_legge": [
+        {
+          "testo": "Il Ministero descrive regole per la commercializzazione dei funghi. Verifica il tuo caso con il tuo Comune/ASL/commercialista.",
+          "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/commercializzazione-dei-funghi/",
+          "certezza": "alta"
+        }
+      ],
+      "errori_comuni": [
+        "Usare tronchi vecchi, secchi o con corteccia danneggiata.",
+        "Esporre i tronchi a sole e vento asciugante.",
+        "Interpretare tempi e rese delle guide americane come garanzia locale."
+      ],
+      "rischi": [
+        {
+          "cosa": "Funghi spontanei o crescita diversa da quella attesa.",
+          "cosa_fare": "Mai raccogliere o consumare funghi non coltivati/non identificati; chiedi all’Ispettorato micologico ASL."
+        },
+        {
+          "cosa": "Taglio di alberi soggetto a vincoli o senza consenso.",
+          "cosa_fare": "Usa legna disponibile legalmente e verifica eventuali vincoli con Comune e proprietario."
+        }
+      ],
+      "fonti": [
+        {
+          "titolo": "Shiitake Production on Hardwood Logs",
+          "url": "https://www.extension.msstate.edu/publications/shiitake-production-hardwood-logs",
+          "ente": "Mississippi State University Extension"
+        },
+        {
+          "titolo": "Commercializzazione dei funghi",
+          "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/commercializzazione-dei-funghi/",
+          "ente": "Ministero della Salute"
+        }
+      ]
+    },
+    {
+      "id": "fiori-edibili",
+      "nome": "Fiori edibili",
+      "in_breve": "Nasturzio, borragine, calendula, viola del pensiero e tagete non sono automaticamente sicuri da mangiare. Identità botanica, parte usata e modalità di coltivazione devono essere verificate.",
+      "dove_e_come": "Coltiva specie identificate in terreno pulito e senza trattamenti non ammessi per alimenti. Esposizione e calendario dipendono dalla specie e dalla varietà; qui non sono generalizzati senza una fonte colturale locale.",
+      "quando": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [],
+        "12": []
+      },
+      "cosa_serve": [
+        {
+          "voce": "Identificazione botanica certa",
+          "nota": "Nome comune da solo non basta: verifica specie e parte effettivamente commestibile."
+        },
+        {
+          "voce": "Coltivazione sicura",
+          "nota": "Non usare fiori di vivai ornamentali o piante trattate senza indicazione alimentare."
+        },
+        {
+          "voce": "Raccolta pulita",
+          "nota": "Raccogli solo fiori sani, lontani da contaminanti e animali."
+        }
+      ],
+      "resa_realistica": {
+        "testo": "da verificare: non è stata trovata una fonte consultata con rese domestiche comparabili.",
+        "fonte_url": "",
+        "certezza": "bassa"
+      },
+      "come_si_vende_o_si_usa": [
+        "Per uso personale usa solo specie e parti identificate da fonte affidabile; la lista non certifica la commestibilità delle specie elencate.",
+        "Non proporre a terzi fiori raccolti senza tracciabilità e verifica igienico-sanitaria."
+      ],
+      "vendita_e_legge": [
+        {
+          "testo": "Per vendita come alimento verifica requisiti igienici, tracciabilità e adempimenti con il tuo Comune/ASL/commercialista.",
+          "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/sicurezza-dei-consumatori/",
+          "certezza": "media"
+        }
+      ],
+      "errori_comuni": [
+        "Considerare commestibile ogni fiore di una pianta dal nome noto.",
+        "Usare fiori ornamentali di cui non si conoscono i trattamenti.",
+        "Consumare una specie identificata solo da fotografia o nome comune."
+      ],
+      "rischi": [
+        {
+          "cosa": "Specie tossica o parte vegetale non commestibile scambiata per fiore edibile.",
+          "cosa_fare": "Non consumare senza identificazione botanica e indicazione affidabile sulla parte sicura; in dubbio, evita."
+        },
+        {
+          "cosa": "Residui di prodotti o contaminanti ambientali.",
+          "cosa_fare": "Non usare fiori ornamentali o raccolti da luoghi contaminati; chiedi all’ASL per la vendita."
+        }
+      ],
+      "fonti": [
+        {
+          "titolo": "Sicurezza dei consumatori",
+          "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/sicurezza-dei-consumatori/",
+          "ente": "Ministero della Salute"
+        }
+      ]
+    },
+    {
+      "id": "varieta-rare",
+      "nome": "Varietà locali poco note",
+      "in_breve": "Il Lazio conserva risorse genetiche agrarie locali documentate da ARSIAL e Regione. La presenza nel repertorio documenta la varietà, ma non garantisce disponibilità di seme né adattamento al tuo orto.",
+      "dove_e_come": "Orto soleggiato con terreno e irrigazione adatti alla specie. Per ogni varietà verifica provenienza del seme, stagione e pratiche presso ARSIAL o un conservatore locale.",
+      "quando": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [],
+        "12": []
+      },
+      "cosa_serve": [
+        {
+          "voce": "Seme identificato",
+          "nota": "Verifica denominazione e provenienza nel Registro Volontario Regionale."
+        },
+        {
+          "voce": "Scheda varietale",
+          "nota": "Ricava calendario e cure dalla scheda ufficiale della singola risorsa, non dal nome soltanto."
+        },
+        {
+          "voce": "Contatto con conservatori",
+          "nota": "La registrazione non implica che il seme sia disponibile per l’acquisto o lo scambio."
+        }
+      ],
+      "resa_realistica": {
+        "testo": "da verificare: le fonti consultate documentano le varietà, non una resa comparabile per un piccolo orto familiare.",
+        "fonte_url": "https://sapereisapori.regione.lazio.it/mangiare-sano/biodiversita-ii/",
+        "certezza": "alta"
+      },
+      "varieta": [
+        {
+          "nome": "Pomodoro Scatolone di Bolsena",
+          "perche_interessante": "Varietà tradizionale laziale documentata nel Registro Volontario Regionale.",
+          "quando_si_semina": "da verificare nella scheda varietale ARSIAL; calendario non trovato nella fonte consultata.",
+          "fonte": "https://mercaticontadini.regione.lazio.it/ortofrutta-le-produzioni-del-periodo-6/"
+        },
+        {
+          "nome": "Pomodoro Spagnoletta del Golfo di Gaeta",
+          "perche_interessante": "Varietà tradizionale del litorale laziale citata tra le risorse regionali tutelate.",
+          "quando_si_semina": "da verificare nella scheda varietale ARSIAL; calendario non trovato nella fonte consultata.",
+          "fonte": "https://mercaticontadini.regione.lazio.it/ortofrutta-le-produzioni-del-periodo-6/"
+        },
+        {
+          "nome": "Pomodoro Corno di Toro della provincia reatina",
+          "perche_interessante": "Pomodoro laziale tradizionale citato dalla Regione per la polpa compatta.",
+          "quando_si_semina": "da verificare nella scheda varietale ARSIAL; calendario non trovato nella fonte consultata.",
+          "fonte": "https://mercaticontadini.regione.lazio.it/ortofrutta-le-produzioni-del-periodo-6/"
+        }
+      ],
+      "come_si_vende_o_si_usa": [
+        "Coltiva per confronto di sapore, forma e storia locale; le caratteristiche vanno verificate per la varietà specifica.",
+        "Per vendita di seme o prodotto verifica regole varietali e alimentari con le autorità competenti."
+      ],
+      "vendita_e_legge": [
+        {
+          "testo": "Il Lazio tutela risorse genetiche autoctone tramite il Registro Volontario Regionale. Per produzione e vendita di sementi o alimenti verifica con il tuo Comune/ASL/commercialista e con ARSIAL.",
+          "fonte_url": "https://www.consiglio.regione.lazio.it/?id=7968&sv=vigente&vw=leggiregionalidettaglio",
+          "certezza": "alta"
+        }
+      ],
+      "errori_comuni": [
+        "Confondere una varietà tradizionale con una garanzia di adattamento al proprio microclima.",
+        "Dare per scontata la disponibilità di seme autentico.",
+        "Attribuire date di semina senza consultare la scheda della risorsa."
+      ],
+      "rischi": [
+        {
+          "cosa": "Seme con nome commerciale simile ma identità non verificata.",
+          "cosa_fare": "Controlla denominazione e provenienza presso ARSIAL o un conservatore riconosciuto."
+        }
+      ],
+      "fonti": [
+        {
+          "titolo": "Biodiversità agraria nel Lazio",
+          "url": "https://sapereisapori.regione.lazio.it/mangiare-sano/biodiversita-ii/",
+          "ente": "Regione Lazio / ARSIAL"
+        },
+        {
+          "titolo": "Ortofrutta: le produzioni del periodo",
+          "url": "https://mercaticontadini.regione.lazio.it/ortofrutta-le-produzioni-del-periodo-6/",
+          "ente": "Regione Lazio"
+        },
+        {
+          "titolo": "Legge regionale 1 marzo 2000, n. 15",
+          "url": "https://www.consiglio.regione.lazio.it/?id=7968&sv=vigente&vw=leggiregionalidettaglio",
+          "ente": "Consiglio regionale del Lazio"
+        }
+      ]
+    },
+    {
+      "id": "erbe-aromatiche-da-vendita",
+      "nome": "Erbe aromatiche da vendita",
+      "in_breve": "Basilico, rosmarino e salvia possono essere coltivati anche in piccoli spazi, ma la vendita richiede organizzazione e verifiche. I ricavi dipendono da molti fattori e qui non sono stimati.",
+      "dove_e_come": "Basilico in posizione luminosa e terreno fertile; rosmarino e salvia in posizione soleggiata e terreno drenante. Queste indicazioni generali non sostituiscono la verifica locale di cultivar, suolo e calendario.",
+      "quando": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [],
+        "12": []
+      },
+      "cosa_serve": [
+        {
+          "voce": "Spazio e acqua",
+          "nota": "Valuta quanta superficie e irrigazione puoi dedicare senza sottrarle alle colture familiari."
+        },
+        {
+          "voce": "Identificazione e registri",
+          "nota": "Per vendita alimentare verifica etichettatura, igiene e tracciabilità applicabili."
+        },
+        {
+          "voce": "Piano di raccolta",
+          "nota": "Raccolta, essiccazione e conservazione richiedono tempi e condizioni da verificare."
+        }
+      ],
+      "resa_realistica": {
+        "testo": "da verificare: non sono state trovate fonti consultate con rese e costi comparabili per un orto familiare in collina laziale. I ricavi dipendono da molti fattori.",
+        "fonte_url": "",
+        "certezza": "bassa"
+      },
+      "come_si_vende_o_si_usa": [
+        "Per uso domestico impiega le erbe fresche in cucina o essiccatele in condizioni pulite.",
+        "Prima di vendere prodotto fresco o essiccato, verifica gli adempimenti agricoli, fiscali e igienici."
+      ],
+      "vendita_e_legge": [
+        {
+          "testo": "La vendita diretta e la posizione fiscale dipendono dalla forma concreta dell’attività. Verifica con il tuo Comune/ASL/commercialista.",
+          "fonte_url": "https://www.impresainungiorno.gov.it/it/web/l-impresa-e-il-comune/home",
+          "certezza": "media"
+        }
+      ],
+      "errori_comuni": [
+        "Promettere guadagni senza calcolare lavoro, scarti, confezionamento e sbocchi.",
+        "Essiccare materiale umido o conservarlo senza controllarne lo stato.",
+        "Usare calendari generici come prescrizioni per ogni varietà."
+      ],
+      "rischi": [
+        {
+          "cosa": "Contaminazione o muffa dopo raccolta ed essiccazione.",
+          "cosa_fare": "Non vendere o consumare prodotto alterato; verifica procedure igieniche con ASL."
+        }
+      ],
+      "fonti": [
+        {
+          "titolo": "Lo Sportello Unico per le Attività Produttive",
+          "url": "https://www.impresainungiorno.gov.it/it/web/l-impresa-e-il-comune/home",
+          "ente": "Ministero delle Imprese e del Made in Italy"
+        }
+      ]
+    }
+  ]
+}

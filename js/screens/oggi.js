@@ -6,6 +6,7 @@ import { leggi } from '../store/impostazioni.js';
 import { catalogo, glossario, quiz, curiosita } from '../contenuti.js';
 import { calcolaLavori } from '../motore/oggi.js';
 import { conversazione, festeggia, vestitoAttuale } from '../ui/mascotte.js';
+import { palcoVermi } from '../ui/vermi-vivi.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
@@ -226,6 +227,7 @@ export async function monta(contenitore) {
 
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
+    palcoVermi(),
     el('p', { class: 'saluto' }, testoSaluto(impostazioni)),
     el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,

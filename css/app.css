@@ -615,3 +615,7 @@ button.tessera-azione { font: inherit; text-align: left; cursor: pointer; }
 
 .solo-lettori { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; pointer-events: none; }
 .dottore-video { width: 100%; max-height: 60vh; border-radius: 14px; background: #000; object-fit: cover; }
+.guida { border-style: dashed; display: grid; gap: 10px; }
+.palco-vermi-box { border-radius: 16px; overflow: hidden; border: 2px solid var(--bordo); background: linear-gradient(#cfe8f7, #eaf6e4); }
+.palco-vermi { display: block; width: 100%; touch-action: pan-y; }
+@media (prefers-color-scheme: dark) { .palco-vermi-box { background: linear-gradient(#1d2b3a, #243326); } }

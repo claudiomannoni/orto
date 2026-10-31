@@ -61,6 +61,7 @@ async function sezioneOrto(s) {
     el('label', {}, t('impostazioni.acqua'), selezione('acqua', scelte('acqua', ACQUE), s.acqua, { opzionale: true })),
     el('label', {}, t('impostazioni.tempo'), selezione('tempo', scelte('tempo', TEMPI), s.tempo, { opzionale: true })),
     el('a', { class: 'btn', href: '#/benvenuto' }, t('impostazioni.rifai')),
+    el('button', { class: 'btn', type: 'button', id: 'rivedi-guida', onclick: async () => { await imposta('guida_viste', []); toast(t('impostazioni.guida.fatto')); } }, t('impostazioni.guida')),
   );
 }
 

@@ -6,6 +6,7 @@ import { impostaLingua } from './contenuti.js';
 import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, aggiornaTestata, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
+import { mostraGuida } from './ui/guida.js';
 import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
 import { pioveOggiDaCache } from './meteo.js';
 import { applicaAccessibilita } from './ui/accessibilita.js';
@@ -22,6 +23,8 @@ const schermate = {
   quiz: () => import('./screens/quiz.js'),
   chiedi: () => import('./screens/chiedi.js'),
   raccolto: () => import('./screens/raccolto.js'),
+  animali: () => import('./screens/animali.js'),
+  rendita: () => import('./screens/rendita.js'),
   cucina: () => import('./screens/cucina.js'),
   dottore: () => import('./screens/dottore.js'),
   coltura: () => import('./screens/scheda.js'),
@@ -61,6 +64,7 @@ async function mostra() {
   try {
     const modulo = await schermate[rotta]();
     await modulo.monta(contenitore, { alTermine: () => { location.hash = '#/oggi'; } });
+    if (rottaCorrente === rotta) await mostraGuida(rotta, contenitore);
   } catch (errore) {
     console.error(errore);
     toast(t('errore.generico'));

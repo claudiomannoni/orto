@@ -1,7 +1,7 @@
 // Service worker: tiene in cache i file dell'app per l'uso offline.
 // Nome della cache ed elenco dei file li scrive `node scripts/aggiorna-cache.mjs`
 // (da lanciare dopo ogni modifica, insieme all'aumento di APP_VERSIONE in js/versione.js).
-const VERSIONE = 'orto-2.35.4';
+const VERSIONE = 'orto-2.37.0';
 const FILE = [
   // <<FILE
   './',
@@ -67,6 +67,7 @@ const FILE = [
   './assets/mascotte/rosso.svg',
   './css/app.css',
   './css/tokens.css',
+  './data/it/animali.json',
   './data/it/battute.json',
   './data/it/colture/aglio.json',
   './data/it/colture/asparagi.json',
@@ -101,6 +102,7 @@ const FILE = [
   './data/it/glossario.json',
   './data/it/quiz-extra.json',
   './data/it/quiz.json',
+  './data/it/rendita.json',
   './data/it/terreno.json',
   './data/it/traguardi.json',
   './data/it/zone-climatiche.json',
@@ -136,6 +138,7 @@ const FILE = [
   './js/motore/seguite.js',
   './js/motore/terreno.js',
   './js/motore/vestiti.js',
+  './js/screens/animali.js',
   './js/screens/benvenuto.js',
   './js/screens/calendario.js',
   './js/screens/chiedi.js',
@@ -148,6 +151,7 @@ const FILE = [
   './js/screens/oggi.js',
   './js/screens/quiz.js',
   './js/screens/raccolto.js',
+  './js/screens/rendita.js',
   './js/screens/scheda.js',
   './js/screens/storia.js',
   './js/screens/zone.js',
@@ -167,6 +171,7 @@ const FILE = [
   './js/ui/foglio.js',
   './js/ui/foto-terreno.js',
   './js/ui/foto.js',
+  './js/ui/guida.js',
   './js/ui/identita.js',
   './js/ui/installa.js',
   './js/ui/luna.js',
@@ -180,6 +185,7 @@ const FILE = [
   './js/ui/resoconto.js',
   './js/ui/terreno.js',
   './js/ui/toast.js',
+  './js/ui/vermi-vivi.js',
   './js/ui/voce.js',
   './js/util.js',
   './js/versione.js',
