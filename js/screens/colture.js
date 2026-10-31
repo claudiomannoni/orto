@@ -51,6 +51,8 @@ function scheda(coltura) {
   );
 }
 
+const tessera = (href, titolo, spiega) => el('a', { class: 'tessera-azione', href }, el('strong', {}, titolo), el('span', { class: 'aiuto' }, spiega));
+
 function mostraLista() {
   const ordinate = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina));
   lista.replaceChildren(...ordinate.map(scheda));
@@ -148,14 +150,15 @@ export async function monta(contenitore) {
   lista = el('ul', { class: 'lista' });
   riquadro = el('div', {});
   aggiungi(contenitore, 
-    el('h2', { class: 'titolo-schermata' }, t('colture.titolo'), ' ', conteggio),
+    el('h2', { class: 'titolo-schermata' }, t('colture.hub')),
     el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
-    el('div', { class: 'riga' },
-      el('a', { class: 'btn', href: '#/zone' }, t('colture.le_mie_zone')),
-      el('a', { class: 'btn', href: '#/diario' }, t('colture.diario')),
-      el('a', { class: 'btn', href: '#/storia' }, t('colture.storia')),
-      el('a', { class: 'btn', href: '#/raccolto' }, t('colture.raccolto'))),
+    el('div', { class: 'tessere-azione' },
+      tessera('#/zone', t('colture.hub.zone'), t('colture.hub.zone.spiega')),
+      tessera('#/diario', t('colture.hub.diario'), t('colture.hub.diario.spiega')),
+      tessera('#/storia', t('colture.hub.storia'), t('colture.hub.storia.spiega')),
+      tessera('#/raccolto', t('colture.hub.raccolto'), t('colture.hub.raccolto.spiega'))),
     riquadro,
+    el('h3', {}, t('colture.elenco'), ' ', conteggio),
     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
     lista,
   );
@@ -164,4 +167,5 @@ export async function monta(contenitore) {
   const daSchedaId = parametriRotta().get('nuova');
   const daScheda = daSchedaId ? schede.find((s) => s.id === daSchedaId) : null;
   if (daScheda) apriNuova(daScheda.nome);
+  else if (parametriRotta().get('bustina') === '1') apriNuova();
 }

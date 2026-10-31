@@ -588,10 +588,20 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .raccolto-totale { margin: 0; font-size: 2rem; font-weight: 800; color: var(--verde); }
 .barre-mesi { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; align-items: end; height: 140px; }
 .barra-mese { display: grid; grid-template-rows: 1fr auto; height: 100%; justify-items: center; gap: 2px; }
-.barra { align-self: end; width: 100%; min-height: 2px; border-radius: 6px 6px 0 0; background: var(--verde); }
+.barra-valore { align-self: end; width: 100%; min-height: 2px; border-radius: 6px 6px 0 0; background: var(--verde); }
 .etichetta-mese { font-size: .75rem; }
 .acqua { border-top: 2px solid var(--bordo); margin-top: 8px; padding-top: 8px; }
 .resoconto-numeri { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .resoconto-numeri li { display: grid; gap: 2px; padding: 10px 6px; border-radius: 14px; background: var(--verde-chiaro); text-align: center; }
 .resoconto-numeri strong { font-size: 1.5rem; color: var(--verde); overflow-wrap: anywhere; }
 .resoconto-numeri span { font-size: .85rem; }
+/* La voce della fotocamera, al centro della barra: un tondo in rilievo */
+.barra a[data-rotta=dottore] { position: relative; }
+.barra a[data-rotta=dottore] .icona { box-sizing: content-box; width: 28px; height: 28px; padding: 12px; margin-top: -26px; border-radius: 50%; background: var(--pulsante); color: #fff; stroke: #fff; border: 4px solid var(--carta); box-shadow: 0 3px 8px rgba(0, 0, 0, .25); }
+.barra a[data-rotta=dottore][aria-current="page"] { background: transparent; }
+.barra a[data-rotta=dottore][aria-current="page"] .icona { background: var(--verde); }
+.tessere-azione { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0; }
+.tessera-azione { display: grid; gap: 4px; align-content: start; padding: 14px; border-radius: 18px; border: 3px solid var(--bordo); background: var(--carta); color: var(--inchiostro); text-decoration: none; min-height: 88px; }
+.tessera-azione strong { font-size: 1.05rem; }
+.dottore-scheda { display: grid; gap: 12px; }
+.dottore-anteprima img { max-width: 100%; height: auto; border-radius: 14px; }

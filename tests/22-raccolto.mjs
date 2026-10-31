@@ -12,7 +12,7 @@ check('Colture ha il link «Il mio raccolto»', (await page.getByRole('link', { 
 await page.getByRole('link', { name: 'Il mio raccolto' }).click();
 await page.waitForSelector('#raccolto-vuoto');
 check('all\'inizio: messaggio vuoto che invita a segnare', /Segna il primo raccolto/.test(await page.locator('#raccolto-vuoto').innerText()));
-check('la barra evidenzia Colture', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Colture'));
+check('la barra evidenzia Il mio orto', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Il mio orto'));
 
 // Una coltura per scegliere nell'elenco
 await page.evaluate(() => new Promise((ok) => {

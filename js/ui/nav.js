@@ -7,12 +7,13 @@ const ICONE = {
   oggi: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
   calendario: '<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
   colture: '<path d="M12 21v-9"/><path d="M12 12c0-4 3-6.5 7.5-6.5 0 4-3 6.5-7.5 6.5z"/><path d="M12 15c0-3-2.4-5-6-5 0 3 2.4 5 6 5z"/>',
+  dottore: '<path d="M4 8.5h3l1.6-2.5h6.8L17 8.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.4"/>',
   impara: '<path d="M4 5.5c3-1.2 5.5-1 8 .8 2.5-1.8 5-2 8-.8V19c-3-1.2-5.5-1-8 .8-2.5-1.8-5-2-8-.8z"/><path d="M12 6.3v13.5"/>',
   impostazioni: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
 };
 
-// Le quattro voci della barra: cosa fare oggi, il mese, il mio orto, imparare. Le impostazioni stanno nell'ingranaggio in alto.
-export const ROTTE = ['oggi', 'calendario', 'colture', 'impara'];
+// Le cinque voci della barra: cosa fare oggi, il mio orto, la fotocamera (al centro), il mese, imparare. Le impostazioni stanno nell'ingranaggio in alto.
+export const ROTTE = ['oggi', 'colture', 'dottore', 'calendario', 'impara'];
 // Schermate che non hanno una voce propria nella barra: si evidenzia quella da cui si arriva
 // (stringa vuota = nessuna voce: le impostazioni si aprono dall'ingranaggio).
 export const SOTTOROTTE = { zone: 'colture', diario: 'colture', storia: 'colture', coltura: 'impara', quiz: 'impara', chiedi: 'impara', raccolto: 'colture', cucina: 'colture', impostazioni: '' };

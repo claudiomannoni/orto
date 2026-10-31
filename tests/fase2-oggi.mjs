@@ -213,7 +213,7 @@ const misure = (page) => page.evaluate(() => {
   await page.screenshot({ path: path.join(SHOT, 'oggi-finito-chiaro.png'), fullPage: true });
   const r = await page.locator('ol.lavori').count() ? await page.locator('ol.lavori').boundingBox() : null;
   console.log('   ol.lavori box dopo finito:', JSON.stringify(r));
-  check('tutti chiusi: nessun pulsante per tornare/andare altrove ma barra in basso presente', await page.locator('#barra a').count() === 4);
+  check('tutti chiusi: nessun pulsante per tornare/andare altrove ma barra in basso presente', await page.locator('#barra a').count() === 5);
   await ctx.close();
 }
 

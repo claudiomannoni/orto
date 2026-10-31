@@ -100,6 +100,15 @@ Rimandato, in ordine: Oggi che tiene conto del meteo (pioggia/gelo cambiano i la
 
 - Leggi dalla bustina dei semi (2.30), Cosa cucino? (2.31), La mia settimana con figurina da condividere (2.32): tutti e tre con moduli scritti da OpenCode, controllati e collegati da Claude. Le funzioni con IA usano Gemini e chiedono il consenso la prima volta.
 
+## Riordino dell'app (31/10/2026, v2.34.0)
+
+Dopo aver guardato come sono fatte le app di piante e orto di successo (cure e promemoria che fanno tornare ogni giorno, diagnosi da foto come funzione-gancio, navigazione semplice con la fotocamera al centro, aiuole viste dall'alto, niente muro di pagamento prima del valore):
+
+- Barra a cinque voci: Oggi, Il mio orto, Fotografa (tondo al centro), Calendario, Impara. Le impostazioni restano nell'ingranaggio.
+- «Fotografa» = il dottore delle piante: foto, analisi di Rossella (cosa vede, cause possibili con certezza, cosa controllare), salvataggio facoltativo nel diario; da lì anche terreno, bustina dei semi, foto per il diario.
+- «Il mio orto» è la pagina di tutto ciò che è tuo, a sezioni: nuova coltura, quattro tessere (zone, diario, storia, raccolto), orto dall'alto, elenco delle colture.
+- Corretto un difetto grafico: una classe CSS `barra` del grafico del raccolto copriva la barra di navigazione (diventava verde). Ora c'è un controllo nel test 26 che la barra resti chiara.
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).

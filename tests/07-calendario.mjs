@@ -73,7 +73,7 @@ await page.locator('.mesi .btn', { hasText: 'nov' }).click();
 
 // Navigando via barra
 await page.locator('#barra a[data-rotta=colture]').click();
-await page.waitForSelector('h2.titolo-schermata:has-text("Le mie colture")');
+await page.waitForSelector('h2.titolo-schermata:has-text("Il mio orto")');
 await page.locator('#barra a[data-rotta=calendario]').click();
 await page.waitForSelector('h2.titolo-mese');
 check('dalla barra: torna al mese corrente', (await page.locator('h2.titolo-mese').innerText()) === 'Novembre');

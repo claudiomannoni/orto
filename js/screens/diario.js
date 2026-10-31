@@ -1,5 +1,6 @@
 // Diario fotografico: le foto datate dell'orto, per zona e coltura. Restano sul telefono.
 // Da qui si guardano, si fa il time-lapse e si può chiedere a Rossella cosa vede in una pianta.
+import { bloccoDiagnosi } from '../ui/diagnosi-blocco.js';
 import { el, oggiISO, parametriRotta, formattaData, aggiungi } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoFoto, salvaFoto, eliminaFoto, nuovaFoto, filtra, perMese, dallaPiuVecchia } from '../store/foto.js';
@@ -125,22 +126,6 @@ function apriAggiunta() {
 }
 
 // ---------- Guardare una foto, chiedere a Rossella ----------
-
-function bloccoDiagnosi(diagnosi) {
-  const r = diagnosi.risultato;
-  return el('section', { class: 'card diagnosi' },
-    el('h3', {}, t('diagnosi.titolo')),
-    el('p', {}, el('span', { class: 'etichetta certezza bassa' }, t('diagnosi.da_verificare'))),
-    el('p', {}, el('strong', {}, t(`diagnosi.stato.${r.stato}`))),
-    r.pianta ? el('p', {}, t('diagnosi.pianta', { nome: r.pianta.nome }), ' ', el('span', { class: `etichetta certezza ${r.pianta.confidenza === 'alta' ? 'media' : 'bassa'}` }, t(`foto.confidenza.${r.pianta.confidenza}`))) : null,
-    r.problemi.length ? el('div', { class: 'elenco-proposte' }, r.problemi.map((p) => el('div', { class: 'problema' },
-      el('strong', {}, p.nome), ' ', el('span', { class: `etichetta certezza ${p.confidenza === 'alta' ? 'media' : 'bassa'}` }, t(`foto.confidenza.${p.confidenza}`)),
-      p.perche ? el('p', { class: 'aiuto' }, p.perche) : null,
-      p.cosa_controllare ? el('p', {}, el('strong', {}, `${t('diagnosi.controlla')}: `), p.cosa_controllare) : null))) : null,
-    r.avvisi ? el('p', { class: 'avviso' }, r.avvisi) : null,
-    el('p', { class: 'aiuto' }, t('diagnosi.avvertenza')),
-    el('p', { class: 'aiuto' }, t('diagnosi.data', { data: formattaData(diagnosi.data) })));
-}
 
 async function apriVisore(id) {
   const f = foto.find((x) => x.id === id);

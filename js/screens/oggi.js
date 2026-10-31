@@ -165,7 +165,7 @@ export async function monta(contenitore) {
   // Le cose da fare per divertirsi e capire: la foto sta sempre qui, il quiz solo se ci sono le domande.
   const cartaGioca = el('section', { class: 'card gioca' },
     el('h3', {}, t('oggi.gioca.titolo')),
-    el('a', { class: 'btn primario', href: '#/diario?aggiungi=1', id: 'fotografa' }, t('oggi.gioca.foto')),
+    el('a', { class: 'btn primario', href: '#/dottore', id: 'fotografa' }, t('oggi.gioca.foto')),
     el('p', { class: 'aiuto' }, t('oggi.gioca.foto.spiega')),
     domandeQuiz && domandeQuiz[oggi] !== undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] })) : null,
     domandeQuiz && domandeQuiz[oggi] === undefined ? el('a', { class: 'btn', href: '#/quiz' }, t('oggi.gioca.quiz')) : null,

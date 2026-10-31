@@ -34,7 +34,7 @@ export async function monta(contenitore) {
         el('h3', {}, t('raccolto.per_mese', { anno })),
         el('div', { class: 'barre-mesi', role: 'img', 'aria-label': mesi.map((kg, i) => (kg ? `${nomeMese(i)}: ${testoQuantita(kg, 'kg')}` : null)).filter(Boolean).join(', ') },
           mesi.map((kg, i) => el('div', { class: 'barra-mese' },
-            el('span', { class: 'barra', style: `height:${Math.round((kg / massimo) * 100)}%`, 'aria-hidden': 'true' }),
+            el('span', { class: 'barra-valore', style: `height:${Math.round((kg / massimo) * 100)}%`, 'aria-hidden': 'true' }),
             el('span', { class: 'etichetta-mese', 'aria-hidden': 'true' }, nomeMese(i).slice(0, 1).toUpperCase())))),
         el('p', { class: 'aiuto' }, t('raccolto.pezzi_esclusi'))) : null);
   }

@@ -13,12 +13,7 @@ check('Oggi invita al quiz del giorno', (await page.locator('.gioca a[href="#/qu
 check('Oggi ha «Lo sapevi?» con la fonte e senza doppio nome davanti ai commenti', /Lo sapevi\?/.test(await page.locator('.sapevi').innerText()) && (await page.locator('.sapevi a[href^="https://"]').count()) === 1 && !/Rosso: Rosso:|Rossella: Rossella:/.test(await page.locator('.sapevi').innerText()));
 check('Oggi saluta (Buongiorno, Buon pomeriggio, Buonasera, Ancora in piedi o Buone feste)', /^(Buongiorno|Buon pomeriggio|Buonasera|Ancora in piedi|Buone feste|Ciao)/.test(await page.locator('.saluto').innerText()));
 check('Oggi invita a Rossella', (await page.locator('.gioca a[href="#/chiedi"]').count()) === 1);
-check('Oggi ha «Fotografa il tuo orto»', (await page.locator('#fotografa').count()) === 1 && /Fotografa il tuo orto/.test(await page.locator('#fotografa').innerText()));
-await page.locator('#fotografa').click();
-await page.waitForSelector('dialog[open] input[type=file]', { state: 'attached' });
-check('toccandolo si apre subito la finestra per aggiungere la foto (scatta o scegli)', (await page.locator('dialog[open] button', { hasText: /Scatta/ }).count()) >= 1);
-await page.keyboard.press('Escape');
-await vai(page, 'oggi');
+check('Oggi invita a controllare le piante con la foto', (await page.locator('#fotografa').count()) === 1 && /Come stanno le tue piante/.test(await page.locator('#fotografa').innerText()) && (await page.locator('#fotografa').getAttribute('href')) === '#/dottore');
 await vai(page, 'impara');
 check('Impara ha il pulsante del quiz', (await page.getByRole('link', { name: 'Gioca al quiz del giorno' }).count()) === 1);
 await page.getByRole('link', { name: 'Gioca al quiz del giorno' }).click();
