@@ -64,3 +64,8 @@ export function trovaScheda(schede, nome) {
   if (!cercato) return null;
   return schede.find((s) => [s.id, s.nome, ...(s.alias ?? [])].some((x) => normalizza(x) === cercato)) ?? null;
 }
+
+// Le domande del quiz dell'ortolano (data/it/quiz.json), o null.
+export async function quiz() {
+  return json(`data/${lingua}/quiz.json`);
+}

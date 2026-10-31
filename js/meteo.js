@@ -21,7 +21,15 @@ export async function posizioneMeteo() {
 
 // Le previsioni: { giorni, quando, vecchio }. Lancia errore con codice 'posizione' | 'rete' | 'meteo'.
 // senzaRete: usa solo quelle già salvate (per partire subito).
-export async function previsioni({ senzaRete = false, forza = false } = {}) {
+// Più parti della schermata chiedono le previsioni insieme (carta meteo, consigli sui lavori): una sola richiesta, la risposta è condivisa.
+const inCorso = new Map();
+export function previsioni(opzioni = {}) {
+  const chiave = `${Boolean(opzioni.senzaRete)}|${Boolean(opzioni.forza)}`;
+  if (!inCorso.has(chiave)) inCorso.set(chiave, scaricaPrevisioni(opzioni).finally(() => inCorso.delete(chiave)));
+  return inCorso.get(chiave);
+}
+
+async function scaricaPrevisioni({ senzaRete = false, forza = false } = {}) {
   const pos = await posizioneMeteo();
   if (!pos) throw Object.assign(new Error('posizione'), { codice: 'posizione' });
   const s = await leggi();

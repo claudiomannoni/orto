@@ -562,3 +562,7 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .opzione-titolo { font-size: 1.15rem; }
 .opzione-desc { font-size: .95rem; font-weight: 400; color: var(--inchiostro-2); }
 .azioni { display: grid; gap: 10px; }
+.consiglio-meteo { margin: 8px 0 0; padding: 8px 12px; border-radius: 10px; background: var(--verde-chiaro); color: var(--inchiostro); font-weight: 600; }
+.quiz-spiegazione { margin: 12px 0; padding: 12px; border-radius: 12px; background: var(--verde-chiaro); }
+.opzioni .btn.giusta { border-color: var(--verde); background: var(--verde-chiaro); font-weight: 700; }
+.opzioni .btn.sbagliata { border-color: #b3261e; font-weight: 700; }

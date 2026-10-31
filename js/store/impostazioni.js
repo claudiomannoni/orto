@@ -6,6 +6,7 @@ export const PREDEFINITE = {
   metodo: 'nessuno',
   esperienza: 'principiante',
   colture_scelte: [], // id delle schede che l'utente segue; vuoto = tutte
+  quiz_risultati: {}, // { 'AAAA-MM-GG': punti } del quiz del giorno
   testo: 'normale', // dimensione del testo: normale | grande | enorme
   contrasto: false, // contrasto alto
   movimento_ridotto: false, // ferma le animazioni
@@ -17,6 +18,8 @@ export const PREDEFINITE = {
   traguardi: null, // { id: data } dei traguardi già presi
   livello_raggiunto: null,
   ai_foto_ok: false,
+  ai_testo_ok: false, // ha accettato che le domande a Rossella vadano a Gemini
+  ai_testo_conteggio: null,
   ai_foto_conteggio: null,
   nome_orto: '',
   nome_coltivatore: '',

@@ -70,3 +70,17 @@ export function cacheValida(cache, { lat, lon }, adesso = Date.now(), ore = 3) {
 // Arrotonda una coordinata a 2 decimali (circa un chilometro): basta per il meteo e non dice dove si abita.
 export const arrotondaCoordinata = (v) => Math.round(Number(v) * 100) / 100;
 export const coordinateValide = (lat, lon) => Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180;
+
+// Un consiglio in più per un lavoro, secondo il tempo di quel giorno. Non nasconde mai il lavoro: dice solo «aspetta» o «attenzione».
+// Restituisce la chiave del consiglio (meteo.consiglio.<chiave>) oppure null.
+export function consiglioMeteo({ operazione, titolo = '' }, giorno) {
+  if (!giorno) return null;
+  const acqua = /annaff|irrig|bagn/i.test(titolo);
+  const semi = operazione === 'semina' || operazione === 'trapianto';
+  if (semi && giorno.min !== null && giorno.min <= SOGLIE.brina) return giorno.min <= SOGLIE.gelo ? 'gelo' : 'brina';
+  if (acqua && piove(giorno)) return 'piove_annaffia';
+  if (giorno.pioggia >= SOGLIE.pioggiaForte && (operazione === 'lavorazione' || semi)) return 'terreno_bagnato';
+  if (semi && giorno.max !== null && giorno.max >= SOGLIE.caldo) return 'caldo';
+  if (operazione === 'raccolta' && piove(giorno)) return 'raccolta_pioggia';
+  return null;
+}

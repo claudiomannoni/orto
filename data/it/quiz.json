@@ -1,0 +1,905 @@
+{
+  "versione": 1,
+  "domande": [
+    {
+      "id": "q001",
+      "tema": "semina",
+      "livello": 1,
+      "testo": "Dopo aver seminato in vasetto, come conviene bagnare per non spostare i semi?",
+      "risposte": [
+        "Con un getto forte",
+        "Con acqua versata da molto in alto",
+        "Con un flusso leggero"
+      ],
+      "giusta": 2,
+      "spiegazione": "Un getto delicato riduce il rischio di scalzare o spostare i semi appena coperti.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q002",
+      "tema": "semina",
+      "livello": 1,
+      "testo": "In generale, quanto sotto terra si mette un seme?",
+      "risposte": [
+        "Sempre a 5 cm",
+        "Sempre in superficie",
+        "A una profondità legata alla sua dimensione"
+      ],
+      "giusta": 2,
+      "spiegazione": "Come regola generale, la profondità è circa 2–3 volte il diametro del seme; controlla le istruzioni della coltura.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-germination"
+    },
+    {
+      "id": "q003",
+      "tema": "semina",
+      "livello": 1,
+      "testo": "Perché si diradano le piantine nate troppo vicine?",
+      "risposte": [
+        "Per cambiare il colore delle foglie",
+        "Per farle fiorire subito",
+        "Per dare spazio alle piantine che restano"
+      ],
+      "giusta": 2,
+      "spiegazione": "Più spazio riduce l’affollamento e aiuta luce e aria a raggiungere le piante.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q004",
+      "tema": "semina",
+      "livello": 3,
+      "testo": "Quale segnale può indicare che una piantina da semenzaio è pronta a essere trapiantata?",
+      "risposte": [
+        "Il terriccio è sempre fradicio",
+        "Le radici formano un fitto groviglio nel pane di terra",
+        "Ha perso tutte le foglie"
+      ],
+      "giusta": 1,
+      "spiegazione": "Una massa di radici fitta nel contenitore è uno dei segnali per valutare il rinvaso o il trapianto.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q005",
+      "tema": "semina",
+      "livello": 2,
+      "testo": "Quale causa può ostacolare la germinazione?",
+      "risposte": [
+        "Aprire il sacchetto dei semi",
+        "Usare un’etichetta",
+        "Seminare troppo in profondità"
+      ],
+      "giusta": 2,
+      "spiegazione": "Semi troppo profondi, temperature inadatte e acqua eccessiva o insufficiente possono ridurre la germinazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q006",
+      "tema": "semina",
+      "livello": 2,
+      "testo": "Perché i semenzali diventano alti e filiformi?",
+      "risposte": [
+        "Per poca luce",
+        "Perché il vaso è rotondo",
+        "Per troppa luce"
+      ],
+      "giusta": 0,
+      "spiegazione": "Una luce insufficiente è una causa frequente di piantine allungate e deboli.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q007",
+      "tema": "semina",
+      "livello": 3,
+      "testo": "Qual è una regola generale per la profondità di semina?",
+      "risposte": [
+        "Dieci volte la lunghezza della piantina",
+        "Due o tre volte il diametro del seme",
+        "Un centimetro per ogni giorno di germinazione"
+      ],
+      "giusta": 1,
+      "spiegazione": "È una regola orientativa; la scheda della singola specie resta il riferimento migliore.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-germination"
+    },
+    {
+      "id": "q008",
+      "tema": "semina",
+      "livello": 3,
+      "testo": "Che cosa può succedere se il terriccio dei semenzali resta saturo d’acqua?",
+      "risposte": [
+        "Le radici possono avere poco ossigeno",
+        "I semi diventano più grandi",
+        "La luce aumenta"
+      ],
+      "giusta": 0,
+      "spiegazione": "Un substrato troppo bagnato può privare le radici di ossigeno e favorire problemi alle piantine.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q009",
+      "tema": "terreno",
+      "livello": 1,
+      "testo": "Quale terreno è adatto alla maggior parte degli ortaggi?",
+      "risposte": [
+        "Un angolo sempre al buio",
+        "Una pozza permanente",
+        "Un luogo soleggiato e ben drenato"
+      ],
+      "giusta": 2,
+      "spiegazione": "Per la maggior parte degli ortaggi è indicato un sito soleggiato con buon drenaggio.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q010",
+      "tema": "terreno",
+      "livello": 1,
+      "testo": "Che cosa aiuta il compost a migliorare nel terreno?",
+      "risposte": [
+        "La lunghezza del giorno",
+        "La quantità di luce",
+        "La consistenza o struttura"
+      ],
+      "giusta": 2,
+      "spiegazione": "L’aggiunta di compost può migliorare la consistenza del suolo.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q011",
+      "tema": "terreno",
+      "livello": 3,
+      "testo": "Quando è meglio rimandare la lavorazione del terreno?",
+      "risposte": [
+        "Quando è troppo bagnato",
+        "Quando è asciutto in superficie",
+        "Quando il suolo si sbriciola"
+      ],
+      "giusta": 0,
+      "spiegazione": "Se il terreno si attacca a scarpe o pala, è troppo bagnato per prepararlo.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q012",
+      "tema": "terreno",
+      "livello": 2,
+      "testo": "Perché è utile evitare di calpestare spesso le aiuole?",
+      "risposte": [
+        "Per far sparire i lombrichi",
+        "Per conservare una struttura del suolo meno compattata",
+        "Per scaldare le radici"
+      ],
+      "giusta": 1,
+      "spiegazione": "Il passaggio ripetuto può compattare il suolo; aiuole accessibili dai bordi limitano il calpestio.",
+      "certezza": "media",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/living-soil-healthy-garden"
+    },
+    {
+      "id": "q013",
+      "tema": "terreno",
+      "livello": 2,
+      "testo": "Perché si consiglia un’analisi del terreno prima di aggiungere ammendanti?",
+      "risposte": [
+        "Per scegliere gli interventi necessari",
+        "Per misurare la pioggia futura",
+        "Per sapere quando raccogliere"
+      ],
+      "giusta": 0,
+      "spiegazione": "Un’analisi aiuta a basare gli apporti sulle condizioni reali del suolo.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q014",
+      "tema": "terreno",
+      "livello": 2,
+      "testo": "Che effetto può avere la pacciamatura sul terreno?",
+      "risposte": [
+        "Può conservare umidità e limitare le infestanti",
+        "Sostituisce ogni irrigazione",
+        "Elimina sempre ogni insetto"
+      ],
+      "giusta": 0,
+      "spiegazione": "La pacciamatura aiuta a mantenere più costante l’umidità e ostacola le erbe infestanti.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q015",
+      "tema": "terreno",
+      "livello": 3,
+      "testo": "Perché aggiungere compost molto salino a un semenzaio può essere un problema?",
+      "risposte": [
+        "Può danneggiare la crescita delle piantine",
+        "Fa germinare tutti i semi insieme",
+        "Rende inutile la luce"
+      ],
+      "giusta": 0,
+      "spiegazione": "Compost con salinità elevata non va usato puro nei semenzai: va diluito o analizzato.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q016",
+      "tema": "terreno",
+      "livello": 3,
+      "testo": "Quale caratteristica è utile in un compost maturo da incorporare nell’orto?",
+      "risposte": [
+        "Aspetto terroso e ben decomposto",
+        "Presenza di semi appena germogliati",
+        "Odore pungente di materiale fresco"
+      ],
+      "giusta": 0,
+      "spiegazione": "Il compost ben decomposto e dall’aspetto terroso è indicato come ammendante per aiuole.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q017",
+      "tema": "acqua",
+      "livello": 1,
+      "testo": "Dove conviene dirigere l’acqua per ridurre la bagnatura delle foglie?",
+      "risposte": [
+        "Sul terreno vicino alle radici",
+        "In aria sopra l’orto",
+        "Sulle foglie a mezzanotte"
+      ],
+      "giusta": 0,
+      "spiegazione": "Bagnare il suolo invece delle foglie può aiutare a prevenire o rallentare alcune malattie.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"
+    },
+    {
+      "id": "q018",
+      "tema": "acqua",
+      "livello": 3,
+      "testo": "Quando è in genere preferibile irrigare per lasciare asciugare le foglie prima di notte?",
+      "risposte": [
+        "Al mattino",
+        "Solo a mezzogiorno",
+        "A tarda notte"
+      ],
+      "giusta": 0,
+      "spiegazione": "L’irrigazione mattutina lascia più tempo alle foglie per asciugare prima della notte.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"
+    },
+    {
+      "id": "q019",
+      "tema": "acqua",
+      "livello": 1,
+      "testo": "Che cosa richiedono le piantine appena trapiantate finché non attecchiscono?",
+      "risposte": [
+        "Controlli più frequenti dell’umidità",
+        "Nessuna acqua",
+        "Terreno sempre allagato"
+      ],
+      "giusta": 0,
+      "spiegazione": "Le radici non sono ancora ben sviluppate e il pane di terra va mantenuto umido, senza ristagni continui.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q020",
+      "tema": "acqua",
+      "livello": 1,
+      "testo": "Perché uno strato di pacciamatura può essere utile in estate?",
+      "risposte": [
+        "Fa piovere più spesso",
+        "Aiuta a conservare l’umidità",
+        "Sostituisce le radici"
+      ],
+      "giusta": 1,
+      "spiegazione": "La pacciamatura riduce la perdita d’acqua dal suolo e attenua gli sbalzi di temperatura.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"
+    },
+    {
+      "id": "q021",
+      "tema": "acqua",
+      "livello": 2,
+      "testo": "Quando è particolarmente importante che gli ortaggi da frutto ricevano acqua adeguata?",
+      "risposte": [
+        "Dall’allegagione alla raccolta",
+        "Dopo che la pianta è morta",
+        "Solo prima della semina"
+      ],
+      "giusta": 0,
+      "spiegazione": "Per gli ortaggi da frutto l’acqua è importante dalla formazione dei frutti fino alla raccolta.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"
+    },
+    {
+      "id": "q022",
+      "tema": "acqua",
+      "livello": 2,
+      "testo": "Quale problema può favorire un’irrigazione irregolare nei pomodori?",
+      "risposte": [
+        "Spaccature dei frutti",
+        "Fiori blu",
+        "Semi più profondi"
+      ],
+      "giusta": 0,
+      "spiegazione": "La disponibilità d’acqua non uniforme è associata a spaccature dei pomodori.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"
+    },
+    {
+      "id": "q023",
+      "tema": "acqua",
+      "livello": 3,
+      "testo": "In quali fasi il pomodoro è particolarmente sensibile alla disponibilità d’acqua?",
+      "risposte": [
+        "Solo durante la dormienza invernale",
+        "Fioritura iniziale, allegagione e crescita dei frutti",
+        "Dopo la fine della raccolta"
+      ],
+      "giusta": 1,
+      "spiegazione": "La tabella irrigua individua fioritura, allegagione e ingrossamento dei frutti come fasi critiche per le solanacee.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/vegetableguide/management/irrigation"
+    },
+    {
+      "id": "q024",
+      "tema": "acqua",
+      "livello": 3,
+      "testo": "Perché non è ideale mantenere perennemente zuppo il substrato dei semenzali?",
+      "risposte": [
+        "Le radici possono restare senza sufficiente ossigeno",
+        "I semi diventano insensibili alla luce",
+        "La pianta produce più fiori"
+      ],
+      "giusta": 0,
+      "spiegazione": "L’eccesso d’acqua può togliere ossigeno alle radici e aumentare i problemi di crescita.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q025",
+      "tema": "parassiti",
+      "livello": 1,
+      "testo": "Che cosa si può fare appena si notano afidi su una pianta?",
+      "risposte": [
+        "Lasciare sempre la pianta senza controlli",
+        "Osservare e controllare se arrivano predatori utili",
+        "Spruzzare qualsiasi prodotto senza leggere l’etichetta"
+      ],
+      "giusta": 1,
+      "spiegazione": "Coccinelle e altri predatori si nutrono di afidi; osservare la situazione aiuta a decidere se intervenire.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/planthealth/research/aphid-pests-on-vegetables"
+    },
+    {
+      "id": "q026",
+      "tema": "parassiti",
+      "livello": 1,
+      "testo": "A cosa può servire una rete di copertura sulle colture?",
+      "risposte": [
+        "A escludere alcuni insetti",
+        "A nutrire le radici",
+        "A sostituire la luce solare"
+      ],
+      "giusta": 0,
+      "spiegazione": "Le coperture possono impedire a determinati insetti di raggiungere le piante, se la maglia è adatta.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/planthealth/research/row-covers"
+    },
+    {
+      "id": "q027",
+      "tema": "parassiti",
+      "livello": 3,
+      "testo": "Perché è utile controllare spesso le piante?",
+      "risposte": [
+        "Per accorgersi presto dei problemi",
+        "Per far crescere più in fretta le radici",
+        "Per eliminare il bisogno d’acqua"
+      ],
+      "giusta": 0,
+      "spiegazione": "Monitorare l’orto permette di individuare i problemi quando sono più facili da valutare.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q028",
+      "tema": "parassiti",
+      "livello": 2,
+      "testo": "Quando andrebbe tolta una copertura antinsetto dalle cucurbitacee, secondo le indicazioni sulle afidi?",
+      "risposte": [
+        "Prima di piantare",
+        "All’inizio della fioritura",
+        "Solo dopo la raccolta"
+      ],
+      "giusta": 1,
+      "spiegazione": "La copertura può escludere afidi fino all’inizio della fioritura; poi va rimossa per consentire l’impollinazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/planthealth/research/aphid-pests-on-vegetables"
+    },
+    {
+      "id": "q029",
+      "tema": "parassiti",
+      "livello": 2,
+      "testo": "Perché non si dovrebbe compostare una pianta malata?",
+      "risposte": [
+        "Il compost non contiene mai materia organica",
+        "La pianta smette di assorbire luce",
+        "Può conservare agenti di malattia nel materiale"
+      ],
+      "giusta": 2,
+      "spiegazione": "Le indicazioni consigliano di rimuovere e non compostare i residui di piante malate.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q030",
+      "tema": "parassiti",
+      "livello": 2,
+      "testo": "Quale effetto può avere l’eccesso di azoto sulla salute delle piante?",
+      "risposte": [
+        "Può renderle più suscettibili alle malattie",
+        "Impedisce la crescita delle infestanti",
+        "Elimina tutti gli insetti"
+      ],
+      "giusta": 0,
+      "spiegazione": "Un eccesso di azoto può aumentare la suscettibilità delle piante a malattie.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q031",
+      "tema": "parassiti",
+      "livello": 3,
+      "testo": "Che cosa succede se una copertura impedisce agli impollinatori di raggiungere i fiori?",
+      "risposte": [
+        "Aumenta sempre la produzione",
+        "Può diminuire l’allegagione",
+        "I frutti maturano prima per forza"
+      ],
+      "giusta": 1,
+      "spiegazione": "Le coperture possono ridurre l’accesso degli impollinatori; vanno tolte quando la coltura fiorisce se serve impollinazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/planthealth/research/row-covers"
+    },
+    {
+      "id": "q032",
+      "tema": "parassiti",
+      "livello": 3,
+      "testo": "Perché togliere infestanti e piante spontanee ospiti prima della coltivazione può aiutare contro gli afidi?",
+      "risposte": [
+        "Producono compost maturo",
+        "Possono ospitare afidi prima che attacchino l’orto",
+        "Raffreddano i semi"
+      ],
+      "giusta": 1,
+      "spiegazione": "Alcune infestanti e colture spontanee possono fare da ospiti agli afidi prima dell’impianto.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/planthealth/research/aphid-pests-on-vegetables"
+    },
+    {
+      "id": "q033",
+      "tema": "raccolta",
+      "livello": 1,
+      "testo": "Quando si raccolgono i fagiolini per averli teneri?",
+      "risposte": [
+        "Quando i baccelli sono sviluppati ma senza semi molto ingrossati",
+        "Quando i baccelli sono secchi da mesi",
+        "Quando i semi sporgono molto"
+      ],
+      "giusta": 0,
+      "spiegazione": "I baccelli sono più teneri prima che i semi interni diventino grandi e visibili come rigonfiamenti.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/blogs/good-growing/2024-06-28-harvesting-vegetables-when-and-how-pick-your-vegetables-best-quality"
+    },
+    {
+      "id": "q034",
+      "tema": "raccolta",
+      "livello": 1,
+      "testo": "Come si capisce se una carota è pronta?",
+      "risposte": [
+        "Quando ha prodotto fiori",
+        "In base alla dimensione desiderata",
+        "Solo dal colore delle foglie"
+      ],
+      "giusta": 1,
+      "spiegazione": "Le carote si possono raccogliere quando hanno raggiunto la dimensione che si desidera.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/blogs/good-growing/2024-06-28-harvesting-vegetables-when-and-how-pick-your-vegetables-best-quality"
+    },
+    {
+      "id": "q035",
+      "tema": "raccolta",
+      "livello": 1,
+      "testo": "Che cosa conviene fare con frutti maturi lasciati troppo a lungo sulla pianta?",
+      "risposte": [
+        "Raccoglierli, se sono utilizzabili",
+        "Coprirli con altra terra",
+        "Tagliare tutte le radici"
+      ],
+      "giusta": 0,
+      "spiegazione": "Togliere frutti ormai maturi evita che marciscano e consente alla pianta di investire in nuovi fiori e frutti.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/blogs/good-growing/2024-06-28-harvesting-vegetables-when-and-how-pick-your-vegetables-best-quality"
+    },
+    {
+      "id": "q036",
+      "tema": "raccolta",
+      "livello": 2,
+      "testo": "Quando raccogliere la lattuga per limitare l’amaro e la salita a seme?",
+      "risposte": [
+        "Prima che il caldo la faccia montare",
+        "Solo dopo la fioritura",
+        "Dopo una gelata forte"
+      ],
+      "giusta": 0,
+      "spiegazione": "La raccolta prima del caldo che induce la montata aiuta a evitare foglie amare.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/blogs/good-growing/2024-06-28-harvesting-vegetables-when-and-how-pick-your-vegetables-best-quality"
+    },
+    {
+      "id": "q037",
+      "tema": "raccolta",
+      "livello": 2,
+      "testo": "Qual è un buon momento della giornata per raccogliere ortaggi dopo una giornata calda?",
+      "risposte": [
+        "Solo a mezzogiorno",
+        "Al mattino",
+        "Nel pieno della notte"
+      ],
+      "giusta": 1,
+      "spiegazione": "Al mattino le piante hanno avuto la notte per recuperare acqua persa durante il caldo.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"
+    },
+    {
+      "id": "q038",
+      "tema": "raccolta",
+      "livello": 2,
+      "testo": "Quale aspetto dovrebbero avere i pomodori per essere raccolti ben maturi?",
+      "risposte": [
+        "Verdi e duri in ogni caso",
+        "Con la buccia raggrinzita",
+        "Sodi e completamente colorati"
+      ],
+      "giusta": 2,
+      "spiegazione": "Per la migliore qualità, i pomodori si raccolgono sodi e ben colorati; il caldo può accelerare il rammollimento.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/tomato"
+    },
+    {
+      "id": "q039",
+      "tema": "raccolta",
+      "livello": 3,
+      "testo": "Perché allentare il terreno può aiutare a raccogliere le carote?",
+      "risposte": [
+        "Così si trasformano in semi",
+        "Le cime possono spezzarsi quando si tira",
+        "Perché le carote crescono solo fuori dal terreno"
+      ],
+      "giusta": 1,
+      "spiegazione": "Le cime possono rompersi durante l’estrazione; allentare il suolo aiuta a sollevare la radice.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/blogs/good-growing/2024-06-28-harvesting-vegetables-when-and-how-pick-your-vegetables-best-quality"
+    },
+    {
+      "id": "q040",
+      "tema": "consociazioni",
+      "livello": 1,
+      "testo": "Quale affermazione sulle consociazioni è più prudente?",
+      "risposte": [
+        "Due piante vicine non competono mai",
+        "Ogni abbinamento ha effetti garantiti",
+        "Le prove dipendono dalle specie e dal contesto"
+      ],
+      "giusta": 2,
+      "spiegazione": "Gli effetti degli abbinamenti non sono universali: contano specie, spazio e condizioni di coltivazione.",
+      "certezza": "media",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/living-soil-healthy-garden"
+    },
+    {
+      "id": "q041",
+      "tema": "consociazioni",
+      "livello": 1,
+      "testo": "Perché lasciare spazio tra le piante?",
+      "risposte": [
+        "Perché le radici non assorbono acqua",
+        "Per favorire circolazione d’aria e ridurre l’affollamento",
+        "Per impedire ogni impollinazione"
+      ],
+      "giusta": 1,
+      "spiegazione": "Una buona circolazione d’aria si ottiene evitando l’affollamento e può aiutare a contenere le malattie.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q042",
+      "tema": "consociazioni",
+      "livello": 1,
+      "testo": "Le piante della stessa famiglia botanica possono condividere quali problemi?",
+      "risposte": [
+        "Nessun problema comune",
+        "Solo lo stesso colore dei frutti",
+        "Parassiti e malattie simili"
+      ],
+      "giusta": 2,
+      "spiegazione": "Le piante della stessa famiglia spesso sono vulnerabili a parassiti e malattie simili.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q043",
+      "tema": "consociazioni",
+      "livello": 2,
+      "testo": "Pomodoro, peperone e melanzana appartengono al gruppo indicato come quale famiglia?",
+      "risposte": [
+        "Cucurbitacee",
+        "Leguminose",
+        "Solanacee"
+      ],
+      "giusta": 2,
+      "spiegazione": "La guida raggruppa pomodoro, peperone, melanzana e patata tra le colture della stessa famiglia.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q044",
+      "tema": "consociazioni",
+      "livello": 2,
+      "testo": "Quale coppia appartiene al gruppo delle leguminose nell’elenco della guida?",
+      "risposte": [
+        "Fagioli e piselli",
+        "Cavoli e ravanelli",
+        "Pomodori e patate"
+      ],
+      "giusta": 0,
+      "spiegazione": "Fagioli e piselli sono elencati tra le leguminose e condividono il gruppo di rotazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q045",
+      "tema": "consociazioni",
+      "livello": 2,
+      "testo": "Quale gruppo comprende broccoli, cavolfiori e ravanelli nella guida?",
+      "risposte": [
+        "Leguminose",
+        "Colture da cavolo",
+        "Solanacee"
+      ],
+      "giusta": 1,
+      "spiegazione": "La guida colloca broccoli, cavolfiori e ravanelli tra le colture da cavolo, utili da considerare nella rotazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q046",
+      "tema": "consociazioni",
+      "livello": 3,
+      "testo": "Che cosa mira a fare la rotazione tra famiglie di colture?",
+      "risposte": [
+        "Far crescere tutte le piante nello stesso punto",
+        "Evitare di annaffiare",
+        "Ridurre problemi legati a patogeni del suolo e insetti svernanti"
+      ],
+      "giusta": 2,
+      "spiegazione": "Alternare le famiglie può interrompere la continuità di ospiti per alcuni patogeni e insetti.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q047",
+      "tema": "compost",
+      "livello": 3,
+      "testo": "Perché il compost aiuta a riciclare gli scarti vegetali?",
+      "risposte": [
+        "Trasforma gli scarti in semi",
+        "Elimina la necessità di terreno",
+        "Restituisce al suolo materia organica e nutrienti"
+      ],
+      "giusta": 2,
+      "spiegazione": "Con il compost i nutrienti degli scarti vengono riciclati e restituiti al terreno.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q048",
+      "tema": "calendario",
+      "livello": 1,
+      "testo": "Qual è un buon indizio per decidere quando seminare, oltre al mese sul calendario?",
+      "risposte": [
+        "Giorno della settimana",
+        "Temperatura del terreno",
+        "Colore del vaso"
+      ],
+      "giusta": 1,
+      "spiegazione": "La temperatura del terreno è un indicatore utile; ogni coltura ha esigenze diverse.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q049",
+      "tema": "calendario",
+      "livello": 1,
+      "testo": "Perché un calendario di semina trovato online non va seguito alla cieca ai Castelli Romani?",
+      "risposte": [
+        "I mesi cambiano lunghezza",
+        "Le piante non leggono i calendari",
+        "Clima e microclima possono differire"
+      ],
+      "giusta": 2,
+      "spiegazione": "Le date generali vanno adattate a clima locale, quota, varietà e andamento stagionale.",
+      "certezza": "media",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q050",
+      "tema": "calendario",
+      "livello": 1,
+      "testo": "Che cosa fare prima di piantare una coltura sensibile al freddo?",
+      "risposte": [
+        "Bagnare le foglie di notte",
+        "Controllare previsioni e rischio di gelata",
+        "Ignorare le temperature"
+      ],
+      "giusta": 1,
+      "spiegazione": "Le colture da caldo sono sensibili al freddo; controlla il rischio locale prima di trapiantarle.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q051",
+      "tema": "calendario",
+      "livello": 2,
+      "testo": "Quale vantaggio offre riseminare lattuga o ravanelli in più momenti?",
+      "risposte": [
+        "Impedisce la germinazione",
+        "Può distribuire i raccolti nel tempo",
+        "Fa maturare tutte le piante lo stesso giorno"
+      ],
+      "giusta": 1,
+      "spiegazione": "Semine successive possono aiutare ad avere raccolti distribuiti, anziché tutti insieme.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q052",
+      "tema": "calendario",
+      "livello": 2,
+      "testo": "Perché pomodori e peperoni si trapiantano quando il terreno è abbastanza caldo?",
+      "risposte": [
+        "Il freddo può arrestarne temporaneamente la crescita",
+        "Il caldo spegne la fotosintesi",
+        "Le radici non esistono in primavera"
+      ],
+      "giusta": 0,
+      "spiegazione": "Il trapianto troppo precoce espone le piante al freddo e può bloccarne la crescita.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/tomato"
+    },
+    {
+      "id": "q053",
+      "tema": "calendario",
+      "livello": 3,
+      "testo": "Quale condizione rende poco adatto il terreno per seminare o lavorare?",
+      "risposte": [
+        "È umido e si sbriciola",
+        "È stato osservato prima",
+        "È molto bagnato e si attacca agli attrezzi"
+      ],
+      "giusta": 2,
+      "spiegazione": "Un terreno che si attacca a scarpe o pala è troppo bagnato per essere lavorato.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q054",
+      "tema": "calendario",
+      "livello": 3,
+      "testo": "Qual è un approccio sensato per adattare un calendario generico alla propria aiuola?",
+      "risposte": [
+        "Considerare temperatura del suolo, previsioni e coltura",
+        "Seguire la data indipendentemente dal meteo",
+        "Seminare tutto nello stesso giorno"
+      ],
+      "giusta": 0,
+      "spiegazione": "Temperatura del suolo, previsioni e tolleranza della specie aiutano a scegliere il momento più adatto.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q055",
+      "tema": "compost",
+      "livello": 3,
+      "testo": "Perché non sempre basta aggiungere compost a ogni ortaggio senza valutare il terreno?",
+      "risposte": [
+        "Il terreno non assorbe materia organica",
+        "I bisogni variano e alcune colture possono richiedere nutrienti aggiuntivi",
+        "Il compost non contiene mai nutrienti"
+      ],
+      "giusta": 1,
+      "spiegazione": "Il compost apporta nutrienti, ma colture esigenti possono richiedere integrazioni valutate in base al suolo.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q056",
+      "tema": "compost",
+      "livello": 1,
+      "testo": "Quali materiali possono finire nel compost domestico?",
+      "risposte": [
+        "Batterie e plastica",
+        "Scarti vegetali e residui dell’orto sani",
+        "Piante malate"
+      ],
+      "giusta": 1,
+      "spiegazione": "Scarti vegetali sani possono essere riciclati nel compost; i residui malati vanno esclusi.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q057",
+      "tema": "compost",
+      "livello": 3,
+      "testo": "Che cosa diventa il compost quando i materiali si decompongono?",
+      "risposte": [
+        "Un tipo di seme",
+        "Materia organica riciclata nel suolo",
+        "Un fertilizzante chimico concentrato"
+      ],
+      "giusta": 1,
+      "spiegazione": "Il compost restituisce al terreno nutrienti e materia organica ricavati da scarti decomposti.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q058",
+      "tema": "compost",
+      "livello": 2,
+      "testo": "Quando si può incorporare compost maturo in un’aiuola?",
+      "risposte": [
+        "Poco prima della semina o del trapianto",
+        "Mai nel terreno",
+        "Solo dopo aver raccolto tutte le piante"
+      ],
+      "giusta": 0,
+      "spiegazione": "Il compost ben decomposto può essere incorporato poco prima di seminare o trapiantare.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q059",
+      "tema": "compost",
+      "livello": 2,
+      "testo": "Il compost può anche essere usato come…",
+      "risposte": [
+        "Rete antinsetto",
+        "Contenitore per semi",
+        "Pacciamatura"
+      ],
+      "giusta": 2,
+      "spiegazione": "Alcuni tipi di compost sono adatti anche come pacciamatura; caratteristiche e impiego dipendono dal materiale.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q060",
+      "tema": "compost",
+      "livello": 3,
+      "testo": "Perché è utile sapere da quali materiali proviene il compost?",
+      "risposte": [
+        "Per prevedere la pioggia",
+        "La composizione, inclusi i sali solubili, può influire sull’uso sicuro",
+        "Per sapere il colore del bidone"
+      ],
+      "giusta": 1,
+      "spiegazione": "Compost diversi possono avere salinità e caratteristiche diverse; la provenienza e un’analisi aiutano a valutarli.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    }
+  ]
+}

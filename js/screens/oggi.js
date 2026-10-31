@@ -16,6 +16,8 @@ import { cartaProgressi } from '../ui/progressi.js';
 import { cartaMeteo } from '../ui/meteo.js';
 import { pulsanteAscolta } from '../ui/voce.js';
 import { filtraSeguite } from '../motore/seguite.js';
+import { previsioni } from '../meteo.js';
+import { consiglioMeteo } from '../motore/meteo.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -118,9 +120,17 @@ function scheda(voce, indice, { termini, impostazioni, alChiudere }) {
     ),
   );
 
+  // Il consiglio del tempo compare sotto il lavoro quando arrivano le previsioni (da internet o dalla memoria); se non arrivano, niente.
+  const consiglio = el('p', { class: 'consiglio-meteo', role: 'note', hidden: true });
+  previsioni().then(({ giorni }) => {
+    const chiave = consiglioMeteo({ operazione: lavoro.operazione, titolo: lavoro.titolo }, giorni.find((g) => g.data === oggiISO()));
+    if (chiave) { consiglio.textContent = t(`meteo.consiglio.${chiave}`); consiglio.hidden = false; }
+  }).catch(() => {});
+
   const carta = el('li', { class: 'card lavoro' },
     el('span', { class: 'numero', 'aria-hidden': 'true' }, String(indice + 1)),
     dettagli,
+    consiglio,
     el('div', { class: 'riga' },
       el('button', { class: 'btn primario', type: 'button', onclick: () => alChiudere(voce, carta, 'lavoro_fatto', 'ok') }, t('lavoro.fatto')),
       el('button', { class: 'btn', type: 'button', onclick: () => alChiudere(voce, carta, 'lavoro_saltato', 'saltato') }, t('lavoro.non_oggi')),

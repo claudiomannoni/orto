@@ -79,6 +79,12 @@ Partita da una ricerca (`docs/ricerca/utenti-app-orto.md`: 19 pagine, forum e re
 
 Rimandato, in ordine: Oggi che tiene conto del meteo (pioggia/gelo cambiano i lavori), piano visivo delle aiuole, quantità raccolte, scheda da condividere, date vere di gelo (stazione ARSIAL di Velletri), prove su telefono vero (foto con Gemini, meteo, bussola), controllo marchio «Orto AI» (UIBM/EUIPO).
 
+## Giocare e chiedere (31/10/2026, v2.15.0)
+
+- Oggi tiene conto del tempo: sotto un lavoro compare un consiglio (gelo o brina per semine e trapianti, pioggia per l'annaffiatura, terreno fradicio dopo pioggia forte, caldo, raccolta sotto la pioggia). Il lavoro non sparisce mai: dice solo «aspetta» o «attenzione» (`consiglioMeteo` in `js/motore/meteo.js`).
+- Quiz dell'ortolano (`#/quiz`): cinque domande al giorno uguali per tutti (seme = la data), una partita al giorno, serie di giorni di fila, spiegazione dopo ogni risposta. Domande in `data/it/quiz.json`, con fonte.
+- Chiedi a Rossella (`#/chiedi`): domanda libera a Gemini con il contesto dell'orto (zona, mese, colture, tempo di oggi). Solo testo, consenso la prima volta, tetto di 20 domande al giorno, risposta con livello di certezza e «da controllare»; niente prodotti né dosi.
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).

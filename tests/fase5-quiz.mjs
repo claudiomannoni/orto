@@ -1,0 +1,26 @@
+// Motore del quiz del giorno (Node, nessun server). Uso: node tests/fase5-quiz.mjs <cartella-app>
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+const radice = path.resolve(process.argv[2] || '.');
+const { domandeDelGiorno, serieQuiz, semeDelGiorno } = await import(pathToFileURL(path.join(radice, 'js/motore/quiz.js')).href);
+let ok = 0, ko = 0;
+const check = (n, c, d = '') => { c ? ok++ : ko++; console.log(`${c ? 'PASS' : 'FAIL'}  ${n}${d ? '  -> ' + d : ''}`); };
+const tutte = Array.from({ length: 30 }, (_, i) => ({ id: `q${String(i).padStart(3, '0')}`, testo: `d${i}`, risposte: ['a', 'b', 'c'], giusta: i % 3, livello: 1 + (i % 3) }));
+
+const a = domandeDelGiorno(tutte, '2026-11-10');
+check('cinque domande', a.length === 5);
+check('stesso giorno, stesse domande', JSON.stringify(a) === JSON.stringify(domandeDelGiorno(tutte, '2026-11-10')));
+check('giorno dopo, domande diverse', JSON.stringify(a.map((d) => d.id)) !== JSON.stringify(domandeDelGiorno(tutte, '2026-11-11').map((d) => d.id)));
+check('nessun doppione', new Set(a.map((d) => d.id)).size === 5);
+check('livelli: 1, 1, 2, 2, 3', JSON.stringify(a.map((d) => d.livello)) === '[1,1,2,2,3]');
+check('l\'ordine in ingresso non conta', JSON.stringify(domandeDelGiorno([...tutte].reverse(), '2026-11-10').map((d) => d.id)) === JSON.stringify(a.map((d) => d.id)));
+check('domande rovinate scartate', domandeDelGiorno([{ id: 'x', testo: 'a', risposte: ['a'], giusta: 0 }, { id: 'y', testo: 'a', risposte: ['a', 'b'], giusta: 5 }, null, ...tutte.slice(0, 5)], '2026-11-10').every((d) => d.risposte.length >= 2));
+check('pochi dati: meno domande ma niente errori', domandeDelGiorno(tutte.slice(0, 2), '2026-11-10').length === 2 && domandeDelGiorno(undefined, '2026-11-10').length === 0);
+check('seme uguale ovunque', semeDelGiorno('2026-11-10') === 20261110);
+check('serie: nessuna', serieQuiz({}, '2026-11-10') === 0 && serieQuiz(null, '2026-11-10') === 0);
+check('serie: tre giorni fino a oggi', serieQuiz({ '2026-11-08': 3, '2026-11-09': 4, '2026-11-10': 5 }, '2026-11-10') === 3);
+check('serie: se oggi non ho ancora giocato conta da ieri', serieQuiz({ '2026-11-08': 3, '2026-11-09': 4 }, '2026-11-10') === 2);
+check('serie: un buco la spezza', serieQuiz({ '2026-11-07': 3, '2026-11-09': 4, '2026-11-10': 5 }, '2026-11-10') === 2);
+check('serie: a cavallo di anno', serieQuiz({ '2026-12-31': 1, '2027-01-01': 2 }, '2027-01-01') === 2);
+console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);
+process.exit(ko ? 1 : 0);

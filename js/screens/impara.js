@@ -40,6 +40,8 @@ export async function monta(contenitore) {
   aggiungi(contenitore,
     el('h2', { class: 'titolo-schermata' }, t('impara.titolo')),
     el('p', { class: 'aiuto' }, t('impara.spiega')),
+    el('a', { class: 'btn primario grande', href: '#/chiedi' }, t('chiedi.invito')),
+    el('a', { class: 'btn primario grande', href: '#/quiz' }, t('quiz.invito')),
     campo, nessuno, titoloColture, colture, titoloParole, parole);
   disegna();
 }

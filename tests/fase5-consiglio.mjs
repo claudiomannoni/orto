@@ -1,0 +1,20 @@
+// Consigli del tempo per i lavori (Node, nessun server). Uso: node tests/fase5-consiglio.mjs <cartella-app>
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+const radice = path.resolve(process.argv[2] || '.');
+const { consiglioMeteo } = await import(pathToFileURL(path.join(radice, 'js/motore/meteo.js')).href);
+let ok = 0, ko = 0;
+const check = (n, c, d = '') => { c ? ok++ : ko++; console.log(`${c ? 'PASS' : 'FAIL'}  ${n}${d ? '  -> ' + d : ''}`); };
+const g = (o) => ({ min: 8, max: 18, pioggia: 0, prob: 10, ...o });
+check('senza previsioni: nessun consiglio', consiglioMeteo({ operazione: 'semina', titolo: 'x' }, undefined) === null);
+check('tempo buono: nessun consiglio', consiglioMeteo({ operazione: 'semina', titolo: 'Semina le fave' }, g({})) === null);
+check('gelo e semina', consiglioMeteo({ operazione: 'semina', titolo: 'Semina' }, g({ min: -1 })) === 'gelo');
+check('brina e trapianto', consiglioMeteo({ operazione: 'trapianto', titolo: 'Trapianta' }, g({ min: 2 })) === 'brina');
+check('gelo ma raccolta: nessun consiglio', consiglioMeteo({ operazione: 'raccolta', titolo: 'Raccogli' }, g({ min: -1 })) === null);
+check('pioggia e annaffiatura', consiglioMeteo({ operazione: 'cura', titolo: 'Annaffia i pomodori' }, g({ pioggia: 5 })) === 'piove_annaffia');
+check('pioggia forte e lavorazione', consiglioMeteo({ operazione: 'lavorazione', titolo: 'Zappa' }, g({ pioggia: 15 })) === 'terreno_bagnato');
+check('caldo e trapianto', consiglioMeteo({ operazione: 'trapianto', titolo: 'T' }, g({ max: 35 })) === 'caldo');
+check('pioggia e raccolta', consiglioMeteo({ operazione: 'raccolta', titolo: 'Raccogli' }, g({ pioggia: 3 })) === 'raccolta_pioggia');
+check('minima nulla non rompe', consiglioMeteo({ operazione: 'semina', titolo: 'S' }, g({ min: null, max: null })) === null);
+console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);
+process.exit(ko ? 1 : 0);
