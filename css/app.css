@@ -584,3 +584,9 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .coriandolo { position: absolute; top: -12px; left: var(--x); width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: coriandolo var(--d) ease-in var(--ritardo) forwards; }
 @keyframes coriandolo { 0% { opacity: 1; transform: translateY(0) rotate(0); } 100% { opacity: 0; transform: translateY(70vh) rotate(var(--r)); } }
 .saluto { margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--verde); }
+.raccolto { display: grid; gap: 12px; }
+.raccolto-totale { margin: 0; font-size: 2rem; font-weight: 800; color: var(--verde); }
+.barre-mesi { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; align-items: end; height: 140px; }
+.barra-mese { display: grid; grid-template-rows: 1fr auto; height: 100%; justify-items: center; gap: 2px; }
+.barra { align-self: end; width: 100%; min-height: 2px; border-radius: 6px 6px 0 0; background: var(--verde); }
+.etichetta-mese { font-size: .75rem; }

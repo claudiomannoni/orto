@@ -67,7 +67,9 @@ export function trovaScheda(schede, nome) {
 
 // Le domande del quiz dell'ortolano (data/it/quiz.json), o null.
 export async function quiz() {
-  return json(`data/${lingua}/quiz.json`);
+  const [base, extra] = await Promise.all([json(`data/${lingua}/quiz.json`), json(`data/${lingua}/quiz-extra.json`)]);
+  if (!base && !extra) return null;
+  return { versione: 1, domande: [...(base?.domande ?? []), ...(extra?.domande ?? [])] };
 }
 
 // Le curiosità di «Lo sapevi?» (data/it/curiosita.json), o null.

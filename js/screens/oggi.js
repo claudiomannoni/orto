@@ -15,6 +15,7 @@ import { controllaProgressi } from '../store/progressi.js';
 import { cartaProgressi } from '../ui/progressi.js';
 import { cartaMeteo } from '../ui/meteo.js';
 import { pulsanteAscolta } from '../ui/voce.js';
+import { apriRaccolto } from '../ui/raccolto-form.js';
 import { filtraSeguite } from '../motore/seguite.js';
 import { previsioni } from '../meteo.js';
 import { consiglioMeteo } from '../motore/meteo.js';
@@ -203,6 +204,9 @@ export async function monta(contenitore) {
       // Se c'è un traguardo o un livello nuovo, festeggiano quello; altrimenti i complimenti di tutti i giorni.
       const r = await controllaProgressi();
       if (!r?.nuovi?.length && !r?.livelloSalito) festeggia('fatto');
+    }
+    if (tipo === 'lavoro_fatto' && voce.lavoro.operazione === 'raccolta') {
+      apriRaccolto(colture, { colturaId: voce.coltura?.id ?? null, nome: voce.scheda.nome, data: dataFatto });
     }
     if (!lista.children.length) mostraConversazione('finito');
   };

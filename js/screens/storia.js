@@ -4,6 +4,7 @@ import { el, oggiISO, formattaData, parametriRotta, aggiungi, sostituisci } from
 import { t } from '../i18n.js';
 import { elencoEventi, registraEvento, nuovoEvento, elencoColture } from '../store/dati.js';
 import { elimina } from '../store/db.js';
+import { testoQuantita } from '../motore/raccolto.js';
 import { elencoZone } from '../store/zone.js';
 import { elencoFoto } from '../store/foto.js';
 import { catalogo } from '../contenuti.js';
@@ -52,6 +53,7 @@ function descrizione(v) {
   if (v.genere === 'foto') return { titolo: t('storia.foto'), dettaglio: v.foto.nota || '', icona: 'foto' };
   const e = v.evento;
   if (e.tipo === 'nota') return { titolo: t('storia.nota'), dettaglio: e.note, icona: 'nota' };
+  if (e.tipo === 'raccolto') return { titolo: `${t('storia.raccolto')}: ${e.nomeColtura || ''}`.trim(), dettaglio: testoQuantita(e.quantita, e.unita), icona: 'fatto', etichetta: t('storia.raccolto') };
   if (e.tipo === 'lavoro_fatto') return { titolo: titoloLavoro(e), dettaglio: e.note || '', icona: 'fatto', etichetta: t('storia.fatto') };
   if (e.tipo === 'lavoro_saltato') return { titolo: titoloLavoro(e), dettaglio: e.note || '', icona: 'saltato', etichetta: t('storia.saltato') };
   return { titolo: e.tipo, dettaglio: e.note || '', icona: 'nota' };

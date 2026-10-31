@@ -206,7 +206,7 @@ const misure = (page) => page.evaluate(() => {
   check('Fatto: l\'11/11 il lavoro fatto e\' ancora nascosto', !dom.includes(tp));
   // Chiudi tutti
   await page.goto(`${BASE}/?oggi=2026-11-10`); await page.waitForSelector('li.lavoro, .vuoto'); await page.waitForTimeout(200);
-  let giri = 0; while (await page.locator('li.lavoro').count() && giri++ < 10) { await page.locator('li.lavoro').first().locator('.btn.primario').click(); await page.waitForTimeout(250); }
+  let giri = 0; while (await page.locator('li.lavoro').count() && giri++ < 10) { await page.locator('li.lavoro').first().locator('.btn.primario').click(); await page.waitForTimeout(250); if (await page.locator('dialog[open]').count()) { await page.keyboard.press('Escape'); await page.waitForTimeout(150); } }
   const txt = await page.locator('body').innerText();
   check('tutti chiusi: messaggio "Fatto tutto!" di Rosso e Rossella', /Fatto tutto/.test(txt) && /Per oggi basta/.test(txt), txt.slice(0, 200));
   check('tutti chiusi: la lista non resta con ossatura vuota (nessuna <ol> visibile con bordo/margini)', true, '');
