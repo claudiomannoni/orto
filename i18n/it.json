@@ -447,6 +447,8 @@
   "aiuola.fase.sconosciuta": "Seminata da {n} giorni",
   "sapevi.titolo": "Lo sapevi?",
   "sapevi.fonte": "Fonte",
+  "oggi.gioca.foto": "Fotografa il tuo orto",
+  "oggi.gioca.foto.spiega": "Una foto al giorno o alla settimana: poi vedi come cresce e Rossella può guardare piante e terreno.",
   "meteo.avviso.gelo": "Gelata prevista {quando}: minima {valore}°. Occhio alle piante sensibili al freddo.",
   "meteo.avviso.brina": "Possibile brina {quando} (minima {valore}°): attenzione alle piantine tenere.",
   "meteo.avviso.pioggia": "Pioggia forte {quando} ({valore} mm): l'annaffiatura può aspettare.",

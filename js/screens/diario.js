@@ -282,4 +282,6 @@ export async function monta(contenitore) {
     el('a', { class: 'btn', href: '#/colture' }, t('zone.alle_colture')),
   );
   disegna();
+  // Arrivando da «Fotografa il tuo orto» in Oggi, si apre subito la finestra per aggiungere la foto.
+  if (p.get('aggiungi') === '1') apriAggiunta();
 }

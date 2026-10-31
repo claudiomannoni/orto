@@ -150,13 +150,15 @@ export async function monta(contenitore) {
 
   // Un invito al quiz del giorno e a Rossella, sotto i lavori: un motivo per riaprire l'app anche quando non c'è molto da fare.
   const domandeQuiz = (await quiz())?.domande?.length ? impostazioni.quiz_risultati ?? {} : null;
-  const cartaGioca = domandeQuiz ? el('section', { class: 'card gioca' },
+  // Le cose da fare per divertirsi e capire: la foto sta sempre qui, il quiz solo se ci sono le domande.
+  const cartaGioca = el('section', { class: 'card gioca' },
     el('h3', {}, t('oggi.gioca.titolo')),
-    domandeQuiz[oggi] !== undefined
-      ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] }))
-      : el('a', { class: 'btn primario', href: '#/quiz' }, t('oggi.gioca.quiz')),
-    domandeQuiz[oggi] === undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
-    el('a', { class: 'btn', href: '#/chiedi' }, t('oggi.gioca.chiedi'))) : null;
+    el('a', { class: 'btn primario', href: '#/diario?aggiungi=1', id: 'fotografa' }, t('oggi.gioca.foto')),
+    el('p', { class: 'aiuto' }, t('oggi.gioca.foto.spiega')),
+    domandeQuiz && domandeQuiz[oggi] !== undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] })) : null,
+    domandeQuiz && domandeQuiz[oggi] === undefined ? el('a', { class: 'btn', href: '#/quiz' }, t('oggi.gioca.quiz')) : null,
+    domandeQuiz && domandeQuiz[oggi] === undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
+    el('a', { class: 'btn', href: '#/chiedi' }, t('oggi.gioca.chiedi')));
 
   // «Lo sapevi?»: una curiosità al giorno, con la sua fonte e i commenti dei vermetti.
   const cur = curiositaDelGiorno((await curiosita())?.curiosita, oggi);
