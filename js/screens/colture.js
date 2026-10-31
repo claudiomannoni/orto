@@ -9,6 +9,7 @@ import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
 import { aiuole } from '../ui/aiuole.js';
+import { bloccoBustina } from '../ui/bustina.js';
 
 let schede = [];
 let colture = [];
@@ -86,10 +87,22 @@ function apriNuova(nomeIniziale = '') {
     name: 'nome', required: true, maxlength: 60, list: 'elenco-schede', placeholder: t('form.nome.esempio'), autocomplete: 'off',
     value: typeof nomeIniziale === 'string' ? nomeIniziale : '',
   });
+  // «Leggi dalla bustina»: compila nome, varietà e note dal testo della confezione dei semi.
+  const campoVarieta = el('input', { name: 'varieta', maxlength: 60, placeholder: t('form.varieta.esempio') });
+  const campoNote = el('textarea', { name: 'note', rows: 3, placeholder: t('form.note.esempio') });
+  const bustina = bloccoBustina({
+    schede,
+    riempi: ({ nome, varieta, note }) => {
+      campoNome.value = nome;
+      campoVarieta.value = varieta;
+      if (note) campoNote.value = note;
+    },
+  });
   const form = el('form', { class: 'form', autocomplete: 'off' },
+    bustina,
     el('label', {}, t('form.nome'), campoNome),
     el('datalist', { id: 'elenco-schede' }, schede.map((s) => el('option', { value: s.nome }))),
-    el('label', {}, t('form.varieta'), el('input', { name: 'varieta', maxlength: 60, placeholder: t('form.varieta.esempio') })),
+    el('label', {}, t('form.varieta'), campoVarieta),
     el('label', {}, t('form.data'), el('input', { name: 'dataSemina', type: 'date', required: true, value: oggiISO() })),
     el('fieldset', { class: 'scelte' },
       el('legend', {}, t('form.dove')),
@@ -98,7 +111,7 @@ function apriNuova(nomeIniziale = '') {
     ),
     zone.length ? el('label', {}, t('form.zona'),
       el('select', { name: 'zonaId' }, [el('option', { value: '' }, t('form.zona.nessuna')), ...zone.map((z) => el('option', { value: z.id }, z.nome))])) : null,
-    el('label', {}, t('form.note'), el('textarea', { name: 'note', rows: 3, placeholder: t('form.note.esempio') })),
+    el('label', {}, t('form.note'), campoNote),
     el('div', { class: 'riga' },
       el('button', { class: 'btn', type: 'button', onclick: () => foglio.close() }, t('form.annulla')),
       el('button', { class: 'btn primario', type: 'submit' }, t('form.aggiungi')),
