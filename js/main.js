@@ -5,6 +5,7 @@ import { impostaLingua } from './contenuti.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 import { impostaVestiti } from './ui/mascotte.js';
+import './ui/installa.js'; // ascolta subito l'offerta di installazione del browser
 
 const schermate = {
   oggi: () => import('./screens/oggi.js'),

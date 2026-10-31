@@ -10,6 +10,7 @@ import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
 import { etichettaOrto } from '../ui/identita.js';
+import { bloccoInstalla } from '../ui/installa.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -146,6 +147,7 @@ export async function monta(contenitore) {
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
+    bloccoInstalla({ rimandabile: true }),
     zonaConversazione,
     lavori.length ? lista : el('section', { class: 'card vuoto' },
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),

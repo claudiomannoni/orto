@@ -9,6 +9,7 @@ import { APP_VERSIONE } from '../versione.js';
 import { toast } from '../ui/toast.js';
 import { SUPERFICI, ACQUE, TEMPI, METODI, ESPERIENZE } from './benvenuto.js';
 import { avatar, impostaVestiti } from '../ui/mascotte.js';
+import { bloccoInstalla } from '../ui/installa.js';
 import { VESTITI } from '../motore/vestiti.js';
 
 // Campo di testo che salva da solo quando si esce (nome dell'orto, nome del coltivatore).
@@ -185,6 +186,7 @@ export async function monta(contenitore) {
   const s = await leggi();
   contenitore.append(
     el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
+    bloccoInstalla(),
     await sezioneOrto(s),
     sezioneVermetti(s),
     sezioneIA(s),

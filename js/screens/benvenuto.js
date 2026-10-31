@@ -5,6 +5,7 @@ import { t } from '../i18n.js';
 import { leggi, imposta, pulisciNome } from '../store/impostazioni.js';
 import { zone } from '../contenuti.js';
 import { conversazione } from '../ui/mascotte.js';
+import { bloccoInstalla } from '../ui/installa.js';
 
 // Valori scelti per la superficie: il tetto della fascia (300 = oltre 200 m²), in metri quadri.
 export const SUPERFICI = [10, 30, 100, 300];
@@ -55,6 +56,7 @@ export async function monta(contenitore, { alTermine }) {
     contenitore.replaceChildren(
       el('h2', { class: 'titolo-schermata' }, t('benvenuto.intro.titolo')),
       battute('intro'),
+      bloccoInstalla(),
       el('div', { class: 'azioni' },
         el('button', { class: 'btn primario grande', type: 'button', onclick: () => vai(0) }, t('benvenuto.comincia')),
         el('button', { class: 'btn pericolo', type: 'button', onclick: concludi }, t('benvenuto.salta')),

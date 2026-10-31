@@ -6,6 +6,7 @@ export const PREDEFINITE = {
   metodo: 'nessuno',
   esperienza: 'principiante',
   vestiti: 'auto',
+  installa_rimandato: null,
   nome_orto: '',
   nome_coltivatore: '',
   coltivatore_id: null,
