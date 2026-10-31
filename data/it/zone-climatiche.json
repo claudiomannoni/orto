@@ -18,11 +18,33 @@
       },
       "note": "Suoli di origine vulcanica, in genere sciolti e fertili ma asciutti d'estate. Nelle notti limpide l'aria fredda si accumula nelle conche: la stessa quota può avere gelate molto diverse da un orto all'altro. Il primo utente sta a circa 340 m.",
       "da_verificare": [
-        "Date medie di ultima e prima gelata: nessuna serie storica aperta e letta. Cercare ARSIAL (servizio agrometeo) e ARPA Lazio per stazioni vicine (Frascati, Velletri, Rocca di Papa).",
-        "Differenza di temperatura fra 200 m e 600 m: non quantificata. Una ricerca ha riportato minime fino a circa -5 C a Monte Compatri (576 m) in inverno, da una pagina turistica non aperta: non usata come dato.",
-        "Nessuna fonte è stata ancora consultata: tutto il contenuto della zona è conoscenza generale, certezza bassa."
+        "Date medie di ultima e prima gelata e numero di notti con minima sotto 0 °C: non ricavati. Il rapporto SCIA consultato definisce invece i giorni con gelo come giorni con temperatura massima sotto 0 °C, misura diversa dalle brinate utili per l’orto.",
+        "La stazione ARSIAL di Velletri “Cantina Sperimentale” è a 320 m, ma la fonte consultata ne dà solo località e quota: servono le serie giornaliere per calcolare le gelate.",
+        "Differenza di temperatura fra 200 m e 600 m: non quantificata da una fonte consultata. La quota da sola non basta a stimare le minime locali, che dipendono anche da esposizione e conche."
       ]
     }
   ],
-  "fonti": {}
+  "fonti": {
+    "f1": {
+      "titolo": "Valutazione agroclimatica del soddisfacimento del fabbisogno in freddo dell’actinidia nel Lazio 2025-2026",
+      "ente": "ARSIAL – Agenzia Regionale per lo Sviluppo e l’Innovazione dell’Agricoltura del Lazio",
+      "url": "https://www.arsial.it/wp-content/uploads/2026/02/Report_Actinidia_FabbisognoInFreddo_Lazio_2025-2026_signed.pdf",
+      "consultata": "2026-10-31",
+      "nota": "Tabella delle stazioni prossime agli areali: Velletri, Cantina Sperimentale, quota 320 m; il rapporto consultato non fornisce le date di gelata."
+    },
+    "f2": {
+      "titolo": "Indicatori del clima in Italia",
+      "ente": "APAT / ISPRA – Sistema nazionale per l’elaborazione e diffusione di dati climatici (SCIA)",
+      "url": "https://scia.isprambiente.it/wp-content/uploads/2024/03/Indicatori-del-clima-in-Italia.pdf",
+      "consultata": "2026-10-31",
+      "nota": "Rapporto con valori normali 1961-1990; definisce i giorni con gelo come giorni con temperatura massima giornaliera sotto 0 °C. Per Roma/Ciampino (129 m) riporta 0,1 giorni medi annui con gelo, dato di confronto non equivalente alle notti di brina dell’orto."
+    },
+    "f3": {
+      "titolo": "SIARL – Servizio Integrato Agrometeorologico della Regione Lazio",
+      "ente": "ARSIAL",
+      "url": "https://www.arsial.it/focus-tematici/innovazione/agrometeo-siarl-servizio-integrato-agrometeorologico-della-regione-lazio/",
+      "consultata": "2026-10-31",
+      "nota": "Descrive la rete regionale e l’accesso a dati storici agrometeorologici dal 2004; non contiene nel testo consultato valori di ultima/prima gelata per Velletri o Castelli Romani."
+    }
+  }
 }
