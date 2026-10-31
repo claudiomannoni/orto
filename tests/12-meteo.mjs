@@ -56,7 +56,7 @@ await page.waitForSelector('.meteo .meteo-giorno');
 await page.waitForFunction(() => [...document.querySelectorAll('.avatar .vestito')].every((i) => i.src.endsWith('-pioggia.svg')));
 check('oggi piove: Rosso e Rossella con l\'ombrello', (await vestiti(page)).every((v) => v.endsWith('-pioggia.svg')), (await vestiti(page)).join());
 await page.reload();
-await page.waitForSelector('.avatar .vestito');
+await page.waitForSelector('.avatar .vestito', { state: 'attached' });
 await page.waitForFunction(() => [...document.querySelectorAll('.avatar .vestito')].every((i) => i.src.endsWith('-pioggia.svg')));
 check('riaprendo (con le previsioni salvate) l\'ombrello c\'è subito', true);
 await page.goto(`${BASE}/?oggi=2026-12-25#/oggi`);

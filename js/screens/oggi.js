@@ -188,14 +188,14 @@ export async function monta(contenitore) {
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
-    carta,
     cartaMeteo(),
-    zonaConversazione,
     lavori.length ? lista : el('section', { class: 'card vuoto' },
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
-    // L'invito a scaricare l'app sta in fondo: prima viene quello che serve oggi.
+    // Prima quello che serve oggi (il tempo e i lavori); poi i vermetti che commentano, i progressi e l'invito a scaricare l'app.
+    zonaConversazione,
+    carta,
     bloccoInstalla({ rimandabile: true }),
   );
 }
