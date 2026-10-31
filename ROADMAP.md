@@ -17,7 +17,7 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 ## Fase 1 — Base
 
 - [x] Colture, promemoria su Calendar, backup e offline della versione precedente, portati nella nuova struttura
-- [x] Nome provvisorio "Orto in Tasca" (da confermare: vedi nota sul nome)
+- [x] Nome «Orto AI» (31/10/2026: «Orto in Tasca» esisteva già, lortointasca.it). Da fare prima di vendere: controllare il marchio (UIBM ed EUIPO)
 - [x] Stile colorato, pulsanti grandi, tema chiaro e scuro
 - [x] Mascotte Rossella e Rosso, logo, icone delle prime 5 colture
 - [x] Struttura: navigazione, impostazioni, traduzioni, modulo IA separato, formato dati con migrazione

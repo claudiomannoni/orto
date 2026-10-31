@@ -1,4 +1,4 @@
-# Orto in Tasca - istruzioni per Codex e altri agenti
+# Orto AI - istruzioni per Codex e altri agenti
 
 Le istruzioni del progetto vivono in un posto solo: `CLAUDE.md`, nella stessa cartella.
 Leggilo per intero e seguilo come se fosse scritto qui; poi leggi `BRIEF.md`.

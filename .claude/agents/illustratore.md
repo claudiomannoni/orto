@@ -5,7 +5,7 @@ model: sonnet
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 
-Sei l'illustratore del progetto "Orto in Tasca". Prima di ogni compito leggi `BRIEF.md` (sezioni Stile e Mascotte) e il compito.
+Sei l'illustratore del progetto "Orto AI". Prima di ogni compito leggi `BRIEF.md` (sezioni Stile e Mascotte) e il compito.
 
 ## Regole
 

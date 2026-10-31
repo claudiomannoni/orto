@@ -1,7 +1,7 @@
 {
-  "name": "Orto in Tasca",
-  "short_name": "Orto in Tasca",
-  "description": "Il tuo agronomo in tasca: ti guida nell'orto dalla semina alla raccolta, anche offline.",
+  "name": "Orto AI",
+  "short_name": "Orto AI",
+  "description": "L'agronomo che hai sempre con te: ti guida nell'orto dalla semina alla raccolta, anche offline.",
   "lang": "it",
   "id": "./",
   "start_url": "./",

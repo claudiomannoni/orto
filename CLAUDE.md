@@ -1,6 +1,6 @@
-# Orto in Tasca — istruzioni per Claude Code
+# Orto AI — istruzioni per Claude Code
 
-PWA per guidare chi fa l'orto dalla semina alla raccolta. Il nome è provvisorio, in attesa del sì dell'autore. Cos'è, stile, mascotte, regole: `BRIEF.md`. Fasi: `ROADMAP.md`. Formato dei dati: `docs/schema-dati.md`. Come provarla: `README.md`.
+PWA per guidare chi fa l'orto dalla semina alla raccolta. Il nome è «Orto AI» (scelto dall'autore il 31/10/2026: «Orto in Tasca» esisteva già). Cos'è, stile, mascotte, regole: `BRIEF.md`. Fasi: `ROADMAP.md`. Formato dei dati: `docs/schema-dati.md`. Come provarla: `README.md`.
 
 ## Dove si lavora
 

@@ -1,6 +1,6 @@
-# Orto in Tasca
+# Orto AI
 
-Web app installabile (PWA) che guida chi fa l'orto dalla semina alla raccolta. Il nome è provvisorio.
+Web app installabile (PWA) che guida chi fa l'orto dalla semina alla raccolta. Il nome «Orto AI» è stato scelto il 31/10/2026 (il primo, «Orto in Tasca», esisteva già); prima di vendere va controllato il marchio.
 HTML, CSS e JavaScript semplici: nessun framework, nessuna dipendenza, nessun servizio a pagamento, nessuna chiave nei file.
 
 Cos'è e dove va: `BRIEF.md`. Fasi: `ROADMAP.md`. Formato dei dati: `docs/schema-dati.md`.

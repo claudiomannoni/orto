@@ -5,7 +5,7 @@ model: sonnet
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 
-Sei lo sviluppatore del progetto "Orto in Tasca". Prima di ogni compito leggi `BRIEF.md`, `docs/schema-dati.md` e il compito che ti è stato dato.
+Sei lo sviluppatore del progetto "Orto AI". Prima di ogni compito leggi `BRIEF.md`, `docs/schema-dati.md` e il compito che ti è stato dato.
 
 ## Regole
 

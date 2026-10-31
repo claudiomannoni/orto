@@ -1,12 +1,12 @@
-# BRIEF — Orto in Tasca, il tuo agronomo
+# BRIEF — Orto AI, il tuo agronomo
 
 Questo documento lo leggono gli agenti prima di ogni compito. Se un compito lo contraddice, vale il brief: segnala il conflitto invece di scegliere da solo.
 
-Il nome "Orto in Tasca" è provvisorio finché l'autore non lo conferma. Nel codice vive in un solo posto (`i18n/it.json`, chiave `app.nome`, più `manifest.webmanifest`): non scriverlo a mano altrove.
+Il nome «Orto AI» lo ha scelto l'autore il 31/10/2026, perché «Orto in Tasca» esisteva già (lortointasca.it, microgreen). Non si cambia senza il suo sì; prima di vendere va controllato il marchio (UIBM ed EUIPO). Nel codice vive in un solo posto (`i18n/it.json`, chiave `app.nome`, più `manifest.webmanifest`): non scriverlo a mano altrove.
 
 ## Cos'è
 
-Web app installabile (PWA) che guida chi fa l'orto dalla semina alla raccolta, come un agronomo in tasca. Va costruita come un prodotto che un domani si può vendere: ordine, dati puliti, niente scorciatoie che poi costano care.
+Web app installabile (PWA) che guida chi fa l'orto dalla semina alla raccolta, come un agronomo sempre con te. Va costruita come un prodotto che un domani si può vendere: ordine, dati puliti, niente scorciatoie che poi costano care.
 
 Primo utente: Claudio, principiante, Pixel 9 (schermo 412 x 923 px), Castelli Romani.
 
