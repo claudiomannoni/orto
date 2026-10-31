@@ -16,6 +16,7 @@ import { cartaProgressi } from '../ui/progressi.js';
 import { cartaMeteo } from '../ui/meteo.js';
 import { pulsanteAscolta } from '../ui/voce.js';
 import { apriRaccolto } from '../ui/raccolto-form.js';
+import { apriResoconto } from '../ui/resoconto.js';
 import { filtraSeguite } from '../motore/seguite.js';
 import { previsioni } from '../meteo.js';
 import { consiglioMeteo } from '../motore/meteo.js';
@@ -169,6 +170,7 @@ export async function monta(contenitore) {
     domandeQuiz && domandeQuiz[oggi] !== undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] })) : null,
     domandeQuiz && domandeQuiz[oggi] === undefined ? el('a', { class: 'btn', href: '#/quiz' }, t('oggi.gioca.quiz')) : null,
     domandeQuiz && domandeQuiz[oggi] === undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
+    el('button', { class: 'btn', type: 'button', id: 'apri-resoconto', onclick: apriResoconto }, t('resoconto.apri')),
     el('a', { class: 'btn', href: '#/cucina' }, t('cucina.apri')),
     el('a', { class: 'btn', href: '#/chiedi' }, t('oggi.gioca.chiedi')));
 

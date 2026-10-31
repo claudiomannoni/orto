@@ -98,6 +98,8 @@ Rimandato, in ordine: Oggi che tiene conto del meteo (pioggia/gelo cambiano i la
 - Pioggia e annaffiature: la carta meteo di Oggi dice quanta pioggia è caduta negli ultimi 7 giorni e se conviene annaffiare (2.29, modulo OpenCode; soglie indicative, da affinare).
 - Prossimi, in ordine scelto da Claudio: foto della bustina dei semi, «cosa cucino?», resoconto della settimana. L'IA su PC Asus con modello locale è per dopo.
 
+- Leggi dalla bustina dei semi (2.30), Cosa cucino? (2.31), La mia settimana con figurina da condividere (2.32): tutti e tre con moduli scritti da OpenCode, controllati e collegati da Claude. Le funzioni con IA usano Gemini e chiedono il consenso la prima volta.
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).

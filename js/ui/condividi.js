@@ -110,12 +110,12 @@ export async function creaFigurina(dati) {
 
 // Condivide con il foglio di condivisione del telefono; dove non c'è, scarica l'immagine.
 // Restituisce 'condiviso' | 'scaricato' | 'annullato'.
-export async function condividiOrto() {
-  const dati = await datiFigurina();
-  if (!dati) return 'annullato';
+// Condivide una figurina qualsiasi (dati come da `datiFigurina`) col foglio del telefono; dove non c'è, la scarica.
+// Restituisce 'condiviso' | 'scaricato' | 'annullato'.
+export async function condividiFigurina(dati, nomeFile = 'il-mio-orto.png') {
   const blob = await creaFigurina(dati);
   if (!blob) return 'annullato';
-  const file = new File([blob], 'il-mio-orto.png', { type: 'image/png' });
+  const file = new File([blob], nomeFile, { type: 'image/png' });
   const testo = t('condividi.testo', { indirizzo: INDIRIZZO });
   if (navigator.canShare?.({ files: [file] })) {
     try {
@@ -126,10 +126,16 @@ export async function condividiOrto() {
     }
   }
   const url = URL.createObjectURL(blob);
-  const a = Object.assign(document.createElement('a'), { href: url, download: 'il-mio-orto.png' });
+  const a = Object.assign(document.createElement('a'), { href: url, download: nomeFile });
   document.body.append(a);
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 5000);
   return 'scaricato';
+}
+
+export async function condividiOrto() {
+  const dati = await datiFigurina();
+  if (!dati) return 'annullato';
+  return condividiFigurina(dati, 'il-mio-orto.png');
 }

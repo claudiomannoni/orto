@@ -591,3 +591,7 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .barra { align-self: end; width: 100%; min-height: 2px; border-radius: 6px 6px 0 0; background: var(--verde); }
 .etichetta-mese { font-size: .75rem; }
 .acqua { border-top: 2px solid var(--bordo); margin-top: 8px; padding-top: 8px; }
+.resoconto-numeri { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.resoconto-numeri li { display: grid; gap: 2px; padding: 10px 6px; border-radius: 14px; background: var(--verde-chiaro); text-align: center; }
+.resoconto-numeri strong { font-size: 1.5rem; color: var(--verde); overflow-wrap: anywhere; }
+.resoconto-numeri span { font-size: .85rem; }
