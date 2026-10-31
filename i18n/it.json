@@ -301,5 +301,18 @@
   "terreno.drenaggio.lento": "Drena piano",
   "terreno.humus.povero": "Humus scarso",
   "terreno.humus.medio": "Humus medio",
-  "terreno.humus.ricco": "Humus ricco"
+  "terreno.humus.ricco": "Humus ricco",
+  "impostazioni.nome_orto": "Nome del tuo orto",
+  "impostazioni.nome_coltivatore": "Il tuo nome",
+  "impostazioni.nome_privacy": "Restano su questo telefono. Se un giorno ci saranno scambi o un forum, li condividerai solo se lo vorrai tu.",
+  "identita.completa": "{orto}, di {coltivatore}",
+  "identita.solo_coltivatore": "L'orto di {coltivatore}",
+  "benvenuto.avanti": "Avanti",
+  "benvenuto.orto.titolo": "Come si chiama il tuo orto?",
+  "benvenuto.orto.rosso": "Un orto senza nome è come un cane senza collare.",
+  "benvenuto.orto.rossella": "Il nome è facoltativo e resta sul telefono: serve a riconoscere il tuo orto, anche fra tanti.",
+  "benvenuto.orto.nome_orto": "Nome dell'orto",
+  "benvenuto.orto.nome_orto.esempio": "L'orto del pozzo",
+  "benvenuto.orto.nome_coltivatore": "Il tuo nome (facoltativo)",
+  "benvenuto.orto.nome_coltivatore.esempio": "Come ti chiami"
 }

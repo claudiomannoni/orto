@@ -2,7 +2,7 @@
 // Tutte le risposte sono impostazioni e si cambiano poi in Impostazioni.
 import { el } from '../util.js';
 import { t } from '../i18n.js';
-import { leggi, imposta } from '../store/impostazioni.js';
+import { leggi, imposta, pulisciNome } from '../store/impostazioni.js';
 import { zone } from '../contenuti.js';
 import { conversazione } from '../ui/mascotte.js';
 
@@ -22,6 +22,7 @@ const scelta = (tema, id) => ({
 async function domande() {
   const elencoZone = await zone();
   return [
+    { tipo: 'testo', tema: 'orto', campi: [{ chiave: 'nome_orto', massimo: 40 }, { chiave: 'nome_coltivatore', massimo: 30 }] },
     { chiave: 'zona', tema: 'zona', opzioni: elencoZone.map((z) => ({ valore: z.id, titolo: z.nome })) },
     { chiave: 'superficie_mq', tema: 'superficie', opzioni: SUPERFICI.map((v) => scelta('superficie', v)) },
     { chiave: 'acqua', tema: 'acqua', opzioni: ACQUE.map((v) => scelta('acqua', v)) },
@@ -63,9 +64,28 @@ export async function monta(contenitore, { alTermine }) {
 
   function disegnaDomanda() {
     const domanda = elenco[passo];
-    const attuale = dato(domanda.chiave);
+    const attuale = domanda.chiave ? dato(domanda.chiave) : undefined;
     const avanti = () => (passo + 1 < elenco.length ? vai(passo + 1) : vai(elenco.length));
-    const opzioni = domanda.opzioni.map((o) => el('button', {
+    // Domanda a testo (il nome dell'orto, il tuo nome): si scrive e si va avanti. Il nome è facoltativo.
+    const moduloTesto = () => {
+      const form = el('form', { class: 'form', autocomplete: 'off' },
+        domanda.campi.map((c) => el('label', {}, t(`benvenuto.orto.${c.chiave}`), el('input', {
+          name: c.chiave, maxlength: c.massimo, value: impostazioni[c.chiave] ?? '', placeholder: t(`benvenuto.orto.${c.chiave}.esempio`),
+        }))),
+        el('button', { class: 'btn primario grande', type: 'submit' }, t('benvenuto.avanti')),
+      );
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        for (const c of domanda.campi) {
+          const valore = pulisciNome(form.elements[c.chiave].value, c.massimo);
+          await imposta(c.chiave, valore);
+          impostazioni[c.chiave] = valore;
+        }
+        avanti();
+      });
+      return form;
+    };
+    const opzioni = (domanda.opzioni ?? []).map((o) => el('button', {
       class: 'btn opzione',
       type: 'button',
       'aria-pressed': String(o.valore === attuale),
@@ -83,7 +103,7 @@ export async function monta(contenitore, { alTermine }) {
       el('progress', { class: 'avanzamento', max: elenco.length, value: passo + 1, 'aria-hidden': 'true' }),
       el('h2', { class: 'titolo-schermata' }, t(`benvenuto.${domanda.tema}.titolo`)),
       battute(domanda.tema),
-      el('div', { class: 'opzioni' }, opzioni),
+      domanda.tipo === 'testo' ? moduloTesto() : el('div', { class: 'opzioni' }, opzioni),
       el('div', { class: 'riga' },
         el('button', { class: 'btn', type: 'button', onclick: () => vai(passo - 1) }, t('benvenuto.indietro')),
         el('button', { class: 'btn', type: 'button', onclick: avanti }, t('benvenuto.salta_domanda')),

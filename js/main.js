@@ -1,6 +1,6 @@
 // Avvio dell'app: traduzioni, testata, barra in basso, schermate.
 import { caricaTesti, t } from './i18n.js';
-import { leggi } from './store/impostazioni.js';
+import { leggi, assicuraIdentita } from './store/impostazioni.js';
 import { impostaLingua } from './contenuti.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
@@ -55,6 +55,7 @@ async function mostra() {
 async function avvia() {
   let lingua = 'it';
   try {
+    await assicuraIdentita();
     lingua = (await leggi()).lingua || 'it';
   } catch (errore) {
     console.error(errore);

@@ -5,6 +5,9 @@ export const PREDEFINITE = {
   zona: 'castelli-romani',
   metodo: 'nessuno',
   esperienza: 'principiante',
+  nome_orto: '',
+  nome_coltivatore: '',
+  coltivatore_id: null,
   superficie_mq: null,
   acqua: null,
   tempo: null,
@@ -25,6 +28,21 @@ export async function leggi() {
 }
 
 export const imposta = (chiave, valore) => salva('impostazioni', { chiave, valore });
+
+// Nome dell'orto o del coltivatore: spazi ripuliti, niente caratteri di controllo, lunghezza limitata.
+export function pulisciNome(testo, massimo = 40) {
+  return String(testo ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, massimo);
+}
+
+// Un identificativo anonimo del coltivatore, creato la prima volta e tenuto sul telefono.
+// Non contiene niente di personale: serve solo se un giorno ci saranno account o scambi (con consenso).
+export async function assicuraIdentita() {
+  const attuali = await leggi();
+  if (attuali.coltivatore_id) return attuali.coltivatore_id;
+  const id = crypto.randomUUID ? crypto.randomUUID() : `c-${Date.now().toString(36)}${Math.random().toString(36).slice(2)}`;
+  await imposta('coltivatore_id', id);
+  return id;
+}
 export const rimuovi = (chiave) => elimina('impostazioni', chiave);
 
 export function pubbliche(impostazioni) {

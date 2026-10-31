@@ -1,13 +1,26 @@
 // Impostazioni: il mio orto, intelligenza artificiale, backup, informazioni.
 import { el, oggiISO } from '../util.js';
 import { t, tn } from '../i18n.js';
-import { leggi, imposta, rimuovi } from '../store/impostazioni.js';
+import { leggi, imposta, rimuovi, pulisciNome } from '../store/impostazioni.js';
 import { creaBackup, scarica, leggiFile, applica } from '../store/backup.js';
 import { zone } from '../contenuti.js';
 import { provaChiave } from '../ai/ai.js';
 import { APP_VERSIONE } from '../versione.js';
 import { toast } from '../ui/toast.js';
 import { SUPERFICI, ACQUE, TEMPI, METODI, ESPERIENZE } from './benvenuto.js';
+
+// Campo di testo che salva da solo quando si esce (nome dell'orto, nome del coltivatore).
+function campoTesto(nome, massimo, valore) {
+  return el('input', {
+    name: nome, maxlength: massimo, value: valore ?? '', autocomplete: 'off', placeholder: t(`benvenuto.orto.${nome}.esempio`),
+    onchange: async (e) => {
+      const pulito = pulisciNome(e.target.value, massimo);
+      e.target.value = pulito;
+      await imposta(nome, pulito);
+      toast(t('impostazioni.salvato'));
+    },
+  });
+}
 
 // opzionale: aggiunge «Non indicato» (per le risposte che il primo avvio può lasciare vuote).
 function selezione(nome, opzioni, valore, { opzionale = false } = {}) {
@@ -32,6 +45,9 @@ async function sezioneOrto(s) {
     : [[s.zona, t(`zona.${s.zona}`)]];
   return el('section', { class: 'card' },
     el('h3', {}, t('impostazioni.orto')),
+    el('label', {}, t('impostazioni.nome_orto'), campoTesto('nome_orto', 40, s.nome_orto)),
+    el('label', {}, t('impostazioni.nome_coltivatore'), campoTesto('nome_coltivatore', 30, s.nome_coltivatore)),
+    el('p', { class: 'aiuto' }, t('impostazioni.nome_privacy')),
     el('label', {}, t('impostazioni.zona'), selezione('zona', opzioniZone, s.zona)),
     el('label', {}, t('impostazioni.metodo'), selezione('metodo', METODI.map((m) => [m, t(`metodo.${m}`)]), s.metodo)),
     el('label', {}, t('impostazioni.esperienza'), selezione('esperienza', ESPERIENZE.map((x) => [x, t(`esperienza.${x}`)]), s.esperienza)),
