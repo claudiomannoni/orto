@@ -39,6 +39,11 @@ export async function glossario() {
   return Object.fromEntries((dati?.termini ?? []).map((termine) => [termine.id, termine]));
 }
 
+// Le battute dei vermetti per stagioni, feste e tocchi, o null.
+export async function battute() {
+  return json(`data/${lingua}/battute.json`);
+}
+
 // Contenuti per capire il terreno (questionario, piante indicatrici, test del barattolo, consigli), o null.
 export async function terreno() {
   return json(`data/${lingua}/terreno.json`);

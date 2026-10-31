@@ -5,6 +5,7 @@ export const PREDEFINITE = {
   zona: 'castelli-romani',
   metodo: 'nessuno',
   esperienza: 'principiante',
+  vestiti: 'auto',
   nome_orto: '',
   nome_coltivatore: '',
   coltivatore_id: null,

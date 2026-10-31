@@ -4,6 +4,7 @@ import { leggi, assicuraIdentita } from './store/impostazioni.js';
 import { impostaLingua } from './contenuti.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
+import { impostaVestiti } from './ui/mascotte.js';
 
 const schermate = {
   oggi: () => import('./screens/oggi.js'),
@@ -56,7 +57,9 @@ async function avvia() {
   let lingua = 'it';
   try {
     await assicuraIdentita();
-    lingua = (await leggi()).lingua || 'it';
+    const iniziali = await leggi();
+    lingua = iniziali.lingua || 'it';
+    impostaVestiti(iniziali.vestiti);
   } catch (errore) {
     console.error(errore);
   }

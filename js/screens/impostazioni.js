@@ -8,6 +8,8 @@ import { provaChiave, modelliDisponibili } from '../ai/ai.js';
 import { APP_VERSIONE } from '../versione.js';
 import { toast } from '../ui/toast.js';
 import { SUPERFICI, ACQUE, TEMPI, METODI, ESPERIENZE } from './benvenuto.js';
+import { avatar, impostaVestiti } from '../ui/mascotte.js';
+import { VESTITI } from '../motore/vestiti.js';
 
 // Campo di testo che salva da solo quando si esce (nome dell'orto, nome del coltivatore).
 function campoTesto(nome, massimo, valore) {
@@ -55,6 +57,25 @@ async function sezioneOrto(s) {
     el('label', {}, t('impostazioni.acqua'), selezione('acqua', scelte('acqua', ACQUE), s.acqua, { opzionale: true })),
     el('label', {}, t('impostazioni.tempo'), selezione('tempo', scelte('tempo', TEMPI), s.tempo, { opzionale: true })),
     el('a', { class: 'btn', href: '#/benvenuto' }, t('impostazioni.rifai')),
+  );
+}
+
+// I vermetti: si toccano per vedere che fanno, e qui si sceglie il vestito (o si lascia fare al calendario).
+function sezioneVermetti(s) {
+  const riga = el('div', { class: 'vermetti-riga' }, avatar('rosso', 'ride'), avatar('rossella', 'pensa'));
+  const selettore = el('select', {
+    name: 'vestiti',
+    onchange: async (e) => {
+      await imposta('vestiti', e.target.value);
+      impostaVestiti(e.target.value);
+      toast(t('impostazioni.salvato'));
+    },
+  }, [['auto', t('vestito.auto')], ...VESTITI.map((v) => [v, t(`vestito.${v}`)])].map(([v, testo]) => el('option', { value: v, selected: v === s.vestiti }, testo)));
+  return el('section', { class: 'card' },
+    el('h3', {}, t('impostazioni.vermetti')),
+    el('p', { class: 'aiuto' }, t('impostazioni.vermetti.spiega')),
+    riga,
+    el('label', {}, t('impostazioni.vestiti'), selettore),
   );
 }
 
@@ -165,6 +186,7 @@ export async function monta(contenitore) {
   contenitore.append(
     el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
     await sezioneOrto(s),
+    sezioneVermetti(s),
     sezioneIA(s),
     sezioneBackup(),
     el('section', { class: 'card' },

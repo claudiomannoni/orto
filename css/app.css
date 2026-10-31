@@ -143,7 +143,46 @@ textarea { padding: 12px 14px; resize: vertical; }
 .battuta { display: grid; grid-template-columns: 72px 1fr; gap: 10px; align-items: end; }
 .battuta.rossella { grid-template-columns: 1fr 72px; }
 .battuta.rossella .avatar { order: 2; }
-.avatar { width: 72px; height: 72px; }
+.avatar { position: relative; width: 72px; height: 72px; cursor: pointer; -webkit-user-select: none; user-select: none; touch-action: manipulation; transform-origin: 50% 100%; animation: respira 3.6s ease-in-out infinite alternate; }
+.avatar.rossella { animation-delay: -1.6s; }
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.avatar:focus-visible { outline: 3px solid var(--giallo-chiaro); outline-offset: 3px; border-radius: 12px; }
+.avatar.salta { animation: salta .6s ease-out; }
+.sbuffo {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  z-index: 5;
+  width: max-content;
+  max-width: min(230px, 62vw);
+  padding: 8px 12px;
+  border: 2px solid var(--bordo);
+  border-radius: 16px 16px 16px 4px;
+  background: var(--carta);
+  color: var(--inchiostro);
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.3;
+  box-shadow: 0 3px 0 var(--ombra);
+  animation: sbuffo .25s ease-out;
+  pointer-events: none;
+}
+.avatar.rossella .sbuffo { left: auto; right: 0; border-radius: 16px 16px 4px 16px; }
+@keyframes respira { from { transform: scale(1, 1); } to { transform: scale(1.025, 1.04); } }
+@keyframes salta {
+  0% { transform: translateY(0) rotate(0) scale(1, 1); }
+  25% { transform: translateY(-16px) rotate(-7deg) scale(.96, 1.06); }
+  55% { transform: translateY(0) rotate(5deg) scale(1.06, .94); }
+  80% { transform: translateY(-5px) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+@keyframes sbuffo { from { opacity: 0; transform: translateY(6px) scale(.9); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .avatar, .avatar.salta { animation: none; }
+  .sbuffo { animation: none; }
+}
+.vermetti-riga { display: flex; gap: 14px; align-items: flex-end; justify-content: center; padding-top: 34px; }
+.vermetti-riga .avatar { width: 96px; height: 96px; }
 .fumetto {
   padding: 12px 14px;
   border-radius: 20px;
