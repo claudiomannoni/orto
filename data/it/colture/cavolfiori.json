@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Brassica oleracea var. botrytis",
   "famiglia": "Brassicaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/cavolfiori.svg",
   "descrizione": "Cavolo da infiorescenza avviato in semenzaio per produzioni autunnali e invernali.",
   "giorni_alla_raccolta": {
     "min": null,

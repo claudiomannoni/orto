@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Ocimum basilicum",
   "famiglia": "Lamiaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/basilico.svg",
   "descrizione": "Erba aromatica annuale da foglia, coltivata nella stagione calda.",
   "giorni_alla_raccolta": {
     "min": null,

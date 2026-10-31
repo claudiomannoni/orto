@@ -1,7 +1,7 @@
 // Service worker: tiene in cache i file dell'app per l'uso offline.
 // Nome della cache ed elenco dei file li scrive `node scripts/aggiorna-cache.mjs`
 // (da lanciare dopo ogni modifica, insieme all'aumento di APP_VERSIONE in js/versione.js).
-const VERSIONE = 'orto-2.5.1';
+const VERSIONE = 'orto-2.6.0';
 const FILE = [
   // <<FILE
   './',
@@ -44,12 +44,17 @@ const FILE = [
   './css/tokens.css',
   './data/it/colture/aglio.json',
   './data/it/colture/asparagi.json',
+  './data/it/colture/basilico.json',
   './data/it/colture/bietola.json',
   './data/it/colture/broccoli.json',
   './data/it/colture/carciofi.json',
   './data/it/colture/carote.json',
+  './data/it/colture/cavolfiori.json',
+  './data/it/colture/cetrioli.json',
   './data/it/colture/cipolla.json',
+  './data/it/colture/fagiolini.json',
   './data/it/colture/fave.json',
+  './data/it/colture/finocchi.json',
   './data/it/colture/indice.json',
   './data/it/colture/lattuga.json',
   './data/it/colture/melanzane.json',
@@ -58,9 +63,12 @@ const FILE = [
   './data/it/colture/piselli.json',
   './data/it/colture/pomodori.json',
   './data/it/colture/porri.json',
+  './data/it/colture/prezzemolo.json',
   './data/it/colture/ravanelli.json',
   './data/it/colture/rucola.json',
   './data/it/colture/spinaci.json',
+  './data/it/colture/verze.json',
+  './data/it/colture/zucche.json',
   './data/it/colture/zucchine.json',
   './data/it/glossario.json',
   './data/it/zone-climatiche.json',

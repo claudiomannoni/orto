@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Cucumis sativus",
   "famiglia": "Cucurbitaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/cetrioli.svg",
   "descrizione": "Pianta da frutto estiva, seminata in primavera.",
   "giorni_alla_raccolta": {
     "min": null,

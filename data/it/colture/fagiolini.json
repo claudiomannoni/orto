@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Phaseolus vulgaris",
   "famiglia": "Fabaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/fagiolini.svg",
   "descrizione": "Legume da baccello seminato nella stagione calda.",
   "giorni_alla_raccolta": {
     "min": null,

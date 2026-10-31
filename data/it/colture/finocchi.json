@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Foeniculum vulgare",
   "famiglia": "Apiaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/finocchi.svg",
   "descrizione": "Ortaggio da costa seminato in estate per raccolte autunnali.",
   "giorni_alla_raccolta": {
     "min": null,

@@ -13,6 +13,11 @@ const nuova = async (extra = {}) => {
   const page = await ctx.newPage(); osserva(page, problemi); return { ctx, page };
 };
 const pronta = async (page, url) => { await page.goto(`${BASE}/${url}`); await attendiApp(page); await page.waitForSelector('#schermata h2.titolo-schermata'); await page.waitForTimeout(250); };
+// Ora ci sono lavori in tutti i mesi: lo stato "niente da fare" si prova con una zona senza dati (come una zona nuova, non ancora coperta).
+const zonaSenzaDati = (page) => page.evaluate(() => new Promise((ok) => {
+  const r = indexedDB.open('orto');
+  r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').put({ chiave: 'zona', valore: 'zona-senza-dati' }); tx.oncomplete = () => { db.close(); ok(); }; };
+}));
 const titoli = (page) => page.$$eval('li.lavoro h3', (h) => h.map((x) => x.textContent));
 const db = (page, fn, arg) => page.evaluate(async ({ fn, arg }) => {
   const r = indexedDB.open('orto'); const d = await new Promise((o, k) => { r.onsuccess = () => o(r.result); r.onerror = () => k(r.error); });
@@ -53,6 +58,7 @@ const misure = (page) => page.evaluate(() => {
   console.log('   15/12 vuoto:', t.join(' | '));
   check('15/12: lavori presenti (aglio/cipolla/fave fino a dicembre)', t.length >= 1 && t.length <= 5, t.length);
   await page.screenshot({ path: path.join(SHOT, 'oggi-15dic-chiaro.png'), fullPage: true });
+  await zonaSenzaDati(page);
   await page.goto(`${BASE}/?oggi=2026-07-15`); await page.waitForSelector('.vuoto'); await page.waitForTimeout(200);
   t = await titoli(page);
   check('15/07: elenco vuoto + stato vuoto con pulsante "Vai alle colture"', t.length === 0 && await page.locator('.vuoto a.btn.primario').count() === 1);
@@ -220,6 +226,7 @@ const misure = (page) => page.evaluate(() => {
   await page.locator('li.lavoro').first().locator('.parole .btn').first().click(); await page.waitForSelector('dialog.foglio[open]');
   await page.screenshot({ path: path.join(SHOT, 'glossario-foglio-scuro.png') });
   await page.locator('dialog .btn.primario').click();
+  await zonaSenzaDati(page);
   await page.goto(`${BASE}/?oggi=2026-07-15`); await page.waitForSelector('.vuoto');
   await page.screenshot({ path: path.join(SHOT, 'oggi-vuoto-scuro.png'), fullPage: true });
   const m = await misure(page); check('scuro: scroll/bersagli ok', !m.scrollX && !m.piccoli.length, m.piccoli.join(' ; '));

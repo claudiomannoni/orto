@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Petroselinum crispum",
   "famiglia": "Apiaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/prezzemolo.svg",
   "descrizione": "Erba aromatica biennale coltivata per le foglie.",
   "giorni_alla_raccolta": {
     "min": null,

@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Cucurbita spp.",
   "famiglia": "Cucurbitaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/zucche.svg",
   "descrizione": "Pianta da frutto a ciclo caldo, seminata in primavera.",
   "giorni_alla_raccolta": {
     "min": null,
