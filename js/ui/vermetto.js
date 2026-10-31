@@ -10,9 +10,34 @@ const ALTO = 8.1; // distanza fra un segmento e l'altro
 const BASE_Y = 92;
 
 const STILE = {
-  rosso: { r0: 9.5, r1: 15.5, corpo: '#d0473c', luce: '#ea7262', anello: '#a8332b' },
-  rossella: { r0: 8.5, r1: 14.2, corpo: '#d0473c', luce: '#ea7262', anello: '#a8332b', occhiali: true },
+  rosso: { r0: 9.5, r1: 15.5, corpo: '#c2412c', luce: '#df6a52', anello: '#8f2e22' },
+  rossella: { r0: 8.5, r1: 14.2, corpo: '#e0728f', luce: '#f6a9bd', anello: '#b94a69', occhiali: true },
 };
+
+// I colori e i segni di riconoscimento, per chi disegna il vermetto in altro modo.
+export const COLORI = {
+  rosso: { corpo: STILE.rosso.corpo, luce: STILE.rosso.luce, anello: STILE.rosso.anello },
+  rossella: { corpo: STILE.rossella.corpo, luce: STILE.rossella.luce, anello: STILE.rossella.anello },
+};
+
+// Il segno che distingue i due: Rosso ha le sopracciglia folte da contadino, Rossella ciglia lunghe e un fiocco rosa. (x, y) = centro del viso, hr = raggio della testa.
+// occhi = [[x, y], [x, y]] i centri dei due occhi; bocca = [x, y] il centro della bocca.
+export function disegnaFirma(c, chi, h, hr, occhi, bocca) {
+  if (chi === 'rosso') {
+    c.strokeStyle = '#2e1a11'; c.lineWidth = 3.6; c.lineCap = 'round';
+    occhi.forEach(([x, y], n) => { const q = n === 0 ? -1 : 1; c.beginPath(); c.moveTo(x - q * hr * 0.34, y - hr * 0.62 - (n === 0 ? 0 : 1)); c.lineTo(x + q * hr * 0.32, y - hr * 0.5); c.stroke(); });
+  } else {
+    c.strokeStyle = SCURO; c.lineWidth = 1.6; c.lineCap = 'round';
+    occhi.forEach(([x, y], n) => {
+      const s = n === 0 ? -1 : 1;
+      [0, 1].forEach((k) => { c.beginPath(); c.moveTo(x + s * hr * 0.46, y - hr * 0.2 - k * hr * 0.1); c.lineTo(x + s * hr * (0.68 + k * 0.1), y - hr * (0.4 + k * 0.17)); c.stroke(); });
+    });
+    const bx = h.x - hr * 0.72; const by = h.y - hr * 0.9;
+    c.fillStyle = '#ff7aa8'; c.strokeStyle = SCURO; c.lineWidth = 1.4; c.lineJoin = 'round';
+    [-1, 1].forEach((s) => { c.beginPath(); c.moveTo(bx, by); c.lineTo(bx + s * hr * 0.55, by - hr * 0.32); c.lineTo(bx + s * hr * 0.55, by + hr * 0.32); c.closePath(); c.fill(); c.stroke(); });
+    c.beginPath(); c.arc(bx, by, hr * 0.14, 0, 7); c.fillStyle = '#ffd1e0'; c.fill(); c.stroke();
+  }
+}
 
 // Un punto del corpo (i = 0 la coda in basso, i = SEGMENTI - 1 la testa), con ondeggio e inclinazione verso lo sguardo.
 function punto(chi, i, tempo, guarda, fase) {
@@ -150,6 +175,7 @@ export function disegnaVermetto(c, stato, ox = 0, oy = 0, scala = 1) {
   else { c.arc(h.x, h.y + hr * 0.18, 5.2, 0.3, Math.PI - 0.3); c.stroke(); }
   // guance
   c.globalAlpha = 0.45; cerchio(c, h.x - hr * 0.78, h.y + hr * 0.3, 2.8, '#ff8a80'); cerchio(c, h.x + hr * 0.78, h.y + hr * 0.3, 2.8, '#ff8a80'); c.globalAlpha = 1;
+  disegnaFirma(c, chi, h, hr, [-1, 1].map((s) => [h.x + s * hr * 0.42, h.y - hr * 0.1]), [h.x, h.y + hr * 0.22]);
   VESTITI_DISEGNO[vestito]?.(c, h, hr, corpo);
   c.restore();
 }

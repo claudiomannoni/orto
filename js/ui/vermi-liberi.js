@@ -4,7 +4,9 @@
 import { el } from '../util.js';
 import { t } from '../i18n.js';
 import { vestitoAttuale, alTocco } from './mascotte.js';
-import { disegnaVestito } from './vermetto.js';
+import { disegnaVestito, disegnaFirma, COLORI } from './vermetto.js';
+import { consigliDeiVermi, scegliConsiglio } from '../motore/consigli-vermi.js';
+import { pioveOggiDaCache } from '../meteo.js';
 
 const ALTEZZA = 120; // altezza dello strato trasparente sopra la barra
 const TERRA = 22; // altezza della fascia di terra in fondo
@@ -26,6 +28,19 @@ let vermi = [];
 let bottoni = [];
 let visibile = true;
 let avviato = false;
+// Discrezione: se un verme passa sopra un pulsante, un'icona o del testo diventa quasi trasparente e non intercetta i tocchi.
+const INTERATTIVI = 'a, button, input, select, textarea, summary, label, img, svg, h1, h2, h3, h4';
+function suContenuto(x, y) {
+  return document.elementsFromPoint(x, y).some((e) => {
+    if (e.closest('.vermi-liberi, .tocco-vermetto, #toast') || e === document.body || e === document.documentElement || e.id === 'schermata') return false;
+    return e.matches(INTERATTIVI) || (!e.children.length && e.textContent.trim().length > 0);
+  });
+}
+function controllaSovrapposizione(v, r) {
+  const punti = [v.p[0], v.p[Math.floor(v.p.length / 2)], v.p[v.p.length - 1]];
+  v.sopra = punti.some((p) => p.y < SUOLO + 2 && suContenuto(r.left + p.x, r.top + p.y));
+}
+
 const puntatore = { x: 0, y: 0, ultimo: -1e9 };
 const ridotto = () => document.documentElement.dataset.movimento === 'ridotto';
 
@@ -74,7 +89,7 @@ function nuovoVerme(def) {
     p: Array.from({ length: def.n }, (_, i) => ({ x: x0 - i * def.lungo, y: SUOLO - def.r })),
     vx: 0, vy: 0, verso: 1, meta: x0, riposo: 50 + Math.random() * 90,
     stato: 'cammina', attesa: 0, ride: 0, occhio: 150 + Math.random() * 250, fase: Math.random() * 6,
-    particelle: [], tocco: null,
+    particelle: [], tocco: null, alfa: 0.95, sopra: false,
   };
 }
 
@@ -176,19 +191,19 @@ function disegnaVerme(c, v) {
   for (let i = n - 1; i >= 0; i--) { c.beginPath(); c.arc(punti[i].x, punti[i].y, raggio(i) + 2.4, 0, 7); c.fill(); }
   for (let i = n - 1; i >= 0; i--) {
     const fascia = i === Math.floor(n * 0.3);
-    c.fillStyle = fascia ? '#f6d3aa' : '#d0473c';
+    c.fillStyle = fascia ? '#f6d3aa' : COLORI[v.chi].corpo;
     c.beginPath(); c.arc(punti[i].x, punti[i].y, raggio(i), 0, 7); c.fill();
     if (!fascia) {
-      c.fillStyle = '#ea7262'; c.globalAlpha = 0.5;
+      c.fillStyle = COLORI[v.chi].luce; c.globalAlpha = 0.5 * v.alfa;
       c.beginPath(); c.arc(punti[i].x - 2, punti[i].y - raggio(i) * 0.45, raggio(i) * 0.4, 0, 7); c.fill();
-      c.globalAlpha = 1;
+      c.globalAlpha = v.alfa;
     }
     if (i > 0 && i < n - 1 && !fascia) {
       const a = punti[i - 1]; const b = punti[i + 1];
       const l = Math.hypot(a.x - b.x, a.y - b.y) || 1;
       const nx = -(a.y - b.y) / l; const ny = (a.x - b.x) / l;
       const q = raggio(i) * 0.86; const sx = (a.x - b.x) / l * 4; const sy = (a.y - b.y) / l * 4;
-      c.strokeStyle = '#a8332b'; c.lineWidth = 1.8; c.lineCap = 'round';
+      c.strokeStyle = COLORI[v.chi].anello; c.lineWidth = 1.8; c.lineCap = 'round';
       c.beginPath(); c.moveTo(punti[i].x - nx * q + sx, punti[i].y - ny * q + sy); c.lineTo(punti[i].x + nx * q + sx, punti[i].y + ny * q + sy); c.stroke();
     }
   }
@@ -213,6 +228,7 @@ function disegnaVerme(c, v) {
   c.strokeStyle = SCURO; c.lineWidth = 2; c.lineCap = 'round';
   c.beginPath();
   if (v.ride > 0) { c.fillStyle = SCURO; c.arc(h.x + f * 8, h.y + 4, 3.8, 0, Math.PI); c.fill(); } else { c.arc(h.x + f * 7, h.y + 2.6, 4, 0.25, Math.PI - 0.25); c.stroke(); }
+  disegnaFirma(c, v.chi, h, v.r, [[h.x + f * 3, h.y - 4], [h.x + f * 10, h.y - 4]], [h.x + f * 7, h.y + 3]);
   // il vestito del giorno, sopra la testa (il collo è il penultimo punto dell'elenco)
   disegnaVestito(c, vestitoAttuale(), h, v.r, [...punti].reverse());
   c.restore();
@@ -223,7 +239,7 @@ function disegnaVerme(c, v) {
     c.beginPath(); c.moveTo(h.x - 20, SUOLO + 3); c.quadraticCurveTo(h.x, SUOLO + 3 - alt * 2.2, h.x + 20, SUOLO + 3); c.closePath(); c.fill(); c.stroke();
   }
   c.fillStyle = '#6b4a36';
-  v.particelle.forEach((q) => { c.globalAlpha = Math.min(1, q.vita / 14); c.beginPath(); c.arc(q.x, q.y, 2, 0, 7); c.fill(); });
+  v.particelle.forEach((q) => { c.globalAlpha = Math.min(1, q.vita / 14) * v.alfa; c.beginPath(); c.arc(q.x, q.y, 2, 0, 7); c.fill(); });
   c.globalAlpha = 1;
 }
 
@@ -257,11 +273,50 @@ function aggiornaTocchi() {
     bt.style.left = `${r.left + x0}px`; bt.style.top = `${r.top + y0}px`;
     bt.style.width = `${x1 - x0}px`; bt.style.height = `${y1 - y0}px`;
     bt.dataset.stato = v.stato;
+    bt.style.pointerEvents = v.alfa < 0.6 ? 'none' : 'auto'; // sopra un'icona o un testo i tocchi passano al contenuto
     bt.classList.toggle('destra', r.left + (x0 + x1) / 2 > window.innerWidth / 2);
   });
 }
 
+// ---- Consigli utili: ogni tanto un verme si ferma e dice una cosa che serve (lavori di oggi, pioggia, quiz...). Si tocca per andare lì. ----
+const MAX_CONSIGLI = 5; // a sessione, per non diventare fastidiosi
+let statoOggi = null;
+let consiglio = null; // { v, voce, nodo, fine }
+let visti = [];
+let giroConsigli = 0;
+let proximo = 0;
+const rotta = () => location.hash.replace(/^#\//, '').split('?')[0] || 'oggi';
+
+async function mostraConsiglio(adesso) {
+  if (consiglio || !statoOggi || !visibile || ridotto() || document.hidden || visti.length >= MAX_CONSIGLI) return;
+  if (['benvenuto', 'dottore', 'impostazioni'].includes(rotta()) || document.querySelector('dialog[open]')) return;
+  let piove = null;
+  try { piove = await pioveOggiDaCache(); } catch { piove = null; }
+  const voce = scegliConsiglio(consigliDeiVermi({ ...statoOggi, piove }), visti, giroConsigli++);
+  if (!voce) return;
+  const v = vermi.find((x) => x.chi === voce.chi) ?? vermi[0];
+  if (v.stato === 'sotto') { v.stato = 'esce'; v.vy = -9.5; scoppio(v, v.p[0].x, 9); }
+  const nodo = el('button', { class: 'consiglio-verme', type: 'button', 'data-chi': voce.chi, 'aria-label': t('verme.consiglio.chiudi') }, t(voce.chiave, voce.vars));
+  nodo.addEventListener('click', () => { chiudiConsiglio(); if (voce.rotta) location.hash = voce.rotta; });
+  document.body.append(nodo);
+  consiglio = { v, voce, nodo, fine: adesso + 9500 };
+  visti.push(voce.id);
+  v.riposo = 600; v.ride = 40;
+}
+function chiudiConsiglio() { consiglio?.nodo.remove(); consiglio = null; }
+function posizionaConsiglio(adesso) {
+  if (!consiglio) return;
+  if (adesso > consiglio.fine || rotta() !== 'oggi' || document.querySelector('dialog[open]')) { chiudiConsiglio(); return; }
+  const r = tela.getBoundingClientRect();
+  const h = consiglio.v.p[0];
+  const larg = consiglio.nodo.offsetWidth || 220;
+  const x = Math.max(8, Math.min(window.innerWidth - larg - 8, r.left + h.x - larg / 2));
+  consiglio.nodo.style.left = `${x}px`;
+  consiglio.nodo.style.top = `${Math.max(8, r.top + h.y - consiglio.nodo.offsetHeight - 26)}px`;
+}
+
 let ultimo = 0;
+let giro = 0;
 function ciclo(adesso) {
   requestAnimationFrame(ciclo);
   if (document.hidden || !visibile || !larghezza) { ultimo = adesso; return; }
@@ -275,11 +330,18 @@ function ciclo(adesso) {
   const r = tela.getBoundingClientRect();
   const sulloStrato = vicino && puntatore.y > r.top - 60;
   const piuVicino = sulloStrato ? vermi.reduce((a, b) => (Math.abs(a.p[0].x - puntatore.x) < Math.abs(b.p[0].x - puntatore.x) ? a : b)) : null;
+  giro++;
   vermi.forEach((v) => {
     if (!ridotto()) passo(v, dt, v === piuVicino);
+    if (giro % 6 === 0) controllaSovrapposizione(v, r);
+    v.alfa += ((v.sopra ? 0.28 : 0.95) - v.alfa) * 0.15;
+    contesto.globalAlpha = v.alfa;
     disegnaVerme(contesto, v);
+    contesto.globalAlpha = 1;
   });
   aggiornaTocchi();
+  posizionaConsiglio(adesso);
+  if (adesso > proximo && statoOggi) { proximo = adesso + 4 * 60 * 1000; mostraConsiglio(adesso); }
 }
 
 function perOgniVerme(f) { vermi.forEach(f); }
@@ -312,6 +374,8 @@ export function avviaVermiLiberi() {
   addEventListener('vermi-festa', () => perOgniVerme((v) => {
     if (v.stato === 'sotto') { v.stato = 'esce'; v.vy = -9.5; scoppio(v, v.p[0].x, 9); } else if (v.stato === 'cammina') { v.vy = -9; v.ride = 70; }
   }));
+  addEventListener('stato-oggi', (e) => { statoOggi = e.detail; if (!proximo) proximo = performance.now() + 20000; });
+  addEventListener('vermi-consiglio', () => { proximo = 0; mostraConsiglio(performance.now()); }); // per le prove
   addEventListener('vermi-scavano', () => perOgniVerme(scava));
   addEventListener('vermi-esci', () => perOgniVerme((v) => { if (v.stato === 'sotto') { v.stato = 'esce'; v.vy = -9.5; scoppio(v, v.p[0].x, 9); } }));
   requestAnimationFrame(ciclo);

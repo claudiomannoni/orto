@@ -224,6 +224,8 @@ export async function monta(contenitore) {
     mostraConversazione('niente');
   }
 
+  // I vermetti liberi usano questo stato per dare consigli utili (js/ui/vermi-liberi.js).
+  window.dispatchEvent(new CustomEvent('stato-oggi', { detail: { lavori: lavori.map((v) => ({ titolo: v.lavoro.titolo })), quizFatto: domandeQuiz ? Boolean(quizFatto) : null, haColture: colture.length > 0, curiosita: cur ?? null } }));
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'saluto' }, testoSaluto(impostazioni)),

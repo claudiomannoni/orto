@@ -36,6 +36,28 @@ await page.evaluate(() => dispatchEvent(new Event('vermi-festa')));
 await page.waitForFunction(() => [...document.querySelectorAll('.tocco-vermetto')].every((b) => b.style.display !== 'none'), null, { timeout: 5000 });
 check('quando l\'app festeggia escono dalla terra', true);
 
+// discrezione: sopra un contenuto il verme diventa trasparente e lascia passare i tocchi
+const alfa = await page.evaluate(async () => {
+  const r = document.querySelector('.vermi-liberi canvas').getBoundingClientRect();
+  const b = document.createElement('button'); b.id = 'prova-sotto'; b.textContent = 'Prova';
+  b.style.cssText = `position:fixed;left:0;width:100vw;top:${r.top}px;height:${r.height - 22}px;z-index:5`;
+  document.body.append(b);
+  await new Promise((ok) => setTimeout(ok, 1500));
+  const t = [...document.querySelectorAll('.tocco-vermetto')].map((x) => x.style.pointerEvents);
+  b.remove();
+  return t;
+});
+check('sopra un pulsante i vermi lasciano passare i tocchi', alfa.every((a) => a === 'none'), alfa.join());
+// consigli utili: un verme si ferma, dice una cosa che serve e si può toccare per andare lì
+await page.evaluate(() => dispatchEvent(new Event('vermi-consiglio')));
+await page.waitForSelector('.consiglio-verme', { timeout: 5000 });
+const consiglio = await page.locator('.consiglio-verme').innerText();
+check('un verme dà un consiglio con una frase vera', consiglio.length > 20 && !/verme\.consiglio/.test(consiglio), consiglio);
+const rotta = await page.evaluate(() => document.querySelector('.consiglio-verme').dataset.chi);
+check('il consiglio ha il suo vermetto (Rosso o Rossella)', ['rosso', 'rossella'].includes(rotta));
+await page.locator('.consiglio-verme').click();
+await page.waitForFunction(() => !document.querySelector('.consiglio-verme'), null, { timeout: 3000 });
+check('toccato, il consiglio si chiude', true);
 const veri = problemi.filter((p) => !/Service Worker registration blocked/.test(p));
 check('nessun errore in console', veri.length === 0, veri.join(' | '));
 await browser.close();

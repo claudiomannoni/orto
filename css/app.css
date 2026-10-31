@@ -618,3 +618,6 @@ button.tessera-azione { font: inherit; text-align: left; cursor: pointer; }
 .tocco-vermetto { position: fixed; z-index: 11; padding: 0; border: 0; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; min-width: 44px; min-height: 44px; }
 .tocco-vermetto:focus-visible { outline: 3px solid var(--giallo-chiaro); outline-offset: 2px; border-radius: 12px; }
 .tocco-vermetto.destra .sbuffo { left: auto; right: 0; border-radius: 16px 16px 4px 16px; }
+.consiglio-verme { position: fixed; z-index: 12; max-width: min(280px, 80vw); padding: 10px 14px; border: 2px solid var(--bordo); border-radius: 16px; background: var(--carta); color: var(--inchiostro); font: inherit; font-size: .95rem; font-weight: 700; line-height: 1.3; text-align: left; box-shadow: 0 3px 0 var(--ombra); cursor: pointer; animation: sbuffo .25s ease-out; min-height: 44px; }
+.consiglio-verme[data-chi=rossella] { border-color: #e0728f; }
+@media (prefers-reduced-motion: reduce) { .consiglio-verme { animation: none; } }
