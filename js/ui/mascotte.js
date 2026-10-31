@@ -3,6 +3,7 @@
 import { el, oggiISO } from '../util.js';
 import { t } from '../i18n.js';
 import { battute } from '../contenuti.js';
+import { haOcchi, creaOcchi, percorsoSenzaPupille, avviaSguardo } from './occhi.js';
 import { VESTITI, vestitoDelGiorno, contestoDelVestito, altroVestito } from '../motore/vestiti.js';
 
 // Il vestito scelto in Impostazioni ('auto' = lo decide il calendario) e quello cambiato a tocco, solo per questa sessione.
@@ -100,11 +101,28 @@ async function alTocco(avatar) {
 
 export function avatar(chi, variante) {
   const nome = t(`mascotte.${chi}`);
+  // Con gli occhi che seguono il dito: Rosso sta con gli occhi aperti (ride solo quando lo tocchi), Rossella tiene la sua espressione.
+  const conOcchi = haOcchi(chi);
+  const aperta = chi === 'rosso' ? undefined : variante;
+  const corpo = el('img', { class: 'corpo-vermetto', src: conOcchi ? percorsoSenzaPupille(chi, aperta) : percorsoMascotte(chi, variante), alt: '', width: 72, height: 72, draggable: 'false' });
+  const occhi = conOcchi ? creaOcchi(chi) : null;
   const a = el('div', {
     class: `avatar ${chi}`, 'data-chi': chi, role: 'button', tabindex: '0', 'aria-label': t('mascotte.tocca', { nome }),
   },
-  el('img', { class: 'corpo-vermetto', src: percorsoMascotte(chi, variante), alt: '', width: 72, height: 72, draggable: 'false' }),
+  corpo,
+  occhi,
   el('img', { class: 'vestito', src: percorsoVestito(chi, vestitoAttuale()), alt: '', width: 72, height: 72, draggable: 'false' }));
+  if (conOcchi) {
+    avviaSguardo();
+    // Rosso, toccato, ride a occhi chiusi per un momento.
+    if (chi === 'rosso') {
+      a.addEventListener('click', () => {
+        corpo.src = percorsoMascotte('rosso', 'ride');
+        occhi.style.visibility = 'hidden';
+        setTimeout(() => { corpo.src = percorsoSenzaPupille('rosso'); occhi.style.visibility = ''; }, 800);
+      });
+    }
+  }
   a.addEventListener('click', () => alTocco(a));
   a.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); alTocco(a); } });
   return a;
