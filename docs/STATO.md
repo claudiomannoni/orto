@@ -42,6 +42,10 @@ I vermetti Rosso e Rossella non sono più immagini: sono disegnati in `js/ui/ver
 
 Barra a 5 voci: Oggi, Il mio orto, Fotografa (tondo al centro), Calendario, Impara. «Il mio orto» ha le tessere: zone, diario, storia, raccolto, e (se i contenuti ci sono) Api-vermi-galline e Colture speciali. «Fotografa» = dottore delle piante (fotocamera dentro la pagina + galleria; Gemini). Guida non invasiva: i vermetti spiegano ogni schermata la prima volta (si rivede da Impostazioni).
 
+## Regola di lavoro decisa da Claudio (31/10-1/11/2026)
+
+Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e delimitato, un compito per volta, in un worktree (`git worktree add ../cervello-opencode-<nome> -b opencode/<nome>`) con un prompt in `CERVELLO/agenti/log/`. Chi consuma crediti (Claude, Codex) revisiona, controlla e corregge. Aggiungere dettagli e idee in linea con la lista «Da fare» senza chiedere. Dopo ogni giro: controllare di nuovo, correggere, test verdi, push, mail se c'è del nuovo.
+
 ## Organizzazione del lavoro (team)
 
 - **Claude** = direttore: decide, controlla ogni cosa prima di dire «fatto», pubblica, scrive la mail di aggiornamento.
@@ -55,7 +59,7 @@ Barra a 5 voci: Oggi, Il mio orto, Fotografa (tondo al centro), Calendario, Impa
 
 1. Prove su telefono vero (Android): fotocamera in pagina, meteo, installazione, vermetti vivi. Finora tutto provato solo con Playwright.
 2. Contenuti di api/vermi/galline e colture speciali sono una prima versione prudente: molti calendari mensili vuoti, poche fonti. Ricerca con Perplexity (modalità Ricerca) e riscrittura con Codex, sempre con fonte e certezza.
-3. Animazione dei vermetti: portarli anche nelle altre schermate come guida «che cammina»; più reazioni (festeggiano un traguardo, si arrotolano se non si apre l'app da giorni). Eventuale Rive/Lottie solo con un illustratore.
+3. Vermi «ovunque»: oggi girano solo sulla striscia in basso (strato alto 120 px). Per farli salire sui bordi delle carte serve uno strato a tutto schermo e le «piattaforme» (rettangoli delle carte letti dal DOM); idea non ancora fatta. Altre idee: reazioni a traguardi, si arrotolano se non apri l'app da giorni. Animazione dei vermetti: portarli anche nelle altre schermate come guida «che cammina»; più reazioni (festeggiano un traguardo, si arrotolano se non si apre l'app da giorni). Eventuale Rive/Lottie solo con un illustratore.
 4. Primo avvio più corto (oggi 8 domande, tutte saltabili).
 5. Piano visivo dell'orto interattivo (stile Hota), promemoria/notifiche, date di gelo reali (ARSIAL: serve una serie storica; l'ipotesi di Codex è archiviata in `CERVELLO/agenti/archivio/`).
 6. IA su PC Asus con modello locale e database aggiornato dal web (provider «server di casa» in `js/ai/ai.js`, tunnel https).
