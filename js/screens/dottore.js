@@ -24,27 +24,35 @@ const tessera = (href, titolo, spiega, id) => el('a', { class: 'tessera-azione',
 
 export async function monta(contenitore) {
   const oggi = oggiISO();
-  const [colture, tutteFoto, haChiave] = await Promise.all([elencoColture(), elencoFoto(), disponibile()]);
+  const [colture, tutteFoto, haChiave, restanti, impostazioni] = await Promise.all([elencoColture(), elencoFoto(), disponibile(), restantiOggi(), leggi()]);
+  let consenso = Boolean(impostazioni.ai_foto_ok);
   const area = el('div', { class: 'dottore-risultato', 'aria-live': 'polite' });
   const anteprima = el('div', { class: 'dottore-anteprima' });
   const scelta = el('select', { name: 'coltura' }, [el('option', { value: '' }, t('dottore.non_so')), ...colture.map((c) => el('option', { value: c.id }, c.nome))]);
   const nota = el('input', { name: 'nota', maxlength: 200, placeholder: t('dottore.nota.esempio') });
-  const input = el('input', { type: 'file', accept: 'image/*', capture: 'environment', hidden: true, name: 'dottore-foto' });
+  // Due ingressi: la fotocamera e la galleria (su alcuni telefoni la fotocamera diretta chiude la pagina e la foto si perde).
+  const campo = (camera) => el('input', { type: 'file', accept: 'image/*', ...(camera ? { capture: 'environment' } : {}), class: 'solo-lettori', tabindex: '-1', name: camera ? 'dottore-foto' : 'dottore-galleria' });
+  const input = campo(true);
+  const galleria = campo(false);
   const scatta = el('button', { class: 'btn primario grande', type: 'button', id: 'dottore-scatta' }, t('dottore.scatta'));
+  const scegliGalleria = el('button', { class: 'btn', type: 'button', id: 'dottore-galleria' }, t('dottore.galleria'));
 
-  scatta.addEventListener('click', async () => {
+  // Tutto sincrono: il telefono apre la fotocamera solo se il gesto è ancora «fresco», dopo un await non lo è più.
+  const apri = (campoFile) => {
     if (!haChiave) { sostituisci(area, el('p', { class: 'avviso' }, t('foto.serve_chiave'))); return; }
-    if (!(await restantiOggi())) { sostituisci(area, el('p', { class: 'avviso' }, t('foto.errore.tetto'))); return; }
-    if (!(await leggi()).ai_foto_ok) {
+    if (!restanti) { sostituisci(area, el('p', { class: 'avviso' }, t('foto.errore.tetto'))); return; }
+    if (!consenso) {
       if (!confirm(t('foto.consenso'))) return;
-      await imposta('ai_foto_ok', true);
+      consenso = true;
+      imposta('ai_foto_ok', true);
     }
-    input.click();
-  });
+    campoFile.click();
+  };
+  scatta.addEventListener('click', () => apri(input));
+  scegliGalleria.addEventListener('click', () => apri(galleria));
 
-  input.addEventListener('change', async () => {
-    const file = input.files[0];
-    input.value = '';
+  const alloScatto = async (campoFile) => {
+    const file = campoFile.files[0];
     if (!file) return;
     scatta.disabled = true;
     sostituisci(area, el('p', { class: 'aiuto' }, t('dottore.guardo')));
@@ -69,8 +77,11 @@ export async function monta(contenitore) {
       sostituisci(area, el('p', { class: 'avviso', role: 'alert' }, testoErrore(e)));
     } finally {
       scatta.disabled = false;
+      campoFile.value = '';
     }
-  });
+  };
+  input.addEventListener('change', () => alloScatto(input));
+  galleria.addEventListener('change', () => alloScatto(galleria));
 
   const recenti = tutteFoto.filter((f) => f.diagnosi).slice(0, 3);
   aggiungi(contenitore,
@@ -82,7 +93,7 @@ export async function monta(contenitore) {
     el('section', { class: 'card dottore-scheda' },
       el('label', {}, t('dottore.coltura'), scelta),
       el('label', {}, t('dottore.nota'), nota),
-      scatta, input, anteprima, area,
+      el('div', { class: 'riga' }, scatta, scegliGalleria), input, galleria, anteprima, area,
       el('p', { class: 'aiuto' }, t('dottore.privacy'))),
     el('h3', {}, t('dottore.altro')),
     el('div', { class: 'tessere-azione' },

@@ -612,3 +612,5 @@ button.tessera-azione { font: inherit; text-align: left; cursor: pointer; }
 #fotografa { background: var(--pulsante); border-color: var(--pulsante); color: #fff; }
 #fotografa .aiuto { color: #fff; }
 .meteo-dettagli summary { min-height: 44px; display: flex; align-items: center; }
+
+.solo-lettori { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; pointer-events: none; }
