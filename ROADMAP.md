@@ -65,6 +65,20 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [ ] Battute che commentano le colture dell'utente, nuovi vestiti ogni tanto
 - [ ] Date vere del gelo: servono le serie giornaliere della stazione ARSIAL di Velletri (320 m); le fonti trovate finora confermano la stazione ma non danno le date
 
+## Un'app da cui non si esce (31/10/2026, v2.14.0)
+
+Partita da una ricerca (`docs/ricerca/utenti-app-orto.md`: 19 pagine, forum e recensioni) su cosa fa restare chi coltiva. Scelte:
+
+- Navigazione: quattro voci (Oggi, Calendario, Colture, Impara); le impostazioni sono nell'ingranaggio in testata; Zone, Diario e Storia si raggiungono da Colture.
+- Impara: ricerca tra le colture e il glossario; ogni coltura ha una scheda con mesi (striscia leggibile anche senza colori), lavori, amiche e nemiche (`data/it/consociazioni.json`, 59 coppie, certezza bassa, con fonti), rotazione, fonti e «da verificare».
+- «Segui questa coltura» (anche nel primo avvio, come ottavo passo): Oggi e Calendario mostrano i lavori delle colture seguite e di quelle messe in orto.
+- Accessibilità: testo grande e molto grande, contrasto alto, meno movimento, pulsante «Ascolta» (voce del telefono); colori del tema chiaro scuriti per il contrasto WCAG.
+- La mia storia: cronologia di lavori, foto e note libere, con filtri ed esportazione CSV.
+- «L'ho fatto un altro giorno»: il lavoro si registra con la data vera (mai nel futuro).
+- Oggi più corta: testi dei vermetti accorciati, scheda di installazione in fondo.
+
+Rimandato, in ordine: Oggi che tiene conto del meteo (pioggia/gelo cambiano i lavori), piano visivo delle aiuole, quantità raccolte, scheda da condividere, date vere di gelo (stazione ARSIAL di Velletri), prove su telefono vero (foto con Gemini, meteo, bussola), controllo marchio «Orto AI» (UIBM/EUIPO).
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).

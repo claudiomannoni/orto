@@ -15,7 +15,7 @@ const ICONE = {
 export const ROTTE = ['oggi', 'calendario', 'colture', 'impara'];
 // Schermate che non hanno una voce propria nella barra: si evidenzia quella da cui si arriva
 // (stringa vuota = nessuna voce: le impostazioni si aprono dall'ingranaggio).
-export const SOTTOROTTE = { zone: 'colture', diario: 'colture', coltura: 'impara', impostazioni: '' };
+export const SOTTOROTTE = { zone: 'colture', diario: 'colture', storia: 'colture', coltura: 'impara', impostazioni: '' };
 
 function icona(nome) {
   const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

@@ -21,6 +21,7 @@ const schermate = {
   impara: () => import('./screens/impara.js'),
   coltura: () => import('./screens/scheda.js'),
   diario: () => import('./screens/diario.js'),
+  storia: () => import('./screens/storia.js'),
 };
 
 const contenitore = document.getElementById('schermata');

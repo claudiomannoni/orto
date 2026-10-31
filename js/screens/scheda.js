@@ -2,7 +2,9 @@
 // Tutto con il suo livello di certezza e le fonti che abbiamo letto: l'utente deve potersi fidare, e controllare.
 import { el, oggiISO, meseDi, formattaData, parametriRotta, aggiungi } from '../util.js';
 import { t } from '../i18n.js';
-import { leggi } from '../store/impostazioni.js';
+import { leggi, imposta } from '../store/impostazioni.js';
+import { alternaSeguita, seguita } from '../motore/seguite.js';
+import { toast } from '../ui/toast.js';
 import { catalogo, consociazioni, zone } from '../contenuti.js';
 import { apriLavoro } from './calendario.js';
 
@@ -72,6 +74,18 @@ export async function monta(contenitore) {
     el('ul', { class: 'elenco-semplice' }, lista.map((r) => el('li', {},
       el('strong', {}, schede.find((x) => x.id === r.altra)?.nome ?? r.altra), r.perche ? ` — ${r.perche} ` : ' ', certezza(r.certezza))))) : null);
 
+  // «Segui questa coltura»: con alcune colture seguite, Oggi e il calendario mostrano solo i loro lavori.
+  let seguite = Array.isArray(impostazioni.colture_scelte) ? impostazioni.colture_scelte : [];
+  const bottoneSegui = el('button', { class: 'btn', type: 'button', 'aria-pressed': String(seguita(seguite, scheda.id)), id: 'segui' }, seguita(seguite, scheda.id) ? t('scheda.non_seguire') : t('scheda.segui'));
+  bottoneSegui.addEventListener('click', async () => {
+    seguite = alternaSeguita(seguite, scheda.id, schede.map((x) => x.id));
+    await imposta('colture_scelte', seguite);
+    const ora = seguita(seguite, scheda.id);
+    bottoneSegui.setAttribute('aria-pressed', String(ora));
+    bottoneSegui.textContent = ora ? t('scheda.non_seguire') : t('scheda.segui');
+    toast(ora ? t('scheda.segui.fatto') : t('scheda.segui.tolta'));
+  });
+
   const rotazione = scheda.rotazione;
   const fonti = Object.values(scheda.fonti ?? {});
 
@@ -85,6 +99,8 @@ export async function monta(contenitore) {
     scheda.descrizione ? el('p', {}, scheda.descrizione) : null,
     (scheda.avvisi ?? []).map((a) => el('p', { class: 'avviso' }, el('strong', {}, `${t('scheda.avvisi')}: `), a)),
     el('a', { class: 'btn primario grande', href: `#/colture?nuova=${encodeURIComponent(scheda.id)}` }, t('scheda.aggiungi')),
+    bottoneSegui,
+    el('p', { class: 'aiuto' }, t('scheda.segui.spiega')),
 
     fatti.length ? el('section', { class: 'card' }, el('h3', {}, t('scheda.in_breve')), el('ul', { class: 'elenco-semplice' }, fatti)) : null,
 

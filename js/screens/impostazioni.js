@@ -64,6 +64,18 @@ async function sezioneOrto(s) {
   );
 }
 
+// Le colture che si seguono: «Oggi» e il calendario mostrano i lavori solo per quelle.
+function sezioneSeguite(s) {
+  const n = Array.isArray(s.colture_scelte) ? s.colture_scelte.length : 0;
+  const stato = el('p', { class: 'aiuto', role: 'status' }, n ? t('impostazioni.seguite.n', { n }) : t('impostazioni.seguite.tutte'));
+  return el('section', { class: 'card', id: 'seguite' },
+    el('h3', {}, t('impostazioni.seguite')),
+    stato,
+    el('div', { class: 'riga' },
+      el('a', { class: 'btn', href: '#/impara' }, t('impostazioni.seguite.scegli')),
+      n ? el('button', { class: 'btn', type: 'button', onclick: async () => { await imposta('colture_scelte', []); stato.textContent = t('impostazioni.seguite.tutte'); toast(t('impostazioni.salvato')); } }, t('impostazioni.seguite.azzera')) : null));
+}
+
 // Accessibilità: testo più grande, contrasto alto, meno movimento. Si applicano subito e restano salvati.
 function sezioneAccessibilita(s) {
   const attuale = { testo: s.testo, contrasto: s.contrasto, movimento_ridotto: s.movimento_ridotto };
@@ -255,6 +267,7 @@ export async function monta(contenitore) {
     el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
     bloccoInstalla(),
     await sezioneOrto(s),
+    sezioneSeguite(s),
     sezioneAccessibilita(s),
     sezioneVermetti(s),
     sezioneMeteo(s),

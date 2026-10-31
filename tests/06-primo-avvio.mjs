@@ -21,16 +21,16 @@ check('profilo vuoto -> primo avvio', page.url().endsWith('#/benvenuto'), page.u
 check('barra in basso nascosta', await page.locator('#barra').isHidden());
 check('intro: titolo', (await titolo(page)).includes('Benvenuto'), await titolo(page));
 
-// 2. Il nome dell'orto, poi le sei domande a tocco.
+// 2. Il nome dell'orto, poi le sette domande a tocco.
 await page.getByRole('button', { name: 'Cominciamo' }).click();
 await page.waitForSelector('h2.titolo-schermata:has-text("Come si chiama il tuo orto?")');
-check('domanda 1 di 7: il nome dell\'orto', (await page.locator('.passo').innerText()) === 'Domanda 1 di 7');
+check('domanda 1 di 8: il nome dell\'orto', (await page.locator('.passo').innerText()) === 'Domanda 1 di 8');
 check('il nome è facoltativo: ci sono «Salta» e «Avanti»', await page.getByRole('button', { name: 'Salta', exact: true }).count() === 1 && await page.getByRole('button', { name: 'Avanti' }).count() === 1);
 await page.fill('input[name=nome_orto]', "  L'orto    del\tpozzo  ");
 await page.fill('input[name=nome_coltivatore]', 'Claudio');
 await page.getByRole('button', { name: 'Avanti' }).click();
-const attese = ['Dove stai?', 'Quanto spazio hai?', 'Che acqua hai?', 'Quanto tempo hai?', 'Come ti piace lavorare?', 'Quanta esperienza hai?'];
-const risposte = ['Castelli Romani', 'Da 10 a 50 m²', 'Quanto basta', 'Abbastanza', 'Biologico', 'Principiante'];
+const attese = ['Dove stai?', 'Quanto spazio hai?', 'Che acqua hai?', 'Quanto tempo hai?', 'Come ti piace lavorare?', 'Quanta esperienza hai?', 'Cosa vuoi coltivare?'];
+const risposte = ['Castelli Romani', 'Da 10 a 50 m²', 'Quanto basta', 'Abbastanza', 'Biologico', 'Principiante', null];
 for (let i = 0; i < attese.length; i++) {
   await page.waitForSelector(`h2.titolo-schermata:has-text("${attese[i]}")`);
   check(`domanda ${i + 1}: ${attese[i]}`, true);
@@ -40,12 +40,19 @@ for (let i = 0; i < attese.length; i++) {
     const piccoli = (await bersagli(page)).filter((b) => b.h < 56 && /opzione/.test(b.cls));
     check('opzioni alte almeno 56 px', piccoli.length === 0, JSON.stringify(piccoli));
   }
-  await page.locator('.opzioni .btn', { hasText: risposte[i] }).first().click();
+  if (risposte[i] === null) {
+    check('colture: nessuna scelta = tutte', (await page.locator('.griglia-colture [aria-pressed=true]').count()) === 0);
+    await page.locator('.griglia-colture .scegli-voce').nth(0).click();
+    await page.locator('.griglia-colture .scegli-voce').nth(1).click();
+    check('colture: il riepilogo conta le scelte', (await page.locator('.form p[role=status]').innerText()).includes('2 colture'));
+    await page.getByRole('button', { name: 'Avanti' }).click();
+  } else await page.locator('.opzioni .btn', { hasText: risposte[i] }).first().click();
 }
 await page.waitForSelector('h2.titolo-schermata:has-text("Tutto pronto")');
 check('schermata finale', true);
 let s = await impostazioni(page);
 check('risposte salvate', s.zona === 'castelli-romani' && s.superficie_mq === 30 && s.acqua === 'media' && s.tempo === 'medio' && s.metodo === 'biologico' && s.esperienza === 'principiante', JSON.stringify(s));
+check('colture scelte salvate (2)', Array.isArray(s.colture_scelte) && s.colture_scelte.length === 2, JSON.stringify(s.colture_scelte));
 check('primo avvio non ancora segnato come fatto', s.primo_avvio_fatto !== true);
 check('nome dell\'orto ripulito (spazi) e nome del coltivatore salvati', s.nome_orto === "L'orto del pozzo" && s.nome_coltivatore === 'Claudio', JSON.stringify([s.nome_orto, s.nome_coltivatore]));
 check('identificativo anonimo creato', typeof s.coltivatore_id === 'string' && s.coltivatore_id.length >= 16);

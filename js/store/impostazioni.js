@@ -5,6 +5,7 @@ export const PREDEFINITE = {
   zona: 'castelli-romani',
   metodo: 'nessuno',
   esperienza: 'principiante',
+  colture_scelte: [], // id delle schede che l'utente segue; vuoto = tutte
   testo: 'normale', // dimensione del testo: normale | grande | enorme
   contrasto: false, // contrasto alto
   movimento_ridotto: false, // ferma le animazioni

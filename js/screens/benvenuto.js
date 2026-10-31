@@ -3,7 +3,8 @@
 import { el, isoLocale } from '../util.js';
 import { t } from '../i18n.js';
 import { leggi, imposta, pulisciNome } from '../store/impostazioni.js';
-import { zone } from '../contenuti.js';
+import { zone, catalogo } from '../contenuti.js';
+import { alternaSeguita } from '../motore/seguite.js';
 import { conversazione } from '../ui/mascotte.js';
 import { bloccoInstalla } from '../ui/installa.js';
 
@@ -30,12 +31,14 @@ async function domande() {
     { chiave: 'tempo', tema: 'tempo', opzioni: TEMPI.map((v) => scelta('tempo', v)) },
     { chiave: 'metodo', tema: 'metodo', opzioni: METODI.map((v) => scelta('metodo', v)) },
     { chiave: 'esperienza', tema: 'esperienza', opzioni: ESPERIENZE.map((v) => ({ valore: v, titolo: t(`esperienza.${v}`) })) },
+    { tipo: 'colture', tema: 'colture', chiave: 'colture_scelte' },
   ];
 }
 
 export async function monta(contenitore, { alTermine }) {
   const impostazioni = await leggi();
   const elenco = await domande();
+  const schedeOrdinate = [...(await catalogo())].sort((a, b) => a.nome.localeCompare(b.nome, 'it'));
   // Le risposte già date si vedono solo se il primo avvio era già stato fatto (cioè si rifà).
   const dato = (chiave) => (impostazioni.primo_avvio_fatto ? impostazioni[chiave] : undefined);
   let passo = -1;
@@ -89,6 +92,25 @@ export async function monta(contenitore, { alTermine }) {
       });
       return form;
     };
+    // Domanda a scelta multipla (le colture che interessano): si toccano, si va avanti. Nessuna scelta = «tutte».
+    const moduloColture = () => {
+      let scelte = Array.isArray(impostazioni.colture_scelte) ? [...impostazioni.colture_scelte] : [];
+      const riepilogo = el('p', { class: 'aiuto', role: 'status' });
+      const aggiornaRiepilogo = () => { riepilogo.textContent = scelte.length ? t('benvenuto.colture.scelte', { n: scelte.length }) : t('benvenuto.colture.tutte'); };
+      const griglia = el('div', { class: 'griglia-colture' }, schedeOrdinate.map((s) => {
+        const b = el('button', {
+          class: 'scheda-voce scegli-voce', type: 'button', 'aria-pressed': String(scelte.includes(s.id)), 'data-id': s.id,
+          onclick: () => { scelte = alternaSeguita(scelte, s.id, schedeOrdinate.map((x) => x.id)); b.setAttribute('aria-pressed', String(scelte.includes(s.id))); aggiornaRiepilogo(); },
+        }, el('img', { src: s.icona ?? 'assets/colture/generica.svg', alt: '', width: 56, height: 56 }), el('span', {}, s.nome));
+        return b;
+      }));
+      aggiornaRiepilogo();
+      return el('div', { class: 'form' }, griglia, riepilogo,
+        el('button', {
+          class: 'btn primario grande', type: 'button',
+          onclick: async () => { await imposta('colture_scelte', scelte); impostazioni.colture_scelte = scelte; avanti(); },
+        }, t('benvenuto.avanti')));
+    };
     const opzioni = (domanda.opzioni ?? []).map((o) => el('button', {
       class: 'btn opzione',
       type: 'button',
@@ -107,7 +129,7 @@ export async function monta(contenitore, { alTermine }) {
       el('progress', { class: 'avanzamento', max: elenco.length, value: passo + 1, 'aria-hidden': 'true' }),
       el('h2', { class: 'titolo-schermata' }, t(`benvenuto.${domanda.tema}.titolo`)),
       battute(domanda.tema),
-      domanda.tipo === 'testo' ? moduloTesto() : el('div', { class: 'opzioni' }, opzioni),
+      domanda.tipo === 'testo' ? moduloTesto() : domanda.tipo === 'colture' ? moduloColture() : el('div', { class: 'opzioni' }, opzioni),
       el('div', { class: 'riga' },
         el('button', { class: 'btn', type: 'button', onclick: () => vai(passo - 1) }, t('benvenuto.indietro')),
         el('button', { class: 'btn', type: 'button', onclick: avanti }, t('benvenuto.salta_domanda')),

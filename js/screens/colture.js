@@ -135,7 +135,8 @@ export async function monta(contenitore) {
     el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
     el('div', { class: 'riga' },
       el('a', { class: 'btn', href: '#/zone' }, t('colture.le_mie_zone')),
-      el('a', { class: 'btn', href: '#/diario' }, t('colture.diario'))),
+      el('a', { class: 'btn', href: '#/diario' }, t('colture.diario')),
+      el('a', { class: 'btn', href: '#/storia' }, t('colture.storia'))),
     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
     lista,
   );

@@ -1,5 +1,5 @@
 // "Oggi in campagna": i lavori del giorno, in ordine di importanza.
-import { el, oggiISO, formattaDataLunga, normalizza, aggiungi } from '../util.js';
+import { el, oggiISO, formattaDataLunga, normalizza, aggiungi, aggiungiGiorni, dataValida } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../store/dati.js';
 import { leggi } from '../store/impostazioni.js';
@@ -15,6 +15,7 @@ import { controllaProgressi } from '../store/progressi.js';
 import { cartaProgressi } from '../ui/progressi.js';
 import { cartaMeteo } from '../ui/meteo.js';
 import { pulsanteAscolta } from '../ui/voce.js';
+import { filtraSeguite } from '../motore/seguite.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -27,6 +28,25 @@ export function titoloLavoro({ lavoro, coltura, scheda: coltivazione }) {
   if (coltura) return `${lavoro.titolo} · ${coltura.nome}`;
   const radice = normalizza(coltivazione.nome).slice(0, 3);
   return normalizza(lavoro.titolo).includes(radice) ? lavoro.titolo : `${lavoro.titolo} · ${coltivazione.nome}`;
+}
+
+// «L'ho fatto un altro giorno»: si sceglie la data (da ieri indietro), così la storia resta giusta anche se ci si dimentica di segnare.
+function apriAltroGiorno(titolo, alSalvare) {
+  const ieri = aggiungiGiorni(oggiISO(), -1);
+  const form = el('form', { class: 'form', autocomplete: 'off' },
+    el('p', {}, titolo),
+    el('label', {}, t('oggi.altro_giorno.data'), el('input', { name: 'data', type: 'date', required: true, value: ieri, max: oggiISO() })),
+    el('div', { class: 'riga' },
+      el('button', { class: 'btn', type: 'button', onclick: () => foglio.close() }, t('form.annulla')),
+      el('button', { class: 'btn primario', type: 'submit' }, t('oggi.altro_giorno.salva'))));
+  const foglio = apriFoglio({ titolo: t('oggi.altro_giorno'), contenuto: form });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form).get('data');
+    if (!dataValida(data) || data > oggiISO()) return;
+    foglio.close();
+    alSalvare(data);
+  });
 }
 
 function apriTermine(termine) {
@@ -72,6 +92,7 @@ function scheda(voce, indice, { termini, impostazioni, alChiudere }) {
       el('h4', {}, t('lavoro.perche')),
       el('p', {}, lavoro.perche),
       pulsanteAscolta(() => `${titolo}. ${lavoro.perche}`),
+      el('button', { class: 'btn piccolo', type: 'button', onclick: () => apriAltroGiorno(titolo, (data) => alChiudere(voce, carta, 'lavoro_fatto', 'ok', data)) }, t('oggi.altro_giorno')),
       conversazione([
         { chi: 'rosso', testo: lavoro.rosso, variante: 'ride' },
         { chi: 'rossella', testo: lavoro.rossella, variante: 'pensa' },
@@ -113,7 +134,7 @@ export async function monta(contenitore) {
   const [colture, eventi, schede, impostazioni, termini, carta] = await Promise.all([
     elencoColture(), elencoEventi(), catalogo(), leggi(), glossario(), cartaProgressi().catch(() => null),
   ]);
-  const lavori = calcolaLavori({ oggi, zonaId: impostazioni.zona, schede, colture, eventi });
+  const lavori = calcolaLavori({ oggi, zonaId: impostazioni.zona, schede: filtraSeguite(schede, impostazioni.colture_scelte, colture), colture, eventi });
 
   const lista = el('ol', { class: 'lavori' });
   const zonaConversazione = el('div', {});
@@ -123,14 +144,14 @@ export async function monta(contenitore) {
     { chi: 'rossella', testo: t(`oggi.rossella.${chiaveRossella}`), variante: 'pensa' },
   ]));
 
-  const alChiudere = async (voce, carta, tipo, esito) => {
+  const alChiudere = async (voce, carta, tipo, esito, dataFatto = oggi) => {
     await registraEvento(nuovoEvento({
       tipo,
       zonaId: impostazioni.zona,
       colturaId: voce.coltura?.id ?? null,
       schedaId: voce.scheda.id,
       lavoroId: voce.lavoro.id,
-      data: oggi,
+      data: dataFatto, // di solito oggi; «L'ho fatto un altro giorno» la sceglie
       esito,
     }));
     carta.remove();

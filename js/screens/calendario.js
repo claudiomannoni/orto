@@ -4,6 +4,8 @@ import { el, oggiISO, meseDi, aggiungi } from '../util.js';
 import { t } from '../i18n.js';
 import { leggi } from '../store/impostazioni.js';
 import { catalogo } from '../contenuti.js';
+import { elencoColture } from '../store/dati.js';
+import { filtraSeguite } from '../motore/seguite.js';
 import { conversazione } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { titoloLavoro, blocchiMetodi } from './oggi.js';
@@ -101,7 +103,11 @@ function sezioneLuna(anno, mese, oggi, meseOggi) {
 }
 
 export async function monta(contenitore) {
-  const [impostazioni, schede] = await Promise.all([leggi(), catalogo()]);
+  const [impostazioni, tutteSchede, mieColture] = await Promise.all([leggi(), catalogo(), elencoColture()]);
+  // Se segui solo alcune colture, il calendario mostra quelle (e quelle che hai in orto); un pulsante le mostra tutte.
+  const seguite = Array.isArray(impostazioni.colture_scelte) ? impostazioni.colture_scelte : [];
+  let soloMie = seguite.length > 0;
+  let schede = soloMie ? filtraSeguite(tutteSchede, seguite, mieColture) : tutteSchede;
   const oggi = oggiISO();
   const meseOggi = meseDi(oggi);
   let mese = meseOggi;
@@ -141,5 +147,15 @@ export async function monta(contenitore) {
   }
 
   disegna();
-  aggiungi(contenitore, mesi, titolo, sottotitolo, elenco, luna);
+  const interruttore = seguite.length ? el('button', {
+    class: 'btn', type: 'button', 'aria-pressed': String(soloMie), id: 'solo-mie',
+    onclick: (e) => {
+      soloMie = !soloMie;
+      schede = soloMie ? filtraSeguite(tutteSchede, seguite, mieColture) : tutteSchede;
+      e.currentTarget.setAttribute('aria-pressed', String(soloMie));
+      e.currentTarget.textContent = soloMie ? t('calendario.solo_mie', { n: seguite.length }) : t('calendario.tutte');
+      disegna();
+    },
+  }, soloMie ? t('calendario.solo_mie', { n: seguite.length }) : t('calendario.tutte')) : null;
+  aggiungi(contenitore, mesi, interruttore, titolo, sottotitolo, elenco, luna);
 }
