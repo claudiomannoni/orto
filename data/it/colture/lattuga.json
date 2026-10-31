@@ -5,7 +5,7 @@
   "alias": ["lattughe", "insalata"],
   "nome_scientifico": "Lactuca sativa",
   "famiglia": "Asteraceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/lattuga.svg",
   "descrizione": "Ortaggio da foglia con molte varietà e cicli diversi. La stagione e la resistenza al freddo cambiano secondo il tipo coltivato.",
   "giorni_alla_raccolta": { "min": null, "max": null, "certezza": "bassa", "fonti": [] },
   "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },

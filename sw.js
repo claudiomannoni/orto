@@ -1,16 +1,38 @@
 // Service worker: tiene in cache i file dell'app per l'uso offline.
 // Nome della cache ed elenco dei file li scrive `node scripts/aggiorna-cache.mjs`
 // (da lanciare dopo ogni modifica, insieme all'aumento di APP_VERSIONE in js/versione.js).
-const VERSIONE = 'orto-2.5.0';
+const VERSIONE = 'orto-2.5.1';
 const FILE = [
   // <<FILE
   './',
   './assets/colture/aglio.svg',
+  './assets/colture/asparagi.svg',
+  './assets/colture/basilico.svg',
+  './assets/colture/bietola.svg',
+  './assets/colture/broccoli.svg',
+  './assets/colture/carciofi.svg',
+  './assets/colture/carote.svg',
+  './assets/colture/cavolfiori.svg',
+  './assets/colture/cetrioli.svg',
   './assets/colture/cipolla.svg',
+  './assets/colture/fagiolini.svg',
   './assets/colture/fave.svg',
+  './assets/colture/finocchi.svg',
   './assets/colture/generica.svg',
+  './assets/colture/lattuga.svg',
+  './assets/colture/melanzane.svg',
+  './assets/colture/patate.svg',
+  './assets/colture/peperoni.svg',
   './assets/colture/piselli.svg',
+  './assets/colture/pomodori.svg',
+  './assets/colture/porri.svg',
+  './assets/colture/prezzemolo.svg',
+  './assets/colture/ravanelli.svg',
+  './assets/colture/rucola.svg',
   './assets/colture/spinaci.svg',
+  './assets/colture/verze.svg',
+  './assets/colture/zucche.svg',
+  './assets/colture/zucchine.svg',
   './assets/illustrazioni/vuoto.svg',
   './assets/logo.svg',
   './assets/mascotte/coppia.svg',

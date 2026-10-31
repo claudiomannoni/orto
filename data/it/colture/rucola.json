@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Eruca vesicaria",
   "famiglia": "Brassicaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/rucola.svg",
   "descrizione": "Foglia aromatica a ciclo breve, seminata direttamente in file o a spaglio.",
   "giorni_alla_raccolta": {
     "min": null,

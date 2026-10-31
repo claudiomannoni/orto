@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Cucurbita pepo",
   "famiglia": "Cucurbitaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/zucchine.svg",
   "descrizione": "Ortaggio da frutto a ciclo estivo, seminato in semenzaio o direttamente in campo.",
   "giorni_alla_raccolta": {
     "min": null,

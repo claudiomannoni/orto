@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Asparagus officinalis",
   "famiglia": "Asparagaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/asparagi.svg",
   "descrizione": "Coltura perenne che si avvia con zampe messe a dimora in primavera.",
   "giorni_alla_raccolta": {
     "min": null,

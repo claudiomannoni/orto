@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Solanum tuberosum",
   "famiglia": "Solanaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/patate.svg",
   "descrizione": "Tubero coltivato da tuberi-seme messi a dimora in primavera.",
   "giorni_alla_raccolta": {
     "min": null,

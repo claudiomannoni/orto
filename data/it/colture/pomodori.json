@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Solanum lycopersicum",
   "famiglia": "Solanaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/pomodori.svg",
   "descrizione": "Ortaggio da frutto avviato in semenzaio e trapiantato nella stagione calda.",
   "giorni_alla_raccolta": {
     "min": null,

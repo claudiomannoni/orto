@@ -5,7 +5,7 @@
   "alias": ["broccoli", "cavolo broccolo"],
   "nome_scientifico": "Brassica oleracea var. italica",
   "famiglia": "Brassicaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/broccoli.svg",
   "descrizione": "Ortaggio da infiorescenza, presente fra i prodotti di stagione autunnali e invernali. Epoca e cultivar vanno scelte in base al clima locale.",
   "giorni_alla_raccolta": { "min": null, "max": null, "certezza": "bassa", "fonti": [] },
   "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },

@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Raphanus sativus",
   "famiglia": "Brassicaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/ravanelli.svg",
   "descrizione": "Radice a ciclo breve, seminata direttamente e raccolta giovane.",
   "giorni_alla_raccolta": {
     "min": null,

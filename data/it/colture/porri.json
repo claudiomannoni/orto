@@ -5,7 +5,7 @@
   "alias": ["porri"],
   "nome_scientifico": "Allium porrum",
   "famiglia": "Amaryllidaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/porri.svg",
   "descrizione": "Ortaggio da foglia con fusto bianco, coltivato in cicli diversi e raccolto soprattutto in autunno-inverno.",
   "giorni_alla_raccolta": { "min": 90, "max": 120, "certezza": "media", "fonti": ["f1"] },
   "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },

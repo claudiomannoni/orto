@@ -5,7 +5,7 @@
   "alias": ["carote"],
   "nome_scientifico": "Daucus carota subsp. sativus",
   "famiglia": "Apiaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/carote.svg",
   "descrizione": "Radice da orto che si semina direttamente. Il calendario di raccolta dipende da varietà, semina e condizioni del terreno.",
   "giorni_alla_raccolta": { "min": 90, "max": 150, "certezza": "media", "fonti": ["f1"] },
   "semina": { "profondita_cm": null, "distanza_file_cm": null, "distanza_piante_cm": null, "certezza": "bassa", "fonti": [] },

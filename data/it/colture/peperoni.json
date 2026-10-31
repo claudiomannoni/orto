@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Capsicum annuum",
   "famiglia": "Solanaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/peperoni.svg",
   "descrizione": "Ortaggio da frutto che richiede un avvio protetto e una stagione calda.",
   "giorni_alla_raccolta": {
     "min": null,

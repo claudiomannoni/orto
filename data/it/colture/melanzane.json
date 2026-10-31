@@ -7,7 +7,7 @@
   ],
   "nome_scientifico": "Solanum melongena",
   "famiglia": "Solanaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/melanzane.svg",
   "descrizione": "Ortaggio da frutto da avviare al riparo e trapiantare con temperature miti.",
   "giorni_alla_raccolta": {
     "min": null,

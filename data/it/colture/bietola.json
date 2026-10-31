@@ -5,7 +5,7 @@
   "alias": ["bietola", "bietole", "bietola da coste"],
   "nome_scientifico": "Beta vulgaris var. cicla",
   "famiglia": "Amaranthaceae",
-  "icona": "assets/colture/generica.svg",
+  "icona": "assets/colture/bietola.svg",
   "descrizione": "Ortaggio da foglia e coste, coltivabile anche nel periodo autunno-invernale. Può essere raccolto tagliando la pianta o staccando le foglie.",
   "giorni_alla_raccolta": { "min": null, "max": null, "certezza": "bassa", "fonti": [] },
   "semina": { "profondita_cm": null, "distanza_file_cm": 30, "distanza_piante_cm": 15, "certezza": "media", "fonti": ["f1"] },
