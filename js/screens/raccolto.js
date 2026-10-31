@@ -42,6 +42,7 @@ export async function monta(contenitore) {
   aggiungi(contenitore,
     el('a', { class: 'btn', href: '#/colture' }, t('zone.alle_colture')),
     el('h2', { class: 'titolo-schermata' }, t('raccolto.titolo')),
+    el('a', { class: 'btn', href: '#/cucina', id: 'vai-cucina' }, t('cucina.apri')),
     el('button', {
       class: 'btn primario grande', type: 'button', id: 'segna-raccolto',
       onclick: () => apriRaccolto(colture, { alSalvare: (evento) => { eventi = [...eventi, evento]; disegna(); } }),

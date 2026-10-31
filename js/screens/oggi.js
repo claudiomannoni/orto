@@ -169,6 +169,7 @@ export async function monta(contenitore) {
     domandeQuiz && domandeQuiz[oggi] !== undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] })) : null,
     domandeQuiz && domandeQuiz[oggi] === undefined ? el('a', { class: 'btn', href: '#/quiz' }, t('oggi.gioca.quiz')) : null,
     domandeQuiz && domandeQuiz[oggi] === undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
+    el('a', { class: 'btn', href: '#/cucina' }, t('cucina.apri')),
     el('a', { class: 'btn', href: '#/chiedi' }, t('oggi.gioca.chiedi')));
 
   // «Lo sapevi?»: una curiosità al giorno, con la sua fonte e i commenti dei vermetti.

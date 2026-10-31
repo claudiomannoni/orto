@@ -22,6 +22,7 @@ const schermate = {
   quiz: () => import('./screens/quiz.js'),
   chiedi: () => import('./screens/chiedi.js'),
   raccolto: () => import('./screens/raccolto.js'),
+  cucina: () => import('./screens/cucina.js'),
   coltura: () => import('./screens/scheda.js'),
   diario: () => import('./screens/diario.js'),
   storia: () => import('./screens/storia.js'),
