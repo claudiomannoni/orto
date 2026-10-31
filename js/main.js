@@ -7,6 +7,7 @@ import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, aggiornaTestata, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 import { mostraGuida } from './ui/guida.js';
+import { avviaVermiLiberi, mostraVermiLiberi } from './ui/vermi-liberi.js';
 import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
 import { pioveOggiDaCache } from './meteo.js';
 import { applicaAccessibilita } from './ui/accessibilita.js';
@@ -58,6 +59,7 @@ async function mostra() {
   }
   rottaCorrente = rotta;
   barra.hidden = rotta === PRIMO_AVVIO;
+  mostraVermiLiberi(rotta !== PRIMO_AVVIO);
   aggiornaBarra(barra, SOTTOROTTE[rotta] ?? rotta);
   aggiornaTestata(rotta);
   contenitore.replaceChildren();
@@ -95,6 +97,7 @@ async function avvia() {
   document.title = t('app.nome');
   costruisciTestata(document.getElementById('testata'));
   costruisciBarra(barra);
+  avviaVermiLiberi();
   window.addEventListener('hashchange', mostra);
   // Tornando all'app dopo un po' (magari il giorno dopo) i giorni si aggiornano.
   // Non durante il primo avvio: ripartirebbe dalla prima domanda.

@@ -1,6 +1,6 @@
 # Stato del progetto (per chi riprende da un'altra sessione)
 
-Ultimo aggiornamento: 31/10/2026, versione dell'app 2.37.4. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+Ultimo aggiornamento: 31/10/2026, versione dell'app 2.38.2. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
 
 ## In una frase
 
@@ -30,13 +30,13 @@ Regole che non si dimenticano:
 | Avvio, rotte, guida | `js/main.js`, `js/ui/nav.js` (barra e sottorotte), `js/ui/guida.js` |
 | Schermate | `js/screens/*.js`: oggi, colture («Il mio orto»), dottore («Fotografa»), calendario, impara, quiz, chiedi, raccolto, cucina, animali, rendita, zone, diario, storia, impostazioni, benvenuto |
 | Logica pura (si prova senza pagina) | `js/motore/*.js`: crescita, curiosita, quiz, saluto, raccolto, acqua, resoconto, seguite, meteo, progressi, vestiti |
-| Interfaccia riusabile | `js/ui/*.js`: mascotte e vermetto (vermetti disegnati nel codice), vermi-vivi (palco con i due vermi in Oggi), meteo, aiuole, condividi, foglio, toast... |
+| Interfaccia riusabile | `js/ui/*.js`: mascotte e vermetto (vermetti disegnati nel codice), vermi-liberi (i due vermi che girano sul bordo dello schermo, scavano e escono), meteo, aiuole, condividi, foglio, toast... |
 | Intelligenza artificiale | solo `js/ai/*.js`: `ai.js` (unico ingresso), `gemini.js` (provider, riprova se Google è sovraccarico), `diagnosi.js`, `consiglio.js`, `bustina.js`, `ricette.js`, `foto.js` |
 | Dati sul telefono | `js/store/*.js` (IndexedDB `orto`, formato in `docs/schema-dati.md`) |
 | Contenuti | `data/it/`: colture (27 schede), glossario, zone, terreno, battute, traguardi, consociazioni, quiz + quiz-extra, curiosità, animali (api/vermi/galline), rendita (colture speciali) |
 | Prove | `tests/` (UI con Playwright: `01-…28-…`; senza browser: `fase*.mjs`, `quiz*.mjs`, ecc.) |
 
-I vermetti Rosso e Rossella non sono più immagini: sono disegnati in `js/ui/vermetto.js` (corpo a segmenti, sguardo, risata, 11 vestiti stagionali e delle feste). `js/ui/vermi-vivi.js` è il palco con i due vermi che strisciano in «Oggi». Per aggiungere un vestito: nome in `js/motore/vestiti.js` (e le sue battute in `data/it/battute.json`) + il disegno in `VESTITI_DISEGNO` di `vermetto.js` (la prova `fase4-vestiti` controlla che ci sia).
+I vermetti Rosso e Rossella non sono più immagini: sono disegnati in `js/ui/vermetto.js` (corpo a segmenti, sguardo, risata, 11 vestiti stagionali e delle feste). `js/ui/vermi-liberi.js` è lo strato fisso sopra la barra dove Rosso e Rossella camminano, scavano, vanno sotto terra e escono (eventi di prova: `vermi-scavano`, `vermi-esci`, `vermi-festa`; il test è `tests/29-vermi-liberi.mjs`). Per aggiungere un vestito: nome in `js/motore/vestiti.js` (e le sue battute in `data/it/battute.json`) + il disegno in `VESTITI_DISEGNO` di `vermetto.js` (la prova `fase4-vestiti` controlla che ci sia).
 
 ## Com'è fatta l'app oggi (v2.37)
 

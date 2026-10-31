@@ -96,6 +96,11 @@ const VESTITI_DISEGNO = {
 };
 export const VESTITI_DISEGNATI = Object.keys(VESTITI_DISEGNO);
 
+// Per chi disegna il vermetto in altro modo (per esempio coricato): mette il vestito sulla testa h, di raggio hr. corpo[corpo.length - 2] è il collo.
+export function disegnaVestito(c, vestito, h, hr, corpo) {
+  VESTITI_DISEGNO[vestito]?.(c, h, hr, corpo);
+}
+
 // Disegna un vermetto nel riquadro LATO x LATO che parte da (ox, oy), grande `scala` volte.
 // stato: { chi, vestito, tempo, guarda: {x, y} (da -1 a 1), ride, chiuso, pensa, fase }
 export function disegnaVermetto(c, stato, ox = 0, oy = 0, scala = 1) {

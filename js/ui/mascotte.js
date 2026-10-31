@@ -64,7 +64,8 @@ function salta(avatar) {
   setTimeout(() => avatar.classList.remove('salta'), 650);
 }
 
-async function alTocco(avatar) {
+// senzaScambi: il vermetto parla da solo (i vermi liberi non hanno un compagno accanto a cui rispondere).
+export async function alTocco(avatar, { senzaScambi = false } = {}) {
   const chi = avatar.dataset.chi;
   salta(avatar);
   tocchi += 1;
@@ -80,7 +81,7 @@ async function alTocco(avatar) {
   const altro = loro.find((a) => a.dataset.chi !== chi);
   const scambi = (dati?.scambi ?? []).filter((s) => s.contesto === contestoDelVestito(vestitoAttuale()) || s.contesto === 'tocco');
   // A volte si punzecchiano: uno parla, l'altro risponde (se sono tutti e due sulla schermata).
-  if (altro && scambi.length && Math.random() < 0.3) {
+  if (altro && !senzaScambi && scambi.length && Math.random() < 0.3) {
     const scambio = scambi[Math.floor(Math.random() * scambi.length)];
     const rosso = loro.find((a) => a.dataset.chi === 'rosso');
     const rossella = loro.find((a) => a.dataset.chi === 'rossella');
@@ -138,6 +139,7 @@ export async function festeggia(contesto = 'fatto', { chi: scelto = null, testo:
     testo = pool[Math.floor(Math.random() * pool.length)];
   }
   coriandoli();
+  window.dispatchEvent(new Event('vermi-festa')); // i vermi liberi escono dalla terra e saltano
   document.querySelector('.vermetto-flash')?.remove();
   const nodo = el('div', { class: `vermetto-flash ${chi}`, role: 'status' },
     avatar(chi, chi === 'rosso' ? 'ride' : 'pensa'),
