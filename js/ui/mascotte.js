@@ -131,6 +131,25 @@ export function avatar(chi, variante) {
 // Un vermetto compare in basso e dice una battuta (per esempio dopo un lavoro fatto), poi se ne va.
 // Sta sopra a tutto: si vede anche se la conversazione in alto è fuori schermo.
 // Con { chi, testo } dice proprio quella battuta (per esempio quella di un livello); senza, ne pesca una del contesto.
+// Una pioggia di coriandoli colorati (solo CSS). Con «meno movimento» non si vede: la regola dell'accessibilità ferma le animazioni.
+const COLORI_CORIANDOLI = ['#f4cd5c', '#e53935', '#66bb6a', '#4fc3f7', '#ff8a80', '#ffffff'];
+function coriandoli(quanti = 18) {
+  document.querySelector('.coriandoli')?.remove();
+  if (document.documentElement.dataset.movimento === 'ridotto') return;
+  const nodo = el('div', { class: 'coriandoli', 'aria-hidden': 'true' });
+  for (let i = 0; i < quanti; i++) {
+    const pezzo = el('span', { class: 'coriandolo' });
+    pezzo.style.setProperty('--x', `${Math.round(Math.random() * 100)}%`);
+    pezzo.style.setProperty('--r', `${Math.round(Math.random() * 720 - 360)}deg`);
+    pezzo.style.setProperty('--d', `${(0.9 + Math.random() * 0.9).toFixed(2)}s`);
+    pezzo.style.setProperty('--ritardo', `${(Math.random() * 0.35).toFixed(2)}s`);
+    pezzo.style.background = COLORI_CORIANDOLI[i % COLORI_CORIANDOLI.length];
+    nodo.append(pezzo);
+  }
+  document.body.append(nodo);
+  setTimeout(() => nodo.remove(), 2400);
+}
+
 export async function festeggia(contesto = 'fatto', { chi: scelto = null, testo: fisso = null } = {}) {
   const chi = scelto ?? (Math.random() < 0.5 ? 'rosso' : 'rossella');
   let testo = fisso;
@@ -140,6 +159,7 @@ export async function festeggia(contesto = 'fatto', { chi: scelto = null, testo:
     if (!pool.length) return;
     testo = pool[Math.floor(Math.random() * pool.length)];
   }
+  coriandoli();
   document.querySelector('.vermetto-flash')?.remove();
   const nodo = el('div', { class: `vermetto-flash ${chi}`, role: 'status' },
     avatar(chi, chi === 'rosso' ? 'ride' : 'pensa'),
