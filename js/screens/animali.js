@@ -15,7 +15,7 @@ function disegnaScheda(s) {
   return [
     el('p', {}, s.in_breve),
     s.perche?.length ? sezione(t('animali.perche'), lista(s.perche)) : null,
-    Object.values(s.calendario ?? {}).some((m) => m.length) ? sezione(t('animali.questo_mese', { mese: nomeMese }), dMese.length ? lista(dMese) : el('p', { class: 'aiuto' }, t('animali.mese_calmo'))) : null,
+    Object.values(s.calendario ?? {}).some((m) => m.length) ? sezione(t('animali.questo_mese', { mese: nomeMese }), dMese.length ? lista(dMese) : el('p', { class: 'aiuto' }, t('animali.mese_calmo')), s.calendario_nota ? el('p', { class: 'avviso' }, s.calendario_nota) : null) : null,
     s.cosa_serve?.length ? sezione(t('animali.cosa_serve'), lista(s.cosa_serve.map((c) => (c.nota ? `${c.voce}: ${c.nota}` : c.voce)))) : null,
     s.come_si_parte?.length ? sezione(t('animali.come_si_parte'), el('ol', { class: 'elenco-semplice' }, s.come_si_parte.map((v) => el('li', {}, v)))) : null,
     s.ogni_giorno_o_settimana?.length ? sezione(t('animali.controlli'), lista(s.ogni_giorno_o_settimana)) : null,

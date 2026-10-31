@@ -120,18 +120,32 @@
         "Per malattie e trattamenti chiedi al veterinario / all’ASL / all’associazione apistica."
       ],
       "calendario": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": [],
-        "6": [],
-        "7": [],
+        "1": [
+          "Famiglia in glomere: controllo delle scorte nelle giornate miti, eventuale candito."
+        ],
+        "2": [
+          "Ripresa della deposizione: controlla polline, covata, umidità e scorte; riduci l'ingresso contro i saccheggi."
+        ],
+        "3": [
+          "Apri e controlla covata e scorte; nutrizione stimolante; controlla la sciamatura."
+        ],
+        "4": [
+          "Controlla la sciamatura, togli le celle reali, metti i melari."
+        ],
+        "5": [
+          "Controlla la sciamatura, togli le celle reali, metti i melari; primo raccolto."
+        ],
+        "6": [
+          "Raccolta dei melari e smelatura; prepara il secondo raccolto."
+        ],
+        "7": [
+          "Rallentamento: riduci le porticine contro i saccheggi e prepara l'invernamento. Trattamenti contro la varroa: chiedi al veterinario o all'associazione apistica."
+        ],
         "8": [],
         "9": [],
         "10": [],
         "11": [
-          "Effettua il censimento BDN tra 1 novembre e 31 dicembre."
+          "Famiglie in glomere: trattamento invernale solo dopo consiglio del veterinario o dell'associazione apistica."
         ],
         "12": []
       },
@@ -172,8 +186,14 @@
           "titolo": "Anagrafe apistica",
           "url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-apistica/",
           "ente": "Ministero della Salute"
+        },
+        {
+          "titolo": "Il calendario dell'apicoltore",
+          "url": "https://capt-to.org/mondo-api/il-calendario/",
+          "ente": "C.A.P.T. (associazione, non ente pubblico)"
         }
-      ]
+      ],
+      "calendario_nota": "Calendario indicativo di un'associazione di apicoltori di Torino (C.A.P.T.), non del Lazio e non ufficiale: da adattare al tuo clima. Mancano agosto, settembre, ottobre e dicembre."
     },
     {
       "id": "pollaio",
@@ -244,6 +264,11 @@
           "testo": "Il Ministero indica l’esclusione dall’obbligo BDN per allevamenti non commerciali con meno di 50 capi; verifica il tuo caso con la tua ASL e il tuo Comune.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-avicola/",
           "certezza": "alta"
+        },
+        {
+          "testo": "Durante i focolai di influenza aviaria valgono le ordinanze del Ministero, della Regione e della ASL (per esempio sul tenere le galline al chiuso). Informati presso la tua ASL.",
+          "fonte_url": "https://www.salute.gov.it/portale/sanitaAnimale/dettaglioContenutiSanitaAnimale.jsp?id=216&lingua=italiano",
+          "certezza": "media"
         }
       ],
       "numeri": [
