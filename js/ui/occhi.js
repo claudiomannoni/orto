@@ -87,4 +87,16 @@ export function avviaSguardo() {
       }
     });
   }, 2600);
+
+  // Ogni tanto, se nessuno li tocca, un vermetto fa un saltello da solo (mai con «meno movimento»).
+  setInterval(() => {
+    if (document.hidden || document.documentElement.dataset.movimento === 'ridotto' || Date.now() - ultimoMovimento < 8000) return;
+    const visibili = tutti().filter((a) => a.getBoundingClientRect().height > 0 && a.getBoundingClientRect().top < innerHeight && a.getBoundingClientRect().bottom > 0);
+    if (!visibili.length || Math.random() > 0.4) return;
+    const a = visibili[Math.floor(Math.random() * visibili.length)];
+    a.classList.remove('salta');
+    void a.offsetWidth;
+    a.classList.add('salta');
+    setTimeout(() => a.classList.remove('salta'), 650);
+  }, 9000);
 }
