@@ -1,0 +1,132 @@
+{
+  "versione": 1,
+  "id": "zucche",
+  "nome": "Zucca",
+  "alias": [
+    "zucche"
+  ],
+  "nome_scientifico": "Cucurbita spp.",
+  "famiglia": "Cucurbitaceae",
+  "icona": "assets/colture/generica.svg",
+  "descrizione": "Pianta da frutto a ciclo caldo, seminata in primavera.",
+  "giorni_alla_raccolta": {
+    "min": null,
+    "max": null,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "semina": {
+    "profondita_cm": null,
+    "distanza_file_cm": null,
+    "distanza_piante_cm": null,
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "consociazioni": {
+    "amiche": [],
+    "nemiche": [],
+    "note": "Non inserite: indicazioni specifiche non verificate.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "rotazione": {
+    "dopo": [],
+    "prima_di": [],
+    "note": "Indicazioni specifiche non verificate.",
+    "certezza": "bassa",
+    "fonti": []
+  },
+  "avvisi": [],
+  "calendario": {
+    "castelli-romani": [
+      {
+        "id": "zucche-semina",
+        "operazione": "semina",
+        "titolo": "Semina le zucche",
+        "mesi": [
+          5
+        ],
+        "perche": "Ingegnoli indica maggio-giugno in piena terra; El Tamiso aprile-maggio.",
+        "glossario": [],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Segui il periodo indicato e le istruzioni della varietà scelta; adatta il lavoro alle condizioni osservate.",
+            "pro": [
+              "Indicazione legata a un calendario consultato"
+            ],
+            "contro": [
+              "La fonte non è specifica per quota e microclima dei Castelli Romani"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: il calendario dà il passo, poi si guarda la terra.",
+        "rossella": "La finestra è generale: varietà e microclima locale possono spostarla.",
+        "certezza": "media",
+        "fonti": [
+          "f1",
+          "f2"
+        ]
+      },
+      {
+        "id": "zucche-raccolta",
+        "operazione": "raccolta",
+        "titolo": "Raccogli le zucche",
+        "mesi": [
+          7,
+          8,
+          9
+        ],
+        "perche": "El Tamiso indica raccolta da luglio a settembre.",
+        "glossario": [],
+        "metodi": [
+          {
+            "tipo": "tradizionale",
+            "come": "Segui il periodo indicato e le istruzioni della varietà scelta; adatta il lavoro alle condizioni osservate.",
+            "pro": [
+              "Indicazione legata a un calendario consultato"
+            ],
+            "contro": [
+              "La fonte non è specifica per quota e microclima dei Castelli Romani"
+            ]
+          }
+        ],
+        "rosso": "Dice il nonno: il calendario dà il passo, poi si guarda la terra.",
+        "rossella": "La finestra è generale: varietà e microclima locale possono spostarla.",
+        "certezza": "media",
+        "fonti": [
+          "f2"
+        ]
+      }
+    ]
+  },
+  "lavori": [],
+  "da_verificare": [
+    "Calendario generale: verificare date per quota, varietà e microclima dei Castelli Romani.",
+    "Caldo e siccità estivi locali: verificare necessità e modalità di irrigazione e ombreggiatura.",
+    "Distanze, profondità, durata del ciclo e resa non documentate nelle fonti consultate."
+  ],
+  "fonti": {
+    "f1": {
+      "titolo": "Calendario di semina dell’orto",
+      "ente": "Fratelli Ingegnoli",
+      "url": "https://www.ingegnoli.it/ita/sementi/sementi-da-orto",
+      "consultata": "2026-10-31",
+      "nota": "Calendario per Nord e Centro Italia, con finestre di semina; seguire anche la varietà."
+    },
+    "f2": {
+      "titolo": "Corso di orticoltura: calendario delle colture",
+      "ente": "Cooperativa Agricola El Tamiso",
+      "url": "https://www.eltamiso.it/it/corso-di-orticoltura.html",
+      "consultata": "2026-10-31",
+      "nota": "Tabella di semina e raccolta per le colture indicate; dati divulgativi veneti."
+    },
+    "f3": {
+      "titolo": "Calendario delle Coltivazioni",
+      "ente": "Azienda Agr. Ortovivaistica Le Serre",
+      "url": "https://www.vivaioleserre.it/calendario-delle-coltivazioni/",
+      "consultata": "2026-10-31",
+      "nota": "Tabella generale dei periodi di trapianto in campo per basilico e prezzemolo."
+    }
+  }
+}
