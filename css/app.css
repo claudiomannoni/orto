@@ -570,3 +570,4 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .avatar .occhi .pupilla { transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px)); transition: transform .14s ease-out; }
 .avatar .occhi .palpebra { transform-box: fill-box; transform-origin: 50% 0; transform: scaleY(0); animation: batti 5.5s ease-in-out infinite; animation-delay: var(--ritardo, 0s); }
 @keyframes batti { 0%, 94%, 100% { transform: scaleY(0); } 97% { transform: scaleY(1); } }
+.gioca { display: grid; gap: 10px; }

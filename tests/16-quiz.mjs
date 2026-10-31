@@ -8,6 +8,9 @@ const page = await ctx.newPage();
 osserva(page, problemi);
 const imp = async () => Object.fromEntries((await leggiDb(page, 'impostazioni')).map((r) => [r.chiave, r.valore]));
 
+await vai(page, 'oggi');
+check('Oggi invita al quiz del giorno', (await page.locator('.gioca a[href="#/quiz"]').count()) === 1 && /Giorni di fila: 0/.test(await page.locator('.gioca').innerText()));
+check('Oggi invita a Rossella', (await page.locator('.gioca a[href="#/chiedi"]').count()) === 1);
 await vai(page, 'impara');
 check('Impara ha il pulsante del quiz', (await page.getByRole('link', { name: 'Gioca al quiz del giorno' }).count()) === 1);
 await page.getByRole('link', { name: 'Gioca al quiz del giorno' }).click();
@@ -34,6 +37,8 @@ const chiavi = Object.keys(s.quiz_risultati ?? {});
 check('punteggio salvato per oggi', chiavi.length === 1 && s.quiz_risultati[chiavi[0]] === giuste, JSON.stringify(s.quiz_risultati));
 check('serie di 1 giorno', /Giorni di fila con il quiz: 1/.test(await page.locator('.quiz-fine').innerText()));
 
+await vai(page, 'oggi');
+check('Oggi, dopo il quiz, mostra il punteggio e non invita', /Quiz di oggi: \d su 5/.test(await page.locator('.gioca').innerText()) && (await page.locator('.gioca a[href="#/quiz"]').count()) === 0);
 await vai(page, 'quiz');
 await page.waitForSelector('.quiz-fine');
 check('tornando non si rigioca: stesso risultato', (await page.locator('.quiz-fine h3').innerText()) === `${giuste} su 5` && (await page.locator('.quiz .opzioni').count()) === 0);

@@ -3,7 +3,7 @@ import { el, oggiISO, formattaDataLunga, normalizza, aggiungi, aggiungiGiorni, d
 import { t, tn } from '../i18n.js';
 import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../store/dati.js';
 import { leggi } from '../store/impostazioni.js';
-import { catalogo, glossario } from '../contenuti.js';
+import { catalogo, glossario, quiz } from '../contenuti.js';
 import { calcolaLavori } from '../motore/oggi.js';
 import { conversazione, festeggia } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -18,6 +18,7 @@ import { pulsanteAscolta } from '../ui/voce.js';
 import { filtraSeguite } from '../motore/seguite.js';
 import { previsioni } from '../meteo.js';
 import { consiglioMeteo } from '../motore/meteo.js';
+import { serieQuiz } from '../motore/quiz.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -146,6 +147,16 @@ export async function monta(contenitore) {
   ]);
   const lavori = calcolaLavori({ oggi, zonaId: impostazioni.zona, schede: filtraSeguite(schede, impostazioni.colture_scelte, colture), colture, eventi });
 
+  // Un invito al quiz del giorno e a Rossella, sotto i lavori: un motivo per riaprire l'app anche quando non c'è molto da fare.
+  const domandeQuiz = (await quiz())?.domande?.length ? impostazioni.quiz_risultati ?? {} : null;
+  const cartaGioca = domandeQuiz ? el('section', { class: 'card gioca' },
+    el('h3', {}, t('oggi.gioca.titolo')),
+    domandeQuiz[oggi] !== undefined
+      ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] }))
+      : el('a', { class: 'btn primario', href: '#/quiz' }, t('oggi.gioca.quiz')),
+    domandeQuiz[oggi] === undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
+    el('a', { class: 'btn', href: '#/chiedi' }, t('oggi.gioca.chiedi'))) : null;
+
   const lista = el('ol', { class: 'lavori' });
   const zonaConversazione = el('div', {});
 
@@ -194,6 +205,7 @@ export async function monta(contenitore) {
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
     // Prima quello che serve oggi (il tempo e i lavori); poi i vermetti che commentano, i progressi e l'invito a scaricare l'app.
+    cartaGioca,
     zonaConversazione,
     carta,
     bloccoInstalla({ rimandabile: true }),
