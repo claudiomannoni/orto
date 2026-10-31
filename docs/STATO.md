@@ -1,0 +1,62 @@
+# Stato del progetto (per chi riprende da un'altra sessione)
+
+Ultimo aggiornamento: 31/10/2026, versione dell'app 2.37.4. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+
+## In una frase
+
+Orto AI è una PWA statica (nessun build, moduli ES, IndexedDB) per chi fa l'orto in Italia. Online: https://claudiomannoni.github.io/orto/ (GitHub Pages, ramo `main`, ogni push pubblica). Repo: `claudiomannoni/orto`; in locale `C:\Users\pcgameluigi\orto`. Regole del progetto in `CLAUDE.md` e `BRIEF.md`.
+
+## Come si lavora (5 comandi)
+
+```
+python -m http.server 8101              # server di prova (o lascialo fare allo script sotto)
+node scripts/prova-tutto.mjs            # TUTTI i test, in fondo dice cosa è rosso (serve tests/node_modules: vedi docs/LAVORARE-SUL-PC.md)
+node scripts/aggiorna-cache.mjs         # dopo ogni modifica ai file dell'app: aggiorna sw.js
+```
+
+Regole che non si dimenticano:
+- A ogni modifica aumenta `APP_VERSIONE` in `js/versione.js`, poi `node scripts/aggiorna-cache.mjs` (scrive nome della cache e elenco file in `sw.js`). Senza, il telefono resta sulla versione vecchia.
+- Frasi solo in `i18n/it.json` (chiavi piatte, `{param}`, plurali `.uno/.altri`); contenuti in `data/it/*.json`. Niente italiano nel codice.
+- Niente emoji, niente invenzioni: ogni dato di contenuto ha fonte e grado di certezza (`alta | media | bassa`, «da verificare»).
+- Commit e push a ogni passo concluso con tutti i test verdi. Identità: `git -c user.name="Claudio Mannoni" -c user.email="claudiooo19190@gmail.com"` e riga `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`.
+- Dopo i test: `git checkout -- tests/schermate` (gli screenshot non vanno committati; `prova-tutto.mjs` lo fa da solo).
+- Per provare un altro giorno: `?oggi=AAAA-MM-GG` nell'indirizzo.
+- Chiave Gemini: la mette l'utente nell'app, resta sul telefono. Mai in un file.
+
+## Mappa del codice
+
+| Cosa | Dove |
+|---|---|
+| Avvio, rotte, guida | `js/main.js`, `js/ui/nav.js` (barra e sottorotte), `js/ui/guida.js` |
+| Schermate | `js/screens/*.js`: oggi, colture («Il mio orto»), dottore («Fotografa»), calendario, impara, quiz, chiedi, raccolto, cucina, animali, rendita, zone, diario, storia, impostazioni, benvenuto |
+| Logica pura (si prova senza pagina) | `js/motore/*.js`: crescita, curiosita, quiz, saluto, raccolto, acqua, resoconto, seguite, meteo, progressi, vestiti |
+| Interfaccia riusabile | `js/ui/*.js`: mascotte e vermetto (vermetti disegnati nel codice), vermi-vivi (palco con i due vermi in Oggi), meteo, aiuole, condividi, foglio, toast... |
+| Intelligenza artificiale | solo `js/ai/*.js`: `ai.js` (unico ingresso), `gemini.js` (provider, riprova se Google è sovraccarico), `diagnosi.js`, `consiglio.js`, `bustina.js`, `ricette.js`, `foto.js` |
+| Dati sul telefono | `js/store/*.js` (IndexedDB `orto`, formato in `docs/schema-dati.md`) |
+| Contenuti | `data/it/`: colture (27 schede), glossario, zone, terreno, battute, traguardi, consociazioni, quiz + quiz-extra, curiosità, animali (api/vermi/galline), rendita (colture speciali) |
+| Prove | `tests/` (UI con Playwright: `01-…28-…`; senza browser: `fase*.mjs`, `quiz*.mjs`, ecc.) |
+
+I vermetti Rosso e Rossella non sono più immagini: sono disegnati in `js/ui/vermetto.js` (corpo a segmenti, sguardo, risata, 11 vestiti stagionali e delle feste). `js/ui/vermi-vivi.js` è il palco con i due vermi che strisciano in «Oggi». Per aggiungere un vestito: nome in `js/motore/vestiti.js` (e le sue battute in `data/it/battute.json`) + il disegno in `VESTITI_DISEGNO` di `vermetto.js` (la prova `fase4-vestiti` controlla che ci sia).
+
+## Com'è fatta l'app oggi (v2.37)
+
+Barra a 5 voci: Oggi, Il mio orto, Fotografa (tondo al centro), Calendario, Impara. «Il mio orto» ha le tessere: zone, diario, storia, raccolto, e (se i contenuti ci sono) Api-vermi-galline e Colture speciali. «Fotografa» = dottore delle piante (fotocamera dentro la pagina + galleria; Gemini). Guida non invasiva: i vermetti spiegano ogni schermata la prima volta (si rivede da Impostazioni).
+
+## Organizzazione del lavoro (team)
+
+- **Claude** = direttore: decide, controlla ogni cosa prima di dire «fatto», pubblica, scrive la mail di aggiornamento.
+- **Codex** (`codex exec` in un worktree): dati e contenuti con fonti. Script: `C:\Users\pcgameluigi\CERVELLO\agenti\lancia-codex.ps1 <cartella> <prompt.md> <log>`; prompt in `CERVELLO/agenti/log/`. Non fa git: il commit lo fa Claude. Va sempre verificato (accenti persi, fonti dubbie).
+- **OpenCode** (gratis, `opencode2.cmd run --auto -m opencode/big-pickle`): codice semplice e delimitato, un compito per volta, sempre da controllare il diff. Mai dati privati.
+- **Perplexity** (solo modalità «Ricerca», tramite la sessione «Progetto Cervello orchestrazione»): ricerche di fonti. «Computer» consuma crediti: no senza sì di Claudio.
+- Crediti come un'unica fonte, con parsimonia. Il cervello (`C:\Users\pcgameluigi\CERVELLO`, wiki Obsidian) è in sola lettura da questo progetto; la scheda del progetto è `CERVELLO/wiki/progetti/orto-ai.md`.
+- Mail di aggiornamento a claudiooo19190@gmail.com ogni ~2 ore, oggetto «Orto AI: novità», semplice, senza emoji, stile note di aggiornamento, con il link; non inviare se non c'è nulla di nuovo.
+
+## Da fare / idee (in ordine di valore)
+
+1. Prove su telefono vero (Android): fotocamera in pagina, meteo, installazione, vermetti vivi. Finora tutto provato solo con Playwright.
+2. Contenuti di api/vermi/galline e colture speciali sono una prima versione prudente: molti calendari mensili vuoti, poche fonti. Ricerca con Perplexity (modalità Ricerca) e riscrittura con Codex, sempre con fonte e certezza.
+3. Animazione dei vermetti: portarli anche nelle altre schermate come guida «che cammina»; più reazioni (festeggiano un traguardo, si arrotolano se non si apre l'app da giorni). Eventuale Rive/Lottie solo con un illustratore.
+4. Primo avvio più corto (oggi 8 domande, tutte saltabili).
+5. Piano visivo dell'orto interattivo (stile Hota), promemoria/notifiche, date di gelo reali (ARSIAL: serve una serie storica; l'ipotesi di Codex è archiviata in `CERVELLO/agenti/archivio/`).
+6. IA su PC Asus con modello locale e database aggiornato dal web (provider «server di casa» in `js/ai/ai.js`, tunnel https).
+7. Controllo del marchio «Orto AI» (UIBM/EUIPO) prima di vendere; eventuale lingua inglese.

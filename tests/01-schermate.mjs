@@ -47,7 +47,7 @@ for (const tema of ['light', 'dark']) {
   ];
   await vai(page, 'colture', '?oggi=2026-10-30');
   for (const [nome, varieta, data, dove, note] of colt) {
-    await page.click('text=+ Nuova coltura');
+    await page.click('button:has-text("+ Nuova coltura")');
     await page.fill('dialog input[name=nome]', nome);
     await page.fill('dialog input[name=varieta]', varieta);
     await page.fill('dialog input[name=dataSemina]', data);

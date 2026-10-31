@@ -4,15 +4,13 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 
 | Fase | Contenuto | Stato |
 |---|---|---|
-| 1 | Base: nome, stile, mascotte, struttura del progetto | in corso |
-| 2 | Primo avvio guidato + calendario del mese + "Oggi in campagna" + calendario lunare | prova fatta con 5 colture di novembre, più il primo avvio guidato (senza luna); il resto da fare |
-| 3 | Zone, misure, bussola, profilo del terreno, diario fotografico | da fare |
-| 4 | Diagnosi da foto con Rosso e Rossella (IA) | da fare |
-| 5 | Lombrichi e compost, galline, alberi e olivi | da fare |
-| 6 | Piano dell'orto con consociazioni e rotazioni | da fare |
-| 7 | Meteo (Open-Meteo) | da fare |
-| 8 | Diario del raccolto e banca dei semi | da fare |
-| 9 | Registro produzione e vendite | da fare |
+| 1 | Base: nome, stile, mascotte, struttura del progetto | fatta |
+| 2 | Primo avvio guidato + calendario + «Oggi in campagna» + calendario lunare, 27 colture | fatta (dati da verificare con fonti locali) |
+| 3 | Zone, misure, bussola, profilo del terreno, diario fotografico | fatta |
+| 4 | Dottore delle piante (diagnosi da foto con IA) | fatta (provata col telefono: fotocamera in pagina dalla 2.35.2) |
+| 5 | Meteo, quiz, curiosità, raccolto, ricette, bustina, resoconto, traguardi | fatta |
+| 6 | Api, vermi e galline; colture speciali e da rendita | prima versione (2.37), contenuti da ampliare |
+| 7 | Piano visivo dell'orto, notifiche, IA su PC Asus, registro vendite | da fare (vedi `docs/STATO.md`) |
 
 ## Fase 1 — Base
 
@@ -108,6 +106,14 @@ Dopo aver guardato come sono fatte le app di piante e orto di successo (cure e p
 - «Fotografa» = il dottore delle piante: foto, analisi di Rossella (cosa vede, cause possibili con certezza, cosa controllare), salvataggio facoltativo nel diario; da lì anche terreno, bustina dei semi, foto per il diario.
 - «Il mio orto» è la pagina di tutto ciò che è tuo, a sezioni: nuova coltura, quattro tessere (zone, diario, storia, raccolto), orto dall'alto, elenco delle colture.
 - Corretto un difetto grafico: una classe CSS `barra` del grafico del raccolto copriva la barra di navigazione (diventava verde). Ora c'è un controllo nel test 26 che la barra resti chiara.
+
+## Dalla 2.35 alla 2.37 (31/10/2026)
+
+- Foto: la fotocamera si apre dentro l'app (prima su Android la pagina si chiudeva e la foto andava persa); galleria; se Google è sovraccarico (503) l'app riprova e prova un altro modello (2.35.1-2.35.4).
+- Vermetti vivi: due vermi a segmenti che strisciano, guardano il dito e saltano nel palco di «Oggi» (2.36-2.37.0); guida non invasiva al primo accesso a ogni schermata (2.36).
+- Schede «Api, vermi e galline» e «Colture speciali» (zafferano, funghi, fiori edibili, varietà rare, aromatiche): contenuti di Codex con fonti, certezza dichiarata, molti campi «da verificare» (2.37.0).
+- Rosso e Rossella sono ora disegnati nel codice ovunque (conversazioni, battute flash, impostazioni, figurina da condividere), con 11 vestiti; tolte le vecchie immagini e `occhi.js` (2.37.2).
+- Pulizia: eliminati i worktree di Codex, aggiunti `docs/STATO.md` e `scripts/prova-tutto.mjs` (2.37.4).
 
 ## Futuro, non ora
 

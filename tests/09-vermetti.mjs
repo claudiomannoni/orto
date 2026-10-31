@@ -25,13 +25,10 @@ for (const [data, v] of giorni) {
 // 2. Tutti i disegni si caricano (nessun 404) e il vestito è sopra il corpo, stessa misura
 await vai(page, 'oggi', '?oggi=2026-10-31');
 await page.waitForSelector('.meteo .meteo-giorno'); // il meteo arriva e sposta la pagina: si aspetta prima di toccare
-const misure = await page.$eval('.avatar.rosso:visible', (a) => {
-  const r = a.getBoundingClientRect(); const [c, v] = [...a.querySelectorAll('img')].map((i) => i.getBoundingClientRect());
-  return { a: [r.width, r.height], c: [c.width, c.height], v: [v.width, v.height], x: [c.x - v.x, c.y - v.y] };
-});
-check('corpo e vestito sono sovrapposti e hanno la stessa misura', misure.c[0] === misure.v[0] && misure.c[1] === misure.v[1] && misure.x[0] === 0 && misure.x[1] === 0, JSON.stringify(misure));
+const misure = await page.$eval('.avatar.rosso:visible', (a) => { const r = a.getBoundingClientRect(); const c = a.querySelector('canvas').getBoundingClientRect(); return { a: [r.width, r.height], c: [c.width, c.height] }; });
+check('il vermetto ha un riquadro grande quanto il suo contenitore', misure.c[0] === misure.a[0] && misure.c[1] === misure.a[1] && misure.a[0] > 40, JSON.stringify(misure));
 check('ogni vermetto è un pulsante accessibile con il nome', (await page.$eval('.avatar.rosso:visible', (a) => a.getAttribute('role') + '|' + a.getAttribute('aria-label') + '|' + a.tabIndex)) === 'button|Tocca Rosso|0');
-const rotte = await page.$$eval('.avatar img', (i) => i.map((x) => x.complete && x.naturalWidth > 0));
+const rotte = await page.$$eval('.avatar canvas', (i) => i.map((x) => x.width > 0));
 check('tutte le immagini dei vermetti sono caricate', rotte.length >= 4 && rotte.every(Boolean), JSON.stringify(rotte));
 
 // 3. Il tocco: salto e battuta, che poi sparisce

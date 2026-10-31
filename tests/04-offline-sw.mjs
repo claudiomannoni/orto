@@ -53,7 +53,7 @@ const Q = '?oggi=2026-10-30';
   // aggiungo una coltura per ogni scheda + una generica, online
   const colt = ['Fave', 'Aglio', 'Cipolla', 'Piselli', 'Spinaci', 'Pomodoro'];
   for (const n of colt) {
-    await page.click('text=+ Nuova coltura');
+    await page.click('button:has-text("+ Nuova coltura")');
     await page.fill('dialog input[name=nome]', n);
     await page.click('dialog button[type=submit]');
     await page.waitForSelector('dialog', { state: 'detached' });
@@ -99,7 +99,7 @@ const Q = '?oggi=2026-10-30';
   check('offline: tutti i JSON (i18n, data/it, manifest) validi', json.every(([, o]) => o), json.filter(([, o]) => !o).map(([f]) => f).join(','));
 
   // dati e funzioni offline
-  await page.click('text=+ Nuova coltura').catch(() => {});
+  await page.click('button:has-text("+ Nuova coltura")').catch(() => {});
   await page.fill('dialog input[name=nome]', 'Offline-coltura');
   await page.click('dialog button[type=submit]');
   await page.waitForSelector('dialog', { state: 'detached' });

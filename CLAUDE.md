@@ -1,6 +1,6 @@
 # Orto AI — istruzioni per Claude Code
 
-PWA per guidare chi fa l'orto dalla semina alla raccolta. Il nome è «Orto AI» (scelto dall'autore il 31/10/2026: «Orto in Tasca» esisteva già). Cos'è, stile, mascotte, regole: `BRIEF.md`. Fasi: `ROADMAP.md`. Formato dei dati: `docs/schema-dati.md`. Come provarla: `README.md`.
+PWA per guidare chi fa l'orto dalla semina alla raccolta. Il nome è «Orto AI» (scelto dall'autore il 31/10/2026: «Orto in Tasca» esisteva già). Cos'è, stile, mascotte, regole: `BRIEF.md`. Fasi: `ROADMAP.md`. Formato dei dati: `docs/schema-dati.md`. Come provarla: `README.md`. **Stato attuale, mappa del codice e come riprendere il lavoro: `docs/STATO.md` (leggila per prima).**
 
 ## Dove si lavora
 
@@ -39,7 +39,7 @@ Prima di ogni compito leggi `BRIEF.md`. Gli agenti in `.claude/agents/` (agronom
 - Nessuna frase in italiano scritta nel codice: stringhe in `i18n/it.json`, contenuti in `data/it/`.
 - Il codice IA sta solo in `js/ai/`.
 - Chi ha già dati sul telefono non li perde: ogni cambio di formato porta una migrazione e il backup vecchio resta importabile.
-- Quando cambi un file dell'app, aumenta `VERSIONE` in `sw.js`, altrimenti il telefono resta sulla versione vecchia.
+- Quando cambi un file dell'app, aumenta `APP_VERSIONE` in `js/versione.js` e lancia `node scripts/aggiorna-cache.mjs` (scrive `sw.js`), altrimenti il telefono resta sulla versione vecchia. Per provare tutto: `node scripts/prova-tutto.mjs`.
 - Commit e push a ogni passo concluso. Chi coordina fa i commit; gli agenti non fanno git.
 - «Fatto» vuol dire provato: il verificatore apre l'app (Pixel 9, 412 x 923), prova i flussi, l'offline e la migrazione. I fallimenti si riportano così come sono.
 - Per provare un giorno diverso da oggi: aggiungi `?oggi=AAAA-MM-GG` all'indirizzo.

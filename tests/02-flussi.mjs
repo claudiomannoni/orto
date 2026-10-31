@@ -11,7 +11,7 @@ const toast = (page) => page.$eval('#toast', (e) => e.textContent);
 const nomiInLista = (page) => page.$$eval('.coltura h3', (h) => h.map((x) => x.textContent));
 
 async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'orto', note = '' }) {
-  await page.click('text=+ Nuova coltura');
+  await page.click('button:has-text("+ Nuova coltura")');
   await page.fill('dialog input[name=nome]', nome);
   await page.fill('dialog input[name=varieta]', varieta);
   await page.fill('dialog input[name=dataSemina]', data);
@@ -47,7 +47,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   check('db: record con schemaVersion 2, schedaId "fave", id stringa', db.length === 1 && db[0].schemaVersion === 2 && db[0].schedaId === 'fave' && typeof db[0].id === 'string', JSON.stringify(db));
 
   // validazione: nome vuoto non salva
-  await page.click('text=+ Nuova coltura');
+  await page.click('button:has-text("+ Nuova coltura")');
   await page.fill('dialog input[name=nome]', '');
   await page.click('dialog button[type=submit]');
   check('validazione: nome vuoto non salva (foglio resta aperto)', await page.isVisible('dialog'));
@@ -59,7 +59,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   await page.click('dialog button:has-text("Annulla")');
   check('annulla chiude il foglio', !(await page.isVisible('dialog')));
   // tap fuori chiude
-  await page.click('text=+ Nuova coltura');
+  await page.click('button:has-text("+ Nuova coltura")');
   await page.mouse.click(200, 30);
   await page.waitForTimeout(200);
   check('tocco fuori dal foglio lo chiude', !(await page.isVisible('dialog')));

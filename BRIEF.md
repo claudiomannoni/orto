@@ -73,7 +73,7 @@ Testi in italiano, ma in file di traduzione: stringhe dell'interfaccia in `i18n/
 - Budget zero euro: GitHub Pages, nessun servizio a pagamento.
 - Nessuna chiave o password in nessun file. Il repository è pubblico.
 - Niente dati privati dell'autore nel repository (famiglia, lavoro, salute, soldi, ecc.).
-- Funziona offline (service worker). Ogni modifica ai file dell'app aumenta `VERSIONE` in `sw.js`.
+- Funziona offline (service worker). Ogni modifica ai file dell'app aumenta `APP_VERSIONE` in `js/versione.js` e lancia `node scripts/aggiorna-cache.mjs`.
 - Pensata per Pixel 9: nessuno scroll orizzontale, bersagli di tocco grandi, tema chiaro e scuro.
 
 ## Verifica

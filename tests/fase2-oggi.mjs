@@ -251,7 +251,7 @@ const misure = (page) => page.evaluate(() => {
   await page.locator('li.lavoro').first().locator('summary').click(); await page.waitForTimeout(500);
   const st2 = await page.$$eval('img', (i) => i.map((x) => ({ s: x.getAttribute('src'), ok: x.complete && x.naturalWidth > 0 })));
   console.log('   immagini offline dopo apertura dettagli:', st2.map((x) => x.s.split('/').pop() + (x.ok ? '' : '(ROTTA)')).join(', '));
-  check('offline: mascotte nei dettagli caricate', st2.some((x) => /mascotte\//.test(x.s)) && st2.every((x) => x.ok), JSON.stringify(st2.filter((x) => !x.ok)));
+  check('offline: vermetti nei dettagli disegnati e immagini caricate', (await page.locator('li.lavoro canvas.corpo-vermetto').count()) > 0 && st2.every((x) => x.ok), JSON.stringify(st2.filter((x) => !x.ok)));
   check('offline: foglio glossario funziona', await (async () => { await page.locator('li.lavoro').first().locator('.parole .btn').first().click(); await page.waitForSelector('dialog.foglio[open]'); return true; })());
   await page.screenshot({ path: path.join(SHOT, 'offline-oggi-chiaro.png') });
   await ctx.setOffline(false);
