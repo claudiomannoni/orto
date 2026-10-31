@@ -14,6 +14,7 @@ import { bloccoInstalla } from '../ui/installa.js';
 import { controllaProgressi } from '../store/progressi.js';
 import { cartaProgressi } from '../ui/progressi.js';
 import { cartaMeteo } from '../ui/meteo.js';
+import { pulsanteAscolta } from '../ui/voce.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -39,7 +40,7 @@ function apriTermine(termine) {
   });
 }
 
-function blocchiMetodi(metodi, preferito) {
+export function blocchiMetodi(metodi, preferito) {
   const ordinati = [...metodi].sort((a, b) => (b.tipo === preferito) - (a.tipo === preferito));
   return el('div', { class: 'metodi' },
     ordinati.map((m) => el('section', { class: `metodo ${m.tipo === preferito ? 'preferito' : ''}` },
@@ -70,6 +71,7 @@ function scheda(voce, indice, { termini, impostazioni, alChiudere }) {
       (coltivazione.avvisi ?? []).map((a) => el('p', { class: 'avviso' }, el('strong', {}, `${t('lavoro.avviso')}: `), a)),
       el('h4', {}, t('lavoro.perche')),
       el('p', {}, lavoro.perche),
+      pulsanteAscolta(() => `${titolo}. ${lavoro.perche}`),
       conversazione([
         { chi: 'rosso', testo: lavoro.rosso, variante: 'ride' },
         { chi: 'rossella', testo: lavoro.rossella, variante: 'pensa' },
@@ -157,11 +159,12 @@ export async function monta(contenitore) {
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
     carta,
     cartaMeteo(),
-    bloccoInstalla({ rimandabile: true }),
     zonaConversazione,
     lavori.length ? lista : el('section', { class: 'card vuoto' },
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
+    // L'invito a scaricare l'app sta in fondo: prima viene quello che serve oggi.
+    bloccoInstalla({ rimandabile: true }),
   );
 }

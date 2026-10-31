@@ -5,6 +5,9 @@ export const PREDEFINITE = {
   zona: 'castelli-romani',
   metodo: 'nessuno',
   esperienza: 'principiante',
+  testo: 'normale', // dimensione del testo: normale | grande | enorme
+  contrasto: false, // contrasto alto
+  movimento_ridotto: false, // ferma le animazioni
   vestiti: 'auto',
   installa_rimandato: null,
   orto_nato: null,

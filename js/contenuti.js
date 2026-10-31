@@ -39,6 +39,11 @@ export async function glossario() {
   return Object.fromEntries((dati?.termini ?? []).map((termine) => [termine.id, termine]));
 }
 
+// Amiche, nemiche e rotazioni fra le colture (data/it/consociazioni.json), o null se il file non c'è.
+export async function consociazioni() {
+  return json(`data/${lingua}/consociazioni.json`);
+}
+
 // Livelli e traguardi (data/it/traguardi.json), o null.
 export async function traguardi() {
   return json(`data/${lingua}/traguardi.json`);

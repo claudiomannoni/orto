@@ -10,6 +10,8 @@ import { toast } from '../ui/toast.js';
 import { SUPERFICI, ACQUE, TEMPI, METODI, ESPERIENZE } from './benvenuto.js';
 import { avatar, impostaVestiti } from '../ui/mascotte.js';
 import { bloccoInstalla } from '../ui/installa.js';
+import { applicaAccessibilita, DIMENSIONI_TESTO } from '../ui/accessibilita.js';
+import { vocePossibile } from '../ui/voce.js';
 import { arrotondaCoordinata, coordinateValide } from '../motore/meteo.js';
 import { VESTITI } from '../motore/vestiti.js';
 
@@ -60,6 +62,33 @@ async function sezioneOrto(s) {
     el('label', {}, t('impostazioni.tempo'), selezione('tempo', scelte('tempo', TEMPI), s.tempo, { opzionale: true })),
     el('a', { class: 'btn', href: '#/benvenuto' }, t('impostazioni.rifai')),
   );
+}
+
+// Accessibilità: testo più grande, contrasto alto, meno movimento. Si applicano subito e restano salvati.
+function sezioneAccessibilita(s) {
+  const attuale = { testo: s.testo, contrasto: s.contrasto, movimento_ridotto: s.movimento_ridotto };
+  const cambia = async (chiave, valore) => {
+    attuale[chiave] = valore;
+    await imposta(chiave, valore);
+    applicaAccessibilita(attuale);
+    toast(t('impostazioni.salvato'));
+  };
+  const bottoniTesto = el('div', { class: 'riga', role: 'group', 'aria-label': t('accessibilita.testo') },
+    DIMENSIONI_TESTO.map((d) => el('button', {
+      class: `btn dim-${d}`, type: 'button', 'aria-pressed': String(attuale.testo === d), 'data-testo': d,
+      onclick: async () => { await cambia('testo', d); bottoniTesto.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.testo === d))); },
+    }, t(`accessibilita.testo.${d}`))));
+  const interruttore = (chiave, etichetta) => el('label', { class: 'interruttore' },
+    el('input', { type: 'checkbox', name: chiave, checked: Boolean(attuale[chiave]), onchange: (e) => cambia(chiave, e.target.checked) }),
+    el('span', {}, etichetta));
+  return el('section', { class: 'card', id: 'accessibilita' },
+    el('h3', {}, t('accessibilita.titolo')),
+    el('p', { class: 'aiuto' }, t('accessibilita.spiega')),
+    el('p', { class: 'dato-nome' }, t('accessibilita.testo')),
+    bottoniTesto,
+    interruttore('contrasto', t('accessibilita.contrasto')),
+    interruttore('movimento_ridotto', t('accessibilita.movimento')),
+    vocePossibile() ? el('p', { class: 'aiuto' }, t('accessibilita.voce')) : null);
 }
 
 // I vermetti: si toccano per vedere che fanno, e qui si sceglie il vestito (o si lascia fare al calendario).
@@ -226,6 +255,7 @@ export async function monta(contenitore) {
     el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
     bloccoInstalla(),
     await sezioneOrto(s),
+    sezioneAccessibilita(s),
     sezioneVermetti(s),
     sezioneMeteo(s),
     sezioneIA(s),

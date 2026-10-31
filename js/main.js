@@ -4,10 +4,11 @@ import { leggi, imposta, assicuraIdentita } from './store/impostazioni.js';
 import { isoLocale } from './util.js';
 import { impostaLingua } from './contenuti.js';
 import { inizializzaProgressi } from './store/progressi.js';
-import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
+import { costruisciTestata, costruisciBarra, aggiornaBarra, aggiornaTestata, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
 import { pioveOggiDaCache } from './meteo.js';
+import { applicaAccessibilita } from './ui/accessibilita.js';
 import './ui/installa.js'; // ascolta subito l'offerta di installazione del browser
 
 const schermate = {
@@ -17,6 +18,8 @@ const schermate = {
   impostazioni: () => import('./screens/impostazioni.js'),
   benvenuto: () => import('./screens/benvenuto.js'),
   zone: () => import('./screens/zone.js'),
+  impara: () => import('./screens/impara.js'),
+  coltura: () => import('./screens/scheda.js'),
   diario: () => import('./screens/diario.js'),
 };
 
@@ -47,6 +50,7 @@ async function mostra() {
   rottaCorrente = rotta;
   barra.hidden = rotta === PRIMO_AVVIO;
   aggiornaBarra(barra, SOTTOROTTE[rotta] ?? rotta);
+  aggiornaTestata(rotta);
   contenitore.replaceChildren();
   try {
     const modulo = await schermate[rotta]();
@@ -69,6 +73,7 @@ async function avvia() {
       iniziali = await leggi();
     }
     lingua = iniziali.lingua || 'it';
+    applicaAccessibilita(iniziali);
     impostaVestiti(iniziali.vestiti, iniziali.orto_nato);
     impostaLingua(lingua); // i contenuti (traguardi, battute...) si leggono nella lingua giusta
     await inizializzaProgressi();

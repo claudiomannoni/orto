@@ -1,5 +1,5 @@
 // Le colture dell'utente: elenco, aggiunta, promemoria, eliminazione.
-import { el, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi } from '../util.js';
+import { el, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi, parametriRotta } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
@@ -78,8 +78,11 @@ async function elimina(coltura) {
   toast(t('coltura.eliminata'));
 }
 
-function apriNuova() {
-  const campoNome = el('input', { name: 'nome', required: true, maxlength: 60, list: 'elenco-schede', placeholder: t('form.nome.esempio'), autocomplete: 'off' });
+function apriNuova(nomeIniziale = '') {
+  const campoNome = el('input', {
+    name: 'nome', required: true, maxlength: 60, list: 'elenco-schede', placeholder: t('form.nome.esempio'), autocomplete: 'off',
+    value: typeof nomeIniziale === 'string' ? nomeIniziale : '',
+  });
   const form = el('form', { class: 'form', autocomplete: 'off' },
     el('label', {}, t('form.nome'), campoNome),
     el('datalist', { id: 'elenco-schede' }, schede.map((s) => el('option', { value: s.nome }))),
@@ -137,4 +140,8 @@ export async function monta(contenitore) {
     lista,
   );
   mostraLista();
+  // Arrivando dalla scheda di una coltura («Aggiungi al mio orto») il modulo si apre già col nome.
+  const daSchedaId = parametriRotta().get('nuova');
+  const daScheda = daSchedaId ? schede.find((s) => s.id === daSchedaId) : null;
+  if (daScheda) apriNuova(daScheda.nome);
 }

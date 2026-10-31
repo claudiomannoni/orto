@@ -6,7 +6,8 @@ import { leggi } from '../store/impostazioni.js';
 import { catalogo } from '../contenuti.js';
 import { conversazione } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
-import { titoloLavoro } from './oggi.js';
+import { titoloLavoro, blocchiMetodi } from './oggi.js';
+import { pulsanteAscolta, smettiDiLeggere } from '../ui/voce.js';
 import { faseLunare, fasiDelMese } from '../motore/luna.js';
 import { disegnaLuna } from '../ui/luna.js';
 
@@ -31,7 +32,7 @@ export function lavoriDelMese(schede, zonaId, mese) {
     || a.lavoro.titolo.localeCompare(b.lavoro.titolo, 'it'));
 }
 
-function apriLavoro(voce, mese) {
+export function apriLavoro(voce, mese, metodoPreferito = null) {
   const { lavoro } = voce;
   const foglio = apriFoglio({
     titolo: titoloLavoro(voce),
@@ -40,14 +41,17 @@ function apriLavoro(voce, mese) {
       (voce.scheda.avvisi ?? []).map((a) => el('p', { class: 'avviso' }, el('strong', {}, `${t('lavoro.avviso')}: `), a)),
       el('h4', {}, t('lavoro.perche')),
       el('p', {}, lavoro.perche),
+      pulsanteAscolta(() => `${titoloLavoro(voce)}. ${lavoro.perche}`),
       conversazione([
         { chi: 'rosso', testo: lavoro.rosso, variante: 'ride' },
         { chi: 'rossella', testo: lavoro.rossella, variante: 'pensa' },
       ]),
       lavoro.certezza === 'bassa' ? el('p', { class: 'nota-certezza' }, t('lavoro.certezza.nota')) : null,
+      lavoro.metodi?.length ? [el('h4', {}, t('lavoro.metodi')), blocchiMetodi(lavoro.metodi, metodoPreferito)] : null,
       el('button', { class: 'btn primario', type: 'button', onclick: () => foglio.close() }, t('foglio.chiudi')),
     ),
   });
+  foglio.addEventListener('close', smettiDiLeggere); // chiudendo il foglio la voce si ferma
 }
 
 function etichette({ lavoro }, mese) {

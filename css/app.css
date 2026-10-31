@@ -1,13 +1,52 @@
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; font-size: 100%; }
+/* Testo ingrandibile dalle impostazioni (accessibilità): tutto è in rem, quindi si ingrandisce tutto insieme. */
+html[data-testo="grande"] { font-size: 120%; }
+html[data-testo="enorme"] { font-size: 140%; }
+
+/* Contrasto alto: inchiostro pieno, bordi netti, verdi e rossi più scuri (chiaro) o più chiari (scuro). */
+html[data-contrasto="alto"] {
+  --inchiostro-2: var(--inchiostro);
+  --bordo: #6b4a1f;
+  --verde: #1b5e20;
+  --pulsante: #1b5e20;
+  --rosso: #a31515;
+  --terra: #5d3a1e;
+  --testata-1: #1b5e20;
+  --testata-2: #144a18;
+  --ombra: rgba(0, 0, 0, .55);
+}
+@media (prefers-color-scheme: dark) {
+  html[data-contrasto="alto"] {
+    --bordo: #d9c3a0;
+    --verde: #a5d6a7;
+    --pulsante: #1f7a25;
+    --rosso: #ffb4b4;
+    --terra: #f0d4b8;
+    --testata-1: #1b5e20;
+    --testata-2: #144a18;
+  }
+}
+html[data-contrasto="alto"] .card, html[data-contrasto="alto"] .btn, html[data-contrasto="alto"] input,
+html[data-contrasto="alto"] select, html[data-contrasto="alto"] textarea, html[data-contrasto="alto"] .voce,
+html[data-contrasto="alto"] .scheda-voce, html[data-contrasto="alto"] .termine { border-width: 3px; }
+
+/* Meno movimento: ferma animazioni e transizioni (oltre a quanto chiede già il telefono). */
+html[data-movimento="ridotto"] *, html[data-movimento="ridotto"] *::before, html[data-movimento="ridotto"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+.btn.ascolta { justify-self: start; }
 
 body {
   margin: 0;
   background: var(--sfondo);
   color: var(--inchiostro);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 17px;
+  font-size: 1.0625rem; /* 17 px, ingrandibile */
   line-height: 1.45;
   -webkit-tap-highlight-color: transparent;
 }
@@ -29,6 +68,10 @@ h2, h3 { font-weight: 800; }
   box-shadow: 0 3px 0 var(--ombra);
 }
 .testata .logo { border-radius: 12px; background: #fff8e1; }
+.testata .ingranaggio { margin-left: auto; flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; color: #fff; }
+.testata .ingranaggio .icona { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.testata .ingranaggio[aria-current="page"] { background: rgba(255, 255, 255, .22); }
+.testata .ingranaggio:focus-visible { outline: 3px solid #fff; outline-offset: 2px; box-shadow: none; }
 .testata h1 { font-size: 1.25rem; font-weight: 800; line-height: 1.1; }
 .testata p { font-size: .85rem; opacity: .95; }
 
@@ -407,6 +450,32 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .fasi { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .fasi li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 2px dashed var(--bordo); padding-bottom: 6px; }
 
+.interruttore { display: flex; align-items: center; gap: 12px; min-height: var(--tocco); padding: 0 14px; border: 2px solid var(--bordo); border-radius: 16px; font-weight: 700; cursor: pointer; }
+.interruttore input { width: 26px; height: 26px; min-height: 0; margin: 0; accent-color: var(--verde); flex: none; }
+.btn[aria-pressed="true"] { border-color: var(--verde); background: var(--verde-chiaro); }
+.btn.dim-grande { font-size: 1.2rem; }
+.btn.dim-enorme { font-size: 1.35rem; }
+
+/* ---------- Impara e schede ---------- */
+input[type="search"] { -webkit-appearance: none; appearance: none; }
+.griglia-colture { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.scheda-voce { display: grid; justify-items: center; gap: 4px; padding: 10px 6px; min-height: 96px; border: 2px solid var(--bordo); border-radius: 18px; background: var(--carta); color: var(--inchiostro); text-decoration: none; font-weight: 800; text-align: center; box-shadow: 0 3px 0 var(--ombra); overflow-wrap: anywhere; }
+.scheda-voce:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ombra); }
+.elenco-termini { display: grid; gap: 8px; }
+.termine { border: 2px solid var(--bordo); border-radius: 16px; padding: 4px 14px; background: var(--carta); }
+.termine > summary { min-height: var(--tocco); display: flex; align-items: center; font-weight: 800; cursor: pointer; }
+.termine > p { padding-bottom: 8px; }
+.scheda-testa { display: flex; gap: 14px; align-items: center; }
+.scheda-icona { width: 96px; height: 96px; flex: none; }
+.striscia { display: grid; gap: 8px; }
+.striscia-riga { display: grid; grid-template-columns: 5.2rem 1fr; gap: 8px; align-items: center; }
+.striscia-nome { font-size: .85rem; font-weight: 800; }
+.striscia-mesi { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; }
+.mese-cella { height: 26px; border-radius: 6px; border: 2px solid var(--bordo); background: transparent; }
+.mese-cella.si { background: var(--verde-chiaro); border-color: var(--verde); }
+.mese-cella.meglio { background: var(--verde); border-color: var(--verde); }
+.mese-cella.ora, .mese-iniziale.ora { box-shadow: 0 0 0 3px var(--giallo-chiaro), 0 0 0 5px var(--terra); }
+.mese-iniziale { text-align: center; font-size: .75rem; font-weight: 800; text-transform: uppercase; border-radius: 6px; }
 .meteo { min-height: 168px; align-content: start; } /* riserva lo spazio: arrivando le previsioni il resto della pagina non salta */
 .meteo-giorni { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .meteo-giorno { display: grid; gap: 2px; align-content: start; padding: 8px; border: 2px solid var(--bordo); border-radius: 14px; text-align: center; font-size: .9rem; }
