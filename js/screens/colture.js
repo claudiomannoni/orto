@@ -1,5 +1,5 @@
 // Le colture dell'utente: elenco, aggiunta, promemoria, eliminazione.
-import { el, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi, parametriRotta } from '../util.js';
+import { el, sostituisci, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi, parametriRotta } from '../util.js';
 import { t, tn } from '../i18n.js';
 import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
@@ -8,11 +8,13 @@ import { catalogo, trovaScheda } from '../contenuti.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
+import { aiuole } from '../ui/aiuole.js';
 
 let schede = [];
 let colture = [];
 let zone = [];
 let lista;
+let riquadro; // «il tuo orto dall'alto»: si ridisegna a ogni modifica
 let conteggio;
 
 function testoGiorni(giorni) {
@@ -51,6 +53,7 @@ function scheda(coltura) {
 function mostraLista() {
   const ordinate = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina));
   lista.replaceChildren(...ordinate.map(scheda));
+  sostituisci(riquadro, aiuole(colture, zone, schede));
   conteggio.textContent = String(colture.length);
   document.getElementById('colture-vuoto').hidden = colture.length > 0;
 }
@@ -130,6 +133,7 @@ export async function monta(contenitore) {
   [colture, schede, zone] = await Promise.all([elencoColture(), catalogo(), elencoZone()]);
   conteggio = el('span', { class: 'conteggio' }, '0');
   lista = el('ul', { class: 'lista' });
+  riquadro = el('div', {});
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('colture.titolo'), ' ', conteggio),
     el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
@@ -137,6 +141,7 @@ export async function monta(contenitore) {
       el('a', { class: 'btn', href: '#/zone' }, t('colture.le_mie_zone')),
       el('a', { class: 'btn', href: '#/diario' }, t('colture.diario')),
       el('a', { class: 'btn', href: '#/storia' }, t('colture.storia'))),
+    riquadro,
     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
     lista,
   );

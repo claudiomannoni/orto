@@ -75,7 +75,7 @@ const Q = '?oggi=2026-10-30';
     check(`offline ${r}: pagina caricata (titolo "${info.titolo}", testata "${info.testata}")`, Boolean(info.titolo) && info.testata === 'Orto AI', JSON.stringify(info));
     check(`offline ${r}: CSS applicato`, info.stile === 'rgb(255, 246, 227)' || info.stile === 'rgb(28, 22, 17)', info.stile);
     check(`offline ${r}: tutte le immagini visibili (${info.imm.length})`, info.imm.length > 0 && info.imm.every((i) => i.ok), JSON.stringify(info.imm.filter((i) => !i.ok)));
-    if (r === 'colture') check('offline colture: le 6 colture ci sono, con icone', info.carte === 6 && info.imm.filter((i) => i.src.includes('assets/colture/')).length === 6, `carte=${info.carte}`);
+    if (r === 'colture') check('offline colture: le 6 colture ci sono, con icone', info.carte === 6 && info.imm.filter((i) => i.src.includes('assets/colture/')).length >= 6, `carte=${info.carte}`);
     await page.screenshot({ path: path.join(OUT, `offline-${r}.png`) });
   }
   // rotta diretta, senza query
