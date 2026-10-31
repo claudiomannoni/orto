@@ -114,7 +114,7 @@ check('storia: si toglie una voce', (await leggiDb(page, 'eventi')).length === 0
 
 // ---------- «L'ho fatto un altro giorno» ----------
 await vai(page, 'oggi', '?oggi=2026-11-10');
-await page.locator('details.lavoro summary, details summary').first().click();
+await page.locator('li.lavoro summary').first().click();
 const altro = page.getByRole('button', { name: "L'ho fatto un altro giorno" }).first();
 check('Oggi: i lavori hanno «L\'ho fatto un altro giorno»', (await altro.count()) === 1);
 await altro.click();

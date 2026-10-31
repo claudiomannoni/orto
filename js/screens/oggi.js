@@ -163,16 +163,16 @@ export async function monta(contenitore) {
   // Un invito al quiz del giorno e a Rossella, sotto i lavori: un motivo per riaprire l'app anche quando non c'è molto da fare.
   const domandeQuiz = (await quiz())?.domande?.length ? impostazioni.quiz_risultati ?? {} : null;
   // Le cose da fare per divertirsi e capire: la foto sta sempre qui, il quiz solo se ci sono le domande.
-  const cartaGioca = el('section', { class: 'card gioca' },
+  const quizFatto = domandeQuiz && domandeQuiz[oggi] !== undefined;
+  const tessera = (href, titolo, spiega, extra = {}) => el(extra.pulsante ? 'button' : 'a', { class: 'tessera-azione', ...(extra.pulsante ? { type: 'button', onclick: extra.pulsante } : { href }), ...(extra.id ? { id: extra.id } : {}) }, el('strong', {}, titolo), el('span', { class: 'aiuto' }, spiega));
+  const cartaGioca = el('section', { class: 'gioca' },
     el('h3', {}, t('oggi.gioca.titolo')),
-    el('a', { class: 'btn primario', href: '#/dottore', id: 'fotografa' }, t('oggi.gioca.foto')),
-    el('p', { class: 'aiuto' }, t('oggi.gioca.foto.spiega')),
-    domandeQuiz && domandeQuiz[oggi] !== undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] })) : null,
-    domandeQuiz && domandeQuiz[oggi] === undefined ? el('a', { class: 'btn', href: '#/quiz' }, t('oggi.gioca.quiz')) : null,
-    domandeQuiz && domandeQuiz[oggi] === undefined ? el('p', { class: 'aiuto' }, t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
-    el('button', { class: 'btn', type: 'button', id: 'apri-resoconto', onclick: apriResoconto }, t('resoconto.apri')),
-    el('a', { class: 'btn', href: '#/cucina' }, t('cucina.apri')),
-    el('a', { class: 'btn', href: '#/chiedi' }, t('oggi.gioca.chiedi')));
+    tessera('#/dottore', t('oggi.gioca.foto'), t('oggi.gioca.foto.spiega'), { id: 'fotografa' }),
+    el('div', { class: 'tessere-azione' },
+      domandeQuiz ? tessera('#/quiz', t('oggi.gioca.quiz'), quizFatto ? t('oggi.gioca.quiz.fatto', { punti: domandeQuiz[oggi] }) : t('oggi.gioca.quiz.da_fare', { n: serieQuiz(domandeQuiz, oggi) })) : null,
+      tessera('', t('resoconto.apri'), t('resoconto.spiega'), { pulsante: apriResoconto, id: 'apri-resoconto' }),
+      tessera('#/cucina', t('cucina.apri'), t('cucina.spiega')),
+      tessera('#/chiedi', t('oggi.gioca.chiedi'), t('oggi.gioca.chiedi.spiega'))));
 
   // «Lo sapevi?»: una curiosità al giorno, con la sua fonte e i commenti dei vermetti.
   const cur = curiositaDelGiorno((await curiosita())?.curiosita, oggi);

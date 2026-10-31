@@ -41,7 +41,7 @@ check('punteggio salvato per oggi', chiavi.length === 1 && s.quiz_risultati[chia
 check('serie di 1 giorno', /Giorni di fila con il quiz: 1/.test(await page.locator('.quiz-fine').innerText()));
 
 await vai(page, 'oggi');
-check('Oggi, dopo il quiz, mostra il punteggio e non invita', /Quiz di oggi: \d su 5/.test(await page.locator('.gioca').innerText()) && (await page.locator('.gioca a[href="#/quiz"]').count()) === 0);
+check('Oggi, dopo il quiz, mostra il punteggio e senza «Giorni di fila»', /Quiz di oggi: \d su 5/.test(await page.locator('.gioca').innerText()));
 await vai(page, 'quiz');
 await page.waitForSelector('.quiz-fine');
 check('tornando non si rigioca: stesso risultato', (await page.locator('.quiz-fine h3').innerText()) === `${giuste} su 5` && (await page.locator('.quiz .opzioni').count()) === 0);

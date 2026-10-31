@@ -605,3 +605,10 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .tessera-azione strong { font-size: 1.05rem; }
 .dottore-scheda { display: grid; gap: 12px; }
 .dottore-anteprima img { max-width: 100%; height: auto; border-radius: 14px; }
+.gioca { display: grid; gap: 4px; margin: 12px 0; }
+.gioca > .tessera-azione { margin-bottom: 6px; }
+button.tessera-azione { font: inherit; text-align: left; cursor: pointer; }
+.meteo-dettagli summary { cursor: pointer; font-weight: 700; color: var(--verde); padding: 8px 0; }
+#fotografa { background: var(--pulsante); border-color: var(--pulsante); color: #fff; }
+#fotografa .aiuto { color: #fff; }
+.meteo-dettagli summary { min-height: 44px; display: flex; align-items: center; }

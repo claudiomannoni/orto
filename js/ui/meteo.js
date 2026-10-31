@@ -36,12 +36,14 @@ export function cartaMeteo() {
         el('span', { class: 'meteo-gradi' }, `${gradi(g.min)} / ${gradi(g.max)}`),
         el('span', { class: 'aiuto' }, g.pioggia >= 0.5 ? t('meteo.pioggia_mm', { mm: g.pioggia.toFixed(g.pioggia < 10 ? 1 : 0).replace('.', ',') }) : t('meteo.asciutto'))))),
       ...avvisi.map((a) => el('p', { class: `avviso avviso-${a.tipo}`, role: 'alert' }, testoAvviso(a))),
-      acqua ? el('div', { class: 'acqua' },
-        el('p', {}, el('strong', {}, `${t('acqua.titolo')}: `), t(`acqua.${acqua.annaffia}`)),
-        el('p', { class: 'aiuto' }, t(`acqua.livello.${acqua.livello}`, { mm: String(acqua.mm7).replace('.', ',') }), acqua.previsti > 0 ? ` ${t('acqua.in_arrivo', { mm: String(acqua.previsti).replace('.', ',') })}` : ''),
-        el('p', { class: 'aiuto' }, t('acqua.nota'))) : null,
-      vecchio ? el('p', { class: 'aiuto' }, t('meteo.vecchio', { ore })) : null,
-      el('p', { class: 'aiuto' }, posizione.origine === 'telefono' ? t('meteo.fonte_telefono') : t('meteo.fonte_zona', { zona: posizione.nome ?? '' })),
+      acqua ? el('div', { class: 'acqua' }, el('p', {}, el('strong', {}, `${t('acqua.titolo')}: `), t(`acqua.${acqua.annaffia}`))) : null,
+      // I dettagli (quanta pioggia, da dove vengono i dati) stanno dietro un tocco: la scheda resta corta.
+      el('details', { class: 'meteo-dettagli' },
+        el('summary', {}, t('meteo.dettagli')),
+        acqua ? el('p', { class: 'aiuto' }, t(`acqua.livello.${acqua.livello}`, { mm: String(acqua.mm7).replace('.', ',') }), acqua.previsti > 0 ? ` ${t('acqua.in_arrivo', { mm: String(acqua.previsti).replace('.', ',') })}` : '') : null,
+        acqua ? el('p', { class: 'aiuto' }, t('acqua.nota')) : null,
+        vecchio ? el('p', { class: 'aiuto' }, t('meteo.vecchio', { ore })) : null,
+        el('p', { class: 'aiuto' }, posizione.origine === 'telefono' ? t('meteo.fonte_telefono') : t('meteo.fonte_zona', { zona: posizione.nome ?? '' }))),
     );
   }).catch((errore) => {
     carta.replaceChildren(el('h3', {}, t('meteo.titolo')), el('p', { class: 'aiuto' }, errore?.codice === 'posizione' ? t('meteo.senza_posizione') : t('meteo.non_disponibile')));

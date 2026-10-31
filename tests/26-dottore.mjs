@@ -36,7 +36,7 @@ check('la barra ha lo sfondo chiaro della carta (non verde)', sfondo === 'rgb(25
 const centro = await page.evaluate(() => { const a = document.querySelector('#barra a[data-rotta=dottore] .icona'); const r = a.getBoundingClientRect(); const b = document.getElementById('barra').getBoundingClientRect(); return { w: r.width, sporge: r.top < b.top }; });
 check('la fotocamera è un tondo grande che sporge dalla barra', centro.w >= 52 && centro.sporge, JSON.stringify(centro));
 
-await page.getByRole('link', { name: 'Fotografa' }).click();
+await page.locator('#barra a[data-rotta=dottore]').click();
 await page.waitForSelector('h2.titolo-schermata:has-text("Il dottore delle piante")');
 check('si apre il dottore delle piante e la voce centrale è evidenziata', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Fotografa'));
 check('tre scorciatoie: terreno, bustina, diario', (await page.locator('.tessere-azione .tessera-azione').count()) === 3);

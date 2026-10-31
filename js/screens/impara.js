@@ -40,8 +40,9 @@ export async function monta(contenitore) {
   aggiungi(contenitore,
     el('h2', { class: 'titolo-schermata' }, t('impara.titolo')),
     el('p', { class: 'aiuto' }, t('impara.spiega')),
-    el('a', { class: 'btn primario grande', href: '#/chiedi' }, t('chiedi.invito')),
-    el('a', { class: 'btn primario grande', href: '#/quiz' }, t('quiz.invito')),
+    el('div', { class: 'tessere-azione' },
+      el('a', { class: 'tessera-azione', href: '#/chiedi' }, el('strong', {}, t('chiedi.invito')), el('span', { class: 'aiuto' }, t('oggi.gioca.chiedi.spiega'))),
+      el('a', { class: 'tessera-azione', href: '#/quiz' }, el('strong', {}, t('quiz.invito')), el('span', { class: 'aiuto' }, t('quiz.invito.spiega')))),
     campo, nessuno, titoloColture, colture, titoloParole, parole);
   disegna();
 }

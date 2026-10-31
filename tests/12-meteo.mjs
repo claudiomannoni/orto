@@ -21,7 +21,7 @@ check('meteo: tre giorni (Oggi, Domani, Dopodomani)', (await page.locator('.mete
 const primo = await page.locator('.meteo-giorno').first().innerText();
 check('meteo: sereno, 6° / 16°, asciutto', primo.includes('Sereno') && primo.includes('6° / 16°') && primo.includes('Asciutto'), primo.replace(/\n+/g, ' | '));
 check('meteo: nessun avviso', (await page.locator('.meteo .avviso').count()) === 0);
-check('meteo: dichiara la fonte e che usa il centro della zona', (await page.locator('.meteo').innerText()).includes('Open-Meteo.com') && (await page.locator('.meteo').innerText()).includes('Castelli Romani'));
+check('meteo: dichiara la fonte e che usa il centro della zona', (await page.locator('.meteo').textContent()).includes('Open-Meteo.com') && (await page.locator('.meteo').textContent()).includes('Castelli Romani'));
 check('vermetti in estate (non piove)', (await vestiti(page)).every((v) => v.endsWith('-estate.svg')), (await vestiti(page)).join());
 check('la richiesta usa le coordinate della zona e 7 giorni', ctx.richiesteMeteo.length === 1 && ctx.richiesteMeteo[0].includes('latitude=41.81') && ctx.richiesteMeteo[0].includes('longitude=12.68') && ctx.richiesteMeteo[0].includes('forecast_days=7'), ctx.richiesteMeteo[0]);
 check('nessuna chiave o dato personale nella richiesta', !/key|token|nome|orto=/i.test(ctx.richiesteMeteo[0].replace('open-meteo', '')));
@@ -35,18 +35,18 @@ check('entro 3 ore le previsioni si prendono dalla memoria: nessuna nuova richie
 
 // 2b. Acqua: quanta pioggia è caduta nei 7 giorni passati e se annaffiare
 check('acqua: la richiesta chiede anche i 7 giorni passati', ctx.richiesteMeteo[0].includes('past_days=7'), ctx.richiesteMeteo[0]);
-check('acqua: luglio senza pioggia e fa 16 gradi: «guarda il terreno»', /Acqua: Guarda il terreno/.test(await page.locator('.meteo .acqua').innerText()), await page.locator('.meteo .acqua').innerText());
+check('acqua: luglio senza pioggia e fa 16 gradi: «guarda il terreno»', /Acqua: Guarda il terreno/.test(await page.locator('.meteo').textContent()), await page.locator('.meteo').textContent());
 ctx.meteoFinto = (oggi, i) => (i === 0 ? { tmax: 31 } : {});
 await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').delete('meteo_cache'); tx.oncomplete = () => { db.close(); ok(); }; }; }));
 await page.reload();
 await page.waitForSelector('.meteo .acqua');
-check('acqua: caldo e settimana asciutta: «conviene annaffiare»', /Oggi conviene annaffiare/.test(await page.locator('.meteo .acqua').innerText()) && /pochissima pioggia \(0 mm\)/.test(await page.locator('.meteo .acqua').innerText()), await page.locator('.meteo .acqua').innerText());
+check('acqua: caldo e settimana asciutta: «conviene annaffiare»', /Oggi conviene annaffiare/.test(await page.locator('.meteo').textContent()) && /pochissima pioggia \(0 mm\)/.test(await page.locator('.meteo').textContent()), await page.locator('.meteo').textContent());
 ctx.meteoFinto = (oggi, i) => (i >= -6 && i <= -1 ? { pioggia: 10 } : {});
 await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').delete('meteo_cache'); tx.oncomplete = () => { db.close(); ok(); }; }; }));
 await page.reload();
 await page.waitForSelector('.meteo .acqua');
-check('acqua: settimana piovosa (60 mm): «puoi saltare»', /Oggi puoi saltare l'annaffiatura/.test(await page.locator('.meteo .acqua').innerText()) && /60 mm/.test(await page.locator('.meteo .acqua').innerText()), await page.locator('.meteo .acqua').innerText());
-check('acqua: dichiara che è di massima', /di massima/.test(await page.locator('.meteo .acqua').innerText()));
+check('acqua: settimana piovosa (60 mm): «puoi saltare»', /Oggi puoi saltare l'annaffiatura/.test(await page.locator('.meteo').textContent()) && /60 mm/.test(await page.locator('.meteo').textContent()), await page.locator('.meteo').textContent());
+check('acqua: dichiara che è di massima', /di massima/.test(await page.locator('.meteo').textContent()));
 ctx.meteoFinto = null;
 await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').delete('meteo_cache'); tx.oncomplete = () => { db.close(); ok(); }; }; }));
 
@@ -96,7 +96,7 @@ await ctx.unroute('**/api.open-meteo.com/**');
 await ctx.route('**/api.open-meteo.com/**', (r) => r.abort('connectionfailed'));
 await page.reload();
 await page.waitForSelector('.meteo .meteo-giorno');
-check('senza connessione: si vedono le ultime previsioni, con «5 ore fa»', (await page.locator('.meteo').innerText()).includes('Previsioni di 5 ore fa'), (await page.locator('.meteo').innerText()).replace(/\n+/g, ' | ').slice(0, 200));
+check('senza connessione: si vedono le ultime previsioni, con «5 ore fa»', (await page.locator('.meteo').textContent()).includes('Previsioni di 5 ore fa'), (await page.locator('.meteo').textContent()).replace(/\n+/g, ' | ').slice(0, 200));
 await ctx.close();
 
 ({ ctx, page } = await nuova());
@@ -134,7 +134,7 @@ const pos = await impostazione(page, 'meteo_posizione');
 check('posizione salvata arrotondata a 2 decimali (circa 1 km): 41.82, 12.75', pos?.lat === 41.82 && pos?.lon === 12.75, JSON.stringify(pos));
 await page.goto(`${BASE}/?oggi=2026-07-15#/oggi`);
 await page.waitForSelector('.meteo .meteo-giorno');
-check('il meteo usa la posizione scelta', ctx.richiesteMeteo.some((u) => u.includes('latitude=41.82') && u.includes('longitude=12.75')) && (await page.locator('.meteo').innerText()).includes('posizione scelta'), ctx.richiesteMeteo.join(' '));
+check('il meteo usa la posizione scelta', ctx.richiesteMeteo.some((u) => u.includes('latitude=41.82') && u.includes('longitude=12.75')) && (await page.locator('.meteo').textContent()).includes('posizione scelta'), ctx.richiesteMeteo.join(' '));
 await page.goto(`${BASE}/?oggi=2026-07-15#/impostazioni`);
 await page.waitForSelector('text=Torna al centro della zona');
 await page.getByRole('button', { name: 'Torna al centro della zona' }).click();
