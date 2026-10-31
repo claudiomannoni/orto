@@ -1,7 +1,7 @@
 // Service worker: tiene in cache i file dell'app per l'uso offline.
 // Nome della cache ed elenco dei file li scrive `node scripts/aggiorna-cache.mjs`
 // (da lanciare dopo ogni modifica, insieme all'aumento di APP_VERSIONE in js/versione.js).
-const VERSIONE = 'orto-2.10.0';
+const VERSIONE = 'orto-2.11.0';
 const FILE = [
   // <<FILE
   './',
@@ -36,19 +36,25 @@ const FILE = [
   './assets/illustrazioni/vuoto.svg',
   './assets/logo.svg',
   './assets/mascotte/accessori/rossella-autunno.svg',
+  './assets/mascotte/accessori/rossella-carnevale.svg',
+  './assets/mascotte/accessori/rossella-compleanno.svg',
   './assets/mascotte/accessori/rossella-estate.svg',
   './assets/mascotte/accessori/rossella-festa.svg',
   './assets/mascotte/accessori/rossella-halloween.svg',
   './assets/mascotte/accessori/rossella-inverno.svg',
   './assets/mascotte/accessori/rossella-natale.svg',
+  './assets/mascotte/accessori/rossella-pasqua.svg',
   './assets/mascotte/accessori/rossella-pioggia.svg',
   './assets/mascotte/accessori/rossella-primavera.svg',
   './assets/mascotte/accessori/rosso-autunno.svg',
+  './assets/mascotte/accessori/rosso-carnevale.svg',
+  './assets/mascotte/accessori/rosso-compleanno.svg',
   './assets/mascotte/accessori/rosso-estate.svg',
   './assets/mascotte/accessori/rosso-festa.svg',
   './assets/mascotte/accessori/rosso-halloween.svg',
   './assets/mascotte/accessori/rosso-inverno.svg',
   './assets/mascotte/accessori/rosso-natale.svg',
+  './assets/mascotte/accessori/rosso-pasqua.svg',
   './assets/mascotte/accessori/rosso-pioggia.svg',
   './assets/mascotte/accessori/rosso-primavera.svg',
   './assets/mascotte/coppia.svg',
@@ -97,6 +103,7 @@ const FILE = [
   './icons/icon-maskable-512.png',
   './index.html',
   './js/ai/ai.js',
+  './js/ai/foto.js',
   './js/ai/gemini.js',
   './js/calendario.js',
   './js/contenuti.js',
@@ -119,6 +126,8 @@ const FILE = [
   './js/store/zone.js',
   './js/ui/bussola.js',
   './js/ui/foglio.js',
+  './js/ui/foto-terreno.js',
+  './js/ui/foto.js',
   './js/ui/identita.js',
   './js/ui/installa.js',
   './js/ui/luna.js',

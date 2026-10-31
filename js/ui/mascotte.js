@@ -11,13 +11,17 @@ let temporaneo = null;
 const TOCCHI_PER_CAMBIO = 6;
 let tocchi = 0;
 
-export function impostaVestiti(valore) {
+// nato: data del primo avvio (AAAA-MM-GG), per il compleanno dell'orto; se non si passa resta quella di prima.
+let nato = null;
+
+export function impostaVestiti(valore, dataNascita) {
   preferenza = VESTITI.includes(valore) ? valore : 'auto';
+  if (dataNascita !== undefined) nato = dataNascita;
   temporaneo = null;
   aggiornaVestiti();
 }
 
-export const vestitoAttuale = () => temporaneo ?? (preferenza === 'auto' ? vestitoDelGiorno(oggiISO()) : preferenza);
+export const vestitoAttuale = () => temporaneo ?? (preferenza === 'auto' ? vestitoDelGiorno(oggiISO(), { nato }) : preferenza);
 
 // variante: 'pensa' (Rossella) o 'ride' (Rosso); senza variante, l'espressione neutra.
 export function percorsoMascotte(chi, variante) {
@@ -96,6 +100,23 @@ export function avatar(chi, variante) {
   a.addEventListener('click', () => alTocco(a));
   a.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); alTocco(a); } });
   return a;
+}
+
+// Un vermetto compare in basso e dice una battuta (per esempio dopo un lavoro fatto), poi se ne va.
+// Sta sopra a tutto: si vede anche se la conversazione in alto è fuori schermo.
+export async function festeggia(contesto = 'fatto') {
+  const chi = Math.random() < 0.5 ? 'rosso' : 'rossella';
+  const dati = await battute();
+  const pool = dati?.contesti?.[contesto]?.[chi] ?? [];
+  if (!pool.length) return;
+  const testo = pool[Math.floor(Math.random() * pool.length)];
+  document.querySelector('.vermetto-flash')?.remove();
+  const nodo = el('div', { class: `vermetto-flash ${chi}`, role: 'status' },
+    avatar(chi, chi === 'rosso' ? 'ride' : 'pensa'),
+    el('div', { class: 'flash-fumetto' }, testo));
+  document.body.append(nodo);
+  salta(nodo.querySelector('.avatar'));
+  setTimeout(() => nodo.remove(), 3600 + testo.length * 30);
 }
 
 // battute = [{ chi: 'rosso' | 'rossella', testo, variante? }]

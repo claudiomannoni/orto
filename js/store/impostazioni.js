@@ -7,6 +7,7 @@ export const PREDEFINITE = {
   esperienza: 'principiante',
   vestiti: 'auto',
   installa_rimandato: null,
+  orto_nato: null,
   ai_foto_ok: false,
   ai_foto_conteggio: null,
   nome_orto: '',

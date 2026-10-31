@@ -14,7 +14,7 @@ const vestiti = (page) => page.$$eval('.avatar[data-chi] .vestito', (i) => i.map
 let { ctx, page } = await nuovaPagina();
 
 // 1. Il vestito segue il calendario (?oggi=)
-const giorni = [['2026-10-31', 'halloween'], ['2026-12-25', 'natale'], ['2027-01-01', 'festa'], ['2026-07-15', 'estate'], ['2026-11-10', 'autunno'], ['2026-02-10', 'inverno'], ['2026-04-10', 'primavera']];
+const giorni = [['2026-10-31', 'halloween'], ['2026-12-25', 'natale'], ['2027-01-01', 'festa'], ['2026-07-15', 'estate'], ['2026-11-10', 'autunno'], ['2026-02-10', 'inverno'], ['2026-04-10', 'primavera'], ['2026-04-05', 'pasqua'], ['2026-02-12', 'carnevale']];
 for (const [data, v] of giorni) {
   await vai(page, 'oggi', `?oggi=${data}`);
   await page.waitForSelector('.avatar .vestito');
@@ -68,7 +68,7 @@ check('nessuno scroll orizzontale col fumetto', sc.sw <= sc.iw && sc.bw <= sc.iw
 
 // 7. Guardaroba in Impostazioni
 await vai(page, 'impostazioni', '?oggi=2026-07-15');
-check('impostazioni: ci sono i due vermetti e il selettore', (await page.locator('.vermetti-riga .avatar').count()) === 2 && (await page.locator('select[name=vestiti] option').count()) === 9);
+check('impostazioni: ci sono i due vermetti e il selettore', (await page.locator('.vermetti-riga .avatar').count()) === 2 && (await page.locator('select[name=vestiti] option').count()) === 12);
 check('impostazioni: «Automatico» scelto di partenza', (await page.inputValue('select[name=vestiti]')) === 'auto');
 check('impostazioni: i vermetti mostrano quello d\'estate', (await vestiti(page)).includes('rosso-estate.svg'));
 await page.selectOption('select[name=vestiti]', 'pioggia');
@@ -82,6 +82,32 @@ await page.waitForSelector('select[name=vestiti]');
 await page.selectOption('select[name=vestiti]', 'auto');
 await page.waitForTimeout(200);
 check('tornando ad «Automatico» ricompare il vestito del calendario', (await vestiti(page)).includes('rosso-estate.svg'));
+// 7b. Compleanno dell'orto: un anno dopo il primo avvio
+await page.evaluate(() => new Promise((ok) => {
+  const r = indexedDB.open('orto');
+  r.onsuccess = () => { const db = r.result; const tx = db.transaction('impostazioni', 'readwrite'); tx.objectStore('impostazioni').put({ chiave: 'orto_nato', valore: '2025-07-15' }); tx.oncomplete = () => { db.close(); ok(); }; };
+}));
+await vai(page, 'oggi', '?oggi=2026-07-15');
+await page.reload(); // la data del primo avvio si legge all'apertura dell'app
+await page.waitForSelector('.avatar .vestito');
+check('compleanno dell\'orto: un anno dopo il primo avvio i vermetti hanno il cappellino', (await vestiti(page)).includes('rosso-compleanno.svg') && (await vestiti(page)).includes('rossella-compleanno.svg'), (await vestiti(page)).join(','));
+await vai(page, 'oggi', '?oggi=2026-07-16');
+await page.waitForSelector('.avatar .vestito');
+check('il giorno dopo il compleanno tornano alla stagione', (await vestiti(page)).includes('rosso-estate.svg'));
+
+// 7c. «Fatto»: un vermetto compare in basso e dice una battuta; «Non oggi» no
+await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.waitForSelector('li.lavoro');
+await page.locator('li.lavoro').nth(1).getByRole('button', { name: 'Non oggi' }).click();
+await page.waitForTimeout(500);
+check('«Non oggi»: nessun vermetto in festa', (await page.locator('.vermetto-flash').count()) === 0);
+await page.locator('li.lavoro').first().locator('.btn.primario').click();
+await page.waitForSelector('.vermetto-flash');
+await page.waitForTimeout(500); // finita l'entrata
+const flash = await page.$eval('.vermetto-flash', (n) => { const r = n.getBoundingClientRect(); return { testo: n.querySelector('.flash-fumetto').textContent, dentro: r.left >= 0 && r.right <= innerWidth && r.bottom <= innerHeight, sopraBarra: r.bottom < document.getElementById('barra').getBoundingClientRect().top }; });
+check('«Fatto»: compare un vermetto con una battuta (entro 90 caratteri), dentro lo schermo e sopra la barra', flash.testo.length > 5 && flash.testo.length <= 90 && flash.dentro && flash.sopraBarra, JSON.stringify(flash));
+await page.waitForSelector('.vermetto-flash', { state: 'detached', timeout: 12000 });
+check('il vermetto se ne va da solo', true);
 await ctx.close();
 
 // 8. Movimento ridotto: niente animazioni

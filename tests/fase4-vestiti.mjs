@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 const radice = path.resolve(process.argv[2] || '.');
-const { VESTITI, vestitoDelGiorno, contestoDelVestito, altroVestito } = await import(pathToFileURL(path.join(radice, 'js/motore/vestiti.js')).href);
+const { VESTITI, vestitoDelGiorno, contestoDelVestito, altroVestito, pasqua } = await import(pathToFileURL(path.join(radice, 'js/motore/vestiti.js')).href);
 
 let ok = 0, ko = 0;
 const check = (n, c, d = '') => { c ? ok++ : ko++; console.log(`${c ? 'PASS' : 'FAIL'}  ${n}${d ? '  -> ' + d : ''}`); };
@@ -32,7 +32,26 @@ check('ogni SVG pesa meno di 20 KB', piccoli.length === 0, piccoli.join(','));
 const strani = VESTITI.flatMap((v) => ['rosso', 'rossella'].map((c) => `assets/mascotte/accessori/${c}-${v}.svg`)).filter((f) => fs.existsSync(path.join(radice, f)) && /<script|<image|href=|<text/i.test(fs.readFileSync(path.join(radice, f), 'utf8')));
 check('negli SVG niente script, immagini, link o testo', strani.length === 0, strani.join(','));
 
-check('pioggia usa le battute generiche, gli altri le proprie', contestoDelVestito('pioggia') === 'tocco' && contestoDelVestito('halloween') === 'halloween');
+check('ogni vestito ha il suo gruppo di battute; uno sconosciuto usa quelle generiche', VESTITI.every((v) => contestoDelVestito(v) === v) && contestoDelVestito('boh') === 'tocco');
+
+// Pasqua (date vere) e le feste che ne dipendono
+const attesaPasqua = { 2024: '03-31', 2025: '04-20', 2026: '04-05', 2027: '03-28', 2028: '04-16', 2029: '04-01', 2030: '04-21', 2038: '04-25', 2285: '03-22' };
+for (const [a, md] of Object.entries(attesaPasqua)) { const [m, g] = pasqua(Number(a)); check(`Pasqua ${a}: ${md}`, `${String(m).padStart(2, '0')}-${String(g).padStart(2, '0')}` === md, `${m}-${g}`); }
+const p26 = [['2026-04-01', 'primavera'], ['2026-04-02', 'pasqua'], ['2026-04-05', 'pasqua'], ['2026-04-06', 'pasqua'], ['2026-04-07', 'primavera'],
+  ['2027-03-25', 'pasqua'], ['2027-03-29', 'pasqua'], ['2027-03-30', 'primavera'], ['2027-03-24', 'primavera']];
+for (const [d, v] of p26) check(`${d}: ${v} (giovedì santo - Pasquetta)`, vestitoDelGiorno(d) === v, vestitoDelGiorno(d));
+const c26 = [['2026-02-11', 'inverno'], ['2026-02-12', 'carnevale'], ['2026-02-17', 'carnevale'], ['2026-02-18', 'inverno'], ['2027-02-04', 'carnevale'], ['2027-02-09', 'carnevale'], ['2027-02-10', 'inverno']];
+for (const [d, v] of c26) check(`${d}: ${v} (giovedì - martedì grasso)`, vestitoDelGiorno(d) === v, vestitoDelGiorno(d));
+
+// Compleanno dell'orto: stesso giorno del primo avvio, dall'anno dopo; vince su tutto
+const nato = '2026-11-10';
+check('compleanno: un anno dopo', vestitoDelGiorno('2027-11-10', { nato }) === 'compleanno');
+check('compleanno: nello stesso anno del primo avvio non c\'è', vestitoDelGiorno('2026-11-10', { nato }) === 'autunno');
+check('compleanno: il giorno dopo no', vestitoDelGiorno('2027-11-11', { nato }) === 'autunno');
+check('compleanno battuto solo da niente: vince anche su Natale', vestitoDelGiorno('2027-12-25', { nato: '2026-12-25' }) === 'compleanno');
+check('compleanno: data del primo avvio rotta o assente = nessun compleanno', vestitoDelGiorno('2027-11-10', { nato: 'boh' }) === 'autunno' && vestitoDelGiorno('2027-11-10', { nato: null }) === 'autunno' && vestitoDelGiorno('2027-11-10') === 'autunno');
+check('compleanno il 29 febbraio: senza bisogno, nessun crash negli anni non bisestili', vestitoDelGiorno('2027-03-01', { nato: '2024-02-29' }) !== 'compleanno');
+check('feste vicine non si pestano: Capodanno resta «festa» e Pasqua non diventa mai Natale', vestitoDelGiorno('2027-01-01', { nato: '2026-02-02' }) === 'festa');
 check('altroVestito: sempre diverso dall\'attuale', VESTITI.every((v) => [0, 0.3, 0.99].every((x) => altroVestito(v, x) !== v && VESTITI.includes(altroVestito(v, x)))));
 
 console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);

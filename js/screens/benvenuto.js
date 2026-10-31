@@ -1,6 +1,6 @@
 // Primo avvio guidato: sei domande, una per schermata. Si risponde con un tocco e si va avanti.
 // Tutte le risposte sono impostazioni e si cambiano poi in Impostazioni.
-import { el } from '../util.js';
+import { el, isoLocale } from '../util.js';
 import { t } from '../i18n.js';
 import { leggi, imposta, pulisciNome } from '../store/impostazioni.js';
 import { zone } from '../contenuti.js';
@@ -42,6 +42,8 @@ export async function monta(contenitore, { alTermine }) {
 
   const concludi = async () => {
     await imposta('primo_avvio_fatto', true);
+    // Il giorno del primo avvio è il «compleanno dell'orto»: non si sposta se si rifà il primo avvio.
+    if (!impostazioni.orto_nato) await imposta('orto_nato', isoLocale(new Date()));
     alTermine();
   };
 

@@ -5,7 +5,7 @@ import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../sto
 import { leggi } from '../store/impostazioni.js';
 import { catalogo, glossario } from '../contenuti.js';
 import { calcolaLavori } from '../motore/oggi.js';
-import { conversazione } from '../ui/mascotte.js';
+import { conversazione, festeggia } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
@@ -130,6 +130,7 @@ export async function monta(contenitore) {
     }));
     carta.remove();
     toast(t(tipo === 'lavoro_fatto' ? 'lavoro.fatto.toast' : 'lavoro.saltato.toast'));
+    if (tipo === 'lavoro_fatto') festeggia('fatto');
     if (!lista.children.length) mostraConversazione('finito');
   };
 

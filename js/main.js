@@ -1,6 +1,7 @@
 // Avvio dell'app: traduzioni, testata, barra in basso, schermate.
 import { caricaTesti, t } from './i18n.js';
-import { leggi, assicuraIdentita } from './store/impostazioni.js';
+import { leggi, imposta, assicuraIdentita } from './store/impostazioni.js';
+import { isoLocale } from './util.js';
 import { impostaLingua } from './contenuti.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
@@ -58,9 +59,14 @@ async function avvia() {
   let lingua = 'it';
   try {
     await assicuraIdentita();
-    const iniziali = await leggi();
+    let iniziali = await leggi();
+    // Chi usava già l'app ha il «compleanno dell'orto» dal primo giorno in cui lo riapre.
+    if (iniziali.primo_avvio_fatto && !iniziali.orto_nato) {
+      await imposta('orto_nato', isoLocale(new Date()));
+      iniziali = await leggi();
+    }
     lingua = iniziali.lingua || 'it';
-    impostaVestiti(iniziali.vestiti);
+    impostaVestiti(iniziali.vestiti, iniziali.orto_nato);
   } catch (errore) {
     console.error(errore);
   }

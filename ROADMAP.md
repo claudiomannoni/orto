@@ -45,14 +45,18 @@ Ogni fase si può usare da sola: finita una, l'app resta utile anche se non si f
 - [x] Profilo del terreno: 7 domande, 10 erbe spontanee indicatrici (certezza bassa), test del barattolo, 9 consigli, 4 fonti. Il profilo (tessitura, acqua, sostanza organica) si ricava dalle risposte; la misura del barattolo vale più delle risposte. Prove: `tests/fase3-profilo.mjs`, `tests/fase3-terreno.mjs`
 - [ ] Diario fotografico datato per zona e coltura (serve un nuovo store e una decisione su come metterlo nel backup: le foto pesano)
 - [ ] Consigli del terreno dentro «Oggi» e nel calendario (per esempio: terreno argilloso, non lavorare da bagnato)
-- [ ] **Foto in campo per capire il terreno** (idea del 31/10/2026): si fotografano il terreno e le erbe spontanee del posto; Gemini propone quali erbe riconosce e che indizi danno sul terreno, e l'utente conferma (le proposte riempiono la lista delle erbe indicatrici e il questionario, mai in automatico). Serve la fase 4 (foto + Gemini), foto ridotte prima dell'invio per risparmiare quota, avviso che la foto va a Google, risposta sempre segnata «da verificare»
+- [x] **Foto in campo per capire il terreno** (31/10/2026): nel profilo del terreno, «Foto in campo»: si scattano o scelgono fino a 3 foto (terreno da vicino ed erbe spontanee), ridotte a 1024 px prima dell'invio; Rossella (Gemini) propone le erbe che riconosce (collegate a quelle di `terreno.json`, un id inventato non vale) e gli indizi sul terreno; l'utente conferma, mai in automatico, e le proposte contano come un'erba (mezza risposta). Le foto non si salvano. Avviso che vanno a Google (permesso la prima volta), tetto di 10 foto al giorno per non finire la quota, ogni risposta segnata come proposta con «L'IA è poco sicura». Prove: `tests/fase4-foto.mjs`, `tests/11-foto.mjs` (con Gemini simulato). **Non provata con una foto e una chiave vere**
+- [ ] Salvare le foto nel diario fotografico (per zona e coltura) e il time-lapse: serve un nuovo store e la decisione su come mettere le foto nel backup (pesano)
+- [ ] Diagnosi di piante malate da foto (Rossella): stessa base delle foto in campo, con prompt prudente e senza consigli sui prodotti
 
 ## Vermetti vivi (31/10/2026)
 
 - [x] Vestiti per stagioni e feste: inverno (sciarpa e berretto), estate (occhiali da sole), primavera (fiori e farfalle), autunno (foglie), Halloween (zucca e cappello da strega), Natale, festa (cappellino e coriandoli), pioggia (ombrello). Il vestito del giorno viene dal calendario; in Impostazioni si può scegliere a mano
 - [x] Toccandoli saltano e dicono una battuta; a volte si punzecchiano (uno parla, l'altro risponde); al sesto tocco cambiano vestito. Respirano piano, e con «riduci movimento» non si animano
 - [x] Battute: 16 generiche per ciascuno, 6 per stagione o festa, 5 per il cambio d'abito, 8+ scambi (`data/it/battute.json`, scritte da Codex e ritoccate). Prove: `tests/fase4-vestiti.mjs`, `tests/09-vermetti.mjs`, `tests/mascotte-battute.mjs`
-- [ ] Altre feste (Pasqua, Carnevale, compleanno dell'orto), il vestito per la pioggia in automatico col meteo, battute che commentano i lavori fatti, nuovi vestiti ogni tanto
+- [x] Altri vestiti: Pasqua (orecchie da coniglio e uovo, da giovedì santo a Pasquetta), Carnevale (cappello da giullare, da giovedì a martedì grasso), compleanno dell'orto (un anno dopo il primo avvio, cappellino e palloncino). Quando tocchi «Fatto» un vermetto compare in basso e fa i complimenti (12 battute per ciascuno, 5 scambi)
+- [ ] Il vestito per la pioggia in automatico col meteo, battute che commentano le colture dell'utente, traguardi e livelli con i vermetti, nuovi vestiti ogni tanto
+- [ ] Date vere del gelo: servono le serie giornaliere della stazione ARSIAL di Velletri (320 m); le fonti trovate finora confermano la stazione ma non danno le date
 
 ## Futuro, non ora
 
