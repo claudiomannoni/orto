@@ -5,6 +5,8 @@ import { leggi } from '../store/impostazioni.js';
 import { statoProgressi } from '../store/progressi.js';
 import { apriFoglio } from './foglio.js';
 import { conversazione } from './mascotte.js';
+import { condividiOrto } from './condividi.js';
+import { toast } from './toast.js';
 
 const barra = (da, a, punti) => el('progress', { class: 'avanzamento', max: Math.max(1, (a ?? da + 1) - da), value: a === null ? 1 : Math.min(punti - da, a - da), 'aria-hidden': 'true' });
 
@@ -27,6 +29,17 @@ export async function apriProgressi() {
         el('span', { class: 'aiuto' }, x.descrizione),
         el('span', { class: 'etichetta' }, raggiunti.has(x.id) ? (quando[x.id] ? t('progressi.preso_il', { data: formattaData(quando[x.id]) }) : t('progressi.preso')) : t('progressi.da_prendere'))))),
       el('p', { class: 'aiuto' }, t('progressi.punti_come')),
+      el('button', {
+        class: 'btn', type: 'button', id: 'condividi',
+        onclick: async () => {
+          try {
+            const esito = await condividiOrto();
+            if (esito === 'condiviso') toast(t('condividi.fatto'));
+            else if (esito === 'scaricato') toast(t('condividi.scaricata'));
+          } catch { toast(t('condividi.errore')); }
+        },
+      }, t('condividi.pulsante')),
+      el('p', { class: 'aiuto' }, t('condividi.spiega')),
       el('button', { class: 'btn primario', type: 'button', onclick: () => foglio.close() }, t('foglio.chiudi'))),
   });
   return foglio;

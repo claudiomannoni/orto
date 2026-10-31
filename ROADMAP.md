@@ -85,6 +85,10 @@ Rimandato, in ordine: Oggi che tiene conto del meteo (pioggia/gelo cambiano i la
 - Quiz dell'ortolano (`#/quiz`): cinque domande al giorno uguali per tutti (seme = la data), una partita al giorno, serie di giorni di fila, spiegazione dopo ogni risposta. Domande in `data/it/quiz.json`, con fonte.
 - Chiedi a Rossella (`#/chiedi`): domanda libera a Gemini con il contesto dell'orto (zona, mese, colture, tempo di oggi). Solo testo, consenso la prima volta, tetto di 20 domande al giorno, risposta con livello di certezza e «da controllare»; niente prodotti né dosi.
 
+- Vermetti con occhi vivi (`js/ui/occhi.js`): pupille che seguono il dito, sguardi tra loro, palpebre; Rosso ride a occhi chiusi al tocco (2.16).
+- Oggi riordinata: meteo e lavori in alto, vermetti e progressi sotto (2.17).
+- «Condividi il mio orto»: figurina PNG (livello, numeri, vermetti) col foglio di condivisione del telefono, o scaricata (2.18).
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).
