@@ -583,3 +583,4 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
 .coriandoli { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 60; }
 .coriandolo { position: absolute; top: -12px; left: var(--x); width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: coriandolo var(--d) ease-in var(--ritardo) forwards; }
 @keyframes coriandolo { 0% { opacity: 1; transform: translateY(0) rotate(0); } 100% { opacity: 0; transform: translateY(70vh) rotate(var(--r)); } }
+.saluto { margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--verde); }

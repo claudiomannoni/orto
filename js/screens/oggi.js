@@ -5,7 +5,7 @@ import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../sto
 import { leggi } from '../store/impostazioni.js';
 import { catalogo, glossario, quiz, curiosita } from '../contenuti.js';
 import { calcolaLavori } from '../motore/oggi.js';
-import { conversazione, festeggia } from '../ui/mascotte.js';
+import { conversazione, festeggia, vestitoAttuale } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
@@ -20,6 +20,7 @@ import { previsioni } from '../meteo.js';
 import { consiglioMeteo } from '../motore/meteo.js';
 import { serieQuiz } from '../motore/quiz.js';
 import { curiositaDelGiorno } from '../motore/curiosita.js';
+import { chiaveSaluto } from '../motore/saluto.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -141,6 +142,15 @@ function scheda(voce, indice, { termini, impostazioni, alChiudere }) {
   return carta;
 }
 
+const FESTE = ['halloween', 'natale', 'pasqua', 'carnevale', 'compleanno', 'festa'];
+
+// «Buongiorno, Claudio»: dipende dall'ora; nei giorni di festa (quando i vermetti sono vestiti a festa) saluta con gli auguri.
+function testoSaluto(impostazioni) {
+  const festa = FESTE.includes(vestitoAttuale()) ? vestitoAttuale() : null;
+  const saluto = t(chiaveSaluto(new Date().getHours(), { festa }));
+  return impostazioni.nome_coltivatore ? t('saluto.con_nome', { saluto, nome: impostazioni.nome_coltivatore }) : saluto;
+}
+
 export async function monta(contenitore) {
   const oggi = oggiISO();
   const [colture, eventi, schede, impostazioni, termini, carta] = await Promise.all([
@@ -209,6 +219,7 @@ export async function monta(contenitore) {
 
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
+    el('p', { class: 'saluto' }, testoSaluto(impostazioni)),
     el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
     cartaMeteo(),
