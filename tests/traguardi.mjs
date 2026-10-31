@@ -16,7 +16,7 @@ try {
   process.exit(1);
 }
 
-const tipi = ['lavori_fatti', 'colture', 'colture_diverse', 'zone', 'terreno_capito', 'foto', 'diagnosi', 'giorni_attivi', 'giorni_di_fila', 'stagioni'];
+const tipi = ['lavori_fatti', 'colture', 'colture_diverse', 'zone', 'terreno_capito', 'foto', 'diagnosi', 'giorni_attivi', 'giorni_di_fila', 'stagioni', 'quiz_giocati', 'quiz_perfetti', 'quiz_di_fila'];
 const soglieLivelli = [0, 40, 100, 200, 350, 550, 800, 1100, 1500, 2000];
 const malcodifiche = /Ã.|Â.|â€|ï¿½|�/u;
 const emoji = /\p{Extended_Pictographic}/u;

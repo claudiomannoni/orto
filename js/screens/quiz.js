@@ -5,6 +5,7 @@ import { leggi, imposta } from '../store/impostazioni.js';
 import { quiz } from '../contenuti.js';
 import { domandeDelGiorno, serieQuiz } from '../motore/quiz.js';
 import { conversazione, festeggia } from '../ui/mascotte.js';
+import { controllaProgressi } from '../store/progressi.js';
 
 export async function monta(contenitore) {
   const oggi = oggiISO();
@@ -48,6 +49,7 @@ export async function monta(contenitore) {
       risultati[oggi] = punti;
       await imposta('quiz_risultati', risultati);
       fine(punti);
+      controllaProgressi();
     } }, indice + 1 < domande.length ? t('quiz.prossima') : t('quiz.vedi_risultato'));
     bottoni.forEach((b, i) => b.addEventListener('click', () => {
       const giusta = i === d.giusta;

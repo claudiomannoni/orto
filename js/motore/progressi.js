@@ -23,7 +23,7 @@ export function seriePiuLunga(date) {
 }
 
 // Le misure su cui si valutano i traguardi. eventi, colture, zone, foto: gli elenchi dell'utente.
-export function misure({ eventi = [], colture = [], zone = [], foto = [] }) {
+export function misure({ eventi = [], colture = [], zone = [], foto = [], quiz = {} }) {
   const fatti = eventi.filter((e) => e.tipo === 'lavoro_fatto' && typeof e.data === 'string');
   const perStagione = {};
   for (const e of fatti) perStagione[stagioneDi(e.data)] = (perStagione[stagioneDi(e.data)] ?? 0) + 1;
@@ -38,6 +38,9 @@ export function misure({ eventi = [], colture = [], zone = [], foto = [] }) {
     diagnosi: foto.filter((f) => f.diagnosi).length,
     giorni_attivi: giorniAttivi.size,
     giorni_di_fila: seriePiuLunga(fatti.map((e) => e.data)),
+    quiz_giocati: Object.keys(quiz ?? {}).length,
+    quiz_perfetti: Object.values(quiz ?? {}).filter((p) => p >= 5).length,
+    quiz_di_fila: seriePiuLunga(Object.keys(quiz ?? {})),
     stagioni: Object.values(perStagione).filter((n) => n >= LAVORI_PER_STAGIONE).length,
   };
 }

@@ -11,8 +11,8 @@ import { festeggia } from '../ui/mascotte.js';
 const PAUSA_FESTEGGIAMENTO = 1300;
 
 async function leggiTutto() {
-  const [eventi, colture, zone, foto] = await Promise.all([tutte('eventi'), tutte('colture'), tutte('zone'), tutte('foto')]);
-  return { eventi, colture, zone, foto: foto.map(({ id, data, diagnosi }) => ({ id, data, diagnosi })) }; // non servono le immagini
+  const [eventi, colture, zone, foto, impostazioni] = await Promise.all([tutte('eventi'), tutte('colture'), tutte('zone'), tutte('foto'), leggi()]);
+  return { eventi, colture, zone, foto: foto.map(({ id, data, diagnosi }) => ({ id, data, diagnosi })), quiz: impostazioni.quiz_risultati ?? {} }; // non servono le immagini
 }
 
 // Lo stato attuale (punti, livello, traguardi raggiunti), senza salvare né festeggiare.

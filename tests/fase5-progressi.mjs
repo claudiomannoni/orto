@@ -63,5 +63,11 @@ check(`i ${dati.livelli.length} livelli partono da 0 e salgono`, dati.livelli[0]
 const piano = valuta({ eventi: [fatto('2026-11-10')] }, dati);
 check('un solo lavoro fatto: si prende «Si comincia» e si resta al livello 1 o 2', piano.raggiunti.includes('primo-lavoro') && piano.livello.id <= 2, `${piano.punti} punti, livello ${piano.livello.id}`);
 
+const mq = misure({ quiz: { '2026-11-01': 3, '2026-11-02': 5, '2026-11-03': 5, '2026-11-05': 4 } });
+check('quiz: giocati, perfetti e di fila', mq.quiz_giocati === 4 && mq.quiz_perfetti === 2 && mq.quiz_di_fila === 3, JSON.stringify([mq.quiz_giocati, mq.quiz_perfetti, mq.quiz_di_fila]));
+check('quiz: senza dati tutto a zero', misure({}).quiz_giocati === 0 && misure({ quiz: null }).quiz_perfetti === 0);
+const vq = valuta({ quiz: { '2026-11-01': 5 } }, dati);
+check('un quiz perfetto sblocca «Prima domanda» e «Cinque su cinque»', vq.raggiunti.includes('primo-quiz') && vq.raggiunti.includes('quiz-perfetto') && !vq.raggiunti.includes('quiz-dieci'), vq.raggiunti.join());
+
 console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);
 process.exit(ko ? 1 : 0);
