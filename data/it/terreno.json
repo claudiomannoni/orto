@@ -1,0 +1,235 @@
+{
+  "versione": 1,
+  "questionario": [
+    {
+      "id": "terra-fra-le-dita",
+      "testo": "Da umida, la terra fra le dita sembra ruvida, liscia o appiccicosa?",
+      "perche": "La sabbia dà una sensazione ruvida; più argilla rende la terra liscia e appiccicosa.",
+      "opzioni": [
+        { "id": "ruvida", "testo": "Ruvida e granulosa", "valori": { "tessitura": "sabbioso" } },
+        { "id": "morbida", "testo": "Morbida, senza una sensazione netta", "valori": { "tessitura": "medio" } },
+        { "id": "appiccicosa", "testo": "Liscia e appiccicosa", "valori": { "tessitura": "argilloso" } }
+      ],
+      "certezza": "media",
+      "fonti": ["f1"]
+    },
+    {
+      "id": "pallina-di-terra",
+      "testo": "Con la terra appena umida riesci a fare una pallina?",
+      "perche": "Le particelle fini tendono a legarsi; la sabbia, invece, si sbriciola facilmente.",
+      "opzioni": [
+        { "id": "non-tiene", "testo": "No, si sbriciola subito", "valori": { "tessitura": "sabbioso" } },
+        { "id": "tiene-poco", "testo": "Tiene, ma si rompe con poca pressione", "valori": { "tessitura": "medio" } },
+        { "id": "tiene-molto", "testo": "Tiene bene e si schiaccia", "valori": { "tessitura": "argilloso" } }
+      ],
+      "certezza": "media",
+      "fonti": ["f1"]
+    },
+    {
+      "id": "terra-dopo-pioggia",
+      "testo": "Dopo una pioggia normale, per quanto resta visibilmente bagnato il terreno?",
+      "perche": "La tessitura e la struttura influenzano quanto in fretta l'acqua scende e quanto a lungo resta nel suolo.",
+      "opzioni": [
+        { "id": "si-asciuga-presto", "testo": "Si asciuga in fretta", "valori": { "drenaggio": "rapido" } },
+        { "id": "resta-fresco", "testo": "Resta fresco, senza pozzanghere a lungo", "valori": { "drenaggio": "buono" } },
+        { "id": "ristagna", "testo": "Resta zuppo o forma pozzanghere a lungo", "valori": { "drenaggio": "lento" } }
+      ],
+      "certezza": "media",
+      "fonti": ["f1"]
+    },
+    {
+      "id": "buco-con-la-vanga",
+      "testo": "Scavando una buca, trovi acqua ferma o pareti lucide e molto bagnate?",
+      "perche": "Acqua che resta vicino alla superficie può segnalare drenaggio lento; ripeti il controllo in un altro punto.",
+      "opzioni": [
+        { "id": "asciutto", "testo": "No, la buca è asciutta o appena umida", "valori": { "drenaggio": "buono" } },
+        { "id": "acqua-ferma", "testo": "Sì, trovo acqua ferma o terra satura", "valori": { "drenaggio": "lento" } },
+        { "id": "non-so", "testo": "Non so: non ha piovuto da poco", "valori": {} }
+      ],
+      "certezza": "media",
+      "fonti": ["f1"]
+    },
+    {
+      "id": "strati-scavando",
+      "testo": "Nei primi centimetri di scavo, come si presenta la terra?",
+      "perche": "Colore e struttura possono cambiare con profondità e posizione; l'aspetto da solo non misura l'humus.",
+      "opzioni": [
+        { "id": "chiara-compatta", "testo": "Chiara, con pochi residui visibili", "valori": { "humus": "povero" } },
+        { "id": "bruna-grumosa", "testo": "Bruna e a piccoli grumi", "valori": { "humus": "medio" } },
+        { "id": "scura-friabile", "testo": "Scura e friabile, con residui decomposti", "valori": { "humus": "ricco" } }
+      ],
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "lombrichi",
+      "testo": "In una palata di terra umida trovi lombrichi o gallerie?",
+      "perche": "Lombrichi e gallerie sono segnali di attività biologica, ma cambiano con stagione, umidità e lavorazioni.",
+      "opzioni": [
+        { "id": "molti", "testo": "Ne vedo diversi", "valori": { "humus": "ricco" } },
+        { "id": "pochi", "testo": "Ne vedo pochi", "valori": { "humus": "medio" } },
+        { "id": "nessuno", "testo": "Non ne vedo", "valori": {} }
+      ],
+      "certezza": "bassa",
+      "fonti": []
+    },
+    {
+      "id": "residui-organici",
+      "testo": "Sotto la superficie vedi residui vegetali decomposti mescolati alla terra?",
+      "perche": "L'humus deriva dalla decomposizione di resti vegetali e animali; una vista rapida non ne misura la quantità.",
+      "opzioni": [
+        { "id": "quasi-niente", "testo": "Quasi niente", "valori": { "humus": "povero" } },
+        { "id": "qualche-residuo", "testo": "Qualche residuo scuro", "valori": { "humus": "medio" } },
+        { "id": "molti-residui", "testo": "Molti residui scuri ben decomposti", "valori": { "humus": "ricco" } }
+      ],
+      "certezza": "bassa",
+      "fonti": ["f1"]
+    }
+  ],
+  "piante_indicatrici": [
+    {
+      "id": "piantaggine-maggiore",
+      "nome": "Piantaggine maggiore",
+      "nome_scientifico": "Plantago major",
+      "indica": [{ "asse": "drenaggio", "valore": "lento" }],
+      "come_riconoscerla": "Foglie larghe raccolte in una rosetta bassa; i fiori formano una spiga sottile.",
+      "note": "È associata anche a suolo calpestato, secco o poco fertile. Una pianta non prova che il terreno sia argilloso o che dreni male.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    },
+    {
+      "id": "centocchio",
+      "nome": "Centocchio comune",
+      "nome_scientifico": "Stellaria media",
+      "indica": [{ "asse": "humus", "valore": "ricco" }, { "asse": "drenaggio", "valore": "lento" }],
+      "come_riconoscerla": "Pianta bassa e tenera, con foglie ovali opposte e piccoli fiori bianchi a cinque petali divisi.",
+      "note": "Può comparire in suoli umidi e fertili, ma anche compattati o ombreggiati; stagione e gestione cambiano la presenza.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    },
+    {
+      "id": "romice-riccio",
+      "nome": "Romice crespo",
+      "nome_scientifico": "Rumex crispus",
+      "indica": [{ "asse": "drenaggio", "valore": "lento" }],
+      "come_riconoscerla": "Foglie lunghe con margini ondulati; da adulta porta piccoli frutti bruni in pannocchie.",
+      "note": "È associato a terreni umidi in alcune guide, ma cresce in condizioni diverse. Non indica da solo né argilla né ristagno permanente.",
+      "certezza": "bassa",
+      "fonti": ["f3"]
+    },
+    {
+      "id": "equiseto-campi",
+      "nome": "Equiseto dei campi",
+      "nome_scientifico": "Equisetum arvense",
+      "indica": [{ "asse": "drenaggio", "valore": "lento" }],
+      "come_riconoscerla": "Fusti verdi sottili, articolati e con rametti disposti a raggiera; in primavera spunta anche un fusto fertile bruno.",
+      "note": "È associato a zone umide, ma la sua presenza non basta a diagnosticare il drenaggio: può raggiungere punti diversi del terreno con i rizomi.",
+      "certezza": "bassa",
+      "fonti": ["f3"]
+    },
+    {
+      "id": "acetosella-minore",
+      "nome": "Acetosella minore",
+      "nome_scientifico": "Rumex acetosella",
+      "indica": [{ "asse": "tessitura", "valore": "sabbioso" }],
+      "come_riconoscerla": "Pianta piccola con foglie a due lobi laterali e un lobo centrale; i fiori sono minuscoli e rossastri o verdastri.",
+      "note": "Alcune guide la associano a suoli leggeri o acidi. Non misura la sabbia e non permette di conoscere il pH senza un test.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    },
+    {
+      "id": "convolvolo-campi",
+      "nome": "Convolvolo dei campi",
+      "nome_scientifico": "Convolvulus arvensis",
+      "indica": [{ "asse": "tessitura", "valore": "argilloso" }],
+      "come_riconoscerla": "Pianta strisciante o rampicante, con foglie a freccia e fiori a imbuto bianchi o rosati.",
+      "note": "È associato a suoli compatti in alcune guide, ma cresce anche in terreni diversi. La sua presenza non identifica la tessitura.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    },
+    {
+      "id": "tarassaco",
+      "nome": "Tarassaco",
+      "nome_scientifico": "Taraxacum officinale",
+      "indica": [{ "asse": "tessitura", "valore": "argilloso" }],
+      "come_riconoscerla": "Rosetta di foglie dentate; il fiore giallo su un fusto cavo diventa un globo di semi piumosi.",
+      "note": "Può apparire in suoli compattati o argillosi, ma è comune in molti ambienti. Non usarlo da solo per classificare il terreno.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    },
+    {
+      "id": "cicoria-selvatica",
+      "nome": "Cicoria selvatica",
+      "nome_scientifico": "Cichorium intybus",
+      "indica": [{ "asse": "humus", "valore": "povero" }],
+      "come_riconoscerla": "Foglie basali allungate e fiori azzurri simili a piccoli capolini lungo fusti rigidi.",
+      "note": "È elencata fra le piante di suoli poco fertili in alcune guide. La fertilità non coincide con la quantità di humus e va verificata a parte.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    },
+    {
+      "id": "portulaca",
+      "nome": "Portulaca comune",
+      "nome_scientifico": "Portulaca oleracea",
+      "indica": [{ "asse": "drenaggio", "valore": "rapido" }],
+      "come_riconoscerla": "Pianta bassa con fusti rossastri, foglie carnose e piccoli fiori gialli nelle ore luminose.",
+      "note": "Le guide la associano a condizioni asciutte e calde, non a una sola tessitura. Sole, stagione e disturbo del suolo contano molto.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    },
+    {
+      "id": "trifoglio-bianco",
+      "nome": "Trifoglio bianco",
+      "nome_scientifico": "Trifolium repens",
+      "indica": [{ "asse": "humus", "valore": "povero" }],
+      "come_riconoscerla": "Pianta strisciante con foglie divise in tre foglioline, spesso con una macchia chiara, e capolini bianchi.",
+      "note": "Può comparire in prati poco fertili o soggetti a siccità, ma anche in suoli curati. Non dimostra che manchi humus o azoto.",
+      "certezza": "bassa",
+      "fonti": ["f3", "f4"]
+    }
+  ],
+  "test_barattolo": {
+    "titolo": "Test del barattolo",
+    "materiali": ["Barattolo trasparente a pareti dritte con coperchio", "Terra raccolta in più punti dell'aiuola", "Acqua", "Un cucchiaino di detersivo per lavastoviglie in polvere o addolcitore", "Pennarello e righello"],
+    "passi": [
+      { "testo": "Togli dalla terra sassi, radici e foglie, poi riempi il barattolo per un terzo." },
+      { "testo": "Aggiungi acqua quasi fino all'orlo e un cucchiaino di detersivo in polvere o addolcitore." },
+      { "testo": "Chiudi il barattolo e agitalo finché la terra è ben dispersa nell'acqua." },
+      { "testo": "Appoggia il barattolo in piano e segna dopo un minuto la parte depositata sul fondo." },
+      { "testo": "Segna dopo circa sei ore la parte depositata sopra la sabbia." },
+      { "testo": "Segna dopo 24-48 ore il livello finale dei sedimenti, anche se l'acqua resta torbida." },
+      { "testo": "Misura l'altezza dei tre strati e calcola per ciascuno la percentuale sul totale dei sedimenti." }
+    ],
+    "lettura": "La sabbia si deposita per prima sul fondo, il limo si posa sopra e l'argilla forma lo strato superiore più tardi. Calcola ogni percentuale dividendo l'altezza dello strato per l'altezza totale dei sedimenti. Le fasce qui sotto sono solo orientative: per assegnare una classe precisa usa il triangolo USDA con sabbia, limo e argilla; torbidità, aggregati e metodo casalingo possono alterare la misura.",
+    "tipi": [
+      { "id": "sabbioso", "nome": "Tendente al sabbioso", "come_si_riconosce": "Molti granelli grossi; l'acqua tende a scendere rapidamente. È una fascia orientativa, non una classe completa del triangolo.", "sabbia_pct": [70, 100], "limo_pct": [0, 30], "argilla_pct": [0, 15] },
+      { "id": "medio", "nome": "Tendente al medio", "come_si_riconosce": "Proporzioni intermedie, spesso vicine alle classi franco-sabbiosa, franca o franco-limosa; il triangolo dà la classe precisa.", "sabbia_pct": [23, 52], "limo_pct": [28, 50], "argilla_pct": [7, 27] },
+      { "id": "argilloso", "nome": "Tendente all'argilloso", "come_si_riconosce": "La quota di argilla è alta e lo strato fine è spesso; il triangolo distingue argilla e classi franco-argillose.", "sabbia_pct": [0, 45], "limo_pct": [0, 65], "argilla_pct": [35, 100] }
+    ],
+    "certezza": "media",
+    "fonti": ["f5", "f1"]
+  },
+  "consigli": [
+    { "asse": "tessitura", "valore": "sabbioso", "testo": "Aggiungi compost maturo per aumentare la sostanza organica e aiutare il terreno a trattenere acqua; controlla spesso l'umidità e irriga con calma, senza lasciare asciugare a lungo le radici.", "certezza": "media", "fonti": ["f3", "f1"] },
+    { "asse": "tessitura", "valore": "medio", "testo": "Mantieni il terreno coperto con residui vegetali o compost maturo; evita aggiunte correttive senza un motivo osservato o un'analisi.", "certezza": "media", "fonti": ["f3", "f1"] },
+    { "asse": "tessitura", "valore": "argilloso", "testo": "Non lavorarlo quando è bagnato: si compatta facilmente. Aggiungi compost maturo; non correggerlo con sabbia fine, che può peggiorare la compattazione.", "certezza": "alta", "fonti": ["f1", "f3"] },
+    { "asse": "drenaggio", "valore": "rapido", "testo": "Aggiungi compost o foglie compostate per migliorare la ritenzione d'acqua; controlla l'umidità più spesso, soprattutto con caldo e vento.", "certezza": "media", "fonti": ["f3"] },
+    { "asse": "drenaggio", "valore": "buono", "testo": "Mantieni la superficie coperta e osserva l'umidità prima di irrigare; non serve aumentare l'acqua solo perché il terreno è ben drenato.", "certezza": "media", "fonti": ["f3", "f1"] },
+    { "asse": "drenaggio", "valore": "lento", "testo": "Evita di calpestare o lavorare il terreno bagnato. Se il ristagno persiste, valuta aiuole rialzate e controlla il punto in più stagioni prima di intervenire.", "certezza": "media", "fonti": ["f1", "f3"] },
+    { "asse": "humus", "valore": "povero", "testo": "Restituisci al suolo residui vegetali compostati o compost maturo; usa una copertura vegetale o una pacciamatura per proteggere la superficie.", "certezza": "media", "fonti": ["f1", "f3"] },
+    { "asse": "humus", "valore": "medio", "testo": "Mantieni l'apporto di residui compostati e limita il terreno nudo; non aggiungere concimi solo in base al colore o alla presenza di erbe.", "certezza": "media", "fonti": ["f1", "f3"] },
+    { "asse": "humus", "valore": "ricco", "testo": "Conserva la copertura e aggiungi compost solo se serve: materiali diversi possono apportare quantità diverse di nutrienti. Per decidere concimi, meglio un'analisi del suolo.", "certezza": "media", "fonti": ["f3", "f1"] }
+  ],
+  "da_verificare": [
+    "Le osservazioni del questionario su colore e lombrichi non misurano direttamente l'humus; sono segnali orientativi da confrontare con analisi o osservazioni ripetute.",
+    "Le piante spontanee sono state associate a condizioni descritte da fonti di estensione statunitensi; le associazioni non sono validate specificamente per il centro Italia e non sono diagnostiche.",
+    "Le fasce percentuali del barattolo sono semplificazioni didattiche: usare il triangolo USDA completo per assegnare la classe esatta e un laboratorio per misure affidabili.",
+    "Non sono state trovate in questa verifica indicazioni specifiche per i suoli dei Castelli Romani; i consigli restano generali."
+  ],
+  "fonti": {
+    "f1": { "titolo": "National Agronomy Manual, Part 508: Soils", "ente": "USDA Natural Resources Conservation Service", "url": "https://www.nrcs.usda.gov/sites/default/files/2022-10/National-Agronomy-Manual.pdf", "consultata": "2026-11-01", "nota": "Triangolo della tessitura; comportamento di sabbia e argilla; compattazione se si lavora il terreno troppo bagnato; sostanza organica e humus." },
+    "f3": { "titolo": "17. Organic Gardening", "ente": "NC State Extension", "url": "https://content.ces.ncsu.edu/extension-gardener-handbook/17-organic-gardening", "consultata": "2026-11-01", "nota": "Erbe associate a suoli asciutti, umidi, compattati, leggeri e con diversa fertilità; compost, copertura e limiti delle erbe indicatrici." },
+    "f4": { "titolo": "Indicator Weeds – Landscapes", "ente": "University of Connecticut Extension, Integrated Pest Management", "url": "https://ipm.cahnr.uconn.edu/indicator-weeds-landscapes/", "consultata": "2026-11-01", "nota": "Associazioni di alcune erbe con umidità, siccità, compattazione e fertilità; avvertenza esplicita che una singola erba non dimostra una condizione." },
+    "f5": { "titolo": "Soil Texture Jar Test", "ente": "Montana State University Extension", "url": "https://landresources.montana.edu/soilfertility/html/SoilTextureJarTest.html", "consultata": "2026-11-01", "nota": "Materiali e passaggi del test nel barattolo, tempi di sedimentazione e uso del triangolo USDA." }
+  }
+}
