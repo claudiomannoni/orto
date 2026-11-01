@@ -7,6 +7,7 @@ import { catalogo } from '../contenuti.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { toast } from '../ui/toast.js';
 import { pulisciSeme, ordinaSemi, semiDaSeminare, statoSeme } from '../motore/semi.js';
+import { daComprare, semiInScadenza } from '../motore/da-comprare.js';
 
 const nuovoId = () => (globalThis.crypto?.randomUUID ? crypto.randomUUID() : `s${Date.now()}${Math.floor(Math.random() * 1e6)}`);
 
@@ -17,6 +18,8 @@ export async function monta(contenitore) {
   const annoCorrente = Number(oggi.slice(0, 4));
   const elenco = el('ul', { class: 'lista' });
   const adesso = el('div', {});
+  const spesa = el('div', {});
+  const vecchi = el('div', {});
   const vuoto = el('p', { class: 'vuoto-testo' }, t('semi.vuoto'));
 
   const salva = async (nuovi) => { semi = nuovi; await imposta('semi', semi); disegna(); };
@@ -27,6 +30,15 @@ export async function monta(contenitore) {
     sostituisci(adesso, pronti.length ? el('section', { class: 'card' },
       el('h3', {}, t('semi.adesso')),
       el('ul', { class: 'elenco-semplice' }, pronti.map(({ seme, titolo }) => el('li', {}, el('strong', {}, seme.nome), `: ${titolo}`)))) : null);
+    // la lista della spesa: cosa si può seminare questo mese e non si ha; e i semi da rinnovare
+    const mancano = daComprare({ semi, schede, zonaId: impostazioni.zona, mese: meseDi(oggi), seguite: impostazioni.colture_scelte });
+    sostituisci(spesa, mancano.length ? el('section', { class: 'card', id: 'semi-spesa' },
+      el('h3', {}, t('semi.spesa')), el('p', { class: 'aiuto' }, t('semi.spesa.spiega')),
+      el('ul', { class: 'elenco-semplice' }, mancano.map((m) => el('li', {}, el('strong', {}, m.nome), `: ${m.titolo} `, el('a', { href: `#/coltura?id=${encodeURIComponent(m.schedaId)}` }, t('semi.spesa.scheda')))))) : null);
+    const scaduti = semiInScadenza({ semi, annoCorrente });
+    sostituisci(vecchi, scaduti.length ? el('section', { class: 'card', id: 'semi-vecchi' },
+      el('h3', {}, t('semi.vecchi')), el('p', { class: 'aiuto' }, t('semi.vecchi.spiega')),
+      el('ul', { class: 'elenco-semplice' }, scaduti.map((b) => el('li', {}, `${b.nome} · ${b.anno}`)))) : null);
     vuoto.hidden = ordinati.length > 0;
     sostituisci(elenco, ordinati.map((s) => {
       const stato = statoSeme(s, annoCorrente);
@@ -70,7 +82,7 @@ export async function monta(contenitore) {
     el('h2', { class: 'titolo-schermata' }, t('semi.titolo')),
     el('p', { class: 'aiuto' }, t('semi.spiega')),
     el('button', { class: 'btn primario grande', type: 'button', id: 'semi-nuova', onclick: apriNuovo }, `+ ${t('semi.nuova')}`),
-    adesso, vuoto,
+    adesso, spesa, vecchi, vuoto,
     el('h3', {}, t('semi.elenco')),
     elenco);
   disegna();

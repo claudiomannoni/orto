@@ -40,6 +40,12 @@ await trascina('c3', cPom.x - 25, cPom.y - 25);
 await page.waitForTimeout(300);
 const nemici = await page.locator('main').innerText();
 check('se c\'è una coppia che non va d\'accordo lo dice con la certezza', /non vanno d'accordo|amiche/.test(nemici) && (await page.locator('.gettone[data-vicini]').count()) === 3);
+// «Cosa posso piantare qui adesso?»: a giugno 2026 nell'aiuola ci sono pomodori, basilico e finocchi
+await page.click('#piano-suggerisci');
+await page.waitForSelector('dialog[open] .suggerimento, dialog[open] .aiuto');
+const suggerimenti = await page.locator('dialog[open]').innerText();
+check('«Cosa posso piantare qui»: si apre con la spiegazione e un elenco (oppure il messaggio se non c e niente)', /Le colture che questo mese|Questo mese non trovo/.test(suggerimenti), suggerimenti.slice(0, 120));
+await page.keyboard.press('Escape');
 await page.reload();
 await page.waitForSelector('.gettone');
 const dopo = await leggiDb(page, 'colture');

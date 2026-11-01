@@ -3,10 +3,14 @@
 // Le posizioni stanno nella coltura (`posizione: { x, y }`, frazioni 0..1 dell'aiuola).
 import { el, aggiungi, sostituisci, parametriRotta } from '../util.js';
 import { t } from '../i18n.js';
-import { elencoColture, salvaColtura } from '../store/dati.js';
+import { elencoColture, salvaColtura, elencoEventi } from '../store/dati.js';
+import { leggi } from '../store/impostazioni.js';
+import { apriFoglio } from '../ui/foglio.js';
 import { elencoZone } from '../store/zone.js';
 import { catalogo, consociazioni } from '../contenuti.js';
 import { limitaPosizione, giudizioVicinato, statoPerSegnaposto, postoLibero } from '../motore/piano.js';
+import { cosaPiantare, pianteInMq } from '../motore/cosa-piantare.js';
+import { oggiISO, meseDi } from '../util.js';
 
 const RAGGIO_M = 1; // «vicine» = entro un metro
 const DISTANZA_MIN_M = 0.45;
@@ -36,6 +40,32 @@ export async function monta(contenitore) {
     c.posizione = postoLibero(occupati, larg, lung, DISTANZA_MIN_M);
     salvaColtura(c);
   });
+
+  // «Cosa posso piantare qui adesso?»: le colture seminabili questo mese, con chi sta bene vicino e se la famiglia è stata coltivata di recente
+  async function apriSuggerimenti() {
+    const [eventi, impostazioni] = await Promise.all([elencoEventi(), leggi()]);
+    const oggi = oggiISO();
+    const elenco = cosaPiantare({
+      schede, zonaId: impostazioni.zona, mese: meseDi(oggi), oggi, relazioni,
+      colture: colture.map((c) => ({ schedaId: c.schedaId, dataSemina: c.dataSemina })),
+      eventi: eventi.filter((e) => e.zonaId === zona.id).map((e) => ({ schedaId: e.schedaId, data: e.data })),
+    });
+    const frase = (m) => t(`piano.motivo.${m.tipo}`, { con: m.con ?? '', famiglia: m.famiglia ?? '' });
+    const contenuto = el('div', { class: 'form' },
+      el('p', { class: 'aiuto' }, t('piano.suggerisci.spiega')),
+      elenco.length ? el('ul', { class: 'elenco-proposte' }, elenco.map((v) => {
+        const scheda = schede.find((s) => s.id === v.schedaId);
+        const piante = pianteInMq(scheda, 1);
+        return el('li', { class: `problema suggerimento ${v.stato}`, 'data-scheda': v.schedaId },
+          el('strong', {}, v.nome), ' ', el('span', { class: `etichetta certezza ${v.stato === 'consigliata' ? 'media' : 'bassa'}` }, t(`piano.stato.${v.stato}`)),
+          el('p', { class: 'aiuto' }, v.titolo),
+          v.motivi.length ? el('ul', { class: 'elenco-semplice' }, v.motivi.map((m) => el('li', { class: m.tipo === 'amica' ? '' : 'avviso' }, frase(m), m.certezza ? ` (${t(`animali.certezza.${m.certezza}`)})` : ''))) : null,
+          piante ? el('p', { class: 'aiuto' }, t('piano.piante_mq', { n: piante })) : null,
+          el('a', { class: 'btn', href: `#/colture?nuova=${encodeURIComponent(v.schedaId)}` }, t('piano.aggiungi')));
+      })) : el('p', { class: 'aiuto' }, t('piano.suggerisci.niente')),
+      el('button', { class: 'btn', type: 'button', onclick: () => foglio.close() }, t('foglio.chiudi')));
+    const foglio = apriFoglio({ titolo: t('piano.suggerisci'), contenuto });
+  }
 
   const campo = el('div', { class: 'piano-campo', style: `aspect-ratio: ${larg} / ${lung}` });
   const messaggi = el('ul', { class: 'elenco-semplice', 'aria-live': 'polite' });
@@ -86,6 +116,7 @@ export async function monta(contenitore) {
   aggiungi(contenitore,
     el('h2', { class: 'titolo-schermata' }, `${t('piano.titolo')} · ${zona.nome}`),
     el('p', { class: 'aiuto' }, t('piano.spiega', { l: larg, w: lung })),
+    el('button', { class: 'btn primario', type: 'button', id: 'piano-suggerisci', onclick: apriSuggerimenti }, t('piano.suggerisci')),
     colture.length ? campo : el('p', { class: 'vuoto-testo' }, t('piano.vuoto')),
     colture.length ? el('section', { class: 'card' }, el('h3', {}, t('piano.vicinato')), messaggi, el('p', { class: 'aiuto' }, t('piano.avvertenza'))) : null,
     el('a', { class: 'btn', href: '#/colture' }, t('pianta.torna')));
