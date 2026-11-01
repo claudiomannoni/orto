@@ -96,3 +96,8 @@ export async function fasi() {
 export async function alberi() {
   return json(`data/${lingua}/alberi.json`);
 }
+
+// Quando e come si raccoglie e si conserva ogni coltura (data/it/raccolta.json), o null.
+export async function raccolta() {
+  return json(`data/${lingua}/raccolta.json`);
+}

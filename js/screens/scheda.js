@@ -5,7 +5,8 @@ import { t, locale } from '../i18n.js';
 import { leggi, imposta } from '../store/impostazioni.js';
 import { alternaSeguita, seguita } from '../motore/seguite.js';
 import { toast } from '../ui/toast.js';
-import { catalogo, consociazioni, zone } from '../contenuti.js';
+import { catalogo, consociazioni, zone, raccolta } from '../contenuti.js';
+import { bloccoRaccoltaConservazione } from '../ui/fasi-pianta.js';
 import { apriLavoro } from './calendario.js';
 
 const OPERAZIONI = ['semina', 'trapianto', 'cura', 'lavorazione', 'raccolta'];
@@ -43,7 +44,7 @@ function elencoColture(ids, schede) {
 
 export async function monta(contenitore) {
   const id = parametriRotta().get('id');
-  const [schede, impostazioni, elencoZone, consoc] = await Promise.all([catalogo(), leggi(), zone(), consociazioni()]);
+  const [schede, impostazioni, elencoZone, consoc, dRaccolta] = await Promise.all([catalogo(), leggi(), zone(), consociazioni(), raccolta()]);
   const scheda = schede.find((s) => s.id === id);
   const indietro = el('a', { class: 'btn', href: '#/impara' }, t('scheda.indietro'));
   if (!scheda) {
@@ -103,6 +104,7 @@ export async function monta(contenitore) {
     el('p', { class: 'aiuto' }, t('scheda.segui.spiega')),
 
     fatti.length ? el('section', { class: 'card' }, el('h3', {}, t('scheda.in_breve')), el('ul', { class: 'elenco-semplice' }, fatti)) : null,
+    bloccoRaccoltaConservazione(scheda.id, dRaccolta) ? el('section', { class: 'card' }, bloccoRaccoltaConservazione(scheda.id, dRaccolta)) : null,
 
     el('section', { class: 'card' },
       el('h3', {}, t('scheda.quando')),

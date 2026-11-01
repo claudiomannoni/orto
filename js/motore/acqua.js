@@ -76,3 +76,14 @@ export function consigliAcqua(giorni, oggi) {
 
   return { mm7, previsti, fabbisogno, livello, annaffia, chiave: `acqua.${annaffia}.${livello}` };
 }
+
+// Cosa fare oggi con l'acqua per una pianta in una certa fase: unisce quanta ne serve in quella fase (`livello`: costante | molta | media | poca)
+// con il consiglio del tempo (`annaffia`: si | no | forse, da consigliAcqua). Restituisce 'si' | 'controlla' | 'poco' | 'no', oppure null se non si sa.
+export function acquaPerFase(livello, annaffia) {
+  if (!['costante', 'molta', 'media', 'poca'].includes(livello)) return null;
+  if (!['si', 'no', 'forse'].includes(annaffia)) return null;
+  if (annaffia === 'no') return 'no'; // piove o è appena piovuto: l'acqua c'è già
+  if (livello === 'poca') return annaffia === 'si' ? 'poco' : 'no';
+  if (livello === 'media') return annaffia === 'si' ? 'si' : 'controlla';
+  return annaffia === 'si' ? 'si' : 'controlla'; // costante e molta: il terreno non deve seccare, quindi con il dubbio si controlla
+}

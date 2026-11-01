@@ -37,6 +37,8 @@ check('Oggi: età stimata di 67 giorni e fase «Fioritura»', /67 giorni/.test(b
 check('«Cosa fare adesso» e accortezze del periodo, con la fonte', /Cosa fare adesso/.test(blocco) && /Accortezze/.test(blocco) && (await page.locator('.fase-pianta details a').count()) >= 1);
 check('dice fra quanti giorni cambia fase', /Fra circa \d+ giorni passa alla fase/.test(blocco));
 
+check('la fase mostra l acqua e la raccolta con conservazione', (await page.locator('.fase-pianta .acqua-fase').count()) >= 1 && (await page.locator('.fase-pianta .raccolta-conservazione').count()) >= 1);
+await page.waitForTimeout(500);
 // foto: l'esame parte con la coltura già scelta e chiede la fase
 await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const tx = d.transaction('impostazioni', 'readwrite'); const s = tx.objectStore('impostazioni'); s.put({ chiave: 'ai_chiave', valore: 'AIzaSyFINTA-fasi-1234567890' }); s.put({ chiave: 'ai_foto_ok', valore: true }); tx.oncomplete = () => { d.close(); ok(); }; }; }));
 await page.locator('.fase-pianta a.btn').first().click();

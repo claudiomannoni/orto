@@ -48,6 +48,9 @@ await page.waitForTimeout(2200);
 const dopo = await teste();
 check('un tocco sulla terra manda un verme a scavare', dopo.some(([, y, dentro], i) => dentro === 1 && y > suolo + 30), JSON.stringify(dopo));
 
+await page.waitForSelector('.fumetto-gioco:not([hidden])', { timeout: 12000 });
+const fumetto = await page.locator('.fumetto-gioco').innerText();
+check('ogni tanto compare un fumetto con una nozione sui lombrichi e la fonte', fumetto.length > 30 && (await page.locator('.fumetto-gioco a').count()) === 1, fumetto.slice(0, 100));
 // cibo
 await page.click('#cibo-foglia');
 await page.waitForTimeout(1000);

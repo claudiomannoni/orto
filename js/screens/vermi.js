@@ -7,6 +7,7 @@ import { leggi, imposta } from '../store/impostazioni.js';
 import { creaCorda, passoCorda, lanciaCorda } from '../motore/corda.js';
 import { pulisciRelax, aggiungiSecondi, minutiDelGiorno, minutiTotali, serieRilassata } from '../motore/relax.js';
 import { vestitoAttuale } from '../ui/mascotte.js';
+import { curiosita, animali } from '../contenuti.js';
 import { disegnaVestito, disegnaFirma, COLORI } from '../ui/vermetto.js';
 
 let ALTEZZA = 380; // a tutto schermo: si prende dall'altezza della finestra
@@ -147,7 +148,7 @@ function cuore(c, x, y, s, a) {
 }
 
 export async function monta(contenitore) {
-  const impostazioni = await leggi();
+  const [impostazioni, dCuriosita, dAnimali] = await Promise.all([leggi(), curiosita(), animali()]);
   let relax = pulisciRelax(impostazioni.relax);
   const oggi = oggiISO();
   let secondiDaSalvare = 0;
@@ -360,10 +361,35 @@ export async function monta(contenitore) {
 
   const bottone = (tipo, chiave) => el('button', { class: 'btn', type: 'button', id: `cibo-${tipo}`, onclick: () => dai(tipo) }, t(chiave));
   const esci = el('button', { class: 'btn', type: 'button', id: 'vermi-esci', onclick: () => { salva(); if (history.length > 1) history.back(); else location.hash = '#/oggi'; } }, t('vermi.esci'));
+  // Ogni tanto un fumetto con una nozione sui lombrichi o sulla lombricoltura (dalle curiosità con fonte e dalla scheda «Lombricoltura»)
+  const lomb = dAnimali?.schede?.find((x) => x.id === 'lombricoltura');
+  const fumetti = [
+    ...(dCuriosita?.curiosita ?? []).filter((x) => x.tema === 'lombrichi' && x.testo).map((x) => ({ testo: x.testo, fonte: x.fonte ?? null, titolo: t('vermi.fumetto.sapevi') })),
+    ...(lomb?.perche ?? []).map((x) => ({ testo: x, fonte: lomb.fonti?.[0]?.url ?? null, titolo: t('vermi.fumetto.lombricoltura') })),
+    ...(lomb?.ogni_giorno_o_settimana ?? []).map((x) => ({ testo: x, fonte: lomb.fonti?.[0]?.url ?? null, titolo: t('vermi.fumetto.consiglio') })),
+    ...(lomb?.errori_comuni ?? []).map((x) => ({ testo: `${t('vermi.fumetto.errore')} ${x}`, fonte: lomb.fonti?.[0]?.url ?? null, titolo: t('vermi.fumetto.lombricoltura') })),
+  ];
+  let indiceFumetto = Math.floor(Math.random() * Math.max(1, fumetti.length));
+  const fumettoNodo = el('div', { class: 'fumetto-gioco', hidden: true, role: 'status' });
+  fumettoNodo.addEventListener('click', () => { fumettoNodo.hidden = true; });
+  let nascondiFumetto = null;
+  const mostraFumetto = () => {
+    if (!fumetti.length || !fumettoNodo.isConnected) return;
+    const f = fumetti[indiceFumetto % fumetti.length];
+    indiceFumetto += 1;
+    fumettoNodo.replaceChildren(el('strong', {}, f.titolo), el('p', {}, f.testo), f.fonte ? el('a', { href: f.fonte, target: '_blank', rel: 'noopener noreferrer' }, t('vermi.fumetto.fonte')) : null);
+    fumettoNodo.hidden = false;
+    clearTimeout(nascondiFumetto);
+    nascondiFumetto = setTimeout(() => { fumettoNodo.hidden = true; }, Math.min(12000, 5000 + f.testo.length * 45));
+  };
+  const timerFumetti = setInterval(() => { if (!tela.isConnected) { clearInterval(timerFumetti); return; } if (!document.hidden && fumettoNodo.hidden) mostraFumetto(); }, 26000);
+  setTimeout(() => { if (tela.isConnected) mostraFumetto(); }, 7000);
+
   // a tutto schermo: solo il gioco; sopra, il tasto per uscire e i minuti; sotto, il cibo
   aggiungi(contenitore, el('div', { class: 'gioco-schermo' },
     tela,
     el('div', { class: 'gioco-alto' }, esci, riepilogo),
+    fumettoNodo,
     el('div', { class: 'gioco-basso' }, bottone('foglia', 'vermi.foglia'), bottone('compost', 'vermi.compost'))));
   window.addEventListener('resize', misura);
   requestAnimationFrame(ciclo);

@@ -56,6 +56,20 @@
       "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-minnesota/planting-vegetables-midsummer-fall-harvest",
       "consultata": "2026-11-01",
       "nota": "Intervalli di maturazione e note su raccolta per alcune orticole; condizioni del Minnesota."
+    },
+    "f20": {
+      "titolo": "L?orto e l?acqua",
+      "ente": "Universit? di Bologna, progetto Hortis",
+      "url": "https://site.unibo.it/hortis/it/area-download/manuali-elettronici-1/8d-2-3-ebook2-sustainable-urban-garden-management-it.pdf/%40%40download/file/8d.2.3-ebook2-sustainable-urban-garden-management-it.pdf",
+      "consultata": "2026-11-01",
+      "nota": "Guida italiana all?irrigazione dell?orto; d? un?indicazione specifica per la carota e principi generali, non fabbisogni per ogni coltura e fase."
+    },
+    "f21": {
+      "titolo": "Disciplinare di produzione integrata 2021 - Norme tecniche di coltura",
+      "ente": "Regione Lazio",
+      "url": "https://www.regione.lazio.it/sites/default/files/documentazione/AGC_DD_G02644_11_03_2021_Allegato_2.pdf",
+      "consultata": "2026-11-01",
+      "nota": "Per pomodoro da industria indica sensibilit? a carenza e ristagno e fasi critiche; indicazioni professionali da adattare all?orto familiare."
     }
   },
   "colture": {
@@ -86,7 +100,16 @@
           "fonti": [
             "f2",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni umido il substrato senza ristagni.",
+            "certezza": "media",
+            "fonti": [
+              "f2",
+              "f5"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -105,7 +128,15 @@
           "certezza": "media",
           "fonti": [
             "f3"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Annaffia quando il substrato inizia ad asciugare.",
+            "certezza": "media",
+            "fonti": [
+              "f3"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -126,7 +157,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Annaffia regolarmente; la crescita fogliare ? una fase sensibile alla carenza.",
+            "certezza": "alta",
+            "fonti": [
+              "f21"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -146,7 +185,15 @@
           "fonti": [
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Mantieni regolare l?umidit? durante fioritura e allegagione.",
+            "certezza": "alta",
+            "fonti": [
+              "f21"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -166,7 +213,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Mantieni disponibilit? idrica durante l?ingrossamento dei frutti, evitando ristagni.",
+            "certezza": "alta",
+            "fonti": [
+              "f21"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 90), perché la fonte della fase dava un valore più basso."
@@ -198,7 +253,16 @@
           "fonti": [
             "f1",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -218,7 +282,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -239,7 +311,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -259,7 +339,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 54), perché la fonte della fase dava un valore più basso."
@@ -291,7 +379,16 @@
           "fonti": [
             "f2",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -310,7 +407,15 @@
           "certezza": "media",
           "fonti": [
             "f3"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -331,7 +436,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -351,7 +464,15 @@
           "fonti": [
             "f1",
             "f2"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 35), perché la fonte della fase dava un valore più basso."
@@ -382,7 +503,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -402,7 +532,15 @@
           "fonti": [
             "f1",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "poca",
+            "nota": "Evita eccessi d?acqua perch? la radice possa svilupparsi; adatta l?apporto al terreno.",
+            "certezza": "media",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -423,7 +561,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "poca",
+            "nota": "Evita eccessi d?acqua perch? la radice possa svilupparsi; adatta l?apporto al terreno.",
+            "certezza": "media",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -442,7 +588,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "poca",
+            "nota": "Evita eccessi d?acqua perch? la radice possa svilupparsi; adatta l?apporto al terreno.",
+            "certezza": "media",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 90), perché la fonte della fase dava un valore più basso."
@@ -474,7 +628,16 @@
           "fonti": [
             "f1",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -493,7 +656,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -514,7 +685,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -533,7 +712,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 45), perché la fonte della fase dava un valore più basso."
@@ -565,7 +752,16 @@
           "fonti": [
             "f1",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -584,7 +780,15 @@
           "certezza": "bassa",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -604,7 +808,15 @@
           "fonti": [
             "f1",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -623,7 +835,15 @@
           "certezza": "bassa",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 200), perché la fonte della fase dava un valore più basso."
@@ -655,7 +875,16 @@
           "fonti": [
             "f3",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -674,7 +903,15 @@
           "certezza": "media",
           "fonti": [
             "f3"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -695,7 +932,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -716,7 +961,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -736,7 +989,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 114), perché la fonte della fase dava un valore più basso."
@@ -768,7 +1029,16 @@
           "fonti": [
             "f3",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -787,7 +1057,15 @@
           "certezza": "media",
           "fonti": [
             "f3"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -808,7 +1086,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -829,7 +1115,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -849,7 +1143,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -880,7 +1182,16 @@
           "fonti": [
             "f1",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -899,7 +1210,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -919,7 +1238,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -938,7 +1265,15 @@
           "certezza": "bassa",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -969,7 +1304,16 @@
           "fonti": [
             "f1",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -988,7 +1332,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -1009,7 +1361,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -1029,7 +1389,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 44), perché la fonte della fase dava un valore più basso."
@@ -1061,7 +1429,16 @@
           "fonti": [
             "f1",
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1080,7 +1457,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -1101,7 +1486,15 @@
             "f1",
             "f4",
             "f6"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -1120,7 +1513,15 @@
           "certezza": "bassa",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 100), perché la fonte della fase dava un valore più basso."
@@ -1151,7 +1552,16 @@
           "certezza": "bassa",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1170,7 +1580,15 @@
           "certezza": "bassa",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "fioritura",
@@ -1190,7 +1608,15 @@
           "fonti": [
             "f1",
             "f4"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -1209,7 +1635,15 @@
           "certezza": "bassa",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 150), perché la fonte della fase dava un valore più basso."
@@ -1240,7 +1674,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1259,7 +1702,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1278,7 +1729,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1297,7 +1756,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1327,7 +1794,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1346,7 +1822,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1365,7 +1849,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1384,7 +1876,15 @@
           "certezza": "media",
           "fonti": [
             "f7"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1414,7 +1914,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1433,7 +1942,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1452,7 +1969,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1471,7 +1996,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1501,7 +2034,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1520,7 +2062,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1539,7 +2089,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1558,7 +2116,15 @@
           "certezza": "media",
           "fonti": [
             "f7"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1588,7 +2154,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1607,7 +2182,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1626,7 +2209,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1645,7 +2236,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -1664,7 +2263,15 @@
           "certezza": "media",
           "fonti": [
             "f7"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1694,7 +2301,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1713,7 +2329,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1732,7 +2356,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1751,7 +2383,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -1770,7 +2410,15 @@
           "certezza": "media",
           "fonti": [
             "f7"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1800,7 +2448,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1819,7 +2476,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1838,7 +2503,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1857,7 +2530,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "raccolta",
@@ -1876,7 +2557,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1906,7 +2595,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -1925,7 +2623,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -1944,7 +2650,15 @@
           "certezza": "media",
           "fonti": [
             "f1"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -1963,7 +2677,15 @@
           "certezza": "media",
           "fonti": [
             "f7"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -1993,7 +2715,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -2012,7 +2743,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -2031,7 +2770,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -2050,7 +2797,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     },
@@ -2080,7 +2835,16 @@
           "certezza": "media",
           "fonti": [
             "f5"
-          ]
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
         },
         {
           "id": "piantina",
@@ -2099,7 +2863,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "crescita",
@@ -2118,7 +2890,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         },
         {
           "id": "sviluppo",
@@ -2137,7 +2917,15 @@
           "certezza": "media",
           "fonti": [
             "f8"
-          ]
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
         }
       ]
     }

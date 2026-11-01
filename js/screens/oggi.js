@@ -3,8 +3,13 @@ import { el, oggiISO, formattaDataLunga, normalizza, aggiungi, aggiungiGiorni, d
 import { t, tn } from '../i18n.js';
 import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../store/dati.js';
 import { leggi } from '../store/impostazioni.js';
-import { catalogo, glossario, quiz, curiosita, animali, fasi } from '../contenuti.js';
-import { bloccoFase } from '../ui/fasi-pianta.js';
+import { catalogo, glossario, quiz, curiosita, animali, fasi, raccolta } from '../contenuti.js';
+import { bloccoFase, aggiornaAcqua } from '../ui/fasi-pianta.js';
+import { consigliAcqua } from '../motore/acqua.js';
+import { primiPassi, prossimoPasso, avanzamento } from '../motore/primi-passi.js';
+import { elencoFoto } from '../store/foto.js';
+import { elencoZone } from '../store/zone.js';
+import { imposta } from '../store/impostazioni.js';
 import { calcolaLavori } from '../motore/oggi.js';
 import { conversazione, festeggia, vestitoAttuale, reagisci } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -240,9 +245,25 @@ export async function monta(contenitore) {
     conversazione([{ chi: voce.chi, testo: t(voce.chiave, voce.vars), variante: voce.chi === 'rosso' ? 'ride' : 'pensa' }]),
     voce.rotta ? el('a', { class: 'btn', href: voce.rotta }, t('verme.consiglio.vai')) : null) : null;
   // Le piante dell'utente, fase per fase: cosa fare adesso in base all'età (solo per le colture di cui abbiamo le fasi).
-  const dFasi = await fasi();
-  const bloccoPiante = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina)).map((c) => bloccoFase(c, dFasi, oggi)).filter(Boolean).slice(0, 5);
+  const [dFasi, dRaccolta] = await Promise.all([fasi(), raccolta()]);
+  const bloccoPiante = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina)).map((c) => bloccoFase(c, dFasi, oggi, { raccoltaDati: dRaccolta })).filter(Boolean).slice(0, 5);
   const cartaPiante = bloccoPiante.length ? el('section', { class: 'piante-fasi' }, el('h3', {}, t('oggi.piante')), el('p', { class: 'aiuto' }, t('oggi.piante.spiega')), ...bloccoPiante) : null;
+  // «I tuoi primi passi»: una breve lista di cose da provare, finché non sono fatte (o l'utente la chiude).
+  let cartaPassi = null;
+  if (!impostazioni.primi_passi_chiusi) {
+    const [foto, zone] = await Promise.all([elencoFoto(), elencoZone()]);
+    const passi = primiPassi({ colture, eventi, foto, zone, semi: impostazioni.semi, quizGiocati: Object.keys(impostazioni.quiz_risultati ?? {}).length, haChiave: Boolean(impostazioni.ai_chiave) });
+    const prossimo = prossimoPasso(passi);
+    const { fatti, totale } = avanzamento(passi);
+    if (prossimo) {
+      cartaPassi = el('section', { class: 'card primi-passi' },
+        el('h3', {}, t('primi.titolo')),
+        conversazione([{ chi: 'rosso', testo: t('primi.rosso', { passo: t(prossimo.chiave).toLowerCase() }), variante: 'ride' }]),
+        el('p', { class: 'aiuto' }, t('primi.avanzamento', { fatti, totale })),
+        el('ul', { class: 'elenco-passi' }, passi.map((p) => el('li', { class: p.fatto ? 'fatto' : '' }, el('span', { class: 'segno', 'aria-hidden': 'true' }, p.fatto ? '+' : '-'), ' ', p.fatto ? el('span', {}, t(p.chiave), ' ', el('em', {}, `(${t('primi.fatto')})`)) : el('a', { class: 'voce-passo', href: p.rotta }, t(p.chiave))))),
+        el('button', { class: 'btn', type: 'button', id: 'primi-chiudi', onclick: async () => { await imposta('primi_passi_chiusi', true); cartaPassi.remove(); } }, t('primi.chiudi')));
+    }
+  }
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'saluto' }, testoSaluto(impostazioni)),
@@ -254,6 +275,7 @@ export async function monta(contenitore) {
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
     // Prima quello che serve oggi (il tempo e i lavori); poi il consiglio dei vermetti, i progressi e l'invito a scaricare l'app.
+    cartaPassi,
     cartaPiante,
     cartaConsiglio,
     cartaGioca,
@@ -262,6 +284,11 @@ export async function monta(contenitore) {
     carta,
     bloccoInstalla({ rimandabile: true }),
   );
+  // L'acqua di ogni fase, unita al tempo: cosa fare oggi.
+  previsioni().then(({ giorni }) => {
+    const c = giorni.some((g) => g.data < oggi) ? consigliAcqua(giorni, oggi) : null;
+    if (c) aggiornaAcqua(contenitore, c.annaffia);
+  }).catch(() => {});
   // Se oggi piove, Rosso è sorpreso (le previsioni le conosciamo già).
   if (piove === true) setTimeout(() => reagisci('sorpreso', 3500, 'rosso'), 700);
 }
