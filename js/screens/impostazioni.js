@@ -264,20 +264,22 @@ function sezioneBackup() {
 
 export async function monta(contenitore) {
   const s = await leggi();
-  aggiungi(contenitore, 
-    el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
-    bloccoInstalla(),
-    await sezioneOrto(s),
-    sezioneSeguite(s),
-    sezioneAccessibilita(s),
-    sezioneVermetti(s),
-    sezioneMeteo(s),
-    sezioneIA(s),
-    sezioneBackup(),
+  const sezioni = [
+    await sezioneOrto(s), sezioneSeguite(s), sezioneAccessibilita(s), sezioneVermetti(s), sezioneMeteo(s), sezioneIA(s), sezioneBackup(),
     el('section', { class: 'card' },
       el('h3', {}, t('info.titolo')),
       el('p', {}, t('info.testo')),
       el('p', { class: 'aiuto' }, t('info.versione', { v: APP_VERSIONE })),
     ),
+  ];
+  // Un indice in cima: ogni voce porta alla sua sezione (le impostazioni sono lunghe).
+  sezioni.forEach((sez, i) => { sez.id = `imp-${i}`; sez.style.scrollMarginTop = '12px'; });
+  const indice = el('nav', { class: 'vai-a', 'aria-label': t('impostazioni.vai_a') },
+    sezioni.map((sez) => el('button', { class: 'btn piccolo', type: 'button', onclick: () => sez.scrollIntoView({ behavior: document.documentElement.dataset.movimento === 'ridotto' ? 'auto' : 'smooth', block: 'start' }) }, sez.querySelector('h3')?.textContent ?? '')));
+  aggiungi(contenitore,
+    el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
+    bloccoInstalla(),
+    indice,
+    ...sezioni,
   );
 }

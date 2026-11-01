@@ -34,8 +34,9 @@ await page.evaluate(() => new Promise((ok, ko) => {
 // 2. l'app si apre: il database sale a 4 e i dati vecchi diventano lotti
 await page.goto(`${BASE}/#/oggi?oggi=2026-07-12`);
 await page.waitForSelector('.titolo-schermata');
-await page.waitForTimeout(800);
 const leggi = (store) => page.evaluate((s) => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const q = d.transaction(s).objectStore(s).getAll(); q.onsuccess = () => { ok(q.result); d.close(); }; }; }), store);
+// la migrazione parte all'avvio: si aspetta che i lotti compaiano (senza un'attesa fissa)
+await page.waitForFunction(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; if (!d.objectStoreNames.contains('produzioni')) { d.close(); return ok(false); } const q = d.transaction('produzioni').objectStore('produzioni').count(); q.onsuccess = () => { ok(q.result >= 4); d.close(); }; }; }), null, { timeout: 15000, polling: 300 });
 const versioneDb = await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { ok([r.result.version, [...r.result.objectStoreNames].sort().join()]); r.result.close(); }; }));
 check('il database è passato alla versione 4 con i due archivi nuovi', versioneDb[0] === 4 && /movimenti/.test(versioneDb[1]) && /produzioni/.test(versioneDb[1]), JSON.stringify(versioneDb));
 let lotti = await leggi('produzioni');

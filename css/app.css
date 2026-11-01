@@ -657,3 +657,12 @@ body.gioco-pieno main { padding: 0; max-width: none; }
 .eccesso-voce { display: grid; gap: 8px; }
 .eccesso-voce.stato-disponibile { border-left: 6px solid var(--pulsante); }
 .eccesso-voce:not(.stato-disponibile) { border-left: 6px solid var(--verde); }
+.testata .indietro { flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; color: #fff; margin-right: 4px; }
+.testata .indietro[hidden] { display: none; }
+.testata .indietro .icona { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.linguette { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+.linguetta { flex: none; min-height: 48px; padding: 8px 14px; border: 2px solid var(--bordo); border-radius: 24px; background: var(--carta); color: var(--inchiostro); font: inherit; font-weight: 700; cursor: pointer; }
+.linguetta[aria-selected=true] { background: var(--verde); border-color: var(--verde); color: #fff; }
+.elenco-altre { display: grid; gap: 14px; }
+.vai-a { display: flex; flex-wrap: wrap; gap: 8px; }
+.vai-a .btn { min-height: 44px; }

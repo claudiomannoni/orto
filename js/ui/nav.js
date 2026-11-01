@@ -10,6 +10,7 @@ const ICONE = {
   dottore: '<path d="M4 8.5h3l1.6-2.5h6.8L17 8.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.4"/>',
   impara: '<path d="M4 5.5c3-1.2 5.5-1 8 .8 2.5-1.8 5-2 8-.8V19c-3-1.2-5.5-1-8 .8-2.5-1.8-5-2-8-.8z"/><path d="M12 6.3v13.5"/>',
   vermi: '<path d="M4 17c0-4 3-4 3-8 0-3 3-4.5 5-3 2 1.5 2 4 .5 6-1.5 2-.5 4.5 2 4.5 2.500 0 3.500-1.500 3.500-3.500"/><circle cx="15.500" cy="6.500" r="1"/>',
+  indietro: '<path d="M15 5l-7 7 7 7"/>',
   impostazioni: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
 };
 
@@ -30,6 +31,7 @@ function icona(nome) {
 
 export function costruisciTestata(contenitore) {
   contenitore.replaceChildren(
+    el('a', { class: 'indietro', href: '#/oggi', hidden: true, 'aria-label': t('nav.indietro'), title: t('nav.indietro') }, icona('indietro')),
     el('img', { class: 'logo', src: 'assets/logo.svg', alt: '', width: 44, height: 44 }),
     el('div', { class: 'testata-testi' },
       el('h1', {}, t('app.nome')),
@@ -42,6 +44,13 @@ export function costruisciTestata(contenitore) {
 
 // Evidenzia l'ingranaggio quando si è nelle impostazioni.
 export function aggiornaTestata(rotta) {
+  // Nelle schermate secondarie compare la freccia «indietro»: porta alla schermata da cui si arriva (o a Oggi).
+  const indietro = document.querySelector('.testata .indietro');
+  if (indietro) {
+    const principale = ROTTE.includes(rotta) || rotta === 'benvenuto';
+    indietro.hidden = principale;
+    indietro.href = `#/${SOTTOROTTE[rotta] || 'oggi'}`;
+  }
   const imp = document.querySelector('.ingranaggio');
   const gioco = document.querySelector('.gioco-vermi');
   if (imp) { if (rotta === 'impostazioni') imp.setAttribute('aria-current', 'page'); else imp.removeAttribute('aria-current'); }
