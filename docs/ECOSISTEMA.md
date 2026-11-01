@@ -166,6 +166,27 @@ Confronto prudente: le fonti trovate sono blog di confronto (non ufficiali, con 
 
 **Raccomandazione**: sviluppare comunque le Fasi 2 e 3 **senza server** (già previsto: deposito locale + condivisione come immagine), così Claudio ha tempo di vedere se serve davvero e quante persone la usano. Per la Fase 4 il **confronto reale è tra Supabase (meno lavoro, costo mensile) e PocketBase su un piccolo server (meno costo, più lavoro e responsabilità)**. L'interfaccia `DepositoMarketplace` permette di scegliere o cambiare senza riscrivere l'app. La scelta definitiva resta a Claudio dopo aver confrontato i prezzi aggiornati.
 
+### 6.8 DECISIONE (01/11/2026): strada a costo zero
+
+Claudio non ha soldi da investire e ha crediti limitati, e ha chiesto a Claude di scegliere la soluzione efficace. Decisione presa da Claude, da riconfermare solo se cambiano le condizioni:
+
+**Principio: non si spende finché non ci sono utenti che lo giustificano, e ogni gradino si può fermare senza perdere quello che c'è.**
+
+| Gradino | Cosa | Costo | Quando |
+|---|---|---|---|
+| **0 (ora)** | Fase 2 e Fase 3 **senza server**: lotti, disponibilità, annunci e richieste nell'app; l'annuncio si condivide come immagine o testo su WhatsApp, social, gruppi di quartiere | **zero** | subito |
+| **1** | Backend **Supabase, piano gratuito**, solo quando ci sono persone vere che vogliono cercarsi in una zona. Il progetto gratuito si mette in pausa se per 7 giorni c'è poca attività: lo si evita con un **piccolo controllo automatico ogni pochi giorni** che legge il database (GitHub Actions, gratuito per i repository pubblici; metodo descritto da più guide, **da provare davvero** prima di fidarsi) | **zero** entro i limiti gratuiti (circa 500 MB di database, 1 GB di file, 50.000 utenti attivi al mese: cifre da riverificare sul sito ufficiale) | Fase 4 |
+| **2** | Piano a pagamento (circa 25 dollari al mese) | a pagamento | **solo** se si superano i limiti gratuiti o si vuole togliere il rischio di pausa; si finanzia con un ricavo (per esempio un contributo volontario dei sostenitori): Claudio non deve metterci soldi propri |
+
+Perché Supabase gratuito e non le altre strade:
+- **Firebase (piano Spark)**: non si mette in pausa e non può addebitare costi (al superamento dei limiti si ferma), ma i filtri per zona e categoria sono scomodi e **non adatti a regole di sicurezza complesse**; richiede librerie grandi e lega a Google. Resta il piano B se Supabase non andasse.
+- **PocketBase o server di casa**: costo di server o PC sempre acceso, e **backup e sicurezza a carico di Claudio**: troppo lavoro e rischio senza soldi né tempo.
+- **Supabase**: relazionale (filtri semplici), regole di sicurezza forti (RLS), dati portabili (PostgreSQL), nessun server da gestire; il difetto della pausa si aggira.
+
+Per contenere i limiti gratuiti: massimo 3 foto per annuncio, ridotte a circa 100-150 KB l'una; annunci che scadono e si cancellano da soli; niente chat né file pesanti.
+
+**Come spendiamo i crediti di Claudio** (la risorsa vera): lavori piccoli ai modelli gratuiti (Kilo, OpenCode) con le prove scritte da Claude; i pezzi grossi a Codex (già pagato); Claude per progettare, controllare e correggere; prove automatiche gratuite sul computer prima di ogni consegna; niente ricerche a pagamento senza il via libera di Claudio. Il passo successivo (Fase 2, parte 2) è solo interfaccia e logica locale: nessun costo.
+
 ## 7. Piano di integrazione del marketplace nell'app
 
 - **Dove**: nuova sottorotta `#/mercato` (ricerca, annunci, richieste, i miei annunci, profilo) raggiungibile da «Il mio orto» e da un pulsante «Pubblica» nei moduli. Nessuna voce in più nella barra.
@@ -224,7 +245,7 @@ Prove di: uso offline, sincronizzazione e riconnessione, aggiornamento delle qua
 ## 10. Decisioni che servono a Claudio per approvare la Fase 1
 
 1. **Modello**: APPROVATO da Claudio il 01/11/2026 («lotti + movimenti», migrazione non distruttiva, «Il tuo eccesso» → «Disponibilità»). La Fase 2 può partire.
-2. **Backend** (aperta): Claudio vuole valutare altre strade (sezione 6.7). Da decidere con i prezzi aggiornati prima della Fase 4; intanto si sviluppa senza server.
+2. **Backend**: DECISO da Claude il 01/11/2026 su richiesta di Claudio (nessun budget): strada a costo zero, sezione 6.8 (prima senza server, poi Supabase gratuito con controllo anti-pausa, a pagamento solo se e quando arriva un ricavo).
 3. **Nessuna dipendenza**: Claudio non ha preferenze; decide Claude al momento della Fase 4 (default: mantenere la regola).
 4. **Accesso**: link/codice via email senza password va bene?
 5. **Normativa**: Claudio ha autorizzato la ricerca con Perplexity (modalità Ricerca): richiesta inviata, esito atteso in `CERVELLO/agenti/log/ricerca-normativa.md`. Resta da decidere il parere professionale prima del lancio pubblico.
