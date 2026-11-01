@@ -14,6 +14,7 @@ export function normalizzaColtura(c) {
     varieta: testo(c.varieta).trim(),
     dataSemina: c.dataSemina,
     dove: c.dove === 'orto' ? 'orto' : 'semenzaio',
+    partenza: c.partenza === 'piantina' ? 'piantina' : 'seme', // da seme (data = semina) o da piantina (data = trapianto)
     note: testo(c.note).trim(),
     creata: testo(c.creata) || new Date().toISOString(),
     schedaId: testo(c.schedaId) || null,

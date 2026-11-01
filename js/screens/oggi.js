@@ -3,7 +3,8 @@ import { el, oggiISO, formattaDataLunga, normalizza, aggiungi, aggiungiGiorni, d
 import { t, tn } from '../i18n.js';
 import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../store/dati.js';
 import { leggi } from '../store/impostazioni.js';
-import { catalogo, glossario, quiz, curiosita, animali } from '../contenuti.js';
+import { catalogo, glossario, quiz, curiosita, animali, fasi } from '../contenuti.js';
+import { bloccoFase } from '../ui/fasi-pianta.js';
 import { calcolaLavori } from '../motore/oggi.js';
 import { conversazione, festeggia, vestitoAttuale, reagisci } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -238,6 +239,10 @@ export async function monta(contenitore) {
   const cartaConsiglio = voce ? el('section', { class: 'card consiglio-vignetta' },
     conversazione([{ chi: voce.chi, testo: t(voce.chiave, voce.vars), variante: voce.chi === 'rosso' ? 'ride' : 'pensa' }]),
     voce.rotta ? el('a', { class: 'btn', href: voce.rotta }, t('verme.consiglio.vai')) : null) : null;
+  // Le piante dell'utente, fase per fase: cosa fare adesso in base all'età (solo per le colture di cui abbiamo le fasi).
+  const dFasi = await fasi();
+  const bloccoPiante = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina)).map((c) => bloccoFase(c, dFasi, oggi)).filter(Boolean).slice(0, 5);
+  const cartaPiante = bloccoPiante.length ? el('section', { class: 'piante-fasi' }, el('h3', {}, t('oggi.piante')), el('p', { class: 'aiuto' }, t('oggi.piante.spiega')), ...bloccoPiante) : null;
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'saluto' }, testoSaluto(impostazioni)),
@@ -249,6 +254,7 @@ export async function monta(contenitore) {
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
     // Prima quello che serve oggi (il tempo e i lavori); poi il consiglio dei vermetti, i progressi e l'invito a scaricare l'app.
+    cartaPiante,
     cartaConsiglio,
     cartaGioca,
     cartaSapevi,

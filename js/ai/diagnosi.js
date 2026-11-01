@@ -2,6 +2,7 @@
 // Mai prodotti né dosi, e sempre «da verificare»: per un problema serio si chiede a un tecnico.
 import { chiedi } from './ai.js';
 import { restantiOggi, registraUso, erroreFoto, tagliaTesto } from './foto.js';
+import { confrontaFase } from '../motore/fasi.js';
 
 const CONFIDENZE = ['alta', 'media', 'bassa'];
 
@@ -9,6 +10,7 @@ export function costruisciPromptDiagnosi(contesto = {}) {
   const note = [
     contesto.coltura ? `La coltura indicata dall'utente è: ${tagliaTesto(contesto.coltura, 60)}.` : null,
     contesto.nota ? `Nota dell'utente: ${tagliaTesto(contesto.nota, 200)}` : null,
+    contesto.fase ? `La pianta ha circa ${contesto.fase.eta} giorni di vita: secondo i dati dovrebbe essere nella fase «${tagliaTesto(contesto.fase.attesa.nome, 60)}» (${tagliaTesto(contesto.fase.attesa.come_riconoscerla ?? '', 120)}). Le fasi possibili, in ordine, sono: ${contesto.fase.elenco.map((f) => `${f.id} (${tagliaTesto(f.nome, 40)})`).join(', ')}.` : null,
   ].filter(Boolean);
   return [
     'Sei Rossella, una scienziata prudente. Guarda la foto di una pianta di un orto in Italia (collina vicino a Roma) e dì cosa vedi.',
@@ -24,13 +26,14 @@ export function costruisciPromptDiagnosi(contesto = {}) {
     'Rispondi SOLO con JSON, senza altro testo, in questo formato:',
     '{"pianta":{"nome":"nome comune oppure null","confidenza":"alta|media|bassa"},',
     '"stato":"sana|dubbio|problema|non_si_vede",',
+    ...(contesto.fase ? ['"fase":"la sigla (id) della fase in cui la pianta SEMBRA davvero essere guardando la foto (uno degli id elencati), oppure null se non si capisce",'] : []),
     '"problemi":[{"nome":"causa possibile","confidenza":"alta|media|bassa","perche":"cosa vedi che lo fa pensare, max 110 caratteri","cosa_controllare":"max 120 caratteri"}],',
     '"avvisi":"per esempio foto sfocata o troppo lontana, max 130 caratteri, oppure stringa vuota"}',
   ].join('\n');
 }
 
 // Dalla risposta di Gemini (testo) a dati puliti. Lancia errore 'risposta' se non è JSON utilizzabile.
-export function leggiDiagnosi(testo) {
+export function leggiDiagnosi(testo, idFasi = []) {
   const grezzo = String(testo ?? '').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
   let dati;
   try {
@@ -57,6 +60,7 @@ export function leggiDiagnosi(testo) {
     stato: stato === 'sana' && problemi.length ? 'dubbio' : stato,
     problemi,
     avvisi: tagliaTesto(dati.avvisi, 140),
+    fase: typeof dati.fase === 'string' && idFasi.includes(dati.fase) ? dati.fase : null,
   };
 }
 
@@ -66,5 +70,14 @@ export async function diagnosiFoto({ immagine, contesto = {} }) {
   if (!(await restantiOggi())) throw erroreFoto('tetto');
   const risposta = await chiedi({ testo: costruisciPromptDiagnosi(contesto), immagini: [immagine], json: true });
   await registraUso();
-  return leggiDiagnosi(risposta);
+  const idFasi = contesto.fase?.elenco.map((f) => f.id) ?? [];
+  const risultato = leggiDiagnosi(risposta, idFasi);
+  if (contesto.fase) {
+    // La fase che la foto fa pensare, confrontata con quella attesa per l'età.
+    const nomeDi = (id) => contesto.fase.elenco.find((f) => f.id === id)?.nome ?? null;
+    risultato.fase_attesa = { id: contesto.fase.attesa.id, nome: contesto.fase.attesa.nome, eta: contesto.fase.eta };
+    risultato.fase_osservata = risultato.fase ? { id: risultato.fase, nome: nomeDi(risultato.fase) } : null;
+    risultato.confronto_fase = risultato.fase ? confrontaFase(contesto.fase.attesa.id, risultato.fase, idFasi) : 'incerto';
+  }
+  return risultato;
 }

@@ -13,6 +13,7 @@ export function bloccoDiagnosi(diagnosi) {
       el('strong', {}, p.nome), ' ', el('span', { class: `etichetta certezza ${p.confidenza === 'alta' ? 'media' : 'bassa'}` }, t(`foto.confidenza.${p.confidenza}`)),
       p.perche ? el('p', { class: 'aiuto' }, p.perche) : null,
       p.cosa_controllare ? el('p', {}, el('strong', {}, `${t('diagnosi.controlla')}: `), p.cosa_controllare) : null))) : null,
+    r.fase_attesa ? el('p', {}, el('strong', {}, `${t('diagnosi.fase.titolo')}: `), t(`diagnosi.fase.${r.confronto_fase ?? 'incerto'}`, { attesa: r.fase_attesa.nome, osservata: r.fase_osservata?.nome ?? '', eta: r.fase_attesa.eta })) : null,
     r.avvisi ? el('p', { class: 'avviso' }, r.avvisi) : null,
     el('p', { class: 'aiuto' }, t('diagnosi.avvertenza')),
     el('p', { class: 'aiuto' }, t('diagnosi.data', { data: formattaData(diagnosi.data) })));

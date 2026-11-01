@@ -38,7 +38,7 @@ function scheda(coltura) {
       el('h3', {}, nomeCompleto),
       el('p', { class: 'meta' },
         el('span', { class: `etichetta ${coltura.dove}` }, t(`form.dove.${coltura.dove}`)),
-        ' ', t('coltura.seminata_il', { data: formattaData(coltura.dataSemina) }),
+        ' ', t(coltura.partenza === 'piantina' ? 'coltura.trapiantata_il' : 'coltura.seminata_il', { data: formattaData(coltura.dataSemina) }),
         zone.find((z) => z.id === coltura.zonaId) ? ` · ${zone.find((z) => z.id === coltura.zonaId).nome}` : '',
       ),
     ),
@@ -105,7 +105,12 @@ function apriNuova(nomeIniziale = '') {
     el('label', {}, t('form.nome'), campoNome),
     el('datalist', { id: 'elenco-schede' }, schede.map((s) => el('option', { value: s.nome }))),
     el('label', {}, t('form.varieta'), campoVarieta),
-    el('label', {}, t('form.data'), el('input', { name: 'dataSemina', type: 'date', required: true, value: oggiISO() })),
+    el('fieldset', { class: 'scelte' },
+      el('legend', {}, t('form.partenza')),
+      el('label', {}, el('input', { type: 'radio', name: 'partenza', value: 'seme', checked: true }), t('form.partenza.seme')),
+      el('label', {}, el('input', { type: 'radio', name: 'partenza', value: 'piantina' }), t('form.partenza.piantina')),
+    ),
+    el('label', {}, el('span', { class: 'etichetta-data' }, t('form.data')), el('input', { name: 'dataSemina', type: 'date', required: true, value: oggiISO() })),
     el('fieldset', { class: 'scelte' },
       el('legend', {}, t('form.dove')),
       el('label', {}, el('input', { type: 'radio', name: 'dove', value: 'semenzaio', checked: true }), t('form.dove.semenzaio')),
@@ -120,6 +125,10 @@ function apriNuova(nomeIniziale = '') {
     ),
   );
   const foglio = apriFoglio({ titolo: t('colture.nuova'), contenuto: form });
+  // La data è quella di semina o di trapianto, a seconda di come si parte.
+  form.querySelectorAll('input[name=partenza]').forEach((r) => r.addEventListener('change', () => {
+    form.querySelector('.etichetta-data').textContent = t(form.elements.partenza.value === 'piantina' ? 'form.data.trapianto' : 'form.data');
+  }));
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const dati = new FormData(form);
@@ -129,6 +138,7 @@ function apriNuova(nomeIniziale = '') {
       varieta: dati.get('varieta'),
       dataSemina: dati.get('dataSemina'),
       dove: dati.get('dove'),
+      partenza: dati.get('partenza'),
       note: dati.get('note'),
       schedaId: trovaScheda(schede, nome)?.id,
       zonaId: dati.get('zonaId'),

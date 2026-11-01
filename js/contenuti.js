@@ -86,3 +86,8 @@ export async function animali() {
 export async function rendita() {
   return json(`data/${lingua}/rendita.json`);
 }
+
+// Le fasi di vita delle colture (data/it/fasi.json), o null.
+export async function fasi() {
+  return json(`data/${lingua}/fasi.json`);
+}

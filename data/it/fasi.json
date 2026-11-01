@@ -1,0 +1,1204 @@
+{
+  "versione": 1,
+  "fonti": {
+    "f1": {
+      "titolo": "An educator’s guide to vegetable gardening",
+      "ente": "Oregon State University Extension Service",
+      "url": "https://extension.oregonstate.edu/catalog/pub/em9032?reference=catalog",
+      "consultata": "2026-11-01",
+      "nota": "Tabella giorni semina-raccolta e note colturali; condizioni dell’Oregon, non trasferibili senza adattamento."
+    },
+    "f2": {
+      "titolo": "Grow Your Own Transplants At Home",
+      "ente": "Utah State University Extension",
+      "url": "https://extension.usu.edu/yardandgarden/research/grow-your-own-transplants-at-home",
+      "consultata": "2026-11-01",
+      "nota": "Germinazione, raccolta e indicazioni pratiche per alcune orticole; clima dello Utah."
+    },
+    "f3": {
+      "titolo": "Starting Seeds Indoors",
+      "ente": "Clemson Cooperative Extension",
+      "url": "https://hgic.clemson.edu/factsheet/starting-seeds-indoors/",
+      "consultata": "2026-11-01",
+      "nota": "Età approssimativa al trapianto; indicazione pubblicata per condizioni del South Carolina."
+    },
+    "f4": {
+      "titolo": "Principles and Practices of Irrigation Management for Vegetables",
+      "ente": "University of Florida IFAS Extension",
+      "url": "https://ask.ifas.ufl.edu/publication/CV297",
+      "consultata": "2026-11-01",
+      "nota": "Descrive stadi di crescita e periodi critici per l’acqua; clima della Florida."
+    },
+    "f5": {
+      "titolo": "Germination Requirements for Annuals and Vegetables",
+      "ente": "Iowa State University Extension",
+      "url": "https://yardandgarden.extension.iastate.edu/how-to/germination-requirements-annuals-and-vegetables",
+      "consultata": "2026-11-01",
+      "nota": "Tempi orientativi di emergenza per specie; condizioni dell’Iowa."
+    },
+    "f6": {
+      "titolo": "Irrigation strategies for vegetables",
+      "ente": "University of Minnesota Extension",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/irrigation-strategies-vegetables",
+      "consultata": "2026-11-01",
+      "nota": "Indica fasi in cui la disponibilità d’acqua è particolarmente importante."
+    }
+  },
+  "colture": {
+    "pomodori": {
+      "piantina_eta_giorni": {
+        "valore": 42,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 9,
+          "cosa_fare": [
+            "Semina in contenitore pulito e copri appena il seme.",
+            "Mantieni il substrato umido, senza ristagni."
+          ],
+          "accortezze": [
+            "Dai luce appena spuntano i germogli.",
+            "Il tempo varia con temperatura e varietà."
+          ],
+          "come_riconoscerla": "Spuntano due foglie iniziali sopra il substrato.",
+          "certezza": "media",
+          "fonti": [
+            "f2",
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 10,
+          "a_giorno": 42,
+          "cosa_fare": [
+            "Tieni le piantine alla luce e annaffia quando il substrato inizia ad asciugare.",
+            "Abituale gradualmente all’esterno prima del trapianto."
+          ],
+          "accortezze": [
+            "Trapianta dopo il rischio di freddo, con piantina robusta.",
+            "L’età è indicativa e dipende dalle condizioni."
+          ],
+          "come_riconoscerla": "Ha foglie vere e fusto robusto, pronta al trapianto.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 43,
+          "a_giorno": 65,
+          "cosa_fare": [
+            "Trapianta in posizione soleggiata quando le condizioni sono adatte.",
+            "Installa un tutore e guida il fusto se la varietà ne ha bisogno."
+          ],
+          "accortezze": [
+            "Mantieni umidità regolare senza bagnare eccessivamente.",
+            "Controlla la pianta spesso; per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Il fusto cresce e compaiono nuovi rami e foglie.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e allegagione",
+          "da_giorno": 66,
+          "a_giorno": 89,
+          "cosa_fare": [
+            "Mantieni regolare l’umidità durante fioritura e formazione dei frutti.",
+            "Sostieni i rami carichi senza stringerli."
+          ],
+          "accortezze": [
+            "Evita sbalzi di umidità nel terreno.",
+            "La durata dipende da varietà e clima."
+          ],
+          "come_riconoscerla": "I fiori gialli appassiscono e piccoli frutti iniziano a crescere.",
+          "certezza": "media",
+          "fonti": [
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Maturazione e raccolto",
+          "da_giorno": 90,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i frutti maturi con delicatezza.",
+            "Continua a controllare la pianta e raccogliere i frutti pronti."
+          ],
+          "accortezze": [
+            "Il colore di maturazione varia secondo la varietà.",
+            "Il ciclo indicato nella scheda è 90–110 giorni dalla semina."
+          ],
+          "come_riconoscerla": "I frutti raggiungono colore e consistenza tipici della varietà.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 90), perché la fonte della fase dava un valore più basso."
+    },
+    "zucchine": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 7,
+          "cosa_fare": [
+            "Semina a dimora quando il terreno è adatto oppure in contenitore.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "Non disturbare i semi mentre germinano.",
+            "I tempi cambiano con il calore."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni, seguiti dalle prime foglie vere.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f5"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 8,
+          "a_giorno": 25,
+          "cosa_fare": [
+            "Lascia spazio alla pianta e togli le erbe vicine con cautela.",
+            "Annaffia al terreno quando serve."
+          ],
+          "accortezze": [
+            "Evita ristagni e stress da siccità.",
+            "Controlla le foglie; per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Si allargano le foglie grandi e si sviluppano i tralci.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura",
+          "da_giorno": 26,
+          "a_giorno": 53,
+          "cosa_fare": [
+            "Mantieni umidità regolare mentre compaiono i fiori.",
+            "Controlla che i fiori non siano coperti da foglie bagnate a lungo."
+          ],
+          "accortezze": [
+            "La fioritura può risentire del caldo e della disponibilità d’acqua.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Si aprono fiori gialli sulla pianta.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Fruttificazione e raccolto",
+          "da_giorno": 54,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Controlla spesso e raccogli i frutti giovani e teneri.",
+            "Taglia il frutto senza strappare la pianta."
+          ],
+          "accortezze": [
+            "Raccogliere spesso favorisce la produzione continuata.",
+            "La scheda indica raccolta a 54–71 giorni; la varietà può cambiare i tempi."
+          ],
+          "come_riconoscerla": "I frutti si ingrossano e raggiungono la dimensione adatta alla raccolta.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 54), perché la fonte della fase dava un valore più basso."
+    },
+    "lattuga": {
+      "piantina_eta_giorni": {
+        "valore": 21,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 7,
+          "cosa_fare": [
+            "Semina poco profondo in semenzaio o a dimora.",
+            "Mantieni umido il substrato senza coprire troppo il seme."
+          ],
+          "accortezze": [
+            "Dai luce ai germogli appena emergono.",
+            "Il caldo può rallentare la germinazione."
+          ],
+          "come_riconoscerla": "Emergono germogli piccoli con due cotiledoni.",
+          "certezza": "media",
+          "fonti": [
+            "f2",
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 8,
+          "a_giorno": 21,
+          "cosa_fare": [
+            "Tieni il semenzaio luminoso e il terreno appena umido.",
+            "Trapianta con delicatezza quando la piantina è ben formata."
+          ],
+          "accortezze": [
+            "Evita di danneggiare le radici.",
+            "Età e prontezza dipendono dalle condizioni."
+          ],
+          "come_riconoscerla": "Compaiono diverse foglie vere e la rosetta è formata.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita delle foglie",
+          "da_giorno": 22,
+          "a_giorno": 34,
+          "cosa_fare": [
+            "Mantieni il terreno uniformemente umido.",
+            "Togli le erbe vicine senza danneggiare le radici superficiali."
+          ],
+          "accortezze": [
+            "Evita carenza d’acqua durante lo sviluppo delle foglie.",
+            "Proteggi dal caldo eccessivo con una posizione adatta."
+          ],
+          "come_riconoscerla": "La rosetta aumenta di volume e produce nuove foglie.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Raccolto",
+          "da_giorno": 35,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli le foglie esterne oppure l’intera pianta secondo la varietà.",
+            "Raccogli prima che il fusto si allunghi e la pianta monti a seme."
+          ],
+          "accortezze": [
+            "La scheda indica 35–40 giorni, valore da verificare per varietà e stagione.",
+            "Il caldo può anticipare la montata a seme."
+          ],
+          "come_riconoscerla": "La pianta ha foglie sufficienti o un cespo sviluppato per l’uso scelto.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f2"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 35), perché la fonte della fase dava un valore più basso."
+    },
+    "carote": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "alta",
+        "fonti": [
+          "f5"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 20,
+          "cosa_fare": [
+            "Semina direttamente nel terreno definitivo.",
+            "Mantieni umido lo strato superficiale fino all’emergenza."
+          ],
+          "accortezze": [
+            "La germinazione può essere lenta e irregolare.",
+            "Evita crosta superficiale e asciugatura."
+          ],
+          "come_riconoscerla": "Spuntano file di germogli sottili con foglioline fini.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 21,
+          "a_giorno": 40,
+          "cosa_fare": [
+            "Rimuovi le erbe infestanti con attenzione.",
+            "Dirada gradualmente se le piantine sono troppo fitte."
+          ],
+          "accortezze": [
+            "Non trapiantare: la radice può deformarsi.",
+            "I tempi di emergenza dipendono da temperatura e umidità."
+          ],
+          "come_riconoscerla": "Le foglie piumose aumentano, mentre la radice inizia a ingrossarsi.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f5"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Ingrossamento della radice",
+          "da_giorno": 41,
+          "a_giorno": 89,
+          "cosa_fare": [
+            "Mantieni umidità regolare mentre la radice cresce.",
+            "Togli le erbe senza ferire le carote."
+          ],
+          "accortezze": [
+            "La carenza d’acqua durante l’ingrossamento è sfavorevole.",
+            "Il ciclo dipende dalla varietà e dal terreno."
+          ],
+          "come_riconoscerla": "La parte superiore della radice diventa visibile e aumenta di diametro.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Raccolto",
+          "da_giorno": 90,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli alcune radici di prova per controllarne la pezzatura.",
+            "Estrai con cautela per non spezzarle."
+          ],
+          "accortezze": [
+            "La scheda indica 90–150 giorni: intervallo ampio da varietà e condizioni.",
+            "La maturità non si valuta solo dai giorni trascorsi."
+          ],
+          "come_riconoscerla": "Le radici hanno dimensione e colore tipici della varietà.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 90), perché la fonte della fase dava un valore più basso."
+    },
+    "fagiolini": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "alta",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 8,
+          "cosa_fare": [
+            "Semina direttamente nel terreno quando è abbastanza caldo.",
+            "Mantieni il terreno umido ma non fradicio."
+          ],
+          "accortezze": [
+            "Evita il trapianto delle piantine.",
+            "Il freddo rallenta la nascita."
+          ],
+          "come_riconoscerla": "I germogli emergono dal terreno con i cotiledoni.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f5"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 9,
+          "a_giorno": 23,
+          "cosa_fare": [
+            "Togli le erbe vicine con cautela.",
+            "Predisponi un sostegno solo per varietà rampicanti."
+          ],
+          "accortezze": [
+            "Annaffia al terreno quando serve.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Si sviluppano foglie vere e nuovi rami.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e formazione dei baccelli",
+          "da_giorno": 24,
+          "a_giorno": 44,
+          "cosa_fare": [
+            "Mantieni umidità regolare durante fioritura e formazione dei baccelli.",
+            "Controlla la fila e rimuovi a mano le erbe vicine."
+          ],
+          "accortezze": [
+            "La disponibilità d’acqua è importante in fioritura.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Dai fiori si sviluppano baccelli verdi.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Raccolto",
+          "da_giorno": 45,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i baccelli teneri prima che i semi diventino grossi.",
+            "Ripassa spesso la pianta durante la produzione."
+          ],
+          "accortezze": [
+            "La scheda indica 45–65 giorni dalla semina.",
+            "Il momento varia secondo varietà e clima."
+          ],
+          "come_riconoscerla": "I baccelli sono pieni ma ancora teneri e non coriacei.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 45), perché la fonte della fase dava un valore più basso."
+    },
+    "cipolla": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 14,
+          "cosa_fare": [
+            "Semina in semenzaio o direttamente secondo il metodo scelto.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "I germogli sono sottili e facili da coprire troppo.",
+            "L’emergenza varia con la temperatura."
+          ],
+          "come_riconoscerla": "Spuntano foglie sottili simili a fili d’erba.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 15,
+          "a_giorno": 55,
+          "cosa_fare": [
+            "Mantieni le piantine alla luce e libere dalle erbe concorrenti.",
+            "Trapianta solo se il ciclo è iniziato in semenzaio."
+          ],
+          "accortezze": [
+            "Non confondere la cipolla da seme con quella da bulbilli.",
+            "La durata di questa fase è da verificare per il metodo scelto."
+          ],
+          "come_riconoscerla": "Le foglie dritte aumentano di numero e lunghezza.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita e ingrossamento",
+          "da_giorno": 56,
+          "a_giorno": 199,
+          "cosa_fare": [
+            "Tieni la zona libera dalle erbe infestanti.",
+            "Annaffia con regolarità durante la crescita del bulbo."
+          ],
+          "accortezze": [
+            "L’acqua è importante nelle prime fasi di sviluppo del bulbo.",
+            "Fotoperiodo e varietà influenzano l’ingrossamento."
+          ],
+          "come_riconoscerla": "La base delle foglie si allarga formando il bulbo.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Maturazione e raccolto",
+          "da_giorno": 200,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli quando le foglie iniziano a piegarsi e ingiallire.",
+            "Lascia asciugare i bulbi in luogo ventilato e riparato."
+          ],
+          "accortezze": [
+            "La scheda indica 200–260 giorni: verificare metodo, varietà e destinazione.",
+            "La durata può cambiare molto tra seme e bulbillo."
+          ],
+          "come_riconoscerla": "Le foglie ingialliscono e si adagiano; il bulbo è formato.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 200), perché la fonte della fase dava un valore più basso."
+    },
+    "peperoni": {
+      "piantina_eta_giorni": {
+        "valore": 56,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 14,
+          "cosa_fare": [
+            "Semina in contenitore protetto e mantieni umido il substrato.",
+            "Dai luce ai germogli appena emergono."
+          ],
+          "accortezze": [
+            "La germinazione richiede condizioni calde.",
+            "Tempi e successo dipendono dalla temperatura."
+          ],
+          "come_riconoscerla": "Emergono due cotiledoni, poi le prime foglie vere.",
+          "certezza": "media",
+          "fonti": [
+            "f3",
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 15,
+          "a_giorno": 56,
+          "cosa_fare": [
+            "Tieni le piantine luminose e abituale gradualmente all’esterno.",
+            "Trapianta quando le condizioni sono calde e la piantina robusta."
+          ],
+          "accortezze": [
+            "Evita freddo e ristagni.",
+            "L’età al trapianto è indicativa, non una data rigida."
+          ],
+          "come_riconoscerla": "La pianta ha foglie vere ben sviluppate e fusto saldo.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 57,
+          "a_giorno": 88,
+          "cosa_fare": [
+            "Trapianta in posizione soleggiata dopo il freddo.",
+            "Mantieni il terreno umido e libero dalle erbe."
+          ],
+          "accortezze": [
+            "Evita forti oscillazioni di umidità.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La pianta ramifica e produce nuove foglie.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e allegagione",
+          "da_giorno": 89,
+          "a_giorno": 113,
+          "cosa_fare": [
+            "Mantieni regolare l’acqua durante fioritura e formazione dei frutti.",
+            "Sorreggi i rami se il carico li piega."
+          ],
+          "accortezze": [
+            "Fioritura e allegagione sono sensibili allo stress idrico.",
+            "Tempi variabili secondo varietà e clima."
+          ],
+          "come_riconoscerla": "Compaiono fiori bianchi e poi piccoli peperoni.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Maturazione e raccolto",
+          "da_giorno": 114,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i frutti quando hanno la dimensione e il colore desiderati.",
+            "Usa forbici pulite per non strappare i rami."
+          ],
+          "accortezze": [
+            "La scheda indica 114–146 giorni.",
+            "Il colore finale dipende dalla varietà."
+          ],
+          "come_riconoscerla": "I frutti sono sviluppati; il colore cambia secondo la varietà e il grado di maturità.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 114), perché la fonte della fase dava un valore più basso."
+    },
+    "melanzane": {
+      "piantina_eta_giorni": {
+        "valore": 56,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 14,
+          "cosa_fare": [
+            "Semina in contenitore protetto.",
+            "Mantieni il substrato umido e dai luce appena emerge la piantina."
+          ],
+          "accortezze": [
+            "La germinazione richiede condizioni calde.",
+            "Il tempo varia con la temperatura."
+          ],
+          "come_riconoscerla": "Spuntano cotiledoni e poi foglie vere.",
+          "certezza": "media",
+          "fonti": [
+            "f3",
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 15,
+          "a_giorno": 56,
+          "cosa_fare": [
+            "Tieni la piantina luminosa e abituala gradualmente all’esterno.",
+            "Trapianta solo quando il clima è mite e la pianta robusta."
+          ],
+          "accortezze": [
+            "Proteggi dal freddo.",
+            "L’età indicata è orientativa."
+          ],
+          "come_riconoscerla": "La piantina ha più foglie vere e fusto consistente.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 57,
+          "a_giorno": 82,
+          "cosa_fare": [
+            "Trapianta in luogo soleggiato e mantieni umidità regolare.",
+            "Togli con cautela le erbe vicine."
+          ],
+          "accortezze": [
+            "Evita ristagni e siccità prolungata.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La pianta si ramifica e sviluppa foglie ampie.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e allegagione",
+          "da_giorno": 83,
+          "a_giorno": 110,
+          "cosa_fare": [
+            "Mantieni regolare l’acqua durante fioritura e crescita dei frutti.",
+            "Sostieni la pianta se i rami si piegano."
+          ],
+          "accortezze": [
+            "Acqua regolare è importante in fioritura e fruttificazione.",
+            "La durata varia con varietà e condizioni."
+          ],
+          "come_riconoscerla": "I fiori viola appassiscono e si formano frutti lucidi.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Maturazione e raccolto",
+          "da_giorno": 111,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i frutti sodi e lucidi, prima che perdano qualità.",
+            "Taglia il peduncolo senza tirare il ramo."
+          ],
+          "accortezze": [
+            "La scheda indica 97–150 giorni: intervallo variabile.",
+            "Forma e colore dipendono dalla varietà."
+          ],
+          "come_riconoscerla": "La buccia è lucida e il frutto ha raggiunto la pezzatura tipica.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        }
+      ]
+    },
+    "patate": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "alta",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 18,
+          "cosa_fare": [
+            "Pianta tuberi-seme sani in terreno adatto.",
+            "Mantieni il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "Il conteggio parte dalla messa a dimora, non da seme botanico.",
+            "L’emergenza dipende da temperatura e condizioni del tubero."
+          ],
+          "come_riconoscerla": "Emergono i germogli dal terreno.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1",
+            "f5"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 19,
+          "a_giorno": 40,
+          "cosa_fare": [
+            "Mantieni la fila libera dalle erbe concorrenti.",
+            "Rincalza con terra quando i fusti crescono, senza coprire le foglie apicali."
+          ],
+          "accortezze": [
+            "Non lasciare i tuberi esposti alla luce.",
+            "La pratica e la tempistica variano secondo il sistema di coltivazione."
+          ],
+          "come_riconoscerla": "I fusti e le foglie crescono sopra la fila.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e tuberizzazione",
+          "da_giorno": 41,
+          "a_giorno": 68,
+          "cosa_fare": [
+            "Mantieni umidità abbastanza regolare durante la crescita dei tuberi.",
+            "Controlla che i tuberi restino coperti di terra."
+          ],
+          "accortezze": [
+            "La siccità può ostacolare la crescita.",
+            "La fioritura non è un indicatore preciso di maturità."
+          ],
+          "come_riconoscerla": "La pianta può fiorire mentre sotto terra si ingrossano i tuberi.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Maturazione e raccolto",
+          "da_giorno": 69,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Verifica la maturità scavando con cautela una pianta.",
+            "Raccogli senza ferire i tuberi e lasciali asciugare al riparo dalla luce."
+          ],
+          "accortezze": [
+            "La scheda indica 50–100 giorni, ma varietà e uso cambiano il momento.",
+            "Per conservazione attendi la maturità della buccia; dato da verificare."
+          ],
+          "come_riconoscerla": "La parte aerea ingiallisce e i tuberi hanno buccia formata.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        }
+      ]
+    },
+    "cetrioli": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 8,
+          "cosa_fare": [
+            "Semina a dimora con clima mite oppure in contenitore.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "Evita di disturbare le radici se semini in vaso.",
+            "Il freddo rallenta la germinazione."
+          ],
+          "come_riconoscerla": "Spuntano i cotiledoni e poi le prime foglie vere.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f5"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 9,
+          "a_giorno": 23,
+          "cosa_fare": [
+            "Lascia spazio ai tralci o predisponi un sostegno.",
+            "Annaffia al terreno quando serve."
+          ],
+          "accortezze": [
+            "Evita ristagni e foglie bagnate a lungo.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Si allungano i tralci e compaiono viticci e nuove foglie.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e allegagione",
+          "da_giorno": 24,
+          "a_giorno": 43,
+          "cosa_fare": [
+            "Mantieni umidità regolare durante fioritura e formazione dei frutti.",
+            "Controlla spesso i tralci e sostieni quelli carichi."
+          ],
+          "accortezze": [
+            "L’acqua è importante durante fioritura e maturazione.",
+            "La fruttificazione dipende da varietà e clima."
+          ],
+          "come_riconoscerla": "Dai fiori gialli iniziano a formarsi i cetrioli.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Crescita dei frutti e raccolto",
+          "da_giorno": 44,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i frutti alla dimensione d’uso prevista per la varietà.",
+            "Controlla spesso e taglia senza tirare i tralci."
+          ],
+          "accortezze": [
+            "La scheda indica 44–67 giorni dalla semina.",
+            "Raccogliere regolarmente limita frutti troppo maturi."
+          ],
+          "come_riconoscerla": "I frutti hanno dimensione e colore tipici della varietà.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 44), perché la fonte della fase dava un valore più basso."
+    },
+    "piselli": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "alta",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 14,
+          "cosa_fare": [
+            "Semina direttamente nel terreno.",
+            "Mantieni umido il suolo senza ristagni."
+          ],
+          "accortezze": [
+            "Il freddo può allungare l’emergenza.",
+            "Non serve trapiantare i piselli."
+          ],
+          "come_riconoscerla": "Emergono i germogli con le prime foglie.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f5"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 15,
+          "a_giorno": 55,
+          "cosa_fare": [
+            "Togli le erbe vicine con attenzione.",
+            "Metti un sostegno se la varietà è rampicante."
+          ],
+          "accortezze": [
+            "Le varietà nane possono non aver bisogno di sostegno.",
+            "La fase varia con stagione e varietà."
+          ],
+          "come_riconoscerla": "Si allungano i fusti e compaiono viticci e nuove foglie.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e formazione dei baccelli",
+          "da_giorno": 56,
+          "a_giorno": 99,
+          "cosa_fare": [
+            "Mantieni il terreno regolarmente umido durante fioritura e formazione dei baccelli.",
+            "Controlla che i sostegni reggano i fusti."
+          ],
+          "accortezze": [
+            "La durata del ciclo dipende dalla stagione.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "I fiori bianchi o colorati lasciano spazio ai baccelli.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Riempimento e raccolto",
+          "da_giorno": 100,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i baccelli quando i semi hanno la dimensione desiderata.",
+            "Ripassa la fila per raccogliere i baccelli maturi."
+          ],
+          "accortezze": [
+            "La scheda indica 100–160 giorni, dato già segnalato come incerto.",
+            "Le varietà da sgranare e mangiatutto si raccolgono in stadi diversi."
+          ],
+          "come_riconoscerla": "I baccelli sono formati e i semi si distinguono al tatto.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 100), perché la fonte della fase dava un valore più basso."
+    },
+    "fave": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "alta",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 21,
+          "cosa_fare": [
+            "Semina direttamente in terreno adatto.",
+            "Mantieni il suolo umido ma non saturo."
+          ],
+          "accortezze": [
+            "Con il freddo la nascita può essere più lenta.",
+            "Non trapiantare le plantule a radice disturbata."
+          ],
+          "come_riconoscerla": "Spuntano fusti robusti con le prime foglie.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 22,
+          "a_giorno": 75,
+          "cosa_fare": [
+            "Togli le erbe concorrenti con cautela.",
+            "Controlla la stabilità delle piante e sostienile se necessario."
+          ],
+          "accortezze": [
+            "La tolleranza al freddo dipende dallo stadio e dalle condizioni.",
+            "La durata è da verificare per clima locale e varietà."
+          ],
+          "come_riconoscerla": "Gli steli si allungano e si sviluppano foglie composte.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e formazione dei baccelli",
+          "da_giorno": 76,
+          "a_giorno": 149,
+          "cosa_fare": [
+            "Osserva i fiori e mantieni umidità regolare se il terreno asciuga.",
+            "Controlla le piante durante la formazione dei baccelli."
+          ],
+          "accortezze": [
+            "Le fave possono fiorire in più passaggi.",
+            "La durata varia con data di semina e clima."
+          ],
+          "come_riconoscerla": "Compaiono fiori chiari e poi baccelli verdi pendenti.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1",
+            "f4"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Riempimento e raccolto",
+          "da_giorno": 150,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i baccelli quando i semi sono sviluppati ma teneri.",
+            "Raccogli in più passaggi se i baccelli maturano in tempi diversi."
+          ],
+          "accortezze": [
+            "La scheda indica 150–210 giorni, valore da verificare localmente.",
+            "La fava può causare favismo: rispetta gli avvisi sanitari della scheda."
+          ],
+          "come_riconoscerla": "I baccelli sono ben formati e i semi si vedono al loro interno.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 150), perché la fonte della fase dava un valore più basso."
+    }
+  }
+}

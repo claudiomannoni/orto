@@ -1,6 +1,8 @@
 // «Il dottore delle piante»: si fotografa una pianta e Rossella dice come sta, cosa potrebbe avere e cosa controllare.
 // Da qui partono anche le altre cose che si fanno con la fotocamera: terreno, bustina dei semi, diario. Sempre ipotesi da verificare.
-import { el, oggiISO, formattaData, aggiungi, sostituisci } from '../util.js';
+import { el, oggiISO, formattaData, aggiungi, sostituisci, parametriRotta } from '../util.js';
+import { fasi } from '../contenuti.js';
+import { statoFase } from '../ui/fasi-pianta.js';
 import { t } from '../i18n.js';
 import { leggi, imposta } from '../store/impostazioni.js';
 import { disponibile } from '../ai/ai.js';
@@ -24,11 +26,12 @@ const tessera = (href, titolo, spiega, id) => el('a', { class: 'tessera-azione',
 
 export async function monta(contenitore) {
   const oggi = oggiISO();
-  const [colture, tutteFoto, haChiave, restanti, impostazioni] = await Promise.all([elencoColture(), elencoFoto(), disponibile(), restantiOggi(), leggi()]);
+  const [colture, tutteFoto, haChiave, restanti, impostazioni, dFasi] = await Promise.all([elencoColture(), elencoFoto(), disponibile(), restantiOggi(), leggi(), fasi()]);
   let consenso = Boolean(impostazioni.ai_foto_ok);
   const area = el('div', { class: 'dottore-risultato', 'aria-live': 'polite' });
   const anteprima = el('div', { class: 'dottore-anteprima' });
-  const scelta = el('select', { name: 'coltura' }, [el('option', { value: '' }, t('dottore.non_so')), ...colture.map((c) => el('option', { value: c.id }, c.nome))]);
+  const daScegliere = parametriRotta().get('coltura'); // arrivando da «Esamina con una foto» la coltura è già scelta
+  const scelta = el('select', { name: 'coltura' }, [el('option', { value: '' }, t('dottore.non_so')), ...colture.map((c) => el('option', { value: c.id, selected: c.id === daScegliere }, c.nome))]);
   const nota = el('input', { name: 'nota', maxlength: 200, placeholder: t('dottore.nota.esempio') });
   // Due ingressi: la fotocamera e la galleria (su alcuni telefoni la fotocamera diretta chiude la pagina e la foto si perde).
   const campo = (camera) => el('input', { type: 'file', accept: 'image/*', ...(camera ? { capture: 'environment' } : {}), class: 'solo-lettori', tabindex: '-1', name: camera ? 'dottore-foto' : 'dottore-galleria' });
@@ -89,7 +92,10 @@ export async function monta(contenitore) {
       const foto = await riduciFoto(file, { miniatura: true });
       sostituisci(anteprima, el('img', { src: foto.anteprima, alt: t('dottore.anteprima'), width: 240 }));
       const coltura = colture.find((c) => c.id === scelta.value);
-      const risultato = await diagnosiFoto({ immagine: { tipo: foto.tipo, base64: foto.base64 }, contesto: { coltura: coltura?.nome, nota: nota.value } });
+      // Se per questa coltura abbiamo le fasi, si chiede anche in che fase sembra essere e si confronta con l'età.
+      const st = coltura ? statoFase(coltura, dFasi, oggi) : null;
+      const fase = st ? { eta: st.eta, attesa: { id: st.fase.id, nome: st.fase.nome, come_riconoscerla: st.fase.come_riconoscerla }, elenco: st.dati.fasi.map((f) => ({ id: f.id, nome: f.nome })) } : null;
+      const risultato = await diagnosiFoto({ immagine: { tipo: foto.tipo, base64: foto.base64 }, contesto: { coltura: coltura?.nome, nota: nota.value, fase } });
       const diagnosi = { data: oggi, risultato };
       const salva = el('button', { class: 'btn primario', type: 'button', id: 'dottore-salva' }, t('dottore.salva'));
       salva.addEventListener('click', async () => {
