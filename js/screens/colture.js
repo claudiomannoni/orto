@@ -4,7 +4,7 @@ import { t, tn } from '../i18n.js';
 import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
 import { controllaProgressi } from '../store/progressi.js';
-import { catalogo, trovaScheda, animali, rendita } from '../contenuti.js';
+import { catalogo, trovaScheda, animali, rendita, alberi } from '../contenuti.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
@@ -156,7 +156,7 @@ function apriNuova(nomeIniziale = '') {
 
 export async function monta(contenitore) {
   [colture, schede, zone] = await Promise.all([elencoColture(), catalogo(), elencoZone()]);
-  const [dAnimali, dRendita] = await Promise.all([animali(), rendita()]);
+  const [dAnimali, dRendita, dAlberi] = await Promise.all([animali(), rendita(), alberi()]);
   conteggio = el('span', { class: 'conteggio' }, '0');
   lista = el('ul', { class: 'lista' });
   riquadro = el('div', {});
@@ -171,6 +171,7 @@ export async function monta(contenitore) {
       tessera('#/semi', t('colture.hub.semi'), t('colture.hub.semi.spiega')),
       // Le schede su animali e colture speciali compaiono solo se i contenuti ci sono.
       dAnimali?.schede?.length ? tessera('#/animali', t('colture.hub.animali'), t('colture.hub.animali.spiega')) : null,
+      dAlberi?.schede?.length ? tessera('#/alberi', t('colture.hub.alberi'), t('colture.hub.alberi.spiega')) : null,
       dRendita?.schede?.length ? tessera('#/rendita', t('colture.hub.rendita'), t('colture.hub.rendita.spiega')) : null),
     riquadro,
     el('h3', {}, t('colture.elenco'), ' ', conteggio),

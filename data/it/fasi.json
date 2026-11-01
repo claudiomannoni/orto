@@ -42,6 +42,20 @@
       "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/irrigation-strategies-vegetables",
       "consultata": "2026-11-01",
       "nota": "Indica fasi in cui la disponibilità d’acqua è particolarmente importante."
+    },
+    "f7": {
+      "titolo": "Vegetable Harvest Guide",
+      "ente": "Iowa State University Extension and Outreach",
+      "url": "https://yardandgarden.extension.iastate.edu/how-to/vegetable-harvest-guide",
+      "consultata": "2026-11-01",
+      "nota": "Giorni indicativi e criteri di raccolta per ortaggi; condizioni dell?Iowa."
+    },
+    "f8": {
+      "titolo": "Planting vegetables in midsummer for fall harvest",
+      "ente": "University of Minnesota Extension",
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-minnesota/planting-vegetables-midsummer-fall-harvest",
+      "consultata": "2026-11-01",
+      "nota": "Intervalli di maturazione e note su raccolta per alcune orticole; condizioni del Minnesota."
     }
   },
   "colture": {
@@ -1199,6 +1213,933 @@
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 150), perché la fonte della fase dava un valore più basso."
+    },
+    "rucola": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 7,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 8,
+          "a_giorno": 16,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita delle foglie",
+          "da_giorno": 17,
+          "a_giorno": 24,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Raccolta delle foglie",
+          "da_giorno": 25,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 25?45 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        }
+      ]
+    },
+    "ravanelli": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 8,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 9,
+          "a_giorno": 18,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Ingrossamento della radice",
+          "da_giorno": 19,
+          "a_giorno": 27,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Raccolta",
+          "da_giorno": 28,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 28?40 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
+          "certezza": "media",
+          "fonti": [
+            "f7"
+          ]
+        }
+      ]
+    },
+    "spinaci": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 19,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 20,
+          "a_giorno": 39,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita delle foglie",
+          "da_giorno": 40,
+          "a_giorno": 59,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Raccolta",
+          "da_giorno": 60,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 60?150 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        }
+      ]
+    },
+    "zucche": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 27,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 28,
+          "a_giorno": 55,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Fioritura e formazione dei frutti",
+          "da_giorno": 56,
+          "a_giorno": 83,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Maturazione e raccolto",
+          "da_giorno": 84,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 84?121 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
+          "certezza": "media",
+          "fonti": [
+            "f7"
+          ]
+        }
+      ]
+    },
+    "broccoli": {
+      "piantina_eta_giorni": {
+        "valore": 42,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 13,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 14,
+          "a_giorno": 27,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita della pianta",
+          "da_giorno": 28,
+          "a_giorno": 40,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Formazione della testa",
+          "da_giorno": 41,
+          "a_giorno": 54,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Raccolta",
+          "da_giorno": 55,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Taglia la testa compatta prima che i boccioli gialli si aprano.",
+            "Controlla se si formano getti laterali dopo il taglio."
+          ],
+          "accortezze": [
+            "La scheda indica 55?65 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La testa ? compatta e i boccioli sono ancora chiusi.",
+          "certezza": "media",
+          "fonti": [
+            "f7"
+          ]
+        }
+      ]
+    },
+    "cavolfiori": {
+      "piantina_eta_giorni": {
+        "valore": 42,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 18,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 19,
+          "a_giorno": 37,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita della pianta",
+          "da_giorno": 38,
+          "a_giorno": 55,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Formazione della testa",
+          "da_giorno": 56,
+          "a_giorno": 74,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Raccolta",
+          "da_giorno": 75,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli la testa compatta quando ha raggiunto la pezzatura tipica.",
+            "Controlla spesso la testa durante l?ingrossamento."
+          ],
+          "accortezze": [
+            "La scheda indica 75?80 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La testa ? compatta, chiara e ben sviluppata.",
+          "certezza": "media",
+          "fonti": [
+            "f7"
+          ]
+        }
+      ]
+    },
+    "verze": {
+      "piantina_eta_giorni": {
+        "valore": 42,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 17,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 18,
+          "a_giorno": 35,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita delle foglie",
+          "da_giorno": 36,
+          "a_giorno": 52,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Formazione del cespo",
+          "da_giorno": 53,
+          "a_giorno": 70,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "raccolta",
+          "nome": "Raccolta",
+          "da_giorno": 71,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 71?128 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Il cespo ? sviluppato, compatto e sodo al tatto.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        }
+      ]
+    },
+    "porri": {
+      "piantina_eta_giorni": {
+        "valore": 42,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 29,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 30,
+          "a_giorno": 59,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita del fusto",
+          "da_giorno": 60,
+          "a_giorno": 89,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f1"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Primo ciclo: maturazione e raccolta",
+          "da_giorno": 90,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 90?120 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Il fusto bianco ha raggiunto la dimensione desiderata.",
+          "certezza": "media",
+          "fonti": [
+            "f7"
+          ]
+        }
+      ]
+    },
+    "bietola": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 12,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 13,
+          "a_giorno": 26,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita delle foglie",
+          "da_giorno": 27,
+          "a_giorno": 39,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Raccolta scalare",
+          "da_giorno": 40,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 40?60 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        }
+      ]
+    },
+    "aglio": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "bassa",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Primo ciclo: emergenza",
+          "da_giorno": 0,
+          "a_giorno": 66,
+          "cosa_fare": [
+            "Semina o metti a dimora secondo il metodo previsto per la coltura.",
+            "Mantieni umido il terreno senza ristagni."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
+          "certezza": "media",
+          "fonti": [
+            "f5"
+          ]
+        },
+        {
+          "id": "piantina",
+          "nome": "Crescita delle foglie",
+          "da_giorno": 67,
+          "a_giorno": 132,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "crescita",
+          "nome": "Formazione del bulbo",
+          "da_giorno": 133,
+          "a_giorno": 199,
+          "cosa_fare": [
+            "Mantieni il terreno umido senza ristagni.",
+            "Togli le erbe vicine con cautela e osserva la crescita."
+          ],
+          "accortezze": [
+            "La durata varia con variet?, temperatura e condizioni locali.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        },
+        {
+          "id": "sviluppo",
+          "nome": "Primo ciclo: maturazione e raccolta",
+          "da_giorno": 200,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli gradualmente le parti mature secondo la specie.",
+            "Osserva forma, consistenza e dimensione tipiche della coltura."
+          ],
+          "accortezze": [
+            "La scheda indica 200?240 giorni; il momento effettivo varia con variet? e condizioni.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "Le foglie ingialliscono e si piegano mentre il bulbo ? sviluppato.",
+          "certezza": "media",
+          "fonti": [
+            "f8"
+          ]
+        }
+      ]
     }
   }
 }

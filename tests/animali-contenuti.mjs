@@ -11,7 +11,8 @@ const MASSIMO_STRINGHE = 260;
 // Percorso file -> nome del campo calendario (assente = nessun calendario da controllare)
 const FILE = [
   { file: 'data/it/animali.json', calendario: 'calendario' },
-  { file: 'data/it/rendita.json', calendario: 'quando' }
+  { file: 'data/it/rendita.json', calendario: 'quando' },
+  { file: 'data/it/alberi.json', calendario: 'quando' }
 ];
 
 // Visita ricorsiva: elenca le stringhe con il loro percorso (per dire quale campo è sbagliato)

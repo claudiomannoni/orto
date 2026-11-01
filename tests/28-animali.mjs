@@ -27,6 +27,14 @@ for (const id of ids2) {
   await page.waitForSelector('h3');
   check(`${id}: si apre con almeno una fonte`, (await page.locator('a[href^="http"]').count()) >= 1);
 }
+await page.goto(`${page.url().split('#')[0]}#/alberi`);
+await page.waitForSelector('a[data-scheda]');
+const ids3 = await page.locator('a[data-scheda]').evaluateAll((a) => a.map((x) => x.dataset.scheda));
+check('alberi da frutto: dieci schede (olivo, vite, fico...)', ids3.length === 10 && ids3.includes('olivo') && ids3.includes('vite'), ids3.join());
+await page.goto(`${page.url().split('#')[0]}#/alberi?scheda=olivo`);
+await page.waitForSelector('h3');
+const olivo = await page.locator('main').innerText();
+check('olivo: potatura, fonte e avviso «verifica con la tua ASL»', /Potatura/.test(olivo) && (await page.locator('a[href^="http"]').count()) >= 1);
 const veri = problemi.filter((p) => !/Service Worker registration blocked/.test(p));
 check('nessun errore in console', veri.length === 0, veri.join(' | '));
 await browser.close();

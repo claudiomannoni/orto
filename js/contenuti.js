@@ -91,3 +91,8 @@ export async function rendita() {
 export async function fasi() {
   return json(`data/${lingua}/fasi.json`);
 }
+
+// Alberi da frutto e vite (data/it/alberi.json), o null.
+export async function alberi() {
+  return json(`data/${lingua}/alberi.json`);
+}
