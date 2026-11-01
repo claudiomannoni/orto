@@ -1,6 +1,6 @@
 # Stato del progetto (per chi riprende da un'altra sessione)
 
-Ultimo aggiornamento: 31/10/2026, versione dell'app 2.41.1. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+Ultimo aggiornamento: 31/10/2026, versione dell'app 2.41.2. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
 
 ## In una frase
 
@@ -12,6 +12,9 @@ Orto AI è una PWA statica (nessun build, moduli ES, IndexedDB) per chi fa l'ort
 python -m http.server 8101              # server di prova (o lascialo fare allo script sotto)
 node scripts/prova-tutto.mjs            # TUTTI i test, in fondo dice cosa è rosso (serve tests/node_modules: vedi docs/LAVORARE-SUL-PC.md)
 node scripts/aggiorna-cache.mjs         # dopo ogni modifica ai file dell'app: aggiorna sw.js
+node scripts/controlla-link.mjs .       # apre tutte le fonti (URL) dei contenuti: ROTTO = da riparare; ATTENZIONE 403 = sito che blocca i programmi
+node scripts/riepilogo-contenuti.mjs .  # quanto sono completi i dati (semina, giorni, mesi, fonti): dice dove lavorare
+node scripts/trova-codice-morto.mjs .   # segnala export, classi CSS e risorse che forse non servono (controllare a mano)
 ```
 
 Regole che non si dimenticano:
