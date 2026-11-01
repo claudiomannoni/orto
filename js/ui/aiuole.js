@@ -22,6 +22,6 @@ export function aiuole(colture, zone, schede, oggi = oggiISO()) {
     el('h3', {}, t('aiuola.titolo')),
     el('p', { class: 'aiuto' }, t('aiuola.spiega')),
     gruppi.map((g) => el('div', { class: 'aiuola' },
-      el('h4', {}, g.zona ? g.zona.nome : t('aiuola.senza_zona')),
+      el('h4', {}, g.zona ? g.zona.nome : t('aiuola.senza_zona'), g.zona?.misure?.larghezza_m && g.zona?.misure?.lunghezza_m ? el('a', { class: 'link-piano', href: `#/piano?zona=${encodeURIComponent(g.zona.id)}` }, ` · ${t('piano.apri')}`) : null),
       el('ul', { class: 'tessere' }, g.colture.map((c) => tessera(c, schede, oggi))))));
 }

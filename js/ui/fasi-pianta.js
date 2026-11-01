@@ -32,7 +32,7 @@ export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true } = {}) {
     el('h4', {}, t('fase.cosa_fare')), lista(f.cosa_fare),
     el('h4', {}, t('fase.accortezze')), lista(f.accortezze),
     f.come_riconoscerla ? el('p', { class: 'aiuto' }, t('fase.riconoscerla', { testo: f.come_riconoscerla })) : null,
-    conFoto ? el('a', { class: 'btn', href: `#/dottore?coltura=${encodeURIComponent(coltura.id)}` }, t('fase.esamina')) : null,
+    conFoto ? el('div', { class: 'riga' }, el('a', { class: 'btn', href: `#/dottore?coltura=${encodeURIComponent(coltura.id)}` }, t('fase.esamina')), el('a', { class: 'btn', href: `#/pianta?id=${encodeURIComponent(coltura.id)}` }, t('pianta.storia'))) : null,
     fonti.length ? el('details', { class: 'meteo-dettagli' }, el('summary', {}, t('animali.fonti')),
       el('ul', { class: 'elenco-semplice' }, fonti.map((x) => el('li', {}, el('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer' }, x.titolo), x.ente ? ` (${x.ente})` : '')))) : null,
     el('p', { class: 'aiuto' }, t('fase.avvertenza')));

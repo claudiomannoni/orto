@@ -45,6 +45,7 @@ function scheda(coltura) {
     el('div', { class: 'giorni' }, el('strong', {}, String(numero)), el('span', {}, etichetta)),
     coltura.note ? el('p', { class: 'note' }, coltura.note) : null,
     el('div', { class: 'riga' },
+      el('a', { class: 'btn', href: `#/pianta?id=${encodeURIComponent(coltura.id)}` }, t('pianta.storia')),
       el('button', { class: 'btn', type: 'button', onclick: () => promemoria(coltura) }, t('coltura.promemoria')),
       el('button', { class: 'btn pericolo', type: 'button', onclick: () => elimina(coltura) }, t('coltura.elimina')),
     ),
