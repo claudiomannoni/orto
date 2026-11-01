@@ -17,10 +17,13 @@
   },
   "semina": {
     "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
+    "distanza_file_cm": 45,
+    "distanza_piante_cm": 23,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f4"
+    ],
+    "nota": "Intervalli: 40?50 cm tra file, 20?25 cm sulla fila."
   },
   "consociazioni": {
     "amiche": [],
@@ -128,6 +131,13 @@
       "url": "https://www.vivaioleserre.it/calendario-delle-coltivazioni/",
       "consultata": "2026-10-31",
       "nota": "Tabella generale dei periodi di trapianto in campo per basilico e prezzemolo."
+    },
+    "f4": {
+      "titolo": "Finocchio ? Foeniculum vulgare dulce Mill.",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/finocchio.htm",
+      "consultata": "2026-11-01",
+      "nota": "File a 40?50 cm e diradamento a 20?25 cm; medie arrotondate."
     }
   }
 }

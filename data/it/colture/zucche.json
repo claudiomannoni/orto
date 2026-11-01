@@ -19,10 +19,13 @@
   },
   "semina": {
     "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
+    "distanza_file_cm": 100,
+    "distanza_piante_cm": 100,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f5"
+    ],
+    "nota": "1 m tra buchette; 1?2 m tra piante secondo portamento."
   },
   "consociazioni": {
     "amiche": [],
@@ -137,6 +140,13 @@
       "url": "https://extension.oregonstate.edu/es/catalog/em-9032-educators-guide-vegetable-gardening",
       "consultata": "2026-10-31",
       "nota": "Tabelle dell’appendice A (giorni dalla semina) e B (giorni dal trapianto e età della piantina); dati per Oregon, clima diverso. Per i trapianti sommo solo gli intervalli espliciti di età della piantina e giorni dal trapianto."
+    },
+    "f5": {
+      "titolo": "Zucca e zucchine ? Cucurbita spp.",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/zucca.htm",
+      "consultata": "2026-11-01",
+      "nota": "Buchette a 1 m; le zucche a tralcio grande possono arrivare a 2 m tra le piante."
     }
   }
 }

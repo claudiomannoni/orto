@@ -158,6 +158,7 @@ export async function monta(contenitore) {
       tessera('#/diario', t('colture.hub.diario'), t('colture.hub.diario.spiega')),
       tessera('#/storia', t('colture.hub.storia'), t('colture.hub.storia.spiega')),
       tessera('#/raccolto', t('colture.hub.raccolto'), t('colture.hub.raccolto.spiega')),
+      tessera('#/semi', t('colture.hub.semi'), t('colture.hub.semi.spiega')),
       // Le schede su animali e colture speciali compaiono solo se i contenuti ci sono.
       dAnimali?.schede?.length ? tessera('#/animali', t('colture.hub.animali'), t('colture.hub.animali.spiega')) : null,
       dRendita?.schede?.length ? tessera('#/rendita', t('colture.hub.rendita'), t('colture.hub.rendita.spiega')) : null),

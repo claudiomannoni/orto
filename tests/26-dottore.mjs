@@ -79,7 +79,7 @@ check('le ultime analisi compaiono in fondo', (await page.getByText('Le ultime a
 
 // Il mio orto: ordinato a sezioni
 await vai(page, 'colture');
-check('Il mio orto: titolo, sei sezioni', (await page.locator('h2.titolo-schermata').innerText()) === 'Il mio orto' && (await page.locator('.tessere-azione .tessera-azione').count()) === 6);
+check('Il mio orto: titolo, sette sezioni', (await page.locator('h2.titolo-schermata').innerText()) === 'Il mio orto' && (await page.locator('.tessere-azione .tessera-azione').count()) === 7);
 
 const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked|\b(404|429)\b/.test(p));
 check('nessun errore in console / rete (esclusi quelli simulati)', veri.length === 0, veri.join(' | '));

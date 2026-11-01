@@ -16,11 +16,13 @@
     "fonti": []
   },
   "semina": {
-    "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
-    "certezza": "bassa",
-    "fonti": []
+    "profondita_cm": 15,
+    "distanza_file_cm": 122,
+    "distanza_piante_cm": 61,
+    "certezza": "media",
+    "fonti": [
+      "f2"
+    ]
   },
   "consociazioni": {
     "amiche": [],
@@ -116,6 +118,13 @@
       "url": "https://www.ingegnoli.it/ita/sementi/sementi-da-orto",
       "consultata": "2026-10-31",
       "nota": "Mesi di semina protetta e diretta per solanacee e cucurbitacee; patate e zampe di asparago in primavera; vale per Centro-Nord e invita a considerare la varietà."
+    },
+    "f2": {
+      "titolo": "Oklahoma Garden Planning Guide",
+      "ente": "Oklahoma State University Extension",
+      "url": "https://extension.okstate.edu/fact-sheets/oklahoma-garden-planning-guide",
+      "consultata": "2026-11-01",
+      "nota": "Guida universitaria con tabella di profondit? e sesti per orto domestico; dati per Oklahoma."
     }
   }
 }

@@ -61,8 +61,8 @@ export async function monta(contenitore) {
   if (g?.min && g?.max) fatti.push(el('li', {}, t('scheda.raccolta', { min: g.min, max: g.max }), ' ', certezza(g.certezza)));
   const s = scheda.semina;
   if (s?.profondita_cm) fatti.push(el('li', {}, t('scheda.semina_prof', { cm: s.profondita_cm }), ' ', certezza(s.certezza)));
-  if (s?.distanza_file_cm) fatti.push(el('li', {}, t('scheda.distanza_file', { cm: s.distanza_file_cm })));
-  if (s?.distanza_piante_cm) fatti.push(el('li', {}, t('scheda.distanza_piante', { cm: s.distanza_piante_cm })));
+  if (s?.distanza_file_cm) fatti.push(el('li', {}, t('scheda.distanza_file', { cm: s.distanza_file_cm }), ' ', certezza(s.certezza)));
+  if (s?.distanza_piante_cm) fatti.push(el('li', {}, t('scheda.distanza_piante', { cm: s.distanza_piante_cm }), ' ', certezza(s.certezza)));
 
   // Amiche e nemiche: dal file delle consociazioni (con fonti) e, se manca, da quello che dice la scheda
   const relazioni = (consoc?.relazioni ?? []).filter((r) => r.a === scheda.id || r.b === scheda.id)

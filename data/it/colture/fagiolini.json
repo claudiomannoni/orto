@@ -18,11 +18,15 @@
     ]
   },
   "semina": {
-    "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
+    "profondita_cm": 5,
+    "distanza_file_cm": 46,
+    "distanza_piante_cm": 10,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f5",
+      "f6"
+    ],
+    "nota": "Profondit? indicata: 4?6 cm."
   },
   "consociazioni": {
     "amiche": [],
@@ -141,6 +145,20 @@
       "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/climate-resilience-resources-for-vegetable-growers",
       "consultata": "2026-10-31",
       "nota": "Tabella di giorni alla maturità per ortaggi in Minnesota; fonte universitaria estera, clima diverso. Gli intervalli sono riportati come indicati, con origine del conteggio non sempre esplicitata."
+    },
+    "f5": {
+      "titolo": "Fagiolo ? Phaseolus vulgaris L.",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/fagiolo.htm",
+      "consultata": "2026-11-01",
+      "nota": "Profondit? 4?6 cm in terreno di grana media; media riportata."
+    },
+    "f6": {
+      "titolo": "Oklahoma Garden Planning Guide",
+      "ente": "Oklahoma State University Extension",
+      "url": "https://extension.okstate.edu/fact-sheets/oklahoma-garden-planning-guide",
+      "consultata": "2026-11-01",
+      "nota": "Guida universitaria con tabella di profondit? e sesti per orto domestico; dati per Oklahoma."
     }
   }
 }

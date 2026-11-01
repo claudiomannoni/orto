@@ -20,12 +20,13 @@
     ]
   },
   "semina": {
-    "profondita_cm": null,
+    "profondita_cm": 1.3,
     "distanza_file_cm": 30,
     "distanza_piante_cm": 15,
     "certezza": "media",
     "fonti": [
-      "f1"
+      "f1",
+      "f4"
     ]
   },
   "consociazioni": {
@@ -111,6 +112,13 @@
       "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/climate-resilience-resources-for-vegetable-growers",
       "consultata": "2026-10-31",
       "nota": "Tabella di giorni alla maturità per ortaggi in Minnesota; fonte universitaria estera, clima diverso. Gli intervalli sono riportati come indicati, con origine del conteggio non sempre esplicitata."
+    },
+    "f4": {
+      "titolo": "Oklahoma Garden Planning Guide",
+      "ente": "Oklahoma State University Extension",
+      "url": "https://extension.okstate.edu/fact-sheets/oklahoma-garden-planning-guide",
+      "consultata": "2026-11-01",
+      "nota": "La tabella indica 1/2 pollice (circa 1,27 cm) per la bietola da coste; guida per orto domestico, dati per Oklahoma."
     }
   }
 }

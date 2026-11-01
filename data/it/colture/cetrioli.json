@@ -19,10 +19,13 @@
   },
   "semina": {
     "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
+    "distanza_file_cm": 115,
+    "distanza_piante_cm": 45,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f5"
+    ],
+    "nota": "Intervalli: 80?150 cm tra i solchi, 40?50 cm tra le buchette."
   },
   "consociazioni": {
     "amiche": [],
@@ -139,6 +142,13 @@
       "url": "https://extension.oregonstate.edu/es/catalog/em-9032-educators-guide-vegetable-gardening",
       "consultata": "2026-10-31",
       "nota": "Tabelle dell’appendice A (giorni dalla semina) e B (giorni dal trapianto e età della piantina); dati per Oregon, clima diverso. Per i trapianti sommo solo gli intervalli espliciti di età della piantina e giorni dal trapianto."
+    },
+    "f5": {
+      "titolo": "Cetriolo ? Cucumis sativus L.",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/cetriolo.htm",
+      "consultata": "2026-11-01",
+      "nota": "Buchette a 40?50 cm e solchi a 0,80?1,50 m; media arrotondata."
     }
   }
 }

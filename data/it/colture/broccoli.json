@@ -20,10 +20,13 @@
   },
   "semina": {
     "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
-    "certezza": "bassa",
-    "fonti": []
+    "distanza_file_cm": 91,
+    "distanza_piante_cm": 46,
+    "certezza": "media",
+    "fonti": [
+      "f3"
+    ],
+    "nota": "Sesti per trapianto; profondit? non indicata."
   },
   "consociazioni": {
     "amiche": [],
@@ -94,6 +97,13 @@
       "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/crop-and-field-planning-tools-for-vegetable-farmers",
       "consultata": "2026-10-31",
       "nota": "Tabella con giorni dal trapianto alla prima raccolta, età del trapianto e, per alcune colture, giorni dalla semina. Dati per Minnesota, clima diverso; quando sommo età del trapianto e giorni successivi al trapianto, il totale è un intervallo calcolato dai dati espliciti della tabella."
+    },
+    "f3": {
+      "titolo": "Oklahoma Garden Planning Guide",
+      "ente": "Oklahoma State University Extension",
+      "url": "https://extension.okstate.edu/fact-sheets/oklahoma-garden-planning-guide",
+      "consultata": "2026-11-01",
+      "nota": "Guida universitaria con tabella di profondit? e sesti per orto domestico; dati per Oklahoma."
     }
   }
 }

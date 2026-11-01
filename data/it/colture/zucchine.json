@@ -19,10 +19,12 @@
   },
   "semina": {
     "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
+    "distanza_file_cm": 100,
+    "distanza_piante_cm": 100,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f3"
+    ]
   },
   "consociazioni": {
     "amiche": [],
@@ -126,6 +128,13 @@
       "url": "https://extension.oregonstate.edu/es/catalog/em-9032-educators-guide-vegetable-gardening",
       "consultata": "2026-10-31",
       "nota": "Tabelle dell’appendice A (giorni dalla semina) e B (giorni dal trapianto e età della piantina); dati per Oregon, clima diverso. Per i trapianti sommo solo gli intervalli espliciti di età della piantina e giorni dal trapianto."
+    },
+    "f3": {
+      "titolo": "Zucca e zucchine ? Cucurbita spp.",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/zucca.htm",
+      "consultata": "2026-11-01",
+      "nota": "Buchette a 1 m; zucchine cespugliose a 1 m tra file e buchette."
     }
   }
 }

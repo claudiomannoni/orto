@@ -1,6 +1,6 @@
 # Stato del progetto (per chi riprende da un'altra sessione)
 
-Ultimo aggiornamento: 31/10/2026, versione dell'app 2.40.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+Ultimo aggiornamento: 31/10/2026, versione dell'app 2.41.1. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
 
 ## In una frase
 
@@ -53,7 +53,7 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 - **OpenCode** (gratis, `opencode2.cmd run --auto -m opencode/big-pickle`): codice semplice e delimitato, un compito per volta, sempre da controllare il diff. Mai dati privati.
 - **Perplexity** (solo modalità «Ricerca», tramite la sessione «Progetto Cervello orchestrazione»): ricerche di fonti. «Computer» consuma crediti: no senza sì di Claudio.
 - Crediti come un'unica fonte, con parsimonia. Il cervello (`C:\Users\pcgameluigi\CERVELLO`, wiki Obsidian) è in sola lettura da questo progetto; la scheda del progetto è `CERVELLO/wiki/progetti/orto-ai.md`.
-- Mail di aggiornamento a claudiooo19190@gmail.com ogni ~2 ore, oggetto «Orto AI: novità», semplice, senza emoji, stile note di aggiornamento, con il link; non inviare se non c'è nulla di nuovo.
+- Mail di aggiornamento: dal 01/11/2026 UNA sola al giorno alle 7:00, la manda la sessione «Progetto Cervello orchestrazione»; da qui non se ne mandano altre. Tenere aggiornati ROADMAP.md e questo file per il riepilogo.
 
 ## Da fare / idee (in ordine di valore)
 

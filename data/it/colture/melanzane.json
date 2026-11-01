@@ -19,10 +19,13 @@
   },
   "semina": {
     "profondita_cm": null,
-    "distanza_file_cm": null,
-    "distanza_piante_cm": null,
+    "distanza_file_cm": 90,
+    "distanza_piante_cm": 60,
     "certezza": "bassa",
-    "fonti": []
+    "fonti": [
+      "f6"
+    ],
+    "nota": "Sesti di trapianto; profondit? non specificata."
   },
   "consociazioni": {
     "amiche": [],
@@ -134,6 +137,13 @@
       "url": "https://extension.oregonstate.edu/es/catalog/em-9032-educators-guide-vegetable-gardening",
       "consultata": "2026-10-31",
       "nota": "Tabelle dell’appendice A (giorni dalla semina) e B (giorni dal trapianto e età della piantina); dati per Oregon, clima diverso. Per i trapianti sommo solo gli intervalli espliciti di età della piantina e giorni dal trapianto."
+    },
+    "f6": {
+      "titolo": "Melanzana ? Solanum melongena L.",
+      "ente": "Agraria.org",
+      "url": "https://www.agraria.org/coltivazionierbacee/melanzana.htm",
+      "consultata": "2026-11-01",
+      "nota": "Sesto di trapianto: file 90 cm, piante 60 cm."
     }
   }
 }
