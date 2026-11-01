@@ -62,6 +62,7 @@ async function mostra() {
   }
   rottaCorrente = rotta;
   barra.hidden = rotta === PRIMO_AVVIO;
+  document.body.classList.toggle('gioco-pieno', rotta === 'vermi'); // il gioco dei vermi occupa tutto lo schermo
   aggiornaBarra(barra, SOTTOROTTE[rotta] ?? rotta);
   aggiornaTestata(rotta);
   contenitore.replaceChildren();

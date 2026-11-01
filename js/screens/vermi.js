@@ -9,11 +9,11 @@ import { pulisciRelax, aggiungiSecondi, minutiDelGiorno, minutiTotali, serieRila
 import { vestitoAttuale } from '../ui/mascotte.js';
 import { disegnaVestito, disegnaFirma, COLORI } from '../ui/vermetto.js';
 
-const ALTEZZA = 380;
+let ALTEZZA = 380; // a tutto schermo: si prende dall'altezza della finestra
 const SCURO = '#4a2a22';
 const SPECIE = [
-  { chi: 'rosso', n: 13, r: 12.5, lungo: 10.5, partenza: 0.3, occhiali: false },
-  { chi: 'rossella', n: 11, r: 10.8, lungo: 9.5, partenza: 0.7, occhiali: true },
+  { chi: 'rosso', n: 13, r: 17.5, lungo: 14.5, partenza: 0.32, occhiali: false },
+  { chi: 'rossella', n: 11, r: 15, lungo: 13, partenza: 0.78, occhiali: true },
 ];
 
 const caso = (a, b) => a + Math.random() * (b - a);
@@ -178,14 +178,16 @@ export async function monta(contenitore) {
   let storia = [];
 
   const misura = () => {
-    const w = Math.round(tela.parentElement?.clientWidth ?? 0);
-    if (!w || w === larghezza) return;
+    const w = Math.round(window.innerWidth);
+    const h = Math.round(window.innerHeight);
+    if (!w || !h || (w === larghezza && h === ALTEZZA)) return;
     larghezza = w;
+    ALTEZZA = h;
     dpr = Math.min(2, window.devicePixelRatio || 1);
     tela.width = w * dpr;
     tela.height = ALTEZZA * dpr;
-    tela.style.height = `${ALTEZZA}px`;
-    suolo = Math.round(ALTEZZA * 0.46);
+    suolo = Math.round(ALTEZZA * 0.42);
+    tela.dataset.suolo = String(suolo);
     fondo = sfondo(w, suolo, dpr);
     vermi = SPECIE.map((d) => nuovoVerme(d, w, suolo));
   };
@@ -203,8 +205,12 @@ export async function monta(contenitore) {
     const o = cibo.find((c) => Math.hypot(c.x - x, c.y - y) < 24);
     if (o) { preso = { tipo: 'cibo', oggetto: o, inizio: { x, y, t: performance.now() } }; o.vx = 0; o.vy = 0; return; }
     let migliore = null;
-    vermi.forEach((v) => v.corda.p.forEach((q, i) => { const d = Math.hypot(q.x - x, q.y - y); if (d < 30 && (!migliore || d < migliore.d)) migliore = { d, verme: v, indice: i }; }));
-    if (migliore) preso = { tipo: 'verme', verme: migliore.verme, indice: migliore.indice, inizio: { x, y, t: performance.now() }, mosso: false };
+    vermi.forEach((v) => v.corda.p.forEach((q, i) => { const d = Math.hypot(q.x - x, q.y - y); if (d < 46 && (!migliore || d < migliore.d)) migliore = { d, verme: v, indice: i }; }));
+    if (migliore) { preso = { tipo: 'verme', verme: migliore.verme, indice: migliore.indice, inizio: { x, y, t: performance.now() }, mosso: false }; return; }
+    // un tocco su un posto vuoto: il verme più vicino ci va (se è nella terra scava fin lì, se è fuori ci striscia)
+    const vicino = vermi.reduce((a, b) => (Math.hypot(a.corda.p[0].x - x, a.corda.p[0].y - y) < Math.hypot(b.corda.p[0].x - x, b.corda.p[0].y - y) ? a : b));
+    vicino.intento = { x, y: y < suolo ? suolo - vicino.r : y, quando: 0, esce: y < suolo };
+    vicino.ferma = 0;
   });
   tela.addEventListener('pointermove', (e) => {
     const { x, y } = coordinate(e);
@@ -266,6 +272,7 @@ export async function monta(contenitore) {
         v.ferma = 0;
         v.intento = v.dentro ? { x: caso(30, larghezza - 30), y: suolo - 36, quando: 0, esce: true } : { x: testa.x + caso(-40, 40), y: caso(suolo + 40, ALTEZZA - 30), quando: 0, esce: false };
       }
+      if (v.intento && !v.dentro && v.intento.y > suolo + 20) { v.dentro = true; spruzzaTerra(testa.x); } // vuole scavare: la terra non lo ferma più
       if (v.intento && !afferrato) {
         v.intento.quando += dt;
         const forza = v.dentro ? 0.06 : 0.0;
@@ -329,7 +336,7 @@ export async function monta(contenitore) {
   let ultimo = performance.now();
   let contatoreSecondo = 0;
   function ciclo(adesso) {
-    if (!tela.isConnected) { clearInterval(salvataggio); document.removeEventListener('visibilitychange', alNascondere); salva(); return; }
+    if (!tela.isConnected) { window.removeEventListener('resize', misura); clearInterval(salvataggio); document.removeEventListener('visibilitychange', alNascondere); salva(); return; }
     requestAnimationFrame(ciclo);
     if (document.hidden) { ultimo = adesso; return; }
     misura();
@@ -346,16 +353,18 @@ export async function monta(contenitore) {
     }
   }
   const salvataggio = setInterval(salva, 10000);
+  // le teste dei vermi, leggibili dalle prove
+  setInterval(() => { if (tela.isConnected && vermi.length) tela.dataset.teste = JSON.stringify(vermi.map((v) => [Math.round(v.corda.p[0].x), Math.round(v.corda.p[0].y), v.dentro ? 1 : 0])); }, 200);
   const alNascondere = () => { if (document.hidden) salva(); };
   document.addEventListener('visibilitychange', alNascondere);
 
   const bottone = (tipo, chiave) => el('button', { class: 'btn', type: 'button', id: `cibo-${tipo}`, onclick: () => dai(tipo) }, t(chiave));
-  const palco = el('div', { class: 'giardino-palco' }, tela);
-  aggiungi(contenitore,
-    el('h2', { class: 'titolo-schermata' }, t('vermi.titolo')),
-    el('p', { class: 'aiuto' }, t('vermi.spiega')),
-    palco,
-    el('div', { class: 'riga' }, bottone('foglia', 'vermi.foglia'), bottone('compost', 'vermi.compost')),
-    riepilogo);
+  const esci = el('button', { class: 'btn', type: 'button', id: 'vermi-esci', onclick: () => { salva(); if (history.length > 1) history.back(); else location.hash = '#/oggi'; } }, t('vermi.esci'));
+  // a tutto schermo: solo il gioco; sopra, il tasto per uscire e i minuti; sotto, il cibo
+  aggiungi(contenitore, el('div', { class: 'gioco-schermo' },
+    tela,
+    el('div', { class: 'gioco-alto' }, esci, riepilogo),
+    el('div', { class: 'gioco-basso' }, bottone('foglia', 'vermi.foglia'), bottone('compost', 'vermi.compost'))));
+  window.addEventListener('resize', misura);
   requestAnimationFrame(ciclo);
 }
