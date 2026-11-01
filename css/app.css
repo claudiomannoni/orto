@@ -68,9 +68,9 @@ h2, h3 { font-weight: 800; }
   box-shadow: 0 3px 0 var(--ombra);
 }
 .testata .logo { border-radius: 12px; background: #fff8e1; }
-.testata .ingranaggio { margin-left: auto; flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; color: #fff; }
-.testata .ingranaggio .icona { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.testata .ingranaggio[aria-current="page"] { background: rgba(255, 255, 255, .22); }
+.testata .ingranaggio, .testata .gioco-vermi { margin-left: auto; flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; color: #fff; }
+.testata .ingranaggio .icona, .testata .gioco-vermi .icona { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.testata .ingranaggio[aria-current="page"], .testata .gioco-vermi[aria-current="page"] { background: rgba(255, 255, 255, .22); }
 .testata .ingranaggio:focus-visible { outline: 3px solid #fff; outline-offset: 2px; box-shadow: none; }
 .testata h1 { font-size: 1.25rem; font-weight: 800; line-height: 1.1; }
 .testata p { font-size: .85rem; opacity: .95; }
@@ -613,3 +613,7 @@ button.tessera-azione { font: inherit; text-align: left; cursor: pointer; }
 .dottore-video { width: 100%; max-height: 60vh; border-radius: 14px; background: #000; object-fit: cover; }
 .guida { border-style: dashed; display: grid; gap: 10px; }
 @media (prefers-reduced-motion: reduce) { .seme { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.testata .gioco-vermi + .ingranaggio { margin-left: 0; }
+.giardino-palco { border-radius: 16px; overflow: hidden; border: 2px solid var(--bordo); background: #eaf6e4; }
+.giardino-vermi { display: block; width: 100%; touch-action: none; cursor: grab; -webkit-user-select: none; user-select: none; }
+.giardino-vermi:active { cursor: grabbing; }

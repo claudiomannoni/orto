@@ -201,7 +201,7 @@
       ],
       "resa_realistica": {
         "testo": "da verificare: le rese riportate da guide estere dipendono da legno, ceppo, clima e gestione e non sono trasferibili con affidabilità ai Castelli Romani.",
-        "fonte_url": "https://www.extension.msstate.edu/publications/shiitake-production-hardwood-logs",
+        "fonte_url": "https://extension.msstate.edu/publications/shiitake-production-hardwood-logs",
         "certezza": "media"
       },
       "come_si_vende_o_si_usa": [
@@ -233,8 +233,9 @@
       "fonti": [
         {
           "titolo": "Shiitake Production on Hardwood Logs",
-          "url": "https://www.extension.msstate.edu/publications/shiitake-production-hardwood-logs",
-          "ente": "Mississippi State University Extension"
+          "url": "https://extension.msstate.edu/publications/shiitake-production-hardwood-logs",
+          "ente": "Mississippi State University Extension",
+          "nota": "Indirizzo cambiato; la pagina aggiornata descrive la coltivazione dello shiitake su tronchi di latifoglia, inclusi raccolta del legno dormiente, inoculo e gestione dei tronchi."
         },
         {
           "titolo": "Commercializzazione dei funghi",

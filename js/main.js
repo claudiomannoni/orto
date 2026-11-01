@@ -27,6 +27,7 @@ const schermate = {
   raccolto: () => import('./screens/raccolto.js'),
   animali: () => import('./screens/animali.js'),
   semi: () => import('./screens/semi.js'),
+  vermi: () => import('./screens/vermi.js'),
   rendita: () => import('./screens/rendita.js'),
   cucina: () => import('./screens/cucina.js'),
   dottore: () => import('./screens/dottore.js'),
