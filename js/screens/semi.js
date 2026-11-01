@@ -1,7 +1,7 @@
 // «La mia banca dei semi»: le bustine che hai in casa, con l'anno, e cosa puoi seminare questo mese.
 // Le bustine stanno nelle impostazioni (chiave `semi`), quindi finiscono anche nel backup. Nessuna promessa sulla germinabilità: solo l'età dei semi.
 import { el, aggiungi, sostituisci, oggiISO, meseDi } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { leggi, imposta } from '../store/impostazioni.js';
 import { catalogo } from '../contenuti.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -41,7 +41,7 @@ export async function monta(contenitore) {
   }
 
   function apriNuovo() {
-    const ordinate = [...schede].sort((a, b) => a.nome.localeCompare(b.nome, 'it'));
+    const ordinate = [...schede].sort((a, b) => a.nome.localeCompare(b.nome, locale()));
     const scelta = el('select', { name: 'scheda' }, ordinate.map((s) => el('option', { value: s.id }, s.nome)), el('option', { value: '' }, t('semi.altra')));
     const nome = el('input', { name: 'nome', maxlength: 60, placeholder: t('semi.nome.esempio'), required: true, value: ordinate[0]?.nome ?? '' });
     const form = el('form', { class: 'form', autocomplete: 'off' },

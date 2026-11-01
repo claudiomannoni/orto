@@ -1,7 +1,7 @@
 // La mia storia: tutto quello che hai fatto nell'orto, in ordine di data: lavori segnati «Fatto», note libere e foto.
 // Serve a ricordare (cosa ho seminato, quando, cosa è andato storto) e a non dover scrivere due volte le stesse cose.
 import { el, oggiISO, formattaData, parametriRotta, aggiungi, sostituisci } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { elencoEventi, registraEvento, nuovoEvento, elencoColture } from '../store/dati.js';
 import { elimina } from '../store/db.js';
 import { testoQuantita } from '../motore/raccolto.js';
@@ -26,7 +26,7 @@ const nomeColtura = (id) => {
   const c = colture.find((x) => x.id === id);
   return c ? (c.varieta ? `${c.nome} · ${c.varieta}` : c.nome) : null;
 };
-const nomeMese = (mese) => new Date(`${mese}-01T12:00:00`).toLocaleDateString('it-IT', { month: 'long', year: 'numeric' });
+const nomeMese = (mese) => new Date(`${mese}-01T12:00:00`).toLocaleDateString(locale(), { month: 'long', year: 'numeric' });
 
 // Il titolo di un lavoro segnato: dalla scheda, o l'id se la scheda non c'è più.
 function titoloLavoro(e) {
@@ -62,7 +62,7 @@ function descrizione(v) {
 function riga(v) {
   const d = descrizione(v);
   const dove = [nomeColtura(v.colturaId), nomeZona(v.zonaId)].filter(Boolean).join(' · ');
-  const giorno = new Date(`${v.data}T12:00:00`).toLocaleDateString('it-IT', { day: 'numeric', month: 'short' });
+  const giorno = new Date(`${v.data}T12:00:00`).toLocaleDateString(locale(), { day: 'numeric', month: 'short' });
   return el('li', { class: `voce-storia ${d.icona}`, 'data-genere': v.genere, 'data-id': v.id },
     el('span', { class: 'storia-data' }, giorno),
     el('div', { class: 'storia-corpo' },

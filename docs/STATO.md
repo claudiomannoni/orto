@@ -1,6 +1,6 @@
 # Stato del progetto (per chi riprende da un'altra sessione)
 
-Ultimo aggiornamento: 31/10/2026, versione dell'app 2.46.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+Ultimo aggiornamento: 31/10/2026, versione dell'app 2.47.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
 
 ## In una frase
 

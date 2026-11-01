@@ -1,7 +1,7 @@
 // La scheda di una coltura: in breve, quando si fa (mesi), cosa si fa, amiche e nemiche, rotazione, fonti.
 // Tutto con il suo livello di certezza e le fonti che abbiamo letto: l'utente deve potersi fidare, e controllare.
 import { el, oggiISO, meseDi, formattaData, parametriRotta, aggiungi } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { leggi, imposta } from '../store/impostazioni.js';
 import { alternaSeguita, seguita } from '../motore/seguite.js';
 import { toast } from '../ui/toast.js';
@@ -9,7 +9,7 @@ import { catalogo, consociazioni, zone } from '../contenuti.js';
 import { apriLavoro } from './calendario.js';
 
 const OPERAZIONI = ['semina', 'trapianto', 'cura', 'lavorazione', 'raccolta'];
-const nomeMese = (m, formato = 'long') => new Date(2026, m - 1, 1).toLocaleDateString('it-IT', { month: formato });
+const nomeMese = (m, formato = 'long') => new Date(2026, m - 1, 1).toLocaleDateString(locale(), { month: formato });
 const certezza = (c) => (c ? el('span', { class: `etichetta certezza ${c}` }, t(`lavoro.certezza.${c}`)) : null);
 
 // Una riga per tipo di lavoro, dodici caselle per i dodici mesi. Scuro = mese migliore, chiaro = possibile.

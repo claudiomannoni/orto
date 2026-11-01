@@ -1,12 +1,12 @@
 // «Il mio raccolto»: quanto hai raccolto, per coltura e per mese. Si segna a mano o dopo un lavoro di raccolta in Oggi.
 import { el, oggiISO, aggiungi, sostituisci } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { elencoEventi } from '../store/dati.js';
 import { elencoColture } from '../store/dati.js';
 import { totaleRaccolto, perColtura, perMese, testoQuantita } from '../motore/raccolto.js';
 import { apriRaccolto } from '../ui/raccolto-form.js';
 
-const nomeMese = (i) => new Date(2026, i, 1).toLocaleDateString('it-IT', { month: 'short' });
+const nomeMese = (i) => new Date(2026, i, 1).toLocaleDateString(locale(), { month: 'short' });
 
 export async function monta(contenitore) {
   let colture = await elencoColture();

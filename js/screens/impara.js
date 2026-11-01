@@ -1,12 +1,12 @@
 // Impara: tutte le colture e le parole dell'orto, con una ricerca. Da qui si apre la scheda di ogni coltura.
 import { el, normalizza, aggiungi } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { catalogo, glossario } from '../contenuti.js';
 
 export async function monta(contenitore) {
   const [schede, termini] = await Promise.all([catalogo(), glossario()]);
-  const elencoSchede = [...schede].sort((a, b) => a.nome.localeCompare(b.nome, 'it'));
-  const elencoTermini = Object.values(termini).sort((a, b) => a.termine.localeCompare(b.termine, 'it'));
+  const elencoSchede = [...schede].sort((a, b) => a.nome.localeCompare(b.nome, locale()));
+  const elencoTermini = Object.values(termini).sort((a, b) => a.termine.localeCompare(b.termine, locale()));
 
   const campo = el('input', {
     type: 'search', name: 'cerca', placeholder: t('impara.cerca'), 'aria-label': t('impara.cerca'),

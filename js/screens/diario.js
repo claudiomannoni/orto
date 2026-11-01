@@ -2,7 +2,7 @@
 // Da qui si guardano, si fa il time-lapse e si può chiedere a Rossella cosa vede in una pianta.
 import { bloccoDiagnosi } from '../ui/diagnosi-blocco.js';
 import { el, oggiISO, parametriRotta, formattaData, aggiungi } from '../util.js';
-import { t, tn } from '../i18n.js';
+import { t, tn, locale } from '../i18n.js';
 import { elencoFoto, salvaFoto, eliminaFoto, nuovaFoto, filtra, perMese, dallaPiuVecchia } from '../store/foto.js';
 import { elencoZone } from '../store/zone.js';
 import { elencoColture } from '../store/dati.js';
@@ -32,7 +32,7 @@ const nomeColtura = (id) => {
   const c = colture.find((x) => x.id === id);
   return c ? (c.varieta ? `${c.nome} · ${c.varieta}` : c.nome) : null;
 };
-const nomeMese = (mese) => new Date(`${mese}-01T12:00:00`).toLocaleDateString('it-IT', { month: 'long', year: 'numeric' });
+const nomeMese = (mese) => new Date(`${mese}-01T12:00:00`).toLocaleDateString(locale(), { month: 'long', year: 'numeric' });
 const visibili = () => filtra(foto, filtro);
 
 function testoErrore(e) {

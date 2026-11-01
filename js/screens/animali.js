@@ -1,7 +1,7 @@
 // Lombricoltura, api e pollaio: una scheda per ognuno, con cosa serve, come si parte, il calendario del mese, gli obblighi e le fonti.
 // I contenuti stanno in data/it/animali.json: ogni dato ha la sua fonte e la sua certezza. Mai trattamenti o dosi.
 import { el, aggiungi, meseDi, oggiISO, parametriRotta } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { animali } from '../contenuti.js';
 
 const lista = (voci) => el('ul', { class: 'elenco-semplice' }, voci.map((v) => el('li', {}, v)));
@@ -11,7 +11,7 @@ const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ?
 function disegnaScheda(s) {
   const mese = String(meseDi(oggiISO()));
   const dMese = s.calendario?.[mese] ?? [];
-  const nomeMese = new Date(2000, Number(mese) - 1, 1).toLocaleDateString('it-IT', { month: 'long' });
+  const nomeMese = new Date(2000, Number(mese) - 1, 1).toLocaleDateString(locale(), { month: 'long' });
   return [
     el('p', {}, s.in_breve),
     s.perche?.length ? sezione(t('animali.perche'), lista(s.perche)) : null,

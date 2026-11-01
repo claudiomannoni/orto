@@ -1,14 +1,14 @@
 // «Leggi dalla bustina»: si fotografa la confezione dei semi e Rossella compila nome e varietà della coltura,
 // con quello che c'è scritto (germinazione, profondità...) nelle note. Sempre da controllare: l'utente può correggere tutto.
 import { el } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { leggi, imposta } from '../store/impostazioni.js';
 import { disponibile, chiedi } from '../ai/ai.js';
 import { restantiOggi, registraUso } from '../ai/foto.js';
 import { costruisciPromptBustina, leggiBustina } from '../ai/bustina.js';
 import { riduciFoto } from './foto.js';
 
-const nomeMese = (m) => new Date(2026, m - 1, 1).toLocaleDateString('it-IT', { month: 'short' });
+const nomeMese = (m) => new Date(2026, m - 1, 1).toLocaleDateString(locale(), { month: 'short' });
 const coppia = (i) => (i.min === i.max ? `${i.min}` : `${i.min}-${i.max}`);
 
 // Le righe lette dalla bustina, per le note della coltura.

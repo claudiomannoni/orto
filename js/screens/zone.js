@@ -1,6 +1,6 @@
 // Le mie zone: aiuole già coltivate e terreni da preparare, con misure, esposizione e profilo del terreno.
 import { el, aggiungi } from '../util.js';
-import { t, tn } from '../i18n.js';
+import { t, tn, locale } from '../i18n.js';
 import { elencoZone, salvaZona, eliminaZona, normalizzaZona, direzioneDa } from '../store/zone.js';
 import { elencoColture, salvaColtura } from '../store/dati.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -15,7 +15,7 @@ let lista;
 let conteggio;
 let vuoto;
 
-const numero = (n) => n.toLocaleString('it-IT', { maximumFractionDigits: 2 });
+const numero = (n) => n.toLocaleString(locale(), { maximumFractionDigits: 2 });
 
 function testoMisure(zona) {
   const { lunghezza_m: l, larghezza_m: w } = zona.misure;
@@ -61,7 +61,7 @@ function schedaZona(zona) {
 }
 
 function mostraLista() {
-  const ordinate = [...zone].sort((a, b) => a.nome.localeCompare(b.nome, 'it'));
+  const ordinate = [...zone].sort((a, b) => a.nome.localeCompare(b.nome, locale()));
   lista.replaceChildren(...ordinate.map(schedaZona));
   conteggio.textContent = String(zone.length);
   vuoto.hidden = zone.length > 0;

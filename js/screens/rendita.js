@@ -1,7 +1,7 @@
 // Colture speciali e da rendita: zafferano, funghi, fiori edibili, varietà rare. Ogni dato ha la sua fonte e la sua certezza.
 // Nessuna promessa di guadagno: si riportano solo cifre con una fonte. Contenuti in data/it/rendita.json.
 import { el, aggiungi, meseDi, oggiISO, parametriRotta } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { rendita } from '../contenuti.js';
 
 const lista = (voci) => el('ul', { class: 'elenco-semplice' }, voci.map((v) => el('li', {}, v)));
@@ -12,7 +12,7 @@ const link = (url, testo) => (url ? el('a', { href: url, target: '_blank', rel: 
 function disegnaScheda(s) {
   const mese = String(meseDi(oggiISO()));
   const dMese = s.quando?.[mese] ?? [];
-  const nomeMese = new Date(2000, Number(mese) - 1, 1).toLocaleDateString('it-IT', { month: 'long' });
+  const nomeMese = new Date(2000, Number(mese) - 1, 1).toLocaleDateString(locale(), { month: 'long' });
   const testoVoce = (v) => (typeof v === 'string' ? v : `${v.voce ?? v.nome ?? ''}${v.nota ? `: ${v.nota}` : ''}`);
   return [
     el('p', {}, s.in_breve),

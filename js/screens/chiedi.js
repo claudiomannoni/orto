@@ -1,6 +1,6 @@
 // «Chiedi a Rossella»: domanda libera sull'orto. La risposta arriva da Gemini (con la chiave dell'utente) ed è sempre un consiglio da verificare.
 import { el, oggiISO, meseDi, aggiungi, sostituisci } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { leggi, imposta } from '../store/impostazioni.js';
 import { disponibile } from '../ai/ai.js';
 import { chiediARossella, restantiOggi, LUNGHEZZA_MASSIMA } from '../ai/consiglio.js';
@@ -49,7 +49,7 @@ export async function monta(contenitore) {
       const zona = elencoZone.find((z) => z.id === impostazioni.zona);
       const r = await chiediARossella(campo.value, {
         zona: zona?.nome,
-        mese: new Date(2026, meseDi(oggiISO()) - 1, 1).toLocaleDateString('it-IT', { month: 'long' }),
+        mese: new Date(2026, meseDi(oggiISO()) - 1, 1).toLocaleDateString(locale(), { month: 'long' }),
         metodo: impostazioni.metodo,
         colture: colture.map((c) => c.nome),
         tempo: await tempoDiOggi(),

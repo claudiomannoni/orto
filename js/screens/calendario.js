@@ -1,7 +1,7 @@
 // Calendario: tutti i lavori possibili in un mese, per la zona scelta nelle impostazioni.
 // "Oggi in campagna" mostra solo i più importanti; qui si vede il quadro intero e si guarda avanti.
 import { el, oggiISO, meseDi, aggiungi } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { leggi } from '../store/impostazioni.js';
 import { catalogo } from '../contenuti.js';
 import { elencoColture } from '../store/dati.js';
@@ -15,7 +15,7 @@ import { disegnaLuna } from '../ui/luna.js';
 
 const OPERAZIONI = ['semina', 'trapianto', 'cura', 'lavorazione', 'raccolta'];
 
-const nomeMese = (mese, formato) => new Date(2026, mese - 1, 1).toLocaleDateString('it-IT', { month: formato });
+const nomeMese = (mese, formato) => new Date(2026, mese - 1, 1).toLocaleDateString(locale(), { month: formato });
 
 // Tutti i lavori del calendario della zona che cadono nel mese, in ordine: tipo, periodo migliore, titolo.
 export function lavoriDelMese(schede, zonaId, mese) {
@@ -31,7 +31,7 @@ export function lavoriDelMese(schede, zonaId, mese) {
   };
   return trovati.sort((a, b) => posto(a) - posto(b)
     || Number(Boolean(b.lavoro.ottimale?.includes(mese))) - Number(Boolean(a.lavoro.ottimale?.includes(mese)))
-    || a.lavoro.titolo.localeCompare(b.lavoro.titolo, 'it'));
+    || a.lavoro.titolo.localeCompare(b.lavoro.titolo, locale()));
 }
 
 export function apriLavoro(voce, mese, metodoPreferito = null) {
@@ -78,7 +78,7 @@ function voceLavoro(voce, mese) {
   );
 }
 
-const giornoMese = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString('it-IT', { day: 'numeric', month: 'long' });
+const giornoMese = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString(locale(), { day: 'numeric', month: 'long' });
 
 // La luna del mese: le quattro fasi e, se è il mese di oggi, com'è oggi con Rosso e Rossella.
 // La tradizione è presentata come tradizione; Rossella dice che non ci sono prove solide.

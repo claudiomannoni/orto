@@ -1,3 +1,4 @@
+import { locale } from './i18n.js';
 // Funzioni di servizio: DOM, date, id.
 
 export const $ = (sel, radice = document) => radice.querySelector(sel);
@@ -76,11 +77,11 @@ export function aggiungiGiorni(iso, n) {
 }
 
 export function formattaData(iso) {
-  return daISO(iso).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+  return daISO(iso).toLocaleDateString(locale(), { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 export function formattaDataLunga(iso) {
-  return daISO(iso).toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+  return daISO(iso).toLocaleDateString(locale(), { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
 export function meseDi(iso) {

@@ -1,7 +1,7 @@
 // Primo avvio guidato: sei domande, una per schermata. Si risponde con un tocco e si va avanti.
 // Tutte le risposte sono impostazioni e si cambiano poi in Impostazioni.
 import { el, isoLocale } from '../util.js';
-import { t } from '../i18n.js';
+import { t, locale } from '../i18n.js';
 import { leggi, imposta, pulisciNome } from '../store/impostazioni.js';
 import { zone, catalogo } from '../contenuti.js';
 import { alternaSeguita } from '../motore/seguite.js';
@@ -38,7 +38,7 @@ async function domande() {
 export async function monta(contenitore, { alTermine }) {
   const impostazioni = await leggi();
   const elenco = await domande();
-  const schedeOrdinate = [...(await catalogo())].sort((a, b) => a.nome.localeCompare(b.nome, 'it'));
+  const schedeOrdinate = [...(await catalogo())].sort((a, b) => a.nome.localeCompare(b.nome, locale()));
   // Le risposte già date si vedono solo se il primo avvio era già stato fatto (cioè si rifà).
   const dato = (chiave) => (impostazioni.primo_avvio_fatto ? impostazioni[chiave] : undefined);
   let passo = -1;
