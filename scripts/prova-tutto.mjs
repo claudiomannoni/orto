@@ -22,8 +22,8 @@ const server = createServer((req, res) => {
 await new Promise((ok, ko) => { server.once('error', ko); server.listen(PORTA, ok); }).catch(() => { console.log(`(la porta ${PORTA} è già in uso: uso quel server)`); });
 
 const tutti = readdirSync(join(radice, 'tests')).filter((f) => f.endsWith('.mjs') && !f.startsWith('_') && f !== 'lib.mjs');
-const conBrowser = tutti.filter((f) => /^\d\d-|^fase2-oggi/.test(f) && !f.startsWith('04-')); // 04 fa solo gli screenshot di riferimento
-const senzaBrowser = tutti.filter((f) => !conBrowser.includes(f) && !f.startsWith('04-'));
+const conBrowser = tutti.filter((f) => /^\d\d-|^fase2-oggi/.test(f) ); // 04 prova l'uso senza connessione (service worker)
+const senzaBrowser = tutti.filter((f) => !conBrowser.includes(f));
 
 const rossi = [];
 let verdi = 0;

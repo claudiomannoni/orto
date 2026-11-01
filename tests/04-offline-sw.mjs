@@ -7,9 +7,10 @@ import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
 import http from 'node:http';
+import { fileURLToPath } from 'node:url';
 
 // Versione dell'app letta da js/versione.js (la cache si chiama orto-<versione>).
-const APP_SORGENTE = process.env.SNAPSHOT || path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const APP_SORGENTE = process.env.SNAPSHOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const V0 = 'orto-' + fs.readFileSync(path.join(APP_SORGENTE, 'js/versione.js'), 'utf8').match(/APP_VERSIONE\s*=\s*'([^']+)'/)[1];
 const V1 = 'orto-99.0.1';
 

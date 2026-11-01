@@ -639,3 +639,5 @@ body.gioco-pieno main { padding: 0; max-width: none; }
 .gettone[data-vicini=attenzione] { border-color: #c0392b; }
 .gettone.preso { cursor: grabbing; z-index: 2; box-shadow: 0 6px 14px rgba(0,0,0,.35); }
 .link-piano { font-size: .85rem; font-weight: 700; }
+.aggiornamento { position: fixed; left: 12px; right: 12px; bottom: calc(90px + env(safe-area-inset-bottom)); z-index: 60; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 14px; border: 2px solid var(--verde); border-radius: 16px; background: var(--carta); color: var(--inchiostro); font-weight: 700; box-shadow: 0 4px 0 var(--ombra); }
+.aggiornamento .btn { min-height: 44px; }

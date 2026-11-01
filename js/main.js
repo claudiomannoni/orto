@@ -8,6 +8,7 @@ import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, aggiornaTestata, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 import { mostraGuida } from './ui/guida.js';
+import { controllaAggiornamenti } from './ui/aggiornamento.js';
 import { impostaGiorniAssenza } from './ui/sessione.js';
 import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
 import { pioveOggiDaCache } from './meteo.js';
@@ -123,7 +124,7 @@ async function avvia() {
   pioveOggiDaCache().then(impostaPioggia).catch(() => {});
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch((errore) => console.warn('Service worker non registrato', errore));
+    navigator.serviceWorker.register('sw.js').then((registrazione) => controllaAggiornamenti(registrazione)).catch((errore) => console.warn('Service worker non registrato', errore));
   }
 }
 
