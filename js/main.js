@@ -8,7 +8,7 @@ import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, aggiornaTestata, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 import { mostraGuida } from './ui/guida.js';
-import { avviaVermiLiberi, mostraVermiLiberi } from './ui/vermi-liberi.js';
+import { impostaGiorniAssenza } from './ui/sessione.js';
 import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
 import { pioveOggiDaCache } from './meteo.js';
 import { applicaAccessibilita } from './ui/accessibilita.js';
@@ -61,7 +61,6 @@ async function mostra() {
   }
   rottaCorrente = rotta;
   barra.hidden = rotta === PRIMO_AVVIO;
-  mostraVermiLiberi(rotta !== PRIMO_AVVIO);
   aggiornaBarra(barra, SOTTOROTTE[rotta] ?? rotta);
   aggiornaTestata(rotta);
   contenitore.replaceChildren();
@@ -99,12 +98,11 @@ async function avvia() {
   document.title = t('app.nome');
   costruisciTestata(document.getElementById('testata'));
   costruisciBarra(barra);
-  avviaVermiLiberi();
-  // Da quanti giorni non si apriva l'app: i vermetti dormono se è tanto, e danno il bentornato.
+  // Da quanti giorni non si apriva l'app: i vermetti danno il bentornato in «Oggi».
   try {
     const prima = await leggi();
     const oggi = oggiISO();
-    window.dispatchEvent(new CustomEvent('assenza', { detail: { giorni: prima.primo_avvio_fatto ? giorniDiAssenza(prima.ultimo_uso, oggi) : 0 } }));
+    impostaGiorniAssenza(prima.primo_avvio_fatto ? giorniDiAssenza(prima.ultimo_uso, oggi) : 0);
     await imposta('ultimo_uso', oggi);
   } catch (errore) {
     console.error(errore);

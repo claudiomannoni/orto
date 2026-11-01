@@ -107,6 +107,14 @@ Dopo aver guardato come sono fatte le app di piante e orto di successo (cure e p
 - «Il mio orto» è la pagina di tutto ciò che è tuo, a sezioni: nuova coltura, quattro tessere (zone, diario, storia, raccolto), orto dall'alto, elenco delle colture.
 - Corretto un difetto grafico: una classe CSS `barra` del grafico del raccolto copriva la barra di navigazione (diventava verde). Ora c'è un controllo nel test 26 che la barra resti chiara.
 
+## Prossimo, richiesto da Claudio (01/11/2026): assistenza continua per ogni coltura
+
+- Alla creazione di una coltura si sceglie **seme o piantina** (oggi c'è solo la data di semina); cambia il conto dell'età e delle fasi.
+- Ogni coltura ha **fasi di vita** (per esempio: germinazione, piantina, crescita, fioritura, maturazione, raccolto). Per ogni fase una scheda «cosa fare» e le **accortezze di quel periodo** (acqua, luce, concimazione, tutori, diradamento, difese...), con fonte e certezza come ogni altro dato.
+- Nel report (Oggi e scheda della coltura) compare sempre il **«cosa fare in questa fase»** della fase in cui la pianta si trova adesso, calcolato dall'età (giorni dalla semina o dal trapianto) e aggiornato man mano che cresce e matura.
+- Ogni coltura si può **esaminare con una foto**: l'IA stabilisce la fase reale e la salute reale, e le confronta con la fase attesa per l'età («secondo l'età dovrebbe essere in fioritura, sembra ancora in crescita: ...»). La foto resta nel diario di quella coltura.
+- Come si fa: dati delle fasi per coltura (Codex, con fonti; prima le 12-14 colture più comuni), modulo puro per fase-da-età (OpenCode), campo `partenza: 'seme' | 'piantina'` nelle colture (migrazione dati, backup vecchio sempre importabile), prompt di diagnosi con fase attesa. Parte dal modulo `js/motore/crescita.js` che già stima la crescita.
+
 ## Dalla 2.35 alla 2.37 (31/10/2026)
 
 - Foto: la fotocamera si apre dentro l'app (prima su Android la pagina si chiudeva e la foto andava persa); galleria; se Google è sovraccarico (503) l'app riprova e prova un altro modello (2.35.1-2.35.4).
@@ -117,6 +125,7 @@ Dopo aver guardato come sono fatte le app di piante e orto di successo (cure e p
 - Vermi più utili e discreti (2.39): Rosso (rosso scuro, sopracciglia folte) e Rossella (rosa, occhiali, ciglia, fiocco) si distinguono; diventano trasparenti e lasciano passare i tocchi sopra icone e testo; ogni tanto dicono un consiglio utile e cliccabile (lavori di oggi, pioggia, quiz, curiosità, foto). Modulo dei consigli scritto da OpenCode (gratis), controllato da Claude.
 - Vermi che dormono (2.40): se manchi da una settimana i vermi dormono (con le zeta) e si svegliano al primo tocco; il bentornato dice quanti giorni sono passati. Modulo assenza scritto da OpenCode glm (gratis).
 - Banca dei semi (2.41): bustine con anno e quantità, «da seminare questo mese», avviso sui semi datati (nessuna promessa sulla germinazione); modulo di OpenCode deepseek, schermata di Claude. Dati di semina (profondità e distanze) compilati da Codex per 16 colture con fonti, certezza media/bassa; 6 colture restano senza dati.
+- Tolti i vermi che giravano sul bordo (2.42): davano fastido. Il consiglio utile e il bentornato ora parlano nella vignetta di Oggi. In arrivo: vignette più grandi e carine con più espressioni, e un mini gioco antistress a parte (trascina, lancia, solletica, scava, dai da mangiare, minuti di relax).
 - Pulizia: eliminati i worktree di Codex, aggiunti `docs/STATO.md` e `scripts/prova-tutto.mjs` (2.37.4).
 
 ## Futuro, non ora

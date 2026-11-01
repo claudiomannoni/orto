@@ -1,7 +1,7 @@
 // Service worker: tiene in cache i file dell'app per l'uso offline.
 // Nome della cache ed elenco dei file li scrive `node scripts/aggiorna-cache.mjs`
 // (da lanciare dopo ogni modifica, insieme all'aumento di APP_VERSIONE in js/versione.js).
-const VERSIONE = 'orto-2.41.2';
+const VERSIONE = 'orto-2.42.0';
 const FILE = [
   // <<FILE
   './',
@@ -156,10 +156,10 @@ const FILE = [
   './js/ui/promemoria.js',
   './js/ui/raccolto-form.js',
   './js/ui/resoconto.js',
+  './js/ui/sessione.js',
   './js/ui/terreno.js',
   './js/ui/toast.js',
   './js/ui/vermetto.js',
-  './js/ui/vermi-liberi.js',
   './js/ui/voce.js',
   './js/util.js',
   './js/versione.js',

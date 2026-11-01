@@ -18,10 +18,13 @@ import { pulsanteAscolta } from '../ui/voce.js';
 import { apriRaccolto } from '../ui/raccolto-form.js';
 import { apriResoconto } from '../ui/resoconto.js';
 import { filtraSeguite } from '../motore/seguite.js';
-import { previsioni } from '../meteo.js';
+import { previsioni, pioveOggiDaCache } from '../meteo.js';
 import { consiglioMeteo } from '../motore/meteo.js';
 import { serieQuiz } from '../motore/quiz.js';
 import { curiositaDelGiorno } from '../motore/curiosita.js';
+import { consigliDeiVermi, scegliConsiglio } from '../motore/consigli-vermi.js';
+import { chiaveBentornato } from '../motore/assenza.js';
+import { giorniAssenzaSessione } from '../ui/sessione.js';
 import { chiaveSaluto } from '../motore/saluto.js';
 
 function testoMotivo({ motivo, n }) {
@@ -224,8 +227,17 @@ export async function monta(contenitore) {
     mostraConversazione('niente');
   }
 
-  // I vermetti liberi usano questo stato per dare consigli utili (js/ui/vermi-liberi.js).
-  window.dispatchEvent(new CustomEvent('stato-oggi', { detail: { lavori: lavori.map((v) => ({ titolo: v.lavoro.titolo })), quizFatto: domandeQuiz ? Boolean(quizFatto) : null, haColture: colture.length > 0, curiosita: cur ?? null, haSchedeAnimali: Boolean((await animali())?.schede?.length) } }));
+  // Il consiglio dei vermetti (o il bentornato, se mancavi da giorni): una battuta utile con, se serve, un pulsante per andare lì.
+  const giorniFuori = giorniAssenzaSessione();
+  const chiaveBentornato_ = chiaveBentornato(giorniFuori);
+  let piove = null;
+  try { piove = await pioveOggiDaCache(); } catch { piove = null; }
+  const voce = chiaveBentornato_
+    ? { chi: 'rosso', chiave: chiaveBentornato_, vars: { n: giorniFuori }, rotta: null }
+    : scegliConsiglio(consigliDeiVermi({ lavori: lavori.map((v) => ({ titolo: v.lavoro.titolo })), quizFatto: domandeQuiz ? Boolean(quizFatto) : null, haColture: colture.length > 0, curiosita: cur ?? null, piove, haSchedeAnimali: Boolean((await animali())?.schede?.length) }), [], Number(oggi.replace(/-/g, '')));
+  const cartaConsiglio = voce ? el('section', { class: 'card consiglio-vignetta' },
+    conversazione([{ chi: voce.chi, testo: t(voce.chiave, voce.vars), variante: voce.chi === 'rosso' ? 'ride' : 'pensa' }]),
+    voce.rotta ? el('a', { class: 'btn', href: voce.rotta }, t('verme.consiglio.vai')) : null) : null;
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
     el('p', { class: 'saluto' }, testoSaluto(impostazioni)),
@@ -236,7 +248,8 @@ export async function monta(contenitore) {
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
-    // Prima quello che serve oggi (il tempo e i lavori); poi i vermetti che commentano, i progressi e l'invito a scaricare l'app.
+    // Prima quello che serve oggi (il tempo e i lavori); poi il consiglio dei vermetti, i progressi e l'invito a scaricare l'app.
+    cartaConsiglio,
     cartaGioca,
     cartaSapevi,
     zonaConversazione,

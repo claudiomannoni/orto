@@ -139,7 +139,6 @@ export async function festeggia(contesto = 'fatto', { chi: scelto = null, testo:
     testo = pool[Math.floor(Math.random() * pool.length)];
   }
   coriandoli();
-  window.dispatchEvent(new Event('vermi-festa')); // i vermi liberi escono dalla terra e saltano
   document.querySelector('.vermetto-flash')?.remove();
   const nodo = el('div', { class: `vermetto-flash ${chi}`, role: 'status' },
     avatar(chi, chi === 'rosso' ? 'ride' : 'pensa'),
