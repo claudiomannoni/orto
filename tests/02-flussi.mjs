@@ -181,7 +181,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   const testo = fs.readFileSync(file, 'utf8');
   const bk = JSON.parse(testo);
   check('export: nome file orto-backup-AAAA-MM-GG.json', /^orto-backup-\d{4}-\d{2}-\d{2}\.json$/.test(dl.suggestedFilename()), dl.suggestedFilename());
-  check('export: formato "orto-backup" versione 2', bk.formato === 'orto-backup' && bk.versione === 2, `${bk.formato} v${bk.versione}`);
+  check('export: formato "orto-backup" versione 3', bk.formato === 'orto-backup' && bk.versione === 3, `${bk.formato} v${bk.versione}`);
   check('export: campi esportato/impostazioni/colture/zone/eventi', typeof bk.esportato === 'string' && bk.impostazioni && Array.isArray(bk.colture) && Array.isArray(bk.zone) && Array.isArray(bk.eventi));
   check('export: 2 colture', bk.colture.length === 2, String(bk.colture.length));
   check('export: LA CHIAVE IA NON COMPARE (né ai_chiave né il valore)', !testo.includes(CHIAVE) && !testo.includes('ai_chiave') && !('ai_chiave' in bk.impostazioni), 'impostazioni=' + JSON.stringify(bk.impostazioni));
@@ -313,7 +313,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   const nomi = await nomiInLista(page);
   check('migrazione: le 3 colture della v1 sono in elenco', nomi.length === 3 && nomi.includes('Fave') && nomi.includes('Pomodoro · Cuore di bue') && nomi.includes('Zucchina · Romanesca'), nomi.join(' | '));
   const info = await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const o = { v: d.version, st: [...d.objectStoreNames].sort() }; d.close(); ok(o); }; }));
-  check('migrazione: database ora v3 con store colture/eventi/foto/impostazioni/zone', info.v === 3 && info.st.join() === 'colture,eventi,foto,impostazioni,zone', JSON.stringify(info));
+  check('migrazione: database ora v4 con tutti gli store (anche movimenti e produzioni)', info.v === 4 && info.st.join() === 'colture,eventi,foto,impostazioni,movimenti,produzioni,zone', JSON.stringify(info));
   const cs = await leggiDb(page, 'colture');
   check('migrazione: record originali intatti (id, nome, data, note)', cs.length === 3 && cs.find((c) => c.id === 'v1-aaa')?.note === '3 semi per vasetto' && cs.find((c) => c.id === 'v1-ccc')?.dataSemina === '2026-05-02', JSON.stringify(cs.map((c) => c.id)));
   await page.screenshot({ path: path.join(OUT, 'migrazione-da-v1.png'), fullPage: true });
@@ -326,7 +326,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   await page.waitForTimeout(300);
   check('migrazione: una coltura vecchia si elimina', (await nomiInLista(page)).length === 2 && (await leggiDb(page, 'colture')).length === 2);
   const bk = await page.evaluate(async () => { const m = await import('./js/store/backup.js'); return m.creaBackup(); });
-  check('migrazione: il backup esporta le colture vecchie', bk.colture.length === 2 && bk.versione === 2);
+  check('migrazione: il backup esporta le colture vecchie', bk.colture.length === 2 && bk.versione === 3);
   check('4. migrazione: nessun errore in console', problemi.length === 0, problemi.join(' | '));
   await ctx.close();
 }

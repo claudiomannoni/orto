@@ -104,6 +104,14 @@ Per l'annuncio di tipo A, `quantita_disponibile` **non si scrive a mano**: segue
 ### 5.6 Registro delle categorie (contenuti, con fonti)
 `data/it/categorie-produzione.json`: per ogni categoria `id`, `nome`, `gruppo` (`alimentare | agricolo | materiale | animale | altro`), `unita_ammesse`, `campi` specifici, `vendita`: `{ stato: 'verifica' | 'con_requisiti' | 'non_gestita', informativa, fonti, certezza }`. Esempi di categorie iniziali: ortaggi, frutta, uova, miele, piantine, semi, humus e compost, lombrichi, zafferano e colture speciali, funghi, fiori edibili. **Nessuna categoria si presume vendibile liberamente**: finché la normativa non è verificata con fonti ufficiali, la categoria è `verifica` e prima di pubblicare compare l'informativa («informati presso il tuo Comune/ASL»). Le categorie di **animali vivi** (per esempio lombrichi da allevamento) si trattano come `animale` con requisiti propri. Le informative sono dati con fonte e certezza come tutto il resto (nessuna invenzione; la ricerca normativa è un compito per Codex/Perplexity, vedi roadmap).
 
+### 5.6 bis Esito della ricerca normativa (01/11/2026, Perplexity in modalità Ricerca)
+
+File completo: `CERVELLO/agenti/log/ricerca-normativa.md` (nel cervello, non nel repo). Sintesi, **senza interpretare**:
+- **Trovato con fonte**: norme di commercializzazione dell'ortofrutta (MASAF), uova (stampigliatura, reg. UE 1308/2013; esenzione nazionale per piccoli allevamenti nel luogo di produzione con un decreto da verificare se ancora valido), miele (etichetta, direttiva 2001/110/CE; registrazione degli apiari in BDN), sementi di ortaggi (catalogo comune), passaporto delle piante fra professionisti, conserve domestiche (il Ministero dà linee guida di preparazione e non autorizza la vendita), DSA e GDPR in generale.
+- **Non trovato** (non vuol dire che non esista): definizione ufficiale di «vendita occasionale» o soglia per l'hobbista; testo dell'art. 4 D.Lgs. 228/2001 e articoli del Codice civile su permuta e donazione (da leggere su Normattiva); funghi, zafferano, humus e compost, animali vivi e lombrichi, piantine vendute da un privato, fiori edibili (solo la regola generale sull'igiene degli alimenti).
+- **Aperto per il parere professionale**: quali obblighi del DSA valgono davvero per un servizio piccolo di soli annunci senza pagamenti; ASL competente per la zona (due versioni trovate, non verificate).
+- Effetto sul prodotto: `data/it/categorie-produzione.json` riporta solo ciò che è sopra, con fonte e certezza, e dichiara «non trovato» il resto; ogni categoria resta in stato `verifica` e invita a informarsi presso Comune/SUAP e ASL.
+
 ### 5.7 Migrazione dei dati esistenti (non distruttiva)
 - Gli **eventi di raccolto** esistenti diventano lotti (`produzioni`) con id deterministico `raccolto:<idEvento>` e `origine: coltura`; **gli eventi restano dove sono** (Storia, traguardi, resoconto, ricette e totali continuano a leggerli). Il modulo del raccolto scrive d'ora in poi l'evento **e** il lotto collegato (`evento.produzioneId`), in un'unica operazione.
 - La lista `impostazioni.eccesso` diventa movimenti: una voce `disponibile` → lotto manuale + movimento di riserva o pubblicazione; una voce `regalato/scambiato/venduto` → lotto manuale + cessione. La pagina «Il tuo eccesso» diventa la **vista «Disponibilità»** sui lotti (nessuna schermata duplicata).
@@ -143,6 +151,21 @@ Nell'app c'è **solo la chiave pubblica («anon»)**, pensata per stare nel clie
 ### 6.6 Account
 Opzionale e **solo per il marketplace**. Metodo previsto: accesso senza password (link o codice via email), per non gestire password. L'account si crea la prima volta che l'utente tocca «Pubblica». `coltivatore_id` anonimo **non** si usa come identità di rete (non è segreto); l'identità sarà quella dell'autenticazione. Cancellazione dell'account e dei propri annunci a richiesta (obbligo di privacy: vedi rischi).
 
+### 6.7 Alternative a Supabase (richiesto da Claudio il 01/11/2026)
+
+Confronto prudente: le fonti trovate sono blog di confronto (non ufficiali, con cifre in parte discordanti), quindi **i numeri vanno riverificati sui siti dei fornitori prima di decidere** (Fase 4). Quello che conta per noi: costo, quanto lavoro di gestione resta a Claudio, chi risponde della sicurezza, ricerca per zona, facilità di cambiare fornitore.
+
+| Strada | Come funziona | Costo indicativo | A favore | Contro |
+|---|---|---|---|---|
+| **Supabase** (proposta) | servizio gestito: PostgreSQL, accessi, archivio immagini, regole RLS | piano gratuito per provare (con pausa dopo inattività); Pro da circa 25 dollari al mese | database relazionale adatto a filtri e ricerche; sicurezza a livello di riga; dati esportabili (è PostgreSQL standard, quindi si cambia fornitore) | costo mensile con utenti veri; le regole di sicurezza vanno scritte e provate bene |
+| **Appwrite** | servizio gestito o da installare su un server proprio | circa 25 dollari per progetto al mese nella versione gestita (fonte non ufficiale) | simile a Firebase come uso; installabile in proprio | meno adatto a ricerche relazionali; stessa spesa di Supabase |
+| **PocketBase** | un solo programma con database SQLite, da installare su un server (VPS) | circa 5-10 euro al mese di server (stima da blog) | il più economico; semplice; regole di accesso incluse | **la gestione, gli aggiornamenti, i backup e la sicurezza del server sono nostri**; un solo scrittore alla volta nel database (limite se gli utenti crescono); le immagini pesano sul nostro disco |
+| **Firebase** | servizio gestito di Google, database a documenti | pagamento a consumo, difficile da prevedere | ottimi strumenti per telefoni; molto diffuso | ricerche e filtri per zona più scomodi in un database a documenti; costi a consumo imprevedibili; SDK grandi, contro la regola «nessuna dipendenza»; legame forte con Google |
+| **Server di casa** (PC Asus con PocketBase) | lo stesso programma sul PC acceso in casa, aperto a Internet con un tunnel | solo corrente e connessione | gratis; già pensato per l'IA futura | tutto cade se il PC o la linea si fermano; sicurezza e backup a carico di Claudio; poco adatto a dati di altri utenti |
+| **Senza server (solo Fase 3)** | l'annuncio si crea nell'app e si manda come immagine/testo su WhatsApp o social | zero | si parte subito, nessuna normativa da piattaforma | niente ricerca per zona, niente richieste, niente sincronizzazione |
+
+**Raccomandazione**: sviluppare comunque le Fasi 2 e 3 **senza server** (già previsto: deposito locale + condivisione come immagine), così Claudio ha tempo di vedere se serve davvero e quante persone la usano. Per la Fase 4 il **confronto reale è tra Supabase (meno lavoro, costo mensile) e PocketBase su un piccolo server (meno costo, più lavoro e responsabilità)**. L'interfaccia `DepositoMarketplace` permette di scegliere o cambiare senza riscrivere l'app. La scelta definitiva resta a Claudio dopo aver confrontato i prezzi aggiornati.
+
 ## 7. Piano di integrazione del marketplace nell'app
 
 - **Dove**: nuova sottorotta `#/mercato` (ricerca, annunci, richieste, i miei annunci, profilo) raggiungibile da «Il mio orto» e da un pulsante «Pubblica» nei moduli. Nessuna voce in più nella barra.
@@ -170,7 +193,7 @@ Opzionale e **solo per il marketplace**. Metodo previsto: accesso senza password
 
 Ogni fase finisce con: prove verdi (`controllo-veloce`), documentazione aggiornata (`docs/schema-dati.md`, `ROADMAP.md`, questo file), elenco dei problemi residui. **Si passa alla successiva solo con l'approvazione di Claudio.**
 
-**Fase 1 — Analisi e progettazione** (questo documento). Esito atteso: Claudio approva o corregge il modello (sezione 5), il backend (6) e le scelte della sezione 10.
+**Fase 1 — Analisi e progettazione** (questo documento). Esito: **modello approvato** (01/11/2026); backend ancora da decidere (6.7); la Fase 2 non dipende dal backend e può partire.
 
 **Fase 2 — Modello produttivo unificato** (solo locale, nessun backend, nessun marketplace)
 1. Registro categorie (`data/it/categorie-produzione.json`) con unità e campi, normativa «da verificare».
@@ -200,11 +223,11 @@ Prove di: uso offline, sincronizzazione e riconnessione, aggiornamento delle qua
 
 ## 10. Decisioni che servono a Claudio per approvare la Fase 1
 
-1. **Modello**: ok a «lotti + movimenti» (5.2-5.3), alla migrazione non distruttiva degli eventi di raccolto e dell'eccesso, e a rendere «Il tuo eccesso» la vista «Disponibilità»?
-2. **Backend**: ok a Supabase in Europa, con deposito locale per sviluppare prima e Supabase poi? Sei disposto a un costo mensile (piano a pagamento) quando arrivano utenti veri?
-3. **Nessuna dipendenza**: mantengo la regola (client scritto da noi) o accetto una sola libreria con versione fissata?
+1. **Modello**: APPROVATO da Claudio il 01/11/2026 («lotti + movimenti», migrazione non distruttiva, «Il tuo eccesso» → «Disponibilità»). La Fase 2 può partire.
+2. **Backend** (aperta): Claudio vuole valutare altre strade (sezione 6.7). Da decidere con i prezzi aggiornati prima della Fase 4; intanto si sviluppa senza server.
+3. **Nessuna dipendenza**: Claudio non ha preferenze; decide Claude al momento della Fase 4 (default: mantenere la regola).
 4. **Accesso**: link/codice via email senza password va bene?
-5. **Normativa**: ok a una ricerca normativa con fonti ufficiali per ogni categoria (Codex; Perplexity in modalità Ricerca solo se tu lo dici) e, prima del lancio pubblico, a un parere professionale?
+5. **Normativa**: Claudio ha autorizzato la ricerca con Perplexity (modalità Ricerca): richiesta inviata, esito atteso in `CERVELLO/agenti/log/ricerca-normativa.md`. Resta da decidere il parere professionale prima del lancio pubblico.
 6. **Zona**: griglia di circa 5 km oppure comune? (la griglia è più semplice e privata, il comune più comprensibile).
 7. **Nome e marchio**: il mercato resta dentro «Orto AI» o ha un nome suo? (il controllo del marchio è ancora da fare).
 

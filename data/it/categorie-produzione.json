@@ -1,0 +1,376 @@
+{
+  "versione": 1,
+  "nota": "Registro delle categorie di produzione. Le informative sulla vendita riportano solo ciò che compare in fonti ufficiali trovate il 01/11/2026 (ricerca Perplexity, link non ancora aperti uno per uno) e dichiarano «non trovato» il resto. Nessuna categoria si presume vendibile liberamente: lo stato resta «verifica». Regalare o scambiare fra privati: nessuna regola specifica trovata, ma valgono le stesse cautele.",
+  "unita": {
+    "kg": "kg",
+    "g": "grammi",
+    "pezzi": "pezzi",
+    "dozzine": "dozzine",
+    "vasetti": "vasetti",
+    "litri": "litri",
+    "mazzi": "mazzi"
+  },
+  "categorie": [
+    {
+      "id": "ortaggi",
+      "nome": "Ortaggi",
+      "gruppo": "alimentare",
+      "unita_ammesse": [
+        "kg",
+        "g",
+        "pezzi",
+        "mazzi"
+      ],
+      "campi": [
+        {
+          "id": "varieta",
+          "etichetta": "Varietà",
+          "tipo": "testo"
+        },
+        {
+          "id": "data_raccolta",
+          "etichetta": "Data di raccolta",
+          "tipo": "data"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Per l'ortofrutta fresca le norme di commercializzazione richiamate dal MASAF chiedono qualità sana, leale e mercantile e l'indicazione del Paese di origine: verifica se si applicano al tuo caso. Chiedi al tuo Comune (SUAP), alla ASL e all'Agenzia delle Entrate: per chi vende da hobbista non abbiamo trovato in fonti ufficiali né una soglia né una definizione di vendita occasionale. Le conserve fatte in casa: il Ministero della Salute dà linee guida per prepararle in casa e non autorizza a venderle.",
+        "fonti": [
+          {
+            "titolo": "Norme di commercializzazione dei prodotti ortofrutticoli",
+            "ente": "MASAF",
+            "url": "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/5981",
+            "consultata": "2026-11-01"
+          },
+          {
+            "titolo": "Linee guida per la corretta preparazione delle conserve alimentari in ambito domestico",
+            "ente": "Ministero della Salute",
+            "url": "https://www.salute.gov.it/new/it/pubblicazione/linee-guida-la-corretta-preparazione-delle-conserve-alimentari-ambito-domestico/",
+            "consultata": "2026-11-01"
+          }
+        ],
+        "certezza": "media"
+      }
+    },
+    {
+      "id": "frutta",
+      "nome": "Frutta",
+      "gruppo": "alimentare",
+      "unita_ammesse": [
+        "kg",
+        "g",
+        "pezzi"
+      ],
+      "campi": [
+        {
+          "id": "varieta",
+          "etichetta": "Varietà",
+          "tipo": "testo"
+        },
+        {
+          "id": "data_raccolta",
+          "etichetta": "Data di raccolta",
+          "tipo": "data"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Per l'ortofrutta fresca le norme di commercializzazione richiamate dal MASAF chiedono qualità sana, leale e mercantile e l'indicazione del Paese di origine: verifica se si applicano al tuo caso. Chiedi al tuo Comune (SUAP), alla ASL e all'Agenzia delle Entrate: per chi vende da hobbista non abbiamo trovato in fonti ufficiali né una soglia né una definizione di vendita occasionale.",
+        "fonti": [
+          {
+            "titolo": "Norme di commercializzazione dei prodotti ortofrutticoli",
+            "ente": "MASAF",
+            "url": "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/5981",
+            "consultata": "2026-11-01"
+          }
+        ],
+        "certezza": "media"
+      }
+    },
+    {
+      "id": "uova",
+      "nome": "Uova",
+      "gruppo": "alimentare",
+      "unita_ammesse": [
+        "pezzi",
+        "dozzine"
+      ],
+      "campi": [
+        {
+          "id": "data_deposizione",
+          "etichetta": "Data di deposizione",
+          "tipo": "data"
+        },
+        {
+          "id": "allevamento",
+          "etichetta": "Come sono allevate le galline",
+          "tipo": "testo"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Le uova di categoria A vendute vanno stampigliate col codice del produttore (reg. UE 1308/2013); esistono esenzioni nazionali, per esempio per piccoli allevamenti nel luogo di produzione, con un decreto di cui va verificata la validità attuale. Informati presso la tua ASL prima di vendere uova.",
+        "fonti": [
+          {
+            "titolo": "Regolamento (UE) 1308/2013, allegato VII parte VI (uova)",
+            "ente": "EUR-Lex",
+            "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02013R1308-20241108",
+            "consultata": "2026-11-01"
+          },
+          {
+            "titolo": "Uova e pollame",
+            "ente": "MASAF",
+            "url": "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/6543",
+            "consultata": "2026-11-01"
+          }
+        ],
+        "certezza": "media"
+      }
+    },
+    {
+      "id": "miele",
+      "nome": "Miele",
+      "gruppo": "alimentare",
+      "unita_ammesse": [
+        "kg",
+        "g",
+        "vasetti"
+      ],
+      "campi": [
+        {
+          "id": "tipo",
+          "etichetta": "Tipo di miele (fiori)",
+          "tipo": "testo"
+        },
+        {
+          "id": "data_smielatura",
+          "etichetta": "Data di smielatura",
+          "tipo": "data"
+        },
+        {
+          "id": "lotto",
+          "etichetta": "Lotto",
+          "tipo": "testo"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Il miele va etichettato con la denominazione del prodotto e il Paese di origine (direttiva 2001/110/CE). Gli apiari vanno registrati nella Banca Dati Nazionale del Ministero della Salute. Informati presso la tua ASL prima di vendere.",
+        "fonti": [
+          {
+            "titolo": "Direttiva 2001/110/CE sul miele",
+            "ente": "EUR-Lex",
+            "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/PDF/?uri=CELEX:32001L0110",
+            "consultata": "2026-11-01"
+          },
+          {
+            "titolo": "Anagrafe apistica",
+            "ente": "Ministero della Salute",
+            "url": "https://www.salute.gov.it/new/it/tema/prevenzione-e-controllo-malattie-degli-animali/anagrafe-apistica/",
+            "consultata": "2026-11-01"
+          }
+        ],
+        "certezza": "media"
+      }
+    },
+    {
+      "id": "piantine",
+      "nome": "Piantine",
+      "gruppo": "agricolo",
+      "unita_ammesse": [
+        "pezzi"
+      ],
+      "campi": [
+        {
+          "id": "specie",
+          "etichetta": "Specie e varietà",
+          "tipo": "testo"
+        },
+        {
+          "id": "eta_giorni",
+          "etichetta": "Età in giorni",
+          "tipo": "numero"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Il passaporto delle piante è richiesto fra operatori professionali (reg. UE 2016/2031); per la vendita da parte di un privato non abbiamo trovato regole in fonti ufficiali: informati presso il tuo Comune e il servizio fitosanitario regionale prima di venderle.",
+        "fonti": [
+          {
+            "titolo": "Protezione contro gli organismi nocivi per le piante (reg. UE 2016/2031)",
+            "ente": "EUR-Lex",
+            "url": "https://eur-lex.europa.eu/IT/legal-content/summary/protection-against-plant-pests.html",
+            "consultata": "2026-11-01"
+          }
+        ],
+        "certezza": "bassa"
+      }
+    },
+    {
+      "id": "semi",
+      "nome": "Semi",
+      "gruppo": "agricolo",
+      "unita_ammesse": [
+        "g",
+        "pezzi",
+        "vasetti"
+      ],
+      "campi": [
+        {
+          "id": "specie",
+          "etichetta": "Specie e varietà",
+          "tipo": "testo"
+        },
+        {
+          "id": "anno_raccolta",
+          "etichetta": "Anno di raccolta",
+          "tipo": "numero"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "In Unione Europea le varietà di sementi di ortaggi si commercializzano se iscritte nel catalogo comune (direttiva 2002/55/CE). Per lo scambio o la vendita fra privati non abbiamo trovato una regola ufficiale: informati prima di vendere.",
+        "fonti": [
+          {
+            "titolo": "Commercializzazione delle sementi di ortaggi (direttiva 2002/55/CE)",
+            "ente": "EUR-Lex",
+            "url": "https://eur-lex.europa.eu/IT/legal-content/summary/marketing-of-vegetable-seed.html",
+            "consultata": "2026-11-01"
+          }
+        ],
+        "certezza": "media"
+      }
+    },
+    {
+      "id": "humus_compost",
+      "nome": "Humus e compost",
+      "gruppo": "materiale",
+      "unita_ammesse": [
+        "kg",
+        "litri",
+        "vasetti"
+      ],
+      "campi": [
+        {
+          "id": "tipo",
+          "etichetta": "Humus di lombrico, compost o altro",
+          "tipo": "testo"
+        },
+        {
+          "id": "maturazione",
+          "etichetta": "Mesi di maturazione",
+          "tipo": "numero"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Per humus, compost e lombricompost non abbiamo trovato in fonti ufficiali regole sulla vendita da parte di un privato (se venduti come fertilizzanti possono valere norme specifiche): informati presso il tuo Comune e la tua ASL prima di venderli.",
+        "fonti": [],
+        "certezza": "bassa"
+      }
+    },
+    {
+      "id": "lombrichi",
+      "nome": "Lombrichi da allevamento",
+      "gruppo": "animale",
+      "unita_ammesse": [
+        "pezzi",
+        "g",
+        "vasetti"
+      ],
+      "campi": [
+        {
+          "id": "specie",
+          "etichetta": "Specie",
+          "tipo": "testo"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Per gli animali vivi e per i lombrichi da allevamento non abbiamo trovato in fonti ufficiali regole sulla cessione o vendita da parte di un privato: informati presso il tuo Comune e la tua ASL prima di cederli o venderli.",
+        "fonti": [],
+        "certezza": "bassa"
+      }
+    },
+    {
+      "id": "speciali",
+      "nome": "Colture speciali (zafferano, funghi, fiori edibili)",
+      "gruppo": "alimentare",
+      "unita_ammesse": [
+        "g",
+        "kg",
+        "pezzi",
+        "mazzi"
+      ],
+      "campi": [
+        {
+          "id": "prodotto",
+          "etichetta": "Prodotto",
+          "tipo": "testo"
+        },
+        {
+          "id": "data_raccolta",
+          "etichetta": "Data di raccolta",
+          "tipo": "data"
+        }
+      ],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Funghi, zafferano e fiori edibili: non abbiamo trovato regole specifiche per la vendita da parte di un privato; se venduti come alimenti vale la disciplina generale sull'igiene degli alimenti (reg. CE 852/2004). Informati presso il tuo Comune e la tua ASL prima di venderli.",
+        "fonti": [],
+        "certezza": "bassa"
+      }
+    },
+    {
+      "id": "altro",
+      "nome": "Altro",
+      "gruppo": "altro",
+      "unita_ammesse": [
+        "kg",
+        "g",
+        "pezzi",
+        "dozzine",
+        "vasetti",
+        "litri",
+        "mazzi"
+      ],
+      "campi": [],
+      "vendita": {
+        "stato": "verifica",
+        "informativa": "Per questo tipo di prodotto non conosciamo le regole: informati presso il tuo Comune e la tua ASL prima di venderlo o cederlo.",
+        "fonti": [],
+        "certezza": "bassa"
+      }
+    }
+  ],
+  "piattaforma": {
+    "nota": "Obblighi di una piattaforma che ospita annunci fra privati (da valutare con un professionista: quali valgano davvero per un servizio piccolo di soli annunci, senza pagamenti, non è stato verificato).",
+    "voci": [
+      {
+        "tema": "Segnalazione dei contenuti illeciti",
+        "cosa_dice": "Il Digital Services Act (reg. UE 2022/2065, art. 16) prevede per i servizi di memorizzazione un meccanismo elettronico facile da usare per segnalare contenuti ritenuti illeciti.",
+        "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32022R2065",
+        "certezza": "media"
+      },
+      {
+        "tema": "Condizioni d'uso",
+        "cosa_dice": "Art. 14 del DSA: condizioni generali del servizio.",
+        "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32022R2065",
+        "certezza": "media"
+      },
+      {
+        "tema": "Dati dei venditori",
+        "cosa_dice": "Art. 30 del DSA: le piattaforme che permettono contratti a distanza con consumatori raccolgono dati degli operatori commerciali; da verificare se riguarda un servizio di soli annunci.",
+        "url": "https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32022R2065",
+        "certezza": "bassa"
+      },
+      {
+        "tema": "Privacy",
+        "cosa_dice": "Profilo, zona e foto sono dati personali se identificano una persona: servono informativa prima della raccolta, consenso libero e revocabile dove necessario, e cancellazione su richiesta (artt. 6, 13, 14, 17 GDPR).",
+        "url": "https://www.garanteprivacy.it/home/principi-fondamentali-del-trattamento",
+        "certezza": "media"
+      }
+    ]
+  }
+}

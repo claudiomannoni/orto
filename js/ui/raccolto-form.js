@@ -5,6 +5,8 @@ import { apriFoglio } from './foglio.js';
 import { toast } from './toast.js';
 import { nuovoEvento, registraEvento } from '../store/dati.js';
 import { controllaProgressi } from '../store/progressi.js';
+import { salvaProduzione } from '../store/produzioni.js';
+import { lottoDaRaccolto } from '../motore/produzioni.js';
 
 const UNITA = ['kg', 'g', 'pezzi'];
 
@@ -43,7 +45,10 @@ export function apriRaccolto(colture, { colturaId = null, nome = '', data = oggi
       }),
       quantita, unita: UNITA.includes(d.get('unita')) ? d.get('unita') : 'kg', nomeColtura,
     };
+    const lotto = lottoDaRaccolto(evento); // il raccolto è anche un lotto di produzione: da lì si consuma, si riserva, si regala o si pubblica
+    if (lotto) evento.produzioneId = lotto.id;
     await registraEvento(evento);
+    if (lotto) await salvaProduzione(lotto);
     foglio.close();
     toast(t('raccolto.salvato'));
     controllaProgressi();

@@ -1,15 +1,17 @@
-// IndexedDB: database "orto", versione 2. Schema in docs/schema-dati.md.
+// IndexedDB: database "orto", versione 4 (la 2 aggiunse gli archivi, la 3 le foto, la 4 produzioni e movimenti). Schema in docs/schema-dati.md.
 // La versione 1 aveva solo lo store "colture": passando alla 2 si aggiungono gli altri
 // e le colture già salvate restano dove sono.
 
 const NOME_DB = 'orto';
-const VERSIONE_DB = 3;
+const VERSIONE_DB = 4;
 const STORES = {
   colture: 'id',
   impostazioni: 'chiave',
   zone: 'id',
   eventi: 'id',
   foto: 'id', // dalla versione 3: il diario fotografico
+  produzioni: 'id', // dalla versione 4: i lotti di produzione (raccolti, uova, miele, humus...)
+  movimenti: 'id', // dalla versione 4: cosa se ne è fatto (consumo, riserva, pubblicazione, cessione...)
 };
 
 let promessa = null;

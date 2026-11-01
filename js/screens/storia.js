@@ -4,6 +4,7 @@ import { el, oggiISO, formattaData, parametriRotta, aggiungi, sostituisci } from
 import { t, locale } from '../i18n.js';
 import { elencoEventi, registraEvento, nuovoEvento, elencoColture } from '../store/dati.js';
 import { elimina } from '../store/db.js';
+import { eliminaProduzione } from '../store/produzioni.js';
 import { testoQuantita } from '../motore/raccolto.js';
 import { elencoZone } from '../store/zone.js';
 import { elencoFoto } from '../store/foto.js';
@@ -77,6 +78,7 @@ function riga(v) {
       onclick: async () => {
         if (!confirm(t('storia.togli.conferma'))) return;
         await elimina('eventi', v.id);
+        await eliminaProduzione(`raccolto:${v.id}`); // se era un raccolto, sparisce anche il suo lotto (e quanto ne era stato fatto)
         voci = voci.filter((x) => x.id !== v.id);
         disegna();
         toast(t('storia.tolto'));

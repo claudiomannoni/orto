@@ -45,7 +45,7 @@ await page.evaluate(() => new Promise((ok, ko) => {
 }));
 await vai(page, 'diario');
 const info = await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const o = { v: d.version, st: [...d.objectStoreNames].sort() }; d.close(); ok(o); }; }));
-check('migrazione v2 -> v3: nasce lo store «foto» e il database è alla versione 3', info.v === 3 && info.st.includes('foto'), JSON.stringify(info));
+check('migrazione v2 -> v4: nasce lo store «foto» e il database è alla versione 4', info.v === 4 && info.st.includes('foto'), JSON.stringify(info));
 check('migrazione: coltura e zona vecchie intatte', (await leggiDb(page, 'colture')).some((c) => c.id === 'c-v2' && c.note === 'vecchia') && (await leggiDb(page, 'zone')).some((z) => z.id === 'z-v2'));
 check('diario vuoto: titolo, messaggio e pulsante', (await page.locator('h2.titolo-schermata').innerText()).startsWith('Diario fotografico') && await page.isVisible('#diario-vuoto') && (await page.getByRole('button', { name: '+ Aggiungi foto' }).count()) === 1);
 check('con meno di 3 foto il time-lapse è spento', await page.getByRole('button', { name: 'Time-lapse' }).isDisabled());

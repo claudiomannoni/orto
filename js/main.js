@@ -8,6 +8,7 @@ import { inizializzaProgressi } from './store/progressi.js';
 import { costruisciTestata, costruisciBarra, aggiornaBarra, aggiornaTestata, ROTTE, SOTTOROTTE } from './ui/nav.js';
 import { toast } from './ui/toast.js';
 import { mostraGuida } from './ui/guida.js';
+import { migraProduzioni } from './store/produzioni.js';
 import { controllaAggiornamenti } from './ui/aggiornamento.js';
 import { impostaGiorniAssenza } from './ui/sessione.js';
 import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
@@ -97,6 +98,7 @@ async function avvia() {
     impostaVestiti(iniziali.vestiti, iniziali.orto_nato);
     impostaLingua(lingua); // i contenuti (traguardi, battute...) si leggono nella lingua giusta
     await inizializzaProgressi();
+    await migraProduzioni(); // raccolti ed eccesso diventano lotti di produzione (una volta sola, senza cancellare niente)
   } catch (errore) {
     console.error(errore);
   }
