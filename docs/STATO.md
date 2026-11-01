@@ -33,13 +33,13 @@ Regole che non si dimenticano:
 | Avvio, rotte, guida | `js/main.js`, `js/ui/nav.js` (barra e sottorotte), `js/ui/guida.js` |
 | Schermate | `js/screens/*.js`: oggi, colture («Il mio orto»), dottore («Fotografa»), calendario, impara, quiz, chiedi, raccolto, cucina, animali, rendita, zone, diario, storia, impostazioni, benvenuto |
 | Logica pura (si prova senza pagina) | `js/motore/*.js`: crescita, curiosita, quiz, saluto, raccolto, acqua, resoconto, seguite, meteo, progressi, vestiti |
-| Interfaccia riusabile | `js/ui/*.js`: mascotte e vermetto (vermetti disegnati nel codice), vermi-liberi (i due vermi che girano sul bordo dello schermo, scavano e escono), meteo, aiuole, condividi, foglio, toast... |
+| Interfaccia riusabile | `js/ui/*.js`: mascotte e vermetto (vermetti disegnati nel codice), vermetto (i vermi disegnati nel codice), meteo, aiuole, condividi, foglio, toast... |
 | Intelligenza artificiale | solo `js/ai/*.js`: `ai.js` (unico ingresso), `gemini.js` (provider, riprova se Google è sovraccarico), `diagnosi.js`, `consiglio.js`, `bustina.js`, `ricette.js`, `foto.js` |
 | Dati sul telefono | `js/store/*.js` (IndexedDB `orto`, formato in `docs/schema-dati.md`) |
 | Contenuti | `data/it/`: colture (27 schede), glossario, zone, terreno, battute, traguardi, consociazioni, quiz + quiz-extra, curiosità, animali (api/vermi/galline), rendita (colture speciali) |
 | Prove | `tests/` (UI con Playwright: `01-…28-…`; senza browser: `fase*.mjs`, `quiz*.mjs`, ecc.) |
 
-I vermetti Rosso e Rossella non sono più immagini: sono disegnati in `js/ui/vermetto.js` (corpo a segmenti, sguardo, risata, 11 vestiti stagionali e delle feste). `js/ui/vermi-liberi.js` è lo strato fisso sopra la barra dove Rosso e Rossella camminano, scavano, vanno sotto terra e escono (eventi di prova: `vermi-scavano`, `vermi-esci`, `vermi-festa`; il test è `tests/29-vermi-liberi.mjs`). Per aggiungere un vestito: nome in `js/motore/vestiti.js` (e le sue battute in `data/it/battute.json`) + il disegno in `VESTITI_DISEGNO` di `vermetto.js` (la prova `fase4-vestiti` controlla che ci sia).
+I vermetti Rosso e Rossella non sono più immagini: sono disegnati in `js/ui/vermetto.js` (corpo a segmenti, sguardo, risata, 11 vestiti stagionali e delle feste). I vermi che giravano sul bordo dello schermo (`vermi-liberi.js`) sono stati tolti alla 2.42; il consiglio utile e il bentornato ora stanno nella vignetta di «Oggi» (`js/motore/consigli-vermi.js`, `js/motore/assenza.js`). Per aggiungere un vestito: nome in `js/motore/vestiti.js` (e le sue battute in `data/it/battute.json`) + il disegno in `VESTITI_DISEGNO` di `vermetto.js` (la prova `fase4-vestiti` controlla che ci sia).
 
 ## Com'è fatta l'app oggi (v2.37)
 
@@ -60,9 +60,11 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 
 ## Da fare / idee (in ordine di valore)
 
+0. Richiesti da Claudio il 01/11/2026 (vedi ROADMAP «Prossimo»): (a) vignette dei vermi più grandi e carine, con più espressioni e reazioni a ciò che fai; (b) mini gioco antistress a parte (`#/vermi`, entrata dall'icona in testata): trascinare/lanciare, solleticare, far scavare nella terra, dare da mangiare, contatore di minuti di relax; (c) assistenza continua per ogni coltura: seme o piantina, fasi di vita con «cosa fare» e accortezze, esame con foto che confronta fase reale ed età.
+
 1. Prove su telefono vero (Android): fotocamera in pagina, meteo, installazione, vermetti vivi. Finora tutto provato solo con Playwright.
 2. Contenuti di api/vermi/galline e colture speciali sono una prima versione prudente: molti calendari mensili vuoti, poche fonti. Ricerca con Perplexity (modalità Ricerca) e riscrittura con Codex, sempre con fonte e certezza.
-3. Vermi «ovunque»: oggi girano solo sulla striscia in basso (strato alto 120 px). Per farli salire sui bordi delle carte serve uno strato a tutto schermo e le «piattaforme» (rettangoli delle carte letti dal DOM); idea non ancora fatta. Altre idee: reazioni a traguardi, si arrotolano se non apri l'app da giorni. Animazione dei vermetti: portarli anche nelle altre schermate come guida «che cammina»; più reazioni (festeggiano un traguardo, si arrotolano se non si apre l'app da giorni). Eventuale Rive/Lottie solo con un illustratore.
+3. I vermi liberi sul bordo sono stati tolti (davano fastidio, 2.42). Altre idee: reazioni a traguardi, si arrotolano se non apri l'app da giorni. Animazione dei vermetti: portarli anche nelle altre schermate come guida «che cammina»; più reazioni (festeggiano un traguardo, si arrotolano se non si apre l'app da giorni). Eventuale Rive/Lottie solo con un illustratore.
 4. Primo avvio più corto (oggi 8 domande, tutte saltabili).
 5. Piano visivo dell'orto interattivo (stile Hota), promemoria/notifiche, date di gelo reali (ARSIAL: serve una serie storica; l'ipotesi di Codex è archiviata in `CERVELLO/agenti/archivio/`).
 6. IA su PC Asus con modello locale e database aggiornato dal web (provider «server di casa» in `js/ai/ai.js`, tunnel https).
