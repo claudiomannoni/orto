@@ -62,6 +62,8 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 
 ## Da fare / idee (in ordine di valore)
 
+**PRIORITÀ ASSOLUTA (01/11/2026): ecosistema produttivo locale con marketplace.** Leggere `docs/ECOSISTEMA.md` (analisi, modello dati lotti + movimenti, backend Supabase proposto, rischi, roadmap in 5 fasi con approvazione). La Fase 1 è consegnata e aspetta l'approvazione di Claudio (decisioni nella sezione 10 del documento): finché non c'è, NON si scrive codice del marketplace.
+
 0. Richiesti da Claudio il 01/11/2026 (vedi ROADMAP «Prossimo»): (a) vignette dei vermi più grandi e carine, con più espressioni e reazioni a ciò che fai; (b) mini gioco antistress a parte (`#/vermi`, entrata dall'icona in testata): trascinare/lanciare, solleticare, far scavare nella terra, dare da mangiare, contatore di minuti di relax; (c) assistenza continua per ogni coltura: seme o piantina, fasi di vita con «cosa fare» e accortezze, esame con foto che confronta fase reale ed età.
 
 1. Prove su telefono vero (Android): fotocamera in pagina, meteo, installazione, vermetti vivi. Finora tutto provato solo con Playwright.

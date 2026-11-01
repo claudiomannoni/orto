@@ -107,6 +107,10 @@ Dopo aver guardato come sono fatte le app di piante e orto di successo (cure e p
 - «Il mio orto» è la pagina di tutto ciò che è tuo, a sezioni: nuova coltura, quattro tessere (zone, diario, storia, raccolto), orto dall'alto, elenco delle colture.
 - Corretto un difetto grafico: una classe CSS `barra` del grafico del raccolto copriva la barra di navigazione (diventava verde). Ora c'è un controllo nel test 26 che la barra resti chiara.
 
+## DIREZIONE STRATEGICA (01/11/2026): ecosistema produttivo locale con marketplace
+
+Priorità assoluta indicata da Claudio: far evolvere Orto AI in una piattaforma che collega orto, frutteto, lombricoltura, galline, api, raccolti, consumi, eccedenze, scambi e vendite, con una rete locale di utenti (annunci di vendita, scambio e regalo, richieste, profilo produttore, ricerca per distanza). Si lavora **per fasi con approvazione**: Fase 1 analisi e progettazione (`docs/ECOSISTEMA.md`, consegnata, in attesa di approvazione), Fase 2 modello produttivo unificato (lotti + movimenti), Fase 3 marketplace MVP, Fase 4 backend e sincronizzazione (Supabase, da confermare), Fase 5 test e rilascio. Non si sviluppano ora pagamenti, chat, baratto triangolare, matching avanzato, reputazione complessa, logistica. Il resto di questa roadmap resta valido ma passa dopo.
+
 ## Prossimo, richiesto da Claudio (01/11/2026): assistenza continua per ogni coltura
 
 - Alla creazione di una coltura si sceglie **seme o piantina** (oggi c'è solo la data di semina); cambia il conto dell'età e delle fasi.
