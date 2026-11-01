@@ -28,6 +28,7 @@ const schermate = {
   raccolto: () => import('./screens/raccolto.js'),
   animali: () => import('./screens/animali.js'),
   semi: () => import('./screens/semi.js'),
+  eccesso: () => import('./screens/eccesso.js'),
   pianta: () => import('./screens/pianta.js'),
   piano: () => import('./screens/piano.js'),
   alberi: () => import('./screens/alberi.js'),

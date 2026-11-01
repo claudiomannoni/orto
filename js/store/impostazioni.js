@@ -8,6 +8,7 @@ export const PREDEFINITE = {
   colture_scelte: [], // id delle schede che l'utente segue; vuoto = tutte
   relax: {}, // i secondi di relax nel giardino dei vermi: { 'AAAA-MM-GG': secondi }
   primi_passi_chiusi: false, // l'utente ha chiuso «I tuoi primi passi»
+  eccesso: [], // il raccolto che avanza: [{ id, categoria, nome, quantita, unita, stato, data }]
   semi: [], // la banca dei semi: [{ id, schedaId, nome, anno, quantita }]
   ultimo_uso: null, // AAAA-MM-GG dell'ultima volta che l'app è stata aperta (i vermetti dormono se manchi da giorni)
   guida_viste: [], // le schermate di cui si è già letta la guida

@@ -654,3 +654,6 @@ body.gioco-pieno main { padding: 0; max-width: none; }
 .fumetto-gioco p { margin: 0 0 6px; }
 .fumetto-gioco a { font-weight: 700; font-size: .85rem; }
 .meteo-dettagli li a { display: inline-flex; align-items: center; min-height: 44px; }
+.eccesso-voce { display: grid; gap: 8px; }
+.eccesso-voce.stato-disponibile { border-left: 6px solid var(--pulsante); }
+.eccesso-voce:not(.stato-disponibile) { border-left: 6px solid var(--verde); }
