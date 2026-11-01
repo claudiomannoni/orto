@@ -183,10 +183,10 @@ textarea { padding: 12px 14px; resize: vertical; }
 
 /* ---------- Mascotte ---------- */
 .conversazione { display: grid; gap: 12px; }
-.battuta { display: grid; grid-template-columns: 72px 1fr; gap: 10px; align-items: end; }
-.battuta.rossella { grid-template-columns: 1fr 72px; }
+.battuta { display: grid; grid-template-columns: 104px 1fr; gap: 10px; align-items: end; }
+.battuta.rossella { grid-template-columns: 1fr 104px; }
 .battuta.rossella .avatar { order: 2; }
-.avatar { position: relative; width: 72px; height: 72px; cursor: pointer; -webkit-user-select: none; user-select: none; touch-action: manipulation; transform-origin: 50% 100%; animation: respira 3.6s ease-in-out infinite alternate; }
+.avatar { position: relative; width: 104px; height: 104px; cursor: pointer; -webkit-user-select: none; user-select: none; touch-action: manipulation; transform-origin: 50% 100%; animation: respira 3.6s ease-in-out infinite alternate; }
 .avatar.rossella { animation-delay: -1.6s; }
 .avatar img, .avatar canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .avatar:focus-visible { outline: 3px solid var(--giallo-chiaro); outline-offset: 3px; border-radius: 12px; }
@@ -236,7 +236,7 @@ textarea { padding: 12px 14px; resize: vertical; }
   animation: entra-sinistra .3s ease-out;
 }
 .vermetto-flash.rossella { left: auto; right: 12px; flex-direction: row-reverse; animation-name: entra-destra; }
-.vermetto-flash .avatar { flex: none; width: 64px; height: 64px; }
+.vermetto-flash .avatar { flex: none; width: 84px; height: 84px; }
 .flash-fumetto {
   padding: 8px 12px;
   border: 2px solid var(--bordo);
@@ -254,7 +254,7 @@ textarea { padding: 12px 14px; resize: vertical; }
 @keyframes entra-destra { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .vermetto-flash { animation: none; } }
 .vermetti-riga { display: flex; gap: 14px; align-items: flex-end; justify-content: center; padding-top: 34px; }
-.vermetti-riga .avatar { width: 96px; height: 96px; }
+.vermetti-riga .avatar { width: 128px; height: 128px; }
 .fumetto {
   padding: 12px 14px;
   border-radius: 20px;

@@ -3,7 +3,7 @@
 import { el, oggiISO } from '../util.js';
 import { t } from '../i18n.js';
 import { battute } from '../contenuti.js';
-import { creaVermetto, cambiaVestito, ridiAncora } from './vermetto.js';
+import { creaVermetto, cambiaVestito, ridiAncora, impostaEspressione, parlaPer } from './vermetto.js';
 import { VESTITI, vestitoDelGiorno, contestoDelVestito, altroVestito } from '../motore/vestiti.js';
 
 // Il vestito scelto in Impostazioni ('auto' = lo decide il calendario) e quello cambiato a tocco, solo per questa sessione.
@@ -107,6 +107,16 @@ export function avatar(chi, variante) {
   return a;
 }
 
+// Tutti i vermetti sullo schermo fanno un'espressione per un po' (contento, sorpreso, triste, arrabbiato, pensa, ride); chi: solo uno dei due.
+export function reagisci(espressione, millisecondi = 2500, chi = null) {
+  document.querySelectorAll('.avatar[data-chi]').forEach((a) => {
+    if (chi && a.dataset.chi !== chi) return;
+    const tela = a.querySelector('.corpo-vermetto');
+    if (tela) impostaEspressione(tela, espressione, millisecondi);
+    if (espressione === 'ride') salta(a);
+  });
+}
+
 // Un vermetto compare in basso e dice una battuta (per esempio dopo un lavoro fatto), poi se ne va.
 // Sta sopra a tutto: si vede anche se la conversazione in alto è fuori schermo.
 // Con { chi, testo } dice proprio quella battuta (per esempio quella di un livello); senza, ne pesca una del contesto.
@@ -139,6 +149,7 @@ export async function festeggia(contesto = 'fatto', { chi: scelto = null, testo:
     testo = pool[Math.floor(Math.random() * pool.length)];
   }
   coriandoli();
+  reagisci('ride', 1800);
   document.querySelector('.vermetto-flash')?.remove();
   const nodo = el('div', { class: `vermetto-flash ${chi}`, role: 'status' },
     avatar(chi, chi === 'rosso' ? 'ride' : 'pensa'),
@@ -150,7 +161,7 @@ export async function festeggia(contesto = 'fatto', { chi: scelto = null, testo:
 
 // battute = [{ chi: 'rosso' | 'rossella', testo, variante? }]
 export function conversazione(lista) {
-  return el('div', { class: 'conversazione' },
+  const nodo = el('div', { class: 'conversazione' },
     lista.map(({ chi, testo, variante }) =>
       el('div', { class: `battuta ${chi}` },
         avatar(chi, variante),
@@ -158,6 +169,14 @@ export function conversazione(lista) {
           el('strong', { class: 'chi' }, t(`mascotte.${chi}`)),
           el('p', {}, testo),
         ),
-      )),
-  );
+      )));
+  // uno dopo l'altro: mentre «dice» la sua battuta, la bocca si muove
+  let ritardo = 300;
+  lista.forEach(({ testo }, i) => {
+    const tela = nodo.children[i]?.querySelector('canvas');
+    const durata = Math.min(3600, 900 + String(testo).length * 28);
+    if (tela) parlaPer(tela, durata, ritardo);
+    ritardo += durata + 250;
+  });
+  return nodo;
 }

@@ -5,7 +5,7 @@ import { elencoColture, elencoEventi, nuovoEvento, registraEvento } from '../sto
 import { leggi } from '../store/impostazioni.js';
 import { catalogo, glossario, quiz, curiosita, animali } from '../contenuti.js';
 import { calcolaLavori } from '../motore/oggi.js';
-import { conversazione, festeggia, vestitoAttuale } from '../ui/mascotte.js';
+import { conversazione, festeggia, vestitoAttuale, reagisci } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
@@ -256,4 +256,6 @@ export async function monta(contenitore) {
     carta,
     bloccoInstalla({ rimandabile: true }),
   );
+  // Se oggi piove, Rosso è sorpreso (le previsioni le conosciamo già).
+  if (piove === true) setTimeout(() => reagisci('sorpreso', 3500, 'rosso'), 700);
 }

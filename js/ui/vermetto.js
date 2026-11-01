@@ -20,18 +20,13 @@ export const COLORI = {
   rossella: { corpo: STILE.rossella.corpo, luce: STILE.rossella.luce, anello: STILE.rossella.anello },
 };
 
-// Il segno che distingue i due: Rosso ha le sopracciglia folte da contadino, Rossella ciglia lunghe e un fiocco rosa. (x, y) = centro del viso, hr = raggio della testa.
+// Il segno che distingue i due: Rosso ha le sopracciglia folte da contadino, Rossella un fiocco rosa (e gli occhiali). (x, y) = centro del viso, hr = raggio della testa.
 // occhi = [[x, y], [x, y]] i centri dei due occhi; bocca = [x, y] il centro della bocca.
 export function disegnaFirma(c, chi, h, hr, occhi, bocca) {
   if (chi === 'rosso') {
     c.strokeStyle = '#2e1a11'; c.lineWidth = 3.6; c.lineCap = 'round';
     occhi.forEach(([x, y], n) => { const q = n === 0 ? -1 : 1; c.beginPath(); c.moveTo(x - q * hr * 0.34, y - hr * 0.62 - (n === 0 ? 0 : 1)); c.lineTo(x + q * hr * 0.32, y - hr * 0.5); c.stroke(); });
   } else {
-    c.strokeStyle = SCURO; c.lineWidth = 1.6; c.lineCap = 'round';
-    occhi.forEach(([x, y], n) => {
-      const s = n === 0 ? -1 : 1;
-      [0, 1].forEach((k) => { c.beginPath(); c.moveTo(x + s * hr * 0.46, y - hr * 0.2 - k * hr * 0.1); c.lineTo(x + s * hr * (0.68 + k * 0.1), y - hr * (0.4 + k * 0.17)); c.stroke(); });
-    });
     const bx = h.x - hr * 0.72; const by = h.y - hr * 0.9;
     c.fillStyle = '#ff7aa8'; c.strokeStyle = SCURO; c.lineWidth = 1.4; c.lineJoin = 'round';
     [-1, 1].forEach((s) => { c.beginPath(); c.moveTo(bx, by); c.lineTo(bx + s * hr * 0.55, by - hr * 0.32); c.lineTo(bx + s * hr * 0.55, by + hr * 0.32); c.closePath(); c.fill(); c.stroke(); });
@@ -129,7 +124,7 @@ export function disegnaVestito(c, vestito, h, hr, corpo) {
 // Disegna un vermetto nel riquadro LATO x LATO che parte da (ox, oy), grande `scala` volte.
 // stato: { chi, vestito, tempo, guarda: {x, y} (da -1 a 1), ride, chiuso, pensa, fase }
 export function disegnaVermetto(c, stato, ox = 0, oy = 0, scala = 1) {
-  const { chi, vestito, tempo = 0, guarda = { x: 0, y: 0 }, ride = false, chiuso = false, pensa = false, fase = 0 } = stato;
+  const { chi, vestito, tempo = 0, guarda = { x: 0, y: 0 }, ride = false, chiuso = false, pensa = false, fase = 0 } = stato; // stato.espressione: contento | pensa | sorpreso | triste | arrabbiato | ride; stato.parla: la bocca si muove
   const stile = STILE[chi];
   c.save();
   c.translate(ox, oy);
@@ -151,28 +146,48 @@ export function disegnaVermetto(c, stato, ox = 0, oy = 0, scala = 1) {
   const h = corpo[SEGMENTI - 1];
   const hr = r(chi, SEGMENTI - 1);
   if (vestito === 'inverno' || vestito === 'carnevale') { /* il vestito si disegna dopo il viso */ }
-  // viso: due occhi grandi e un sorriso
-  const dx = guarda.x * 2.4 + (pensa ? -1.6 : 0);
-  const dy = guarda.y * 2.2 + (pensa ? -2.2 : 0);
+  // viso: occhi grandi e luminosi, sopracciglia e bocca cambiano con l'espressione
+  const esp = ride ? 'ride' : (stato.espressione ?? (pensa ? 'pensa' : 'contento'));
+  const sorpreso = esp === 'sorpreso';
+  const dx = guarda.x * 2.6 + (esp === 'pensa' ? -1.8 : 0);
+  const dy = guarda.y * 2.4 + (esp === 'pensa' ? -2.6 : 0) + (esp === 'triste' ? 1.6 : 0);
   [-1, 1].forEach((s) => {
-    const x = h.x + s * hr * 0.42;
+    const x = h.x + s * hr * 0.43;
     const y = h.y - hr * 0.1;
-    if (chiuso || ride) {
-      c.strokeStyle = SCURO; c.lineWidth = 2.4; c.lineCap = 'round';
-      c.beginPath(); c.arc(x, y + (ride ? 2 : 0), 4, ride ? Math.PI * 1.12 : 0.2, ride ? Math.PI * 1.88 : Math.PI - 0.2); c.stroke();
+    if (chiuso || esp === 'ride') {
+      c.strokeStyle = SCURO; c.lineWidth = 2.5; c.lineCap = 'round';
+      c.beginPath(); c.arc(x, y + (esp === 'ride' ? 2 : 0), 4.4, esp === 'ride' ? Math.PI * 1.12 : 0.2, esp === 'ride' ? Math.PI * 1.88 : Math.PI - 0.2); c.stroke();
     } else {
-      cerchio(c, x, y, hr * 0.38, '#fffdf6'); c.strokeStyle = SCURO; c.lineWidth = 1.4; c.stroke();
-      cerchio(c, x + dx, y + dy, hr * 0.2, SCURO);
-      cerchio(c, x + dx + 1.2, y + dy - 1.3, 1.3, '#fff');
+      const re = hr * (sorpreso ? 0.5 : 0.44);
+      cerchio(c, x, y, re, '#fffdf6'); c.strokeStyle = SCURO; c.lineWidth = 1.5; c.stroke();
+      cerchio(c, x + dx, y + dy, re * (sorpreso ? 0.42 : 0.55), SCURO);
+      cerchio(c, x + dx + 1.5, y + dy - 1.7, 1.6, '#fff');
+      cerchio(c, x + dx - 1.2, y + dy + 1.6, 0.8, '#fff');
     }
-    if (stile.occhiali) { c.strokeStyle = SCURO; c.lineWidth = 1.7; c.beginPath(); c.arc(x, y, hr * 0.5, 0, 7); c.stroke(); }
+    if (stile.occhiali) { c.strokeStyle = '#2f6fb0'; c.lineWidth = 1.7; c.beginPath(); c.arc(x, y, hr * 0.54, 0, 7); c.stroke(); }
+    // sopracciglia
+    if (esp !== 'contento' && esp !== 'ride' && !chiuso) {
+      c.strokeStyle = SCURO; c.lineWidth = 2.2; c.lineCap = 'round';
+      const by = y - hr * (sorpreso ? 0.9 : 0.75);
+      c.beginPath();
+      if (esp === 'arrabbiato') { c.moveTo(x - s * hr * 0.05, by + 3.5); c.lineTo(x + s * hr * 0.5, by - 1.5); }
+      else if (esp === 'triste') { c.moveTo(x - s * hr * 0.05, by - 2); c.lineTo(x + s * hr * 0.5, by + 3); }
+      else if (esp === 'pensa') { c.moveTo(x - hr * 0.3, by + (s < 0 ? 0 : -3)); c.lineTo(x + hr * 0.3, by + (s < 0 ? -2 : -4)); }
+      else { c.arc(x, by + 4, hr * 0.32, Math.PI * 1.15, Math.PI * 1.85); }
+      c.stroke();
+    }
   });
-  if (stile.occhiali) { c.strokeStyle = SCURO; c.lineWidth = 1.7; c.beginPath(); c.moveTo(h.x - hr * 0.42 + hr * 0.5, h.y - hr * 0.1); c.lineTo(h.x + hr * 0.42 - hr * 0.5, h.y - hr * 0.1); c.stroke(); }
-  c.strokeStyle = SCURO; c.lineWidth = 2.2; c.lineCap = 'round';
+  if (stile.occhiali) { c.strokeStyle = '#2f6fb0'; c.lineWidth = 1.7; c.beginPath(); c.moveTo(h.x - hr * 0.43 + hr * 0.54, h.y - hr * 0.1); c.lineTo(h.x + hr * 0.43 - hr * 0.55, h.y - hr * 0.1); c.stroke(); }
+  c.strokeStyle = SCURO; c.lineWidth = 2.3; c.lineCap = 'round';
   c.beginPath();
-  if (ride) { c.fillStyle = SCURO; c.arc(h.x, h.y + hr * 0.3, 5, 0, Math.PI); c.fill(); ovale(c, h.x, h.y + hr * 0.3 + 3.2, 2.6, 1.6, '#ff8a80'); }
-  else if (pensa) { c.arc(h.x + 1, h.y + hr * 0.5, 2.2, 0, 7); c.stroke(); }
-  else { c.arc(h.x, h.y + hr * 0.18, 5.2, 0.3, Math.PI - 0.3); c.stroke(); }
+  const apertura = stato.parla ? 1.5 + Math.abs(Math.sin(tempo * 13)) * 3.6 : 0; // mentre parla la bocca si apre e si chiude
+  if (esp === 'ride') { c.fillStyle = SCURO; c.arc(h.x, h.y + hr * 0.3, 5.4, 0, Math.PI); c.fill(); ovale(c, h.x, h.y + hr * 0.3 + 3.4, 2.8, 1.7, '#ff8a80'); }
+  else if (apertura) { c.fillStyle = SCURO; c.ellipse(h.x, h.y + hr * 0.38, 3.8 + apertura * 0.3, apertura, 0, 0, 7); c.fill(); }
+  else if (sorpreso) { c.fillStyle = SCURO; c.ellipse(h.x, h.y + hr * 0.4, 3, 4.2, 0, 0, 7); c.fill(); }
+  else if (esp === 'pensa') { c.arc(h.x + 1, h.y + hr * 0.5, 2.3, 0, 7); c.stroke(); }
+  else if (esp === 'triste') { c.arc(h.x, h.y + hr * 0.62, 5, Math.PI * 1.15, Math.PI * 1.85); c.stroke(); }
+  else if (esp === 'arrabbiato') { c.moveTo(h.x - 5, h.y + hr * 0.45); c.lineTo(h.x + 5, h.y + hr * 0.4); c.stroke(); }
+  else { c.arc(h.x, h.y + hr * 0.18, 5.6, 0.3, Math.PI - 0.3); c.stroke(); }
   // guance
   c.globalAlpha = 0.45; cerchio(c, h.x - hr * 0.78, h.y + hr * 0.3, 2.8, '#ff8a80'); cerchio(c, h.x + hr * 0.78, h.y + hr * 0.3, 2.8, '#ff8a80'); c.globalAlpha = 1;
   disegnaFirma(c, chi, h, hr, [-1, 1].map((s) => [h.x + s * hr * 0.42, h.y - hr * 0.1]), [h.x, h.y + hr * 0.22]);
@@ -224,6 +239,8 @@ function ciclo(adesso) {
     aggiornaSguardo(tela, adesso);
     d.stato.chiuso = adesso % 4600 < 130 + d.fase * 10 && adesso > d.nonBattere; // ogni tanto una palpebra
     d.stato.ride = adesso < d.rideFinoA;
+    d.stato.parla = adesso < d.parlaFinoA;
+    if (d.espressioneFinoA && adesso > d.espressioneFinoA) { d.stato.espressione = d.espressioneBase; d.espressioneFinoA = 0; }
     tela.parentElement.dataset.ride = d.stato.ride ? '1' : '0';
     tela.parentElement.dataset.sguardoX = d.stato.guarda.x.toFixed(2);
     tela.parentElement.dataset.sguardoY = d.stato.guarda.y.toFixed(2);
@@ -251,8 +268,8 @@ export function creaVermetto(chi, variante, vestito) {
   const dpr = Math.min(2, window.devicePixelRatio || 1);
   const tela = el('canvas', { class: 'corpo-vermetto', width: LATO * dpr, height: LATO * dpr, 'aria-hidden': 'true' });
   tela.__vermetto = {
-    contesto: tela.getContext('2d'), dpr, fase: Math.random() * 6, sguardo: { x: 0, y: 0 }, prossimoSguardo: 0, rideFinoA: 0, nonBattere: 0,
-    stato: { chi, vestito, tempo: 0, guarda: { x: 0, y: 0 }, ride: false, chiuso: false, pensa: variante === 'pensa', fase: Math.random() * 6 },
+    contesto: tela.getContext('2d'), dpr, fase: Math.random() * 6, sguardo: { x: 0, y: 0 }, prossimoSguardo: 0, rideFinoA: 0, nonBattere: 0, parlaFinoA: 0, espressioneBase: variante === 'pensa' ? 'pensa' : (variante === 'ride' ? 'contento' : (variante ?? 'contento')), espressioneFinoA: 0,
+    stato: { chi, vestito, tempo: 0, guarda: { x: 0, y: 0 }, ride: false, chiuso: false, pensa: false, espressione: variante === 'pensa' ? 'pensa' : (variante === 'ride' ? 'contento' : (variante ?? 'contento')), parla: false, fase: Math.random() * 6 },
   };
   tela.__vermetto.stato.fase = tela.__vermetto.fase;
   vivi.add(tela);
@@ -269,4 +286,17 @@ export function cambiaVestito(tela, vestito) {
 // Una risata di un momento (al tocco).
 export function ridiAncora(tela, millisecondi = 900) {
   tela.__vermetto.rideFinoA = performance.now() + millisecondi;
+}
+
+// Il vermetto fa un'espressione per un po' (poi torna a quella di prima).
+export function impostaEspressione(tela, espressione, millisecondi = 2500) {
+  const d = tela.__vermetto;
+  d.stato.espressione = espressione;
+  d.espressioneFinoA = performance.now() + millisecondi;
+}
+
+// La bocca si muove come se parlasse, per un po'.
+export function parlaPer(tela, millisecondi = 1800, ritardo = 0) {
+  const d = tela.__vermetto;
+  setTimeout(() => { d.parlaFinoA = performance.now() + millisecondi; }, ritardo);
 }
