@@ -10,6 +10,7 @@ Orto AI è una PWA statica (nessun build, moduli ES, IndexedDB) per chi fa l'ort
 
 ```
 python -m http.server 8101              # server di prova (o lascialo fare allo script sotto)
+node scripts/controllo-veloce.mjs       # IL CONTROLLO DI TUTTO in poche righe (prove + coerenza + git + versione online); vedi docs/CONTROLLO.md
 node scripts/prova-tutto.mjs            # TUTTI i test, in fondo dice cosa è rosso (serve tests/node_modules: vedi docs/LAVORARE-SUL-PC.md)
 node scripts/aggiorna-cache.mjs         # dopo ogni modifica ai file dell'app: aggiorna sw.js
 node scripts/controlla-link.mjs .       # apre tutte le fonti (URL) dei contenuti: ROTTO = da riparare; ATTENZIONE 403 = sito che blocca i programmi
