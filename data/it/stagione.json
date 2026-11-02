@@ -126,6 +126,55 @@
       "url": "https://www.agraria.org/coltivazionierbacee/porro.htm",
       "consultata": "2026-11-02",
       "nota": "Scheda italiana: la rincalzatura delle colture tardive aumenta la resistenza al freddo."
+    },
+    "g1": {
+      "titolo": "Basilico",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/basilico.htm",
+      "consultata": "2026-11-02",
+      "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
+    },
+    "g2": {
+      "titolo": "Fagiolo",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/fagiolo.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana."
+    },
+    "g3": {
+      "titolo": "Lattuga",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/lattuga.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana."
+    },
+    "g4": {
+      "titolo": "Bietola da orto",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/bietoladaorto.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana."
+    },
+    "g5": {
+      "titolo": "Cipolla (scheda non istituzionale)",
+      "ente": "OrtoClima",
+      "url": "https://ortoclima.com/scheda-cipolla/",
+      "consultata": "2026-11-02",
+      "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
+    },
+    "g6": {
+      "titolo": "Ravanello (scheda non istituzionale)",
+      "ente": "Ortigenerali",
+      "url": "https://www.ortigenerali.it/le-piante-da-orto/ravanello/",
+      "consultata": "2026-11-02",
+      "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
+    },
+    "g7": {
+      "titolo": "Verdure resistenti al freddo (non istituzionale)",
+      "ente": "Difesa Piante",
+      "url": "https://difesapiante.com/blogs/calendario/le-verdure-resistenti-al-freddo-da-piantare-in-inverno",
+      "consultata": "2026-11-02",
+      "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
     }
   },
   "colture": {
@@ -566,6 +615,160 @@
         "certezza": "media",
         "fonti": [
           "f18"
+        ]
+      }
+    },
+    "basilico": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "muore-col-gelo",
+        "soglia_c": null,
+        "nota": "Molto sensibile al freddo: il gelo la distrugge. Una soglia precisa in gradi non è stata trovata in fonti affidabili.",
+        "certezza": "media",
+        "fonti": [
+          "g1"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli tutte le foglie prima delle prime gelate.",
+        "come": "Taglia i rami e usa o conserva le foglie; se vuoi, porta una pianta in vaso al coperto.",
+        "perche": "Il gelo uccide la pianta e non vale la pena proteggerla in campo.",
+        "certezza": "media",
+        "fonti": [
+          "g1"
+        ]
+      }
+    },
+    "fagiolini": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "muore-col-gelo",
+        "soglia_c": 2,
+        "nota": "La pianta muore con 1-2 °C (Agraria.org).",
+        "certezza": "alta",
+        "fonti": [
+          "g2"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli tutti i baccelli prima del gelo e togli le piante esaurite.",
+        "come": "Stacca i baccelli, poi estirpa la pianta e mettila nel compost solo se è sana.",
+        "perche": "A 1-2 °C la pianta muore.",
+        "certezza": "media",
+        "fonti": [
+          "g2"
+        ]
+      }
+    },
+    "lattuga": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "Tollera il freddo lieve, soprattutto le varietà invernali; una soglia in gradi non è stata trovata in fonti italiane affidabili.",
+        "certezza": "bassa",
+        "fonti": [
+          "g3"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "proteggere",
+        "cosa_fare": "Raccogli le piante pronte e proteggi le altre nelle notti di gelo.",
+        "come": "Copri con tessuto non tessuto o un tunnel basso.",
+        "perche": "Il gelo diretto danneggia foglie e cuore.",
+        "certezza": "media",
+        "fonti": [
+          "g3"
+        ]
+      }
+    },
+    "carote": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo",
+        "soglia_c": -8,
+        "nota": "Le foglie reggono fino a circa -8 °C secondo un sito non istituzionale; la radice resiste di più. Dato da verificare.",
+        "certezza": "bassa",
+        "fonti": [
+          "g7"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Lascia in campo le radici mature e raccogli a scalare.",
+        "come": "Pacciama con foglie o paglia per non far gelare il terreno.",
+        "perche": "Il terreno gelato rende difficile estrarre le radici.",
+        "certezza": "media",
+        "fonti": [
+          "g7"
+        ]
+      }
+    },
+    "cipolla": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": -2,
+        "nota": "Tollera minime fino a circa -2 °C (scheda non istituzionale). Dato da verificare.",
+        "certezza": "bassa",
+        "fonti": [
+          "g5"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i bulbi maturi quando il collo è secco.",
+        "come": "Se i bulbi non sono maturi, lasciali in campo con una pacciamatura leggera.",
+        "perche": "Con terreno umido e gelo aumenta il rischio di marciume.",
+        "certezza": "media",
+        "fonti": [
+          "g5"
+        ]
+      }
+    },
+    "ravanelli": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "La crescita soffre sotto 5 °C e il gelo diretto danneggia i germogli (schede non istituzionali).",
+        "certezza": "bassa",
+        "fonti": [
+          "g6"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli tutto: il ciclo è breve e la radice si conserva poco.",
+        "come": "Per le semine tardive usa tessuto non tessuto.",
+        "perche": "Il gelo danneggia i germogli e la radice.",
+        "certezza": "media",
+        "fonti": [
+          "g6"
+        ]
+      }
+    },
+    "bietola": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": null,
+        "nota": "Resiste bene al freddo ma teme le gelate prolungate; la crescita si ferma sotto 5 °C.",
+        "certezza": "alta",
+        "fonti": [
+          "g4"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Lascia le piante in campo e raccogli foglia per foglia.",
+        "come": "Copri con velo o tunnel nelle notti di gelo.",
+        "perche": "Le gelate prolungate la danneggiano.",
+        "certezza": "media",
+        "fonti": [
+          "g4"
         ]
       }
     }
