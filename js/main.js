@@ -14,6 +14,7 @@ import { impostaGiorniAssenza } from './ui/sessione.js';
 import { impostaVestiti, impostaPioggia } from './ui/mascotte.js';
 import { pioveOggiDaCache } from './meteo.js';
 import { applicaAccessibilita } from './ui/accessibilita.js';
+import { elencoColture } from './store/dati.js';
 import './ui/installa.js'; // ascolta subito l'offerta di installazione del browser
 
 const schermate = {
@@ -62,6 +63,15 @@ async function primoAvvioDaFare() {
 async function mostra() {
   const richiesta = location.hash.replace(/^#\//, '').split('?')[0];
   const rotta = ROTTE.includes(richiesta) || richiesta in SOTTOROTTE || richiesta === PRIMO_AVVIO ? richiesta : 'oggi';
+  const parametri = new URLSearchParams(location.hash.split('?')[1] ?? '');
+  if (rotta === 'coltura' && parametri.has('id')) {
+    const coltura = (await elencoColture()).find((c) => c.schedaId === parametri.get('id'));
+    if (coltura) { location.replace(`#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=scheda`); return; }
+  }
+  if (rotta === 'piano' && parametri.has('zona')) {
+    const coltura = (await elencoColture()).find((c) => c.zonaId === parametri.get('zona'));
+    if (coltura) { location.replace(`#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=piano`); return; }
+  }
   if (rotta !== PRIMO_AVVIO && await primoAvvioDaFare()) {
     location.replace(`#/${PRIMO_AVVIO}`);
     return;

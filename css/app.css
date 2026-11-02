@@ -69,6 +69,22 @@ h2, h3 { font-weight: 800; }
 }
 .testata .logo { border-radius: 12px; background: #fff8e1; }
 .testata .ingranaggio, .testata .gioco-vermi { margin-left: auto; flex: none; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; color: #fff; }
+.testata .ricerca-apri { margin-left: auto; flex: none; width: 48px; height: 48px; display: grid; place-items: center; border: 0; border-radius: 50%; color: #fff; background: transparent; }
+.testata .ricerca-apri .icona { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.testata .ricerca-apri + .gioco-vermi, .testata .gioco-vermi + .ingranaggio { margin-left: 0; }
+.ricerca-contenuto > input { width: 100%; min-height: 56px; font: inherit; padding: 12px; border: 2px solid var(--bordo); border-radius: 14px; background: var(--carta); color: var(--inchiostro); }
+.gruppo-ricerca { margin-top: 16px; }
+.gruppo-ricerca h3 { margin-bottom: 6px; }
+.risultato-ricerca { min-height: 52px; }
+.azioni-rapide { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.azioni-rapide .btn { min-height: 56px; padding-inline: 8px; }
+.toast-azione { min-height: 44px; border: 0; border-radius: 8px; padding: 6px 10px; background: var(--carta); color: var(--inchiostro); font: inherit; font-weight: 700; }
+.contenuto-secondario { margin-top: 14px; }
+.contenuto-secondario > summary { min-height: 56px; display: flex; align-items: center; padding: 0 16px; border-radius: 16px; background: var(--verde); color: white; font-weight: 800; cursor: pointer; }
+.schede-pianta { position: sticky; top: 74px; z-index: 2; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 4px; padding: 5px; background: var(--carta); border-radius: 16px; }
+.scheda-pianta-tab { min-height: 48px; border: 0; border-radius: 12px; background: transparent; color: var(--inchiostro); font: inherit; font-weight: 700; }
+.scheda-pianta-tab[aria-selected="true"] { background: var(--verde); color: white; }
+@media (max-width: 380px) { .testata { gap: 6px; } .testata .logo { width: 36px; height: 36px; } .testata .ricerca-apri, .testata .gioco-vermi, .testata .ingranaggio { width: 44px; height: 44px; } .azioni-rapide { grid-template-columns: 1fr; } }
 .testata .ingranaggio .icona, .testata .gioco-vermi .icona { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .testata .ingranaggio[aria-current="page"], .testata .gioco-vermi[aria-current="page"] { background: rgba(255, 255, 255, .22); }
 .testata .ingranaggio:focus-visible { outline: 3px solid #fff; outline-offset: 2px; box-shadow: none; }

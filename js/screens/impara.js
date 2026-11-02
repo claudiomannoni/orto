@@ -1,5 +1,5 @@
 // Impara: le colture, le parole dell'orto e le altre coltivazioni (alberi, animali, colture speciali), in tre linguette con una ricerca sola.
-import { el, normalizza, aggiungi } from '../util.js';
+import { el, normalizza, aggiungi, parametriRotta } from '../util.js';
 import { t, locale } from '../i18n.js';
 import { catalogo, glossario, animali, alberi, rendita } from '../contenuti.js';
 
@@ -17,6 +17,7 @@ export async function monta(contenitore) {
     type: 'search', name: 'cerca', placeholder: t('impara.cerca'), 'aria-label': t('impara.cerca'),
     autocomplete: 'off', enterkeyhint: 'search',
   });
+  campo.value = parametriRotta().get('cerca') ?? '';
   const colture = el('div', { class: 'griglia-colture' });
   const parole = el('div', { class: 'elenco-termini' });
   const altrePannello = el('div', { class: 'elenco-altre' });

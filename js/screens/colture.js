@@ -1,7 +1,7 @@
 // Le colture dell'utente: elenco, aggiunta, promemoria, eliminazione.
 import { el, sostituisci, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi, parametriRotta } from '../util.js';
 import { t, tn } from '../i18n.js';
-import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
+import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura, nuovoEvento, registraEvento, eliminaEvento } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
 import { controllaProgressi } from '../store/progressi.js';
 import { catalogo, trovaScheda, animali, rendita, alberi, stagione } from '../contenuti.js';
@@ -57,6 +57,13 @@ function scheda(coltura) {
     el('div', { class: 'giorni' }, el('strong', {}, String(numero)), el('span', {}, etichetta)),
     coltura.note ? el('p', { class: 'note' }, coltura.note) : null,
     riquadroStagione(coltura),
+    el('div', { class: 'azioni-rapide' },
+      ...['innaffiato', 'raccolto'].map((azione) => el('button', { class: 'btn primario', type: 'button', onclick: async () => {
+        const evento = nuovoEvento({ tipo: azione, zonaId: coltura.zonaId, colturaId: coltura.id, schedaId: coltura.schedaId, data: oggiISO(), esito: 'ok' });
+        await registraEvento(evento);
+        toast(t(`coltura.azione.${azione}.toast`), { testo: t('azione.annulla'), esegui: () => eliminaEvento(evento.id) });
+      } }, t(`coltura.azione.${azione}`))),
+    ),
     el('div', { class: 'riga' },
       el('a', { class: 'btn', href: `#/pianta?id=${encodeURIComponent(coltura.id)}` }, t('pianta.storia')),
       el('button', { class: 'btn', type: 'button', onclick: () => promemoria(coltura) }, t('coltura.promemoria')),

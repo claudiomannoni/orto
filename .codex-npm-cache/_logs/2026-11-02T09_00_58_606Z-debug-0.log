@@ -1,0 +1,48 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.19.0
+2 info using node@v24.20.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\pcgameluigi\cervello-codex-comodita\tests\.npmrc
+5 silly config load:file:C:\Users\pcgameluigi\.npmrc
+6 silly config load:file:C:\Users\pcgameluigi\cervello-codex-comodita\tests\etc\npmrc
+7 verbose title npm install playwright@1.63.0
+8 verbose argv "install" "--prefix" "tests" "--no-save" "--no-package-lock" "--cache" ".codex-npm-cache" "playwright@1.63.0"
+9 verbose logfile logs-max:10 dir:C:\Users\pcgameluigi\cervello-codex-comodita\.codex-npm-cache\_logs\2026-11-02T09_00_58_606Z-
+10 verbose logfile C:\Users\pcgameluigi\cervello-codex-comodita\.codex-npm-cache\_logs\2026-11-02T09_00_58_606Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest playwright@1.63.0
+15 silly packumentCache full:https://registry.npmjs.org/playwright cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/npm 388ms
+17 http fetch GET 200 https://registry.npmjs.org/playwright 554ms (cache miss)
+18 silly packumentCache full:https://registry.npmjs.org/playwright set size:undefined disposed:false
+19 silly placeDep ROOT playwright@1.63.0 OK for:  want: 1.63.0
+20 silly fetch manifest playwright-core@1.63.0
+21 silly packumentCache full:https://registry.npmjs.org/playwright-core cache-miss
+22 http fetch GET 200 https://registry.npmjs.org/playwright-core 514ms (cache miss)
+23 silly packumentCache full:https://registry.npmjs.org/playwright-core set size:undefined disposed:false
+24 silly placeDep ROOT playwright-core@1.63.0 OK for: playwright@1.63.0 want: 1.63.0
+25 silly reify moves {}
+26 silly audit bulk request { playwright: [ '1.63.0' ], 'playwright-core': [ '1.63.0' ] }
+27 http cache playwright-core@https://registry.npmjs.org/playwright-core/-/playwright-core-1.63.0.tgz 0ms (cache hit)
+28 silly tarball no local data for playwright-core@https://registry.npmjs.org/playwright-core/-/playwright-core-1.63.0.tgz. Extracting by manifest.
+29 http cache playwright@https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz 0ms (cache hit)
+30 silly tarball no local data for playwright@https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz. Extracting by manifest.
+31 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 244ms
+32 silly audit report {}
+33 http fetch GET 200 https://registry.npmjs.org/playwright-core/-/playwright-core-1.63.0.tgz 321ms (cache miss)
+34 http fetch GET 200 https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz 654ms (cache miss)
+35 silly ADD node_modules/playwright-core
+36 silly ADD node_modules/playwright
+37 verbose cwd C:\Users\pcgameluigi\cervello-codex-comodita
+38 verbose os Windows_NT 10.0.26200
+39 verbose node v24.20.0
+40 verbose npm  v11.19.0
+41 notice
+41 notice New major version of npm available! 11.19.0 -> 12.2.1
+41 notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+41 notice To update run: npm install -g npm@12.2.1
+41 notice  { force: true, Symbol(proc-log.meta): true }
+42 verbose exit 0
+43 info ok

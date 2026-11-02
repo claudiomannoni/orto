@@ -35,7 +35,7 @@ export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true, raccoltaDa
     f.acqua ? el('p', { class: 'acqua-fase', 'data-livello': f.acqua.livello }, el('strong', {}, `${t('fase.acqua')}: `), t(`fase.acqua.${f.acqua.livello}`), f.acqua.nota ? ` - ${f.acqua.nota}` : '', ' ', el('span', { class: 'acqua-oggi' })) : null,
     bloccoRaccoltaConservazione(coltura.schedaId, raccoltaDati),
     f.come_riconoscerla ? el('p', { class: 'aiuto' }, t('fase.riconoscerla', { testo: f.come_riconoscerla })) : null,
-    conFoto ? el('div', { class: 'riga' }, el('a', { class: 'btn', href: `#/dottore?coltura=${encodeURIComponent(coltura.id)}` }, t('fase.esamina')), el('a', { class: 'btn', href: `#/pianta?id=${encodeURIComponent(coltura.id)}` }, t('pianta.storia'))) : null,
+    conFoto ? el('div', { class: 'riga' }, el('a', { class: 'btn', href: `#/dottore?coltura=${encodeURIComponent(coltura.id)}` }, t('fase.esamina')), el('a', { class: 'btn', href: `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=storia` }, t('pianta.storia'))) : null,
     fonti.length ? el('details', { class: 'meteo-dettagli' }, el('summary', {}, t('animali.fonti')),
       el('ul', { class: 'elenco-semplice' }, fonti.map((x) => el('li', {}, el('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer' }, x.titolo), x.ente ? ` (${x.ente})` : '')))) : null,
     el('p', { class: 'aiuto' }, t('fase.avvertenza')));

@@ -1,6 +1,6 @@
 # Stato del progetto (per chi riprende da un'altra sessione)
 
-Ultimo aggiornamento: 31/10/2026, versione dell'app 2.58.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+Ultimo aggiornamento: 02/11/2026, versione dell'app 2.59.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
 
 ## In una frase
 
@@ -63,6 +63,9 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 ## Da fare / idee (in ordine di valore)
 
 **Struttura e intuitività: studio con 13 proposte in `docs/STRUTTURA.md` (misure vere delle schermate: Oggi 4,6 schermate, Impara 8,1, Il mio orto con 9 tessere uguali). Si fanno a gruppi, con le prove verdi.**
+
+- Fatto 02/11/2026 (2.59.0): ricerca generale in testata per piante, colture, glossario, alberi e animali; Oggi mostra i primi tre lavori e lascia gli altri contenuti dietro «Mostra tutto», mantenendo sempre visibili gli avvisi di gelo; aggiunte azioni rapide con annulla.
+- Da completare: la pagina pianta ha le quattro schede e l'avviso di stagione; piano e scheda agronomica conservano collegamenti alle schermate complete, quindi non sono ancora contenuti interamente incorporati nella stessa pagina. Prove da telefono reale non eseguite.
 
 **PRIORITÀ ASSOLUTA (01/11/2026): ecosistema produttivo locale con marketplace.** Leggere `docs/ECOSISTEMA.md` (analisi, modello dati lotti + movimenti, backend Supabase proposto, rischi, roadmap in 5 fasi con approvazione). La Fase 1 è consegnata e aspetta l'approvazione di Claudio (decisioni nella sezione 10 del documento): finché non c'è, NON si scrive codice del marketplace.
 

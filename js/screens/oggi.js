@@ -32,6 +32,9 @@ import { consigliDeiVermi, scegliConsiglio } from '../motore/consigli-vermi.js';
 import { chiaveBentornato } from '../motore/assenza.js';
 import { giorniAssenzaSessione } from '../ui/sessione.js';
 import { chiaveSaluto } from '../motore/saluto.js';
+import { giudizioStagione } from '../motore/stagione.js';
+import { stagione } from '../contenuti.js';
+import { bloccoStagione } from '../ui/stagione-blocco.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -164,8 +167,8 @@ function testoSaluto(impostazioni) {
 
 export async function monta(contenitore) {
   const oggi = oggiISO();
-  const [colture, eventi, schede, impostazioni, termini, carta] = await Promise.all([
-    elencoColture(), elencoEventi(), catalogo(), leggi(), glossario(), cartaProgressi().catch(() => null),
+  const [colture, eventi, schede, impostazioni, termini, carta, datiStagione] = await Promise.all([
+    elencoColture(), elencoEventi(), catalogo(), leggi(), glossario(), cartaProgressi().catch(() => null), stagione(),
   ]);
   const lavori = calcolaLavori({ oggi, zonaId: impostazioni.zona, schede: filtraSeguite(schede, impostazioni.colture_scelte, colture), colture, eventi });
 
@@ -193,6 +196,7 @@ export async function monta(contenitore) {
     cur.fonte && /^https:/.test(cur.fonte) ? el('p', { class: 'aiuto' }, el('a', { class: 'btn piccolo', href: cur.fonte, target: '_blank', rel: 'noopener noreferrer' }, t('sapevi.fonte'))) : null) : null;
 
   const lista = el('ol', { class: 'lavori' });
+  const listaExtra = el('ol', { class: 'lavori' });
   const zonaConversazione = el('div', {});
 
   const mostraConversazione = (chiave, chiaveRossella = chiave) => zonaConversazione.replaceChildren(conversazione([
@@ -220,10 +224,10 @@ export async function monta(contenitore) {
     if (tipo === 'lavoro_fatto' && voce.lavoro.operazione === 'raccolta') {
       apriRaccolto(colture, { colturaId: voce.coltura?.id ?? null, nome: voce.scheda.nome, data: dataFatto });
     }
-    if (!lista.children.length) mostraConversazione('finito');
+    if (!lista.children.length && !listaExtra.children.length) mostraConversazione('finito');
   };
 
-  lavori.forEach((voce, i) => lista.append(scheda(voce, i, { termini, impostazioni, alChiudere })));
+  lavori.forEach((voce, i) => (i < 3 ? lista : listaExtra).append(scheda(voce, i, { termini, impostazioni, alChiudere })));
 
   if (lavori.length) {
     // Se qualche consiglio non è verificato, Rossella lo dice subito, prima dell'elenco.
@@ -248,6 +252,13 @@ export async function monta(contenitore) {
   const [dFasi, dRaccolta] = await Promise.all([fasi(), raccolta()]);
   const bloccoPiante = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina)).map((c) => bloccoFase(c, dFasi, oggi, { raccoltaDati: dRaccolta })).filter(Boolean).slice(0, 5);
   const cartaPiante = bloccoPiante.length ? el('section', { class: 'piante-fasi' }, el('h3', {}, t('oggi.piante')), el('p', { class: 'aiuto' }, t('oggi.piante.spiega')), ...bloccoPiante) : null;
+  const avvisiGelo = el('section', { class: 'avvisi-stagione' });
+  const minime = await previsioni().then(({ giorni }) => giorni.filter((x) => x.data >= oggi).slice(0, 7).map((x) => x.min)).catch(() => []);
+  for (const c of colture) {
+    const sc = schede.find((x) => x.id === c.schedaId);
+    const giudizio = giudizioStagione({ coltura: c, scheda: sc, zonaId: impostazioni.zona, dati: datiStagione, oggi, minime });
+    if (giudizio.stato === 'gelo-in-arrivo') avvisiGelo.append(bloccoStagione(giudizio, datiStagione));
+  }
   // «I tuoi primi passi»: una breve lista di cose da provare, finché non sono fatte (o l'utente la chiude).
   let cartaPassi = null;
   if (!impostazioni.primi_passi_chiusi) {
@@ -274,15 +285,11 @@ export async function monta(contenitore) {
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
-    // Prima quello che serve oggi (il tempo e i lavori); poi il consiglio dei vermetti, i progressi e l'invito a scaricare l'app.
-    cartaPassi,
-    cartaPiante,
-    cartaConsiglio,
-    cartaGioca,
-    cartaSapevi,
-    zonaConversazione,
-    carta,
-    bloccoInstalla({ rimandabile: true }),
+    avvisiGelo,
+    el('details', { class: 'contenuto-secondario oggi-altri' },
+      el('summary', {}, t('oggi.mostra_tutto')),
+      lavori.length > 3 ? listaExtra : null,
+      cartaPassi, cartaPiante, cartaConsiglio, cartaGioca, cartaSapevi, zonaConversazione, carta, bloccoInstalla({ rimandabile: true })),
   );
   // L'acqua di ogni fase, unita al tempo: cosa fare oggi.
   previsioni().then(({ giorni }) => {

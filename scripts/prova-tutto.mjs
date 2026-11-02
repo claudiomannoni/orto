@@ -35,6 +35,6 @@ for (const [elenco, argomento] of [[conBrowser, `http://localhost:${PORTA}`], [s
   }
 }
 server.close();
-spawnSync('git', ['checkout', '--', 'tests/schermate'], { cwd: radice }); // gli screenshot dei test non vanno committati
+// La prova non usa git: dirigere gli screenshot fuori da tests/schermate con SCHERMATE.
 console.log(`\n${verdi} verdi, ${rossi.length} rossi${rossi.length ? `: ${rossi.join(', ')}` : ''}`);
 process.exit(rossi.length ? 1 : 0);

@@ -49,3 +49,4 @@ export function nuovoEvento({ tipo, zonaId = null, colturaId = null, schedaId = 
 
 export const elencoEventi = () => tutte('eventi');
 export const registraEvento = (evento) => salva('eventi', evento);
+export const eliminaEvento = (id) => elimina('eventi', id);
