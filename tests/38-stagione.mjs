@@ -31,6 +31,8 @@ check('basilico trapiantato il 2 novembre: «Fuori stagione» con i mesi giusti 
 const vecchio = page.locator('li.coltura:has-text("Basilico vecchio") .stagione');
 check('basilico di settembre: «Fine stagione» con cosa fare, come, perché e la fonte', /Fine stagione/.test(await vecchio.innerText()) && /Raccogli tutte le foglie/.test(await vecchio.innerText()) && /Taglia i rami/.test(await vecchio.innerText()) && /Il gelo distrugge/.test(await vecchio.innerText()) && (await vecchio.locator('a[href^="https://example.com"]').count()) === 1, (await vecchio.innerText()).slice(0, 200));
 check('i pomodori (nessun dato sul freddo nel file di prova) non hanno avvisi inventati', (await page.locator('li.coltura:has-text("Pomodori") .stagione').count()) === 0);
+const largo = await page.evaluate(() => { const s = document.querySelector('li.coltura .stagione'); const c = s.closest('li.coltura'); return s.getBoundingClientRect().width / c.getBoundingClientRect().width; });
+check('il riquadro occupa tutta la larghezza della carta (non una colonna stretta)', largo > 0.85, String(largo));
 const veri = problemi.filter((p) => !/Service Worker registration blocked/.test(p));
 check('nessun errore in console', veri.length === 0, veri.join(' | '));
 await browser.close();

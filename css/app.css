@@ -285,7 +285,8 @@ textarea { padding: 12px 14px; resize: vertical; }
 .giorni { text-align: right; }
 .giorni strong { display: block; font-size: 1.9rem; line-height: 1; color: var(--verde); }
 .giorni span { display: block; font-size: .85rem; color: var(--inchiostro-2); max-width: 9ch; margin-left: auto; line-height: 1.15; }
-.coltura .note, .coltura .riga { grid-column: 1 / -1; }
+.coltura .note, .coltura .riga, .coltura .stagione-posto { grid-column: 1 / -1; }
+.stagione-posto:empty { display: none; }
 .note { white-space: pre-wrap; overflow-wrap: anywhere; }
 .esito { color: var(--inchiostro-2); min-height: 1.4em; }
 
