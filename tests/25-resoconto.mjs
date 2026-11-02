@@ -9,6 +9,7 @@ const page = await ctx.newPage();
 osserva(page, problemi);
 
 await vai(page, 'oggi', '?oggi=2026-06-20');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('#apri-resoconto');
 await page.dispatchEvent('#apri-resoconto', 'click');
 await page.waitForSelector('dialog[open] .resoconto-numeri');

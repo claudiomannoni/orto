@@ -9,6 +9,7 @@ osserva(page, problemi);
 const imp = async () => Object.fromEntries((await leggiDb(page, 'impostazioni')).map((r) => [r.chiave, r.valore]));
 
 await vai(page, 'oggi');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 check('Oggi invita al quiz del giorno', (await page.locator('.gioca a[href="#/quiz"]').count()) === 1 && /Giorni di fila: 0/.test(await page.locator('.gioca').innerText()));
 check('Oggi ha «Lo sapevi?» con la fonte e senza doppio nome davanti ai commenti', /Lo sapevi\?/.test(await page.locator('.sapevi').innerText()) && (await page.locator('.sapevi a[href^="https://"]').count()) === 1 && !/Rosso: Rosso:|Rossella: Rossella:/.test(await page.locator('.sapevi').innerText()));
 check('Oggi saluta (Buongiorno, Buon pomeriggio, Buonasera, Ancora in piedi o Buone feste)', /^(Buongiorno|Buon pomeriggio|Buonasera|Ancora in piedi|Buone feste|Ciao)/.test(await page.locator('.saluto').innerText()));
@@ -27,6 +28,8 @@ for (let i = 0; i < 5; i++) {
   check(`domanda ${i + 1}: la spiegazione è nascosta prima di rispondere`, await page.locator('.quiz-spiegazione').isHidden());
   // si risponde alla prima opzione: a volte giusta, a volte no
   await page.locator('.quiz .opzioni .btn').first().click();
+  check(`domanda ${i + 1}: la selezione non rivela l'esito`, await page.locator('.quiz-spiegazione').isHidden() && await page.getByRole('button', { name: 'Conferma risposta' }).isVisible());
+  await page.getByRole('button', { name: 'Conferma risposta' }).click();
   await page.waitForSelector('.quiz-spiegazione:visible');
   const esito = await page.locator('.quiz-spiegazione strong').innerText();
   if (esito === 'Giusto!') giuste++;
@@ -41,6 +44,7 @@ check('punteggio salvato per oggi', chiavi.length === 1 && s.quiz_risultati[chia
 check('serie di 1 giorno', /Giorni di fila con il quiz: 1/.test(await page.locator('.quiz-fine').innerText()));
 
 await vai(page, 'oggi');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 check('Oggi, dopo il quiz, mostra il punteggio e senza «Giorni di fila»', /Quiz di oggi: \d su 5/.test(await page.locator('.gioca').innerText()));
 await vai(page, 'quiz');
 await page.waitForSelector('.quiz-fine');

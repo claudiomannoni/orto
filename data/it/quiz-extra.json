@@ -1,65 +1,905 @@
 {
   "versione": 1,
   "domande": [
-    {"id":"q061","tema":"lombrichi","livello":1,"testo":"Quale lombrico è spesso usato nel lombricompostaggio in contenitore?","risposte":["Eisenia fetida","Lumbricus terrestris","Un bruco di farfalla"],"giusta":0,"spiegazione":"Eisenia fetida vive negli strati ricchi di materia organica ed è adatta ai contenitori.","certezza":"alta","fonte":"https://extension.oregonstate.edu/catalog/em-9034-composting-worms"},
-    {"id":"q062","tema":"lombrichi","livello":1,"testo":"Che cosa è meglio mettere come lettiera nel contenitore dei lombrichi?","risposte":["Carta lucida patinata","Cartone a pezzetti inumidito","Pellicola di plastica"],"giusta":1,"spiegazione":"Cartone e carta non lucida sminuzzati possono fare da lettiera umida e ariosa.","certezza":"alta","fonte":"https://extension.oregonstate.edu/catalog/em-9034-composting-worms"},
-    {"id":"q063","tema":"lombrichi","livello":2,"testo":"Come dovrebbe sembrare al tatto la lettiera dei lombrichi?","risposte":["Fradicia e gocciolante","Secca come polvere","Umida come una spugna strizzata"],"giusta":2,"spiegazione":"La guida consiglia una lettiera umida, senza acqua in eccesso.","certezza":"alta","fonte":"https://extension.oregonstate.edu/catalog/em-9034-composting-worms"},
-    {"id":"q064","tema":"lombrichi","livello":2,"testo":"Quali avanzi è meglio non mettere nel lombricompost domestico?","risposte":["Carne e latticini","Bucce di verdura","Fondi di caffè"],"giusta":0,"spiegazione":"Carne, latticini e grassi possono attirare animali e creare cattivi odori.","certezza":"alta","fonte":"https://extension.oregonstate.edu/catalog/em-9034-composting-worms"},
-    {"id":"q065","tema":"lombrichi","livello":3,"testo":"Che cosa può suggerire un odore marcio nel contenitore?","risposte":["Tanta aria e materiale asciutto","Troppa umidità o poco ossigeno","Che il compost è già setacciato"],"giusta":1,"spiegazione":"Troppa acqua o poca aerazione favoriscono condizioni senza ossigeno e cattivi odori.","certezza":"alta","fonte":"https://extension.oregonstate.edu/catalog/pub/em-9034-composting-worms"},
-    {"id":"q066","tema":"lombrichi","livello":3,"testo":"Quale aspetto e odore suggeriscono che il lombricompost è pronto?","risposte":["Molliccio e pungente","Con scarti freschi riconoscibili","Friabile e terroso"],"giusta":2,"spiegazione":"Il prodotto maturo appare friabile e ha un odore fresco di terra.","certezza":"alta","fonte":"https://extension.oregonstate.edu/catalog/em-9034-composting-worms"},
-    {"id":"q067","tema":"insetti utili","livello":1,"testo":"Di che cosa si nutrono spesso le larve di coccinella?","risposte":["Afidi","Radici di carota","Semi di pomodoro"],"giusta":0,"spiegazione":"Le larve di coccinella sono predatrici e si nutrono di afidi e altri piccoli insetti.","certezza":"alta","fonte":"https://extension.illinois.edu/sites/default/files/beneficial_insects_from_the_garden_updated_2018.pdf"},
-    {"id":"q068","tema":"insetti utili","livello":1,"testo":"Che cosa è prudente fare quando trovi un insetto sconosciuto sulle piante?","risposte":["Ucciderlo subito","Identificarlo prima di intervenire","Spostare tutte le piante"],"giusta":1,"spiegazione":"Nel giardino ci sono insetti utili e innocui: identificarli evita interventi inutili.","certezza":"alta","fonte":"https://extension.illinois.edu/news-releases/invite-good-insects-garden-battle-pests"},
-    {"id":"q069","tema":"insetti utili","livello":1,"testo":"Che ruolo hanno le larve dei sirfidi su alcune piante?","risposte":["Impollinano le radici","Mangiano i semi","Possono predare gli afidi"],"giusta":2,"spiegazione":"Le larve di molti sirfidi si alimentano di afidi; gli adulti visitano i fiori.","certezza":"alta","fonte":"https://extension.illinois.edu/sites/default/files/beneficial_insects_from_the_garden_updated_2018.pdf"},
-    {"id":"q070","tema":"insetti utili","livello":2,"testo":"Perché lasciare fiorire qualche erba aromatica può aiutare gli insetti utili?","risposte":["I fiori offrono nettare e polline","Impedisce ogni parassita","Trasforma gli insetti in impollinatori"],"giusta":0,"spiegazione":"Fiori di erbe come aneto e prezzemolo possono fornire cibo agli insetti utili.","certezza":"alta","fonte":"https://extension.illinois.edu/sites/default/files/controllingpestsnaturally.pdf"},
-    {"id":"q071","tema":"insetti utili","livello":2,"testo":"Una mantide religiosa mangia soltanto insetti dannosi?","risposte":["Sì, solo afidi","No, può catturare anche insetti utili","Sì, solo lumache"],"giusta":1,"spiegazione":"La mantide è un predatore generalista: può catturare insetti utili e dannosi.","certezza":"alta","fonte":"https://extension.illinois.edu/sites/default/files/controllingpestsnaturally.pdf"},
-    {"id":"q072","tema":"insetti utili","livello":3,"testo":"Perché una varietà di fiori con fioriture in tempi diversi aiuta gli insetti?","risposte":["Garantisce che non ci siano afidi","Elimina il bisogno di acqua","Offre risorse a più specie e in più periodi"],"giusta":2,"spiegazione":"Diversità di forme e tempi di fioritura può sostenere una maggiore varietà di insetti.","certezza":"alta","fonte":"https://extension.usu.edu/planthealth/research/integrated-pest-pollinator-management"},
-    {"id":"q073","tema":"impollinatori","livello":1,"testo":"Che cosa fanno gli impollinatori tra i fiori?","risposte":["Trasferiscono polline","Scavano tutte le radici","Producono acqua"],"giusta":0,"spiegazione":"Il trasferimento del polline può permettere la fecondazione e la formazione di frutti o semi.","certezza":"alta","fonte":"https://extension.usu.edu/vegetableguide/production/pollination"},
-    {"id":"q074","tema":"impollinatori","livello":1,"testo":"Quale gruppo comprende impollinatori importanti per molte colture da frutto?","risposte":["Formiche e lombrichi","Api domestiche, bombi e api selvatiche","Lumache e chiocciole"],"giusta":1,"spiegazione":"Api domestiche, bombi e api selvatiche contribuiscono all’impollinazione di molte colture.","certezza":"alta","fonte":"https://extension.usu.edu/vegetableguide/production/pollination"},
-    {"id":"q075","tema":"impollinatori","livello":2,"testo":"Perché zucchine e cetrioli dipendono dagli impollinatori?","risposte":["I fiori maschili e femminili sono separati","I frutti crescono sottoterra","Le foglie non fanno fotosintesi"],"giusta":0,"spiegazione":"Il polline deve passare dal fiore maschile a quello femminile per formare il frutto.","certezza":"alta","fonte":"https://extension.usu.edu/vegetableguide/production/pollination"},
-    {"id":"q076","tema":"impollinatori","livello":2,"testo":"Che cosa può succedere a zucchine e zucche con impollinazione insufficiente?","risposte":["Diventano tutte più dolci","Producono frutti piccoli o deformi","Fanno radici più profonde"],"giusta":1,"spiegazione":"Un trasferimento di polline insufficiente può dare frutti piccoli o deformi.","certezza":"alta","fonte":"https://extension.usu.edu/vegetableguide/production/pollination"},
-    {"id":"q077","tema":"impollinatori","livello":3,"testo":"Perché una rete antinsetto può creare un problema durante la fioritura?","risposte":["Rende i fiori più grandi","Fa maturare i frutti subito","Può impedire agli impollinatori di raggiungere i fiori"],"giusta":2,"spiegazione":"Una copertura che blocca gli insetti può impedire l’impollinazione di colture che ne dipendono.","certezza":"alta","fonte":"https://extension.usu.edu/vegetableguide/production/pollination"},
-    {"id":"q078","tema":"impollinatori","livello":3,"testo":"Perché evitare di disturbare ogni angolo del giardino può aiutare le api selvatiche?","risposte":["Alcune nidificano nel terreno o tra i residui vegetali","Così le api diventano domestiche","Così non visitano i fiori"],"giusta":0,"spiegazione":"Piccoli habitat naturali possono offrire riparo e siti di nidificazione agli insetti.","certezza":"media","fonte":"https://extension.illinois.edu/news-releases/consider-pollinators-during-fall-garden-cleanup"},
-    {"id":"q079","tema":"conservazione","livello":1,"testo":"Perché conviene maneggiare poco gli ortaggi appena raccolti?","risposte":["Così maturano tutti insieme","Per ridurre ammaccature e lesioni","Per non doverli mai lavare"],"giusta":1,"spiegazione":"Meno manipolazione riduce tagli e ammaccature che accorciano la durata in conservazione.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"},
-    {"id":"q080","tema":"conservazione","livello":1,"testo":"Quando è meglio lavare frutta e verdura fresca?","risposte":["Prima di mangiarla o prepararla","Subito tutta insieme per conservarla","Mai, neanche prima di mangiarla"],"giusta":0,"spiegazione":"Lavare poco prima di preparare o mangiare aiuta a mantenere qualità e durata.","certezza":"alta","fonte":"https://extension.umn.edu/food/preparing/cooking-at-home/washing-fresh-fruits-and-vegetables"},
-    {"id":"q081","tema":"conservazione","livello":1,"testo":"Che cosa fare con un ortaggio marcio prima di riporre il raccolto?","risposte":["Mescolarlo agli ortaggi sani","Avvolgerlo con altri","Separarlo dal raccolto sano"],"giusta":2,"spiegazione":"I prodotti marci durano poco e possono diffondere problemi agli altri conservati.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"},
-    {"id":"q082","tema":"conservazione","livello":2,"testo":"Perché si curano all’asciutto cipolle e aglio prima della conservazione lunga?","risposte":["Per asciugare colletto e bucce esterne","Per farli germinare","Per renderli più ricchi d’acqua"],"giusta":0,"spiegazione":"La concia asciuga il colletto e le bucce e aiuta a conservare più a lungo.","certezza":"alta","fonte":"https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"},
-    {"id":"q083","tema":"conservazione","livello":2,"testo":"Perché controllare periodicamente gli ortaggi conservati?","risposte":["Per cambiare il colore","Per togliere i pezzi che mostrano marciume","Per far entrare più insetti"],"giusta":1,"spiegazione":"Togliere i prodotti deteriorati può limitare la diffusione del marciume nel contenitore.","certezza":"alta","fonte":"https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"},
-    {"id":"q084","tema":"conservazione","livello":3,"testo":"Perché le verdure conservate in cantina hanno bisogno di ventilazione?","risposte":["Per mantenere la stanza sempre calda","Per asciugare ogni verdura al sole","I prodotti raccolti continuano a respirare e richiedono ossigeno"],"giusta":2,"spiegazione":"Gli ortaggi restano vivi dopo la raccolta e respirano; serve ricambio d’aria.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"},
-    {"id":"q085","tema":"attrezzi","livello":1,"testo":"Quale attrezzo usare per scavare vicino a una piantina?","risposte":["Una piccola paletta","Un rastrello grande","Una sega"],"giusta":0,"spiegazione":"Usare l’attrezzo adatto al lavoro aiuta a lavorare con più controllo.","certezza":"alta","fonte":"https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"},
-    {"id":"q086","tema":"attrezzi","livello":1,"testo":"Dove appoggiare gli attrezzi quando hai finito?","risposte":["In mezzo al passaggio","Nel loro posto, puliti","Sotto le foglie"],"giusta":1,"spiegazione":"Pulire e riporre gli attrezzi riduce inciampi e li mantiene pronti all’uso.","certezza":"alta","fonte":"https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"},
-    {"id":"q087","tema":"attrezzi","livello":2,"testo":"In quale situazione gli occhiali protettivi sono una buona precauzione?","risposte":["Quando raccogli una lattuga","Quando annaffi una pianta","Quando un attrezzo può proiettare schegge o detriti"],"giusta":2,"spiegazione":"Schegge, frammenti o detriti possono colpire gli occhi: usa protezione adeguata.","certezza":"alta","fonte":"https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"},
-    {"id":"q088","tema":"attrezzi","livello":2,"testo":"In quale direzione tagliare con una lama da giardino?","risposte":["Verso il corpo","Lontano dal corpo","Verso la mano che regge il ramo"],"giusta":1,"spiegazione":"Tagliare allontanando la lama dal corpo riduce il rischio di ferirsi se scivola.","certezza":"alta","fonte":"https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"},
-    {"id":"q089","tema":"attrezzi","livello":3,"testo":"Qual è una postura più sicura per sollevare un carico pesante?","risposte":["Schiena dritta, ginocchia piegate, sollevando con le gambe","Schiena curva e gambe dritte","Ruotare il busto mentre si solleva"],"giusta":0,"spiegazione":"Piegare le ginocchia e mantenere la schiena dritta aiuta a proteggere la schiena.","certezza":"alta","fonte":"https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"},
-    {"id":"q090","tema":"attrezzi","livello":3,"testo":"Perché è meglio non lavorare con un attrezzo manuale sopra le spalle?","risposte":["Perché si smussa subito","Perché aumenta il controllo del terreno","Per ridurre il rischio di perdere equilibrio o controllo"],"giusta":2,"spiegazione":"La guida di sicurezza raccomanda di evitare l’uso degli attrezzi manuali sopra l’altezza delle spalle.","certezza":"alta","fonte":"https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"},
-    {"id":"q091","tema":"semina","livello":1,"testo":"Che cosa è utile leggere sulla bustina prima di seminare?","risposte":["Le indicazioni della specie e della varietà","Il colore della confezione","Il nome del negozio"],"giusta":0,"spiegazione":"Le indicazioni specifiche aiutano a scegliere profondità e periodo adatti alla coltura.","certezza":"alta","fonte":"https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"},
-    {"id":"q092","tema":"semina","livello":2,"testo":"Perché conviene etichettare i vasetti appena seminati?","risposte":["Per far germinare prima","Per ricordare che cosa e quando hai seminato","Per tenere il terriccio umido"],"giusta":1,"spiegazione":"Un’etichetta aiuta a riconoscere coltura e data mentre i semi non sono ancora germogliati.","certezza":"media","fonte":"https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"},
-    {"id":"q093","tema":"semina","livello":2,"testo":"Che cosa può succedere se i semi restano troppo asciutti durante la germinazione?","risposte":["Si trasformano in radici","Germogliano sempre più in fretta","La germinazione può fermarsi o non iniziare"],"giusta":2,"spiegazione":"I semi hanno bisogno di umidità per avviare la germinazione.","certezza":"alta","fonte":"https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-germination"},
-    {"id":"q094","tema":"semina","livello":3,"testo":"Perché acclimatare gradualmente le piantine prima del trapianto all’aperto?","risposte":["Per abituarle alle condizioni esterne","Per farle crescere al buio","Per bloccare le radici"],"giusta":0,"spiegazione":"L’adattamento graduale riduce lo shock quando cambiano luce, vento e temperatura.","certezza":"alta","fonte":"https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"},
-    {"id":"q095","tema":"terreno","livello":1,"testo":"Che cosa indica che l’acqua fatica a drenare in un’aiuola?","risposte":["Il terreno ha molti lombrichi","Restano pozzanghere a lungo","La superficie è coperta di foglie"],"giusta":1,"spiegazione":"L’acqua stagnante segnala drenaggio lento e può creare problemi alle radici.","certezza":"alta","fonte":"https://extension.illinois.edu/gardening/problems"},
-    {"id":"q096","tema":"terreno","livello":2,"testo":"Perché la materia organica è utile al suolo?","risposte":["Sostituisce la luce","Blocca sempre l’acqua","Può migliorare struttura e disponibilità di nutrienti"],"giusta":2,"spiegazione":"Compost e altre materie organiche possono migliorare la struttura del suolo e fornire nutrienti.","certezza":"alta","fonte":"https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"},
-    {"id":"q097","tema":"terreno","livello":3,"testo":"Perché non conviene lavorare il terreno quando forma zolle appiccicose?","risposte":["La lavorazione può compattarlo e rovinarne la struttura","Così diventa più leggero","Perché le zolle attirano api"],"giusta":0,"spiegazione":"Un suolo troppo bagnato si compatta facilmente con la lavorazione.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"},
-    {"id":"q098","tema":"acqua","livello":1,"testo":"Perché controllare l’umidità del terreno prima di annaffiare?","risposte":["Per conoscere il colore delle radici","Per capire se l’aiuola ha davvero bisogno d’acqua","Per far arrivare più luce"],"giusta":1,"spiegazione":"Controllare il suolo aiuta a evitare sia irrigazioni inutili sia periodi troppo asciutti.","certezza":"alta","fonte":"https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"},
-    {"id":"q099","tema":"acqua","livello":2,"testo":"Perché l’acqua alle radici è spesso preferibile a bagnare tutta la chioma?","risposte":["Fa crescere più fiori","Raffredda il terreno","Mantiene più asciutte le foglie e può ridurre alcune malattie"],"giusta":2,"spiegazione":"Bagnare il suolo invece delle foglie può aiutare a prevenire alcune malattie.","certezza":"alta","fonte":"https://extension.illinois.edu/gardening/problems"},
-    {"id":"q100","tema":"acqua","livello":3,"testo":"Che cosa può causare un terreno sempre saturo d’acqua alle radici?","risposte":["Mancanza di ossigeno","Più luce","Una crescita garantita"],"giusta":0,"spiegazione":"Nei pori pieni d’acqua resta meno aria e le radici possono ricevere poco ossigeno.","certezza":"alta","fonte":"https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"},
-    {"id":"q101","tema":"parassiti","livello":1,"testo":"Dove si trovano spesso colonie di afidi?","risposte":["Sotto le foglie o sui germogli teneri","Nel centro delle radici mature","Dentro i semi asciutti"],"giusta":0,"spiegazione":"Gli afidi si concentrano spesso sui germogli teneri e sulla pagina inferiore delle foglie.","certezza":"alta","fonte":"https://extension.illinois.edu/insects/aphid"},
-    {"id":"q102","tema":"parassiti","livello":2,"testo":"Quale segno può lasciare un’infestazione di afidi?","risposte":["Radici blu","Foglie o fusti deformati e appiccicosi","Frutti più pesanti"],"giusta":1,"spiegazione":"Gli afidi succhiano linfa e possono deformare i tessuti; la melata li rende appiccicosi.","certezza":"alta","fonte":"https://extension.illinois.edu/insects/aphid"},
-    {"id":"q103","tema":"parassiti","livello":2,"testo":"Quale intervento semplice può rimuovere afidi da una piccola pianta?","risposte":["Aggiungere sale al terreno","Lasciar seccare la pianta","Risciacquare le colonie con acqua"],"giusta":2,"spiegazione":"Un getto d’acqua può staccare gli afidi da piante in piccoli orti.","certezza":"alta","fonte":"https://extension.illinois.edu/insects/aphid"},
-    {"id":"q104","tema":"parassiti","livello":3,"testo":"Perché identificare il problema prima di intervenire?","risposte":["Perché alcuni insetti sono utili e un intervento errato può danneggiarli","Perché tutti gli insetti sono parassiti","Per cambiare la varietà coltivata"],"giusta":0,"spiegazione":"Riconoscere il responsabile evita di colpire insetti utili o intervenire senza necessità.","certezza":"alta","fonte":"https://extension.illinois.edu/news-releases/invite-good-insects-garden-battle-pests"},
-    {"id":"q105","tema":"raccolta","livello":1,"testo":"Quando raccogliere i broccoli per avere le gemme compatte?","risposte":["Quando i fiori sono aperti","Quando la testa è ancora compatta e verde","Dopo che la pianta è secca"],"giusta":1,"spiegazione":"I broccoli si raccolgono mentre le gemme floreali sono strette e verdi.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"},
-    {"id":"q106","tema":"raccolta","livello":2,"testo":"Perché è utile raccogliere verdure quando sono asciutte, se possibile?","risposte":["Così non serve conservarle","Per farle diventare più grandi","L’umidità superficiale può favorire il deterioramento"],"giusta":2,"spiegazione":"Ridurre l’umidità libera aiuta la gestione post-raccolta e la conservazione.","certezza":"media","fonte":"https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"},
-    {"id":"q107","tema":"raccolta","livello":3,"testo":"Che cosa fare con una cipolla ferita prima di mettere via il raccolto?","risposte":["Separarla e controllarla, perché può deteriorarsi","Nasconderla nel fondo del sacco","Bagnarla e conservarla chiusa"],"giusta":0,"spiegazione":"Le cipolle con ferite o parti molli vanno escluse dalla conservazione lunga.","certezza":"alta","fonte":"https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"},
-    {"id":"q108","tema":"consociazioni","livello":1,"testo":"Quale vantaggio può offrire alternare colture di famiglie diverse?","risposte":["Fa maturare tutte le verdure insieme","Può interrompere alcuni cicli di parassiti e malattie","Elimina ogni necessità di compost"],"giusta":1,"spiegazione":"La rotazione può ridurre la continuità di ospiti per alcuni parassiti e patogeni.","certezza":"alta","fonte":"https://extension.illinois.edu/gardening/problems"},
-    {"id":"q109","tema":"consociazioni","livello":2,"testo":"Perché evitare di mettere sempre la stessa coltura nella stessa aiuola?","risposte":["Perché consuma tutta la luce","Per impedire la fioritura","Per ridurre l’accumulo di problemi specifici nel suolo"],"giusta":2,"spiegazione":"Alternare le famiglie può aiutare a contenere problemi che si mantengono nel suolo.","certezza":"alta","fonte":"https://extension.illinois.edu/gardening/problems"},
-    {"id":"q110","tema":"consociazioni","livello":3,"testo":"Che cosa occorre considerare prima di mettere due colture vicine?","risposte":["Spazio, luce e possibili competizioni","Solo il colore dei fiori","Il giorno della settimana"],"giusta":0,"spiegazione":"Le piante vicine possono competere per spazio, luce e risorse; gli effetti dipendono dal contesto.","certezza":"media","fonte":"https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden"},
-    {"id":"q111","tema":"calendario","livello":1,"testo":"Perché le semine scalari possono essere utili?","risposte":["Per avere tutte le verdure in un giorno","Per distribuire il raccolto nel tempo","Per impedire ai semi di germogliare"],"giusta":1,"spiegazione":"Seminare in momenti diversi può distribuire le raccolte invece di concentrarle.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"},
-    {"id":"q112","tema":"calendario","livello":2,"testo":"Che cosa controllare prima di trapiantare una coltura sensibile al freddo?","risposte":["Il rischio di gelate e le previsioni locali","La fase della luna soltanto","Il giorno di apertura del vivaio"],"giusta":0,"spiegazione":"Le colture da caldo possono soffrire il freddo: valuta meteo e condizioni locali.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"},
-    {"id":"q113","tema":"calendario","livello":3,"testo":"Perché la temperatura del terreno può essere più utile del solo mese?","risposte":["Perché i mesi cambiano lunghezza","Perché i semi non sentono la temperatura","Perché influenza la germinazione e varia con il luogo"],"giusta":2,"spiegazione":"La temperatura del suolo varia da un posto all’altro e influenza la germinazione.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"},
-    {"id":"q114","tema":"compost","livello":1,"testo":"Come si riconosce spesso un compost finito?","risposte":["È scuro, friabile e ha odore di terra","Ha odore pungente e scarti freschi","È fatto di sola plastica"],"giusta":0,"spiegazione":"Compost maturo tende a essere scuro, friabile e con odore terroso.","certezza":"alta","fonte":"https://extension.usu.edu/smallfarms/files/CompostingInUtah.pdf"},
-    {"id":"q115","tema":"compost","livello":2,"testo":"Perché rivoltare un cumulo di compost?","risposte":["Per raffreddare sempre il cumulo","Per favorire l’aerazione e la decomposizione","Per fermare ogni attività microbica"],"giusta":1,"spiegazione":"L’aerazione è un fattore importante nella decomposizione del compost.","certezza":"alta","fonte":"https://extension.usu.edu/yardandgarden/research/backyard-composting-in-utah"},
-    {"id":"q116","tema":"compost","livello":3,"testo":"Che cosa può indicare un forte odore di ammoniaca nel cumulo?","risposte":["Mancanza di semi","Troppa acqua piovana soltanto","Troppo materiale ricco di azoto"],"giusta":2,"spiegazione":"La guida associa l’odore di ammoniaca a eccesso di azoto nel cumulo.","certezza":"alta","fonte":"https://extension.usu.edu/yardandgarden/research/backyard-composting-in-utah"},
-    {"id":"q117","tema":"conservazione","livello":3,"testo":"Perché non esiste una sola temperatura adatta a tutte le verdure?","risposte":["Specie diverse richiedono condizioni diverse","Il frigorifero non raffredda mai","Tutte le verdure vanno congelate"],"giusta":0,"spiegazione":"Temperatura e umidità di conservazione cambiano secondo il tipo di ortaggio.","certezza":"alta","fonte":"https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"},
-    {"id":"q118","tema":"impollinatori","livello":3,"testo":"Quale caratteristica favorisce una varietà di impollinatori in giardino?","risposte":["Un solo fiore che sboccia per un giorno","Fiori diversi per forma e periodo di fioritura","Solo piante senza fiori"],"giusta":1,"spiegazione":"Diversi impollinatori visitano fiori differenti e sono attivi in periodi diversi.","certezza":"alta","fonte":"https://extension.illinois.edu/blogs/good-growing/2026-04-03-flowers-vegetable-garden"},
-    {"id":"q119","tema":"attrezzi","livello":3,"testo":"Quale protezione indossare se lavori con rovi o spine?","risposte":["Guanti robusti e maniche lunghe","Sandali aperti","Nessuna, per avere presa"],"giusta":0,"spiegazione":"Guanti robusti e maniche lunghe proteggono da spine e graffi durante il lavoro.","certezza":"alta","fonte":"https://www.rhs.org.uk/garden-jobs/how-to-garden-safely"},
-    {"id":"q120","tema":"insetti utili","livello":3,"testo":"Perché non è detto che le coccinelle liberate restino nell’orto?","risposte":["Non sanno volare","Possono disperdersi e spostarsi altrove","Non si nutrono di insetti"],"giusta":1,"spiegazione":"Gli adulti possono disperdersi dopo il rilascio; favorire habitat e prede è una strategia più stabile.","certezza":"alta","fonte":"https://extension.illinois.edu/sites/default/files/beneficial_insects_from_the_garden_updated_2018.pdf"}
+    {
+      "id": "q061",
+      "tema": "lombrichi",
+      "livello": 1,
+      "testo": "Quale lombrico è spesso usato nel lombricompostaggio in contenitore?",
+      "risposte": [
+        "Eisenia fetida",
+        "Lumbricus terrestris",
+        "Un bruco di farfalla"
+      ],
+      "giusta": 0,
+      "spiegazione": "Eisenia fetida vive negli strati ricchi di materia organica ed è adatta ai contenitori.",
+      "certezza": "alta",
+      "fonte": "https://extension.oregonstate.edu/catalog/em-9034-composting-worms"
+    },
+    {
+      "id": "q062",
+      "tema": "lombrichi",
+      "livello": 1,
+      "testo": "Che cosa è meglio mettere come lettiera nel contenitore dei lombrichi?",
+      "risposte": [
+        "Carta lucida patinata",
+        "Cartone a pezzetti inumidito",
+        "Pellicola di plastica"
+      ],
+      "giusta": 1,
+      "spiegazione": "Cartone e carta non lucida sminuzzati possono fare da lettiera umida e ariosa.",
+      "certezza": "alta",
+      "fonte": "https://extension.oregonstate.edu/catalog/em-9034-composting-worms"
+    },
+    {
+      "id": "q063",
+      "tema": "lombrichi",
+      "livello": 2,
+      "testo": "Come dovrebbe sembrare al tatto la lettiera dei lombrichi?",
+      "risposte": [
+        "Fradicia e gocciolante",
+        "Secca come polvere",
+        "Umida come una spugna strizzata"
+      ],
+      "giusta": 2,
+      "spiegazione": "La guida consiglia una lettiera umida, senza acqua in eccesso.",
+      "certezza": "alta",
+      "fonte": "https://extension.oregonstate.edu/catalog/em-9034-composting-worms"
+    },
+    {
+      "id": "q064",
+      "tema": "lombrichi",
+      "livello": 2,
+      "testo": "Quali avanzi è meglio non mettere nel lombricompost domestico?",
+      "risposte": [
+        "Carne e latticini",
+        "Bucce di verdura",
+        "Fondi di caffè"
+      ],
+      "giusta": 0,
+      "spiegazione": "Carne, latticini e grassi possono attirare animali e creare cattivi odori.",
+      "certezza": "alta",
+      "fonte": "https://extension.oregonstate.edu/catalog/em-9034-composting-worms"
+    },
+    {
+      "id": "q065",
+      "tema": "lombrichi",
+      "livello": 3,
+      "testo": "Che cosa può suggerire un odore marcio nel contenitore?",
+      "risposte": [
+        "Tanta aria e materiale asciutto",
+        "Troppa umidità o poco ossigeno",
+        "Che il compost è già setacciato"
+      ],
+      "giusta": 1,
+      "spiegazione": "Troppa acqua o poca aerazione favoriscono condizioni senza ossigeno e cattivi odori.",
+      "certezza": "alta",
+      "fonte": "https://extension.oregonstate.edu/catalog/pub/em-9034-composting-worms"
+    },
+    {
+      "id": "q066",
+      "tema": "lombrichi",
+      "livello": 3,
+      "testo": "Quale aspetto e odore suggeriscono che il lombricompost è pronto?",
+      "risposte": [
+        "Molliccio e pungente",
+        "Con scarti freschi riconoscibili",
+        "Friabile e terroso"
+      ],
+      "giusta": 2,
+      "spiegazione": "Il prodotto maturo appare friabile e ha un odore fresco di terra.",
+      "certezza": "alta",
+      "fonte": "https://extension.oregonstate.edu/catalog/em-9034-composting-worms"
+    },
+    {
+      "id": "q067",
+      "tema": "insetti utili",
+      "livello": 1,
+      "testo": "Di che cosa si nutrono spesso le larve di coccinella?",
+      "risposte": [
+        "Afidi",
+        "Radici di carota",
+        "Semi di pomodoro"
+      ],
+      "giusta": 0,
+      "spiegazione": "Le larve di coccinella sono predatrici e si nutrono di afidi e altri piccoli insetti.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/sites/default/files/beneficial_insects_from_the_garden_updated_2018.pdf"
+    },
+    {
+      "id": "q068",
+      "tema": "insetti utili",
+      "livello": 1,
+      "testo": "Che cosa è prudente fare quando trovi un insetto sconosciuto sulle piante?",
+      "risposte": [
+        "Ucciderlo subito",
+        "Identificarlo prima di intervenire",
+        "Spostare tutte le piante"
+      ],
+      "giusta": 1,
+      "spiegazione": "Nel giardino ci sono insetti utili e innocui: identificarli evita interventi inutili.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/invite-good-insects-garden-battle-pests"
+    },
+    {
+      "id": "q069",
+      "tema": "insetti utili",
+      "livello": 1,
+      "testo": "Che ruolo hanno le larve dei sirfidi su alcune piante?",
+      "risposte": [
+        "Impollinano le radici",
+        "Mangiano i semi",
+        "Possono predare gli afidi"
+      ],
+      "giusta": 2,
+      "spiegazione": "Le larve di molti sirfidi si alimentano di afidi; gli adulti visitano i fiori.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/sites/default/files/beneficial_insects_from_the_garden_updated_2018.pdf"
+    },
+    {
+      "id": "q070",
+      "tema": "insetti utili",
+      "livello": 2,
+      "testo": "Perché lasciare fiorire qualche erba aromatica può aiutare gli insetti utili?",
+      "risposte": [
+        "I fiori offrono nettare e polline",
+        "Impedisce ogni parassita",
+        "Trasforma gli insetti in impollinatori"
+      ],
+      "giusta": 0,
+      "spiegazione": "Fiori di erbe come aneto e prezzemolo possono fornire cibo agli insetti utili.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/sites/default/files/controllingpestsnaturally.pdf"
+    },
+    {
+      "id": "q071",
+      "tema": "insetti utili",
+      "livello": 2,
+      "testo": "Una mantide religiosa mangia soltanto insetti dannosi?",
+      "risposte": [
+        "Sì, solo afidi",
+        "No, può catturare anche insetti utili",
+        "Sì, solo lumache"
+      ],
+      "giusta": 1,
+      "spiegazione": "La mantide è un predatore generalista: può catturare insetti utili e dannosi.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/sites/default/files/controllingpestsnaturally.pdf"
+    },
+    {
+      "id": "q072",
+      "tema": "insetti utili",
+      "livello": 3,
+      "testo": "Perché una varietà di fiori con fioriture in tempi diversi aiuta gli insetti?",
+      "risposte": [
+        "Garantisce che non ci siano afidi",
+        "Elimina il bisogno di acqua",
+        "Offre risorse a più specie e in più periodi"
+      ],
+      "giusta": 2,
+      "spiegazione": "Diversità di forme e tempi di fioritura può sostenere una maggiore varietà di insetti.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/planthealth/research/integrated-pest-pollinator-management"
+    },
+    {
+      "id": "q073",
+      "tema": "impollinatori",
+      "livello": 1,
+      "testo": "Che cosa fanno gli impollinatori tra i fiori?",
+      "risposte": [
+        "Trasferiscono polline",
+        "Scavano tutte le radici",
+        "Producono acqua"
+      ],
+      "giusta": 0,
+      "spiegazione": "Il trasferimento del polline può permettere la fecondazione e la formazione di frutti o semi.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/vegetableguide/production/pollination"
+    },
+    {
+      "id": "q074",
+      "tema": "impollinatori",
+      "livello": 1,
+      "testo": "Quale gruppo comprende impollinatori importanti per molte colture da frutto?",
+      "risposte": [
+        "Formiche e lombrichi",
+        "Api domestiche, bombi e api selvatiche",
+        "Lumache e chiocciole"
+      ],
+      "giusta": 1,
+      "spiegazione": "Api domestiche, bombi e api selvatiche contribuiscono all’impollinazione di molte colture.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/vegetableguide/production/pollination"
+    },
+    {
+      "id": "q075",
+      "tema": "impollinatori",
+      "livello": 2,
+      "testo": "Perché zucchine e cetrioli dipendono dagli impollinatori?",
+      "risposte": [
+        "I fiori maschili e femminili sono separati",
+        "I frutti crescono sottoterra",
+        "Le foglie non fanno fotosintesi"
+      ],
+      "giusta": 0,
+      "spiegazione": "Il polline deve passare dal fiore maschile a quello femminile per formare il frutto.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/vegetableguide/production/pollination"
+    },
+    {
+      "id": "q076",
+      "tema": "impollinatori",
+      "livello": 2,
+      "testo": "Che cosa può succedere a zucchine e zucche con impollinazione insufficiente?",
+      "risposte": [
+        "Diventano tutte più dolci",
+        "Producono frutti piccoli o deformi",
+        "Fanno radici più profonde"
+      ],
+      "giusta": 1,
+      "spiegazione": "Un trasferimento di polline insufficiente può dare frutti piccoli o deformi.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/vegetableguide/production/pollination"
+    },
+    {
+      "id": "q077",
+      "tema": "impollinatori",
+      "livello": 3,
+      "testo": "Perché una rete antinsetto può creare un problema durante la fioritura?",
+      "risposte": [
+        "Rende i fiori più grandi",
+        "Fa maturare i frutti subito",
+        "Può impedire agli impollinatori di raggiungere i fiori"
+      ],
+      "giusta": 2,
+      "spiegazione": "Una copertura che blocca gli insetti può impedire l’impollinazione di colture che ne dipendono.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/vegetableguide/production/pollination"
+    },
+    {
+      "id": "q078",
+      "tema": "impollinatori",
+      "livello": 3,
+      "testo": "Perché evitare di disturbare ogni angolo del giardino può aiutare le api selvatiche?",
+      "risposte": [
+        "Alcune nidificano nel terreno o tra i residui vegetali",
+        "Così le api diventano domestiche",
+        "Così non visitano i fiori"
+      ],
+      "giusta": 0,
+      "spiegazione": "Piccoli habitat naturali possono offrire riparo e siti di nidificazione agli insetti.",
+      "certezza": "media",
+      "fonte": "https://extension.illinois.edu/news-releases/consider-pollinators-during-fall-garden-cleanup"
+    },
+    {
+      "id": "q079",
+      "tema": "conservazione",
+      "livello": 1,
+      "testo": "Perché conviene maneggiare poco gli ortaggi appena raccolti?",
+      "risposte": [
+        "Così maturano tutti insieme",
+        "Per ridurre ammaccature e lesioni",
+        "Per non doverli mai lavare"
+      ],
+      "giusta": 1,
+      "spiegazione": "Meno manipolazione riduce tagli e ammaccature che accorciano la durata in conservazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"
+    },
+    {
+      "id": "q080",
+      "tema": "conservazione",
+      "livello": 1,
+      "testo": "Quando è meglio lavare frutta e verdura fresca?",
+      "risposte": [
+        "Prima di mangiarla o prepararla",
+        "Subito tutta insieme per conservarla",
+        "Mai, neanche prima di mangiarla"
+      ],
+      "giusta": 0,
+      "spiegazione": "Lavare poco prima di preparare o mangiare aiuta a mantenere qualità e durata.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/food/preparing/cooking-at-home/washing-fresh-fruits-and-vegetables"
+    },
+    {
+      "id": "q081",
+      "tema": "conservazione",
+      "livello": 1,
+      "testo": "Che cosa fare con un ortaggio marcio prima di riporre il raccolto?",
+      "risposte": [
+        "Mescolarlo agli ortaggi sani",
+        "Avvolgerlo con altri",
+        "Separarlo dal raccolto sano"
+      ],
+      "giusta": 2,
+      "spiegazione": "I prodotti marci durano poco e possono diffondere problemi agli altri conservati.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"
+    },
+    {
+      "id": "q082",
+      "tema": "conservazione",
+      "livello": 2,
+      "testo": "Perché si curano all’asciutto cipolle e aglio prima della conservazione lunga?",
+      "risposte": [
+        "Per asciugare colletto e bucce esterne",
+        "Per farli germinare",
+        "Per renderli più ricchi d’acqua"
+      ],
+      "giusta": 0,
+      "spiegazione": "La concia asciuga il colletto e le bucce e aiuta a conservare più a lungo.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"
+    },
+    {
+      "id": "q083",
+      "tema": "conservazione",
+      "livello": 2,
+      "testo": "Perché controllare periodicamente gli ortaggi conservati?",
+      "risposte": [
+        "Per cambiare il colore",
+        "Per togliere i pezzi che mostrano marciume",
+        "Per far entrare più insetti"
+      ],
+      "giusta": 1,
+      "spiegazione": "Togliere i prodotti deteriorati può limitare la diffusione del marciume nel contenitore.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"
+    },
+    {
+      "id": "q084",
+      "tema": "conservazione",
+      "livello": 3,
+      "testo": "Perché le verdure conservate in cantina hanno bisogno di ventilazione?",
+      "risposte": [
+        "Per mantenere la stanza sempre calda",
+        "Per asciugare ogni verdura al sole",
+        "I prodotti raccolti continuano a respirare e richiedono ossigeno"
+      ],
+      "giusta": 2,
+      "spiegazione": "Gli ortaggi restano vivi dopo la raccolta e respirano; serve ricambio d’aria.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"
+    },
+    {
+      "id": "q085",
+      "tema": "attrezzi",
+      "livello": 1,
+      "testo": "Quale attrezzo usare per scavare vicino a una piantina?",
+      "risposte": [
+        "Una piccola paletta",
+        "Un rastrello grande",
+        "Una sega"
+      ],
+      "giusta": 0,
+      "spiegazione": "Usare l’attrezzo adatto al lavoro aiuta a lavorare con più controllo.",
+      "certezza": "alta",
+      "fonte": "https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"
+    },
+    {
+      "id": "q086",
+      "tema": "attrezzi",
+      "livello": 1,
+      "testo": "Dove appoggiare gli attrezzi quando hai finito?",
+      "risposte": [
+        "In mezzo al passaggio",
+        "Nel loro posto, puliti",
+        "Sotto le foglie"
+      ],
+      "giusta": 1,
+      "spiegazione": "Pulire e riporre gli attrezzi riduce inciampi e li mantiene pronti all’uso.",
+      "certezza": "alta",
+      "fonte": "https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"
+    },
+    {
+      "id": "q087",
+      "tema": "attrezzi",
+      "livello": 2,
+      "testo": "In quale situazione gli occhiali protettivi sono una buona precauzione?",
+      "risposte": [
+        "Quando raccogli una lattuga",
+        "Quando annaffi una pianta",
+        "Quando un attrezzo può proiettare schegge o detriti"
+      ],
+      "giusta": 2,
+      "spiegazione": "Schegge, frammenti o detriti possono colpire gli occhi: usa protezione adeguata.",
+      "certezza": "alta",
+      "fonte": "https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"
+    },
+    {
+      "id": "q088",
+      "tema": "attrezzi",
+      "livello": 2,
+      "testo": "In quale direzione tagliare con una lama da giardino?",
+      "risposte": [
+        "Verso il corpo",
+        "Lontano dal corpo",
+        "Verso la mano che regge il ramo"
+      ],
+      "giusta": 1,
+      "spiegazione": "Tagliare allontanando la lama dal corpo riduce il rischio di ferirsi se scivola.",
+      "certezza": "alta",
+      "fonte": "https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"
+    },
+    {
+      "id": "q089",
+      "tema": "attrezzi",
+      "livello": 3,
+      "testo": "Qual è una postura più sicura per sollevare un carico pesante?",
+      "risposte": [
+        "Schiena dritta, ginocchia piegate, sollevando con le gambe",
+        "Schiena curva e gambe dritte",
+        "Ruotare il busto mentre si solleva"
+      ],
+      "giusta": 0,
+      "spiegazione": "Piegare le ginocchia e mantenere la schiena dritta aiuta a proteggere la schiena.",
+      "certezza": "alta",
+      "fonte": "https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"
+    },
+    {
+      "id": "q090",
+      "tema": "attrezzi",
+      "livello": 3,
+      "testo": "Perché è meglio non lavorare con un attrezzo manuale sopra le spalle?",
+      "risposte": [
+        "Perché si smussa subito",
+        "Perché aumenta il controllo del terreno",
+        "Per ridurre il rischio di perdere equilibrio o controllo"
+      ],
+      "giusta": 2,
+      "spiegazione": "La guida di sicurezza raccomanda di evitare l’uso degli attrezzi manuali sopra l’altezza delle spalle.",
+      "certezza": "alta",
+      "fonte": "https://ucanr.edu/?legacy-file=3108.pdf&legacy-file-path=sites%2Fsafety%2Ffiles%2F"
+    },
+    {
+      "id": "q091",
+      "tema": "semina",
+      "livello": 1,
+      "testo": "Che cosa è utile leggere sulla bustina prima di seminare?",
+      "risposte": [
+        "Le indicazioni della specie e della varietà",
+        "Il colore della confezione",
+        "Il nome del negozio"
+      ],
+      "giusta": 0,
+      "spiegazione": "Le indicazioni specifiche aiutano a scegliere profondità e periodo adatti alla coltura.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q092",
+      "tema": "semina",
+      "livello": 2,
+      "testo": "Perché conviene etichettare i vasetti appena seminati?",
+      "risposte": [
+        "Per far germinare prima",
+        "Per ricordare che cosa e quando hai seminato",
+        "Per tenere il terriccio umido"
+      ],
+      "giusta": 1,
+      "spiegazione": "Un’etichetta aiuta a riconoscere coltura e data mentre i semi non sono ancora germogliati.",
+      "certezza": "media",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q093",
+      "tema": "semina",
+      "livello": 2,
+      "testo": "Che cosa può succedere se i semi restano troppo asciutti durante la germinazione?",
+      "risposte": [
+        "Si trasformano in radici",
+        "Germogliano sempre più in fretta",
+        "La germinazione può fermarsi o non iniziare"
+      ],
+      "giusta": 2,
+      "spiegazione": "I semi hanno bisogno di umidità per avviare la germinazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-germination"
+    },
+    {
+      "id": "q094",
+      "tema": "semina",
+      "livello": 3,
+      "testo": "Perché acclimatare gradualmente le piantine prima del trapianto all’aperto?",
+      "risposte": [
+        "Per abituarle alle condizioni esterne",
+        "Per farle crescere al buio",
+        "Per bloccare le radici"
+      ],
+      "giusta": 0,
+      "spiegazione": "L’adattamento graduale riduce lo shock quando cambiano luce, vento e temperatura.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q095",
+      "tema": "terreno",
+      "livello": 1,
+      "testo": "Che cosa indica che l’acqua fatica a drenare in un’aiuola?",
+      "risposte": [
+        "Il terreno ha molti lombrichi",
+        "Restano pozzanghere a lungo",
+        "La superficie è coperta di foglie"
+      ],
+      "giusta": 1,
+      "spiegazione": "L’acqua stagnante segnala drenaggio lento e può creare problemi alle radici.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q096",
+      "tema": "terreno",
+      "livello": 2,
+      "testo": "Perché la materia organica è utile al suolo?",
+      "risposte": [
+        "Sostituisce la luce",
+        "Blocca sempre l’acqua",
+        "Può migliorare struttura e disponibilità di nutrienti"
+      ],
+      "giusta": 2,
+      "spiegazione": "Compost e altre materie organiche possono migliorare la struttura del suolo e fornire nutrienti.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/using-compost-in-utah-gardens"
+    },
+    {
+      "id": "q097",
+      "tema": "terreno",
+      "livello": 3,
+      "testo": "Perché non conviene lavorare il terreno quando forma zolle appiccicose?",
+      "risposte": [
+        "La lavorazione può compattarlo e rovinarne la struttura",
+        "Così diventa più leggero",
+        "Perché le zolle attirano api"
+      ],
+      "giusta": 0,
+      "spiegazione": "Un suolo troppo bagnato si compatta facilmente con la lavorazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q098",
+      "tema": "acqua",
+      "livello": 1,
+      "testo": "Perché controllare l’umidità del terreno prima di annaffiare?",
+      "risposte": [
+        "Per conoscere il colore delle radici",
+        "Per capire se l’aiuola ha davvero bisogno d’acqua",
+        "Per far arrivare più luce"
+      ],
+      "giusta": 1,
+      "spiegazione": "Controllare il suolo aiuta a evitare sia irrigazioni inutili sia periodi troppo asciutti.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/consistent-watering-needed-during-hot-weather-gardening"
+    },
+    {
+      "id": "q099",
+      "tema": "acqua",
+      "livello": 2,
+      "testo": "Perché l’acqua alle radici è spesso preferibile a bagnare tutta la chioma?",
+      "risposte": [
+        "Fa crescere più fiori",
+        "Raffredda il terreno",
+        "Mantiene più asciutte le foglie e può ridurre alcune malattie"
+      ],
+      "giusta": 2,
+      "spiegazione": "Bagnare il suolo invece delle foglie può aiutare a prevenire alcune malattie.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q100",
+      "tema": "acqua",
+      "livello": 3,
+      "testo": "Che cosa può causare un terreno sempre saturo d’acqua alle radici?",
+      "risposte": [
+        "Mancanza di ossigeno",
+        "Più luce",
+        "Una crescita garantita"
+      ],
+      "giusta": 0,
+      "spiegazione": "Nei pori pieni d’acqua resta meno aria e le radici possono ricevere poco ossigeno.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/starting-vegetable-seeds-indoors-seeding-culture-and-transplanting"
+    },
+    {
+      "id": "q101",
+      "tema": "parassiti",
+      "livello": 1,
+      "testo": "Dove si trovano spesso colonie di afidi?",
+      "risposte": [
+        "Sotto le foglie o sui germogli teneri",
+        "Nel centro delle radici mature",
+        "Dentro i semi asciutti"
+      ],
+      "giusta": 0,
+      "spiegazione": "Gli afidi si concentrano spesso sui germogli teneri e sulla pagina inferiore delle foglie.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/insects/aphid"
+    },
+    {
+      "id": "q102",
+      "tema": "parassiti",
+      "livello": 2,
+      "testo": "Quale segno può lasciare un’infestazione di afidi?",
+      "risposte": [
+        "Radici blu",
+        "Foglie o fusti deformati e appiccicosi",
+        "Frutti più pesanti"
+      ],
+      "giusta": 1,
+      "spiegazione": "Gli afidi succhiano linfa e possono deformare i tessuti; la melata li rende appiccicosi.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/insects/aphid"
+    },
+    {
+      "id": "q103",
+      "tema": "parassiti",
+      "livello": 2,
+      "testo": "Quale intervento semplice può rimuovere afidi da una piccola pianta?",
+      "risposte": [
+        "Aggiungere sale al terreno",
+        "Lasciar seccare la pianta",
+        "Risciacquare le colonie con acqua"
+      ],
+      "giusta": 2,
+      "spiegazione": "Un getto d’acqua può staccare gli afidi da piante in piccoli orti.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/insects/aphid"
+    },
+    {
+      "id": "q104",
+      "tema": "parassiti",
+      "livello": 3,
+      "testo": "Perché identificare il problema prima di intervenire?",
+      "risposte": [
+        "Perché alcuni insetti sono utili e un intervento errato può danneggiarli",
+        "Perché tutti gli insetti sono parassiti",
+        "Per cambiare la varietà coltivata"
+      ],
+      "giusta": 0,
+      "spiegazione": "Riconoscere il responsabile evita di colpire insetti utili o intervenire senza necessità.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/news-releases/invite-good-insects-garden-battle-pests"
+    },
+    {
+      "id": "q105",
+      "tema": "raccolta",
+      "livello": 1,
+      "testo": "Quando raccogliere i broccoli per avere le gemme compatte?",
+      "risposte": [
+        "Quando i fiori sono aperti",
+        "Quando la testa è ancora compatta e verde",
+        "Dopo che la pianta è secca"
+      ],
+      "giusta": 1,
+      "spiegazione": "I broccoli si raccolgono mentre le gemme floreali sono strette e verdi.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"
+    },
+    {
+      "id": "q106",
+      "tema": "raccolta",
+      "livello": 2,
+      "testo": "Perché è utile raccogliere verdure quando sono asciutte, se possibile?",
+      "risposte": [
+        "Così non serve conservarle",
+        "Per farle diventare più grandi",
+        "L’umidità superficiale può favorire il deterioramento"
+      ],
+      "giusta": 2,
+      "spiegazione": "Ridurre l’umidità libera aiuta la gestione post-raccolta e la conservazione.",
+      "certezza": "media",
+      "fonte": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"
+    },
+    {
+      "id": "q107",
+      "tema": "raccolta",
+      "livello": 3,
+      "testo": "Che cosa fare con una cipolla ferita prima di mettere via il raccolto?",
+      "risposte": [
+        "Separarla e controllarla, perché può deteriorarsi",
+        "Nasconderla nel fondo del sacco",
+        "Bagnarla e conservarla chiusa"
+      ],
+      "giusta": 0,
+      "spiegazione": "Le cipolle con ferite o parti molli vanno escluse dalla conservazione lunga.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"
+    },
+    {
+      "id": "q108",
+      "tema": "consociazioni",
+      "livello": 1,
+      "testo": "Quale vantaggio può offrire alternare colture di famiglie diverse?",
+      "risposte": [
+        "Fa maturare tutte le verdure insieme",
+        "Può interrompere alcuni cicli di parassiti e malattie",
+        "Elimina ogni necessità di compost"
+      ],
+      "giusta": 1,
+      "spiegazione": "La rotazione può ridurre la continuità di ospiti per alcuni parassiti e patogeni.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q109",
+      "tema": "consociazioni",
+      "livello": 2,
+      "testo": "Perché evitare di mettere sempre la stessa coltura nella stessa aiuola?",
+      "risposte": [
+        "Perché consuma tutta la luce",
+        "Per impedire la fioritura",
+        "Per ridurre l’accumulo di problemi specifici nel suolo"
+      ],
+      "giusta": 2,
+      "spiegazione": "Alternare le famiglie può aiutare a contenere problemi che si mantengono nel suolo.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/gardening/problems"
+    },
+    {
+      "id": "q110",
+      "tema": "consociazioni",
+      "livello": 3,
+      "testo": "Che cosa occorre considerare prima di mettere due colture vicine?",
+      "risposte": [
+        "Spazio, luce e possibili competizioni",
+        "Solo il colore dei fiori",
+        "Il giorno della settimana"
+      ],
+      "giusta": 0,
+      "spiegazione": "Le piante vicine possono competere per spazio, luce e risorse; gli effetti dipendono dal contesto.",
+      "certezza": "media",
+      "fonte": "https://extension.illinois.edu/blogs/good-growing/2025-03-07-companion-planting-combining-plants-healthy-well-balanced-garden"
+    },
+    {
+      "id": "q111",
+      "tema": "calendario",
+      "livello": 1,
+      "testo": "Perché le semine scalari possono essere utili?",
+      "risposte": [
+        "Per avere tutte le verdure in un giorno",
+        "Per distribuire il raccolto nel tempo",
+        "Per impedire ai semi di germogliare"
+      ],
+      "giusta": 1,
+      "spiegazione": "Seminare in momenti diversi può distribuire le raccolte invece di concentrarle.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q112",
+      "tema": "calendario",
+      "livello": 2,
+      "testo": "Che cosa controllare prima di trapiantare una coltura sensibile al freddo?",
+      "risposte": [
+        "Il rischio di gelate e le previsioni locali",
+        "La fase della luna soltanto",
+        "Il giorno di apertura del vivaio"
+      ],
+      "giusta": 0,
+      "spiegazione": "Le colture da caldo possono soffrire il freddo: valuta meteo e condizioni locali.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q113",
+      "tema": "calendario",
+      "livello": 3,
+      "testo": "Perché per seminare conta la temperatura del terreno e non solo il mese?",
+      "risposte": [
+        "Perché i mesi cambiano lunghezza",
+        "Perché i semi non sentono la temperatura",
+        "Perché cambia da luogo a luogo e influenza la germinazione"
+      ],
+      "giusta": 2,
+      "spiegazione": "La temperatura del suolo varia da un posto all’altro e influenza la germinazione.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-the-vegetable-garden"
+    },
+    {
+      "id": "q114",
+      "tema": "compost",
+      "livello": 1,
+      "testo": "Come si riconosce spesso un compost finito?",
+      "risposte": [
+        "È scuro, friabile e ha odore di terra",
+        "Ha odore pungente e scarti freschi",
+        "È fatto di sola plastica"
+      ],
+      "giusta": 0,
+      "spiegazione": "Compost maturo tende a essere scuro, friabile e con odore terroso.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/smallfarms/files/CompostingInUtah.pdf"
+    },
+    {
+      "id": "q115",
+      "tema": "compost",
+      "livello": 2,
+      "testo": "Perché rivoltare un cumulo di compost?",
+      "risposte": [
+        "Per raffreddare sempre il cumulo",
+        "Per favorire l’aerazione e la decomposizione",
+        "Per fermare ogni attività microbica"
+      ],
+      "giusta": 1,
+      "spiegazione": "L’aerazione è un fattore importante nella decomposizione del compost.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/backyard-composting-in-utah"
+    },
+    {
+      "id": "q116",
+      "tema": "compost",
+      "livello": 3,
+      "testo": "Che cosa può indicare un forte odore di ammoniaca nel cumulo?",
+      "risposte": [
+        "Mancanza di semi",
+        "Troppa acqua piovana soltanto",
+        "Troppo materiale ricco di azoto"
+      ],
+      "giusta": 2,
+      "spiegazione": "La guida associa l’odore di ammoniaca a eccesso di azoto nel cumulo.",
+      "certezza": "alta",
+      "fonte": "https://extension.usu.edu/yardandgarden/research/backyard-composting-in-utah"
+    },
+    {
+      "id": "q117",
+      "tema": "conservazione",
+      "livello": 3,
+      "testo": "Perché non esiste una sola temperatura adatta a tutte le verdure?",
+      "risposte": [
+        "Specie diverse richiedono condizioni diverse",
+        "Il frigorifero non raffredda mai",
+        "Tutte le verdure vanno congelate"
+      ],
+      "giusta": 0,
+      "spiegazione": "Temperatura e umidità di conservazione cambiano secondo il tipo di ortaggio.",
+      "certezza": "alta",
+      "fonte": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"
+    },
+    {
+      "id": "q118",
+      "tema": "impollinatori",
+      "livello": 3,
+      "testo": "Quale caratteristica favorisce una varietà di impollinatori in giardino?",
+      "risposte": [
+        "Un solo fiore che sboccia per un giorno",
+        "Fiori diversi per forma e periodo di fioritura",
+        "Solo piante senza fiori"
+      ],
+      "giusta": 1,
+      "spiegazione": "Diversi impollinatori visitano fiori differenti e sono attivi in periodi diversi.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/blogs/good-growing/2026-04-03-flowers-vegetable-garden"
+    },
+    {
+      "id": "q119",
+      "tema": "attrezzi",
+      "livello": 3,
+      "testo": "Quale protezione indossare se lavori con rovi o spine?",
+      "risposte": [
+        "Guanti robusti e maniche lunghe",
+        "Sandali aperti",
+        "Nessuna, per avere presa"
+      ],
+      "giusta": 0,
+      "spiegazione": "Guanti robusti e maniche lunghe proteggono da spine e graffi durante il lavoro.",
+      "certezza": "alta",
+      "fonte": "https://www.rhs.org.uk/garden-jobs/how-to-garden-safely"
+    },
+    {
+      "id": "q120",
+      "tema": "insetti utili",
+      "livello": 3,
+      "testo": "Perché non è detto che le coccinelle liberate restino nell’orto?",
+      "risposte": [
+        "Non sanno volare",
+        "Possono disperdersi e spostarsi altrove",
+        "Non si nutrono di insetti"
+      ],
+      "giusta": 1,
+      "spiegazione": "Gli adulti possono disperdersi dopo il rilascio; favorire habitat e prede è una strategia più stabile.",
+      "certezza": "alta",
+      "fonte": "https://extension.illinois.edu/sites/default/files/beneficial_insects_from_the_garden_updated_2018.pdf"
+    }
   ]
 }

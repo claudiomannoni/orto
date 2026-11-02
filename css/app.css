@@ -576,6 +576,7 @@ input[type="search"] { -webkit-appearance: none; appearance: none; }
   color: var(--inchiostro);
 }
 .btn.opzione[aria-pressed="true"] { border-color: var(--verde); background: var(--verde-chiaro); }
+.btn.opzione.selezionata { outline: 3px solid var(--verde); outline-offset: 2px; }
 .opzione-titolo { font-size: 1.15rem; }
 .opzione-desc { font-size: .95rem; font-weight: 400; color: var(--inchiostro-2); }
 .azioni { display: grid; gap: 10px; }

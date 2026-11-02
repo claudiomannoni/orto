@@ -16,6 +16,7 @@ const toastTesto = (page) => page.locator('#toast').innerText();
 
 let { ctx, page } = await nuova();
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.carta-progressi');
 
 // 1. Partenza
@@ -100,6 +101,7 @@ await ctx.close();
 ({ ctx, page } = await nuova());
 await page.goto(`${BASE}/manifest.webmanifest`);
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.evaluate(async () => {
   const d = await import('/js/store/dati.js'); const db = await import('/js/store/db.js');
   for (let i = 0; i < 7; i++) await d.registraEvento(d.nuovoEvento({ tipo: 'lavoro_fatto', data: `2026-11-0${i + 1}`, esito: 'ok', lavoroId: `l${i}`, schedaId: 'fave' }));
@@ -120,6 +122,7 @@ await ctx.close();
 ({ ctx, page } = await nuova());
 await page.route('**/data/it/traguardi.json', (r) => r.fulfill({ status: 404, body: '' }));
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('li.lavoro');
 check('senza traguardi.json: nessuna carta, l\'app funziona', (await page.locator('.carta-progressi').count()) === 0);
 await page.locator('li.lavoro').first().locator('.btn.primario').click();

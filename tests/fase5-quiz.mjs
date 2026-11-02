@@ -1,11 +1,15 @@
 // Motore del quiz del giorno (Node, nessun server). Uso: node tests/fase5-quiz.mjs <cartella-app>
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import fs from 'node:fs';
 const radice = path.resolve(process.argv[2] || '.');
 const { domandeDelGiorno, serieQuiz, semeDelGiorno } = await import(pathToFileURL(path.join(radice, 'js/motore/quiz.js')).href);
 let ok = 0, ko = 0;
 const check = (n, c, d = '') => { c ? ok++ : ko++; console.log(`${c ? 'PASS' : 'FAIL'}  ${n}${d ? '  -> ' + d : ''}`); };
 const tutte = Array.from({ length: 30 }, (_, i) => ({ id: `q${String(i).padStart(3, '0')}`, testo: `d${i}`, risposte: ['a', 'b', 'c'], giusta: i % 3, livello: 1 + (i % 3) }));
+const extra = JSON.parse(fs.readFileSync(path.join(radice, 'data/it/quiz-extra.json'), 'utf8'));
+const q113 = extra.domande.find((d) => d.id === 'q113');
+check('q113 spiega perché conta la temperatura del terreno', q113?.giusta === 2 && q113.testo === 'Perché per seminare conta la temperatura del terreno e non solo il mese?' && q113.risposte[2] === 'Perché cambia da luogo a luogo e influenza la germinazione');
 
 const a = domandeDelGiorno(tutte, '2026-11-10');
 check('cinque domande', a.length === 5);

@@ -6,6 +6,7 @@ const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
 const page = await ctx.newPage();
 osserva(page, problemi);
 await vai(page, 'oggi', '?oggi=2026-06-30');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 // dati: una zona 4 x 2 metri, due colture nemiche e una amica, e due foto esaminate di una di esse
 await page.evaluate(() => new Promise((ok) => {
   const r = indexedDB.open('orto');
@@ -53,6 +54,7 @@ check('le posizioni restano dopo aver ricaricato', dopo.every((c) => c.posizione
 
 // Storia della pianta
 await vai(page, 'oggi', '?oggi=2026-06-30');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.fase-pianta');
 await page.locator('.fase-pianta a:has-text("La sua storia")').first().click();
 await page.waitForSelector('.linea-tempo li');

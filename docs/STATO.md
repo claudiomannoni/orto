@@ -79,3 +79,6 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 5. Piano visivo dell'orto interattivo (stile Hota), promemoria/notifiche, date di gelo reali (ARSIAL: serve una serie storica; l'ipotesi di Codex è archiviata in `CERVELLO/agenti/archivio/`).
 6. IA su PC Asus con modello locale e database aggiornato dal web (provider «server di casa» in `js/ai/ai.js`, tunnel https).
 7. Controllo del marchio «Orto AI» (UIBM/EUIPO) prima di vendere; eventuale lingua inglese.
+
+Verifica 02/11/2026 (2.60.0): test browser rossi perché Playwright non è disponibile (`tests/lib.mjs` cerca `/opt/node-tools/node_modules/playwright`); non sono state raggiunte le asserzioni dei dieci test richiesti né `41-quiz-conferma`.
+I test senza browser sono verdi, inclusi `fase5-quiz`; la suite completa ha 40 rossi browser per la stessa dipendenza mancante e 48 verdi.

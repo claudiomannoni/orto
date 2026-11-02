@@ -31,6 +31,7 @@ check('la coltura salva «partenza: piantina»', colture[0]?.partenza === 'piant
 
 // Oggi: 25 giorni dal trapianto + 42 di piantina = 67 giorni -> fioritura (66-89)
 await vai(page, 'oggi', '?oggi=2026-06-30');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.fase-pianta');
 const blocco = await page.locator('.fase-pianta').first().innerText();
 check('Oggi: età stimata di 67 giorni e fase «Fioritura»', /67 giorni/.test(blocco) && /Fioritura/i.test(blocco), blocco.slice(0, 200));

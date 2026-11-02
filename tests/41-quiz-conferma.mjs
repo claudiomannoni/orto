@@ -1,0 +1,27 @@
+// Conferma esplicita e ripresa del quiz interrotto.
+import { chromium, nuovoContesto, check, osserva, finale, vai, leggiDb } from './lib.mjs';
+const browser = await chromium.launch();
+const problemi = [];
+const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
+const page = await ctx.newPage();
+osserva(page, problemi);
+await vai(page, 'quiz');
+await page.waitForSelector('.quiz .opzioni .btn');
+await page.locator('.quiz .opzioni .btn').first().click();
+check('il tocco seleziona senza dare esito', await page.locator('.quiz-spiegazione').isHidden() && await page.locator('.quiz .opzioni .btn.selezionata').count() === 1);
+check('si può cambiare scelta prima di confermare', await page.locator('.quiz .opzioni .btn').nth(1).isEnabled());
+await page.locator('.quiz .opzioni .btn').nth(1).click();
+check('la seconda risposta diventa selezionata', await page.locator('.quiz .opzioni .btn.selezionata').count() === 1 && await page.locator('.quiz .opzioni .btn').nth(1).getAttribute('aria-pressed') === 'true');
+await page.getByRole('button', { name: 'Conferma risposta' }).click();
+await page.waitForSelector('.quiz-spiegazione:visible');
+await page.locator('.quiz .btn.primario:visible').click();
+const dati = Object.fromEntries((await leggiDb(page, 'impostazioni')).map((r) => [r.chiave, r.valore]));
+check('indice e punteggio vengono salvati per oggi', dati.quiz_in_corso?.data && dati.quiz_in_corso.indice === 1 && Number.isInteger(dati.quiz_in_corso.punti));
+await vai(page, 'oggi');
+await vai(page, 'quiz');
+await page.waitForSelector('.quiz .passo');
+check('rientrando riprende dalla seconda domanda', (await page.locator('.quiz .passo').innerText()) === 'Domanda 2 di 5');
+const problemiReali = problemi.filter((p) => !/Service Worker registration blocked/.test(p));
+check('nessun errore in console / rete', problemiReali.length === 0, problemiReali.join(' | '));
+await browser.close();
+process.exit(finale() ? 1 : 0);

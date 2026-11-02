@@ -8,6 +8,7 @@ const ctx = await nuovoContesto(browser, { serviceWorkers: 'block', acceptDownlo
 const page = await ctx.newPage();
 osserva(page, problemi);
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.carta-progressi');
 await page.locator('.carta-progressi').click();
 await page.waitForSelector('dialog[open] #condividi');

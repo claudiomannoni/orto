@@ -14,6 +14,7 @@ export const PREDEFINITE = {
   ultimo_uso: null, // AAAA-MM-GG dell'ultima volta che l'app è stata aperta (i vermetti dormono se manchi da giorni)
   guida_viste: [], // le schermate di cui si è già letta la guida
   quiz_risultati: {}, // { 'AAAA-MM-GG': punti } del quiz del giorno
+  quiz_in_corso: null, // { data, indice, punti } del quiz non ancora terminato
   testo: 'normale', // dimensione del testo: normale | grande | enorme
   contrasto: false, // contrasto alto
   movimento_ridotto: false, // ferma le animazioni

@@ -21,6 +21,7 @@ let { ctx, page } = await nuovaPagina();
 
 // 1. Prima dell'offerta del browser: istruzioni a mano
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.installa:not([hidden])');
 let blocco = await page.locator('.installa').innerText();
 check('Oggi: il riquadro «Scarica l\'app» c\'è, con le istruzioni a mano', blocco.includes('Scarica l\'app') && blocco.includes('Installa app'), blocco.replace(/\n+/g, ' | '));
@@ -46,6 +47,7 @@ await ctx.close();
 // 4. «Non ora»: sparisce da Oggi, ma resta in Impostazioni; dopo la pausa tornerebbe
 ({ ctx, page } = await nuovaPagina());
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.installa:not([hidden])');
 await page.getByRole('button', { name: 'Non ora' }).click();
 await page.waitForSelector('.installa', { state: 'hidden' });
@@ -82,6 +84,7 @@ await ctx.close();
 // 6. iPhone: niente evento, si spiega come fare
 ({ ctx, page } = await nuovaPagina({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1' }));
 await vai(page, 'oggi', '?oggi=2026-11-10');
+await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.installa:not([hidden])');
 blocco = await page.locator('.installa').innerText();
 check('iPhone: le istruzioni parlano di Condividi e «Aggiungi alla schermata Home»', blocco.includes('Condividi') && blocco.includes('Aggiungi alla schermata Home'), blocco.replace(/\n+/g, ' | '));
