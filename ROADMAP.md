@@ -151,6 +151,9 @@ Priorità assoluta indicata da Claudio: far evolvere Orto AI in una piattaforma 
 - Tolti i vermi che giravano sul bordo (2.42): davano fastidio. Il consiglio utile e il bentornato ora parlano nella vignetta di Oggi. In arrivo: vignette più grandi e carine con più espressioni, e un mini gioco antistress a parte (trascina, lancia, solletica, scava, dai da mangiare, minuti di relax).
 - Pulizia: eliminati i worktree di Codex, aggiunti `docs/STATO.md` e `scripts/prova-tutto.mjs` (2.37.4).
 
+- [x] Stagione (2.58.0): fuori stagione dal calendario, gelo in arrivo con le minime previste, fine stagione con cosa/come/perché e fonti. Prove: `tests/fase5-stagione.mjs`, `tests/38-stagione.mjs`
+- [x] Coltura nuova da una foto (2.58.0): riconosce pianta, stadio e giorni stimati, abbina la scheda, compila e chiede conferma. Prove: `tests/fase5-riconosci.mjs`, `tests/39-nuova-da-foto.mjs`
+
 ## Futuro, non ora
 
 Account, forum, server IA con abbonamento, Play Store, condivisione dei dati per zona (solo con consenso).

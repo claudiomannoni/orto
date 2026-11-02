@@ -1,6 +1,6 @@
 # Stato del progetto (per chi riprende da un'altra sessione)
 
-Ultimo aggiornamento: 31/10/2026, versione dell'app 2.56.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+Ultimo aggiornamento: 31/10/2026, versione dell'app 2.58.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
 
 ## In una frase
 
@@ -66,6 +66,7 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 
 **PRIORITÀ ASSOLUTA (01/11/2026): ecosistema produttivo locale con marketplace.** Leggere `docs/ECOSISTEMA.md` (analisi, modello dati lotti + movimenti, backend Supabase proposto, rischi, roadmap in 5 fasi con approvazione). La Fase 1 è consegnata e aspetta l'approvazione di Claudio (decisioni nella sezione 10 del documento): finché non c'è, NON si scrive codice del marketplace.
 
+00. Fatto 02/11/2026 (2.58.0): avviso di stagione sotto ogni coltura (`js/motore/stagione.js`, `data/it/stagione.json` di Codex con 18 fonti italiane, solo 20 colture; basilico e altre senza fonti sufficienti restano senza soglia di gelo, non inventata) e registrazione da foto (`js/motore/riconosci.js`, `js/ui/nuova-da-foto.js`, il dottore propone "Aggiungi al mio orto" con età stimata da correggere). Da fare: avviso di stagione anche in Oggi e nella pagina pianta; fonti per basilico, lattuga, carote, fagiolini, cipolla, ravanelli, bietola.
 0. Richiesti da Claudio il 01/11/2026 (vedi ROADMAP «Prossimo»): (a) vignette dei vermi più grandi e carine, con più espressioni e reazioni a ciò che fai; (b) mini gioco antistress a parte (`#/vermi`, entrata dall'icona in testata): trascinare/lanciare, solleticare, far scavare nella terra, dare da mangiare, contatore di minuti di relax; (c) assistenza continua per ogni coltura: seme o piantina, fasi di vita con «cosa fare» e accortezze, esame con foto che confronta fase reale ed età.
 
 1. Prove su telefono vero (Android): fotocamera in pagina, meteo, installazione, vermetti vivi. Finora tutto provato solo con Playwright.

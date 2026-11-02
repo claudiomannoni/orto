@@ -101,3 +101,8 @@ export async function alberi() {
 export async function raccolta() {
   return json(`data/${lingua}/raccolta.json`);
 }
+
+// Freddo, gelo e fine stagione di ogni coltura (data/it/stagione.json), o null.
+export async function stagione() {
+  return json(`data/${lingua}/stagione.json`);
+}

@@ -4,7 +4,9 @@ import { t, tn } from '../i18n.js';
 import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
 import { controllaProgressi } from '../store/progressi.js';
-import { catalogo, trovaScheda, animali, rendita, alberi } from '../contenuti.js';
+import { catalogo, trovaScheda, animali, rendita, alberi, stagione } from '../contenuti.js';
+import { riempiStagione } from '../ui/stagione-blocco.js';
+import { leggi } from '../store/impostazioni.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
@@ -12,6 +14,8 @@ import { aiuole } from '../ui/aiuole.js';
 import { bloccoBustina } from '../ui/bustina.js';
 
 let schede = [];
+let datiStagione = null;
+let zonaClimatica = null;
 let colture = [];
 let zone = [];
 let lista;
@@ -29,6 +33,14 @@ function icona(coltura) {
   return el('img', { class: 'icona-coltura', src: scheda?.icona ?? 'assets/colture/generica.svg', alt: '', width: 64, height: 64 });
 }
 
+// L'avviso di stagione sotto la pianta: fuori stagione, gelo in arrivo, fine stagione (riempito subito col calendario e poi con le previsioni).
+function riquadroStagione(coltura) {
+  const dentro = el('div', { class: 'stagione-posto' });
+  const sc = schede.find((s) => s.id === coltura.schedaId) ?? trovaScheda(schede, coltura.nome);
+  if (sc) riempiStagione(dentro, { coltura: { ...coltura, schedaId: coltura.schedaId ?? sc.id }, scheda: sc, zonaId: zonaClimatica, dati: datiStagione });
+  return dentro;
+}
+
 function scheda(coltura) {
   const { numero, etichetta } = testoGiorni(giorniDa(coltura.dataSemina));
   const nomeCompleto = coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome;
@@ -44,6 +56,7 @@ function scheda(coltura) {
     ),
     el('div', { class: 'giorni' }, el('strong', {}, String(numero)), el('span', {}, etichetta)),
     coltura.note ? el('p', { class: 'note' }, coltura.note) : null,
+    riquadroStagione(coltura),
     el('div', { class: 'riga' },
       el('a', { class: 'btn', href: `#/pianta?id=${encodeURIComponent(coltura.id)}` }, t('pianta.storia')),
       el('button', { class: 'btn', type: 'button', onclick: () => promemoria(coltura) }, t('coltura.promemoria')),
@@ -157,6 +170,7 @@ function apriNuova(nomeIniziale = '') {
 
 export async function monta(contenitore) {
   [colture, schede, zone] = await Promise.all([elencoColture(), catalogo(), elencoZone()]);
+  [datiStagione, zonaClimatica] = await Promise.all([stagione(), leggi().then((i) => i.zona)]);
   const [dAnimali, dRendita, dAlberi] = await Promise.all([animali(), rendita(), alberi()]);
   conteggio = el('span', { class: 'conteggio' }, '0');
   lista = el('ul', { class: 'lista' });

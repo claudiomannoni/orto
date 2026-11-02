@@ -1,7 +1,7 @@
 // Service worker: tiene in cache i file dell'app per l'uso offline.
 // Nome della cache ed elenco dei file li scrive `node scripts/aggiorna-cache.mjs`
 // (da lanciare dopo ogni modifica, insieme all'aumento di APP_VERSIONE in js/versione.js).
-const VERSIONE = 'orto-2.56.0';
+const VERSIONE = 'orto-2.58.0';
 const FILE = [
   // <<FILE
   './',
@@ -77,6 +77,7 @@ const FILE = [
   './data/it/quiz.json',
   './data/it/raccolta.json',
   './data/it/rendita.json',
+  './data/it/stagione.json',
   './data/it/terreno.json',
   './data/it/traguardi.json',
   './data/it/zone-climatiche.json',
@@ -120,9 +121,11 @@ const FILE = [
   './js/motore/raccolto.js',
   './js/motore/relax.js',
   './js/motore/resoconto.js',
+  './js/motore/riconosci.js',
   './js/motore/saluto.js',
   './js/motore/seguite.js',
   './js/motore/semi.js',
+  './js/motore/stagione.js',
   './js/motore/terreno.js',
   './js/motore/vestiti.js',
   './js/screens/alberi.js',
@@ -174,11 +177,13 @@ const FILE = [
   './js/ui/mascotte.js',
   './js/ui/meteo.js',
   './js/ui/nav.js',
+  './js/ui/nuova-da-foto.js',
   './js/ui/progressi.js',
   './js/ui/promemoria.js',
   './js/ui/raccolto-form.js',
   './js/ui/resoconto.js',
   './js/ui/sessione.js',
+  './js/ui/stagione-blocco.js',
   './js/ui/terreno.js',
   './js/ui/toast.js',
   './js/ui/vermetto.js',

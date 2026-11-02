@@ -1,0 +1,573 @@
+{
+  "versione": 1,
+  "fonti": {
+    "f1": {
+      "titolo": "Pomodoro",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/pomodoro.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: ortaggio assai sensibile al gelo."
+    },
+    "f2": {
+      "titolo": "Zucca e Zucchine",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/zucca.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: annuale, raccolta autunnale delle zucche invernali; semina dopo il pericolo di gelate."
+    },
+    "f5": {
+      "titolo": "Pisello",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/pisello.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: a 4-5 foglie può resistere fino a -8 °C; dipende da varietà e stadio."
+    },
+    "f6": {
+      "titolo": "Fava, Favino, Favetta",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/fava.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: -6 °C fatali per molte varietà allo stadio più resistente; il favino differisce."
+    },
+    "f7": {
+      "titolo": "Spinacio",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/spinacio.php",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: buona tolleranza al freddo allo stadio di rosetta, senza soglia."
+    },
+    "f8": {
+      "titolo": "Rucola",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/rucola.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: annuale; in condizioni ideali può vegetare anche in inverno."
+    },
+    "f9": {
+      "titolo": "Cavoli",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/cavoli.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: tollerano il freddo, non il gelo; cultivar con calendario invernale."
+    },
+    "f10": {
+      "titolo": "Cavolfiore e Broccolo",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/cavolfiore.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: il gelo danneggia la parte edule; broccolo coltivato come cavolfiore."
+    },
+    "f11": {
+      "titolo": "Carciofo",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: resiste abbastanza bene fino a 0 °C; sotto zero si danneggiano foglie e capolini."
+    },
+    "f12": {
+      "titolo": "Finocchio",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/finocchio.htm",
+      "consultata": "2026-11-02",
+      "nota": "Sotto 7 °C per un mese può fiorire: non è una soglia di danno da gelo."
+    },
+    "f13": {
+      "titolo": "Asparago",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/asparago.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: tagliare in autunno-inverno i fusti ormai secchi."
+    },
+    "f14": {
+      "titolo": "Patata",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/patata.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: i ritorni di freddo sotto 2 °C sono temibili per la vegetazione."
+    },
+    "f15": {
+      "titolo": "Peperone",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/peperone.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: molto sensibile al freddo, senza soglia numerica."
+    },
+    "f16": {
+      "titolo": "Melanzana",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/melanzana.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: annuale a ciclo primaverile-estivo."
+    },
+    "f17": {
+      "titolo": "Cetriolo",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/cetriolo.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: annuale; trapianto all'aperto dopo le gelate."
+    },
+    "f18": {
+      "titolo": "Prezzemolo",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/prezzemolo.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: biennale; tagliando gli steli fiorali può vegetare più a lungo."
+    },
+    "f19": {
+      "titolo": "Aglio",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/aglio.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: coltivato come annuale, ciclo autunno-inizio estate; possibili danni da gelate."
+    },
+    "f20": {
+      "titolo": "Porro",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/porro.htm",
+      "consultata": "2026-11-02",
+      "nota": "Scheda italiana: la rincalzatura delle colture tardive aumenta la resistenza al freddo."
+    }
+  },
+  "colture": {
+    "pomodori": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "muore-col-gelo",
+        "soglia_c": null,
+        "nota": "È assai sensibile al gelo; la soglia precisa è da verificare.",
+        "certezza": "alta",
+        "fonti": [
+          "f1"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i frutti rimasti prima delle gelate. Togli le piante esaurite.",
+        "come": "Stacca i frutti maturi e quelli sani ancora verdi; rimuovi poi i residui della coltura.",
+        "perche": "È una coltura estiva sensibile al gelo.",
+        "certezza": "media",
+        "fonti": [
+          "f1"
+        ]
+      }
+    },
+    "zucchine": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "muore-col-gelo",
+        "soglia_c": null,
+        "nota": "Si semina in campo dopo il pericolo di gelate; la soglia di danno è da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f2"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli gli ultimi frutti e togli le piante a produzione finita.",
+        "come": "Stacca i frutti integri e rimuovi dal campo la pianta esaurita.",
+        "perche": "È una coltura annuale della stagione calda.",
+        "certezza": "media",
+        "fonti": [
+          "f2"
+        ]
+      }
+    },
+    "peperoni": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "È molto sensibile al freddo; la temperatura precisa di danno è da verificare.",
+        "certezza": "alta",
+        "fonti": [
+          "f15"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i frutti prima dei freddi e togli le piante esaurite.",
+        "come": "Stacca i frutti sani e rimuovi la pianta a produzione finita.",
+        "perche": "È annuale nel clima mediterraneo e sensibile al freddo.",
+        "certezza": "media",
+        "fonti": [
+          "f15"
+        ]
+      }
+    },
+    "melanzane": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "È una coltura primaverile-estiva; soglia di danno da freddo da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f16"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i frutti rimasti e togli le piante a produzione finita.",
+        "come": "Stacca i frutti integri e rimuovi la pianta esaurita.",
+        "perche": "La melanzana è annuale a ciclo primaverile-estivo.",
+        "certezza": "media",
+        "fonti": [
+          "f16"
+        ]
+      }
+    },
+    "patate": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": 2,
+        "nota": "La vegetazione teme i ritorni di freddo sotto 2 °C; non è una soglia per i tuberi conservati.",
+        "certezza": "media",
+        "fonti": [
+          "f14"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i tuberi maturi e libera l'aiuola a fine ciclo.",
+        "come": "Scava con cautela ed estrai i tuberi; conservali al riparo dalla luce.",
+        "perche": "I tuberi sono il prodotto della coltura annuale.",
+        "certezza": "media",
+        "fonti": [
+          "f14"
+        ]
+      }
+    },
+    "cetrioli": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "Si trapianta all'aperto dopo il periodo delle gelate; soglia precisa da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f17"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i cetrioli rimasti e togli la pianta a produzione finita.",
+        "come": "Stacca i frutti utilizzabili e rimuovi il residuo della coltura.",
+        "perche": "Il cetriolo è una pianta annuale.",
+        "certezza": "media",
+        "fonti": [
+          "f17"
+        ]
+      }
+    },
+    "piselli": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo",
+        "soglia_c": -8,
+        "nota": "Allo stadio di 4-5 foglie alcune varietà resistono fino a -8 °C; fioritura e varietà cambiano la risposta.",
+        "certezza": "alta",
+        "fonti": [
+          "f5"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i baccelli pronti e rimuovi le piante dopo la produzione.",
+        "come": "Stacca i baccelli e poi togli i residui della coltura.",
+        "perche": "Il pisello è annuale e si coltiva per i baccelli o i semi.",
+        "certezza": "media",
+        "fonti": [
+          "f5"
+        ]
+      }
+    },
+    "fave": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": -6,
+        "nota": "Allo stadio di 4-5 foglie -6 °C sono fatali per molte varietà; la fioritura è più sensibile.",
+        "certezza": "alta",
+        "fonti": [
+          "f6"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i baccelli a maturità e rimuovi le piante a ciclo concluso.",
+        "come": "Stacca i baccelli e poi elimina i residui della coltura.",
+        "perche": "La resistenza al gelo dipende dallo stadio e dalla varietà.",
+        "certezza": "media",
+        "fonti": [
+          "f6"
+        ]
+      }
+    },
+    "rucola": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": null,
+        "nota": "In condizioni ideali vegeta in inverno; la resistenza al gelo non è quantificata: da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f8"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Raccogli le foglie necessarie e lascia le piante finché restano vegetative.",
+        "come": "Taglia le foglie da consumare senza sradicare la pianta.",
+        "perche": "La fonte riferisce che la vegetazione può continuare in inverno in condizioni ideali.",
+        "certezza": "media",
+        "fonti": [
+          "f8"
+        ]
+      }
+    },
+    "spinaci": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": null,
+        "nota": "Ha buona tolleranza al freddo allo stadio di rosetta; la soglia di gelo non è indicata.",
+        "certezza": "alta",
+        "fonti": [
+          "f7"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Raccogli le foglie o l'intera pianta quando serve.",
+        "come": "Sfoglia il cespo oppure taglia la pianta appena sotto le foglie.",
+        "perche": "La specie tollera bene il freddo nella fase di rosetta.",
+        "certezza": "media",
+        "fonti": [
+          "f7"
+        ]
+      }
+    },
+    "zucche": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "È una specie originaria di paesi caldi; soglia di danno da freddo da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f2"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli le zucche invernali prima dei freddi intensi.",
+        "come": "Taglia i frutti maturi e conservali in un locale asciutto e ventilato.",
+        "perche": "La fonte indica raccolta autunnale e conservazione fino alla fine dell'inverno.",
+        "certezza": "alta",
+        "fonti": [
+          "f2"
+        ]
+      }
+    },
+    "broccoli": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "Il gelo danneggia la parte edule, ma la fonte non quantifica la temperatura: da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f10"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli le infiorescenze prima che si aprano o siano danneggiate dal gelo.",
+        "come": "Taglia la testa compatta; raccogli i germogli laterali ancora integri.",
+        "perche": "Il gelo può danneggiare la parte edule.",
+        "certezza": "media",
+        "fonti": [
+          "f10"
+        ]
+      }
+    },
+    "cavolfiori": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "Il gelo danneggia il corimbo; soglia e risposta variano con cultivar e fase.",
+        "certezza": "media",
+        "fonti": [
+          "f10"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli il corimbo quando è compatto, prima che si apra o arrivi il gelo.",
+        "come": "Taglia la testa e lascia alcune foglie esterne attorno al corimbo.",
+        "perche": "Il gelo può danneggiare la parte edule.",
+        "certezza": "media",
+        "fonti": [
+          "f10"
+        ]
+      }
+    },
+    "verze": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "I cavoli tollerano il freddo ma non il gelo; la fonte non dà una soglia numerica.",
+        "certezza": "media",
+        "fonti": [
+          "f9"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i cespi maturi prima che il gelo li danneggi.",
+        "come": "Taglia il cespo alla base e togli le foglie esterne rovinate.",
+        "perche": "Le varietà hanno calendari diversi e il gelo danneggia i cavoli.",
+        "certezza": "media",
+        "fonti": [
+          "f9"
+        ]
+      }
+    },
+    "porri": {
+      "ciclo": "biennale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": null,
+        "nota": "La rincalzatura delle colture tardive aumenta la resistenza al freddo; soglia da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f20"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Raccogli i porri secondo necessità durante la stagione fredda.",
+        "come": "Estrai dal terreno solo quelli da usare e rincalza quelli tardivi.",
+        "perche": "La rincalzatura aumenta la resistenza al freddo delle colture tardive.",
+        "certezza": "media",
+        "fonti": [
+          "f20"
+        ]
+      }
+    },
+    "aglio": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": null,
+        "nota": "È coltivato dall'autunno all'inizio dell'estate e può subire danni da gelo; soglia da verificare.",
+        "certezza": "media",
+        "fonti": [
+          "f19"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Lascia in campo l'aglio autunnale durante l'inverno e raccoglilo a maturità.",
+        "come": "Estrai i bulbi maturi e falli asciugare sul terreno per circa una settimana.",
+        "perche": "Il ciclo di coltivazione va dall'autunno all'inizio dell'estate.",
+        "certezza": "media",
+        "fonti": [
+          "f19"
+        ]
+      }
+    },
+    "finocchi": {
+      "ciclo": "biennale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "Un mese sotto 7 °C può indurre la fioritura: non è una soglia di danno da freddo.",
+        "certezza": "media",
+        "fonti": [
+          "f12"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli il grumolo quando è sviluppato e prima dell'allungamento del germoglio.",
+        "come": "Taglia il grumolo alla base e pulisci le guaine esterne.",
+        "perche": "La raccolta è prevista prima che inizi l'allungamento dello scapo.",
+        "certezza": "alta",
+        "fonti": [
+          "f12"
+        ]
+      }
+    },
+    "asparagi": {
+      "ciclo": "perenne",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": null,
+        "nota": "La fonte descrive i fusti che seccano in inverno ma non quantifica la resistenza al gelo: da verificare.",
+        "certezza": "bassa",
+        "fonti": [
+          "f13"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Lascia l'asparagiaia e taglia in autunno-inverno i fusti ormai secchi.",
+        "come": "Recidi i fusti secchi lasciando un piccolo segno per riconoscere la fila.",
+        "perche": "L'asparago è perenne e resta in campo per anni.",
+        "certezza": "alta",
+        "fonti": [
+          "f13"
+        ]
+      }
+    },
+    "carciofi": {
+      "ciclo": "perenne",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": 0,
+        "nota": "Resiste abbastanza bene fino a 0 °C; sotto zero si danneggiano foglie e capolini.",
+        "certezza": "alta",
+        "fonti": [
+          "f11"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "proteggere",
+        "cosa_fare": "Lascia il ceppo in campo e proteggilo dai geli più intensi.",
+        "come": "La fonte non indica un riparo domestico specifico; scegli una protezione adatta al ceppo e al sito.",
+        "perche": "Sotto zero foglie e capolini si danneggiano; sotto -10 °C possono soffrire le gemme del rizoma.",
+        "certezza": "bassa",
+        "fonti": [
+          "f11"
+        ]
+      }
+    },
+    "prezzemolo": {
+      "ciclo": "biennale",
+      "freddo": {
+        "tolleranza": "resiste-al-gelo-leggero",
+        "soglia_c": null,
+        "nota": "La fonte non specifica la resistenza al gelo: da verificare.",
+        "certezza": "bassa",
+        "fonti": [
+          "f18"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "lasciare-in-campo",
+        "cosa_fare": "Raccogli le foglie e lascia la pianta per la seconda stagione.",
+        "come": "Taglia le foglie da usare; recidi gli steli fiorali se vuoi prolungare la vegetazione.",
+        "perche": "È biennale e può vegetare più a lungo se si tagliano gli steli fiorali.",
+        "certezza": "media",
+        "fonti": [
+          "f18"
+        ]
+      }
+    }
+  }
+}

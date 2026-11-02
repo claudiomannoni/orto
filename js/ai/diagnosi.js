@@ -3,6 +3,7 @@
 import { chiedi } from './ai.js';
 import { restantiOggi, registraUso, erroreFoto, tagliaTesto } from './foto.js';
 import { confrontaFase } from '../motore/fasi.js';
+import { STADI } from '../motore/riconosci.js';
 
 const CONFIDENZE = ['alta', 'media', 'bassa'];
 
@@ -26,6 +27,8 @@ export function costruisciPromptDiagnosi(contesto = {}) {
     'Rispondi SOLO con JSON, senza altro testo, in questo formato:',
     '{"pianta":{"nome":"nome comune oppure null","confidenza":"alta|media|bassa"},',
     '"stato":"sana|dubbio|problema|non_si_vede",',
+    '"stadio":"in che momento della vita è la pianta: germinazione|piantina|crescita|fioritura|frutti|raccolta, oppure null se non si capisce",',
+    '"giorni_stimati":"da quanti giorni è nata, come numero intero, solo se lo capisci dalla grandezza e dalle foglie; altrimenti null",',
     ...(contesto.fase ? ['"fase":"la sigla (id) della fase in cui la pianta SEMBRA davvero essere guardando la foto (uno degli id elencati), oppure null se non si capisce",'] : []),
     '"problemi":[{"nome":"causa possibile","confidenza":"alta|media|bassa","perche":"cosa vedi che lo fa pensare, max 110 caratteri","cosa_controllare":"max 120 caratteri"}],',
     '"avvisi":"per esempio foto sfocata o troppo lontana, max 130 caratteri, oppure stringa vuota"}',
@@ -60,6 +63,8 @@ export function leggiDiagnosi(testo, idFasi = []) {
     stato: stato === 'sana' && problemi.length ? 'dubbio' : stato,
     problemi,
     avvisi: tagliaTesto(dati.avvisi, 140),
+    stadio: STADI.includes(dati.stadio) ? dati.stadio : null,
+    giorni_stimati: Number.isInteger(dati.giorni_stimati) && dati.giorni_stimati >= 0 && dati.giorni_stimati <= 400 ? dati.giorni_stimati : null,
     fase: typeof dati.fase === 'string' && idFasi.includes(dati.fase) ? dati.fase : null,
   };
 }

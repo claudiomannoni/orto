@@ -15,6 +15,7 @@ import { elencoFoto, nuovaFoto, salvaFoto } from '../store/foto.js';
 import { controllaProgressi } from '../store/progressi.js';
 import { conversazione } from '../ui/mascotte.js';
 import { toast } from '../ui/toast.js';
+import { bloccoNuovaDaFoto } from '../ui/nuova-da-foto.js';
 
 function testoErrore(e) {
   const codice = e?.codice ?? 'altro';
@@ -107,7 +108,8 @@ export async function monta(contenitore) {
         controllaProgressi();
         salva.hidden = true;
       });
-      sostituisci(area, bloccoDiagnosi(diagnosi), el('div', { class: 'riga' }, salva, el('a', { class: 'btn', href: '#/diario' }, t('dottore.vai_diario'))));
+      const nuova = coltura ? null : await bloccoNuovaDaFoto(risultato);
+      sostituisci(area, bloccoDiagnosi(diagnosi), nuova, el('div', { class: 'riga' }, salva, el('a', { class: 'btn', href: '#/diario' }, t('dottore.vai_diario'))));
     } catch (e) {
       sostituisci(area, el('p', { class: 'avviso', role: 'alert' }, testoErrore(e)));
     } finally {
