@@ -85,6 +85,8 @@ export async function attendiApp(page) {
 export async function vai(page, rotta, query = '') {
   await page.goto(`${BASE}/${query}#/${rotta}`);
   await attendiApp(page);
+  // «Oggi» tiene il resto dietro «Mostra tutto»: i test che cercano quei blocchi lo aprono (apriTutto = false per provare la versione corta)
+  if (rotta === 'oggi' && !query.includes('corta')) await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
 }
 
 export async function scroll(page) {
