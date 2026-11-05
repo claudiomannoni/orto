@@ -29,6 +29,9 @@ await page.evaluate(() => new Promise((ok) => {
   };
 }));
 await page.reload();
+await page.waitForSelector('h2.titolo-schermata:has-text("Oggi in campagna")');
+// Dopo il ricaricamento «Mostra tutto» si richiude: si riapre prima di prendere il pulsante.
+await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
 await page.waitForSelector('#apri-resoconto');
 await page.dispatchEvent('#apri-resoconto', 'click');
 await page.waitForSelector('dialog[open] .resoconto-numeri');

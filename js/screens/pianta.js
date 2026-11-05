@@ -60,6 +60,7 @@ export async function monta(contenitore) {
           v.stato ? el('p', {}, t(`diagnosi.stato.${v.stato}`)) : null,
           i > 0 && ['sana', 'dubbio', 'problema'].includes(v.stato) && ['sana', 'dubbio', 'problema'].includes(linea[i - 1].stato) ? el('p', { class: 'aiuto' }, t(`pianta.variazione.${v.stato === linea[i - 1].stato ? 'uguale' : v.stato === 'sana' || (v.stato === 'dubbio' && linea[i - 1].stato === 'problema') ? 'migliora' : 'peggiora'}`)) : null,
           v.faseNome ? el('p', { class: 'aiuto' }, t('pianta.fase_vista', { nome: v.faseNome })) : null,
+          ['in-linea', 'in-ritardo', 'in-anticipo'].includes(v.confronto) ? el('p', { class: 'aiuto' }, t(`pianta.confronto.${v.confronto}`)) : null,
           v.problemi.length ? el('p', { class: 'aiuto' }, v.problemi.join(', ')) : null,
           v.foto?.nota ? el('p', { class: 'aiuto' }, v.foto.nota) : null)))) : el('p', { class: 'vuoto-testo' }, t('pianta.nessuna_foto')),
       el('p', { class: 'aiuto' }, t('diagnosi.avvertenza'))];

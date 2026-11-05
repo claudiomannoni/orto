@@ -68,6 +68,8 @@ async function apriRicerca() {
   };
   input.addEventListener('input', disegna);
   input.focus();
+  // Se qualcosa è già scritto (digitato mentre l'elenco era in costruzione), si disegna subito.
+  if (input.value) disegna();
 }
 
 // Evidenzia l'ingranaggio quando si è nelle impostazioni.

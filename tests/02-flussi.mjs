@@ -9,6 +9,8 @@ const browser = await chromium.launch();
 const Q = '?oggi=2026-10-30';
 const toast = (page) => page.$eval('#toast', (e) => e.textContent);
 const nomiInLista = (page) => page.$$eval('.coltura h3', (h) => h.map((x) => x.textContent));
+// Promemoria ed elimina ora stanno nel pannello «Altro» (details.coltura-azioni), che si richiude a ogni ridisegno della lista: apriAzioni lo riapre.
+const apriAzioni = (page) => page.evaluate(() => { document.querySelectorAll('details.coltura-azioni').forEach((d) => { d.open = true; }); });
 
 async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'orto', note = '' }) {
   await page.click('button:has-text("+ Nuova coltura")');
@@ -38,8 +40,8 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   check('aggiunta: compare in elenco', (await nomiInLista(page)).join() === 'Fave · Aguadulce', (await nomiInLista(page)).join());
   check('aggiunta: toast "Coltura aggiunta"', (await toast(page)) === 'Coltura aggiunta', await toast(page));
   check('aggiunta: testo vuoto sparito', !(await page.isVisible('#colture-vuoto')));
-  const gg = await page.$eval('.giorni strong', (e) => e.textContent);
-  check('aggiunta: 10 giorni dalla semina (20 ott -> 30 ott)', gg === '10', gg);
+  const gg = await page.locator('li.coltura .dati-coltura dd').first().innerText();
+  check('aggiunta: 10 giorni dalla semina (20 ott -> 30 ott)', gg.startsWith('10'), gg);
 
   await page.reload(); await attendiApp(page);
   check('persistenza: dopo ricarica la coltura c\'è ancora', (await nomiInLista(page)).join() === 'Fave · Aguadulce');
@@ -71,18 +73,21 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
 
   // elimina: annulla
   dialogo = 'dismiss';
-  await page.click('.coltura:has-text("Fave") >> text=Elimina');
+  await apriAzioni(page);
+  await page.click('.coltura:has-text("Fave") button.pericolo');
   await page.waitForTimeout(200);
   check('elimina: conferma chiesta con il nome', /Fave/.test(page.__ultimoDialogo || ''), page.__ultimoDialogo);
   check('elimina: se annullo la coltura resta', (await nomiInLista(page)).some((n) => n.startsWith('Fave')));
   dialogo = 'accept';
-  await page.click('.coltura:has-text("Fave") >> text=Elimina');
+  await apriAzioni(page);
+  await page.click('.coltura:has-text("Fave") button.pericolo');
   await page.waitForTimeout(300);
   check('elimina: dopo conferma sparisce', !(await nomiInLista(page)).some((n) => n.startsWith('Fave')), (await nomiInLista(page)).join());
   check('elimina: toast', (await toast(page)) === 'Coltura eliminata');
   await page.reload(); await attendiApp(page);
+  await apriAzioni(page);
   check('elimina: dopo ricarica non torna', !(await nomiInLista(page)).some((n) => n.startsWith('Fave')));
-  await page.click('.coltura >> text=Elimina');
+  await page.click('.coltura button.pericolo');
   await page.waitForTimeout(300);
   check('elimina l\'ultima: torna il testo vuoto', await page.isVisible('#colture-vuoto'));
 
@@ -106,6 +111,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   await svuotaDati(page);
   await vai(page, 'colture', Q);
   await nuova(page, { nome: 'Fave', varieta: 'Aguadulce', data: '2026-10-20', dove: 'orto', note: 'Dopo il pomodoro' });
+  await apriAzioni(page);
   await page.click('text=Aggiungi promemoria');
   const v = await page.$eval('dialog form', (f) => ({ t: f.titolo.value, d: f.data.value, x: f.descrizione.value }));
   check('promemoria: titolo precompilato', v.t === 'Orto: controllare Fave (Aguadulce)', v.t);
@@ -322,7 +328,8 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   // si possono ancora promemoria/elimina su una coltura vecchia
   await page.addInitScript(() => { window.open = () => null; });
   page.on('dialog', (d) => d.accept());
-  await page.click('.coltura:has-text("Zucchina") >> text=Elimina');
+  await apriAzioni(page);
+  await page.click('.coltura:has-text("Zucchina") button.pericolo');
   await page.waitForTimeout(300);
   check('migrazione: una coltura vecchia si elimina', (await nomiInLista(page)).length === 2 && (await leggiDb(page, 'colture')).length === 2);
   const bk = await page.evaluate(async () => { const m = await import('./js/store/backup.js'); return m.creaBackup(); });

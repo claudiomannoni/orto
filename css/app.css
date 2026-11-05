@@ -715,6 +715,8 @@ body.gioco-pieno main { padding: 0; max-width: none; }
 
 .filtri-colture .btn { min-height: var(--tocco, 56px); }
 
+.coltura .btn, .filtri-colture .btn { min-height: 56px; }
+
 .coltura { display: block; }
 .coltura-testa { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
 .coltura-testa .icona-coltura { width: 52px; height: 52px; }

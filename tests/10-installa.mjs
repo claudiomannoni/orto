@@ -65,6 +65,9 @@ await page.evaluate(() => new Promise((ok) => {
 }));
 await page.goto(`${BASE}/#/oggi`);
 await page.reload();
+await page.waitForSelector('h2.titolo-schermata:has-text("Oggi in campagna")');
+// Dopo il ricaricamento il pannello «Mostra tutto» si richiude: il riquadro sta dietro, si riapre.
+await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
 await page.waitForSelector('.installa:not([hidden])');
 check('dopo 7 giorni il riquadro ritorna', true);
 // appinstalled: sparisce anche senza aver toccato il pulsante
