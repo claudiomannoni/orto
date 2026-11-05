@@ -6,7 +6,7 @@ import { previsioni } from '../meteo.js';
 import { giudizioStagione } from '../motore/stagione.js';
 
 const nomeMese = (m) => new Date(2000, m - 1, 1).toLocaleDateString(locale(), { month: 'long' });
-const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
+const certezza = (c) => el('span', { class: `etichetta certezza ${['alta', 'media'].includes(c) ? c : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
 
 // Costruisce il riquadro per un giudizio già calcolato; null se non c'è niente da dire.
 export function bloccoStagione(g, dati) {

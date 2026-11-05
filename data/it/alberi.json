@@ -4,8 +4,8 @@
     {
       "id": "olivo",
       "nome": "Olivo",
-      "in_breve": "Le olive si possono destinare all?olio o alla tavola. Scelta varietale, impollinazione e gestione dipendono dal sito e vanno verificate localmente.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Le olive si possono destinare all’olio o alla tavola. Scelta varietale, impollinazione e gestione dipendono dal sito e vanno verificate localmente.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -23,15 +23,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -41,13 +41,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Nelle zone delimitate per Xylella vigono misure fitosanitarie specifiche: controlla la mappa e gli obblighi aggiornati con il Servizio fitosanitario regionale. Per vendita o trasformazione dell?olio verifica con Comune/ASL.",
+          "testo": "Nelle zone delimitate per Xylella vigono misure fitosanitarie specifiche: controlla la mappa e gli obblighi aggiornati con il Servizio fitosanitario regionale. Per vendita o trasformazione dell’olio verifica con Comune/ASL.",
           "fonte_url": "https://regione.lazio.it/cittadini/agricoltura/xylella-fastidiosa/aree-delimitate-lazio",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -58,7 +58,7 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
@@ -68,19 +68,19 @@
           "ente": "Regione Lazio"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "vite",
       "nome": "Vite",
-      "in_breve": "La vite pu? dare uva da tavola o da trasformazione. Variet?, forma di allevamento e calendario dipendono dall?obiettivo e dal luogo.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "La vite può dare uva da tavola o da trasformazione. Varietà, forma di allevamento e calendario dipendono dall’obiettivo e dal luogo.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -98,15 +98,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -116,13 +116,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -133,12 +133,12 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         },
@@ -148,14 +148,14 @@
           "ente": "Regione Lazio"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "fico",
       "nome": "Fico",
-      "in_breve": "Il fico ? presente tra le specie frutticole documentate nel Lazio. Adattamento, variet? e gestione del singolo albero vanno verificati.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Il fico è presente tra le specie frutticole documentate nel Lazio. Adattamento, varietà e gestione del singolo albero vanno verificati.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -173,15 +173,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -191,13 +191,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -208,24 +208,24 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "melo",
       "nome": "Melo",
-      "in_breve": "Il melo ? documentato tra le specie frutticole recuperate nel Lazio. Variet? e impollinazione richiedono verifica prima dell?impianto.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Il melo è documentato tra le specie frutticole recuperate nel Lazio. Varietà e impollinazione richiedono verifica prima dell’impianto.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -243,15 +243,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -261,13 +261,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -278,24 +278,24 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "pero",
       "nome": "Pero",
-      "in_breve": "Il pero ? documentato tra le specie frutticole recuperate nel Lazio. Variet? e impollinazione richiedono verifica prima dell?impianto.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Il pero è documentato tra le specie frutticole recuperate nel Lazio. Varietà e impollinazione richiedono verifica prima dell’impianto.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -313,15 +313,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -331,13 +331,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -348,24 +348,24 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "pesco",
       "nome": "Pesco",
-      "in_breve": "Il pesco ? documentato tra le specie frutticole recuperate nel Lazio. Scegli variet? e gestione con un tecnico locale.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Il pesco è documentato tra le specie frutticole recuperate nel Lazio. Scegli varietà e gestione con un tecnico locale.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -383,15 +383,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -401,13 +401,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -418,24 +418,24 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "ciliegio",
       "nome": "Ciliegio",
-      "in_breve": "Il ciliegio ? documentato tra le specie frutticole recuperate nel Lazio. Variet? e impollinazione richiedono verifica prima dell?impianto.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Il ciliegio è documentato tra le specie frutticole recuperate nel Lazio. Varietà e impollinazione richiedono verifica prima dell’impianto.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -453,15 +453,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -471,13 +471,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -488,24 +488,24 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "albicocco",
       "nome": "Albicocco",
-      "in_breve": "L?albicocco ? documentato tra le specie frutticole recuperate nel Lazio. Scegli variet? e gestione con un tecnico locale.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "L’albicocco è documentato tra le specie frutticole recuperate nel Lazio. Scegli varietà e gestione con un tecnico locale.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -523,15 +523,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -541,13 +541,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -558,24 +558,24 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "susino",
       "nome": "Susino",
-      "in_breve": "Il susino ? documentato tra le specie frutticole recuperate nel Lazio. Variet? e impollinazione richiedono verifica prima dell?impianto.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Il susino è documentato tra le specie frutticole recuperate nel Lazio. Varietà e impollinazione richiedono verifica prima dell’impianto.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -593,15 +593,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -611,13 +611,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -628,24 +628,24 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     },
     {
       "id": "nocciolo",
       "nome": "Nocciolo",
-      "in_breve": "Il nocciolo ? documentato tra le specie frutticole del Lazio. Variet?, impollinazione e gestione richiedono verifica locale.",
-      "dove_e_come": "Da verificare: terreno, esposizione e distanza d?impianto dipendono da variet?, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
+      "in_breve": "Il nocciolo è documentato tra le specie frutticole del Lazio. Varietà, impollinazione e gestione richiedono verifica locale.",
+      "dove_e_come": "Da verificare: terreno, esposizione e distanza d’impianto dipendono da varietà, portinnesto, forma di allevamento e sito. Chiedi a un tecnico locale.",
       "quando": {
         "1": [],
         "2": [],
@@ -663,15 +663,15 @@
       "cosa_serve": [
         {
           "voce": "Materiale di propagazione identificato",
-          "nota": "Verifica variet?, portinnesto e provenienza presso un vivaio o tecnico qualificato."
+          "nota": "Verifica varietà, portinnesto e provenienza presso un vivaio o tecnico qualificato."
         },
         {
           "voce": "Valutazione del sito",
-          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilit? d?acqua prima dell?impianto."
+          "nota": "Fai controllare terreno, drenaggio, esposizione e disponibilità d’acqua prima dell’impianto."
         }
       ],
       "resa_realistica": {
-        "testo": "Da verificare: non ? stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
+        "testo": "Da verificare: non è stata individuata una fonte consultata per anni alla prima produzione e resa tipica comparabili a un piccolo frutteto dei Castelli Romani.",
         "fonte_url": "",
         "certezza": "bassa"
       },
@@ -681,13 +681,13 @@
       ],
       "vendita_e_legge": [
         {
-          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall?attivit? concreta.",
+          "testo": "Per vendita o trasformazione alimentare verifica gli obblighi applicabili con il tuo Comune/ASL; le regole dipendono dall’attività concreta.",
           "fonte_url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "certezza": "alta"
         }
       ],
       "errori_comuni": [
-        "Scegliere variet? o distanza senza conoscere portinnesto e forma di allevamento.",
+        "Scegliere varietà o distanza senza conoscere portinnesto e forma di allevamento.",
         "Applicare un calendario generico senza considerare clima, suolo e stato della pianta."
       ],
       "rischi": [
@@ -698,18 +698,18 @@
       ],
       "fonti": [
         {
-          "titolo": "Frutti dimenticati e biodiversit? recuperata nel Lazio",
+          "titolo": "Frutti dimenticati e biodiversità recuperata nel Lazio",
           "url": "https://www.arsial.it/wp-content/uploads/2025/06/Frutti-dimenticati-e-biodiversita-recuperata.pdf",
           "ente": "ARSIAL"
         },
         {
-          "titolo": "Responsabilit? dell?operatore alimentare",
+          "titolo": "Responsabilità dell’operatore alimentare",
           "url": "https://www.salute.gov.it/new/it/tema/sistema-di-controllo-della-sicurezza-alimentare/responsabilita-delloperatore/",
           "ente": "Ministero della Salute"
         }
       ],
-      "impollinazione": "Da verificare: dipende dalla specie e dalla variet?; scegli l?abbinamento solo su indicazione di una fonte varietale affidabile.",
-      "potatura": "Da verificare: epoca e forma dipendono da specie, variet?, et? e sistema di allevamento; chiedi a un tecnico."
+      "impollinazione": "Da verificare: dipende dalla specie e dalla varietà; scegli l’abbinamento solo su indicazione di una fonte varietale affidabile.",
+      "potatura": "Da verificare: epoca e forma dipendono da specie, varietà, età e sistema di allevamento; chiedi a un tecnico."
     }
   ]
 }

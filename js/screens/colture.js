@@ -83,7 +83,7 @@ function scheda(coltura) {
       dato('colture.campo.eta', coltura.partenza === 'piantina' ? `${t('colture.eta', { n: eta })} · ${t('colture.trapiantata')}` : t('colture.eta', { n: eta })),
       dato('colture.campo.fase', st?.fase?.nome ?? t('colture.fase_sconosciuta')),
       dato('colture.campo.prossima', st?.fase?.cosa_fare?.[0] ?? t('colture.azione_sconosciuta')),
-      dato('colture.campo.raccolto', periodoRaccolto, raccolto?.certezza ? el('span', { class: `etichetta certezza ${raccolto.certezza === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${raccolto.certezza}`)) : null)),
+      dato('colture.campo.raccolto', periodoRaccolto, raccolto?.certezza ? el('span', { class: `etichetta certezza ${['alta', 'media'].includes(raccolto.certezza) ? raccolto.certezza : 'bassa'}` }, t(`animali.certezza.${raccolto.certezza}`)) : null)),
     coltura.note ? el('p', { class: 'note' }, coltura.note) : null,
     riquadroStagione(coltura),
     el('div', { class: 'riga azioni-rapide' },

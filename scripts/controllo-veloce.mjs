@@ -39,6 +39,8 @@ const visita = (cartella) => readdirSync(join(radice, cartella)).forEach((n) => 
   try { JSON.parse(testo); } catch { rotti.push(rel); }
   if (emoji.test(testo)) emojiTrovate.push(rel);
   if (testo.includes('�')) rotti.push(`${rel} (caratteri rotti)`);
+  // un accento o un apostrofo perso diventa «?» dentro una parola (variet?, d?acqua): fuori dagli indirizzi web non ce ne devono essere
+  if (testo.split(/\r?\n/).some((r) => !r.includes('://') && /[A-Za-zÀ-ÿ’]\?[A-Za-zÀ-ÿ]|(?<=\d)\?(?=\d)/.test(r))) rotti.push(`${rel} (accenti persi: «?» dentro una parola)`);
 });
 ['data', 'i18n'].forEach(visita);
 punto('JSON validi e senza caratteri rotti', rotti.length === 0, rotti.join(', '));

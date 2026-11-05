@@ -234,9 +234,9 @@
     "Soglia di freddo che le piantine di fava sopportano: non confermata.",
     "Proteggi dal gelo e rincalzo: pratiche comuni, non verificate per i Castelli.",
     "Consociazioni: tradizione.",
-    "Giorni alla raccolta per fave fresche e sesti adatti all?orto dei Castelli non confermati.",
+    "Giorni alla raccolta per fave fresche e sesti adatti all’orto dei Castelli non confermati.",
     "Consociazioni non confermate da fonti autorevoli.",
-    "Periodo ottimale generale per l?Italia centrale, non validato per quota e microclima dei Castelli."
+    "Periodo ottimale generale per l’Italia centrale, non validato per quota e microclima dei Castelli."
   ],
   "fonti": {
     "f1": {
@@ -244,14 +244,14 @@
       "ente": "Regione Marche",
       "url": "https://www.regione.marche.it/Portals/0/Agricoltura/ProduzioneIntegrata/DDS_AFP_2013_0529.pdf",
       "consultata": "2026-10-30",
-      "nota": "Semina autunnale: profondit? circa 5 cm, distanze in fila e tra file; rotazione e alternanza con cereali."
+      "nota": "Semina autunnale: profondità circa 5 cm, distanze in fila e tra file; rotazione e alternanza con cereali."
     },
     "f2": {
       "titolo": "Fava, Favino, Favetta: coltivazioni erbacee",
       "ente": "Agraria.org",
       "url": "https://www.agraria.org/coltivazionierbacee/fava.htm",
       "consultata": "2026-10-30",
-      "nota": "Per regioni centrali ottobre-novembre; profondit?, distanze e rincalzatura, indicazioni generiche."
+      "nota": "Per regioni centrali ottobre-novembre; profondità, distanze e rincalzatura, indicazioni generiche."
     }
   }
 }

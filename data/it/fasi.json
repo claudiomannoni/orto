@@ -48,7 +48,7 @@
       "ente": "Iowa State University Extension and Outreach",
       "url": "https://yardandgarden.extension.iastate.edu/how-to/vegetable-harvest-guide",
       "consultata": "2026-11-01",
-      "nota": "Giorni indicativi e criteri di raccolta per ortaggi; condizioni dell?Iowa."
+      "nota": "Giorni indicativi e criteri di raccolta per ortaggi; condizioni dell’Iowa."
     },
     "f8": {
       "titolo": "Planting vegetables in midsummer for fall harvest",
@@ -58,18 +58,18 @@
       "nota": "Intervalli di maturazione e note su raccolta per alcune orticole; condizioni del Minnesota."
     },
     "f20": {
-      "titolo": "L?orto e l?acqua",
-      "ente": "Universit? di Bologna, progetto Hortis",
+      "titolo": "L’orto e l’acqua",
+      "ente": "Università di Bologna, progetto Hortis",
       "url": "https://site.unibo.it/hortis/it/area-download/manuali-elettronici-1/8d-2-3-ebook2-sustainable-urban-garden-management-it.pdf/%40%40download/file/8d.2.3-ebook2-sustainable-urban-garden-management-it.pdf",
       "consultata": "2026-11-01",
-      "nota": "Guida italiana all?irrigazione dell?orto; d? un?indicazione specifica per la carota e principi generali, non fabbisogni per ogni coltura e fase."
+      "nota": "Guida italiana all’irrigazione dell’orto; dà un’indicazione specifica per la carota e principi generali, non fabbisogni per ogni coltura e fase."
     },
     "f21": {
       "titolo": "Disciplinare di produzione integrata 2021 - Norme tecniche di coltura",
       "ente": "Regione Lazio",
       "url": "https://www.regione.lazio.it/sites/default/files/documentazione/AGC_DD_G02644_11_03_2021_Allegato_2.pdf",
       "consultata": "2026-11-01",
-      "nota": "Per pomodoro da industria indica sensibilit? a carenza e ristagno e fasi critiche; indicazioni professionali da adattare all?orto familiare."
+      "nota": "Per pomodoro da industria indica sensibilità a carenza e ristagno e fasi critiche; indicazioni professionali da adattare all’orto familiare."
     }
   },
   "colture": {
@@ -160,7 +160,7 @@
           ],
           "acqua": {
             "livello": "media",
-            "nota": "Annaffia regolarmente; la crescita fogliare ? una fase sensibile alla carenza.",
+            "nota": "Annaffia regolarmente; la crescita fogliare è una fase sensibile alla carenza.",
             "certezza": "alta",
             "fonti": [
               "f21"
@@ -188,7 +188,7 @@
           ],
           "acqua": {
             "livello": "media",
-            "nota": "Mantieni regolare l?umidit? durante fioritura e allegagione.",
+            "nota": "Mantieni regolare l’umidità durante fioritura e allegagione.",
             "certezza": "alta",
             "fonti": [
               "f21"
@@ -216,7 +216,7 @@
           ],
           "acqua": {
             "livello": "media",
-            "nota": "Mantieni disponibilit? idrica durante l?ingrossamento dei frutti, evitando ristagni.",
+            "nota": "Mantieni disponibilità idrica durante l’ingrossamento dei frutti, evitando ristagni.",
             "certezza": "alta",
             "fonti": [
               "f21"
@@ -535,7 +535,7 @@
           ],
           "acqua": {
             "livello": "poca",
-            "nota": "Evita eccessi d?acqua perch? la radice possa svilupparsi; adatta l?apporto al terreno.",
+            "nota": "Evita eccessi d’acqua perché la radice possa svilupparsi; adatta l’apporto al terreno.",
             "certezza": "media",
             "fonti": [
               "f20"
@@ -564,7 +564,7 @@
           ],
           "acqua": {
             "livello": "poca",
-            "nota": "Evita eccessi d?acqua perch? la radice possa svilupparsi; adatta l?apporto al terreno.",
+            "nota": "Evita eccessi d’acqua perché la radice possa svilupparsi; adatta l’apporto al terreno.",
             "certezza": "media",
             "fonti": [
               "f20"
@@ -591,7 +591,7 @@
           ],
           "acqua": {
             "livello": "poca",
-            "nota": "Evita eccessi d?acqua perch? la radice possa svilupparsi; adatta l?apporto al terreno.",
+            "nota": "Evita eccessi d’acqua perché la radice possa svilupparsi; adatta l’apporto al terreno.",
             "certezza": "media",
             "fonti": [
               "f20"
@@ -1667,7 +1667,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -1695,7 +1695,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -1722,7 +1722,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -1749,7 +1749,7 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 25?45 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 25–45 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
@@ -1787,7 +1787,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -1815,7 +1815,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -1842,7 +1842,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -1869,7 +1869,7 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 28?40 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 28–40 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
@@ -1907,7 +1907,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -1935,7 +1935,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -1962,7 +1962,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -1989,7 +1989,7 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 60?150 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 60–150 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
@@ -2027,7 +2027,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -2055,7 +2055,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2082,7 +2082,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2109,7 +2109,7 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 84?121 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 84–121 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
@@ -2147,7 +2147,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -2175,7 +2175,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2202,7 +2202,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2229,7 +2229,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2256,10 +2256,10 @@
             "Controlla se si formano getti laterali dopo il taglio."
           ],
           "accortezze": [
-            "La scheda indica 55?65 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 55–65 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
-          "come_riconoscerla": "La testa ? compatta e i boccioli sono ancora chiusi.",
+          "come_riconoscerla": "La testa è compatta e i boccioli sono ancora chiusi.",
           "certezza": "media",
           "fonti": [
             "f7"
@@ -2294,7 +2294,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -2322,7 +2322,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2349,7 +2349,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2376,7 +2376,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2400,13 +2400,13 @@
           "a_giorno": null,
           "cosa_fare": [
             "Raccogli la testa compatta quando ha raggiunto la pezzatura tipica.",
-            "Controlla spesso la testa durante l?ingrossamento."
+            "Controlla spesso la testa durante l’ingrossamento."
           ],
           "accortezze": [
-            "La scheda indica 75?80 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 75–80 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
-          "come_riconoscerla": "La testa ? compatta, chiara e ben sviluppata.",
+          "come_riconoscerla": "La testa è compatta, chiara e ben sviluppata.",
           "certezza": "media",
           "fonti": [
             "f7"
@@ -2441,7 +2441,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -2469,7 +2469,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2496,7 +2496,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2523,7 +2523,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2550,10 +2550,10 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 71?128 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 71–128 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
-          "come_riconoscerla": "Il cespo ? sviluppato, compatto e sodo al tatto.",
+          "come_riconoscerla": "Il cespo è sviluppato, compatto e sodo al tatto.",
           "certezza": "media",
           "fonti": [
             "f8"
@@ -2588,7 +2588,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -2616,7 +2616,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2643,7 +2643,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2670,7 +2670,7 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 90?120 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 90–120 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Il fusto bianco ha raggiunto la dimensione desiderata.",
@@ -2708,7 +2708,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -2736,7 +2736,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2763,7 +2763,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2790,7 +2790,7 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 40?60 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 40–60 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "La parte raccolta ha dimensione e aspetto tipici della coltura.",
@@ -2828,7 +2828,7 @@
             "Mantieni umido il terreno senza ristagni."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Emergono i cotiledoni o i primi germogli.",
@@ -2856,7 +2856,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2883,7 +2883,7 @@
             "Togli le erbe vicine con cautela e osserva la crescita."
           ],
           "accortezze": [
-            "La durata varia con variet?, temperatura e condizioni locali.",
+            "La durata varia con varietà, temperatura e condizioni locali.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
           "come_riconoscerla": "Compaiono nuove foglie e la pianta aumenta di dimensione.",
@@ -2910,10 +2910,10 @@
             "Osserva forma, consistenza e dimensione tipiche della coltura."
           ],
           "accortezze": [
-            "La scheda indica 200?240 giorni; il momento effettivo varia con variet? e condizioni.",
+            "La scheda indica 200–240 giorni; il momento effettivo varia con varietà e condizioni.",
             "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
           ],
-          "come_riconoscerla": "Le foglie ingialliscono e si piegano mentre il bulbo ? sviluppato.",
+          "come_riconoscerla": "Le foglie ingialliscono e si piegano mentre il bulbo è sviluppato.",
           "certezza": "media",
           "fonti": [
             "f8"
