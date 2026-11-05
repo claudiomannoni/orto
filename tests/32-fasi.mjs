@@ -1,4 +1,4 @@
-// Assistenza continua: seme o piantina, «cosa fare» per fase in Oggi, esame con foto che confronta la fase con l'età. Uso: node tests/32-fasi.mjs http://localhost:8101
+// Assistenza continua: seme o piantina, Â«cosa fareÂ» per fase in Oggi, esame con foto che confronta la fase con l'etÃ . Uso: node tests/32-fasi.mjs http://localhost:8101
 import { chromium, nuovoContesto, check, osserva, finale, vai, leggiDb } from './lib.mjs';
 const browser = await chromium.launch();
 const problemi = [];
@@ -17,40 +17,40 @@ await page.route('**/generativelanguage.googleapis.com/**', async (route) => {
 });
 
 await vai(page, 'colture', '?oggi=2026-06-30');
-await page.click('button:has-text("+ Nuova coltura")');
+await page.click('button.colture-nuova-fissa');
 await page.waitForSelector('dialog[open] input[name=nome]');
 await page.fill('dialog input[name=nome]', 'Pomodori');
 await page.check('dialog input[name=partenza][value=piantina]');
-check('scegliendo «Da piantina» la data diventa «Data di trapianto»', /trapianto/i.test(await page.locator('dialog .etichetta-data').innerText()));
+check('scegliendo Â«Da piantinaÂ» la data diventa Â«Data di trapiantoÂ»', /trapianto/i.test(await page.locator('dialog .etichetta-data').innerText()));
 await page.fill('dialog input[name=dataSemina]', '2026-06-05'); // 25 giorni dal trapianto
 await page.click('dialog button[type=submit]');
 await page.waitForSelector('li.coltura');
-check('la carta dice «Trapiantata il»', /Trapiantata il/.test(await page.locator('li.coltura').first().innerText()));
+check('la carta dice Â«Trapiantata ilÂ»', /Trapiantata il/.test(await page.locator('li.coltura').first().innerText()));
 const colture = await leggiDb(page, 'colture');
-check('la coltura salva «partenza: piantina»', colture[0]?.partenza === 'piantina', JSON.stringify(colture[0]));
+check('la coltura salva Â«partenza: piantinaÂ»', colture[0]?.partenza === 'piantina', JSON.stringify(colture[0]));
 
 // Oggi: 25 giorni dal trapianto + 42 di piantina = 67 giorni -> fioritura (66-89)
 await vai(page, 'oggi', '?oggi=2026-06-30');
 await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.fase-pianta');
 const blocco = await page.locator('.fase-pianta').first().innerText();
-check('Oggi: età stimata di 67 giorni e fase «Fioritura»', /67 giorni/.test(blocco) && /Fioritura/i.test(blocco), blocco.slice(0, 200));
-check('«Cosa fare adesso» e accortezze del periodo, con la fonte', /Cosa fare adesso/.test(blocco) && /Accortezze/.test(blocco) && (await page.locator('.fase-pianta details a').count()) >= 1);
+check('Oggi: etÃ  stimata di 67 giorni e fase Â«FiorituraÂ»', /67 giorni/.test(blocco) && /Fioritura/i.test(blocco), blocco.slice(0, 200));
+check('Â«Cosa fare adessoÂ» e accortezze del periodo, con la fonte', /Cosa fare adesso/.test(blocco) && /Accortezze/.test(blocco) && (await page.locator('.fase-pianta details a').count()) >= 1);
 check('dice fra quanti giorni cambia fase', /Fra circa \d+ giorni passa alla fase/.test(blocco));
 
 check('la fase mostra l acqua e la raccolta con conservazione', (await page.locator('.fase-pianta .acqua-fase').count()) >= 1 && (await page.locator('.fase-pianta .raccolta-conservazione').count()) >= 1);
 await page.waitForTimeout(500);
-// foto: l'esame parte con la coltura già scelta e chiede la fase
+// foto: l'esame parte con la coltura giÃ  scelta e chiede la fase
 await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const tx = d.transaction('impostazioni', 'readwrite'); const s = tx.objectStore('impostazioni'); s.put({ chiave: 'ai_chiave', valore: 'AIzaSyFINTA-fasi-1234567890' }); s.put({ chiave: 'ai_foto_ok', valore: true }); tx.oncomplete = () => { d.close(); ok(); }; }; }));
 await page.locator('.fase-pianta a.btn').first().click();
 await page.waitForSelector('#dottore-scatta');
-check('«Esamina con una foto» apre il dottore con la coltura scelta', (await page.locator('select[name=coltura]').inputValue()) === colture[0].id);
+check('Â«Esamina con una fotoÂ» apre il dottore con la coltura scelta', (await page.locator('select[name=coltura]').inputValue()) === colture[0].id);
 const png = Buffer.from(await page.evaluate(async () => { const t = document.createElement('canvas'); t.width = 400; t.height = 300; const x = t.getContext('2d'); x.fillStyle = '#3a7'; x.fillRect(0, 0, 400, 300); for (let i = 0; i < 60; i++) { x.fillStyle = `hsl(${(i * 53) % 360} 50% 45%)`; x.fillRect((i * 91) % 400, (i * 47) % 300, 30, 30); } const b = await new Promise((ok) => t.toBlob(ok, 'image/png')); return Array.from(new Uint8Array(await b.arrayBuffer())); }));
 await page.setInputFiles('input[name=dottore-foto]', { name: 'p.png', mimeType: 'image/png', buffer: png });
 await page.waitForSelector('.dottore-risultato .diagnosi');
 const esito = await page.locator('.dottore-risultato').innerText();
-check('la richiesta a Gemini contiene l\'età e le fasi possibili', richieste.length === 1 && /67 giorni/.test(richieste[0]) && /germinazione/.test(richieste[0]) && /fioritura/.test(richieste[0]), richieste[0]?.slice(0, 120));
-check('il risultato confronta fase attesa e osservata (in ritardo: sembra «Crescita vegetativa»)', /Fase di crescita/.test(esito) && /Fioritura/.test(esito) && /Crescita vegetativa/.test(esito) && /indietro/.test(esito), esito);
+check('la richiesta a Gemini contiene l\'etÃ  e le fasi possibili', richieste.length === 1 && /67 giorni/.test(richieste[0]) && /germinazione/.test(richieste[0]) && /fioritura/.test(richieste[0]), richieste[0]?.slice(0, 120));
+check('il risultato confronta fase attesa e osservata (in ritardo: sembra Â«Crescita vegetativaÂ»)', /Fase di crescita/.test(esito) && /Fioritura/.test(esito) && /Crescita vegetativa/.test(esito) && /indietro/.test(esito), esito);
 const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked/.test(p));
 check('nessun errore in console', veri.length === 0, veri.join(' | '));
 await browser.close();

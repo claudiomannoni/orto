@@ -11,11 +11,10 @@ import { elencoFoto } from '../store/foto.js';
 import { elencoZone } from '../store/zone.js';
 import { imposta } from '../store/impostazioni.js';
 import { calcolaLavori } from '../motore/oggi.js';
-import { conversazione, festeggia, vestitoAttuale, reagisci } from '../ui/mascotte.js';
+import { conversazione, festeggia, reagisci } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
-import { etichettaOrto } from '../ui/identita.js';
 import { bloccoInstalla } from '../ui/installa.js';
 import { controllaProgressi } from '../store/progressi.js';
 import { cartaProgressi } from '../ui/progressi.js';
@@ -31,10 +30,12 @@ import { curiositaDelGiorno } from '../motore/curiosita.js';
 import { consigliDeiVermi, scegliConsiglio } from '../motore/consigli-vermi.js';
 import { chiaveBentornato } from '../motore/assenza.js';
 import { giorniAssenzaSessione } from '../ui/sessione.js';
-import { chiaveSaluto } from '../motore/saluto.js';
 import { giudizioStagione } from '../motore/stagione.js';
 import { stagione } from '../contenuti.js';
 import { bloccoStagione } from '../ui/stagione-blocco.js';
+import { bustinaPianta } from '../ui/bustina-pianta.js';
+import { statoFase } from '../ui/fasi-pianta.js';
+import { valutaSalute, giorniDaAnnaffiatura } from '../motore/salute.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -146,23 +147,36 @@ function scheda(voce, indice, { termini, impostazioni, alChiudere }) {
 
   const carta = el('li', { class: 'card lavoro' },
     el('span', { class: 'numero', 'aria-hidden': 'true' }, String(indice + 1)),
-    dettagli,
+    el('div', { class: 'lavoro-riga' }, dettagli,
+      el('button', { class: 'btn primario lavoro-spunta', type: 'button', 'aria-label': t('lavoro.fatto'), onclick: () => alChiudere(voce, carta, 'lavoro_fatto', 'ok') }, el('span', { 'aria-hidden': 'true' }), el('span', { class: 'solo-lettori' }, t('lavoro.fatto')))),
     consiglio,
     el('div', { class: 'riga' },
-      el('button', { class: 'btn primario', type: 'button', onclick: () => alChiudere(voce, carta, 'lavoro_fatto', 'ok') }, t('lavoro.fatto')),
       el('button', { class: 'btn', type: 'button', onclick: () => alChiudere(voce, carta, 'lavoro_saltato', 'saltato') }, t('lavoro.non_oggi')),
     ),
   );
+  carta.prepend(el('button', { class: 'lavoro-spunta', type: 'button', 'aria-label': `${t('lavoro.fatto')}: ${titolo}`, onclick: () => alChiudere(voce, carta, 'lavoro_fatto', 'ok') }, el('span', { 'aria-hidden': 'true' })));
   return carta;
 }
 
-const FESTE = ['halloween', 'natale', 'pasqua', 'carnevale', 'compleanno', 'festa'];
-
-// «Buongiorno, Claudio»: dipende dall'ora; nei giorni di festa (quando i vermetti sono vestiti a festa) saluta con gli auguri.
+// Il cruscotto saluta con il nome salvato; senza nome usa il saluto breve scelto per la schermata.
 function testoSaluto(impostazioni) {
-  const festa = FESTE.includes(vestitoAttuale()) ? vestitoAttuale() : null;
-  const saluto = t(chiaveSaluto(new Date().getHours(), { festa }));
+  const saluto = t('saluto.buongiorno');
   return impostazioni.nome_coltivatore ? t('saluto.con_nome', { saluto, nome: impostazioni.nome_coltivatore }) : saluto;
+}
+
+function iconaScorciatoia(nome) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('class', 'icona-scorciatoia');
+  svg.setAttribute('aria-hidden', 'true');
+  const forme = {
+    dottore: '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
+    acqua: '<path d="M12 3C9 7 6 10 6 14a6 6 0 0 0 12 0c0-4-3-7-6-11z"/>',
+    raccolto: '<path d="M4 10h16l-2 10H6zM3 7h18M8 7c0-3 2-4 4-4s4 1 4 4"/>',
+    appunto: '<path d="M6 4h12v16H6zM9 8h6M9 12h6M9 16h4"/>',
+  };
+  svg.innerHTML = forme[nome];
+  return svg;
 }
 
 export async function monta(contenitore) {
@@ -250,10 +264,20 @@ export async function monta(contenitore) {
     voce.rotta ? el('a', { class: 'btn', href: voce.rotta }, t('verme.consiglio.vai')) : null) : null;
   // Le piante dell'utente, fase per fase: cosa fare adesso in base all'età (solo per le colture di cui abbiamo le fasi).
   const [dFasi, dRaccolta] = await Promise.all([fasi(), raccolta()]);
+  const fotoDiagnosi = await elencoFoto().catch(() => []);
   const bloccoPiante = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina)).map((c) => bloccoFase(c, dFasi, oggi, { raccoltaDati: dRaccolta })).filter(Boolean).slice(0, 5);
-  const cartaPiante = bloccoPiante.length ? el('section', { class: 'piante-fasi' }, el('h3', {}, t('oggi.piante')), el('p', { class: 'aiuto' }, t('oggi.piante.spiega')), ...bloccoPiante) : null;
-  const avvisiGelo = el('section', { class: 'avvisi-stagione' });
   const minime = await previsioni().then(({ giorni }) => giorni.filter((x) => x.data >= oggi).slice(0, 7).map((x) => x.min)).catch(() => []);
+  const pianteBustine = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina)).slice(0, 8).map((c) => {
+    const sc = schede.find((x) => x.id === c.schedaId);
+    const st = statoFase(c, dFasi, oggi);
+    const diagnosi = fotoDiagnosi.filter((f) => f.colturaId === c.id && f.diagnosi).sort((a, b) => b.data.localeCompare(a.data))[0]?.diagnosi ?? null;
+    const stagioneColtura = giudizioStagione({ coltura: c, scheda: sc, zonaId: impostazioni.zona, dati: datiStagione, oggi, minime });
+    const salute = valutaSalute({ diagnosi, stagione: stagioneColtura, giorniAnnaffiatura: giorniDaAnnaffiatura(eventi, c.id, oggi), acqua: st?.fase?.acqua?.livello });
+    const cicloFasi = st?.dati?.fasi?.at(-1)?.a_giorno;
+    return bustinaPianta({ coltura: c, scheda: sc, stato: salute.stato, fase: st?.fase?.nome, eta: st?.eta, ciclo: sc?.giorni_alla_raccolta?.max ?? cicloFasi, href: `#/pianta?id=${encodeURIComponent(c.id)}&scheda=oggi` });
+  });
+  const cartaPiante = pianteBustine.length ? el('section', { class: 'riquadro sezione-bustine bento-largo' }, el('h3', {}, t('oggi.piante')), el('div', { class: 'striscia-bustine' }, pianteBustine)) : null;
+  const avvisiGelo = el('section', { class: 'avvisi-stagione' });
   for (const c of colture) {
     const sc = schede.find((x) => x.id === c.schedaId);
     const giudizio = giudizioStagione({ coltura: c, scheda: sc, zonaId: impostazioni.zona, dati: datiStagione, oggi, minime });
@@ -277,19 +301,18 @@ export async function monta(contenitore) {
   }
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
-    el('p', { class: 'saluto' }, testoSaluto(impostazioni)),
-    el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
-    etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
-    cartaMeteo(),
+    el('div', { class: 'striscia-giorno' }, el('div', { class: 'giorno-condizioni' }, el('span', { class: 'giorno-data' }, formattaDataLunga(oggi)), cartaMeteo()), avvisiGelo),
+    el('section', { class: 'sezione-da-fare' },
+    el('h3', { class: 'titolo-lavori' }, t('oggi.da_fare')),
     lavori.length ? lista : el('section', { class: 'card vuoto' },
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
-    avvisiGelo,
-    el('details', { class: 'contenuto-secondario oggi-altri' },
-      el('summary', {}, t('oggi.mostra_tutto')),
-      lavori.length > 3 ? listaExtra : null,
-      cartaPassi, cartaPiante, cartaConsiglio, cartaGioca, cartaSapevi, zonaConversazione, carta, bloccoInstalla({ rimandabile: true })),
+    lavori.length > 3 ? el('details', { class: 'altri-lavori' }, el('summary', {}, t('oggi.altri_lavori', { n: lavori.length - 3 })), listaExtra) : null),
+    cartaPiante,
+    el('section', { class: 'scorciatoie' }, el('h3', {}, t('oggi.scorciatoie')), el('div', { class: 'scorciatoie-griglia' },
+      ...[['dottore','oggi.scorciatoia.foto','#/dottore'],['acqua','oggi.scorciatoia.acqua','#/colture'],['raccolto','oggi.scorciatoia.raccolto','#/raccolto'],['appunto','oggi.scorciatoia.appunto','#/diario']].map(([ic, key, href]) => el('a', { class: 'scorciatoia', href }, iconaScorciatoia(ic), t(key))))),
+    el('details', { class: 'contenuto-secondario oggi-altri' }, el('summary', {}, t('oggi.per_te')), el('p', { class: 'saluto' }, testoSaluto(impostazioni)), cartaPassi, bloccoPiante.length ? el('section', { class: 'piante-fasi-legacy' }, ...bloccoPiante) : null, cartaConsiglio, cartaGioca, cartaSapevi, zonaConversazione, carta, bloccoInstalla({ rimandabile: true })),
   );
   // L'acqua di ogni fase, unita al tempo: cosa fare oggi.
   previsioni().then(({ giorni }) => {

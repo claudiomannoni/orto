@@ -13,18 +13,18 @@ page.on('dialog', (d) => d.accept());
 const terrenoFinto = {
   versione: 1,
   questionario: [
-    { id: 'mano', testo: 'Stringi il terreno in mano: cosa succede?', perche: 'Dice quanta argilla c\'è.', certezza: 'media', fonti: [], opzioni: [
+    { id: 'mano', testo: 'Stringi il terreno in mano: cosa succede?', perche: 'Dice quanta argilla c\'Ã¨.', certezza: 'media', fonti: [], opzioni: [
       { id: 'si-modella', testo: 'Si modella come plastilina', valori: { tessitura: 'argilloso', drenaggio: 'lento' } },
       { id: 'sgretola', testo: 'Si sgretola', valori: { tessitura: 'sabbioso', drenaggio: 'rapido' } },
     ] },
-    { id: 'scuro', testo: 'È scuro e profuma di bosco?', perche: 'Humus.', certezza: 'media', fonti: [], opzioni: [
-      { id: 'si', testo: 'Sì', valori: { humus: 'ricco' } }, { id: 'no', testo: 'No', valori: { humus: 'povero' } },
+    { id: 'scuro', testo: 'Ãˆ scuro e profuma di bosco?', perche: 'Humus.', certezza: 'media', fonti: [], opzioni: [
+      { id: 'si', testo: 'SÃ¬', valori: { humus: 'ricco' } }, { id: 'no', testo: 'No', valori: { humus: 'povero' } },
     ] },
   ],
   piante_indicatrici: [{ id: 'romice', nome: 'Romice', nome_scientifico: 'Rumex', indica: [{ asse: 'drenaggio', valore: 'lento' }], come_riconoscerla: 'Foglie larghe', note: 'Indizio debole', certezza: 'bassa', fonti: [] }],
-  test_barattolo: { titolo: 'Test del barattolo', materiali: ['un barattolo'], passi: [{ testo: 'Riempi a metà con terra' }], lettura: 'Aspetta 24 ore.', certezza: 'media', fonti: [], tipi: [] },
+  test_barattolo: { titolo: 'Test del barattolo', materiali: ['un barattolo'], passi: [{ testo: 'Riempi a metÃ  con terra' }], lettura: 'Aspetta 24 ore.', certezza: 'media', fonti: [], tipi: [] },
   consigli: [
-    { asse: 'tessitura', valore: 'argilloso', testo: 'Non lavorare il terreno quando è bagnato.', certezza: 'media', fonti: [] },
+    { asse: 'tessitura', valore: 'argilloso', testo: 'Non lavorare il terreno quando Ã¨ bagnato.', certezza: 'media', fonti: [] },
     { asse: 'tessitura', valore: 'sabbioso', testo: 'Aggiungi sostanza organica.', certezza: 'media', fonti: [] },
   ],
   da_verificare: [], fonti: {},
@@ -33,8 +33,8 @@ await page.route('**/data/it/terreno.json', (r) => r.fulfill({ contentType: 'app
 
 await vai(page, 'zone');
 check('zone: titolo e stato vuoto', (await page.locator('h2.titolo-schermata').innerText()).startsWith('Le mie zone') && await page.isVisible('#zone-vuoto'));
-check('barra: resta evidenziata «Colture»', (await page.locator('#barra a[aria-current=page]').getAttribute('data-rotta')) === 'colture');
-check('colture: c\'è il link «Le mie zone»', (await vai(page, 'colture'), await page.getByRole('link', { name: 'Le mie zone' }).count()) === 1);
+check('barra: resta evidenziata Â«ColtureÂ»', (await page.locator('#barra a[aria-current=page]').getAttribute('data-rotta')) === 'colture');
+check('colture: c\'Ã¨ il link Â«Le mie zoneÂ»', (await vai(page, 'colture'), await page.getByRole('link', { name: 'Le mie zone' }).count()) === 1);
 await page.getByRole('link', { name: 'Le mie zone' }).click();
 await page.waitForSelector('#zone-vuoto');
 
@@ -49,7 +49,7 @@ await page.fill('dialog textarea[name=note]', 'Vicino al pozzo');
 await page.getByRole('button', { name: 'Aggiungi zona' }).click();
 await page.waitForSelector('li.zona');
 const carta = await page.locator('li.zona').innerText();
-check('zona creata: nome, da preparare, misure e superficie', carta.includes('Aiuola del pozzo') && carta.includes('Da preparare') && carta.includes('4 × 1,5 m') && carta.includes('6 m²'), carta.replace(/\n+/g, ' | '));
+check('zona creata: nome, da preparare, misure e superficie', carta.includes('Aiuola del pozzo') && carta.includes('Da preparare') && carta.includes('4 Ã— 1,5 m') && carta.includes('6 mÂ²'), carta.replace(/\n+/g, ' | '));
 check('zona: esposizione e terreno ancora da indicare', carta.includes('Non indicata') && carta.includes('Da capire'));
 let db = await leggiDb(page, 'zone');
 check('db: zona con schemaVersion 3, superficie 6, gradi null', db.length === 1 && db[0].schemaVersion === 3 && db[0].superficie_mq === 6 && db[0].esposizione.gradi === null, JSON.stringify(db[0]));
@@ -69,26 +69,26 @@ await page.getByRole('button', { name: 'Bussola' }).click();
 await page.waitForSelector('dialog[open] .bussola');
 await page.locator('.direzioni .btn', { hasText: 'Sud-est' }).click();
 await page.waitForSelector('dialog', { state: 'detached' });
-await page.waitForFunction(() => document.querySelector('li.zona')?.innerText.includes('Sud-est (135°)'));
-check('bussola a mano: sud-est 135° con la nota di Rossella', (await page.locator('li.zona').innerText()).includes('buona luce tutto il giorno'));
+await page.waitForFunction(() => document.querySelector('li.zona')?.innerText.includes('Sud-est (135Â°)'));
+check('bussola a mano: sud-est 135Â° con la nota di Rossella', (await page.locator('li.zona').innerText()).includes('buona luce tutto il giorno'));
 db = await leggiDb(page, 'zone');
 check('db: gradi 135', db[0].esposizione.gradi === 135);
 
 // Bussola: sensore finto. Telefono in piedi (beta 90), alpha 90 = punta a ovest.
 await page.getByRole('button', { name: 'Bussola' }).click();
 await page.waitForSelector('dialog[open] .bussola');
-check('bussola: il «sud-est» attuale è già evidenziato', (await page.locator('.direzioni .btn[aria-pressed=true]').innerText()) === 'Sud-est');
-check('bussola: senza lettura il pulsante «Usa» è spento', await page.getByRole('button', { name: 'Usa questa direzione' }).isDisabled());
+check('bussola: il Â«sud-estÂ» attuale Ã¨ giÃ  evidenziato', (await page.locator('.direzioni .btn[aria-pressed=true]').innerText()) === 'Sud-est');
+check('bussola: senza lettura il pulsante Â«UsaÂ» Ã¨ spento', await page.getByRole('button', { name: 'Usa questa direzione' }).isDisabled());
 await page.evaluate(() => window.dispatchEvent(Object.assign(new Event('deviceorientationabsolute'), { alpha: 90, beta: 90, gamma: 0 })));
 await page.waitForFunction(() => document.querySelector('.bussola-lettura')?.textContent.includes('Ovest'));
-check('sensore: alpha 90 con telefono in piedi = ovest (270°)', (await page.locator('.bussola-lettura').innerText()).includes('270'), await page.locator('.bussola-lettura').innerText());
+check('sensore: alpha 90 con telefono in piedi = ovest (270Â°)', (await page.locator('.bussola-lettura').innerText()).includes('270'), await page.locator('.bussola-lettura').innerText());
 await page.evaluate(() => window.dispatchEvent(Object.assign(new Event('deviceorientation'), { webkitCompassHeading: 45 })));
 await page.waitForFunction(() => document.querySelector('.bussola-lettura')?.textContent.includes('Nord-est'));
 check('iOS: webkitCompassHeading 45 = nord-est', true);
 await page.getByRole('button', { name: 'Usa questa direzione' }).click();
 await page.waitForSelector('dialog', { state: 'detached' });
-await page.waitForFunction(() => document.querySelector('li.zona')?.innerText.includes('Nord-est (45°)'));
-check('«Usa questa direzione» salva la lettura', (await leggiDb(page, 'zone'))[0].esposizione.gradi === 45);
+await page.waitForFunction(() => document.querySelector('li.zona')?.innerText.includes('Nord-est (45Â°)'));
+check('Â«Usa questa direzioneÂ» salva la lettura', (await leggiDb(page, 'zone'))[0].esposizione.gradi === 45);
 
 // Bussola su un computer: nessun sensore, messaggio e scelta a mano
 await page.getByRole('button', { name: 'Bussola' }).click();
@@ -103,9 +103,9 @@ await page.waitForSelector('dialog[open] .terreno-form');
 check('terreno: le domande ci sono', (await page.locator('.domanda').count()) === 2);
 check('terreno: nessun risultato prima di rispondere', (await page.locator('.risultato-terreno').innerText()).includes('Rispondi a qualche domanda'));
 await page.locator('.domanda[data-id=mano] label', { hasText: 'plastilina' }).click();
-await page.locator('.domanda[data-id=scuro] label', { hasText: 'Sì' }).click();
+await page.locator('.domanda[data-id=scuro] label', { hasText: 'SÃ¬' }).click();
 let ris = await page.locator('.risultato-terreno').innerText();
-check('terreno: argilloso, drena piano, humus ricco, con il consiglio', ris.includes('Argilloso') && ris.includes('Drena piano') && ris.includes('Humus ricco') && ris.includes('Non lavorare il terreno quando è bagnato'), ris.replace(/\n+/g, ' | '));
+check('terreno: argilloso, drena piano, humus ricco, con il consiglio', ris.includes('Argilloso') && ris.includes('Drena piano') && ris.includes('Humus ricco') && ris.includes('Non lavorare il terreno quando Ã¨ bagnato'), ris.replace(/\n+/g, ' | '));
 await page.locator('summary', { hasText: 'Test del barattolo' }).click();
 await page.fill('dialog input[name=sabbia]', '80');
 await page.fill('dialog input[name=limo]', '12');
@@ -120,11 +120,11 @@ await page.waitForSelector('dialog', { state: 'detached' });
 await page.waitForFunction(() => document.querySelector('li.zona')?.innerText.includes('Sabbioso'));
 const t0 = (await leggiDb(page, 'zone'))[0].terreno;
 check('db: terreno salvato con profilo, risposte e barattolo', t0.tessitura === 'sabbioso' && t0.drenaggio === 'lento' && t0.humus === 'ricco' && t0.risposte.mano === 'si-modella' && t0.barattolo.sabbia_pct === 80, JSON.stringify(t0));
-check('scheda zona: riassunto del terreno', (await page.locator('li.zona').innerText()).includes('Sabbioso · Drena piano · Humus ricco'));
+check('scheda zona: riassunto del terreno', (await page.locator('li.zona').innerText()).includes('Sabbioso Â· Drena piano Â· Humus ricco'));
 
 // Una coltura nella zona
 await vai(page, 'colture');
-await page.getByRole('button', { name: '+ Nuova coltura' }).click();
+await page.locator('button.colture-nuova-fissa').click();
 await page.waitForSelector('dialog select[name=zonaId]');
 await page.fill('dialog input[name=nome]', 'Fave');
 await page.selectOption('dialog select[name=zonaId]', { label: 'Aiuola del pozzo' });
@@ -132,7 +132,7 @@ await page.click('dialog button[type=submit]');
 await page.waitForSelector('dialog', { state: 'detached' });
 check('coltura: mostra il nome della zona', (await page.locator('li.coltura').innerText()).includes('Aiuola del pozzo'));
 await vai(page, 'zone');
-check('zona: «1 coltura qui»', (await page.locator('li.zona').innerText()).includes('1 coltura qui'));
+check('zona: Â«1 coltura quiÂ»', (await page.locator('li.zona').innerText()).includes('1 coltura qui'));
 
 // Modifica
 await page.getByRole('button', { name: 'Modifica' }).click();
@@ -143,7 +143,7 @@ await page.fill('dialog input[name=larghezza]', '2');
 await page.getByRole('button', { name: 'Salva', exact: true }).click();
 await page.waitForSelector('dialog', { state: 'detached' });
 const c2 = await page.locator('li.zona').innerText();
-check('modifica: nome e superficie aggiornati, terreno ed esposizione intatti', c2.includes('Aiuola grande') && c2.includes('8 m²') && c2.includes('Sabbioso') && c2.includes('Nord-est (45°)'), c2.replace(/\n+/g, ' | '));
+check('modifica: nome e superficie aggiornati, terreno ed esposizione intatti', c2.includes('Aiuola grande') && c2.includes('8 mÂ²') && c2.includes('Sabbioso') && c2.includes('Nord-est (45Â°)'), c2.replace(/\n+/g, ' | '));
 check('modifica: ancora una sola zona', (await page.locator('li.zona').count()) === 1);
 
 // Backup e ripristino

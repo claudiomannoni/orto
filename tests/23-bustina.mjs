@@ -1,4 +1,4 @@
-// Leggi dalla bustina dei semi (Gemini SIMULATO): compila nome, varietà e note; errori e consenso. Uso: node tests/23-bustina.mjs http://localhost:8101
+// Leggi dalla bustina dei semi (Gemini SIMULATO): compila nome, varietÃ  e note; errori e consenso. Uso: node tests/23-bustina.mjs http://localhost:8101
 import { chromium, nuovoContesto, check, osserva, finale, vai, leggiDb } from './lib.mjs';
 
 const browser = await chromium.launch();
@@ -32,12 +32,12 @@ const png = async () => Buffer.from(await page.evaluate(async () => {
   const blob = await new Promise((ok) => t.toBlob(ok, 'image/png'));
   return Array.from(new Uint8Array(await blob.arrayBuffer()));
 }));
-const apriNuova = async () => { await page.getByRole('button', { name: '+ Nuova coltura' }).click(); await page.waitForSelector('dialog[open] #leggi-bustina'); };
+const apriNuova = async () => { await page.locator('button.colture-nuova-fissa').click(); await page.waitForSelector('dialog[open] #leggi-bustina'); };
 const dallaFoto = async () => { await page.setInputFiles('dialog[open] input[name=bustina]', { name: 'bustina.png', mimeType: 'image/png', buffer: await png() }); };
 
 await vai(page, 'colture');
 await apriNuova();
-check('«Nuova coltura» ha «Leggi dalla bustina dei semi»', /Leggi dalla bustina/.test(await page.locator('#leggi-bustina').innerText()));
+check('Â«Nuova colturaÂ» ha Â«Leggi dalla bustina dei semiÂ»', /Leggi dalla bustina/.test(await page.locator('#leggi-bustina').innerText()));
 await page.locator('#leggi-bustina').click();
 await page.waitForSelector('dialog[open] .bustina .esito:has-text("chiave")');
 check('senza chiave: dice di metterla nelle impostazioni, nessuna richiesta', /chiave Gemini/.test(await page.locator('dialog[open] .bustina .esito').innerText()) && richieste.length === 0);
@@ -56,24 +56,24 @@ await page.locator('#leggi-bustina').click();
 await page.waitForTimeout(300);
 await dallaFoto();
 await page.waitForFunction(() => document.querySelector('dialog[open] input[name=nome]')?.value === 'Pomodoro');
-check('nome e varietà compilati', (await page.inputValue('dialog[open] input[name=nome]')) === 'Pomodoro' && (await page.inputValue('dialog[open] input[name=varieta]')) === 'Cuore di bue');
+check('nome e varietÃ  compilati', (await page.inputValue('dialog[open] input[name=nome]')) === 'Pomodoro' && (await page.inputValue('dialog[open] input[name=varieta]')) === 'Cuore di bue');
 const note = await page.inputValue('dialog[open] textarea[name=note]');
-check('note con quello che c\'è scritto', /Dalla bustina: germinazione 7-14 giorni; raccolta dopo 90-110 giorni; profondità 1 cm; distanza tra le piante 50 cm; semina in feb, mar, apr; esposizione: sole\./.test(note), note);
-check('la richiesta contiene la foto e la regola «non inventare»', richieste.length === 1 && /inline_data|inlineData/.test(richieste[0].corpo) && /non inventare/i.test(richieste[0].corpo));
+check('note con quello che c\'Ã¨ scritto', /Dalla bustina: germinazione 7-14 giorni; raccolta dopo 90-110 giorni; profonditÃ  1 cm; distanza tra le piante 50 cm; semina in feb, mar, apr; esposizione: sole\./.test(note), note);
+check('la richiesta contiene la foto e la regola Â«non inventareÂ»', richieste.length === 1 && /inline_data|inlineData/.test(richieste[0].corpo) && /non inventare/i.test(richieste[0].corpo));
 check('invita a controllare', /controlla/i.test(await page.locator('dialog[open] .bustina .esito').innerText()));
 
-// Si può salvare la coltura compilata
+// Si puÃ² salvare la coltura compilata
 await page.locator('dialog[open] button[type=submit]').click();
 await page.waitForSelector('dialog[open]', { state: 'detached' });
 const colture = await leggiDb(page, 'colture');
-check('la coltura è salvata con nome, varietà e note', colture.length === 1 && colture[0].nome === 'Pomodoro' && colture[0].varieta === 'Cuore di bue' && /Dalla bustina/.test(colture[0].note));
+check('la coltura Ã¨ salvata con nome, varietÃ  e note', colture.length === 1 && colture[0].nome === 'Pomodoro' && colture[0].varieta === 'Cuore di bue' && /Dalla bustina/.test(colture[0].note));
 
 // Risposta rovinata
 await apriNuova();
-risposta = { testo: 'non è json' };
+risposta = { testo: 'non Ã¨ json' };
 await dallaFoto();
-await page.waitForSelector('dialog[open] .bustina .esito:has-text("non è riuscita a leggere")');
-check('risposta confusa: messaggio chiaro e il modulo resta com\'è', (await page.inputValue('dialog[open] input[name=nome]')) === '');
+await page.waitForSelector('dialog[open] .bustina .esito:has-text("non Ã¨ riuscita a leggere")');
+check('risposta confusa: messaggio chiaro e il modulo resta com\'Ã¨', (await page.inputValue('dialog[open] input[name=nome]')) === '');
 const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked|\b(404|429)\b/.test(p));
 check('nessun errore in console / rete (esclusi quelli simulati)', veri.length === 0, veri.join(' | '));
 await browser.close();

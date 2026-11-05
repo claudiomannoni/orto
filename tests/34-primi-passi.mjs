@@ -1,4 +1,4 @@
-// «I tuoi primi passi» in Oggi: compare per chi comincia, avanza con quello che si fa, si può chiudere. Uso: node tests/34-primi-passi.mjs http://localhost:8101
+// Â«I tuoi primi passiÂ» in Oggi: compare per chi comincia, avanza con quello che si fa, si puÃ² chiudere. Uso: node tests/34-primi-passi.mjs http://localhost:8101
 import { chromium, nuovoContesto, check, osserva, finale, vai } from './lib.mjs';
 const browser = await chromium.launch();
 const problemi = [];
@@ -14,7 +14,7 @@ check('sei voci, ognuna con il suo collegamento', (await page.locator('.primi-pa
 
 // aggiungo una coltura dal modulo e torno in Oggi
 await vai(page, 'colture', '?oggi=2026-06-30');
-await page.click('button:has-text("+ Nuova coltura")');
+await page.click('button.colture-nuova-fissa');
 await page.waitForSelector('dialog[open] input[name=nome]');
 await page.fill('dialog input[name=nome]', 'Pomodori');
 await page.click('dialog button[type=submit]');
@@ -23,8 +23,8 @@ await vai(page, 'oggi', '?oggi=2026-06-30');
 await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.primi-passi');
 testo = await page.locator('.primi-passi').innerText();
-check('con una coltura: 1 su 6 e il prossimo passo è il primo lavoro', /1 su 6 fatti/.test(testo) && /primo lavoro/i.test(testo), testo.slice(0, 200));
-check('il passo fatto non è più un collegamento', (await page.locator('.primi-passi li a').count()) === 5);
+check('con una coltura: 1 su 6 e il prossimo passo Ã¨ il primo lavoro', /1 su 6 fatti/.test(testo) && /primo lavoro/i.test(testo), testo.slice(0, 200));
+check('il passo fatto non Ã¨ piÃ¹ un collegamento', (await page.locator('.primi-passi li a').count()) === 5);
 
 await page.click('#primi-chiudi');
 await page.waitForFunction(() => !document.querySelector('.primi-passi'));

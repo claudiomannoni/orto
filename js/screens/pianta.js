@@ -12,6 +12,7 @@ import { valutaSalute, giorniDaAnnaffiatura } from '../motore/salute.js';
 import { giudizioStagione } from '../motore/stagione.js';
 import { elencoEventi } from '../store/dati.js';
 import { previsioni } from '../meteo.js';
+import { bustinaPianta } from '../ui/bustina-pianta.js';
 
 export async function monta(contenitore) {
   const p = parametriRotta();
@@ -35,14 +36,9 @@ export async function monta(contenitore) {
   const salute = valutaSalute({ diagnosi: ultimaDiagnosi?.stato ? { stato: ultimaDiagnosi.stato } : null, stagione: giudizioStagione({ coltura, scheda, zonaId: impostazioni.zona, dati: dStagione, oggi: oggiISO(), minime }), giorniAnnaffiatura: giorniDaAnnaffiatura(eventi, coltura.id, oggiISO()), acqua: st?.fase?.acqua?.livello });
   const ciclo = scheda?.giorni_alla_raccolta?.max;
   const cicloFinito = Number.isFinite(ciclo) && st?.eta > ciclo;
-  const statoRiepilogo = el('strong', { class: `salute salute-${salute.stato}` }, t(`salute.${salute.stato}`));
-  const riepilogo = el('section', { class: 'card riepilogo-pianta', 'aria-label': t('pianta.riepilogo') },
-    statoRiepilogo,
-    el('span', {}, st ? (cicloFinito ? t('pianta.ciclo_concluso') : st.fase.nome) : t('colture.fase_sconosciuta')),
-    el('span', {}, st ? t('colture.eta', { n: st.eta }) : t('comune.non_disponibile')),
-    el('span', {}, st?.fase?.cosa_fare?.[0] ?? t('colture.azione_sconosciuta')),
-    el('span', {}, ciclo && scheda.giorni_alla_raccolta?.min && st ? t('pianta.raccolto_previsto', { inizio: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, scheda.giorni_alla_raccolta.min - st.eta))), fine: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, ciclo - st.eta))) }) : t('comune.non_disponibile'), scheda?.giorni_alla_raccolta?.certezza ? el('span', { class: `etichetta certezza ${scheda.giorni_alla_raccolta.certezza === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${scheda.giorni_alla_raccolta.certezza}`)) : null),
-    el('span', {}, ultima ? t('pianta.ultima_foto', { data: formattaData(ultima.data) }) : t('pianta.nessuna_foto')));
+  const cicloFasi = st?.dati?.fasi?.at(-1)?.a_giorno;
+  const raccoltoPrevisto = ciclo && scheda?.giorni_alla_raccolta?.min && st ? t('pianta.raccolto_previsto', { inizio: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, scheda.giorni_alla_raccolta.min - st.eta))), fine: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, ciclo - st.eta))) }) : t('comune.non_disponibile');
+  const bustina = bustinaPianta({ coltura, scheda, stato: salute.stato, fase: st ? (cicloFinito ? t('pianta.ciclo_concluso') : st.fase.nome) : null, eta: st?.eta, ciclo: ciclo ?? cicloFasi, prossima: st?.fase?.cosa_fare?.[0] ?? t('colture.azione_sconosciuta'), raccolto: raccoltoPrevisto, nota: ultima ? t('pianta.ultima_foto', { data: formattaData(ultima.data) }) : t('pianta.nessuna_foto') });
   const tabs = ['oggi', 'storia', 'scheda', 'piano'];
   const nav = el('nav', { class: 'schede-pianta', role: 'tablist', 'aria-label': nome });
   const pannello = el('section', { class: 'pannello-pianta', role: 'tabpanel' });
@@ -75,11 +71,12 @@ export async function monta(contenitore) {
       coltura.zonaId ? el('a', { class: 'btn primario grande', href: `#/piano?zona=${encodeURIComponent(coltura.zonaId)}` }, t('piano.titolo')) : el('p', { class: 'aiuto' }, t('piano.senza_zona'))];
   }
   pannello.append(...contenuto.filter(Boolean));
-  aggiungi(contenitore, el('h2', { class: 'titolo-schermata' }, nome), riepilogo, nav, pannello);
+  aggiungi(contenitore, el('h2', { class: 'titolo-schermata' }, nome), bustina, nav, pannello);
   previsioni().then(({ giorni }) => {
     minime = giorni.filter((x) => x.data >= oggiISO()).slice(0, 7).map((x) => x.min);
     const aggiornata = valutaSalute({ diagnosi: ultimaDiagnosi?.stato ? { stato: ultimaDiagnosi.stato } : null, stagione: giudizioStagione({ coltura, scheda, zonaId: impostazioni.zona, dati: dStagione, oggi: oggiISO(), minime }), giorniAnnaffiatura: giorniDaAnnaffiatura(eventi, coltura.id, oggiISO()), acqua: st?.fase?.acqua?.livello });
-    statoRiepilogo.className = `salute salute-${aggiornata.stato}`;
-    statoRiepilogo.textContent = t(`salute.${aggiornata.stato}`);
+    bustina.classList.remove('stato-ok', 'stato-attenzione', 'stato-urgente', 'stato-ignoto');
+    bustina.classList.add(`stato-${aggiornata.stato}`);
+    bustina.setAttribute('aria-label', `${nome}: ${t(`salute.${aggiornata.stato}`)}`);
   }).catch(() => {});
 }

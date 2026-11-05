@@ -1,0 +1,74 @@
+<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+:root{--sf:#E9F1E4;--ca:#fff;--ink:#12231A;--ink2:#52655A;--v:#1F7A36;--vv:#5BBE4B;--po:#E0402F;--zu:#F0A21A;--ci:#CFEAF8;--te:#173A28;--fi:#D3E0CD}
+*{box-sizing:border-box;margin:0}
+body{background:#cfd6cc;font:500 15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);display:flex;gap:26px;padding:26px;justify-content:center}
+.tel{width:390px;height:820px;background:var(--sf);border-radius:34px;overflow:hidden;position:relative;box-shadow:0 12px 44px #0005}
+.sc{padding:16px 14px 0;height:100%;overflow:hidden}
+.hd{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.hd h1{font-size:26px;font-weight:850;letter-spacing:-.02em;line-height:1.05}.hd small{display:block;font-size:13px;color:var(--ink2);font-weight:600;letter-spacing:0}
+.ic{margin-left:auto;display:flex;gap:8px}.ic i{width:40px;height:40px;border-radius:14px;background:var(--ca);display:grid;place-items:center;font-style:normal;font-size:17px}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.c{background:var(--ca);border-radius:22px;padding:12px 14px}
+.w{grid-column:1/-1}
+.gelo{background:linear-gradient(135deg,#E0402F,#B3261E);color:#fff;display:flex;align-items:center;gap:12px}
+.gelo b{font-size:30px;font-weight:850;letter-spacing:-.03em}.gelo div{font-weight:700;line-height:1.25}.gelo small{display:block;opacity:.92;font-weight:600}
+.k{font-size:12.5px;color:var(--ink2);font-weight:700;margin-bottom:6px}
+.big{font-size:30px;font-weight:850;letter-spacing:-.03em;line-height:1}
+.todo .it{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--fi);font-weight:700;font-size:14.5px;line-height:1.2}
+.todo .it:first-of-type{border:0}
+.cb{width:24px;height:24px;border-radius:8px;border:2.5px solid var(--v);flex:none}.cb.ok{background:var(--v)}
+.meteo{background:linear-gradient(160deg,#CFEAF8,#E7F5FC)}
+.acq{background:linear-gradient(160deg,#DDF1D6,#EEF8EA)}
+.pl{display:flex;gap:10px;overflow:hidden;margin:0 -14px;padding:2px 14px}
+.p{flex:none;width:92px;background:var(--ca);border-radius:22px;padding:10px 6px 9px;text-align:center}
+.ring{width:58px;height:58px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;font-size:26px;position:relative}
+.ring:before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--fi) 0);-webkit-mask:radial-gradient(circle 24px,transparent 98%,#000 100%);mask:radial-gradient(circle 24px,transparent 98%,#000 100%)}
+.p b{display:block;font-weight:800;font-size:14px}.p small{display:block;font-size:11.5px;font-weight:700;color:var(--c)}
+.act{display:flex;gap:8px}.act span{flex:1;background:var(--te);color:#fff;border-radius:18px;padding:11px 4px;text-align:center;font-weight:700;font-size:13px}.act em{display:block;font-style:normal;font-size:22px;margin-bottom:1px}
+.ross{display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:600}.ross span{font-size:30px}
+.dock{position:absolute;left:14px;right:14px;bottom:14px;height:64px;border-radius:24px;background:#12231Af0;display:flex;align-items:center;justify-content:space-around;color:#fff;box-shadow:0 8px 24px #0006}
+.dock span{font-size:11.5px;font-weight:700;text-align:center;opacity:.7;width:60px}.dock span.on{opacity:1}.dock em{display:block;font-style:normal;font-size:20px}
+.dock .cam{opacity:1}.dock .cam em{width:56px;height:56px;border-radius:50%;background:var(--vv);display:grid;place-items:center;margin:-26px auto 0;box-shadow:0 4px 14px #0006;border:4px solid var(--sf);color:var(--ink)}
+.seg{display:flex;background:var(--ca);border-radius:16px;padding:4px;gap:4px;margin-bottom:10px}.seg span{flex:1;text-align:center;padding:9px 0;border-radius:12px;font-weight:800;font-size:13.5px;color:var(--ink2)}.seg .on{background:var(--te);color:#fff}
+.row{display:flex;align-items:center;gap:12px;padding:9px 10px;background:var(--ca);border-radius:20px;margin-bottom:8px;position:relative;overflow:hidden}
+.row:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c)}
+.row .ring{margin:0;width:46px;height:46px;font-size:21px;flex:none}.row .ring:before{-webkit-mask:radial-gradient(circle 18px,transparent 98%,#000 100%);mask:radial-gradient(circle 18px,transparent 98%,#000 100%)}
+.row .t{flex:1;min-width:0}.row b{font-weight:850;font-size:15.5px}.row small{display:block;font-size:12.5px;color:var(--ink2);font-weight:600}
+.st{font-size:12px;font-weight:850;border-radius:10px;padding:5px 9px;color:#fff;background:var(--c);white-space:nowrap}
+.fab{position:absolute;right:16px;bottom:92px;background:var(--vv);color:var(--ink);border-radius:20px;padding:0 20px;height:54px;display:flex;align-items:center;font-weight:850;box-shadow:0 6px 16px #0004}
+.tools{display:flex;gap:8px;overflow:hidden;margin:0 -14px;padding:0 14px}.tools span{flex:none;background:var(--ca);border-radius:14px;padding:10px 14px;font-weight:800;font-size:13.5px}
+</style><body>
+<div class="tel"><div class="sc">
+<div class="hd"><div><small>Martedì 3 novembre</small><h1>Buongiorno, Claudio</h1></div><div class="ic"><i>&#128269;</i><i>&#9881;</i></div></div>
+<div class="bento">
+<div class="c w gelo"><b>1°</b><div>Gelo stanotte<small>Raccogli il basilico prima di sera</small></div></div>
+<div class="c todo w"><div class="k">Da fare ora &middot; 2 su 3</div>
+<div class="it"><div class="cb"></div>Raccogli il basilico</div>
+<div class="it"><div class="cb"></div>Annaffia i prezzemoli</div>
+<div class="it" style="opacity:.5"><div class="cb ok"></div><s>Controlla le fave</s></div></div>
+<div class="c meteo"><div class="k">Meteo</div><div class="big">11&deg;/18&deg;</div><div style="font-size:13px;font-weight:700;margin-top:4px">Sole, pioggia 20%</div></div>
+<div class="c acq"><div class="k">Acqua</div><div class="big">2 piante</div><div style="font-size:13px;font-weight:700;margin-top:4px">hanno sete oggi</div></div>
+<div class="c w" style="padding:12px 0 12px 14px"><div class="k">Il tuo orto</div>
+<div class="pl">
+<div class="p" style="--c:#E0402F;--p:8"><div class="ring" style="--c:#E0402F;--p:8">&#127807;</div><b>Basilico</b><small>Gelo</small></div>
+<div class="p" style="--c:#C98200"><div class="ring" style="--c:#F0A21A;--p:100">&#127813;</div><b>Pomodori</b><small>Fine ciclo</small></div>
+<div class="p" style="--c:#1F7A36"><div class="ring" style="--c:#5BBE4B;--p:15">&#129756;</div><b>Fave</b><small>Tutto bene</small></div>
+<div class="p" style="--c:#1F7A36"><div class="ring" style="--c:#5BBE4B;--p:60">&#127811;</div><b>Prezzemolo</b><small>Tutto bene</small></div></div></div>
+<div class="act w"><span><em>&#128247;</em>Foto</span><span><em>&#128166;</em>Annaffiato</span><span><em>&#129482;</em>Raccolto</span><span><em>&#128221;</em>Appunto</span></div>
+</div></div>
+<div class="dock"><span class="on"><em>&#9728;</em>Oggi</span><span><em>&#127793;</em>Orto</span><span class="cam"><em>&#128247;</em></span><span><em>&#128197;</em>Calendario</span><span><em>&#128214;</em>Impara</span></div></div>
+
+<div class="tel"><div class="sc">
+<div class="hd"><div><small>4 piante &middot; 1 urgente</small><h1>Il mio orto</h1></div><div class="ic"><i>&#128269;</i><i>&#9881;</i></div></div>
+<div class="seg"><span class="on">Elenco</span><span>Da fare 2</span><span>Urgenti 1</span><span>Mappa</span></div>
+<div class="row" style="--c:#E0402F"><div class="ring" style="--c:#E0402F;--p:8">&#127807;</div><div class="t"><b>Basilico</b><small>Trapiantato oggi &middot; gelo stanotte</small></div><span class="st">Urgente</span></div>
+<div class="row" style="--c:#F0A21A"><div class="ring" style="--c:#F0A21A;--p:100">&#127813;</div><div class="t"><b>Pomodori</b><small>Fine ciclo &middot; 154 giorni</small></div><span class="st" style="color:#3a2600">Attenzione</span></div>
+<div class="row" style="--c:#5BBE4B"><div class="ring" style="--c:#5BBE4B;--p:15">&#129756;</div><div class="t"><b>Fave</b><small>Germinazione &middot; giorno 13</small></div><span class="st" style="color:#0d2a14">Tutto bene</span></div>
+<div class="row" style="--c:#5BBE4B"><div class="ring" style="--c:#5BBE4B;--p:60">&#127811;</div><div class="t"><b>Prezzemolo</b><small>Crescita &middot; giorno 53</small></div><span class="st" style="color:#0d2a14">Tutto bene</span></div>
+<div class="k" style="margin:14px 2px 6px">Strumenti</div>
+<div class="tools"><span>Zone</span><span>Diario</span><span>Raccolto</span><span>Semi</span><span>Animali</span><span>Alberi</span></div>
+<div class="c ross" style="margin-top:14px"><span>&#129521;</span><div><b>Rossella</b><div style="font-weight:600">Il basilico non regge il gelo: raccoglilo oggi.</div></div></div>
+</div><div class="fab">+ Pianta</div>
+<div class="dock"><span><em>&#9728;</em>Oggi</span><span class="on"><em>&#127793;</em>Orto</span><span class="cam"><em>&#128247;</em></span><span><em>&#128197;</em>Calendario</span><span><em>&#128214;</em>Impara</span></div></div>
+</body></html>

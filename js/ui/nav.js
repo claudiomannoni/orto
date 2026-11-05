@@ -13,8 +13,6 @@ const ICONE = {
   colture: '<path d="M12 21v-9"/><path d="M12 12c0-4 3-6.5 7.5-6.5 0 4-3 6.5-7.5 6.5z"/><path d="M12 15c0-3-2.4-5-6-5 0 3 2.4 5 6 5z"/>',
   dottore: '<path d="M4 8.5h3l1.6-2.5h6.8L17 8.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.4"/>',
   impara: '<path d="M4 5.5c3-1.2 5.5-1 8 .8 2.5-1.8 5-2 8-.8V19c-3-1.2-5.5-1-8 .8-2.5-1.8-5-2-8-.8z"/><path d="M12 6.3v13.5"/>',
-  vermi: '<path d="M4 17c0-4 3-4 3-8 0-3 3-4.5 5-3 2 1.5 2 4 .5 6-1.5 2-.5 4.5 2 4.5 2.500 0 3.500-1.500 3.500-3.500"/><circle cx="15.500" cy="6.500" r="1"/>',
-  indietro: '<path d="M15 5l-7 7 7 7"/>',
   cerca: '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/>',
   impostazioni: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
 };
@@ -37,14 +35,8 @@ function icona(nome) {
 export function costruisciTestata(contenitore) {
   const ricerca = el('button', { class: 'ricerca-apri', type: 'button', 'aria-label': t('ricerca.apri'), title: t('ricerca.apri'), onclick: apriRicerca }, icona('cerca'));
   contenitore.replaceChildren(
-    el('a', { class: 'indietro', href: '#/oggi', hidden: true, 'aria-label': t('nav.indietro'), title: t('nav.indietro') }, icona('indietro')),
-    el('img', { class: 'logo', src: 'assets/logo.svg', alt: '', width: 44, height: 44 }),
-    el('div', { class: 'testata-testi' },
-      el('h1', {}, t('app.nome')),
-      el('p', {}, t('app.slogan')),
-    ),
+    el('div', { class: 'testata-testi' }, el('h1', {}, t('app.nome'))),
     ricerca,
-    el('a', { class: 'gioco-vermi', href: '#/vermi', 'aria-label': t('vermi.apri'), title: t('vermi.apri') }, icona('vermi')),
     el('a', { class: 'ingranaggio', href: '#/impostazioni', 'aria-label': t('nav.impostazioni') }, icona('impostazioni')),
   );
 }
@@ -73,24 +65,19 @@ async function apriRicerca() {
 }
 
 // Evidenzia l'ingranaggio quando si è nelle impostazioni.
-export function aggiornaTestata(rotta) {
-  // Nelle schermate secondarie compare la freccia «indietro»: porta alla schermata da cui si arriva (o a Oggi).
-  const indietro = document.querySelector('.testata .indietro');
-  if (indietro) {
-    const principale = ROTTE.includes(rotta) || rotta === 'benvenuto';
-    indietro.hidden = principale;
-    indietro.href = `#/${SOTTOROTTE[rotta] || 'oggi'}`;
-  }
+export function aggiornaTestata(rotta, schermata = null) {
+  const titoli = { oggi: 'oggi.titolo', colture: 'colture.hub', dottore: 'nav.dottore', calendario: 'nav.calendario', impara: 'nav.impara', impostazioni: 'nav.impostazioni', pianta: 'pianta.titolo', zone: 'colture.hub.zone', diario: 'colture.hub.diario', raccolto: 'raccolta.titolo' };
+  const titolo = document.querySelector('.testata h1');
+  const titoloSchermata = schermata?.querySelector('h2.titolo-schermata');
+  if (titolo) titolo.textContent = titoloSchermata?.textContent?.trim() || t(titoli[rotta] ?? 'app.nome');
   const imp = document.querySelector('.ingranaggio');
-  const gioco = document.querySelector('.gioco-vermi');
   if (imp) { if (rotta === 'impostazioni') imp.setAttribute('aria-current', 'page'); else imp.removeAttribute('aria-current'); }
-  if (gioco) { if (rotta === 'vermi') gioco.setAttribute('aria-current', 'page'); else gioco.removeAttribute('aria-current'); }
 }
 
 export function costruisciBarra(contenitore) {
   contenitore.setAttribute('aria-label', t('nav.principale'));
   contenitore.replaceChildren(
-    ...ROTTE.map((rotta) => el('a', { href: `#/${rotta}`, 'data-rotta': rotta }, icona(rotta), el('span', {}, t(`nav.${rotta}`)))),
+    ...ROTTE.map((rotta) => el('a', { href: `#/${rotta}`, 'data-rotta': rotta }, icona(rotta), el('span', {}, t(`nav.${rotta}`))),
   );
 }
 
