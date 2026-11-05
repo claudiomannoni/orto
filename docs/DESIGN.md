@@ -36,3 +36,15 @@ Un solo stack di sistema (nessun font da scaricare: l'app è offline): `system-u
 - Mantieni tutti gli `id`, le classi usate dai test e i comportamenti: dove un test cerca un elemento, aggiornare il test senza indebolirlo.
 - Rispetta `prefers-reduced-motion`; focus tastiera visibile; 360 px senza scroll orizzontale; tema scuro curato.
 - Movimento solo come risposta a un gesto (spunta, apertura riga). Niente animazioni all'apertura delle pagine.
+
+## Versione 2 (03/11/2026, dopo il commento di Claudio: «più compatto e pratico, grafica più all'avanguardia»)
+Riferimento visivo da replicare: `docs/anteprima/mock2.html` (e `anteprima2.png`). Sostituisce dove contrasta con la versione 1.
+- **Bento**: Oggi è una griglia a 2 colonne di riquadri morbidi (raggio 22 px) di dimensioni diverse invece di una pila di schede: gelo (largo, sfumatura rossa, numero grande), Da fare ora (largo, 3 righe spuntabili), Meteo e Acqua (due riquadri accanto, sfumature azzurro e verde), Il tuo orto (largo, anelli), Azioni (4 pulsanti scuri).
+- **Anelli di crescita**: ogni pianta ha un anello (conic-gradient) che mostra l'avanzamento del ciclo (età su durata prevista) con il colore dello stato; al centro l'icona illustrata. Sostituisce la fascia della bustina.
+- **Dock fluttuante** al posto della barra piena: pillola scura arrotondata staccata dai bordi (14 px), voci a 11,5 px, fotocamera centrale tonda verde che sporge. Su schermate lunghe il contenuto passa sotto con padding in fondo.
+- **Testata senza barra**: niente fascia colorata: data piccola sopra, titolo grande (26 px, peso 850, interlinea stretta, spaziatura -0.02em), lente e ingranaggio in due quadrati arrotondati bianchi a destra.
+- **Il mio orto**: controllo segmentato (Elenco, Da fare, Urgenti, Mappa) in cima; ogni pianta e' una riga-pillola da 64 px con barra di stato a sinistra (6 px), anello, nome 15,5 px/850, una riga di fase ed età, etichetta di stato piena a destra (rosso, ambra, verde, testo scuro su ambra e verde); «+ Pianta» fluttuante sopra il dock.
+- **Palette** v2: sfondo `#E9F1E4`, carta `#FFFFFF`, inchiostro `#12231A`, verde `#1F7A36`, verde vivo `#5BBE4B`, pomodoro `#E0402F`, zucca `#F0A21A`, cielo `#CFEAF8`, bosco `#173A28` (dock e pulsanti scuri), filetto `#D3E0CD`. Scuro: sfondo `#0E1A12`, carta `#192A1F`, dock `#0A130D`.
+- **Densità**: padding dei riquadri 12 x 14 px, spazio tra riquadri 10 px, corpo 15 px; l'intera schermata Oggi con le cose urgenti entra in 820 px di altezza.
+- **Movimento** solo su gesto: spunta con scatto breve, riga che si apre, anello che si riempie quando si aggiorna lo stato (200 ms, disattivato con `prefers-reduced-motion`).
+- Le emoji dell'anteprima sono solo segnaposto: nell'app vanno le icone illustrate (`assets/colture/*.svg`, icone di interfaccia in SVG proprio, nessuna emoji).
