@@ -56,7 +56,7 @@ check('le posizioni restano dopo aver ricaricato', dopo.every((c) => c.posizione
 await vai(page, 'oggi', '?oggi=2026-06-30');
 await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
 await page.waitForSelector('.fase-pianta');
-await page.locator('.fase-pianta a:has-text("La sua storia")').first().click();
+await page.locator('.fase-pianta a:has-text("Apri la pianta")').first().click();
 await page.waitForSelector('.linea-tempo li');
 const storia = await page.locator('main').innerText();
 check('due foto in ordine, con «15 giorni dopo»', (await page.locator('.linea-tempo li').count()) === 2 && /15 giorni dopo/.test(storia), storia.slice(0, 200));

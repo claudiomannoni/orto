@@ -68,10 +68,8 @@ async function mostra() {
     const coltura = (await elencoColture()).find((c) => c.schedaId === parametri.get('id'));
     if (coltura) { location.replace(`#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=scheda`); return; }
   }
-  if (rotta === 'piano' && parametri.has('zona')) {
-    const coltura = (await elencoColture()).find((c) => c.zonaId === parametri.get('zona'));
-    if (coltura) { location.replace(`#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=piano`); return; }
-  }
+  // Il piano (#/piano?zona=…) resta una schermata a parte: ridirigolo alla scheda «Piano» della pianta
+  // era un clic in cerchio, perché quella scheda non mostra il piano ma solo il collegamento qui.
   if (rotta !== PRIMO_AVVIO && await primoAvvioDaFare()) {
     location.replace(`#/${PRIMO_AVVIO}`);
     return;

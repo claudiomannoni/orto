@@ -81,7 +81,7 @@ check('le ultime analisi compaiono in fondo', (await page.getByText('Le ultime a
 // Il mio orto: ordinato a sezioni
 await vai(page, 'colture');
 check('Il mio orto: titolo e nove tessere raccolte in Altro', (await page.locator('h2.titolo-schermata').innerText()) === 'Il mio orto' && (await page.locator('details.contenuto-secondario .tessera-azione').count()) === 9);
-check('Il mio orto: nuova coltura, filtri e lista subito in cima', await page.locator('button').filter({ hasText: 'Nuova coltura' }).count() === 1 && await page.locator('.filtri-colture button').count() === 3 && await page.locator('.colture-riga, .coltura-riga').count() >= 1);
+check('Il mio orto: nuova coltura, filtri e lista subito in cima', await page.locator('button').filter({ hasText: 'Nuova coltura' }).count() === 1 && await page.locator('.filtri-colture button').count() === 3 && await page.locator('li.coltura').count() >= 1);
 
 const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked|\b(404|429)\b/.test(p));
 check('nessun errore in console / rete (esclusi quelli simulati)', veri.length === 0, veri.join(' | '));

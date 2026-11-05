@@ -6,9 +6,12 @@ const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
 const page = await ctx.newPage();
 osserva(page, problemi);
 
-// Il mio orto: colture subito visibili, risorse secondarie ripiegate
+// Il mio orto: colture subito visibili, risorse secondarie ripiegate.
+// La libreria `vai` apre i pannelli ripiegati per comodità dei test: qui il controllo
+// è proprio sullo stato iniziale, quindi si ricarica (i pannelli tornano chiusi).
 await vai(page, 'colture', '?oggi=2026-06-30');
-await page.waitForSelector('.tessere-azione');
+await page.reload();
+await page.waitForSelector('details.contenuto-secondario');
 check('Il mio orto mostra subito nuova coltura e i tre filtri', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 3 && await page.locator('button').filter({ hasText: 'Nuova coltura' }).count() === 1);
 check('le nove tessere sono dentro Altro, chiuso inizialmente', (await page.locator('details.contenuto-secondario .tessera-azione').count()) === 9 && !(await page.locator('details.contenuto-secondario').evaluate((x) => x.open)));
 

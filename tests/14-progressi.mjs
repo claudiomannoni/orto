@@ -65,6 +65,9 @@ check('i traguardi non si ripetono (ancora uno solo)', Object.keys(await imposta
 
 // 5. La carta e il foglio
 await page.reload();
+await page.waitForSelector('h2.titolo-schermata:has-text("Oggi in campagna")');
+// Dopo il ricaricamento «Mostra tutto» si richiude: la carta sta dietro, si riapre.
+await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
 await page.waitForSelector('.carta-progressi');
 const carta2 = await page.locator('.carta-progressi').innerText();
 check('la carta ora dice livello 2 e 50 punti (3 lavori x10 + 1 traguardo x20)', carta2.includes(`Livello 2 · ${dati.livelli[1].nome}`) && carta2.includes('50 punti'), carta2.replace(/\n+/g, ' | '));
@@ -109,6 +112,8 @@ await page.evaluate(async () => {
   await db.elimina('impostazioni', 'traguardi'); await db.elimina('impostazioni', 'livello_raggiunto');
 });
 await page.reload();
+await page.waitForSelector('h2.titolo-schermata:has-text("Oggi in campagna")');
+await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
 await page.waitForSelector('.carta-progressi');
 await page.waitForTimeout(600);
 const silenzioso = await impostazione(page, 'traguardi');
