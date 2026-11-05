@@ -712,3 +712,21 @@ body.gioco-pieno main { padding: 0; max-width: none; }
 .stagione.gelo-in-arrivo { border-color: #c0392b; background: #ffe6e1; }
 .stagione p { margin: 6px 0 0; }
 @media (prefers-color-scheme: dark) { .stagione { background: #3d3412; color: #f5e9c8; } .stagione.gelo-in-arrivo { background: #4a1f1b; } }
+
+.filtri-colture .btn { min-height: var(--tocco, 56px); }
+
+.coltura { display: block; }
+.coltura-testa { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.coltura-testa .icona-coltura { width: 52px; height: 52px; }
+.coltura-testi h3 { margin: 0; overflow-wrap: anywhere; }
+.coltura-testi .meta { margin: 2px 0 0; }
+.dati-coltura { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 12px 0 0; padding: 10px; border-radius: 12px; background: var(--fondo, #fff8ea); }
+.dati-coltura .dato { min-width: 0; }
+.dati-coltura dt { font-size: .76rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; color: var(--testo-tenue, #6b5a4a); }
+.dati-coltura dd { margin: 2px 0 0; overflow-wrap: anywhere; font-size: .95rem; }
+.dati-coltura .dato:nth-child(3) { grid-column: 1 / -1; }
+.salute-bordo-attenzione { border-left: 6px solid #e0b100; }
+.salute-bordo-urgente { border-left: 6px solid var(--rosso, #c0392b); }
+.salute-bordo-ok { border-left: 6px solid var(--verde, #2f7d32); }
+.azioni-rapide { margin-top: 12px; }
+.coltura-azioni summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 700; }

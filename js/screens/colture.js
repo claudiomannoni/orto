@@ -57,17 +57,46 @@ function scheda(coltura) {
   const eta = giorniDa(coltura.dataSemina);
   const st = statoFase(coltura, datiFasi, oggiISO());
   const salute = statoRiga(coltura);
-  const raccolto = schede.find((x) => x.id === coltura.schedaId)?.giorni_alla_raccolta;
-  const riga = el('div', { class: 'coltura-riga', role: 'link', tabindex: '0', onclick: () => { location.hash = `#/pianta?id=${encodeURIComponent(coltura.id)}`; }, onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); location.hash = `#/pianta?id=${encodeURIComponent(coltura.id)}`; } } },
-    icona(coltura), el('strong', {}, coltura.nome),
-    el('span', {}, t('colture.campo.eta') + ': ', coltura.partenza === 'piantina' ? t('colture.trapiantata') : t('colture.eta', { n: eta })),
-    el('span', {}, t('colture.campo.fase') + ': ', st?.fase?.nome ?? t('colture.fase_sconosciuta')),
-    el('span', {}, t('colture.campo.prossima') + ': ', st?.fase?.cosa_fare?.[0] ?? t('colture.azione_sconosciuta')),
-    el('span', {}, t('colture.campo.salute') + ': ', el('span', { class: `salute salute-${salute.stato}`, role: 'status' }, t(`salute.${salute.stato}`))),
-    el('span', {}, t('colture.campo.raccolto') + ': ', raccolto?.min && raccolto?.max ? t('colture.raccolto', { inizio: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, raccolto.min - (st?.eta ?? eta)))), fine: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, raccolto.max - (st?.eta ?? eta)))) }) : t('comune.non_disponibile'), raccolto?.certezza ? el('span', { class: `etichetta certezza ${raccolto.certezza === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${raccolto.certezza}`)) : null));
-  const azioni = el('details', { class: 'coltura-azioni' }, el('summary', {}, t('colture.azioni')), el('div', { class: 'riga' }, ...['innaffiato','raccolto'].map((azione) => el('button', { class: 'btn', type: 'button', onclick: async () => { const ev = nuovoEvento({ tipo: azione, zonaId: coltura.zonaId, colturaId: coltura.id, schedaId: coltura.schedaId, data: oggiISO(), esito: 'ok' }); await registraEvento(ev); eventi.push(ev); mostraLista(); toast(t(`coltura.azione.${azione}.toast`)); } }, t(`coltura.azione.${azione}`))), el('button', { class: 'btn', type: 'button', onclick: () => promemoria(coltura) }, t('coltura.promemoria')), el('button', { class: 'btn pericolo', type: 'button', onclick: () => elimina(coltura) }, t('coltura.elimina'))));
-  return el('li', { class: 'coltura-voce' }, riga, azioni);
-}const tessera = (href, titolo, spiega) => el('a', { class: 'tessera-azione', href }, el('strong', {}, titolo), el('span', { class: 'aiuto' }, spiega));
+  const sc = schede.find((x) => x.id === coltura.schedaId) ?? trovaScheda(schede, coltura.nome);
+  const raccolto = sc?.giorni_alla_raccolta;
+  const nomeCompleto = coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome;
+  const zona = zone.find((z) => z.id === coltura.zonaId);
+  const dato = (chiave, ...contenuto) => el('div', { class: 'dato' }, el('dt', {}, t(chiave)), el('dd', {}, ...contenuto));
+  const registra = (azione) => async () => {
+    const ev = nuovoEvento({ tipo: azione, zonaId: coltura.zonaId, colturaId: coltura.id, schedaId: coltura.schedaId, data: oggiISO(), esito: 'ok' });
+    await registraEvento(ev);
+    eventi.push(ev);
+    mostraLista();
+    toast(t(`coltura.azione.${azione}.toast`));
+  };
+  const periodoRaccolto = raccolto?.min && raccolto?.max
+    ? t('colture.raccolto', { inizio: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, raccolto.min - (st?.eta ?? eta)))), fine: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, raccolto.max - (st?.eta ?? eta)))) })
+    : t('comune.non_disponibile');
+  return el('li', { class: `card coltura salute-bordo-${salute.stato}` },
+    el('div', { class: 'coltura-testa' },
+      icona(coltura),
+      el('div', { class: 'coltura-testi' },
+        el('h3', {}, nomeCompleto),
+        el('p', { class: 'meta' }, el('span', { class: `etichetta ${coltura.dove}` }, t(`form.dove.${coltura.dove}`)), ' ', t(coltura.partenza === 'piantina' ? 'coltura.trapiantata_il' : 'coltura.seminata_il', { data: formattaData(coltura.dataSemina) }), zona ? ` · ${zona.nome}` : '')),
+      el('span', { class: `salute salute-${salute.stato}`, role: 'status' }, t(`salute.${salute.stato}`))),
+    el('dl', { class: 'dati-coltura' },
+      dato('colture.campo.eta', coltura.partenza === 'piantina' ? `${t('colture.eta', { n: eta })} · ${t('colture.trapiantata')}` : t('colture.eta', { n: eta })),
+      dato('colture.campo.fase', st?.fase?.nome ?? t('colture.fase_sconosciuta')),
+      dato('colture.campo.prossima', st?.fase?.cosa_fare?.[0] ?? t('colture.azione_sconosciuta')),
+      dato('colture.campo.raccolto', periodoRaccolto, raccolto?.certezza ? el('span', { class: `etichetta certezza ${raccolto.certezza === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${raccolto.certezza}`)) : null)),
+    coltura.note ? el('p', { class: 'note' }, coltura.note) : null,
+    riquadroStagione(coltura),
+    el('div', { class: 'riga azioni-rapide' },
+      el('button', { class: 'btn', type: 'button', onclick: registra('innaffiato') }, t('coltura.azione.innaffiato')),
+      el('button', { class: 'btn', type: 'button', onclick: registra('raccolto') }, t('coltura.azione.raccolto')),
+      el('a', { class: 'btn primario', href: `#/pianta?id=${encodeURIComponent(coltura.id)}` }, t('pianta.storia'))),
+    el('details', { class: 'coltura-azioni' }, el('summary', {}, t('colture.altre_azioni')),
+      el('div', { class: 'riga' },
+        el('button', { class: 'btn', type: 'button', onclick: () => promemoria(coltura) }, t('coltura.promemoria')),
+        el('button', { class: 'btn pericolo', type: 'button', onclick: () => elimina(coltura) }, t('coltura.elimina')))));
+}
+
+const tessera = (href, titolo, spiega) => el('a', { class: 'tessera-azione', href }, el('strong', {}, titolo), el('span', { class: 'aiuto' }, spiega));
 
 function statoRiga(coltura) {
   const diagnosi = foto.filter((f) => f.colturaId === coltura.id && f.diagnosi).sort((a,b) => b.data.localeCompare(a.data))[0]?.diagnosi;
@@ -197,7 +226,7 @@ export async function monta(contenitore) {
     tessera('#/zone', t('colture.hub.zone'), t('colture.hub.zone.spiega')), tessera('#/diario', t('colture.hub.diario'), t('colture.hub.diario.spiega')), tessera('#/storia', t('colture.hub.storia'), t('colture.hub.storia.spiega')), tessera('#/raccolto', t('colture.hub.raccolto'), t('colture.hub.raccolto.spiega')), tessera('#/eccesso', t('colture.hub.eccesso'), t('colture.hub.eccesso.spiega')), tessera('#/semi', t('colture.hub.semi'), t('colture.hub.semi.spiega')), tessera('#/animali', t('colture.hub.animali'), t('colture.hub.animali.spiega')), tessera('#/alberi', t('colture.hub.alberi'), t('colture.hub.alberi.spiega')), tessera('#/rendita', t('colture.hub.rendita'), t('colture.hub.rendita.spiega'))));
   aggiungi(contenitore,
     el('h2', { class: 'titolo-schermata' }, t('colture.hub')),
-    el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, t('colture.nuova')),
+    el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
     filtri,
     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
     lista, riquadro, altro,
