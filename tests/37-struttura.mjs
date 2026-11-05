@@ -6,23 +6,23 @@ const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
 const page = await ctx.newPage();
 osserva(page, problemi);
 
-// Il mio orto: tre sezioni con titolo
+// Il mio orto: colture subito visibili, risorse secondarie ripiegate
 await vai(page, 'colture', '?oggi=2026-06-30');
 await page.waitForSelector('.tessere-azione');
-const titoli = await page.locator('main > h3').allInnerTexts();
-check('«Il mio orto» ha le tre sezioni con titolo', titoli.slice(0, 3).join('|') === 'Il mio orto|Raccolti e scorte|Allevamenti, frutteto e colture speciali', titoli.join('|'));
-check('le nove tessere ci sono ancora tutte, in tre gruppi', (await page.locator('.tessere-azione .tessera-azione').count()) === 9 && (await page.locator('main > .tessere-azione').count()) === 3);
+check('Il mio orto mostra subito nuova coltura e i tre filtri', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 3 && await page.locator('button').filter({ hasText: 'Nuova coltura' }).count() === 1);
+check('le nove tessere sono dentro Altro, chiuso inizialmente', (await page.locator('details.contenuto-secondario .tessera-azione').count()) === 9 && !(await page.locator('details.contenuto-secondario').evaluate((x) => x.open)));
 
 // Freccia indietro
 const indietro = page.locator('.testata .indietro');
 check('nelle schermate principali la freccia indietro non c\'è', !(await indietro.isVisible()));
+await page.locator('details.contenuto-secondario > summary').click();
 await page.click('a.tessera-azione[href="#/semi"]');
 await page.waitForSelector('#semi-nuova');
 check('in una schermata secondaria compare la freccia e porta a «Il mio orto»', (await indietro.isVisible()) && (await indietro.getAttribute('href')) === '#/colture');
 const box = await indietro.boundingBox();
 check('la freccia è abbastanza grande per il dito (48 px)', box.width >= 44 && box.height >= 44, JSON.stringify(box));
 await indietro.click();
-await page.waitForSelector('main > h3');
+await page.waitForSelector('main > h2.titolo-schermata');
 check('toccandola si torna a «Il mio orto»', /#\/colture/.test(page.url()));
 await vai(page, 'coltura', '?id=pomodori');
 await page.waitForTimeout(500);

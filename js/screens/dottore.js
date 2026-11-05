@@ -1,4 +1,4 @@
-// «Il dottore delle piante»: si fotografa una pianta e Rossella dice come sta, cosa potrebbe avere e cosa controllare.
+﻿// Â«Il dottore delle pianteÂ»: si fotografa una pianta e Rossella dice come sta, cosa potrebbe avere e cosa controllare.
 // Da qui partono anche le altre cose che si fanno con la fotocamera: terreno, bustina dei semi, diario. Sempre ipotesi da verificare.
 import { el, oggiISO, formattaData, aggiungi, sostituisci, parametriRotta } from '../util.js';
 import { fasi } from '../contenuti.js';
@@ -31,7 +31,7 @@ export async function monta(contenitore) {
   let consenso = Boolean(impostazioni.ai_foto_ok);
   const area = el('div', { class: 'dottore-risultato', 'aria-live': 'polite' });
   const anteprima = el('div', { class: 'dottore-anteprima' });
-  const daScegliere = parametriRotta().get('coltura'); // arrivando da «Esamina con una foto» la coltura è già scelta
+  const daScegliere = parametriRotta().get('coltura'); // arrivando da Â«Esamina con una fotoÂ» la coltura Ã¨ giÃ  scelta
   const scelta = el('select', { name: 'coltura' }, [el('option', { value: '' }, t('dottore.non_so')), ...colture.map((c) => el('option', { value: c.id, selected: c.id === daScegliere }, c.nome))]);
   const nota = el('input', { name: 'nota', maxlength: 200, placeholder: t('dottore.nota.esempio') });
   // Due ingressi: la fotocamera e la galleria (su alcuni telefoni la fotocamera diretta chiude la pagina e la foto si perde).
@@ -41,7 +41,7 @@ export async function monta(contenitore) {
   const scatta = el('button', { class: 'btn primario grande', type: 'button', id: 'dottore-scatta' }, t('dottore.scatta'));
   const scegliGalleria = el('button', { class: 'btn', type: 'button', id: 'dottore-galleria' }, t('dottore.galleria'));
 
-  // Tutto sincrono: il telefono apre la fotocamera solo se il gesto è ancora «fresco», dopo un await non lo è più.
+  // Tutto sincrono: il telefono apre la fotocamera solo se il gesto Ã¨ ancora Â«frescoÂ», dopo un await non lo Ã¨ piÃ¹.
   const apri = (campoFile, dallaCamera = false) => {
     if (!haChiave) { sostituisci(area, el('p', { class: 'avviso' }, t('foto.serve_chiave'))); return; }
     if (!restanti) { sostituisci(area, el('p', { class: 'avviso' }, t('foto.errore.tetto'))); return; }
@@ -93,7 +93,7 @@ export async function monta(contenitore) {
       const foto = await riduciFoto(file, { miniatura: true });
       sostituisci(anteprima, el('img', { src: foto.anteprima, alt: t('dottore.anteprima'), width: 240 }));
       const coltura = colture.find((c) => c.id === scelta.value);
-      // Se per questa coltura abbiamo le fasi, si chiede anche in che fase sembra essere e si confronta con l'età.
+      // Se per questa coltura abbiamo le fasi, si chiede anche in che fase sembra essere e si confronta con l'etÃ .
       const st = coltura ? statoFase(coltura, dFasi, oggi) : null;
       const fase = st ? { eta: st.eta, attesa: { id: st.fase.id, nome: st.fase.nome, come_riconoscerla: st.fase.come_riconoscerla }, elenco: st.dati.fasi.map((f) => ({ id: f.id, nome: f.nome })) } : null;
       const risultato = await diagnosiFoto({ immagine: { tipo: foto.tipo, base64: foto.base64 }, contesto: { coltura: coltura?.nome, nota: nota.value, fase } });
@@ -109,7 +109,7 @@ export async function monta(contenitore) {
         salva.hidden = true;
       });
       const nuova = coltura ? null : await bloccoNuovaDaFoto(risultato);
-      sostituisci(area, bloccoDiagnosi(diagnosi), nuova, el('div', { class: 'riga' }, salva, el('a', { class: 'btn', href: '#/diario' }, t('dottore.vai_diario'))));
+      sostituisci(area, bloccoDiagnosi(diagnosi, { fase: st }), nuova, el('div', { class: 'riga' }, salva, el('a', { class: 'btn', href: '#/diario' }, t('dottore.vai_diario'))));
     } catch (e) {
       sostituisci(area, el('p', { class: 'avviso', role: 'alert' }, testoErrore(e)));
     } finally {

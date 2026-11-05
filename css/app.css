@@ -1,11 +1,11 @@
-* { box-sizing: border-box; }
+﻿* { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; font-size: 100%; }
-/* Testo ingrandibile dalle impostazioni (accessibilità): tutto è in rem, quindi si ingrandisce tutto insieme. */
+/* Testo ingrandibile dalle impostazioni (accessibilitÃ ): tutto Ã¨ in rem, quindi si ingrandisce tutto insieme. */
 html[data-testo="grande"] { font-size: 120%; }
 html[data-testo="enorme"] { font-size: 140%; }
 
-/* Contrasto alto: inchiostro pieno, bordi netti, verdi e rossi più scuri (chiaro) o più chiari (scuro). */
+/* Contrasto alto: inchiostro pieno, bordi netti, verdi e rossi piÃ¹ scuri (chiaro) o piÃ¹ chiari (scuro). */
 html[data-contrasto="alto"] {
   --inchiostro-2: var(--inchiostro);
   --bordo: #6b4a1f;
@@ -32,7 +32,7 @@ html[data-contrasto="alto"] .card, html[data-contrasto="alto"] .btn, html[data-c
 html[data-contrasto="alto"] select, html[data-contrasto="alto"] textarea, html[data-contrasto="alto"] .voce,
 html[data-contrasto="alto"] .scheda-voce, html[data-contrasto="alto"] .termine { border-width: 3px; }
 
-/* Meno movimento: ferma animazioni e transizioni (oltre a quanto chiede già il telefono). */
+/* Meno movimento: ferma animazioni e transizioni (oltre a quanto chiede giÃ  il telefono). */
 html[data-movimento="ridotto"] *, html[data-movimento="ridotto"] *::before, html[data-movimento="ridotto"] *::after {
   animation: none !important;
   transition: none !important;
@@ -302,6 +302,30 @@ textarea { padding: 12px 14px; resize: vertical; }
 .giorni strong { display: block; font-size: 1.9rem; line-height: 1; color: var(--verde); }
 .giorni span { display: block; font-size: .85rem; color: var(--inchiostro-2); max-width: 9ch; margin-left: auto; line-height: 1.15; }
 .coltura .note, .coltura .riga, .coltura .stagione-posto { grid-column: 1 / -1; }
+.colture-voce { list-style: none; min-width: 0; border: 1px solid var(--bordo); border-radius: 14px; background: var(--carta); overflow: hidden; }
+.coltura-riga { display: grid; grid-template-columns: 48px minmax(0, 1.5fr) minmax(0, .8fr); gap: 6px 9px; align-items: center; padding: 10px; cursor: pointer; }
+.coltura-riga > * { min-width: 0; overflow-wrap: anywhere; }
+.coltura-riga .icona-coltura { width: 44px; height: 44px; grid-row: span 2; }
+.coltura-riga > strong { grid-column: 2 / 4; }
+.coltura-riga > span { font-size: .88rem; line-height: 1.25; }
+.coltura-riga > span:nth-of-type(2), .coltura-riga > span:nth-of-type(3), .coltura-riga > span:nth-of-type(5) { grid-column: 2 / 4; }
+.salute { display: inline-flex; align-items: center; width: fit-content; min-height: 32px; padding: 2px 9px; border-radius: 12px; font-size: .82rem; font-weight: 800; }
+.salute-ok { background: var(--verde-chiaro); color: var(--verde); }
+.salute-attenzione { background: var(--giallo-chiaro); color: var(--terra); }
+.salute-urgente { background: var(--rosso-chiaro); color: var(--rosso); }
+.salute-ignoto { background: var(--sfondo); color: var(--inchiostro-2); }
+.coltura-azioni { border-top: 1px solid var(--bordo); padding: 0 10px 8px; }
+.coltura-azioni summary { min-height: 48px; display: flex; align-items: center; font-weight: 800; cursor: pointer; }
+.coltura-azioni .riga { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.coltura-azioni .btn { min-width: 0; min-height: 48px; padding-inline: 8px; font-size: .92rem; }
+.filtri-colture { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.filtri-colture .btn { min-height: 48px; padding: 4px; font-size: .88rem; }
+.filtri-colture .btn[aria-pressed="true"] { background: var(--verde); color: #fff; }
+.riepilogo-pianta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.riepilogo-pianta > * { min-width: 0; overflow-wrap: anywhere; }
+.diagnosi-sintesi { font-size: 1.1rem; }
+.colture-altro { padding-top: 10px; }
+.etichetta.certezza.fonte-seria { background: var(--verde-chiaro); color: var(--verde); }
 .stagione-posto:empty { display: none; }
 .note { white-space: pre-wrap; overflow-wrap: anywhere; }
 .esito { color: var(--inchiostro-2); min-height: 1.4em; }
@@ -426,7 +450,7 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .metodo h4 { margin: 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .metodo ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 2px; font-size: .95rem; }
 .metodo .pro li::before { content: "+ "; color: var(--verde); font-weight: 800; }
-.metodo .contro li::before { content: "− "; color: var(--rosso); font-weight: 800; }
+.metodo .contro li::before { content: "âˆ’ "; color: var(--rosso); font-weight: 800; }
 .parole { display: flex; gap: 8px; flex-wrap: wrap; }
 .btn.piccolo { min-height: 44px; padding: 0 16px; font-size: .95rem; box-shadow: none; }
 
@@ -478,7 +502,7 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
 .storia-corpo strong, .storia-corpo p { overflow-wrap: anywhere; }
 .storia-foto img { width: 96px; height: 96px; object-fit: cover; border: 2px solid var(--bordo); border-radius: 12px; display: block; }
 .scegli-voce[aria-pressed="true"] { border-color: var(--verde); background: var(--verde-chiaro); box-shadow: 0 0 0 3px var(--verde); }
-.scegli-voce[aria-pressed="true"] span::after { content: " ✓"; color: var(--verde); }
+.scegli-voce[aria-pressed="true"] span::after { content: " âœ“"; color: var(--verde); }
 .interruttore { display: flex; align-items: center; gap: 12px; min-height: var(--tocco); padding: 0 14px; border: 2px solid var(--bordo); border-radius: 16px; font-weight: 700; cursor: pointer; }
 .interruttore input { width: 26px; height: 26px; min-height: 0; margin: 0; accent-color: var(--verde); flex: none; }
 .btn[aria-pressed="true"] { border-color: var(--verde); background: var(--verde-chiaro); }

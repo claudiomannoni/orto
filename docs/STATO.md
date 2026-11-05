@@ -82,3 +82,17 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 
 Verifica 02/11/2026 (2.60.0): test browser rossi perché Playwright non è disponibile (`tests/lib.mjs` cerca `/opt/node-tools/node_modules/playwright`); non sono state raggiunte le asserzioni dei dieci test richiesti né `41-quiz-conferma`.
 I test senza browser sono verdi, inclusi `fase5-quiz`; la suite completa ha 40 rossi browser per la stessa dipendenza mancante e 48 verdi.
+
+## Aggiornamento 02/11/2026 — v2.61.0
+
+Fatto:
+- Il mio orto apre con nuova coltura, filtri e righe compatte; le nove tessere sono ripiegate in «Altro», la mappa resta dopo la lista e le azioni per coltura stanno nel pannello rapido.
+- Aggiunto `js/motore/salute.js`: semaforo prudente da stagione/gelo, diagnosi recente e annaffiatura; i valori mancanti restano espliciti. Il semaforo si aggiorna anche quando arrivano le previsioni meteo.
+- La pagina pianta ha un riepilogo unico, avviso di stagione in «Oggi», ciclo concluso oltre il massimo della scheda, fonti spiegate e storia fotografica con variazione tra stati interpretabili.
+- Il risultato foto mostra stato, fase attesa/osservata, azioni con come e perché, controlli prudenti e salvataggio nella storia.
+- Aggiornati test browser per i nuovi selettori e aggiunto `tests/fase5-salute.mjs`.
+- Versione app 2.61.0 e cache offline rigenerata.
+
+Da fare:
+- Verifica visuale con browser/telefono (360 px, tema scuro, flussi foto e azioni) non eseguita in questo ambiente.
+- Test browser Playwright non eseguiti perché qui non è disponibile il browser.

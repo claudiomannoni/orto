@@ -15,18 +15,19 @@ export function statoFase(coltura, fasiDati, oggi) {
   return att ? { ...att, eta, dati } : null;
 }
 
-const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
+const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ? 'fonte-seria' : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
 const lista = (voci) => el('ul', { class: 'elenco-semplice' }, voci.map((v) => el('li', {}, v)));
 
-export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true, raccoltaDati = null } = {}) {
+export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true, raccoltaDati = null, conNome = true, conRiepilogo = true, cicloConcluso = false } = {}) {
   const st = statoFase(coltura, fasiDati, oggi);
   if (!st) return null;
   const f = st.fase;
   const prossima = st.dati.fasi[st.indice + 1];
   const fonti = (f.fonti ?? []).map((id) => fasiDati.fonti?.[id]).filter(Boolean);
+  const nomeFase = cicloConcluso ? t('pianta.ciclo_concluso') : f.nome;
   return el('section', { class: 'card fase-pianta', 'data-coltura': coltura.id },
-    el('h3', {}, coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome),
-    el('p', { class: 'meta' }, t(coltura.partenza === 'piantina' ? 'fase.eta.piantina' : 'fase.eta', { n: st.eta }), ' · ', el('strong', {}, f.nome), ' ', certezza(f.certezza)),
+    conNome ? el('h3', {}, coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome) : null,
+    conRiepilogo ? el('p', { class: 'meta' }, t(coltura.partenza === 'piantina' ? 'fase.eta.piantina' : 'fase.eta', { n: st.eta }), ' · ', el('strong', {}, nomeFase), ' ', certezza(f.certezza)) : el('p', { class: 'meta' }, certezza(f.certezza)),
     prossima && st.giorniAllaProssima != null
       ? el('p', { class: 'aiuto' }, t('fase.prossima', { n: st.giorniAllaProssima, nome: prossima.nome }))
       : el('p', { class: 'aiuto' }, t('fase.ultima')),

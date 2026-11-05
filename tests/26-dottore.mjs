@@ -67,6 +67,7 @@ await page.setInputFiles('input[name=dottore-foto]', { name: 'pianta.png', mimeT
 await page.waitForSelector('.dottore-risultato .diagnosi');
 const testo = await page.locator('.dottore-risultato').innerText();
 check('diagnosi mostrata: pianta, causa possibile, cosa controllare, da verificare', /Pomodoro/.test(testo) && /Carenza d'acqua/.test(testo) && /terreno a 5 cm/.test(testo) && /verificare/i.test(testo));
+check('sintesi diagnosi e azioni suggerite sono in testa al risultato', /Rosso|problema/i.test(testo) && /Cosa fare ora/.test(testo) && /Problemi e cosa controllare/.test(testo));
 check('la richiesta contiene la foto, la coltura scelta e la nota', richieste.length === 1 && /inline_data|inlineData/.test(richieste[0].corpo) && /Pomodori/.test(richieste[0].corpo) && /Foglie flosce/.test(richieste[0].corpo));
 check('la foto non è salvata finché non lo chiedi', (await leggiDb(page, 'foto')).length === 0);
 await page.dispatchEvent('#dottore-salva', 'click');
@@ -79,7 +80,8 @@ check('le ultime analisi compaiono in fondo', (await page.getByText('Le ultime a
 
 // Il mio orto: ordinato a sezioni
 await vai(page, 'colture');
-check('Il mio orto: titolo, nove sezioni', (await page.locator('h2.titolo-schermata').innerText()) === 'Il mio orto' && (await page.locator('.tessere-azione .tessera-azione').count()) === 9);
+check('Il mio orto: titolo e nove tessere raccolte in Altro', (await page.locator('h2.titolo-schermata').innerText()) === 'Il mio orto' && (await page.locator('details.contenuto-secondario .tessera-azione').count()) === 9);
+check('Il mio orto: nuova coltura, filtri e lista subito in cima', await page.locator('button').filter({ hasText: 'Nuova coltura' }).count() === 1 && await page.locator('.filtri-colture button').count() === 3 && await page.locator('.colture-riga, .coltura-riga').count() >= 1);
 
 const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked|\b(404|429)\b/.test(p));
 check('nessun errore in console / rete (esclusi quelli simulati)', veri.length === 0, veri.join(' | '));
