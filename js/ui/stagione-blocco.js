@@ -4,6 +4,7 @@ import { el, oggiISO } from '../util.js';
 import { t, locale } from '../i18n.js';
 import { previsioni } from '../meteo.js';
 import { giudizioStagione } from '../motore/stagione.js';
+import { avatar } from './mascotte.js';
 
 const nomeMese = (m) => new Date(2000, m - 1, 1).toLocaleDateString(locale(), { month: 'long' });
 const certezza = (c) => el('span', { class: `etichetta certezza ${['alta', 'media'].includes(c) ? c : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
@@ -25,6 +26,7 @@ export function bloccoStagione(g, dati) {
   const f = g.fine ?? {};
   const riga = (chiave, testo) => (testo ? el('p', {}, el('strong', {}, `${t(chiave)}: `), testo) : null);
   return el('div', { class: `stagione ${g.stato}`, role: g.stato === 'gelo-in-arrivo' ? 'alert' : 'note' },
+    g.stato === 'gelo-in-arrivo' && (g.freddo?.nota || f.perche) ? el('div', { class: 'consiglio-mascotte rossella' }, avatar('rossella', 'pensa'), el('p', {}, g.freddo?.nota || f.perche)) : null,
     el('strong', {}, g.stato === 'gelo-in-arrivo' ? t('stagione.gelo.titolo', { minima: String(Math.round(g.minima * 10) / 10).replace('.', ',') }) : t('stagione.fine.titolo')),
     g.freddo?.nota ? el('p', { class: 'aiuto' }, g.freddo.nota) : null,
     riga('stagione.cosa', f.cosa_fare), riga('stagione.come', f.come), riga('stagione.perche', f.perche),

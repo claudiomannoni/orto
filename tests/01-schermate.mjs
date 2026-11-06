@@ -103,7 +103,7 @@ for (const tema of ['light', 'dark']) {
   // Tema applicato davvero?
   const sfondo = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
   nota(`[${tema}] sfondo body = ${sfondo}`);
-  check(`[${tema}] il tema cambia lo sfondo`, tema === 'light' ? sfondo === 'rgb(255, 246, 227)' : sfondo === 'rgb(28, 22, 17)', sfondo);
+  check(`[${tema}] il tema cambia lo sfondo`, tema === 'light' ? sfondo === 'rgb(233, 241, 228)' : sfondo === 'rgb(14, 26, 18)', sfondo);
 
   check(`[${tema}] nessun errore/avviso in console, nessuna richiesta fallita`, problemi.length === 0, problemi.join(' | '));
   await ctx.close();

@@ -18,6 +18,7 @@ import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
 import { aiuole } from '../ui/aiuole.js';
 import { bloccoBustina } from '../ui/bustina.js';
+import { interpretaGesto } from '../motore/gesto.js';
 
 let schede = [];
 let datiStagione = null;
@@ -70,23 +71,36 @@ function scheda(coltura) {
     await registraEvento(ev);
     eventi.push(ev);
     mostraLista();
-    toast(t(`coltura.azione.${azione}.toast`));
+    toast(t(`coltura.azione.${azione}.toast`), { testo: t('azione.annulla'), esegui: async () => { await eliminaEvento(ev.id); eventi = eventi.filter((x) => x.id !== ev.id); mostraLista(); } }, 5000);
+  };
+  let punto = null;
+  let swipeCompletato = false;
+  const attivaGesto = (azione) => {
+    registra(azione)();
+    if (navigator.vibrate) navigator.vibrate(15);
   };
   const periodoRaccolto = raccolto?.min && raccolto?.max
     ? t('colture.raccolto', { inizio: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, raccolto.min - (st?.eta ?? eta)))), fine: formattaData(aggiungiGiorni(oggiISO(), Math.max(0, raccolto.max - (st?.eta ?? eta)))) })
     : t('comune.non_disponibile');
+  const ultimaAnnaffiatura = giorniDaAnnaffiatura(eventi, coltura.id, oggiISO());
   return el('li', { class: `card coltura salute-bordo-${salute.stato}` },
-    el('div', { class: 'coltura-testa riga-pianta', role: 'link', tabindex: '0', onclick: () => { location.hash = `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=oggi`; }, onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); location.hash = `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=oggi`; } } },
+    el('div', { class: 'coltura-testa riga-pianta', role: 'link', tabindex: '0',
+      onpointerdown: (e) => { punto = { x: e.clientX, y: e.clientY, id: e.pointerId }; },
+      onpointerup: (e) => { if (!punto || punto.id !== e.pointerId) return; const azione = interpretaGesto(e.clientX - punto.x, e.clientY - punto.y); punto = null; if (azione) { e.preventDefault(); swipeCompletato = true; setTimeout(() => { swipeCompletato = false; }, 500); attivaGesto(azione); } },
+      onclick: (e) => { if (swipeCompletato) { swipeCompletato = false; return; } if (e.target.closest('button')) return; location.hash = `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=oggi`; },
+      onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); location.hash = `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=oggi`; } } },
       el('span', { class: 'anello', style: `--c:${colore};--p:${quota}`, 'aria-hidden': 'true' }, icona(coltura)),
       el('div', { class: 'coltura-testi' },
         el('h3', {}, nomeCompleto),
-        el('p', { class: 'meta' }, `${st?.fase?.nome ?? t('colture.fase_sconosciuta')} · ${t('colture.eta', { n: eta })}`)),
+        el('p', { class: 'meta' }, coltura.partenza === 'piantina' ? `${st?.fase?.nome ?? t('colture.fase_sconosciuta')} · ${t('colture.eta', { n: eta })} · ${t('coltura.trapiantata_il', { data: formattaData(coltura.dataSemina) })}` : `${st?.fase?.nome ?? t('colture.fase_sconosciuta')} · ${t('colture.eta', { n: eta })}`)),
       el('span', { class: `salute salute-${salute.stato}`, role: 'status' }, t(`salute.${salute.stato}`))),
     el('dl', { class: 'dati-coltura' },
-      dato('colture.campo.eta', coltura.partenza === 'piantina' ? `${t('colture.eta', { n: eta })} · ${t('colture.trapiantata')}` : t('colture.eta', { n: eta })),
+      dato('colture.campo.eta', coltura.partenza === 'piantina' ? `${t('colture.eta', { n: eta })} · ${t('coltura.trapiantata_il', { data: formattaData(coltura.dataSemina) })}` : t('colture.eta', { n: eta })),
       dato('colture.campo.fase', st?.fase?.nome ?? t('colture.fase_sconosciuta')),
       dato('colture.campo.prossima', st?.fase?.cosa_fare?.[0] ?? t('colture.azione_sconosciuta')),
       dato('colture.campo.raccolto', periodoRaccolto, raccolto?.certezza ? el('span', { class: `etichetta certezza ${['alta', 'media'].includes(raccolto.certezza) ? raccolto.certezza : 'bassa'}` }, t(`animali.certezza.${raccolto.certezza}`)) : null)),
+    ultimaAnnaffiatura !== null ? el('p', { class: 'aiuto' }, t('coltura.ultima_acqua', { n: ultimaAnnaffiatura })) : null,
+    raccolto?.min && st && raccolto.min - st.eta > 0 ? el('p', { class: 'aiuto' }, t('coltura.raccolto_tra', { n: Math.max(0, raccolto.min - st.eta) })) : null,
     coltura.note ? el('p', { class: 'note' }, coltura.note) : null,
     riquadroStagione(coltura),
     el('div', { class: 'riga azioni-rapide' },

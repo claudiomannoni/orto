@@ -9,28 +9,36 @@ html[data-testo="enorme"] { font-size: 140%; }
 html[data-contrasto="alto"] {
   --inchiostro-2: var(--inchiostro);
   --bordo: #6b4a1f;
-  --verde: #1b5e20;
-  --pulsante: #1b5e20;
-  --rosso: #a31515;
+  --verde: #00440c;
+  --pulsante: #003b0b;
+  --rosso: #780000;
   --terra: #5d3a1e;
   --testata-1: #1b5e20;
   --testata-2: #144a18;
   --ombra: rgba(0, 0, 0, .55);
+  --inchiostro: #101010;
+  --inchiostro-2: #101010;
+  --bordo: #202020;
 }
 @media (prefers-color-scheme: dark) {
   html[data-contrasto="alto"] {
     --bordo: #d9c3a0;
-    --verde: #a5d6a7;
-    --pulsante: #1f7a25;
+    --verde: #b7f0bb;
+    --pulsante: #00320a;
     --rosso: #ffb4b4;
     --terra: #f0d4b8;
     --testata-1: #1b5e20;
     --testata-2: #144a18;
+    --inchiostro: #ffffff;
+    --inchiostro-2: #ffffff;
+    --bordo: #ffffff;
   }
 }
 html[data-contrasto="alto"] .card, html[data-contrasto="alto"] .btn, html[data-contrasto="alto"] input,
 html[data-contrasto="alto"] select, html[data-contrasto="alto"] textarea, html[data-contrasto="alto"] .voce,
-html[data-contrasto="alto"] .scheda-voce, html[data-contrasto="alto"] .termine { border-width: 3px; }
+html[data-contrasto="alto"] .scheda-voce, html[data-contrasto="alto"] .termine,
+html[data-contrasto="alto"] .riquadro, html[data-contrasto="alto"] .bustina-pianta,
+html[data-contrasto="alto"] .riga-pianta, html[data-contrasto="alto"] .salute { border-width: 2px; border-style: solid; border-color: var(--bordo); }
 
 /* Meno movimento: ferma animazioni e transizioni (oltre a quanto chiede giÃ  il telefono). */
 html[data-movimento="ridotto"] *, html[data-movimento="ridotto"] *::before, html[data-movimento="ridotto"] *::after {
@@ -40,6 +48,21 @@ html[data-movimento="ridotto"] *, html[data-movimento="ridotto"] *::before, html
 }
 
 .btn.ascolta { justify-self: start; }
+.riga-pianta { touch-action: pan-y; }
+.ricerca-oggi { min-height: 48px; width: 100%; text-align: left; padding: 0 14px; border: 1px solid var(--bordo); border-radius: 14px; background: var(--carta); color: var(--inchiostro-2); }
+.settimana-meteo { display: flex; gap: 6px; overflow-x: auto; max-width: 100%; padding: 4px 2px; scroll-snap-type: x mandatory; }
+.giorno-settimana { flex: 0 0 64px; min-height: 76px; display: grid; justify-items: center; align-content: center; gap: 2px; border: 1px solid var(--bordo); border-radius: 12px; background: var(--carta); color: var(--inchiostro); font: inherit; font-size: .72rem; scroll-snap-align: start; }
+.giorno-settimana .meteo-icona { width: 20px; height: 20px; }
+.giorno-settimana.gelo-previsto { color: #a31515; border: 2px solid #a31515; }
+html[data-contrasto="alto"] .giorno-settimana.gelo-previsto { color: var(--rosso); border-color: var(--rosso); border-width: 2px; }
+html[data-contrasto="alto"] .salute::before { content: "◆ "; }
+html[data-contrasto="alto"] button, html[data-contrasto="alto"] [role="button"], html[data-contrasto="alto"] .card,
+html[data-contrasto="alto"] .riquadro, html[data-contrasto="alto"] .bustina-pianta,
+html[data-contrasto="alto"] .coltura-testa, html[data-contrasto="alto"] .giorno-settimana,
+html[data-contrasto="alto"] .toast-azione { border-width: 2px; border-style: solid; border-color: var(--bordo); }
+.consiglio-mascotte { display: flex; align-items: center; gap: 8px; }
+.consiglio-mascotte .avatar { flex: 0 0 36px; width: 36px; height: 36px; animation: none; cursor: default; }
+.consiglio-vignetta .avatar { flex: 0 0 36px; width: 36px; height: 36px; animation: none; }
 
 body {
   margin: 0;

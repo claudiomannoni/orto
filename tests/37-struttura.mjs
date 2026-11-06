@@ -12,7 +12,7 @@ osserva(page, problemi);
 await vai(page, 'colture', '?oggi=2026-06-30');
 await page.reload();
 await page.waitForSelector('.colture-strumenti');
-check('Il mio orto mostra aggiunta fissa e i tre filtri', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 3 && await page.locator('button.colture-nuova-fissa').count() === 1);
+check('Il mio orto mostra aggiunta fissa e i filtri (ora quattro, con Mappa)', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 4 && (await page.locator('.filtri-colture').innerText()).includes('Mappa') && await page.locator('button.colture-nuova-fissa').count() === 1);
 check('i nove strumenti sono nella riga scorrevole', (await page.locator('.colture-strumenti .tessera-azione').count()) === 9);
 
 // La testata mantiene solo titolo, ricerca e impostazioni anche nelle sottoschermate.

@@ -10,9 +10,10 @@ export function statoFase(coltura, fasiDati, oggi) {
   const dati = fasiDati?.colture?.[coltura?.schedaId];
   if (!dati) return null;
   const piantinaEta = Number.isInteger(dati.piantina_eta_giorni?.valore) ? dati.piantina_eta_giorni.valore : 0;
-  const eta = etaDellaPianta({ partenza: coltura.partenza, data: coltura.dataSemina, piantinaEta }, oggi);
+  const etaBase = etaDellaPianta({ partenza: coltura.partenza, data: coltura.dataSemina, piantinaEta }, oggi);
+  const eta = Math.max(0, etaBase + (Number.isInteger(coltura.correzioneEta?.giorni) ? coltura.correzioneEta.giorni : 0));
   const att = faseAttuale(dati.fasi, eta);
-  return att ? { ...att, eta, dati } : null;
+  return att ? { ...att, eta, etaBase, dati } : null;
 }
 
 const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ? 'fonte-seria' : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
@@ -28,6 +29,7 @@ export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true, raccoltaDa
   return el('section', { class: 'card fase-pianta', 'data-coltura': coltura.id },
     conNome ? el('h3', {}, coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome) : null,
     conRiepilogo ? el('p', { class: 'meta' }, t(coltura.partenza === 'piantina' ? 'fase.eta.piantina' : 'fase.eta', { n: st.eta }), ' · ', el('strong', {}, nomeFase), ' ', certezza(f.certezza)) : el('p', { class: 'meta' }, certezza(f.certezza)),
+    coltura.correzioneEta ? el('p', { class: 'aiuto' }, t('fase.corretta_foto', { data: coltura.correzioneEta.data }), el('button', { class: 'btn piccolo', type: 'button', onclick: async () => { const { salvaColtura } = await import('../store/dati.js'); await salvaColtura({ ...coltura, correzioneEta: null }); location.reload(); } }, t('fase.annulla_correzione'))) : null,
     prossima && st.giorniAllaProssima != null
       ? el('p', { class: 'aiuto' }, t('fase.prossima', { n: st.giorniAllaProssima, nome: prossima.nome }))
       : el('p', { class: 'aiuto' }, t('fase.ultima')),

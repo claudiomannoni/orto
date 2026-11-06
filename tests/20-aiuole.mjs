@@ -7,6 +7,7 @@ const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
 const page = await ctx.newPage();
 osserva(page, problemi);
 
+// Nel nuovo aspetto «L'orto dall'alto» sta nella vista «Mappa» della schermata Colture.
 await vai(page, 'colture', '?oggi=2026-06-20');
 check('senza colture non c\'è l\'orto dall\'alto', (await page.locator('.aiuole').count()) === 0);
 
@@ -23,6 +24,8 @@ await page.evaluate(() => new Promise((ok) => {
   };
 }));
 await page.reload();
+await page.waitForSelector('h2.titolo-schermata');
+await page.locator('.filtri-colture button', { hasText: 'Mappa' }).click();
 await page.waitForSelector('.aiuole');
 check('titolo e spiegazione', /dall'alto/.test(await page.locator('.aiuole h3').innerText()));
 check('due aiuole: la zona e «Senza zona»', (await page.locator('.aiuola h4').allInnerTexts()).join('|') === 'Aiuola sole|Senza zona');

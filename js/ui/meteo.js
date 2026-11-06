@@ -1,5 +1,5 @@
 // Il meteo in «Oggi»: i prossimi tre giorni e gli avvisi per l'orto (gelo, brina, pioggia forte, caldo, vento).
-import { el, oggiISO, sostituisci } from '../util.js';
+import { el, oggiISO, sostituisci, formattaData } from '../util.js';
 import { t } from '../i18n.js';
 import { previsioni } from '../meteo.js';
 import { avvisiMeteo, piove } from '../motore/meteo.js';
@@ -55,7 +55,10 @@ export function cartaMeteo() {
         el('span', { class: 'meteo-gradi' }, `${gradi(g.min)} / ${gradi(g.max)}`),
         el('span', { class: 'aiuto' }, g.pioggia >= 0.5 ? t('meteo.pioggia_mm', { mm: g.pioggia.toFixed(g.pioggia < 10 ? 1 : 0).replace('.', ',') }) : t('meteo.asciutto'))))),
       ...avvisi.map((a) => el('p', { class: `avviso avviso-${a.tipo}`, role: 'alert' }, testoAvviso(a))),
-      acqua ? el('div', { class: 'acqua' }, el('p', {}, el('strong', {}, `${t('acqua.titolo')}: `), t(`acqua.${acqua.annaffia}`))) : null,
+      el('h4', {}, t('previsioni.settimana')),
+      el('div', { class: 'settimana-meteo' }, giorni.filter((g) => g.data >= oggi).slice(0, 7).map((g) => el('button', { class: `giorno-settimana ${g.min !== null && g.min <= 2 ? 'gelo-previsto' : ''}`, type: 'button', 'aria-label': t('previsioni.consiglio', { giorno: formattaData(g.data), tempo: t(`meteo.tempo.${g.tempo}`), min: gradi(g.min), max: gradi(g.max), pioggia: `${g.prob ?? 0}%` }), onclick: () => { const dettaglio = carta.querySelector('.consiglio-giorno'); if (dettaglio) dettaglio.textContent = t('previsioni.consiglio', { giorno: formattaData(g.data), tempo: t(`meteo.tempo.${g.tempo}`), min: gradi(g.min), max: gradi(g.max), pioggia: `${g.prob ?? 0}%` }); } }, el('strong', {}, formattaData(g.data)), iconaTempo(g.tempo), el('span', {}, `${gradi(g.min)} / ${gradi(g.max)}`), el('span', {}, `${g.prob ?? 0}%`)))),
+      el('p', { class: 'consiglio-giorno aiuto', 'aria-live': 'polite' }),
+      (() => { const pioggiaProssima = giorni.filter((g) => g.data >= oggi).slice(0, 2).some((g) => (g.prob ?? 0) >= 60); return acqua ? el('div', { class: 'acqua' }, el('p', {}, el('strong', {}, `${t('acqua.titolo')}: `), pioggiaProssima ? t('acqua.salta') : t(`acqua.${acqua.annaffia}`))) : null; })(),
       // I dettagli (quanta pioggia, da dove vengono i dati) stanno dietro un tocco: la scheda resta corta.
       el('details', { class: 'meteo-dettagli' },
         el('summary', {}, t('meteo.dettagli')),

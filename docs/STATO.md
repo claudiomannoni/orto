@@ -128,3 +128,19 @@ Da fare:
 - Il meteo in Oggi mostra icona SVG, minima/massima e pioggia per oggi; le icone derivano dai codici meteo già disponibili.
 - Le scorciatoie Annaffiato e Appunto portano ai flussi esistenti; non registrano direttamente un evento senza che sia scelta la coltura.
 - Verifica visuale a 360 px, tema scuro e prova in browser/telefono da eseguire dal direttore.
+
+## Rifinitura cliente — v2.65.0 (05/11/2026)
+
+Fatto:
+- Aggiunta la ricerca diretta in Oggi che apre il flusso di ricerca esistente; previsioni a sette giorni dalla cache meteo, selezionabili per leggere i dati del giorno, gelo evidenziato e avviso di pioggia con probabilità almeno 60% oggi/domani nel riquadro Acqua.
+- Aggiunti swipe orizzontali sulle righe pianta (72 px: destra Annaffiato, sinistra Raccolto), `touch-action: pan-y`, vibrazione disponibile e toast Annulla per 5 secondi; le azioni nel menu restano utilizzabili.
+- Aggiunti dati di ultima annaffiatura e raccolto previsto quando disponibili, e azione per segnare tutti i lavori di Oggi completati con annullamento.
+- Aggiunta l’opzione Contrasto alto nelle impostazioni di leggibilità con aiuto «Per il sole forte», bordi marcati, inchiostro ad alto contrasto e indicatore aggiuntivo per gli stati.
+- Aggiunte mascotte compatte nei consigli di gelo, nei consigli giornalieri e nei confronti di fase della foto, riutilizzando testi/dati esistenti.
+- La fase osservata dalla foto può aggiornare l’età calcolata tramite `correzioneEta`, con annullamento nella Storia; `dataSemina` resta invariata. Il campo è normalizzato e compatibile con backup precedenti; schema aggiornato.
+- Aggiunte prove Node pure `fase5-gesto` e `fase5-correzione-eta`. Versione app 2.65.0 e cache offline rigenerata.
+
+Da fare / limiti:
+- La verifica visiva a 360 px e in tema scuro, come la prova su telefono, resta al direttore; non è stato aperto un browser.
+- Le due prove richieste di fase 2 risultano verdi (motore 35 PASS; contenuti 1150 PASS, 0 FAIL). Le prove pure nuove risultano verdi.
+- Rosso compare solo nei punti con battute già presenti; i consigli di fonte o previsione sono attribuiti a Rossella.

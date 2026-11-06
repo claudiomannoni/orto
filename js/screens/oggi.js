@@ -13,6 +13,7 @@ import { imposta } from '../store/impostazioni.js';
 import { calcolaLavori } from '../motore/oggi.js';
 import { conversazione, festeggia, reagisci } from '../ui/mascotte.js';
 import { apriFoglio } from '../ui/foglio.js';
+import { etichettaOrto } from '../ui/identita.js';
 import { apriPromemoria } from '../ui/promemoria.js';
 import { toast } from '../ui/toast.js';
 import { bloccoInstalla } from '../ui/installa.js';
@@ -30,6 +31,7 @@ import { curiositaDelGiorno } from '../motore/curiosita.js';
 import { consigliDeiVermi, scegliConsiglio } from '../motore/consigli-vermi.js';
 import { chiaveBentornato } from '../motore/assenza.js';
 import { giorniAssenzaSessione } from '../ui/sessione.js';
+import { apriRicerca } from '../ui/nav.js';
 import { giudizioStagione } from '../motore/stagione.js';
 import { stagione } from '../contenuti.js';
 import { bloccoStagione } from '../ui/stagione-blocco.js';
@@ -301,9 +303,13 @@ export async function monta(contenitore) {
   }
   aggiungi(contenitore, 
     el('h2', { class: 'titolo-schermata' }, t('oggi.titolo')),
+    el('p', { class: 'saluto' }, testoSaluto(impostazioni)),
+    etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
+    el('button', { class: 'ricerca-oggi', type: 'button', onclick: apriRicerca }, t('ricerca.campo')),
     el('div', { class: 'striscia-giorno' }, el('div', { class: 'giorno-condizioni' }, el('span', { class: 'giorno-data' }, formattaDataLunga(oggi)), cartaMeteo()), avvisiGelo),
     el('section', { class: 'sezione-da-fare' },
     el('h3', { class: 'titolo-lavori' }, t('oggi.da_fare')),
+    lavori.length ? el('button', { class: 'btn', type: 'button', onclick: async (e) => { const create = lavori.map((v) => nuovoEvento({ tipo: 'lavoro_fatto', zonaId: impostazioni.zona, colturaId: v.coltura?.id ?? null, schedaId: v.scheda.id, lavoroId: v.lavoro.id, data: oggi, esito: 'ok' })); for (const ev of create) await registraEvento(ev); e.currentTarget.disabled = true; toast(t('oggi.annulla_fatto'), { testo: t('azione.annulla'), esegui: async () => { for (const ev of create) await (await import('../store/dati.js')).eliminaEvento(ev.id); location.reload(); } }, 5000); } }, t('oggi.tutto_fatto')) : null,
     lavori.length ? lista : el('section', { class: 'card vuoto' },
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
@@ -312,7 +318,7 @@ export async function monta(contenitore) {
     cartaPiante,
     el('section', { class: 'scorciatoie' }, el('h3', {}, t('oggi.scorciatoie')), el('div', { class: 'scorciatoie-griglia' },
       ...[['dottore','oggi.scorciatoia.foto','#/dottore'],['acqua','oggi.scorciatoia.acqua','#/colture'],['raccolto','oggi.scorciatoia.raccolto','#/raccolto'],['appunto','oggi.scorciatoia.appunto','#/diario']].map(([ic, key, href]) => el('a', { class: 'scorciatoia', href }, iconaScorciatoia(ic), t(key))))),
-    el('details', { class: 'contenuto-secondario oggi-altri' }, el('summary', {}, t('oggi.per_te')), el('p', { class: 'saluto' }, testoSaluto(impostazioni)), cartaPassi, bloccoPiante.length ? el('section', { class: 'piante-fasi-legacy' }, ...bloccoPiante) : null, cartaConsiglio, cartaGioca, cartaSapevi, zonaConversazione, carta, bloccoInstalla({ rimandabile: true })),
+    el('details', { class: 'contenuto-secondario oggi-altri' }, el('summary', {}, t('oggi.per_te')), cartaPassi, bloccoPiante.length ? el('section', { class: 'piante-fasi-legacy' }, ...bloccoPiante) : null, cartaConsiglio, cartaGioca, cartaSapevi, zonaConversazione, carta, bloccoInstalla({ rimandabile: true })),
   );
   // L'acqua di ogni fase, unita al tempo: cosa fare oggi.
   previsioni().then(({ giorni }) => {

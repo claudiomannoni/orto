@@ -41,7 +41,7 @@ export function costruisciTestata(contenitore) {
   );
 }
 
-async function apriRicerca() {
+export async function apriRicerca() {
   const input = el('input', { type: 'search', name: 'ricerca', placeholder: t('ricerca.campo'), 'aria-label': t('ricerca.campo'), autocomplete: 'off', enterkeyhint: 'search' });
   const risultati = el('div', { class: 'risultati-ricerca', 'aria-live': 'polite' });
   const foglio = apriFoglio({ titolo: t('ricerca.titolo'), contenuto: el('div', { class: 'ricerca-contenuto' }, input, risultati) });
@@ -77,7 +77,7 @@ export function aggiornaTestata(rotta, schermata = null) {
 export function costruisciBarra(contenitore) {
   contenitore.setAttribute('aria-label', t('nav.principale'));
   contenitore.replaceChildren(
-    ...ROTTE.map((rotta) => el('a', { href: `#/${rotta}`, 'data-rotta': rotta }, icona(rotta), el('span', {}, t(`nav.${rotta}`))),
+    ...ROTTE.map((rotta) => el('a', { href: `#/${rotta}`, 'data-rotta': rotta }, icona(rotta), el("span", {}, t(`nav.${rotta}`)))),
   );
 }
 

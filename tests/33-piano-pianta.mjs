@@ -24,6 +24,7 @@ await page.evaluate(() => new Promise((ok) => {
 
 // Piano: apro dalla pagina «Il mio orto»
 await vai(page, 'colture', '?oggi=2026-06-30');
+await page.click('.filtri-colture .btn:has-text("Mappa")');
 await page.waitForSelector('a.link-piano');
 await page.click('a.link-piano');
 await page.waitForSelector('.gettone');

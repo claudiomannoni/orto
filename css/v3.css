@@ -1,0 +1,175 @@
+/* Aspetto «bustina di semi» v3: caricato per ultimo, ridefinisce testata, barra, riquadri e righe.
+   Le misure dei bersagli (48/56 px) restano quelle del progetto. */
+:root {
+  --sfondo: #E9F1E4; --carta: #FFFFFF; --inchiostro: #12231A; --inchiostro-2: #455A4B;
+  --bordo: #D3E0CD; --verde: #1F7A36; --verde-vivo: #5BBE4B; --verde-chiaro: #DDF1D6;
+  --giallo-chiaro: #FFF0CE; --rosso-chiaro: #FBE0DC; --rosso: #A82A1E;
+  --pomodoro: #E0402F; --zucca: #F0A21A; --cielo: #CFEAF8; --bosco: #173A28;
+  --terra: #12231A; --dock: #12231A; --pulsante: #1F7A36; --raggio: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sfondo: #0E1A12; --carta: #192A1F; --inchiostro: #E7F1E4; --inchiostro-2: #A9BEAE;
+    --bordo: #2D4433; --verde: #7FD07A; --verde-vivo: #5BBE4B; --verde-chiaro: #1F3A27;
+    --giallo-chiaro: #3F3517; --rosso-chiaro: #43231F; --rosso: #FFB3A8;
+    --pomodoro: #FF7A6B; --zucca: #F2B84B; --cielo: #1B3646; --bosco: #2A4A35;
+    --terra: #E7F1E4; --dock: #0A130D; --pulsante: #2E8A44;
+  }
+}
+body { background: var(--sfondo); }
+main { padding: 4px 14px calc(104px + env(safe-area-inset-bottom)); gap: 10px; }
+
+/* Testata: nessuna fascia, titolo grande e due icone tonde */
+.testata { position: static; background: transparent; color: var(--inchiostro); box-shadow: none; min-height: 0; padding: calc(14px + env(safe-area-inset-top)) 14px 4px; gap: 8px; }
+.testata h1 { font-size: 26px; font-weight: 850; letter-spacing: -.02em; line-height: 1.05; }
+.testata .ricerca-apri, .testata .ingranaggio { width: 44px; height: 44px; border-radius: 14px; background: var(--carta); color: var(--inchiostro); }
+.testata .ingranaggio[aria-current="page"] { background: var(--bosco); color: #fff; }
+.testata .ricerca-apri .icona, .testata .ingranaggio .icona { width: 22px; height: 22px; }
+.testata .ricerca-apri { margin-left: auto; }
+/* Il titolo grande è già nella testata: quello della schermata resta solo per i lettori di schermo */
+.titolo-schermata { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Barra in basso: dock scuro fluttuante con la fotocamera al centro */
+.barra { left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); height: 64px; padding: 0 4px; border: 0; border-radius: 24px; background: var(--dock); box-shadow: 0 8px 24px #0006; align-items: center; }
+.barra a { min-height: 56px; flex: 1; border-radius: 18px; color: #ffffffb3; font-size: 11.5px; font-weight: 700; gap: 1px; }
+.barra a[aria-current="page"] { background: #ffffff1f; color: #fff; }
+.barra .icona { width: 22px; height: 22px; }
+.barra a[data-rotta=dottore], .barra a[data-rotta=dottore][aria-current="page"] { background: transparent; color: #fff; }
+.barra a[data-rotta=dottore] .icona { width: 24px; height: 24px; padding: 12px; margin-top: -30px; border-radius: 50%; background: var(--verde-vivo); color: #12231A; border: 4px solid var(--sfondo); box-shadow: 0 4px 14px #0006; box-sizing: content-box; }
+.barra a[data-rotta=dottore] span { margin-top: -2px; }
+
+/* Guida delle mascotte: una riga sola, piccola e chiudibile */
+.card.guida { padding: 8px 10px; gap: 4px; border-radius: 20px; background: var(--cielo); }
+.guida .conversazione { gap: 0; }
+.guida .battuta { grid-template-columns: 52px 1fr; gap: 8px; align-items: center; }
+.guida .battuta.rossella { grid-template-columns: 52px 1fr; }
+.guida .battuta.rossella .avatar { order: 0; }
+.guida .battuta:nth-child(n+2) { display: none; }
+.guida .avatar { width: 52px; height: 52px; }
+.guida .fumetto { background: transparent; border: 0; padding: 0; border-radius: 0; box-shadow: none; }
+.guida .fumetto::before, .guida .fumetto::after { display: none; }
+.guida .fumetto .chi { display: none; }
+.guida .fumetto p { font-size: 14px; line-height: 1.3; font-weight: 600; }
+.guida > .btn { min-height: 40px; justify-self: end; padding: 0 12px; border: 0; background: transparent; box-shadow: none; color: var(--inchiostro-2); font-size: 13px; }
+
+/* Riquadri */
+.card { border: 0; box-shadow: none; border-radius: 22px; padding: 12px 14px; gap: 8px; }
+.card h3 { font-size: 15px; }
+
+/* Oggi */
+.saluto { font-size: 14px; font-weight: 700; color: var(--inchiostro-2); letter-spacing: 0; }
+.ricerca-oggi { min-height: 48px; border: 0; border-radius: 16px; background: var(--carta); color: var(--inchiostro-2); font-size: 15px; }
+.striscia-giorno { grid-template-columns: 1fr; gap: 4px; }
+.striscia-giorno .giorno-data { font-size: 13px; font-weight: 700; }
+.striscia-giorno .meteo { display: block; padding: 10px 14px; border-radius: 22px; background: linear-gradient(160deg, var(--cielo), color-mix(in srgb, var(--cielo) 55%, var(--carta))); }
+.striscia-giorno .meteo-giorno { display: flex; align-items: center; gap: 10px; padding: 0; background: transparent; }
+.striscia-giorno .meteo-giorno > strong { font-size: 13px; grid-column: auto; }
+.striscia-giorno .meteo-giorno > span:first-of-type { display: inline; font-size: 13px; font-weight: 700; }
+.striscia-giorno .meteo-gradi { font-size: 22px; font-weight: 850; letter-spacing: -.02em; }
+.striscia-giorno .meteo-giorno .aiuto { font-size: 13px; color: var(--inchiostro); margin-left: auto; }
+.striscia-giorno .meteo > h4, .striscia-giorno .meteo > .settimana-meteo, .striscia-giorno .meteo > .consiglio-giorno { display: none; }
+/* Il consiglio sull'acqua resta leggibile anche nella carta compatta del meteo. */
+.striscia-giorno .meteo > .acqua { display: block; font-size: 13px; }
+.striscia-giorno .avvisi-stagione .stagione { max-width: none; width: auto; }
+.striscia-giorno .avvisi-stagione:empty { display: none; }
+.titolo-lavori { font-size: 15px; }
+.sezione-da-fare { background: var(--carta); border-radius: 22px; padding: 12px 14px; display: grid; gap: 6px; }
+.sezione-da-fare > .btn { min-height: 44px; justify-self: start; padding: 0 14px; border-radius: 14px; font-size: 13px; box-shadow: none; }
+.lavoro { padding: 4px 0; }
+.lavoro .lavoro-riga { min-width: 0; }
+.lavoro .lavoro-testi h3 { font-size: 14.5px; font-weight: 700; line-height: 1.2; }
+.lavoro .etichette { display: none; }
+.lavoro .dettagli summary { min-height: 52px; }
+.lavoro-spunta > span:first-child { width: 24px; height: 24px; border: 2.5px solid var(--verde); border-radius: 8px; }
+.lavoro .riga { display: flex; flex-wrap: wrap; gap: 6px; }
+.lavoro .riga .btn { min-height: 44px; border-radius: 14px; font-size: 13px; box-shadow: none; }
+.lavoro .consiglio-meteo { font-size: 12.5px; color: var(--inchiostro-2); }
+.altri-lavori > summary { min-height: 44px; display: flex; align-items: center; font-weight: 800; color: var(--verde); }
+.scorciatoie > h3 { display: none; }
+.scorciatoie .scorciatoia { background: var(--bosco); color: #fff; border: 0; border-radius: 18px; min-height: 64px; font-size: 12.5px; font-weight: 700; }
+.scorciatoie-griglia { gap: 8px; }
+
+/* Il mio orto */
+.filtri-colture.segmentato { padding: 4px; border-radius: 18px; }
+.filtri-colture .btn { font-size: 13.5px; font-weight: 800; border-radius: 14px; }
+.filtri-colture .btn[aria-pressed="true"] { background: var(--bosco); color: #fff; }
+.colture-registro { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.colture-registro > .coltura { position: relative; overflow: hidden; display: block; padding: 0 56px 0 0; background: var(--carta); border: 0; border-radius: 20px; box-shadow: none; }
+.colture-registro > .coltura::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--verde-vivo); }
+.colture-registro > .coltura.salute-bordo-attenzione::before { background: var(--zucca); }
+.colture-registro > .coltura.salute-bordo-urgente::before { background: var(--pomodoro); }
+.colture-registro > .coltura.salute-bordo-attenzione, .colture-registro > .coltura.salute-bordo-urgente, .colture-registro > .coltura.salute-bordo-ok { border-left: 0; }
+.colture-registro .coltura-testa { grid-template-columns: 46px minmax(0, 1fr) auto; gap: 10px; min-height: 64px; padding: 9px 4px 9px 16px; }
+.colture-registro .coltura-testa::after { display: none; }
+.colture-registro .coltura-testa .anello { width: 46px; height: 46px; }
+.colture-registro .coltura-testa .anello::before { inset: 4px; }
+.colture-registro .coltura-testa .anello img { width: 28px; height: 28px; }
+.coltura-testi h3 { font-size: 15.5px; font-weight: 850; line-height: 1.15; }
+.coltura-testi .meta { font-size: 12.5px; color: var(--inchiostro-2); line-height: 1.25; }
+.colture-registro .coltura-testa .salute, .colture-registro .salute { min-height: 0; padding: 5px 9px; border-radius: 10px; font-size: 12px; font-weight: 850; white-space: nowrap; color: #fff; background: var(--verde); }
+.colture-registro .salute::before { display: none; }
+.colture-registro .salute-attenzione { background: var(--zucca); color: #3a2600; }
+.colture-registro .salute-urgente { background: var(--pomodoro); color: #fff; }
+.colture-registro .salute-ok { background: var(--verde-vivo); color: #0d2a14; }
+.colture-registro .salute-ignoto { background: var(--bordo); color: var(--inchiostro); }
+.colture-registro .coltura-azioni { top: 10px; right: 6px; width: 44px; }
+.colture-registro .coltura-azioni > summary { width: 44px; min-height: 44px; border-radius: 14px; background: var(--sfondo); font-size: 0; }
+.colture-registro .coltura-azioni > summary::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--inchiostro-2); box-shadow: 0 -7px 0 var(--inchiostro-2), 0 7px 0 var(--inchiostro-2); }
+.colture-registro .coltura-azioni[open] { top: 56px; right: 8px; z-index: 5; width: min(260px, calc(100vw - 40px)); border-radius: 16px; box-shadow: 0 8px 24px #0004; }
+.colture-registro .coltura-azioni .riga { display: grid; gap: 6px; }
+.colture-strumenti { gap: 8px; }
+.colture-strumenti .tessera-azione { flex: none; min-height: 44px; display: flex; align-items: center; padding: 0 14px; border-radius: 14px; background: var(--carta); font-weight: 800; font-size: 13.5px; }
+.colture-strumenti .tessera-azione .aiuto { display: none; }
+.colture-strumenti .tessera-azione strong { white-space: nowrap; }
+.btn.fab.colture-nuova-fissa { border-radius: 20px; padding: 0 20px; bottom: calc(92px + env(safe-area-inset-bottom)); }
+.toast { bottom: calc(90px + env(safe-area-inset-bottom)); }
+
+/* Seconda mano */
+/* La riga compatta nasconde i dati, ma l'avviso di stagione (fuori stagione/fine stagione/gelo) deve restare visibile: si mostra solo quando c'e'. */
+.colture-registro .coltura .stagione-posto:not(:empty) { display: block; }
+.guida { position: relative; padding-right: 48px; }
+.guida > .btn { position: absolute; top: 4px; right: 4px; width: 44px; min-height: 44px; padding: 0; font-size: 0; }
+.guida > .btn::before { content: "\00d7"; font-size: 26px; line-height: 1; color: var(--inchiostro-2); }
+.colture-registro .coltura-testa .salute-attenzione { background: var(--zucca); color: #3a2600; }
+.colture-registro .coltura-testa .salute-urgente { background: var(--pomodoro); color: #fff; }
+.colture-registro .coltura-testa .salute-ok { background: var(--verde-vivo); color: #0d2a14; }
+.colture-registro .coltura-testa .salute-ignoto { background: var(--bordo); color: var(--inchiostro); }
+.colture-registro > .coltura > p.aiuto { margin: -2px 0 0; padding: 0 0 10px 72px; font-size: 12.5px; color: var(--inchiostro-2); }
+
+/* Lavori di oggi: casella a sinistra, titolo, azioni sotto */
+ol.lavori { gap: 0; }
+li.lavoro { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 4px; align-items: center; padding: 2px 0; border: 0; border-top: 1px solid var(--bordo); border-radius: 0; background: transparent; }
+li.lavoro:first-child { border-top: 0; }
+li.lavoro > .lavoro-spunta { grid-column: 1; grid-row: 1; width: 44px; height: 52px; align-self: start; background: transparent; box-shadow: none; }
+li.lavoro > .lavoro-riga { display: block; grid-column: 2; grid-row: 1; min-width: 0; }
+li.lavoro > .lavoro-riga > .lavoro-spunta { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; opacity: 0; }
+li.lavoro .dettagli { grid-column: auto; }
+li.lavoro .dettagli summary { grid-template-columns: 36px minmax(0, 1fr) 18px; min-height: 52px; gap: 10px; }
+li.lavoro .icona-coltura { width: 34px; height: 34px; }
+li.lavoro > .consiglio-meteo { grid-column: 2; }
+li.lavoro > .riga { grid-column: 2; padding-bottom: 6px; }
+li.lavoro > .riga .btn { min-height: 44px; border: 1px solid var(--bordo); background: transparent; color: var(--inchiostro-2); }
+.card.guida { padding: 8px 52px 8px 10px; }
+li.lavoro > .riga { justify-content: flex-start; }
+li.lavoro > .riga .btn { width: auto; flex: none; padding: 0 16px; }
+
+/* Misure del progetto: .btn >= 56 px, altri bersagli >= 48 px */
+.guida > .btn { width: 56px; min-height: 56px; top: 0; right: 0; }
+.card.guida { padding-right: 60px; min-height: 56px; }
+.guida .avatar { width: 52px; height: 52px; }
+.sezione-da-fare > .btn { min-height: 56px; }
+li.lavoro > .riga .btn { min-height: 56px; }
+.btn.piccolo { min-height: 56px; }
+.avatar { min-width: 44px; min-height: 44px; }
+.filtri-colture .btn, .filtri-colture.segmentato button { min-height: 56px; }
+.btn.fab.colture-nuova-fissa { min-height: 56px; }
+.btn.mese { min-height: 56px; min-width: 56px; }
+.colture-registro .coltura-azioni > summary { min-height: 48px; }
+
+/* Mascotte fuori dalla guida: piccole */
+.conversazione .battuta { grid-template-columns: 64px 1fr; gap: 8px; }
+.conversazione .battuta.rossella { grid-template-columns: 64px 1fr; }
+.conversazione .battuta.rossella .avatar { order: 0; }
+.conversazione .avatar { width: 64px; height: 64px; }
+.conversazione .fumetto { border-width: 0; background: var(--sfondo); border-radius: 16px; padding: 8px 12px; }
+.conversazione .fumetto p { font-size: 14.5px; }

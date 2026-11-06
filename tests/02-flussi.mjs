@@ -9,7 +9,7 @@ const browser = await chromium.launch();
 const Q = '?oggi=2026-10-30';
 const toast = (page) => page.$eval('#toast', (e) => e.textContent);
 const nomiInLista = (page) => page.$$eval('.coltura h3', (h) => h.map((x) => x.textContent));
-// Promemoria ed elimina ora stanno nel pannello Â«AltroÂ» (details.coltura-azioni), che si richiude a ogni ridisegno della lista: apriAzioni lo riapre.
+// Promemoria ed elimina ora stanno nel pannello «Altro» (details.coltura-azioni), che si richiude a ogni ridisegno della lista: apriAzioni lo riapre.
 const apriAzioni = (page) => page.evaluate(() => { document.querySelectorAll('details.coltura-azioni').forEach((d) => { d.open = true; }); });
 
 async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'orto', note = '' }) {
@@ -37,14 +37,14 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   check('colture: elenco vuoto mostra il testo "Qui compariranno"', await page.isVisible('#colture-vuoto'));
 
   await nuova(page, { nome: 'Fave', varieta: 'Aguadulce', note: 'Dopo il pomodoro' });
-  check('aggiunta: compare in elenco', (await nomiInLista(page)).join() === 'Fave Â· Aguadulce', (await nomiInLista(page)).join());
+  check('aggiunta: compare in elenco', (await nomiInLista(page)).join() === 'Fave · Aguadulce', (await nomiInLista(page)).join());
   check('aggiunta: toast "Coltura aggiunta"', (await toast(page)) === 'Coltura aggiunta', await toast(page));
   check('aggiunta: testo vuoto sparito', !(await page.isVisible('#colture-vuoto')));
   const gg = await page.locator('li.coltura .dati-coltura dd').first().innerText();
   check('aggiunta: 10 giorni dalla semina (20 ott -> 30 ott)', gg.startsWith('10'), gg);
 
   await page.reload(); await attendiApp(page);
-  check('persistenza: dopo ricarica la coltura c\'Ã¨ ancora', (await nomiInLista(page)).join() === 'Fave Â· Aguadulce');
+  check('persistenza: dopo ricarica la coltura c\'è ancora', (await nomiInLista(page)).join() === 'Fave · Aguadulce');
   const db = await leggiDb(page, 'colture');
   check('db: record con schemaVersion 2, schedaId "fave", id stringa', db.length === 1 && db[0].schemaVersion === 2 && db[0].schedaId === 'fave' && typeof db[0].id === 'string', JSON.stringify(db));
 
@@ -134,12 +134,12 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   await page.click('text=Aggiungi promemoria');
   await page.fill('dialog input[name=titolo]', 'Innaffiare & "sarchiare"');
   await page.fill('dialog input[name=data]', '2026-12-31');
-  await page.fill('dialog textarea[name=descrizione]', 'riga1\nriga2 Ã¨ bella');
+  await page.fill('dialog textarea[name=descrizione]', 'riga1\nriga2 è bella');
   await page.click('dialog button:has-text("Apri Calendar")');
   const u2 = new URL((await page.evaluate(() => window.__aperti))[0][0]);
   check('promemoria modificato: testo con & e virgolette', u2.searchParams.get('text') === 'Innaffiare & "sarchiare"', u2.searchParams.get('text'));
   check('promemoria 31 dic: fine = 1 gen anno dopo', u2.searchParams.get('dates') === '20261231/20270101', u2.searchParams.get('dates'));
-  check('promemoria modificato: descrizione a capo e accenti', u2.searchParams.get('details') === 'riga1\nriga2 Ã¨ bella');
+  check('promemoria modificato: descrizione a capo e accenti', u2.searchParams.get('details') === 'riga1\nriga2 è bella');
   // annulla non apre; titolo vuoto non apre
   await page.evaluate(() => { window.__aperti.length = 0; });
   await page.click('text=Aggiungi promemoria');
@@ -176,7 +176,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   await page.selectOption('select[name=metodo]', 'biologico');
   await page.waitForTimeout(300);
   const dbImp = await leggiDb(page, 'impostazioni');
-  check('impostazioni: la chiave finta Ã¨ salvata nel database (come previsto)', dbImp.some((r) => r.chiave === 'ai_chiave' && r.valore === CHIAVE), JSON.stringify(dbImp.map((r) => r.chiave)));
+  check('impostazioni: la chiave finta è salvata nel database (come previsto)', dbImp.some((r) => r.chiave === 'ai_chiave' && r.valore === CHIAVE), JSON.stringify(dbImp.map((r) => r.chiave)));
   check('impostazioni: placeholder "Chiave salvata" dopo il salvataggio', (await page.getAttribute('input[name=ai_chiave]', 'placeholder')).startsWith('Chiave salvata'));
   await page.reload(); await attendiApp(page);
   check('impostazioni: metodo e modello restano dopo ricarica', (await page.inputValue('select[name=metodo]')) === 'biologico' && (await page.inputValue('input[name=ai_modello]')) === 'gemini-modello-finto');
@@ -190,7 +190,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   check('export: formato "orto-backup" versione 3', bk.formato === 'orto-backup' && bk.versione === 3, `${bk.formato} v${bk.versione}`);
   check('export: campi esportato/impostazioni/colture/zone/eventi', typeof bk.esportato === 'string' && bk.impostazioni && Array.isArray(bk.colture) && Array.isArray(bk.zone) && Array.isArray(bk.eventi));
   check('export: 2 colture', bk.colture.length === 2, String(bk.colture.length));
-  check('export: LA CHIAVE IA NON COMPARE (nÃ© ai_chiave nÃ© il valore)', !testo.includes(CHIAVE) && !testo.includes('ai_chiave') && !('ai_chiave' in bk.impostazioni), 'impostazioni=' + JSON.stringify(bk.impostazioni));
+  check('export: LA CHIAVE IA NON COMPARE (né ai_chiave né il valore)', !testo.includes(CHIAVE) && !testo.includes('ai_chiave') && !('ai_chiave' in bk.impostazioni), 'impostazioni=' + JSON.stringify(bk.impostazioni));
   check('export: impostazioni pubbliche presenti (metodo, modello)', bk.impostazioni.metodo === 'biologico' && bk.impostazioni.ai_modello === 'gemini-modello-finto');
   fs.unlinkSync(file); // non lasciare il file in repo
 
@@ -198,7 +198,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   const bkBuf = Buffer.from(testo);
   await svuotaDati(page);
   await vai(page, 'impostazioni', Q);
-  // la chiave Ã¨ stata svuotata con i dati: la rimetto per verificare che l'import non la tocchi
+  // la chiave è stata svuotata con i dati: la rimetto per verificare che l'import non la tocchi
   await page.fill('input[name=ai_chiave]', CHIAVE);
   await page.click('button:has-text("Salva")');
   await page.setInputFiles('input[type=file]', { name: 'b.json', mimeType: 'application/json', buffer: bkBuf });
@@ -251,7 +251,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
 
   // file non validi: i dati devono restare
   const brutti = [
-    ['non JSON', 'questo non Ã¨ json {'],
+    ['non JSON', 'questo non è json {'],
     ['JSON ma non backup (oggetto)', '{"ciao":1}'],
     ['colture non array', '{"colture":"x"}'],
     ['coltura senza nome', '{"colture":[{"dataSemina":"2026-01-01"}]}'],
@@ -268,8 +268,8 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
     const t = await toast(page);
     const dopo = JSON.stringify(await leggiDb(page, 'colture'));
     check(`file non valido (${nome}): messaggio "File non validoâ€¦", nessuna conferma, dati intatti`, /^File non valido/.test(t) && ultimoMsg === '' && dopo === prima, `toast="${t}" dialogo="${ultimoMsg}"`);
-    if (nome === 'non JSON') check('file non valido: messaggio JSON corretto', t === 'File non valido: non Ã¨ un JSON', t);
-    if (nome === 'JSON ma non backup (oggetto)') check('file non valido: messaggio formato corretto', t === 'File non valido: non Ã¨ un backup dell\'orto', t);
+    if (nome === 'non JSON') check('file non valido: messaggio JSON corretto', t === 'File non valido: non è un JSON', t);
+    if (nome === 'JSON ma non backup (oggetto)') check('file non valido: messaggio formato corretto', t === 'File non valido: non è un backup dell\'orto', t);
     if (nome === 'coltura con data impossibile') {
       await vai(page, 'colture', Q);
       const testoCarta = await page.$eval('.lista', (e) => e.innerText.replace(/\n+/g, ' / ')).catch(() => '(nessuna carta)');
@@ -314,10 +314,10 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
     };
   }));
   const ver0 = await page.evaluate(() => new Promise((ok) => indexedDB.databases().then((d) => ok(d.find((x) => x.name === 'orto')?.version))));
-  check('migrazione: database di partenza Ã¨ v1', ver0 === 1, String(ver0));
+  check('migrazione: database di partenza è v1', ver0 === 1, String(ver0));
   await vai(page, 'colture', Q);
   const nomi = await nomiInLista(page);
-  check('migrazione: le 3 colture della v1 sono in elenco', nomi.length === 3 && nomi.includes('Fave') && nomi.includes('Pomodoro Â· Cuore di bue') && nomi.includes('Zucchina Â· Romanesca'), nomi.join(' | '));
+  check('migrazione: le 3 colture della v1 sono in elenco', nomi.length === 3 && nomi.includes('Fave') && nomi.includes('Pomodoro · Cuore di bue') && nomi.includes('Zucchina · Romanesca'), nomi.join(' | '));
   const info = await page.evaluate(() => new Promise((ok) => { const r = indexedDB.open('orto'); r.onsuccess = () => { const d = r.result; const o = { v: d.version, st: [...d.objectStoreNames].sort() }; d.close(); ok(o); }; }));
   check('migrazione: database ora v4 con tutti gli store (anche movimenti e produzioni)', info.v === 4 && info.st.join() === 'colture,eventi,foto,impostazioni,movimenti,produzioni,zone', JSON.stringify(info));
   const cs = await leggiDb(page, 'colture');
