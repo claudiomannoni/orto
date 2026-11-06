@@ -173,3 +173,27 @@ li.lavoro > .riga .btn { min-height: 56px; }
 .conversazione .avatar { width: 64px; height: 64px; }
 .conversazione .fumetto { border-width: 0; background: var(--sfondo); border-radius: 16px; padding: 8px 12px; }
 .conversazione .fumetto p { font-size: 14.5px; }
+
+/* Riquadro di stagione dentro la riga: compatto, mai oltre la carta */
+.colture-registro > .coltura { padding-right: 0; }
+.colture-registro .coltura-testa { padding-right: 56px; }
+.colture-registro .coltura .stagione-posto:not(:empty) { margin: 0 12px 10px 16px; }
+.colture-registro .coltura .stagione { margin: 0; padding: 8px 12px; border-width: 0; border-radius: 14px; }
+.colture-registro .coltura .stagione p { font-size: 13.5px; line-height: 1.35; margin: 4px 0 0; }
+
+/* Come farla sopravvivere */
+.sopravvivenza { display: grid; gap: 8px; }
+.sopravvivenza > h3 { font-size: 16px; }
+.opzione-sopravvivenza { background: var(--carta); border-radius: 18px; overflow: hidden; }
+.opzione-sopravvivenza > summary { list-style: none; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 14px; cursor: pointer; font-weight: 800; }
+.opzione-sopravvivenza > summary::-webkit-details-marker { display: none; }
+.opzione-sopravvivenza > summary::after { content: ""; flex: none; width: 9px; height: 9px; border-right: 2.5px solid var(--inchiostro-2); border-bottom: 2.5px solid var(--inchiostro-2); transform: rotate(45deg); }
+.opzione-sopravvivenza[open] > summary::after { transform: rotate(-135deg); }
+.opzione-titolo { flex: 1; min-width: 0; }
+.esito { flex: none; padding: 4px 10px; border-radius: 10px; font-size: 12px; font-weight: 850; background: var(--giallo-chiaro); color: #3a2600; }
+.esito-si { background: var(--verde-vivo); color: #0d2a14; }
+.esito-no { background: var(--rosso-chiaro); color: var(--rosso); }
+.opzione-sopravvivenza .corpo { display: grid; gap: 10px; padding: 0 14px 14px; }
+.opzione-sopravvivenza h4 { margin: 0 0 4px; font-size: 14px; }
+.passi-sopravvivenza { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+.colture-registro .coltura .link-sopravvivenza { margin-top: 8px; min-height: 56px; display: flex; align-items: center; justify-content: center; border: 0; background: var(--carta); color: var(--verde); font-weight: 800; }

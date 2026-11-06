@@ -1122,5 +1122,13 @@
   "diagnosi.correzione.domanda": "La foto dice che è in fase {fase}: vuoi aggiornare?",
   "diagnosi.correzione.aggiorna": "Aggiorna",
   "diagnosi.correzione.lascia": "Lascia com'è",
-  "diagnosi.correzione.salvata": "Età aggiornata dalla foto."
+  "diagnosi.correzione.salvata": "Età aggiornata dalla foto.",
+  "sopravvivenza.titolo": "Come farla sopravvivere",
+  "sopravvivenza.intro": "Tocca una voce per aprirla: troverai cosa si può fare e come, con la fonte.",
+  "sopravvivenza.passi": "Come fare",
+  "sopravvivenza.attenzione": "Attenzione",
+  "sopravvivenza.esito.si": "Si può",
+  "sopravvivenza.esito.dipende": "Dipende",
+  "sopravvivenza.esito.no": "No",
+  "sopravvivenza.apri": "Come farla sopravvivere"
 }

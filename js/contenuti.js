@@ -106,3 +106,8 @@ export async function raccolta() {
 export async function stagione() {
   return json(`data/${lingua}/stagione.json`);
 }
+
+// Come far sopravvivere una coltura all'inverno: all'aperto, talee, riparo (data/it/sopravvivenza.json), o null.
+export async function sopravvivenza() {
+  return json(`data/${lingua}/sopravvivenza.json`);
+}

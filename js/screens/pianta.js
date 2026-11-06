@@ -3,7 +3,8 @@ import { el, aggiungi, formattaData, oggiISO, parametriRotta, aggiungiGiorni } f
 import { t } from '../i18n.js';
 import { elencoColture, salvaColtura } from '../store/dati.js';
 import { elencoFoto } from '../store/foto.js';
-import { fasi, catalogo, stagione, raccolta } from '../contenuti.js';
+import { fasi, catalogo, stagione, raccolta, sopravvivenza } from '../contenuti.js';
+import { bloccoSopravvivenza } from '../ui/sopravvivenza.js';
 import { lineaDelTempo, andamentoSalute, giorniFraFoto } from '../motore/linea-tempo.js';
 import { statoFase, bloccoFase } from '../ui/fasi-pianta.js';
 import { riempiStagione } from '../ui/stagione-blocco.js';
@@ -20,7 +21,7 @@ export async function monta(contenitore) {
   const p = parametriRotta();
   const id = p.get('id');
   const selezionata = ['oggi', 'storia', 'scheda', 'piano'].includes(p.get('scheda')) ? p.get('scheda') : 'oggi';
-  const [colture, tutteFoto, dFasi, schede, dStagione, impostazioni, dRaccolta, eventi] = await Promise.all([elencoColture(), elencoFoto(), fasi(), catalogo(), stagione(), leggi(), raccolta(), elencoEventi()]);
+  const [colture, tutteFoto, dFasi, schede, dStagione, impostazioni, dRaccolta, eventi, dSopravvivenza] = await Promise.all([elencoColture(), elencoFoto(), fasi(), catalogo(), stagione(), leggi(), raccolta(), elencoEventi(), sopravvivenza()]);
   const coltura = colture.find((c) => c.id === id);
   if (!coltura) {
     aggiungi(contenitore, el('h2', { class: 'titolo-schermata' }, t('pianta.titolo')), el('p', { class: 'aiuto' }, t('pianta.non_trovata')), el('a', { class: 'btn', href: '#/colture' }, t('pianta.torna')));
@@ -54,7 +55,7 @@ export async function monta(contenitore) {
   if (selezionata === 'oggi') {
     const avvisoStagione = el('div', { class: 'stagione-posto' });
     if (scheda) riempiStagione(avvisoStagione, { coltura, scheda, zonaId: impostazioni.zona, dati: dStagione });
-    contenuto = [avvisoStagione, bloccoFase(coltura, dFasi, oggiISO(), { conFoto: true, raccoltaDati: dRaccolta, conNome: false, conRiepilogo: false, cicloConcluso: cicloFinito })];  } else if (selezionata === 'storia') {
+    contenuto = [avvisoStagione, bloccoSopravvivenza(coltura.schedaId ?? scheda?.id, dSopravvivenza), bloccoFase(coltura, dFasi, oggiISO(), { conFoto: true, raccoltaDati: dRaccolta, conNome: false, conRiepilogo: false, cicloConcluso: cicloFinito })];  } else if (selezionata === 'storia') {
     contenuto = [coltura.correzioneEta ? el('p', { class: 'aiuto' }, t('fase.corretta_foto', { data: formattaData(coltura.correzioneEta.data) }), el('button', { class: 'btn piccolo', type: 'button', onclick: async () => { coltura.correzioneEta = null; await salvaColtura(coltura); location.reload(); } }, t('fase.annulla_correzione'))) : null,
       correzioneProposta ? el('section', { class: 'card correzione-fase' }, el('p', {}, t('diagnosi.correzione.domanda', { fase: risultatoFotoFase.fase_osservata.nome })), el('div', { class: 'riga' }, el('button', { class: 'btn primario', type: 'button', onclick: async () => { coltura.correzioneEta = correzioneProposta; await salvaColtura(coltura); location.reload(); } }, t('diagnosi.correzione.aggiorna')), el('button', { class: 'btn', type: 'button', onclick: (e) => e.currentTarget.closest('.correzione-fase').remove() }, t('diagnosi.correzione.lascia')))) : null,
       linea.length > 1 ? el('p', { class: andamento === 'peggiora' ? 'avviso' : 'aiuto' }, t(`pianta.andamento.${andamento}`)) : null,

@@ -10,7 +10,7 @@ import { giudizioStagione } from '../motore/stagione.js';
 import { previsioni } from '../meteo.js';
 import { elencoZone } from '../store/zone.js';
 import { controllaProgressi } from '../store/progressi.js';
-import { catalogo, trovaScheda, animali, rendita, alberi, stagione } from '../contenuti.js';
+import { catalogo, trovaScheda, animali, rendita, alberi, stagione, sopravvivenza } from '../contenuti.js';
 import { riempiStagione } from '../ui/stagione-blocco.js';
 import { leggi } from '../store/impostazioni.js';
 import { apriFoglio } from '../ui/foglio.js';
@@ -22,6 +22,7 @@ import { interpretaGesto } from '../motore/gesto.js';
 
 let schede = [];
 let datiStagione = null;
+let datiSopravvivenza = null;
 let zonaClimatica = null;
 let colture = [];
 let zone = [];
@@ -51,6 +52,15 @@ function riquadroStagione(coltura) {
   const dentro = el('div', { class: 'stagione-posto' });
   const sc = schede.find((s) => s.id === coltura.schedaId) ?? trovaScheda(schede, coltura.nome);
   if (sc) riempiStagione(dentro, { coltura: { ...coltura, schedaId: coltura.schedaId ?? sc.id }, scheda: sc, zonaId: zonaClimatica, dati: datiStagione });
+  // Se per questa coltura ci sono consigli per l'inverno (talee, riparo...), sotto l'avviso c'è il tasto per aprirli.
+  if (sc && datiSopravvivenza?.colture?.[sc.id]?.opzioni?.length) {
+    const aggiungiTasto = () => {
+      const blocco = dentro.querySelector('.stagione');
+      if (blocco && !dentro.querySelector('.link-sopravvivenza')) blocco.append(el('a', { class: 'btn piccolo link-sopravvivenza', href: `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=oggi` }, t('sopravvivenza.apri')));
+    };
+    new MutationObserver(aggiungiTasto).observe(dentro, { childList: true });
+    aggiungiTasto();
+  }
   return dentro;
 }
 
@@ -235,7 +245,7 @@ function apriNuova(nomeIniziale = '') {
 
 export async function monta(contenitore) {
   [colture, schede, zone, eventi, foto, datiFasi, datiRaccolta] = await Promise.all([elencoColture(), catalogo(), elencoZone(), elencoEventi(), elencoFoto(), fasi(), raccolta()]);
-  [datiStagione, zonaClimatica] = await Promise.all([stagione(), leggi().then((i) => i.zona)]);
+  [datiStagione, zonaClimatica, datiSopravvivenza] = await Promise.all([stagione(), leggi().then((i) => i.zona), sopravvivenza()]);
   const [dAnimali, dRendita, dAlberi] = await Promise.all([animali(), rendita(), alberi()]);
   conteggio = el('span', { class: 'conteggio' }, '0');
   lista = el('ul', { class: 'lista colture-registro' });
