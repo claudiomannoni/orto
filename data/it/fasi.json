@@ -2928,6 +2928,160 @@
           }
         }
       ]
+    },
+    "peperoncino": {
+      "piantina_eta_giorni": {
+        "valore": 56,
+        "certezza": "media",
+        "fonti": [
+          "f3"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "germinazione",
+          "nome": "Germinazione",
+          "da_giorno": 0,
+          "a_giorno": 14,
+          "cosa_fare": [
+            "Semina in contenitore protetto e mantieni umido il substrato.",
+            "Dai luce ai germogli appena emergono."
+          ],
+          "accortezze": [
+            "La germinazione richiede condizioni calde.",
+            "Tempi e successo dipendono dalla temperatura."
+          ],
+          "come_riconoscerla": "Emergono due cotiledoni, poi le prime foglie vere.",
+          "certezza": "media",
+          "fonti": [
+            "f3",
+            "f5"
+          ],
+          "acqua": {
+            "livello": "costante",
+            "nota": "Mantieni il terreno umido durante la germinazione senza lasciarlo zuppo.",
+            "certezza": "bassa",
+            "fonti": [
+              "f5",
+              "f20"
+            ]
+          }
+        },
+        {
+          "id": "piantina",
+          "nome": "Piantina",
+          "da_giorno": 15,
+          "a_giorno": 56,
+          "cosa_fare": [
+            "Tieni le piantine luminose e abituale gradualmente all’esterno.",
+            "Trapianta quando le condizioni sono calde e la piantina robusta."
+          ],
+          "accortezze": [
+            "Evita freddo e ristagni.",
+            "L’età al trapianto è indicativa, non una data rigida."
+          ],
+          "come_riconoscerla": "La pianta ha foglie vere ben sviluppate e fusto saldo.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
+        },
+        {
+          "id": "crescita",
+          "nome": "Crescita vegetativa",
+          "da_giorno": 57,
+          "a_giorno": 88,
+          "cosa_fare": [
+            "Trapianta in posizione soleggiata dopo il freddo.",
+            "Mantieni il terreno umido e libero dalle erbe."
+          ],
+          "accortezze": [
+            "Evita forti oscillazioni di umidità.",
+            "Per problemi chiedi a un tecnico (consorzio agrario o servizio fitosanitario regionale)."
+          ],
+          "come_riconoscerla": "La pianta ramifica e produce nuove foglie.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
+        },
+        {
+          "id": "fioritura",
+          "nome": "Fioritura e allegagione",
+          "da_giorno": 89,
+          "a_giorno": 113,
+          "cosa_fare": [
+            "Mantieni regolare l’acqua durante fioritura e formazione dei frutti.",
+            "Sorreggi i rami se il carico li piega."
+          ],
+          "accortezze": [
+            "Fioritura e allegagione sono sensibili allo stress idrico.",
+            "Tempi variabili secondo varietà e clima."
+          ],
+          "come_riconoscerla": "Compaiono fiori bianchi e poi piccoli peperoncini.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4",
+            "f6"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
+        },
+        {
+          "id": "raccolta",
+          "nome": "Maturazione e raccolto",
+          "da_giorno": 114,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Raccogli i frutti quando hanno la dimensione e il colore desiderati.",
+            "Usa forbici pulite per non strappare i rami."
+          ],
+          "accortezze": [
+            "La scheda indica 114–146 giorni.",
+            "Il colore finale dipende dalla varietà."
+          ],
+          "come_riconoscerla": "I frutti sono sviluppati; il colore cambia secondo la varietà e il grado di maturità.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f4"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Apporto da adattare a terreno e meteo; da verificare.",
+            "certezza": "bassa",
+            "fonti": [
+              "f20"
+            ]
+          }
+        }
+      ],
+      "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 114), perché la fonte della fase dava un valore più basso."
     }
   }
 }

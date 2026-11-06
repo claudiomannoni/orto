@@ -771,6 +771,28 @@
           "g4"
         ]
       }
+    },
+    "peperoncino": {
+      "ciclo": "annuale",
+      "freddo": {
+        "tolleranza": "teme-il-freddo",
+        "soglia_c": null,
+        "nota": "È molto sensibile al freddo; la temperatura precisa di danno è da verificare.",
+        "certezza": "alta",
+        "fonti": [
+          "f15"
+        ]
+      },
+      "fine_stagione": {
+        "azione": "raccogliere-tutto",
+        "cosa_fare": "Raccogli i frutti prima dei freddi e togli le piante esaurite.",
+        "come": "Stacca i frutti sani e rimuovi la pianta a produzione finita.",
+        "perche": "È annuale nel clima mediterraneo e sensibile al freddo.",
+        "certezza": "media",
+        "fonti": [
+          "f15"
+        ]
+      }
     }
   }
 }

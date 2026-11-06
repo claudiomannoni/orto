@@ -1,245 +1,287 @@
 {
- "versione": 1,
- "fonti": {
-  "a1": {
-   "titolo": "Pomodoro",
-   "ente": "Agraria.org, Atlante delle colture erbacee",
-   "url": "https://www.agraria.org/coltivazionierbacee/pomodoro.htm",
-   "consultata": "2026-11-06",
-   "nota": "Scheda italiana: ortaggio assai sensibile al gelo."
+  "versione": 1,
+  "fonti": {
+    "a1": {
+      "titolo": "Pomodoro",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/pomodoro.htm",
+      "consultata": "2026-11-06",
+      "nota": "Scheda italiana: ortaggio assai sensibile al gelo."
+    },
+    "a2": {
+      "titolo": "Peperone",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/peperone.htm",
+      "consultata": "2026-11-06",
+      "nota": "Scheda italiana: molto sensibile al freddo, senza soglia numerica."
+    },
+    "a3": {
+      "titolo": "Basilico",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/basilico.htm",
+      "consultata": "2026-11-06",
+      "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
+    },
+    "a4": {
+      "titolo": "Carciofo",
+      "ente": "Agraria.org, Atlante delle colture erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm",
+      "consultata": "2026-11-06",
+      "nota": "Scheda italiana: resiste abbastanza bene fino a 0 °C; sotto zero si danneggiano foglie e capolini."
+    },
+    "u1": {
+      "titolo": "Come radicare i polloni del pomodoro (articolo che riporta il parere di un esperto UF/IFAS)",
+      "ente": "niceville.com",
+      "url": "https://niceville.com/heres-how-to-root-tomato-plants-for-a-fall-crop",
+      "consultata": "2026-11-06",
+      "nota": "Articolo divulgativo: i polloni (femminelle) radicano in circa 10-14 giorni, in casa con buona luce o fuori all'ombra."
+    },
+    "u2": {
+      "titolo": "Tips And Tricks For Overwintering Tomato Plants",
+      "ente": "Gardening Know How",
+      "url": "https://www.gardeningknowhow.com/edible/vegetables/tomato/overwintering-tomatoes.htm",
+      "consultata": "2026-11-06",
+      "nota": "Sito divulgativo: talee prima del primo gelo, tenute in un posto luminoso al chiuso."
+    },
+    "u3": {
+      "titolo": "Five home-garden plants that are suitable for overwintering",
+      "ente": "Oregon State University Extension Service",
+      "url": "https://extension.oregonstate.edu/node/161026",
+      "consultata": "2026-11-06",
+      "nota": "Peperoni in vaso: potati, tenuti al riparo con luce, acqua molto ridotta, concime solo in primavera, fuori a fine primavera."
+    },
+    "u4": {
+      "titolo": "Over winter Habanero peppers indoors",
+      "ente": "Ask Extension (rete delle università USA)",
+      "url": "https://ask.extension.org/kb/faq.php?id=812297",
+      "consultata": "2026-11-06",
+      "nota": "Risposta di un servizio di consulenza universitario: potare dopo il raccolto e prima del gelo, tre rami principali accorciati sopra il primo nodo."
+    },
+    "i1": {
+      "titolo": "Come mettere la pianta di peperoncino a riposo in inverno",
+      "ente": "Cose di Casa",
+      "url": "https://www.cosedicasa.com/casa-in-fiore/fiori-in-casa/come-mettere-la-pianta-di-peperoncino-a-riposo-in-inverno-44129",
+      "consultata": "2026-11-06",
+      "nota": "Guida divulgativa italiana: posto luminoso lontano da correnti fredde, poca acqua; le indicazioni di temperatura variano tra le fonti."
+    },
+    "i2": {
+      "titolo": "Come proteggere il basilico dal freddo in autunno e in inverno",
+      "ente": "Cose di Casa",
+      "url": "https://www.cosedicasa.com/casa-in-fiore/balcone-terrazzo/come-proteggere-il-basilico-dal-freddo-in-autunno-e-in-inverno-la-guida-completa-88723",
+      "consultata": "2026-11-06",
+      "nota": "Guida divulgativa italiana: davanzale luminoso, poca acqua senza ristagni, non togliere tutte le foglie."
+    },
+    "i3": {
+      "titolo": "Basilico: trucchi per l'autunno",
+      "ente": "Nostro Figlio",
+      "url": "https://www.nostrofiglio.it/famiglia/casa/basilico-balcone-trucchi-autunno",
+      "consultata": "2026-11-06",
+      "nota": "Divulgativo: rametto sano, foglie basse tolte, in acqua; con le radici si passa al terriccio."
+    },
+    "i4": {
+      "titolo": "Il trucco per riprodurre il basilico",
+      "ente": "Greenme",
+      "url": "https://www.greenme.it/?p=940661",
+      "consultata": "2026-11-06",
+      "nota": "Divulgativo: radici in circa 15 giorni."
+    },
+    "i5": {
+      "titolo": "Carciofi: periodo e protezione dal freddo",
+      "ente": "DiLei",
+      "url": "https://dilei.it/cucina/carciofi-periodo-come-cucinarli/1342372/",
+      "consultata": "2026-11-06",
+      "nota": "Divulgativo: dopo il trapianto telo di tessuto non tessuto o pacciamatura; in inverno pacciamare per tenere al caldo le radici, con materiale non troppo umido."
+    }
   },
-  "a2": {
-   "titolo": "Peperone",
-   "ente": "Agraria.org, Atlante delle colture erbacee",
-   "url": "https://www.agraria.org/coltivazionierbacee/peperone.htm",
-   "consultata": "2026-11-06",
-   "nota": "Scheda italiana: molto sensibile al freddo, senza soglia numerica."
-  },
-  "a3": {
-   "titolo": "Basilico",
-   "ente": "Agraria.org, Atlante delle colture erbacee",
-   "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/basilico.htm",
-   "consultata": "2026-11-06",
-   "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
-  },
-  "a4": {
-   "titolo": "Carciofo",
-   "ente": "Agraria.org, Atlante delle colture erbacee",
-   "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm",
-   "consultata": "2026-11-06",
-   "nota": "Scheda italiana: resiste abbastanza bene fino a 0 °C; sotto zero si danneggiano foglie e capolini."
-  },
-  "u1": {
-   "titolo": "Come radicare i polloni del pomodoro (articolo che riporta il parere di un esperto UF/IFAS)",
-   "ente": "niceville.com",
-   "url": "https://niceville.com/heres-how-to-root-tomato-plants-for-a-fall-crop",
-   "consultata": "2026-11-06",
-   "nota": "Articolo divulgativo: i polloni (femminelle) radicano in circa 10-14 giorni, in casa con buona luce o fuori all'ombra."
-  },
-  "u2": {
-   "titolo": "Tips And Tricks For Overwintering Tomato Plants",
-   "ente": "Gardening Know How",
-   "url": "https://www.gardeningknowhow.com/edible/vegetables/tomato/overwintering-tomatoes.htm",
-   "consultata": "2026-11-06",
-   "nota": "Sito divulgativo: talee prima del primo gelo, tenute in un posto luminoso al chiuso."
-  },
-  "u3": {
-   "titolo": "Five home-garden plants that are suitable for overwintering",
-   "ente": "Oregon State University Extension Service",
-   "url": "https://extension.oregonstate.edu/node/161026",
-   "consultata": "2026-11-06",
-   "nota": "Peperoni in vaso: potati, tenuti al riparo con luce, acqua molto ridotta, concime solo in primavera, fuori a fine primavera."
-  },
-  "u4": {
-   "titolo": "Over winter Habanero peppers indoors",
-   "ente": "Ask Extension (rete delle università USA)",
-   "url": "https://ask.extension.org/kb/faq.php?id=812297",
-   "consultata": "2026-11-06",
-   "nota": "Risposta di un servizio di consulenza universitario: potare dopo il raccolto e prima del gelo, tre rami principali accorciati sopra il primo nodo."
-  },
-  "i1": {
-   "titolo": "Come mettere la pianta di peperoncino a riposo in inverno",
-   "ente": "Cose di Casa",
-   "url": "https://www.cosedicasa.com/casa-in-fiore/fiori-in-casa/come-mettere-la-pianta-di-peperoncino-a-riposo-in-inverno-44129",
-   "consultata": "2026-11-06",
-   "nota": "Guida divulgativa italiana: posto luminoso lontano da correnti fredde, poca acqua; le indicazioni di temperatura variano tra le fonti."
-  },
-  "i2": {
-   "titolo": "Come proteggere il basilico dal freddo in autunno e in inverno",
-   "ente": "Cose di Casa",
-   "url": "https://www.cosedicasa.com/casa-in-fiore/balcone-terrazzo/come-proteggere-il-basilico-dal-freddo-in-autunno-e-in-inverno-la-guida-completa-88723",
-   "consultata": "2026-11-06",
-   "nota": "Guida divulgativa italiana: davanzale luminoso, poca acqua senza ristagni, non togliere tutte le foglie."
-  },
-  "i3": {
-   "titolo": "Basilico: trucchi per l'autunno",
-   "ente": "Nostro Figlio",
-   "url": "https://www.nostrofiglio.it/famiglia/casa/basilico-balcone-trucchi-autunno",
-   "consultata": "2026-11-06",
-   "nota": "Divulgativo: rametto sano, foglie basse tolte, in acqua; con le radici si passa al terriccio."
-  },
-  "i4": {
-   "titolo": "Il trucco per riprodurre il basilico",
-   "ente": "Greenme",
-   "url": "https://www.greenme.it/?p=940661",
-   "consultata": "2026-11-06",
-   "nota": "Divulgativo: radici in circa 15 giorni."
-  },
-  "i5": {
-   "titolo": "Carciofi: periodo e protezione dal freddo",
-   "ente": "DiLei",
-   "url": "https://dilei.it/cucina/carciofi-periodo-come-cucinarli/1342372/",
-   "consultata": "2026-11-06",
-   "nota": "Divulgativo: dopo il trapianto telo di tessuto non tessuto o pacciamatura; in inverno pacciamare per tenere al caldo le radici, con materiale non troppo umido."
+  "colture": {
+    "pomodori": {
+      "opzioni": [
+        {
+          "id": "sul-posto",
+          "titolo": "Può sopravvivere all'aperto?",
+          "esito": "no",
+          "riassunto": "No: il pomodoro è molto sensibile al gelo e all'aperto non supera l'inverno.",
+          "passi": [],
+          "attenzione": [
+            "Se in casa hai un posto luminoso, vedi le talee qui sotto."
+          ],
+          "certezza": "alta",
+          "fonti": [
+            "a1"
+          ]
+        },
+        {
+          "id": "talee",
+          "titolo": "Talee per farla ripartire",
+          "esito": "dipende",
+          "riassunto": "Si può, se hai un davanzale luminoso e senza gelo: invece della pianta intera tieni in vita una cima o una femminella.",
+          "passi": [
+            "Prima del primo gelo taglia una cima o una femminella (pollone) lunga circa 8-13 cm.",
+            "Togli le foglie in basso e metti il taglio in un bicchiere d'acqua, oppure in terriccio tenuto umido.",
+            "Le radici di solito compaiono in circa 10-14 giorni.",
+            "Quando ha le radici passa la talea in un vasetto con terriccio e tienila vicino a una finestra luminosa.",
+            "Per tenerla viva basta non farla gelare: le indicazioni americane parlano di almeno circa 18 °C. Non concimare se vuoi solo salvarla.",
+            "In primavera, passato il rischio di gelo, portala fuori."
+          ],
+          "attenzione": [
+            "Prima di portare le piante in casa sciacquale bene: così non porti dentro parassiti.",
+            "In inverno la luce è poca: la pianta resta debole e fa pochi frutti. Serve per ripartire in primavera, non per raccogliere."
+          ],
+          "certezza": "media",
+          "fonti": [
+            "u1",
+            "u2"
+          ]
+        }
+      ]
+    },
+    "peperoni": {
+      "opzioni": [
+        {
+          "id": "sul-posto",
+          "titolo": "Può sopravvivere all'aperto?",
+          "esito": "no",
+          "riassunto": "No: il peperone teme il freddo e all'aperto non supera l'inverno nel nostro clima.",
+          "passi": [],
+          "attenzione": [
+            "Per salvare una pianta in vaso, portala al riparo prima delle prime gelate."
+          ],
+          "certezza": "media",
+          "fonti": [
+            "a2"
+          ]
+        },
+        {
+          "id": "in-casa",
+          "titolo": "Portarla al riparo e farla riposare",
+          "esito": "dipende",
+          "riassunto": "Si può, soprattutto con le piante in vaso: si accorcia la pianta e si tiene in un posto luminoso e senza gelo fino a primavera.",
+          "passi": [
+            "Dopo l'ultimo raccolto e prima del gelo togli fiori e frutti rimasti.",
+            "Accorcia la pianta: tieni circa tre rami principali, spogliali delle foglie e tagliali poco sopra un nodo.",
+            "Controlla che non ci siano insetti, poi portala in un posto senza gelo e con luce (finestra soleggiata, oppure garage con una lampada per piante).",
+            "Annaffia molto meno del solito e non concimare fino a primavera.",
+            "A fine primavera, passato il freddo, riportala fuori."
+          ],
+          "attenzione": [
+            "Per il peperoncino le guide italiane parlano di un posto luminoso e lontano da correnti fredde, con poca acqua; le temperature indicate cambiano da fonte a fonte (da circa 10 a 18 °C).",
+            "Se vuoi che continui a fruttificare in casa servono molta luce e calore, e di solito non va potata (fonti divulgative)."
+          ],
+          "certezza": "media",
+          "fonti": [
+            "u3",
+            "u4",
+            "i1"
+          ]
+        }
+      ]
+    },
+    "basilico": {
+      "opzioni": [
+        {
+          "id": "sul-posto",
+          "titolo": "Può sopravvivere all'aperto?",
+          "esito": "no",
+          "riassunto": "No: il gelo lo distrugge.",
+          "passi": [],
+          "attenzione": [
+            "Raccogli le foglie prima del freddo, oppure fai le talee qui sotto."
+          ],
+          "certezza": "alta",
+          "fonti": [
+            "a3"
+          ]
+        },
+        {
+          "id": "talee",
+          "titolo": "Talee per tenerlo sul davanzale",
+          "esito": "si",
+          "riassunto": "Sì, è facile: un rametto sano mette radici in acqua e diventa una nuova pianta da tenere in casa.",
+          "passi": [
+            "Prima del freddo taglia un rametto sano di una decina di centimetri, senza fiori.",
+            "Togli le foglie in basso e metti il rametto in un bicchiere d'acqua, in un posto luminoso.",
+            "Dopo circa due settimane compaiono le radici.",
+            "Quando le radici sono formate mettilo in un vasetto con terriccio.",
+            "Tienilo su un davanzale luminoso (meglio verso sud), lontano dal vetro molto freddo; terriccio appena umido, senza ristagni.",
+            "Non togliere tutte le foglie alla pianta che resta in casa."
+          ],
+          "attenzione": [
+            "In casa d'inverno il basilico cresce piano: raccogli poche foglie alla volta."
+          ],
+          "certezza": "media",
+          "fonti": [
+            "i2",
+            "i3",
+            "i4"
+          ]
+        }
+      ]
+    },
+    "carciofi": {
+      "opzioni": [
+        {
+          "id": "sul-posto",
+          "titolo": "Può sopravvivere all'aperto?",
+          "esito": "si",
+          "riassunto": "Sì: il carciofo è perenne e resiste abbastanza bene fino a circa 0 °C; sotto zero si danneggiano foglie e capolini, ma la pianta di solito riparte.",
+          "passi": [
+            "Prima dei freddi forti pacciama intorno alla pianta con materiale organico (paglia, foglie secche) per tenere al caldo le radici.",
+            "Nelle notti sotto zero puoi coprire la pianta con tessuto non tessuto.",
+            "Togli la copertura nelle giornate miti, così non si forma umidità."
+          ],
+          "attenzione": [
+            "La pacciamatura non deve essere troppo umida: rischia di far marcire la base della pianta.",
+            "La resistenza al gelo dipende dalla varietà e dalla zona: nelle zone più fredde la protezione serve di più."
+          ],
+          "certezza": "media",
+          "fonti": [
+            "a4",
+            "i5"
+          ]
+        }
+      ]
+    },
+    "peperoncino": {
+      "opzioni": [
+        {
+          "id": "sul-posto",
+          "titolo": "Può sopravvivere all'aperto?",
+          "esito": "no",
+          "riassunto": "No: il peperoncino teme il freddo e all'aperto non supera l'inverno nel nostro clima.",
+          "passi": [],
+          "attenzione": [
+            "Per salvare una pianta in vaso, portala al riparo prima delle prime gelate."
+          ],
+          "certezza": "media",
+          "fonti": [
+            "a2"
+          ]
+        },
+        {
+          "id": "in-casa",
+          "titolo": "Portarlo al riparo e farlo riposare",
+          "esito": "dipende",
+          "riassunto": "Si può, soprattutto con le piante in vaso: si accorcia la pianta e si tiene in un posto luminoso e senza gelo fino a primavera.",
+          "passi": [
+            "Dopo l'ultimo raccolto e prima del gelo togli fiori e frutti rimasti.",
+            "Accorcia la pianta: tieni circa tre rami principali, spogliali delle foglie e tagliali poco sopra un nodo.",
+            "Controlla che non ci siano insetti, poi portala in un posto senza gelo e con luce (finestra soleggiata, oppure garage con una lampada per piante).",
+            "Annaffia molto meno del solito e non concimare fino a primavera.",
+            "A fine primavera, passato il freddo, riportala fuori."
+          ],
+          "attenzione": [
+            "Le guide italiane parlano di un posto luminoso e lontano da correnti fredde, con poca acqua; le temperature indicate cambiano da fonte a fonte (da circa 10 a 18 °C).",
+            "Se vuoi che continui a fruttificare in casa servono molta luce e calore, e di solito non va potato (fonti divulgative).",
+            "In primavera si accorciano i rami di circa un terzo e si rinvasa con terriccio fresco (guida divulgativa)."
+          ],
+          "certezza": "media",
+          "fonti": [
+            "i1",
+            "u3",
+            "u4"
+          ]
+        }
+      ]
+    }
   }
- },
- "colture": {
-  "pomodori": {
-   "opzioni": [
-    {
-     "id": "sul-posto",
-     "titolo": "Può sopravvivere all'aperto?",
-     "esito": "no",
-     "riassunto": "No: il pomodoro è molto sensibile al gelo e all'aperto non supera l'inverno.",
-     "passi": [],
-     "attenzione": [
-      "Se in casa hai un posto luminoso, vedi le talee qui sotto."
-     ],
-     "certezza": "alta",
-     "fonti": [
-      "a1"
-     ]
-    },
-    {
-     "id": "talee",
-     "titolo": "Talee per farla ripartire",
-     "esito": "dipende",
-     "riassunto": "Si può, se hai un davanzale luminoso e senza gelo: invece della pianta intera tieni in vita una cima o una femminella.",
-     "passi": [
-      "Prima del primo gelo taglia una cima o una femminella (pollone) lunga circa 8-13 cm.",
-      "Togli le foglie in basso e metti il taglio in un bicchiere d'acqua, oppure in terriccio tenuto umido.",
-      "Le radici di solito compaiono in circa 10-14 giorni.",
-      "Quando ha le radici passa la talea in un vasetto con terriccio e tienila vicino a una finestra luminosa.",
-      "Per tenerla viva basta non farla gelare: le indicazioni americane parlano di almeno circa 18 °C. Non concimare se vuoi solo salvarla.",
-      "In primavera, passato il rischio di gelo, portala fuori."
-     ],
-     "attenzione": [
-      "Prima di portare le piante in casa sciacquale bene: così non porti dentro parassiti.",
-      "In inverno la luce è poca: la pianta resta debole e fa pochi frutti. Serve per ripartire in primavera, non per raccogliere."
-     ],
-     "certezza": "media",
-     "fonti": [
-      "u1",
-      "u2"
-     ]
-    }
-   ]
-  },
-  "peperoni": {
-   "opzioni": [
-    {
-     "id": "sul-posto",
-     "titolo": "Può sopravvivere all'aperto?",
-     "esito": "no",
-     "riassunto": "No: il peperone teme il freddo e all'aperto non supera l'inverno nel nostro clima.",
-     "passi": [],
-     "attenzione": [
-      "Per salvare una pianta in vaso, portala al riparo prima delle prime gelate."
-     ],
-     "certezza": "media",
-     "fonti": [
-      "a2"
-     ]
-    },
-    {
-     "id": "in-casa",
-     "titolo": "Portarla al riparo e farla riposare",
-     "esito": "dipende",
-     "riassunto": "Si può, soprattutto con le piante in vaso: si accorcia la pianta e si tiene in un posto luminoso e senza gelo fino a primavera.",
-     "passi": [
-      "Dopo l'ultimo raccolto e prima del gelo togli fiori e frutti rimasti.",
-      "Accorcia la pianta: tieni circa tre rami principali, spogliali delle foglie e tagliali poco sopra un nodo.",
-      "Controlla che non ci siano insetti, poi portala in un posto senza gelo e con luce (finestra soleggiata, oppure garage con una lampada per piante).",
-      "Annaffia molto meno del solito e non concimare fino a primavera.",
-      "A fine primavera, passato il freddo, riportala fuori."
-     ],
-     "attenzione": [
-      "Per il peperoncino le guide italiane parlano di un posto luminoso e lontano da correnti fredde, con poca acqua; le temperature indicate cambiano da fonte a fonte (da circa 10 a 18 °C).",
-      "Se vuoi che continui a fruttificare in casa servono molta luce e calore, e di solito non va potata (fonti divulgative)."
-     ],
-     "certezza": "media",
-     "fonti": [
-      "u3",
-      "u4",
-      "i1"
-     ]
-    }
-   ]
-  },
-  "basilico": {
-   "opzioni": [
-    {
-     "id": "sul-posto",
-     "titolo": "Può sopravvivere all'aperto?",
-     "esito": "no",
-     "riassunto": "No: il gelo lo distrugge.",
-     "passi": [],
-     "attenzione": [
-      "Raccogli le foglie prima del freddo, oppure fai le talee qui sotto."
-     ],
-     "certezza": "alta",
-     "fonti": [
-      "a3"
-     ]
-    },
-    {
-     "id": "talee",
-     "titolo": "Talee per tenerlo sul davanzale",
-     "esito": "si",
-     "riassunto": "Sì, è facile: un rametto sano mette radici in acqua e diventa una nuova pianta da tenere in casa.",
-     "passi": [
-      "Prima del freddo taglia un rametto sano di una decina di centimetri, senza fiori.",
-      "Togli le foglie in basso e metti il rametto in un bicchiere d'acqua, in un posto luminoso.",
-      "Dopo circa due settimane compaiono le radici.",
-      "Quando le radici sono formate mettilo in un vasetto con terriccio.",
-      "Tienilo su un davanzale luminoso (meglio verso sud), lontano dal vetro molto freddo; terriccio appena umido, senza ristagni.",
-      "Non togliere tutte le foglie alla pianta che resta in casa."
-     ],
-     "attenzione": [
-      "In casa d'inverno il basilico cresce piano: raccogli poche foglie alla volta."
-     ],
-     "certezza": "media",
-     "fonti": [
-      "i2",
-      "i3",
-      "i4"
-     ]
-    }
-   ]
-  },
-  "carciofi": {
-   "opzioni": [
-    {
-     "id": "sul-posto",
-     "titolo": "Può sopravvivere all'aperto?",
-     "esito": "si",
-     "riassunto": "Sì: il carciofo è perenne e resiste abbastanza bene fino a circa 0 °C; sotto zero si danneggiano foglie e capolini, ma la pianta di solito riparte.",
-     "passi": [
-      "Prima dei freddi forti pacciama intorno alla pianta con materiale organico (paglia, foglie secche) per tenere al caldo le radici.",
-      "Nelle notti sotto zero puoi coprire la pianta con tessuto non tessuto.",
-      "Togli la copertura nelle giornate miti, così non si forma umidità."
-     ],
-     "attenzione": [
-      "La pacciamatura non deve essere troppo umida: rischia di far marcire la base della pianta.",
-      "La resistenza al gelo dipende dalla varietà e dalla zona: nelle zone più fredde la protezione serve di più."
-     ],
-     "certezza": "media",
-     "fonti": [
-      "a4",
-      "i5"
-     ]
-    }
-   ]
-  }
- }
 }

@@ -31,7 +31,7 @@ check('la pagina coltura mantiene testata essenziale', await page.locator('.test
 await vai(page, 'impara', '?oggi=2026-06-30');
 await page.waitForSelector('.linguette');
 const linguette = await page.locator('.linguetta').allInnerTexts();
-check('tre linguette con il numero di voci', linguette.length === 3 && /Colture \(27\)/.test(linguette[0]) && /Parole/.test(linguette[1]) && /Altre coltivazioni \(\d+\)/.test(linguette[2]), linguette.join(' | '));
+check('tre linguette con il numero di voci', linguette.length === 3 && /Colture \(28\)/.test(linguette[0]) && /Parole/.test(linguette[1]) && /Altre coltivazioni \(\d+\)/.test(linguette[2]), linguette.join(' | '));
 check('all\'inizio sono visibili solo le colture', (await page.locator('.griglia-colture').isVisible()) && !(await page.locator('.elenco-termini').isVisible()) && !(await page.locator('.elenco-altre').isVisible()));
 const alt = await page.evaluate(() => document.querySelector('main').scrollHeight / innerHeight);
 check('la pagina non è più una lista infinita (meno di 4 schermate)', alt < 4, alt.toFixed(1));

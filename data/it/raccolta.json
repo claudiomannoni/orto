@@ -42,203 +42,478 @@
       "quando_raccogliere": "Raccogli quando il frutto ha raggiunto il colore della varietà e cede appena alla pressione; la stagione indicata è estiva. Evita frutti sovramaturi.",
       "come_raccogliere": "Stacca con delicatezza senza schiacciare la bacca; il disciplinare raccomanda di evitare urti e lesioni. Per il taglio del peduncolo: da verificare.",
       "conservazione": [
-        { "dove": "temperatura ambiente", "quanto": "da verificare", "come": "La maturazione dipende dallo stadio; evita il freddo intenso, che può danneggiare i frutti non maturi.", "certezza": "media", "fonti": ["f2"] }
+        {
+          "dove": "temperatura ambiente",
+          "quanto": "da verificare",
+          "come": "La maturazione dipende dallo stadio; evita il freddo intenso, che può danneggiare i frutti non maturi.",
+          "certezza": "media",
+          "fonti": [
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "Segui le indicazioni ufficiali dell'ISS per le conserve fatte in casa.",
       "certezza": "media",
-      "fonti": ["f1", "f2", "f5"]
+      "fonti": [
+        "f1",
+        "f2",
+        "f5"
+      ]
     },
     "zucchine": {
       "quando_raccogliere": "Raccogli i frutti ben sviluppati prima che si gonfino troppo e che i semi diventino evidenti; la raccolta è estiva e autunnale.",
       "come_raccogliere": "Raccogli scalarmente ogni uno o due giorni, nelle ore meno calde, recidendo il frutto e maneggiandolo con cura per non ammaccarlo.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "da verificare", "come": "La conservazione professionale è a 7-10 °C; in casa consumale in breve tempo perché sono deperibili.", "certezza": "media", "fonti": ["f2"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "da verificare",
+          "come": "La conservazione professionale è a 7-10 °C; in casa consumale in breve tempo perché sono deperibili.",
+          "certezza": "media",
+          "fonti": [
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "alta",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "lattuga": {
       "quando_raccogliere": "Raccogli quando il cespo ha dimensioni e aspetto adatti alla varietà, prima che il fusto si allunghi e inizi la fioritura.",
       "come_raccogliere": "Taglia la pianta alla base senza schiacciare le foglie; modalità precisa di taglio: da verificare.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "da verificare", "come": "Tieni al freddo e consumala presto; il CREA segnala che il congelamento ne peggiora la consistenza.", "certezza": "media", "fonti": ["f2", "f4"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "da verificare",
+          "come": "Tieni al freddo e consumala presto; il CREA segnala che il congelamento ne peggiora la consistenza.",
+          "certezza": "media",
+          "fonti": [
+            "f2",
+            "f4"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2", "f4"]
+      "fonti": [
+        "f1",
+        "f2",
+        "f4"
+      ]
     },
     "carote": {
       "quando_raccogliere": "Raccogli quando la radice ha raggiunto la dimensione desiderata; il periodo di coltivazione è ampio e consente raccolte scalari.",
       "come_raccogliere": "Estrai senza ferire la radice; se il terreno è compatto, modalità di estrazione: da verificare.",
       "conservazione": [
-        { "dove": "congelatore", "quanto": "da verificare", "come": "L'Università di Bologna indica le carote tra gli ortaggi adatti al congelamento; usa confezioni idonee.", "certezza": "media", "fonti": ["f3"] }
+        {
+          "dove": "congelatore",
+          "quanto": "da verificare",
+          "come": "L'Università di Bologna indica le carote tra gli ortaggi adatti al congelamento; usa confezioni idonee.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f3"]
+      "fonti": [
+        "f1",
+        "f3"
+      ]
     },
     "fagiolini": {
       "quando_raccogliere": "Raccogli quando i baccelli sono verdi e sviluppati ma ancora teneri; per il punto di maturità preciso della varietà, da verificare.",
       "come_raccogliere": "Stacca i baccelli senza strappare pezzi di fusto. Evita di tirare il baccello verso di te danneggiando la pianta.",
       "conservazione": [
-        { "dove": "congelatore", "quanto": "da verificare", "come": "Sono adatti al congelamento; confezionali in porzioni e segui indicazioni affidabili per la preparazione.", "certezza": "media", "fonti": ["f3"] },
-        { "dove": "frigorifero", "quanto": "uno o due giorni", "come": "Il disciplinare regionale li indica come molto deperibili e limita a uno o due giorni la conservazione prima della spedizione.", "certezza": "media", "fonti": ["f2"] }
+        {
+          "dove": "congelatore",
+          "quanto": "da verificare",
+          "come": "Sono adatti al congelamento; confezionali in porzioni e segui indicazioni affidabili per la preparazione.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ]
+        },
+        {
+          "dove": "frigorifero",
+          "quanto": "uno o due giorni",
+          "come": "Il disciplinare regionale li indica come molto deperibili e limita a uno o due giorni la conservazione prima della spedizione.",
+          "certezza": "media",
+          "fonti": [
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2", "f3"]
+      "fonti": [
+        "f1",
+        "f2",
+        "f3"
+      ]
     },
     "cipolla": {
       "quando_raccogliere": "La maturità non ha un criterio oggettivo unico; osserva l'ingiallimento e l'allettamento delle foglie, segnali indicativi da valutare con la varietà.",
       "come_raccogliere": "Estrai i bulbi e falli asciugare in luogo ventilato; evita che restino bagnati o si feriscano.",
       "conservazione": [
-        { "dove": "cantina", "quanto": "da verificare", "come": "Dopo l'asciugatura, conserva i bulbi in luogo fresco e ventilato, appesi in trecce o in cassette al buio.", "certezza": "media", "fonti": ["f2", "f1"] }
+        {
+          "dove": "cantina",
+          "quanto": "da verificare",
+          "come": "Dopo l'asciugatura, conserva i bulbi in luogo fresco e ventilato, appesi in trecce o in cassette al buio.",
+          "certezza": "media",
+          "fonti": [
+            "f2",
+            "f1"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "peperoni": {
       "quando_raccogliere": "Raccogli a sviluppo completo, quando il frutto ha raggiunto forma e calibro tipici della varietà; la raccolta è scalare dall'estate all'autunno.",
       "come_raccogliere": "Stacca con attenzione senza lesionare il frutto o spezzare i rami; dettagli sul taglio: da verificare.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "da verificare", "come": "Conservali al fresco per breve tempo; durata e temperatura domestiche: da verificare.", "certezza": "bassa", "fonti": ["f1", "f2"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "da verificare",
+          "come": "Conservali al fresco per breve tempo; durata e temperatura domestiche: da verificare.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1",
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "melanzane": {
       "quando_raccogliere": "Raccogli quando il frutto ha raggiunto circa due terzi dello sviluppo tipico della varietà; la raccolta va dall'estate all'inizio dell'autunno.",
       "come_raccogliere": "Maneggia con cura per evitare ammaccature e lesioni; il disciplinare descrive la raccolta del frutto immaturo.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "da verificare", "come": "Il CREA avverte che il congelamento può peggiorare la consistenza degli ortaggi ricchi d'acqua.", "certezza": "media", "fonti": ["f1", "f2", "f4"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "da verificare",
+          "come": "Il CREA avverte che il congelamento può peggiorare la consistenza degli ortaggi ricchi d'acqua.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f2",
+            "f4"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2", "f4"]
+      "fonti": [
+        "f1",
+        "f2",
+        "f4"
+      ]
     },
     "patate": {
       "quando_raccogliere": "Per la raccolta da conservazione, valuta senescenza del fogliame e buccia ben formata e consistente; non esiste un criterio unico affidabile.",
       "come_raccogliere": "Scava con cautela per non ferire i tuberi; ridurre urti e cadute limita i danni meccanici.",
       "conservazione": [
-        { "dove": "cantina", "quanto": "da verificare", "come": "Conserva al buio in locale fresco e aerato, per limitare germogliazione e deperimento.", "certezza": "media", "fonti": ["f1", "f2"] }
+        {
+          "dove": "cantina",
+          "quanto": "da verificare",
+          "come": "Conserva al buio in locale fresco e aerato, per limitare germogliazione e deperimento.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "cetrioli": {
       "quando_raccogliere": "Raccogli immaturi, prima che ingialliscano e sviluppino semi grandi; la raccolta è estiva.",
       "come_raccogliere": "Scegli frutti verdi e integri; scarta quelli ingialliti, deformati o traumatizzati.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "dieci-quindici giorni", "come": "Il disciplinare indica 10-13 °C; il frigorifero domestico più freddo è ammesso solo se il cetriolo si consuma subito.", "certezza": "media", "fonti": ["f2"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "dieci-quindici giorni",
+          "come": "Il disciplinare indica 10-13 °C; il frigorifero domestico più freddo è ammesso solo se il cetriolo si consuma subito.",
+          "certezza": "media",
+          "fonti": [
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "Segui le indicazioni ufficiali dell'ISS per le conserve fatte in casa.",
       "certezza": "alta",
-      "fonti": ["f1", "f2", "f5"]
+      "fonti": [
+        "f1",
+        "f2",
+        "f5"
+      ]
     },
     "piselli": {
       "quando_raccogliere": "La raccolta inizia in primavera; per i baccelli da sgranare, raccogli prima che i semi diventino troppo maturi. Dettaglio varietale: da verificare.",
       "come_raccogliere": "Raccogli i baccelli senza strappare la pianta; modalità precisa: da verificare.",
       "conservazione": [
-        { "dove": "congelatore", "quanto": "da verificare", "come": "I piselli da sgranare e i baccelli sono indicati tra gli ortaggi adatti al congelamento.", "certezza": "media", "fonti": ["f1", "f3"] }
+        {
+          "dove": "congelatore",
+          "quanto": "da verificare",
+          "come": "I piselli da sgranare e i baccelli sono indicati tra gli ortaggi adatti al congelamento.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f3"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f3"]
+      "fonti": [
+        "f1",
+        "f3"
+      ]
     },
     "fave": {
       "quando_raccogliere": "Seminate in autunno o inizio inverno, si raccolgono in primavera; i baccelli maturano in modo scalare.",
       "come_raccogliere": "Raccogli i baccelli quando sono giovani per consumarli freschi; la scheda non specifica il gesto di distacco: da verificare.",
       "conservazione": [
-        { "dove": "congelatore", "quanto": "da verificare", "come": "Il congelamento domestico è un metodo generale; modalità e durata per fave fresche: da verificare.", "certezza": "bassa", "fonti": ["f1", "f3"] }
+        {
+          "dove": "congelatore",
+          "quanto": "da verificare",
+          "come": "Il congelamento domestico è un metodo generale; modalità e durata per fave fresche: da verificare.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1",
+            "f3"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f3"]
+      "fonti": [
+        "f1",
+        "f3"
+      ]
     },
     "ravanelli": {
       "quando_raccogliere": "Raccogli circa quattro-sei settimane dopo la semina; la scheda regionale indica questo intervallo.",
       "come_raccogliere": "Estrai la radice senza lesionarla; se il terreno è duro, tecnica di estrazione: da verificare.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "da verificare", "come": "Conservazione domestica e durata: da verificare.", "certezza": "bassa", "fonti": ["f1"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "da verificare",
+          "come": "Conservazione domestica e durata: da verificare.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1"]
+      "fonti": [
+        "f1"
+      ]
     },
     "zucche": {
       "quando_raccogliere": "Raccogli i frutti tra settembre e novembre; la maturazione è più tardiva rispetto alla zucchina.",
       "come_raccogliere": "Evita urti e lesioni al frutto; tecnica di taglio del peduncolo: da verificare.",
       "conservazione": [
-        { "dove": "cantina", "quanto": "da verificare", "come": "Le zucche invernali si conservano per mesi in un locale asciutto e riparato, anche su paglia.", "certezza": "media", "fonti": ["f1", "f2"] }
+        {
+          "dove": "cantina",
+          "quanto": "da verificare",
+          "come": "Le zucche invernali si conservano per mesi in un locale asciutto e riparato, anche su paglia.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "broccoli": {
       "quando_raccogliere": "Raccogli quando l'infiorescenza è sviluppata ma ancora ben serrata, prima che si apra o ingiallisca.",
       "come_raccogliere": "Taglia la testa senza schiacciarla; istruzioni sul taglio e sulla lunghezza del gambo: da verificare.",
       "conservazione": [
-        { "dove": "congelatore", "quanto": "da verificare", "come": "Sono adatti al congelamento; il disciplinare professionale indica circa 20 giorni a 0-2 °C.", "certezza": "media", "fonti": ["f2", "f3"] }
+        {
+          "dove": "congelatore",
+          "quanto": "da verificare",
+          "come": "Sono adatti al congelamento; il disciplinare professionale indica circa 20 giorni a 0-2 °C.",
+          "certezza": "media",
+          "fonti": [
+            "f2",
+            "f3"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "alta",
-      "fonti": ["f2", "f3"]
+      "fonti": [
+        "f2",
+        "f3"
+      ]
     },
     "cavolfiori": {
       "quando_raccogliere": "Raccogli quando l'infiorescenza è ben sviluppata e ancora compatta.",
       "come_raccogliere": "Taglia la testa senza danneggiarla; modalità precisa di taglio: da verificare.",
       "conservazione": [
-        { "dove": "congelatore", "quanto": "da verificare", "come": "Il cavolfiore è adatto al congelamento; il disciplinare professionale indica 20-30 giorni a 0 °C.", "certezza": "media", "fonti": ["f2", "f3"] }
+        {
+          "dove": "congelatore",
+          "quanto": "da verificare",
+          "come": "Il cavolfiore è adatto al congelamento; il disciplinare professionale indica 20-30 giorni a 0 °C.",
+          "certezza": "media",
+          "fonti": [
+            "f2",
+            "f3"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "alta",
-      "fonti": ["f2", "f3"]
+      "fonti": [
+        "f2",
+        "f3"
+      ]
     },
     "verze": {
       "quando_raccogliere": "Per i cavoli, raccogli quando la parte edibile è sviluppata e compatta; la scheda regionale li colloca soprattutto in autunno e inverno.",
       "come_raccogliere": "Taglia il cespo senza ammaccare le foglie; tecnica precisa: da verificare.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "da verificare", "come": "La verza è conservabile in ambito professionale per due-tre mesi vicino a 0 °C; durata domestica: da verificare.", "certezza": "media", "fonti": ["f1", "f2"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "da verificare",
+          "come": "La verza è conservabile in ambito professionale per due-tre mesi vicino a 0 °C; durata domestica: da verificare.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "aglio": {
       "quando_raccogliere": "Raccogli quando circa metà delle foglie è secca; per il fresco, la raccolta indicata in Emilia-Romagna inizia dalla seconda metà di giugno.",
       "come_raccogliere": "Estrai i bulbi senza ferirli e asciugali in luogo ombreggiato e ventilato prima di conservarli.",
       "conservazione": [
-        { "dove": "temperatura ambiente", "quanto": "da verificare", "come": "Dopo l'asciugatura, conserva in luogo fresco e ventilato, in trecce appese o cassette.", "certezza": "media", "fonti": ["f1", "f2"] }
+        {
+          "dove": "temperatura ambiente",
+          "quanto": "da verificare",
+          "come": "Dopo l'asciugatura, conserva in luogo fresco e ventilato, in trecce appese o cassette.",
+          "certezza": "media",
+          "fonti": [
+            "f1",
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "finocchi": {
       "quando_raccogliere": "Il ciclo indicativo è di circa 80 giorni per varietà precoci e 100-130 giorni per quelle medie o tardive; raccogli a grumolo sviluppato.",
       "come_raccogliere": "Estrai o recidi il grumolo senza ammaccarlo; modalità precisa: da verificare.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "due-tre settimane", "come": "Il disciplinare indica fino a due-tre settimane a 0 °C e alta umidità in conservazione professionale.", "certezza": "media", "fonti": ["f2"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "due-tre settimane",
+          "come": "Il disciplinare indica fino a due-tre settimane a 0 °C e alta umidità in conservazione professionale.",
+          "certezza": "media",
+          "fonti": [
+            "f2"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f1", "f2"]
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     },
     "asparagi": {
       "quando_raccogliere": "Raccogli i turioni quando sono ancora teneri; evita che le brattee si aprano, segno che sono troppo sviluppati.",
       "come_raccogliere": "Recidi i turioni senza danneggiare la corona; tecnica e profondità del taglio: da verificare.",
       "conservazione": [
-        { "dove": "frigorifero", "quanto": "dieci giorni", "come": "Per brevi periodi, il disciplinare indica circa 10 giorni a 0-2 °C e umidità elevata.", "certezza": "media", "fonti": ["f2"] },
-        { "dove": "congelatore", "quanto": "da verificare", "come": "L'Università di Bologna include gli asparagi tra gli ortaggi adatti al congelamento.", "certezza": "media", "fonti": ["f3"] }
+        {
+          "dove": "frigorifero",
+          "quanto": "dieci giorni",
+          "come": "Per brevi periodi, il disciplinare indica circa 10 giorni a 0-2 °C e umidità elevata.",
+          "certezza": "media",
+          "fonti": [
+            "f2"
+          ]
+        },
+        {
+          "dove": "congelatore",
+          "quanto": "da verificare",
+          "come": "L'Università di Bologna include gli asparagi tra gli ortaggi adatti al congelamento.",
+          "certezza": "media",
+          "fonti": [
+            "f3"
+          ]
+        }
       ],
       "sicurezza": "",
       "certezza": "media",
-      "fonti": ["f2", "f3"]
+      "fonti": [
+        "f2",
+        "f3"
+      ]
+    },
+    "peperoncino": {
+      "quando_raccogliere": "Raccogli a sviluppo completo, quando il frutto ha raggiunto forma e calibro tipici della varietà; la raccolta è scalare dall'estate all'autunno.",
+      "come_raccogliere": "Stacca con attenzione senza lesionare il frutto o spezzare i rami; dettagli sul taglio: da verificare.",
+      "conservazione": [
+        {
+          "dove": "frigorifero",
+          "quanto": "da verificare",
+          "come": "Conservali al fresco per breve tempo; durata e temperatura domestiche: da verificare.",
+          "certezza": "bassa",
+          "fonti": [
+            "f1",
+            "f2"
+          ]
+        }
+      ],
+      "sicurezza": "",
+      "certezza": "media",
+      "fonti": [
+        "f1",
+        "f2"
+      ]
     }
   }
 }
