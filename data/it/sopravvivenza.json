@@ -1,287 +1,1288 @@
 {
-  "versione": 1,
-  "fonti": {
-    "a1": {
-      "titolo": "Pomodoro",
-      "ente": "Agraria.org, Atlante delle colture erbacee",
-      "url": "https://www.agraria.org/coltivazionierbacee/pomodoro.htm",
-      "consultata": "2026-11-06",
-      "nota": "Scheda italiana: ortaggio assai sensibile al gelo."
-    },
-    "a2": {
-      "titolo": "Peperone",
-      "ente": "Agraria.org, Atlante delle colture erbacee",
-      "url": "https://www.agraria.org/coltivazionierbacee/peperone.htm",
-      "consultata": "2026-11-06",
-      "nota": "Scheda italiana: molto sensibile al freddo, senza soglia numerica."
-    },
-    "a3": {
-      "titolo": "Basilico",
-      "ente": "Agraria.org, Atlante delle colture erbacee",
-      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/basilico.htm",
-      "consultata": "2026-11-06",
-      "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
-    },
-    "a4": {
-      "titolo": "Carciofo",
-      "ente": "Agraria.org, Atlante delle colture erbacee",
-      "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm",
-      "consultata": "2026-11-06",
-      "nota": "Scheda italiana: resiste abbastanza bene fino a 0 °C; sotto zero si danneggiano foglie e capolini."
-    },
-    "u1": {
-      "titolo": "Come radicare i polloni del pomodoro (articolo che riporta il parere di un esperto UF/IFAS)",
-      "ente": "niceville.com",
-      "url": "https://niceville.com/heres-how-to-root-tomato-plants-for-a-fall-crop",
-      "consultata": "2026-11-06",
-      "nota": "Articolo divulgativo: i polloni (femminelle) radicano in circa 10-14 giorni, in casa con buona luce o fuori all'ombra."
-    },
-    "u2": {
-      "titolo": "Tips And Tricks For Overwintering Tomato Plants",
-      "ente": "Gardening Know How",
-      "url": "https://www.gardeningknowhow.com/edible/vegetables/tomato/overwintering-tomatoes.htm",
-      "consultata": "2026-11-06",
-      "nota": "Sito divulgativo: talee prima del primo gelo, tenute in un posto luminoso al chiuso."
-    },
-    "u3": {
-      "titolo": "Five home-garden plants that are suitable for overwintering",
-      "ente": "Oregon State University Extension Service",
-      "url": "https://extension.oregonstate.edu/node/161026",
-      "consultata": "2026-11-06",
-      "nota": "Peperoni in vaso: potati, tenuti al riparo con luce, acqua molto ridotta, concime solo in primavera, fuori a fine primavera."
-    },
-    "u4": {
-      "titolo": "Over winter Habanero peppers indoors",
-      "ente": "Ask Extension (rete delle università USA)",
-      "url": "https://ask.extension.org/kb/faq.php?id=812297",
-      "consultata": "2026-11-06",
-      "nota": "Risposta di un servizio di consulenza universitario: potare dopo il raccolto e prima del gelo, tre rami principali accorciati sopra il primo nodo."
-    },
-    "i1": {
-      "titolo": "Come mettere la pianta di peperoncino a riposo in inverno",
-      "ente": "Cose di Casa",
-      "url": "https://www.cosedicasa.com/casa-in-fiore/fiori-in-casa/come-mettere-la-pianta-di-peperoncino-a-riposo-in-inverno-44129",
-      "consultata": "2026-11-06",
-      "nota": "Guida divulgativa italiana: posto luminoso lontano da correnti fredde, poca acqua; le indicazioni di temperatura variano tra le fonti."
-    },
-    "i2": {
-      "titolo": "Come proteggere il basilico dal freddo in autunno e in inverno",
-      "ente": "Cose di Casa",
-      "url": "https://www.cosedicasa.com/casa-in-fiore/balcone-terrazzo/come-proteggere-il-basilico-dal-freddo-in-autunno-e-in-inverno-la-guida-completa-88723",
-      "consultata": "2026-11-06",
-      "nota": "Guida divulgativa italiana: davanzale luminoso, poca acqua senza ristagni, non togliere tutte le foglie."
-    },
-    "i3": {
-      "titolo": "Basilico: trucchi per l'autunno",
-      "ente": "Nostro Figlio",
-      "url": "https://www.nostrofiglio.it/famiglia/casa/basilico-balcone-trucchi-autunno",
-      "consultata": "2026-11-06",
-      "nota": "Divulgativo: rametto sano, foglie basse tolte, in acqua; con le radici si passa al terriccio."
-    },
-    "i4": {
-      "titolo": "Il trucco per riprodurre il basilico",
-      "ente": "Greenme",
-      "url": "https://www.greenme.it/?p=940661",
-      "consultata": "2026-11-06",
-      "nota": "Divulgativo: radici in circa 15 giorni."
-    },
-    "i5": {
-      "titolo": "Carciofi: periodo e protezione dal freddo",
-      "ente": "DiLei",
-      "url": "https://dilei.it/cucina/carciofi-periodo-come-cucinarli/1342372/",
-      "consultata": "2026-11-06",
-      "nota": "Divulgativo: dopo il trapianto telo di tessuto non tessuto o pacciamatura; in inverno pacciamare per tenere al caldo le radici, con materiale non troppo umido."
-    }
+ "versione": 1,
+ "fonti": {
+  "a1": {
+   "titolo": "Pomodoro",
+   "ente": "Agraria.org, Atlante delle colture erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/pomodoro.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: ortaggio assai sensibile al gelo."
   },
-  "colture": {
-    "pomodori": {
-      "opzioni": [
-        {
-          "id": "sul-posto",
-          "titolo": "Può sopravvivere all'aperto?",
-          "esito": "no",
-          "riassunto": "No: il pomodoro è molto sensibile al gelo e all'aperto non supera l'inverno.",
-          "passi": [],
-          "attenzione": [
-            "Se in casa hai un posto luminoso, vedi le talee qui sotto."
-          ],
-          "certezza": "alta",
-          "fonti": [
-            "a1"
-          ]
-        },
-        {
-          "id": "talee",
-          "titolo": "Talee per farla ripartire",
-          "esito": "dipende",
-          "riassunto": "Si può, se hai un davanzale luminoso e senza gelo: invece della pianta intera tieni in vita una cima o una femminella.",
-          "passi": [
-            "Prima del primo gelo taglia una cima o una femminella (pollone) lunga circa 8-13 cm.",
-            "Togli le foglie in basso e metti il taglio in un bicchiere d'acqua, oppure in terriccio tenuto umido.",
-            "Le radici di solito compaiono in circa 10-14 giorni.",
-            "Quando ha le radici passa la talea in un vasetto con terriccio e tienila vicino a una finestra luminosa.",
-            "Per tenerla viva basta non farla gelare: le indicazioni americane parlano di almeno circa 18 °C. Non concimare se vuoi solo salvarla.",
-            "In primavera, passato il rischio di gelo, portala fuori."
-          ],
-          "attenzione": [
-            "Prima di portare le piante in casa sciacquale bene: così non porti dentro parassiti.",
-            "In inverno la luce è poca: la pianta resta debole e fa pochi frutti. Serve per ripartire in primavera, non per raccogliere."
-          ],
-          "certezza": "media",
-          "fonti": [
-            "u1",
-            "u2"
-          ]
-        }
-      ]
-    },
-    "peperoni": {
-      "opzioni": [
-        {
-          "id": "sul-posto",
-          "titolo": "Può sopravvivere all'aperto?",
-          "esito": "no",
-          "riassunto": "No: il peperone teme il freddo e all'aperto non supera l'inverno nel nostro clima.",
-          "passi": [],
-          "attenzione": [
-            "Per salvare una pianta in vaso, portala al riparo prima delle prime gelate."
-          ],
-          "certezza": "media",
-          "fonti": [
-            "a2"
-          ]
-        },
-        {
-          "id": "in-casa",
-          "titolo": "Portarla al riparo e farla riposare",
-          "esito": "dipende",
-          "riassunto": "Si può, soprattutto con le piante in vaso: si accorcia la pianta e si tiene in un posto luminoso e senza gelo fino a primavera.",
-          "passi": [
-            "Dopo l'ultimo raccolto e prima del gelo togli fiori e frutti rimasti.",
-            "Accorcia la pianta: tieni circa tre rami principali, spogliali delle foglie e tagliali poco sopra un nodo.",
-            "Controlla che non ci siano insetti, poi portala in un posto senza gelo e con luce (finestra soleggiata, oppure garage con una lampada per piante).",
-            "Annaffia molto meno del solito e non concimare fino a primavera.",
-            "A fine primavera, passato il freddo, riportala fuori."
-          ],
-          "attenzione": [
-            "Per il peperoncino le guide italiane parlano di un posto luminoso e lontano da correnti fredde, con poca acqua; le temperature indicate cambiano da fonte a fonte (da circa 10 a 18 °C).",
-            "Se vuoi che continui a fruttificare in casa servono molta luce e calore, e di solito non va potata (fonti divulgative)."
-          ],
-          "certezza": "media",
-          "fonti": [
-            "u3",
-            "u4",
-            "i1"
-          ]
-        }
-      ]
-    },
-    "basilico": {
-      "opzioni": [
-        {
-          "id": "sul-posto",
-          "titolo": "Può sopravvivere all'aperto?",
-          "esito": "no",
-          "riassunto": "No: il gelo lo distrugge.",
-          "passi": [],
-          "attenzione": [
-            "Raccogli le foglie prima del freddo, oppure fai le talee qui sotto."
-          ],
-          "certezza": "alta",
-          "fonti": [
-            "a3"
-          ]
-        },
-        {
-          "id": "talee",
-          "titolo": "Talee per tenerlo sul davanzale",
-          "esito": "si",
-          "riassunto": "Sì, è facile: un rametto sano mette radici in acqua e diventa una nuova pianta da tenere in casa.",
-          "passi": [
-            "Prima del freddo taglia un rametto sano di una decina di centimetri, senza fiori.",
-            "Togli le foglie in basso e metti il rametto in un bicchiere d'acqua, in un posto luminoso.",
-            "Dopo circa due settimane compaiono le radici.",
-            "Quando le radici sono formate mettilo in un vasetto con terriccio.",
-            "Tienilo su un davanzale luminoso (meglio verso sud), lontano dal vetro molto freddo; terriccio appena umido, senza ristagni.",
-            "Non togliere tutte le foglie alla pianta che resta in casa."
-          ],
-          "attenzione": [
-            "In casa d'inverno il basilico cresce piano: raccogli poche foglie alla volta."
-          ],
-          "certezza": "media",
-          "fonti": [
-            "i2",
-            "i3",
-            "i4"
-          ]
-        }
-      ]
-    },
-    "carciofi": {
-      "opzioni": [
-        {
-          "id": "sul-posto",
-          "titolo": "Può sopravvivere all'aperto?",
-          "esito": "si",
-          "riassunto": "Sì: il carciofo è perenne e resiste abbastanza bene fino a circa 0 °C; sotto zero si danneggiano foglie e capolini, ma la pianta di solito riparte.",
-          "passi": [
-            "Prima dei freddi forti pacciama intorno alla pianta con materiale organico (paglia, foglie secche) per tenere al caldo le radici.",
-            "Nelle notti sotto zero puoi coprire la pianta con tessuto non tessuto.",
-            "Togli la copertura nelle giornate miti, così non si forma umidità."
-          ],
-          "attenzione": [
-            "La pacciamatura non deve essere troppo umida: rischia di far marcire la base della pianta.",
-            "La resistenza al gelo dipende dalla varietà e dalla zona: nelle zone più fredde la protezione serve di più."
-          ],
-          "certezza": "media",
-          "fonti": [
-            "a4",
-            "i5"
-          ]
-        }
-      ]
-    },
-    "peperoncino": {
-      "opzioni": [
-        {
-          "id": "sul-posto",
-          "titolo": "Può sopravvivere all'aperto?",
-          "esito": "no",
-          "riassunto": "No: il peperoncino teme il freddo e all'aperto non supera l'inverno nel nostro clima.",
-          "passi": [],
-          "attenzione": [
-            "Per salvare una pianta in vaso, portala al riparo prima delle prime gelate."
-          ],
-          "certezza": "media",
-          "fonti": [
-            "a2"
-          ]
-        },
-        {
-          "id": "in-casa",
-          "titolo": "Portarlo al riparo e farlo riposare",
-          "esito": "dipende",
-          "riassunto": "Si può, soprattutto con le piante in vaso: si accorcia la pianta e si tiene in un posto luminoso e senza gelo fino a primavera.",
-          "passi": [
-            "Dopo l'ultimo raccolto e prima del gelo togli fiori e frutti rimasti.",
-            "Accorcia la pianta: tieni circa tre rami principali, spogliali delle foglie e tagliali poco sopra un nodo.",
-            "Controlla che non ci siano insetti, poi portala in un posto senza gelo e con luce (finestra soleggiata, oppure garage con una lampada per piante).",
-            "Annaffia molto meno del solito e non concimare fino a primavera.",
-            "A fine primavera, passato il freddo, riportala fuori."
-          ],
-          "attenzione": [
-            "Le guide italiane parlano di un posto luminoso e lontano da correnti fredde, con poca acqua; le temperature indicate cambiano da fonte a fonte (da circa 10 a 18 °C).",
-            "Se vuoi che continui a fruttificare in casa servono molta luce e calore, e di solito non va potato (fonti divulgative).",
-            "In primavera si accorciano i rami di circa un terzo e si rinvasa con terriccio fresco (guida divulgativa)."
-          ],
-          "certezza": "media",
-          "fonti": [
-            "i1",
-            "u3",
-            "u4"
-          ]
-        }
-      ]
-    }
+  "a2": {
+   "titolo": "Peperone",
+   "ente": "Agraria.org, Atlante delle colture erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/peperone.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: molto sensibile al freddo, senza soglia numerica."
+  },
+  "a3": {
+   "titolo": "Basilico",
+   "ente": "Agraria.org, Atlante delle colture erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/basilico.htm",
+   "consultata": "2026-11-06",
+   "nota": "Ricerca del 02/11/2026; nessun ente pubblico dà la soglia."
+  },
+  "a4": {
+   "titolo": "Carciofo",
+   "ente": "Agraria.org, Atlante delle colture erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: resiste abbastanza bene fino a 0 °C; sotto zero si danneggiano foglie e capolini."
+  },
+  "u1": {
+   "titolo": "Come radicare i polloni del pomodoro (articolo che riporta il parere di un esperto UF/IFAS)",
+   "ente": "niceville.com",
+   "url": "https://niceville.com/heres-how-to-root-tomato-plants-for-a-fall-crop",
+   "consultata": "2026-11-06",
+   "nota": "Articolo divulgativo: i polloni (femminelle) radicano in circa 10-14 giorni, in casa con buona luce o fuori all'ombra."
+  },
+  "u2": {
+   "titolo": "Tips And Tricks For Overwintering Tomato Plants",
+   "ente": "Gardening Know How",
+   "url": "https://www.gardeningknowhow.com/edible/vegetables/tomato/overwintering-tomatoes.htm",
+   "consultata": "2026-11-06",
+   "nota": "Sito divulgativo: talee prima del primo gelo, tenute in un posto luminoso al chiuso."
+  },
+  "u3": {
+   "titolo": "Five home-garden plants that are suitable for overwintering",
+   "ente": "Oregon State University Extension Service",
+   "url": "https://extension.oregonstate.edu/node/161026",
+   "consultata": "2026-11-06",
+   "nota": "Peperoni in vaso: potati, tenuti al riparo con luce, acqua molto ridotta, concime solo in primavera, fuori a fine primavera."
+  },
+  "u4": {
+   "titolo": "Over winter Habanero peppers indoors",
+   "ente": "Ask Extension (rete delle università USA)",
+   "url": "https://ask.extension.org/kb/faq.php?id=812297",
+   "consultata": "2026-11-06",
+   "nota": "Risposta di un servizio di consulenza universitario: potare dopo il raccolto e prima del gelo, tre rami principali accorciati sopra il primo nodo."
+  },
+  "i1": {
+   "titolo": "Come mettere la pianta di peperoncino a riposo in inverno",
+   "ente": "Cose di Casa",
+   "url": "https://www.cosedicasa.com/casa-in-fiore/fiori-in-casa/come-mettere-la-pianta-di-peperoncino-a-riposo-in-inverno-44129",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa italiana: posto luminoso lontano da correnti fredde, poca acqua; le indicazioni di temperatura variano tra le fonti."
+  },
+  "i2": {
+   "titolo": "Come proteggere il basilico dal freddo in autunno e in inverno",
+   "ente": "Cose di Casa",
+   "url": "https://www.cosedicasa.com/casa-in-fiore/balcone-terrazzo/come-proteggere-il-basilico-dal-freddo-in-autunno-e-in-inverno-la-guida-completa-88723",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa italiana: davanzale luminoso, poca acqua senza ristagni, non togliere tutte le foglie."
+  },
+  "i3": {
+   "titolo": "Basilico: trucchi per l'autunno",
+   "ente": "Nostro Figlio",
+   "url": "https://www.nostrofiglio.it/famiglia/casa/basilico-balcone-trucchi-autunno",
+   "consultata": "2026-11-06",
+   "nota": "Divulgativo: rametto sano, foglie basse tolte, in acqua; con le radici si passa al terriccio."
+  },
+  "i4": {
+   "titolo": "Il trucco per riprodurre il basilico",
+   "ente": "Greenme",
+   "url": "https://www.greenme.it/?p=940661",
+   "consultata": "2026-11-06",
+   "nota": "Divulgativo: radici in circa 15 giorni."
+  },
+  "i5": {
+   "titolo": "Carciofi: periodo e protezione dal freddo",
+   "ente": "DiLei",
+   "url": "https://dilei.it/cucina/carciofi-periodo-come-cucinarli/1342372/",
+   "consultata": "2026-11-06",
+   "nota": "Divulgativo: dopo il trapianto telo di tessuto non tessuto o pacciamatura; in inverno pacciamare per tenere al caldo le radici, con materiale non troppo umido."
+  },
+  "n1": {
+   "titolo": "Zucca e Zucchine - Cucurbita spp.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/zucca.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda unica per zucca e zucchine: specie esigente in temperatura, danneggiata dalle gelate tardive; le zucche da inverno si raccogliono ai primi di ottobre e si conservano in locale asciutto e ventilato fino a fine inverno."
+  },
+  "n2": {
+   "titolo": "Coltivare zucchine: dalla semina alla raccolta",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/ortaggi/zucchine/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: la zucchina teme il gelo e si ferma sotto i 10 gradi; campane, cassette vetrate e tunnel servono ad anticipare la semina in primavera, non a far passare l'inverno alla pianta."
+  },
+  "n3": {
+   "titolo": "Riprodurre i semi della zucchina",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/guide/salvare-semi-zucchina/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa su tutto il ciclo del seme di zucchina: impollinazione manuale, frutto lasciato in leggera sovramaturazione, lavaggio dei semi, essiccazione su carta del pane e conservazione in vasetto di vetro."
+  },
+  "n4": {
+   "titolo": "Melanzana - Solanum melongena L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/melanzana.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: pianta annuale con zero vitale notturno di 9-10 gradi; svernata in serra fredda va in riposo vegetativo nei mesi freddi e poi rivegeta."
+  },
+  "n5": {
+   "titolo": "La melanzana dalla semina alla raccolta",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/ortaggi/melanzana/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: la pianta muore alla prima brinata; le piantine si proteggono con tessuto non tessuto."
+  },
+  "n6": {
+   "titolo": "Lo svernamento delle melanzane",
+   "ente": "Gardentopia",
+   "url": "https://gardentopia.eu/it/lo-svernamento-delle-melanzane/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: la pianta sverna solo al riparo, dopo una potatura drastica, in un posto luminoso senza gelo tra 10 e 15 gradi; lo svernamento all'aperto con tessuto non tessuto è possibile solo in climi molto miti ed è rischioso."
+  },
+  "n7": {
+   "titolo": "Come prelevare i semi dalla melanzana",
+   "ente": "Quando Si Pianta",
+   "url": "https://quandosipianta.it/come-prelevare-i-semi-dalla-melanzana/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: si usa il frutto ben maturo con buccia giallo-cuoio, i semi si separano dalla polpa in acqua, si asciugano in sacchetti di garza per 4-5 giorni e si conservano in barattoli ermetici al buio."
+  },
+  "n8": {
+   "titolo": "Patata - Solanum tuberosum L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/patata.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: i tuberi congelano a -2 gradi e lo zero di vegetazione è a 6-8 gradi; descrive la pregermogliazione dei tuberi-seme (4-6 settimane a 12-16 gradi) e la conservazione ottimale dei tuberi a 5-6 gradi per 8-10 mesi."
+  },
+  "n9": {
+   "titolo": "Cetriolo - Cucumis sativus L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/cetriolo.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: cetriolo annuale seminato all'aperto in aprile-maggio; il trapianto all'aperto si fa appena passate le gelate, proteggendo le piantine con campane o tunnel."
+  },
+  "n10": {
+   "titolo": "Conserviamo i semi dei cetrioli",
+   "ente": "Orti di Pace",
+   "url": "https://www.ortidipace.org/conserviamo-i-semi-dei-cetrioli",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: si lascia un frutto ingiallire sulla pianta, si estraggono i semi, si sciacquano con un colino, si asciugano qualche giorno su canovaccio e si mettono in sacchetti di carta."
+  },
+  "n11": {
+   "titolo": "I semi di zucca, come conservarli e capire se il frutto è maturo",
+   "ente": "Coltivazione Biologica",
+   "url": "https://www.coltivazionebiologica.it/semi-di-zucca/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: si prelevano i semi a piena maturazione, si lavano sotto acqua corrente, si asciugano su carta del pane e si conservano in vasetti di vetro; alta germinabilità fino a due anni."
+  },
+  "n12": {
+   "titolo": "Pisello - Pisum sativum Asch. et Gr.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/pisello.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: resiste senza danno fino a -8 gradi allo stadio di 4-5 foglie, ma in fioritura anche gelate leggere sono dannose; la semina autunnale al Centro-Sud è consigliata a novembre."
+  },
+  "n13": {
+   "titolo": "Fava, Favino, Favetta - Vicia faba L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/fava.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: gelate di -6 gradi allo stadio di 4-5 foglie sono fatali alla maggior parte delle varietà e la fioritura è ancora più sensibile al gelo; la semina autunnale tra ottobre e novembre è consigliata per le regioni centrali."
+  },
+  "n14": {
+   "titolo": "Fagiolo - Phaseolus vulgaris L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/fagiolo.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: il fagiolo muore a 1-2 gradi e si coltiva solo in primavera-estate; i baccelli senza pergamena sono i fagiolini."
+  },
+  "n15": {
+   "titolo": "Spinacio - Spinacia oleracea L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/spinacio.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: basse esigenze termiche e buona tolleranza al freddo in fase di rosetta; le cultivar autunno-invernali si seminano da agosto a ottobre per la produzione invernale."
+  },
+  "n16": {
+   "titolo": "Bietola da coste - Beta vulgaris L. var. cicla",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/bietoladacoste.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: pianta biennale (annuale in coltura) che tollera da -2 a -3 gradi, coltivabile anche nel periodo autunno-invernale; il seme resta valido 4-5 anni."
+  },
+  "n17": {
+   "titolo": "Cavolfiore e Broccolo - Brassica oleracea L. var. botrytis L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/cavolfiore.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: il gelo provoca la lessatura dei grumi eduli; piantine giovani che restano al freddo possono diventare piante cieche, cioè senza infiorescenza."
+  },
+  "n18": {
+   "titolo": "Come trapiantare i cavoli durante il periodo autunno inverno",
+   "ente": "Cose di Casa",
+   "url": "https://www.cosedicasa.com/casa-in-fiore/orto/e-il-momento-dei-cavoli-62527",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: al Centro e al Sud le normali temperature invernali non danneggiano i cavoli, in collina può accadere; si proteggono con mini tunnel, tessuto non tessuto o campane di carta; per il cavolfiore si legano le foglie sull'infiorescenza."
+  },
+  "n19": {
+   "titolo": "Come mettere a dimora il broccolo",
+   "ente": "Cose di Casa",
+   "url": "https://www.cosedicasa.com/casa-in-fiore/orto/come-mettere-a-dimora-il-broccolo-guida-passo-passo-38887",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: dopo il taglio dell'infiorescenza centrale si sviluppano infiorescenze laterali più piccole, i broccoletti."
+  },
+  "n20": {
+   "titolo": "Cavoli - Brassica oleracea L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/cavoli.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda sui cavoli (cappuccio, verza e altri): la verza tollera il freddo ma non il gelo; esistono varietà di verza dette d'inverno, pensate per la stagione fredda."
+  },
+  "n21": {
+   "titolo": "Rucola (pianta) - Eruca sativa",
+   "ente": "Cose di Casa",
+   "url": "https://www.cosedicasa.com/casa-in-fiore/piante/rucola-pianta-67678",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: la rucola sopporta brevi gelate leggere ma sotto i 5-6 gradi la crescita rallenta, e il gelo persistente danneggia le foglie; in inverno servono tessuto non tessuto o tunnel freddo; se tagliata a 2-3 cm dal terreno ricaccia."
+  },
+  "n22": {
+   "titolo": "Ravanello (pianta) - Raphanus sativus",
+   "ente": "Cose di Casa",
+   "url": "https://www.cosedicasa.com/casa-in-fiore/piante/ravanello-pianta-95359",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: il ravanello comincia a soffrire sotto i 5 gradi e in inverno si coltiva solo con tunnel freddo; se resta in terra produce uno stelo fiorale e poi i semi."
+  },
+  "n23": {
+   "titolo": "Ravanello - Raphanus sativus L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/ravanello.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: il ciclo va da tre settimane d'estate a 2-3 mesi d'inverno, con coltivazione in pieno campo e anche in coltura protetta; nessuna indicazione di resistenza al gelo all'aperto."
+  },
+  "n24": {
+   "titolo": "Porro - Allium porrum L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/porro.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: biennale coltivata a ciclo annuale, si adatta ai climi temperato-freddi; la rincalzatura aumenta anche la resistenza al freddo; sul mercato è presente specialmente nel periodo autunno-invernale."
+  },
+  "n25": {
+   "titolo": "Porri invernali: 3 varietà resistenti al grande gelo",
+   "ente": "Guide Giardinaggio",
+   "url": "https://guidegiardinaggio.it/porri-invernali/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: le varietà invernali di porro resistono a gelo e neve; serve una pacciamatura di 10-15 cm con paglia o foglie, e il tessuto non tessuto protegge nei casi più critici."
+  },
+  "n26": {
+   "titolo": "Aglio - Allium sativum L.",
+   "ente": "Agraria.org, Piante aromatiche",
+   "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/aglio.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: pianta perenne rustica coltivata come annuale; gli spicchi si interrano in autunno nelle zone a clima mite, e le gelate figurano tra le avversità."
+  },
+  "n27": {
+   "titolo": "Aglio: guida alla coltivazione nell'orto",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/ortaggi/aglio/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: l'aglio resiste anche al freddo intenso e si semina da ottobre a marzo; si riproduce per divisione degli spicchi piantati con la punta in alto."
+  },
+  "n28": {
+   "titolo": "Cipolla - Allium cepa L.",
+   "ente": "Agraria.org, Piante aromatiche",
+   "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/cipolla.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: abbastanza resistente alle basse temperature, con semina da settembre a dicembre per raccolto primaverile; trapiantando i bulbi al secondo anno si forma lo scapo fiorale."
+  },
+  "n29": {
+   "titolo": "Cipolle: come si coltivano dalla semina alla raccolta",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/ortaggi/cipolle/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: la cipolla resiste molto bene al freddo e le cipolle invernali passano l'inverno in campo (seminate a settembre, trapiantate a novembre); una cipolla germogliata ripiantata in orto o vaso fa cipollotti."
+  },
+  "n30": {
+   "titolo": "Semi di cipolla: come raccoglierli e conservarli",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/guide/conservare-semi-cipolla/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: i semi si prendono dal fiore secco e bruno e si conservano per una o due stagioni in vetro o latta al buio; le varietà vanno tenute distanti tra loro."
+  },
+  "n31": {
+   "titolo": "Finocchio - Foeniculum vulgare dulce Mill.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/finocchio.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: se la pianta sta almeno un mese sotto i 7 gradi passa alla fase riproduttiva (monta a seme); per il prodotto invernale indica semina in semenzaio in agosto e trapianto in ottobre."
+  },
+  "n32": {
+   "titolo": "Finocchio: coltivazione dalla semina al raccolto",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/ortaggi/finocchio/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: il finocchio teme il gelo e va raccolto prima delle gelate invernali; tunnel e tessuto non tessuto allungano la raccolta; lasciato in campo, il secondo anno fiorisce."
+  },
+  "n33": {
+   "titolo": "Carota - Daucus carota L. ssp. sativus",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/carota.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: la carota è biennale; se non la raccogli, il secondo anno emette uno stelo ramificato fino a 1,5 metri con i fiori."
+  },
+  "n34": {
+   "titolo": "Lo svernamento della carota",
+   "ente": "Gardentopia",
+   "url": "https://gardentopia.eu/it/lo-svernamento-della-carota/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: la carota regge temperature che scendono diversi gradi sotto lo zero senza danni irreparabili e il gelo leggero migliora il sapore; si protegge con pacciamatura di 15-20 cm, tunnel o rincalzo; in primavera riprende dai colletti e va raccolta prima che parta la fioritura."
+  },
+  "n35": {
+   "titolo": "Come si coltivano le carote: tutti i consigli utili",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/ortaggi/carote/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: le varietà tardive si seminano fino a ottobre e con il tunnel contro il gelo le carote si raccolgono quasi tutto l'anno."
+  },
+  "n36": {
+   "titolo": "Asparago - Asparagus officinalis L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/asparago.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: pianta perenne con asparageto che dura circa 10-12 anni; in inverno i fusti secchi si tagliano e si rifanno i rincalzi per evitare che il suolo si raffreddi; impianto per zampe di uno-due anni."
+  },
+  "n37": {
+   "titolo": "Piantare le zampe di asparago: ecco come fare",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/guide/zampe-asparagi/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: le zampe (rizomi) si prelevano da piante esistenti o si comprano al vivaio; si piantano in febbraio-aprile in solchi profondi 30-40 cm con letame, a 15-20 cm di profondità."
+  },
+  "n38": {
+   "titolo": "Asparagi: semina e coltivazione, anche in vaso",
+   "ente": "Coltivare.info",
+   "url": "https://coltivare.info/asparagi/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: pianta poliennale abbastanza resistente; impianto per zampe con scavo di circa 30 cm, letame maturo sul fondo, 1 metro tra le file e 35 cm tra le piante."
+  },
+  "n39": {
+   "titolo": "Prezzemolo - Petroselinum sativum Hoffm.",
+   "ente": "Agraria.org, Piante aromatiche",
+   "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/prezzemolo.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: pianta biennale; se gli steli fiorali si tagliano man mano che spuntano la pianta si conserva per più anni."
+  },
+  "n40": {
+   "titolo": "Il svernamento del prezzemolo",
+   "ente": "Gardentopia",
+   "url": "https://gardentopia.eu/it/il-svernamento-del-prezzemolo/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: il prezzemolo tollera le temperature vicine allo zero, ma il gelo persistente danneggia foglie e colletto; si protegge con pacciamatura di 5-10 cm, tessuto non tessuto (che innalza di 2-4 gradi) o serra fredda; in primavera si può valutare la divisione del cespo."
+  },
+  "n41": {
+   "titolo": "La semina e la propagazione del prezzemolo",
+   "ente": "Gardentopia",
+   "url": "https://gardentopia.eu/it/la-semina-e-la-propagazione-del-prezzemolo/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: descrive la divisione dei cespi in due o tre parti con coltello affilato e disinfettato, ognuna con radici e germogli vitali; spiega anche la raccolta dei semi dalle ombrelle secche brune e che il potere germinativo cala dopo il primo anno."
+  },
+  "n42": {
+   "titolo": "Lattuga - Lactuca sativa L.",
+   "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+   "url": "https://www.agraria.org/coltivazionierbacee/lattuga.htm",
+   "consultata": "2026-11-06",
+   "nota": "Scheda italiana: pianta annuale con cicli, tra cui quello invernale; le lattughe romane per l'inverno si seminano in semenzaio tra agosto e settembre."
+  },
+  "n43": {
+   "titolo": "Orto invernale: coltivare insalata d'inverno",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/guide/insalata-inverno/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa: in Italia centrale l'insalata si tiene d'inverno, ma i mesi critici sono novembre-febbraio per le gelate; le lattughe da taglio resistono meglio di quelle da cespo, che non tollerano il gelo; protezioni con copertura notturna di tessuto non tessuto, tunnel o serra fredda."
+  },
+  "n44": {
+   "titolo": "Quanto durano i semi e come conservarli",
+   "ente": "Orto da Coltivare",
+   "url": "https://www.ortodacoltivare.it/guide/semi-quanto-durano/",
+   "consultata": "2026-11-06",
+   "nota": "Guida divulgativa generale (non specifica per lattuga): i semi d'orto si conservano in luogo fresco, asciutto e buio, in scatola di latta o vasetto di vetro a vite, con validità media di almeno tre anni."
   }
+ },
+ "colture": {
+  "pomodori": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: il pomodoro è molto sensibile al gelo e all'aperto non supera l'inverno.",
+     "passi": [],
+     "attenzione": [
+      "Se in casa hai un posto luminoso, vedi le talee qui sotto."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "a1"
+     ]
+    },
+    {
+     "id": "talee",
+     "titolo": "Talee per farla ripartire",
+     "esito": "dipende",
+     "riassunto": "Si può, se hai un davanzale luminoso e senza gelo: invece della pianta intera tieni in vita una cima o una femminella.",
+     "passi": [
+      "Prima del primo gelo taglia una cima o una femminella (pollone) lunga circa 8-13 cm.",
+      "Togli le foglie in basso e metti il taglio in un bicchiere d'acqua, oppure in terriccio tenuto umido.",
+      "Le radici di solito compaiono in circa 10-14 giorni.",
+      "Quando ha le radici passa la talea in un vasetto con terriccio e tienila vicino a una finestra luminosa.",
+      "Per tenerla viva basta non farla gelare: le indicazioni americane parlano di almeno circa 18 °C. Non concimare se vuoi solo salvarla.",
+      "In primavera, passato il rischio di gelo, portala fuori."
+     ],
+     "attenzione": [
+      "Prima di portare le piante in casa sciacquale bene: così non porti dentro parassiti.",
+      "In inverno la luce è poca: la pianta resta debole e fa pochi frutti. Serve per ripartire in primavera, non per raccogliere."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "u1",
+      "u2"
+     ]
+    }
+   ]
+  },
+  "peperoni": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: il peperone teme il freddo e all'aperto non supera l'inverno nel nostro clima.",
+     "passi": [],
+     "attenzione": [
+      "Per salvare una pianta in vaso, portala al riparo prima delle prime gelate."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "a2"
+     ]
+    },
+    {
+     "id": "in-casa",
+     "titolo": "Portarla al riparo e farla riposare",
+     "esito": "dipende",
+     "riassunto": "Si può, soprattutto con le piante in vaso: si accorcia la pianta e si tiene in un posto luminoso e senza gelo fino a primavera.",
+     "passi": [
+      "Dopo l'ultimo raccolto e prima del gelo togli fiori e frutti rimasti.",
+      "Accorcia la pianta: tieni circa tre rami principali, spogliali delle foglie e tagliali poco sopra un nodo.",
+      "Controlla che non ci siano insetti, poi portala in un posto senza gelo e con luce (finestra soleggiata, oppure garage con una lampada per piante).",
+      "Annaffia molto meno del solito e non concimare fino a primavera.",
+      "A fine primavera, passato il freddo, riportala fuori."
+     ],
+     "attenzione": [
+      "Per il peperoncino le guide italiane parlano di un posto luminoso e lontano da correnti fredde, con poca acqua; le temperature indicate cambiano da fonte a fonte (da circa 10 a 18 °C).",
+      "Se vuoi che continui a fruttificare in casa servono molta luce e calore, e di solito non va potata (fonti divulgative)."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "u3",
+      "u4",
+      "i1"
+     ]
+    }
+   ]
+  },
+  "basilico": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: il gelo lo distrugge.",
+     "passi": [],
+     "attenzione": [
+      "Raccogli le foglie prima del freddo, oppure fai le talee qui sotto."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "a3"
+     ]
+    },
+    {
+     "id": "talee",
+     "titolo": "Talee per tenerlo sul davanzale",
+     "esito": "si",
+     "riassunto": "Sì, è facile: un rametto sano mette radici in acqua e diventa una nuova pianta da tenere in casa.",
+     "passi": [
+      "Prima del freddo taglia un rametto sano di una decina di centimetri, senza fiori.",
+      "Togli le foglie in basso e metti il rametto in un bicchiere d'acqua, in un posto luminoso.",
+      "Dopo circa due settimane compaiono le radici.",
+      "Quando le radici sono formate mettilo in un vasetto con terriccio.",
+      "Tienilo su un davanzale luminoso (meglio verso sud), lontano dal vetro molto freddo; terriccio appena umido, senza ristagni.",
+      "Non togliere tutte le foglie alla pianta che resta in casa."
+     ],
+     "attenzione": [
+      "In casa d'inverno il basilico cresce piano: raccogli poche foglie alla volta."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "i2",
+      "i3",
+      "i4"
+     ]
+    }
+   ]
+  },
+  "carciofi": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "si",
+     "riassunto": "Sì: il carciofo è perenne e resiste abbastanza bene fino a circa 0 °C; sotto zero si danneggiano foglie e capolini, ma la pianta di solito riparte.",
+     "passi": [
+      "Prima dei freddi forti pacciama intorno alla pianta con materiale organico (paglia, foglie secche) per tenere al caldo le radici.",
+      "Nelle notti sotto zero puoi coprire la pianta con tessuto non tessuto.",
+      "Togli la copertura nelle giornate miti, così non si forma umidità."
+     ],
+     "attenzione": [
+      "La pacciamatura non deve essere troppo umida: rischia di far marcire la base della pianta.",
+      "La resistenza al gelo dipende dalla varietà e dalla zona: nelle zone più fredde la protezione serve di più."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "a4",
+      "i5"
+     ]
+    }
+   ]
+  },
+  "peperoncino": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: il peperoncino teme il freddo e all'aperto non supera l'inverno nel nostro clima.",
+     "passi": [],
+     "attenzione": [
+      "Per salvare una pianta in vaso, portala al riparo prima delle prime gelate."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "a2"
+     ]
+    },
+    {
+     "id": "in-casa",
+     "titolo": "Portarlo al riparo e farlo riposare",
+     "esito": "dipende",
+     "riassunto": "Si può, soprattutto con le piante in vaso: si accorcia la pianta e si tiene in un posto luminoso e senza gelo fino a primavera.",
+     "passi": [
+      "Dopo l'ultimo raccolto e prima del gelo togli fiori e frutti rimasti.",
+      "Accorcia la pianta: tieni circa tre rami principali, spogliali delle foglie e tagliali poco sopra un nodo.",
+      "Controlla che non ci siano insetti, poi portala in un posto senza gelo e con luce (finestra soleggiata, oppure garage con una lampada per piante).",
+      "Annaffia molto meno del solito e non concimare fino a primavera.",
+      "A fine primavera, passato il freddo, riportala fuori."
+     ],
+     "attenzione": [
+      "Le guide italiane parlano di un posto luminoso e lontano da correnti fredde, con poca acqua; le temperature indicate cambiano da fonte a fonte (da circa 10 a 18 °C).",
+      "Se vuoi che continui a fruttificare in casa servono molta luce e calore, e di solito non va potato (fonti divulgative).",
+      "In primavera si accorciano i rami di circa un terzo e si rinvasa con terriccio fresco (guida divulgativa)."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "i1",
+      "u3",
+      "u4"
+     ]
+    }
+   ]
+  },
+  "zucchine": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: la zucchina teme il gelo e all'aperto non supera l'inverno.",
+     "passi": [],
+     "attenzione": [
+      "Campane, cassette vetrate e tunnel servono ad anticipare la semina in primavera, non a far passare l'inverno alla pianta."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n1",
+      "n2"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i semi per l'anno dopo",
+     "esito": "si",
+     "riassunto": "Se lasci maturare una zucchina sulla pianta, puoi raccogliere e conservare i semi per l'anno dopo.",
+     "passi": [
+      "Prendi i semi da una pianta sana e non ibrida: una zucchina ibrida (F1) non darebbe la stessa varietà.",
+      "Lascia una zucchina sulla pianta finché va in leggera sovramaturazione (diventa grande, dura e con la polpa legnosa).",
+      "Taglia il frutto, stacca i semi dalla polpa e sciacquali; scarta i semi piatti o scuri.",
+      "Fai asciugare i semi all'aria, non al sole diretto, su carta del pane.",
+      "Quando sono asciutti conservali in un vasetto di vetro ermetico."
+     ],
+     "attenzione": [
+      "Secondo la fonte i semi danno la massima garanzia nel primo anno, ma restano altamente germinabili anche per due anni."
+     ],
+     "certezza": "bassa",
+     "fonti": [
+      "n3"
+     ]
+    }
+   ]
+  },
+  "melanzane": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: la melanzana muore alla prima brinata e soffre già quando le notti scendono sotto i 10 gradi.",
+     "passi": [],
+     "attenzione": [
+      "Se la pianta è in vaso, portala al riparo prima delle prime gelate.",
+      "Lo svernamento all'aperto con tessuto non tessuto e pacciamatura è possibile solo in climi molto miti, e comunque rischioso."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n4",
+      "n5",
+      "n6"
+     ]
+    },
+    {
+     "id": "in-casa",
+     "titolo": "Portarla al riparo e farla riposare",
+     "esito": "dipende",
+     "riassunto": "Si può: la pianta si accorcia, si riducono acqua e concime e si tiene in un posto luminoso senza gelo fino a primavera.",
+     "passi": [
+      "Quando le minime notturne scendono stabilmente sotto i 7-8 gradi, portala al riparo.",
+      "Se è in piena terra, scava con delicatezza conservando le radici e trasferiscila in un vaso con terriccio sciolto e drenante.",
+      "Fai una potatura drastica: togli frutti, fiori e gran parte delle foglie, e accorcia i rami laterali di circa due terzi tagliando sopra un nodo, con attrezzi disinfettati.",
+      "Non concimare e riduci molto le annaffiature.",
+      "Mettela in un posto luminoso, fresco ma senza gelo (serra fredda, veranda, garage con finestra), intorno ai 10-15 gradi, non sotto i 10.",
+      "Controlla che sui tagli non compaiano muffe o marciumi; se succede, taglia fino al legno sano.",
+      "In primavera risvegliala a poco a poco, con annaffiature crescenti, e fai passare circa due settimane per abituare la pianta all'aperto prima del rientro definitivo."
+     ],
+     "attenzione": [
+      "Secondo la scheda agraria.org, in serra fredda la pianta va in riposo vegetativo nei mesi freddi e poi rivegeta spontaneamente: non serve forzarla."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n6",
+      "n4"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i semi per l'anno dopo",
+     "esito": "si",
+     "riassunto": "Se lasci maturare un frutto sulla pianta, puoi conservare i semi per l'anno dopo (se non si tratta di una pianta ibrida).",
+     "passi": [
+      "Lascia maturare un frutto finché la buccia è opaca e di colore giallo-cuoio.",
+      "Taglia il frutto e immergi la polpa in acqua: i semi buoni cadono sul fondo.",
+      "Raccogli i semi e asciugali in un sacchetto di garza o tulle appeso in un luogo asciutto per 4-5 giorni.",
+      "Conservali in barattoli di vetro ermetici, in un luogo buio e fresco: restano vitali per almeno due anni."
+     ],
+     "attenzione": [
+      "Per evitare l'impollinazione incrociata puoi coprire i fiori con sacchetti di tulle prima che si aprano."
+     ],
+     "certezza": "bassa",
+     "fonti": [
+      "n7"
+     ]
+    }
+   ]
+  },
+  "patate": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: i tuberi congelano a -2 gradi e la pianta muore con il gelo; le patate non superano l'inverno all'aperto.",
+     "passi": [],
+     "attenzione": [
+      "Raccogli tutte le patate prima dei freddi invernali: i tuberi nel terreno si congelano già a -2 gradi."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n8"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i tuberi per la primavera",
+     "esito": "si",
+     "riassunto": "La patata non si semina con i semi, ma con i tuberi: tienili al fresco e prima di ripiantarli fai germogliare.",
+     "passi": [
+      "Tieni i tuberi da semina in un locale fresco e ben ventilato: la temperatura ottimale è 5-6 gradi e si conservano fino a 8-10 mesi.",
+      "Con temperature inferiori i tuberi addolciscono (accumulano troppi zuccheri), quindi il locale deve essere fresco ma non troppo.",
+      "Prima di ripiantare, fai la pregermogliazione: metti i tuberi in cassette (non più di due strati) in un ambiente a luce diffusa, a 12-16 gradi.",
+      "Dopo 4-6 settimane i germogli sono nati, corti e robusti (15-20 mm): i tuberi-seme sono pronti per il piantamento."
+     ],
+     "attenzione": [
+      "Agraria.org precisa che l'eventuale verdimento dei tuberi da semina è considerato di aiuto, senza ripercussioni negative."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n8"
+     ]
+    }
+   ]
+  },
+  "cetrioli": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: il cetriolo è un annuale delicato e il trapianto all'aperto si fa solo appena passate le gelate.",
+     "passi": [],
+     "attenzione": [
+      "Campane e tunnel servono ad anticipare la coltura in primavera, non a far passare l'inverno alla pianta."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n9"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i semi per l'anno dopo",
+     "esito": "si",
+     "riassunto": "Puoi salvare i semi da un cetriolo lasciato maturare finché ingialla.",
+     "passi": [
+      "Lascia sulla pianta almeno un frutto finché assume un colore giallo, come quello delle zucche.",
+      "Prendi un frutto ben maturo ma non marcito e taglialo.",
+      "Estrai i semi e sciacquali bene sotto l'acqua con un colino.",
+      "Fai asciugare i semi su un canovaccio o su carta assorbente per qualche giorno.",
+      "Conserva i semi asciutti in sacchetti di carta.",
+      "Usa solo semi ben asciutti, senza marciumi."
+     ],
+     "attenzione": [],
+     "certezza": "bassa",
+     "fonti": [
+      "n10"
+     ]
+    }
+   ]
+  },
+  "piselli": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: la piantina giovane sopporta fino a -8 gradi, ma durante la fioritura anche gelate leggere sono dannose. Se semini in autunno in tempo, il pisello passa l'inverno; se il freddo arriva mentre fiorisce, la coltura si perde.",
+     "passi": [
+      "Fai la semina autunnale in tempo: la scheda consiglia il novembre per il Centro-Sud, così che all'arrivo dei freddi le piantine abbiano 3-4 foglie."
+     ],
+     "attenzione": [
+      "La resistenza al freddo dipende dallo stadio: massima sui giovani, minima in fioritura."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n12"
+     ]
+    }
+   ]
+  },
+  "fave": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: gelate di -6 gradi sono fatali alla maggior parte delle varietà e in fioritura la resistenza è ancora minore; con semina autunnale fatta in tempo la fava è una coltura di inverno, però il freddo forte può ucciderla.",
+     "passi": [
+      "Fai la semina autunnale tra ottobre e novembre: così le piantine crescono nei mesi miti e la fioritura non coincide con le gelate peggiori."
+     ],
+     "attenzione": [
+      "La scheda precisa che in fioritura la resistenza al gelo è ancora minore che allo stadio di 4-5 foglie.",
+      "Alcuni tipi di favino da campo resistono fin verso -15 gradi, ma sono colture differenti rispetto alle fave da orto."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n13"
+     ]
+    }
+   ]
+  },
+  "rucola": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: la rucola tollera brevi gelate leggere, ma il freddo persistente danneggia le foglie e sotto i 5-6 gradi la crescita rallenta; serve copertura per l'inverno.",
+     "passi": [
+      "In caso di gelo copri con tessuto non tessuto o metti la coltivazione sotto un tunnel freddo."
+     ],
+     "attenzione": [
+      "Se tagli il cespo a circa 2-3 cm dal terreno (senza arrivare al colletto) la pianta emette nuove foglie: puoi fare 4-6 raccolte successive."
+     ],
+     "certezza": "bassa",
+     "fonti": [
+      "n21"
+     ]
+    }
+   ]
+  },
+  "spinaci": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "si",
+     "riassunto": "Sì: lo spinacio ha basse esigenze termiche e in fase di rosetta tollera bene il freddo; le semine estivo-autunnali sono la coltivazione normale per la produzione invernale.",
+     "passi": [
+      "Fai la semina tra agosto e ottobre con le cultivar autunno-invernali, pensate proprio per la produzione invernale."
+     ],
+     "attenzione": [
+      "In zone più fredde del Centro-Sud la produzione invernale si fa in serra."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n15"
+     ]
+    }
+   ]
+  },
+  "zucche": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: la zucca è esigente in temperatura e viene danneggiata dalle gelate; la pianta non supera l'inverno all'aperto.",
+     "passi": [],
+     "attenzione": [
+      "Il modo della zucca di attraversare l'inverno è il frutto: le zucche da inverno si raccolgono ai primi di ottobre e si conservano in locale asciutto e ventilato fino a fine inverno."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n1"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i semi per l'anno dopo",
+     "esito": "si",
+     "riassunto": "Puoi salvare i semi da una zucca matura e usarli l'anno dopo.",
+     "passi": [
+      "Prendi i semi solo da un frutto a piena maturazione: buccia dura, picciolo secco, colore tipico della varietà (il ciclo dura da 5 a 6 mesi).",
+      "Estrai i semi dalla polpa e lavali sotto acqua corrente in uno scolapasta.",
+      "Fai asciugare i semi su carta del pane; qualche ora al sole può accelerare l'asciugatura.",
+      "Quando sono asciutti, conservali in vasetti di vetro ben chiusi.",
+      "Usa i semi entro due anni: resta alta la germinabilità, ma è subito dopo il primo anno che danno le maggiori garanzie."
+     ],
+     "attenzione": [],
+     "certezza": "bassa",
+     "fonti": [
+      "n11"
+     ]
+    }
+   ]
+  },
+  "broccoli": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: il broccolo si coltiva per l'inverno al Centro e al Sud, ma il gelo danneggia l'infiorescenza, provocando la cosiddetta lessatura dei grumi. In collina conviene proteggere la pianta.",
+     "passi": [
+      "Nelle zone collinari o con gelate insistenti copri con mini tunnel volanti, tessuto non tessuto o campane di carta."
+     ],
+     "attenzione": [
+      "Se raccogli tagliando l'infiorescenza centrale la pianta non muore: si sviluppano infiorescenze laterali più piccole, i broccoletti."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n17",
+      "n18",
+      "n19"
+     ]
+    }
+   ]
+  },
+  "cavolfiori": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: si coltiva d'inverno al Centro e al Sud, ma il gelo provoca la lessatura dei grumi commestibili. In collina conviene proteggere le piante.",
+     "passi": [
+      "Quando si avvicina il gelo, richiudi le foglie del cavolfiore sopra l'infiorescenza e legale con uno spago."
+     ],
+     "attenzione": [
+      "Le piantine giovani con 6-8 foglioline, se restano al freddo per molto tempo, possono diventare piante cieche, cioè senza infiorescenza."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n17",
+      "n18"
+     ]
+    }
+   ]
+  },
+  "verze": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: la verza tollera il freddo ma non il gelo; si trapianta in ottobre per il raccolto invernale, ma conviene proteggerla se il gelo è forte.",
+     "passi": [
+      "Scegli le varietà dette d'inverno, pensate apposta per la stagione fredda.",
+      "Se arrivano gelate forti, copri le piante con tessuto non tessuto, mini tunnel o campane di carta."
+     ],
+     "attenzione": [
+      "Queste protezioni (mini tunnel volanti, tessuto non tessuto, campane di carta) vengono dalla pagina divulgativa dedicata ai cavoli trapiantati in autunno."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n20",
+      "n18"
+     ]
+    }
+   ]
+  },
+  "porri": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "si",
+     "riassunto": "Sì: le varietà invernali di porro resistono a gelo e neve e si lasciano in campo fino alla primavera.",
+     "passi": [
+      "Scegli le varietà invernali di porro (come Bleu de Solaise, Carentan, Musselburgh).",
+      "Fai un rincalzo alle piante: secondo la scheda agraria.org aiuta anche la resistenza al freddo.",
+      "In caso di gelate forti fai una pacciamatura di 10-15 cm con paglia o foglie, ed eventualmente copri con tessuto non tessuto."
+     ],
+     "attenzione": [
+      "Con l'arrivo della primavera (marzo-aprile) il 'cuore' del porro diventa legnoso perché la pianta si prepara a fiorire: raccogli prima di quello."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n24",
+      "n25"
+     ]
+    }
+   ]
+  },
+  "aglio": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "si",
+     "riassunto": "Sì: l'aglio è rustico, si pianta in autunno nelle zone a clima mite e passa l'inverno in campo.",
+     "passi": [],
+     "attenzione": [
+      "Le gelate molto forti possono comunque provocare danni; per sicurezza fai una pacciamatura leggera nelle notti più fredde."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n26",
+      "n27"
+     ]
+    },
+    {
+     "id": "divisione",
+     "titolo": "Si ripianta con gli spicchi",
+     "esito": "si",
+     "riassunto": "L'aglio non si moltiplica con i semi ma con gli spicchi (bulbilli), che sono i veri organi di propagazione.",
+     "passi": [
+      "Prendi un bulbo sano e separa gli spicchi uno alla volta, senza togliere la tunica protettiva.",
+      "Pianta ogni spicchio con la punta in alto, nel terreno o anche in vaso.",
+      "Raccogli dopo circa 5-6 mesi dall'impianto."
+     ],
+     "attenzione": [
+      "Secondo la scheda agraria.org la capsula dei fiori raramente contiene semi veri: gli spicchi restano il modo normale di moltiplicare l'aglio."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n26",
+      "n27"
+     ]
+    }
+   ]
+  },
+  "finocchi": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: il finocchio teme il gelo e va raccolto prima delle gelate invernali; inoltre il freddo prolungato sotto i 7 gradi lo porta a montare a seme, cioè a fiorire senza formare il grumolo.",
+     "passi": [
+      "Se lo vuoi per l'inverno, fai la semina in semenzaio ad agosto e il trapianto in ottobre.",
+      "Raccogli prima delle gelate invernali.",
+      "Per allungare la raccolta copri le piante con tunnel o telo di tessuto non tessuto."
+     ],
+     "attenzione": [
+      "Se la pianta resta in campo il secondo anno fiorisce e fa i semi: la pianta riparte, ma il grumolo non si forma più."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n31",
+      "n32"
+     ]
+    }
+   ]
+  },
+  "asparagi": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "si",
+     "riassunto": "Sì: l'asparago è una pianta perenne che resta in campo anche dieci-dodici anni; l'inverno non lo uccide, la chioma secca e la pianta riparte in primavera.",
+     "passi": [
+      "In inverno taglia i fusti secchi e rincalza il suolo, per evitare che il terreno si raffreddi troppo."
+     ],
+     "attenzione": [
+      "Durante la fase di raccolta in primavera le basse temperature e le piogge possono ritardare o bloccare l'emergenza dei turioni."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n36"
+     ]
+    },
+    {
+     "id": "divisione",
+     "titolo": "Si moltiplica dividendo le zampe",
+     "esito": "si",
+     "riassunto": "L'asparago si riproduce dividendo le zampe, cioè i rizomi sotto la terra.",
+     "passi": [
+      "Estrai con cura, in autunno o a inizio primavera, una zampa di uno-due anni da una pianta già esistente (le zampe di piante sane mantengono la varietà della pianta madre), oppure compri la zampa al vivaio.",
+      "Scava un solco profondo 30-40 cm e metti sul fondo del letame ben maturo, coprendo con uno strato di terra.",
+      "Fai depositare le zampe nel solco, a 15-20 cm di profondità, con le radici distese.",
+      "Tieni le file a 1 metro l'una dall'altra e le piante a circa 35 cm.",
+      "Il primo raccolto si fa in primavera, ma la piena produzione si raggiunge dal quarto anno circa."
+     ],
+     "attenzione": [
+      "L'asparageto dura circa 10-12 anni: riserva bene il posto prima dell'impianto."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n36",
+      "n37",
+      "n38"
+     ]
+    }
+   ]
+  },
+  "prezzemolo": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: il prezzemolo è biennale e regge temperature vicine allo zero, ma il gelo persistente brucia le foglie e danneggia il colletto. Con pacciamatura e tessuto non tessuto può passare l'inverno; senza protezione rischia con geli lunghi.",
+     "passi": [
+      "Fai una pacciamatura di 5-10 cm con paglia o foglie secche attorno al cespo.",
+      "Durante le gelate copri con tessuto non tessuto (che innalza la temperatura interna di 2-4 gradi) o sposta la pianta in serra fredda se è in vaso."
+     ],
+     "attenzione": [
+      "Se tagli gli steli fiorali man mano che spuntano, la pianta biennale si conserva per più anni."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n39",
+      "n40"
+     ]
+    },
+    {
+     "id": "divisione",
+     "titolo": "Far ripartire dividendo i cespi",
+     "esito": "si",
+     "riassunto": "Sì: in primavera (o in autunno) puoi dividere un cespo maturo in due o tre parti per moltiplicarlo velocemente senza passare dalla semina.",
+     "passi": [
+      "Scegli una pianta sana, matura e robusta.",
+      "Scava attorno alla pianta ed estrai l'intero apparato radicale conservando un po' di terra.",
+      "Dividi il cespo con un coltello affilato e disinfettato in due o tre parti, ognuna con una buona porzione di radici e almeno qualche germoglio vitale.",
+      "Rimetti subito le nuove piante a dimora in terreno ben preparato e annaffia abbondantemente."
+     ],
+     "attenzione": [
+      "Come pianta biennale la divisione potrebbe non funzionare se il cespo si sta avviando alla fioritura e alla morte naturale."
+     ],
+     "certezza": "bassa",
+     "fonti": [
+      "n41"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i semi per l'anno dopo",
+     "esito": "si",
+     "riassunto": "Se la pianta fiorisce, puoi raccogliere e conservare i semi del prezzemolo.",
+     "passi": [
+      "Raccogli i semi quando le ombrelle floreali sono completamente secche e di colore bruno.",
+      "Conservali in un luogo fresco, asciutto e al buio, in busta di carta o barattolo di vetro ermetico.",
+      "Usali l'anno dopo: il potere germinativo cala rapidamente dopo il primo anno di conservazione."
+     ],
+     "attenzione": [],
+     "certezza": "bassa",
+     "fonti": [
+      "n41"
+     ]
+    }
+   ]
+  },
+  "fagiolini": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "No: il fagiolo muore a 1-2 gradi e si coltiva solo da primavera a fine estate; all'aperto non supera l'inverno.",
+     "passi": [],
+     "attenzione": [],
+     "certezza": "alta",
+     "fonti": [
+      "n14"
+     ]
+    }
+   ]
+  },
+  "lattuga": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: a inverno mite l'insalata si tiene in campo, ma le gelate invernali danneggiano le lattughe da cespo; quelle da taglio resistono meglio.",
+     "passi": [
+      "Scegli varietà per l'inverno: la scheda di agraria.org parla di semina tra agosto e settembre per le lattughe romane invernali.",
+      "Se arrivano gelate copri di notte con tessuto non tessuto e scopri di giorno; in alternativa usa tunnel o serra fredda."
+     ],
+     "attenzione": [
+      "Durante i mesi freddi (da novembre a febbraio) la crescita si ferma: la pianta resta viva ma produce poco fino al disgelo."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n42",
+      "n43"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i semi per l'anno dopo",
+     "esito": "si",
+     "riassunto": "Se lasci fiorire una pianta, puoi conservare i semi per la stagione successiva.",
+     "passi": [
+      "Tieni i semi in un posto fresco, asciutto e buio.",
+      "Usa contenitori come una scatola di latta o un vasetto di vetro con tappo a vite.",
+      "Un seme, tenuto bene, resta valido in media almeno tre anni; meglio comunque usare seme nuovo."
+     ],
+     "attenzione": [
+      "Questa è una guida generale sui semi d'orto, non specifica per la lattuga."
+     ],
+     "certezza": "bassa",
+     "fonti": [
+      "n44"
+     ]
+    }
+   ]
+  },
+  "carote": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "si",
+     "riassunto": "Sì: la carota è tra le orticole più resistenti al freddo invernale, e il gelo leggero addirittura la rende più gustosa. Con gelate insistenti conviene proteggerla.",
+     "passi": [
+      "Lascia le radici in terra e proteggile con pacciamatura di 15-20 cm di paglia o foglie secche, oppure con tunnel, oppure rincalzandole.",
+      "In alternativa raccogli in anticipo e conserva le radici in luogo fresco, per esempio in silos di sabbia a 2-5 gradi.",
+      "Con tunnel, seminando le varietà tardive fino a ottobre, si possono raccogliere carote quasi tutto l'anno."
+     ],
+     "attenzione": [
+      "Le carote lasciate in campo riprendono in primavera dai colletti con nuove foglie: a quel punto la radice diventa presto legnosa, quindi raccogli prima che parta lo stelo fiorale."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n34",
+      "n35"
+     ]
+    }
+   ]
+  },
+  "cipolla": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "si",
+     "riassunto": "Sì: la cipolla resiste molto bene al freddo; le cipolle invernali seminate a settembre e trapiantate a novembre passano l'inverno in campo e si raccolgono in aprile-maggio.",
+     "passi": [],
+     "attenzione": [
+      "Gli sbalzi di temperatura e le gelate tardive dopo un freddo prolungato possono far montare a seme la piantina (prefioritura).",
+      "Una cipolla germogliata piantata in orto o in vaso, a ottobre o in primavera, produce cipollotti da ricaccio."
+     ],
+     "certezza": "media",
+     "fonti": [
+      "n28",
+      "n29"
+     ]
+    },
+    {
+     "id": "semi",
+     "titolo": "Conservare i semi per l'anno dopo",
+     "esito": "si",
+     "riassunto": "La cipolla è biennale: se non raccogli il bulbo, il secondo anno emette il fiore e puoi prendere i semi.",
+     "passi": [
+      "Lascia in campo qualche pianta non raccolta: il bulbo resta un serbatoio energetico e l'anno dopo forma lo scapo fiorale.",
+      "Raccogli i semi quando il fiore è completamente secco e di colore bruno: recidi il fiore lasciando un po' di gambo, mettilo in un sacchetto di carta e scuotilo.",
+      "Conserva i semi in contenitori di vetro o barattoli di latta, al buio, in luogo fresco e asciutto: durano una o due stagioni."
+     ],
+     "attenzione": [
+      "Se hai più varietà, tienile distanti tra loro (la guida indica circa 500 metri), perché l'impollinazione è incrociata e i semi si mescolano."
+     ],
+     "certezza": "bassa",
+     "fonti": [
+      "n30"
+     ]
+    }
+   ]
+  },
+  "ravanelli": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "no",
+     "riassunto": "Di solito no: il ravanello è una coltura a ciclo breve che cresce con temperature fresche e ha un minimo di crescita di circa 4-5 °C. Conviene seminarlo di nuovo invece di farlo passare l'inverno.",
+     "passi": [],
+     "attenzione": [],
+     "certezza": "bassa",
+     "fonti": [
+      "n22"
+     ]
+    }
+   ]
+  },
+  "bietola": {
+   "opzioni": [
+    {
+     "id": "sul-posto",
+     "titolo": "Può sopravvivere all'aperto?",
+     "esito": "dipende",
+     "riassunto": "Dipende: la bietola da coste tollera da -2 a -3 gradi e si coltiva anche nel periodo autunno-invernale; gelate più forti superano la soglia indicata dalla fonte.",
+     "passi": [],
+     "attenzione": [
+      "La fonte non segnala protezioni specifiche (tessuto non tessuto, tunnel) per l'inverno: a occhio puoi coprire i cespi durante le notti più fredde.",
+      "È una pianta biennale: il cespo che passa l'inverno tecnicamente può riprendere in primavera, ma la fonte non spiega la procedura."
+     ],
+     "certezza": "alta",
+     "fonti": [
+      "n16"
+     ]
+    }
+   ]
+  }
+ }
 }

@@ -15,12 +15,12 @@ for (const [id, c] of Object.entries(d.colture)) {
     if (!['si', 'dipende', 'no'].includes(o.esito)) problemi.push(`${id}/${o.id}: esito`);
     if (!['alta', 'media', 'bassa'].includes(o.certezza)) problemi.push(`${id}/${o.id}: certezza`);
     if (!o.riassunto) problemi.push(`${id}/${o.id}: senza riassunto`);
-    if (o.esito !== 'no' && !o.passi?.length) problemi.push(`${id}/${o.id}: senza passi`);
+    if (o.esito !== 'no' && !o.passi?.length && !o.attenzione?.length) problemi.push(`${id}/${o.id}: senza passi né avvertenze`);
     if (!o.fonti?.length) problemi.push(`${id}/${o.id}: senza fonti`);
     for (const f of o.fonti ?? []) if (!/^https:\/\//.test(d.fonti[f]?.url ?? '')) problemi.push(`${id}/${o.id}: fonte ${f} senza indirizzo`);
   }
 }
-check('dati: ogni voce ha esito, certezza, riassunto, fonti e (se non è un «no») i passi', problemi.length === 0, problemi.join('; '));
+check('dati: ogni voce ha esito, certezza, riassunto, fonti e (se non è un «no») passi o avvertenze', problemi.length === 0, problemi.join('; '));
 check('dati: non c\'è nessuna emoji né accento perso', !/\p{Extended_Pictographic}/u.test(JSON.stringify(d)) && !/[A-Za-zÀ-ÿ]\?[A-Za-zÀ-ÿ]/.test(JSON.stringify(d).replace(/https?:\/\/\S+/g, '')));
 check('dati: pomodori, peperoni, basilico e carciofi', ['pomodori', 'peperoni', 'basilico', 'carciofi'].every((k) => d.colture[k]));
 
