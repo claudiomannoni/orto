@@ -1,7 +1,7 @@
 // Messaggio breve in basso, sopra la barra di navigazione.
 let timer;
 
-export function toast(messaggio, azione = null) {
+export function toast(messaggio, azione = null, durata = 3000) {
   const e = document.getElementById('toast');
   if (!e) return;
   e.replaceChildren(document.createTextNode(messaggio));
@@ -13,5 +13,5 @@ export function toast(messaggio, azione = null) {
   }
   e.classList.add('visibile');
   clearTimeout(timer);
-  timer = setTimeout(() => e.classList.remove('visibile'), 3000);
+  timer = setTimeout(() => e.classList.remove('visibile'), durata);
 }

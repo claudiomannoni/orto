@@ -30,9 +30,9 @@ for (const tema of ['light', 'dark']) {
     check(`[${tema}] ${r} (vuoto): pulsanti .btn >= 56 px`, btnBassi.length === 0, JSON.stringify(btnBassi));
     const barra = b.filter((x) => x.tag === 'a' && !x.cls);
     check(`[${tema}] ${r}: barra in basso con 5 voci e >= 56 px`, barra.length === 5 && barra.every((x) => x.h >= 56), JSON.stringify(barra));
-    // Un figlio vuoto passato a append() scrive la parola «null» nella pagina: mai nel testo visibile.
+    // Un figlio vuoto passato a append() scrive la parola Â«nullÂ» nella pagina: mai nel testo visibile.
     const testo = await page.locator('#schermata').innerText();
-    check(`[${tema}] ${r} (vuoto): niente «null» né «undefined» nel testo`, !/\b(null|undefined|NaN)\b/.test(testo), testo.slice(0, 120));
+    check(`[${tema}] ${r} (vuoto): niente Â«nullÂ» nÃ© Â«undefinedÂ» nel testo`, !/\b(null|undefined|NaN)\b/.test(testo), testo.slice(0, 120));
   }
 
   // B) con colture, anche una con testi lunghissimi
@@ -43,11 +43,11 @@ for (const tema of ['light', 'dark']) {
     ['Piselli', '', '2026-09-01', 'orto', ''],
     ['Spinaci', '', '2026-10-30', 'semenzaio', ''],
     ['Pomodoro', 'Cuore di bue', '2026-10-01', 'semenzaio', ''],
-    ['Superlungonomedicolturachenonvaamcapomai'.repeat(1), 'Varietaextralungasenzaspazibuonaperprovarelarottura', '2026-10-29', 'orto', 'Nota molto lunga senza spazi: ' + 'x'.repeat(80) + ' e poi una frase normale lunga abbastanza per andare a capo più volte nella carta.'],
+    ['Superlungonomedicolturachenonvaamcapomai'.repeat(1), 'Varietaextralungasenzaspazibuonaperprovarelarottura', '2026-10-29', 'orto', 'Nota molto lunga senza spazi: ' + 'x'.repeat(80) + ' e poi una frase normale lunga abbastanza per andare a capo piÃ¹ volte nella carta.'],
   ];
   await vai(page, 'colture', '?oggi=2026-10-30');
   for (const [nome, varieta, data, dove, note] of colt) {
-    await page.click('button:has-text("+ Nuova coltura")');
+    await page.click('button.colture-nuova-fissa');
     await page.fill('dialog input[name=nome]', nome);
     await page.fill('dialog input[name=varieta]', varieta);
     await page.fill('dialog input[name=dataSemina]', data);
@@ -103,7 +103,7 @@ for (const tema of ['light', 'dark']) {
   // Tema applicato davvero?
   const sfondo = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
   nota(`[${tema}] sfondo body = ${sfondo}`);
-  check(`[${tema}] il tema cambia lo sfondo`, tema === 'light' ? sfondo === 'rgb(255, 246, 227)' : sfondo === 'rgb(28, 22, 17)', sfondo);
+  check(`[${tema}] il tema cambia lo sfondo`, tema === 'light' ? sfondo === 'rgb(233, 241, 228)' : sfondo === 'rgb(14, 26, 18)', sfondo);
 
   check(`[${tema}] nessun errore/avviso in console, nessuna richiesta fallita`, problemi.length === 0, problemi.join(' | '));
   await ctx.close();

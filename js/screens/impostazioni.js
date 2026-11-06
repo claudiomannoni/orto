@@ -97,6 +97,7 @@ function sezioneAccessibilita(s) {
   return el('section', { class: 'card', id: 'accessibilita' },
     el('h3', {}, t('accessibilita.titolo')),
     el('p', { class: 'aiuto' }, t('accessibilita.spiega')),
+    el('p', { class: 'aiuto' }, t('accessibilita.contrasto.aiuto')),
     el('p', { class: 'dato-nome' }, t('accessibilita.testo')),
     bottoniTesto,
     interruttore('contrasto', t('accessibilita.contrasto')),

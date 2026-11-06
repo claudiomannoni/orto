@@ -28,8 +28,8 @@ const Q = '?oggi=2026-10-30';
   await page.evaluate(() => navigator.serviceWorker.ready);
   const sw = await page.evaluate(async () => { const r = await navigator.serviceWorker.ready; return { stato: r.active?.state, scope: r.scope, script: r.active?.scriptURL }; });
   check('sw: registrato e attivo', sw.stato === 'activated', JSON.stringify(sw));
-  await page.reload(); await attendiApp(page); // ora la pagina è controllata dal sw
-  check('sw: la pagina è controllata dal service worker', await page.evaluate(() => Boolean(navigator.serviceWorker.controller)));
+  await page.reload(); await attendiApp(page); // ora la pagina Ã¨ controllata dal sw
+  check('sw: la pagina Ã¨ controllata dal service worker', await page.evaluate(() => Boolean(navigator.serviceWorker.controller)));
   const cache = await page.evaluate(async () => { const n = await caches.keys(); const c = await caches.open(n[0]); return { nomi: n, file: (await c.keys()).map((r) => new URL(r.url).pathname) }; });
   check(`cache: una sola cache "${V0}"`, cache.nomi.join() === V0, cache.nomi.join());
   nota(`cache: ${cache.file.length} file`);
@@ -54,7 +54,7 @@ const Q = '?oggi=2026-10-30';
   // aggiungo una coltura per ogni scheda + una generica, online
   const colt = ['Fave', 'Aglio', 'Cipolla', 'Piselli', 'Spinaci', 'Pomodoro'];
   for (const n of colt) {
-    await page.click('button:has-text("+ Nuova coltura")');
+    await page.click('button.colture-nuova-fissa');
     await page.fill('dialog input[name=nome]', n);
     await page.click('dialog button[type=submit]');
     await page.waitForSelector('dialog', { state: 'detached' });
@@ -73,9 +73,11 @@ const Q = '?oggi=2026-10-30';
       carte: document.querySelectorAll('.coltura').length,
       stile: getComputedStyle(document.body).backgroundColor,
     }));
-    check(`offline ${r}: pagina caricata (titolo "${info.titolo}", testata "${info.testata}")`, Boolean(info.titolo) && info.testata === 'Orto AI', JSON.stringify(info));
-    check(`offline ${r}: CSS applicato`, info.stile === 'rgb(255, 246, 227)' || info.stile === 'rgb(28, 22, 17)', info.stile);
-    check(`offline ${r}: tutte le immagini visibili (${info.imm.length})`, info.imm.length > 0 && info.imm.every((i) => i.ok), JSON.stringify(info.imm.filter((i) => !i.ok)));
+    // Testata nuova: l'h1 della testata mostra il titolo della schermata (non piu' «Orto AI» fisso).
+    check(`offline ${r}: pagina caricata (titolo "${info.titolo}", testata "${info.testata}")`, Boolean(info.titolo) && Boolean(info.testata) && info.testata === info.titolo, JSON.stringify(info));
+    // Palette nuova: chiaro rgb(233, 241, 228), scuro rgb(14, 26, 18).
+    check(`offline ${r}: CSS applicato`, info.stile === 'rgb(233, 241, 228)' || info.stile === 'rgb(14, 26, 18)', info.stile);
+    check(`offline ${r}: tutte le immagini visibili (${info.imm.length})`, info.imm.every((i) => i.ok) && (r === 'impostazioni' ? true : info.imm.length > 0), JSON.stringify(info.imm.filter((i) => !i.ok)));
     if (r === 'colture') check('offline colture: le 6 colture ci sono, con icone', info.carte === 6 && info.imm.filter((i) => i.src.includes('assets/colture/')).length >= 6, `carte=${info.carte}`);
     await page.screenshot({ path: path.join(OUT, `offline-${r}.png`) });
   }
@@ -100,11 +102,11 @@ const Q = '?oggi=2026-10-30';
   check('offline: tutti i JSON (i18n, data/it, manifest) validi', json.every(([, o]) => o), json.filter(([, o]) => !o).map(([f]) => f).join(','));
 
   // dati e funzioni offline
-  await page.click('button:has-text("+ Nuova coltura")').catch(() => {});
+  await page.click('button.colture-nuova-fissa').catch(() => {});
   await page.fill('dialog input[name=nome]', 'Offline-coltura');
   await page.click('dialog button[type=submit]');
   await page.waitForSelector('dialog', { state: 'detached' });
-  check('offline: si può aggiungere una coltura', (await leggiDb(page, 'colture')).some((c) => c.nome === 'Offline-coltura'));
+  check('offline: si puÃ² aggiungere una coltura', (await leggiDb(page, 'colture')).some((c) => c.nome === 'Offline-coltura'));
   await ctx.setOffline(false);
   await page.reload(); await attendiApp(page);
   check('di nuovo online: i dati ci sono ancora', (await page.$$('.coltura')).length === 7);
@@ -156,9 +158,9 @@ if (!process.env.SNAPSHOT) {
     return { chiavi, nuovo };
   }, V1);
   check(`sw update: la nuova cache ${V1} esiste`, dopo.chiavi.includes(V1), dopo.chiavi.join());
-  check(`sw update: la vecchia cache ${V0} è stata cancellata`, !dopo.chiavi.includes(V0), dopo.chiavi.join());
+  check(`sw update: la vecchia cache ${V0} Ã¨ stata cancellata`, !dopo.chiavi.includes(V0), dopo.chiavi.join());
   check('sw update: cancellate anche le cache non sue (il-mio-orto-v1)', !dopo.chiavi.includes('il-mio-orto-v1'), dopo.chiavi.join());
-  check('sw update: il file nuovo (nuovo.svg) è nella nuova cache', dopo.nuovo.some((p) => p.endsWith('/assets/nuovo.svg')), `${dopo.nuovo.length} file`);
+  check('sw update: il file nuovo (nuovo.svg) Ã¨ nella nuova cache', dopo.nuovo.some((p) => p.endsWith('/assets/nuovo.svg')), `${dopo.nuovo.length} file`);
   await page.reload(); await attendiApp(page);
   nota('cache dopo il ricaricamento: ' + (await page.evaluate(async () => (await caches.keys()).join(', '))));
   const slogan = await page.$eval('.testata p', (e) => e.textContent);

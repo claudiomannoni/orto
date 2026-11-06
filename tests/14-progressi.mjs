@@ -83,7 +83,7 @@ await page.waitForSelector('dialog', { state: 'detached' });
 
 // 6. Una coltura e una zona sbloccano i loro traguardi
 await vai(page, 'colture', '?oggi=2026-11-10');
-await page.getByRole('button', { name: '+ Nuova coltura' }).click();
+await page.locator('button.colture-nuova-fissa').click();
 await page.waitForSelector('dialog form');
 await page.fill('dialog input[name=nome]', 'Fave');
 await page.click('dialog button[type=submit]');

@@ -13,7 +13,7 @@ const nomiInLista = (page) => page.$$eval('.coltura h3', (h) => h.map((x) => x.t
 const apriAzioni = (page) => page.evaluate(() => { document.querySelectorAll('details.coltura-azioni').forEach((d) => { d.open = true; }); });
 
 async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'orto', note = '' }) {
-  await page.click('button:has-text("+ Nuova coltura")');
+  await page.click('button.colture-nuova-fissa');
   await page.fill('dialog input[name=nome]', nome);
   await page.fill('dialog input[name=varieta]', varieta);
   await page.fill('dialog input[name=dataSemina]', data);
@@ -49,7 +49,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   check('db: record con schemaVersion 2, schedaId "fave", id stringa', db.length === 1 && db[0].schemaVersion === 2 && db[0].schedaId === 'fave' && typeof db[0].id === 'string', JSON.stringify(db));
 
   // validazione: nome vuoto non salva
-  await page.click('button:has-text("+ Nuova coltura")');
+  await page.click('button.colture-nuova-fissa');
   await page.fill('dialog input[name=nome]', '');
   await page.click('dialog button[type=submit]');
   check('validazione: nome vuoto non salva (foglio resta aperto)', await page.isVisible('dialog'));
@@ -61,7 +61,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
   await page.click('dialog button:has-text("Annulla")');
   check('annulla chiude il foglio', !(await page.isVisible('dialog')));
   // tap fuori chiude
-  await page.click('button:has-text("+ Nuova coltura")');
+  await page.click('button.colture-nuova-fissa');
   await page.mouse.click(200, 30);
   await page.waitForTimeout(200);
   check('tocco fuori dal foglio lo chiude', !(await page.isVisible('dialog')));
@@ -267,7 +267,7 @@ async function nuova(page, { nome, varieta = '', data = '2026-10-20', dove = 'or
     await page.waitForTimeout(350);
     const t = await toast(page);
     const dopo = JSON.stringify(await leggiDb(page, 'colture'));
-    check(`file non valido (${nome}): messaggio "File non valido…", nessuna conferma, dati intatti`, /^File non valido/.test(t) && ultimoMsg === '' && dopo === prima, `toast="${t}" dialogo="${ultimoMsg}"`);
+    check(`file non valido (${nome}): messaggio "File non validoâ€¦", nessuna conferma, dati intatti`, /^File non valido/.test(t) && ultimoMsg === '' && dopo === prima, `toast="${t}" dialogo="${ultimoMsg}"`);
     if (nome === 'non JSON') check('file non valido: messaggio JSON corretto', t === 'File non valido: non è un JSON', t);
     if (nome === 'JSON ma non backup (oggetto)') check('file non valido: messaggio formato corretto', t === 'File non valido: non è un backup dell\'orto', t);
     if (nome === 'coltura con data impossibile') {

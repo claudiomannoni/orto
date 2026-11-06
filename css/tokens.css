@@ -1,50 +1,67 @@
 /* Colori e misure. Tema chiaro di base, scuro in automatico. */
 :root {
-  --sfondo: #fff6e3;
-  --carta: #ffffff;
-  --inchiostro: #3a2a1f;
-  --inchiostro-2: #6f5a4a;
-  --bordo: #efd9b0;
-  --verde: #2b762f;
-  --verde-vivo: #43a047;
-  --verde-chiaro: #dff3d8;
-  --giallo-chiaro: #fff0b8;
-  --azzurro-chiaro: #d8effc;
-  --rosso: #c62828;
-  --rosso-chiaro: #ffe0de;
-  --terra: #8d5b3e;
-  --pulsante: #2b762f;
+  --sfondo: #EEF4EA;
+  --carta: #FFFFFF;
+  --inchiostro: #16261B;
+  --inchiostro-2: #384A3D;
+  --bordo: #CBD9C6;
+  --verde: #1F5722;
+  --verde-vivo: #58B04A;
+  --verde-chiaro: #E2F0DE;
+  --giallo-chiaro: #FFF0CE;
+  --azzurro-chiaro: #D6ECF7;
+  --rosso: #8F241B;
+  --rosso-chiaro: #FBE4E1;
+  --pomodoro: #D2382B;
+  --zucca: #E39A12;
+  --cielo: #D6ECF7;
+  --terra: #6B4430;
+  --bosco: #173A28;
+  --testo-terra: #FFFFFF;
+  --pulsante: #1F5722;
   --pulsante-testo: #ffffff;
-  --testata-1: #35853a;
-  --testata-2: #2e7d32;
-  --ombra: rgba(90, 50, 20, 0.2);
+  --testata-1: #6B4430;
+  --testata-2: #6B4430;
+  --ombra: rgba(22, 38, 27, 0.08);
 
   --raggio: 22px;
   --tocco: 56px;
-  --spazio: 16px;
+  --riga: 48px;
+  --spazio: 14px;
+  --spazio-riquadro: 10px;
+  --testo-28: 28px;
+  --testo-22: 22px;
+  --testo-18: 18px;
+  --testo-16: 16px;
+  --testo-14: 14px;
 
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --sfondo: #1c1611;
-    --carta: #2b2218;
-    --inchiostro: #f7ebd7;
-    --inchiostro-2: #c3ad93;
-    --bordo: #4a3b2c;
-    --verde: #81c784;
-    --verde-vivo: #66bb6a;
-    --verde-chiaro: #1f3320;
-    --giallo-chiaro: #3d3314;
-    --azzurro-chiaro: #17323f;
-    --rosso: #ef9a9a;
-    --rosso-chiaro: #43201f;
-    --terra: #d7b59a;
-    --pulsante: #2f7d33;
+    --sfondo: #101A13;
+    --carta: #1A2A1F;
+    --inchiostro: #E7F1E4;
+    --inchiostro-2: #B7C8B8;
+    --bordo: #405544;
+    --verde: #8BCF83;
+    --verde-vivo: #9BDD8D;
+    --verde-chiaro: #263D2A;
+    --giallo-chiaro: #45391D;
+    --azzurro-chiaro: #203947;
+    --rosso: #FFC1B8;
+    --rosso-chiaro: #482723;
+    --pomodoro: #FF8D80;
+    --zucca: #F2B84B;
+    --cielo: #203947;
+    --terra: #6B4430;
+    --bosco: #0A130D;
+    --testo-terra: #FFFFFF;
+    --pulsante: #1F5722;
     --pulsante-testo: #ffffff;
-    --testata-1: #2f6b33;
-    --testata-2: #1f4a23;
-    --ombra: rgba(0, 0, 0, 0.5);
+    --testata-1: #6B4430;
+    --testata-2: #6B4430;
+    --ombra: rgba(0, 0, 0, 0.24);
   }
 }

@@ -83,6 +83,7 @@ async function mostra() {
   try {
     const modulo = await schermate[rotta]();
     await modulo.monta(contenitore, { alTermine: () => { location.hash = '#/oggi'; } });
+    if (rottaCorrente === rotta) aggiornaTestata(rotta, contenitore);
     if (rottaCorrente === rotta) await mostraGuida(rotta, contenitore);
   } catch (errore) {
     console.error(errore);

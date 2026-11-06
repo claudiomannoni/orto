@@ -1,6 +1,6 @@
 # Stato del progetto (per chi riprende da un'altra sessione)
 
-Ultimo aggiornamento: 02/11/2026, versione dell'app 2.59.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
+Ultimo aggiornamento: 05/11/2026, versione dell'app 2.63.0. Se qualcosa qui non torna con il codice, vale il codice: poi correggi questa pagina.
 
 ## In una frase
 
@@ -83,6 +83,22 @@ Usare per primo chi consuma meno crediti (OpenCode, gratis): codice semplice e d
 Verifica 02/11/2026 (2.60.0): test browser rossi perché Playwright non è disponibile (`tests/lib.mjs` cerca `/opt/node-tools/node_modules/playwright`); non sono state raggiunte le asserzioni dei dieci test richiesti né `41-quiz-conferma`.
 I test senza browser sono verdi, inclusi `fase5-quiz`; la suite completa ha 40 rossi browser per la stessa dipendenza mancante e 48 verdi.
 
+## Proposta intermedia 05/11/2026 — v2.64.0 (superata)
+
+La direzione bento e la testata senza fascia di questa proposta sono state sostituite dal disegno cliente descritto in `docs/DESIGN.md`, richiesto dopo questa modifica.
+
+Fatto:
+- Applicata la direzione visiva della Versione 2: palette chiara/scura, testata senza fascia, dock fluttuante con fotocamera centrale, riquadri morbidi e griglia bento per Oggi.
+- Oggi saluta con «Buongiorno» e il nome salvato; mantiene avvisi di gelo, primi tre lavori, piante e contenuti secondari ripiegabili.
+- Le piante usano anelli SVG/conic-gradient con progresso da durata di raccolta o dall'ultima fase documentata; durata assente = anello neutro pieno.
+- Il mio orto ha filtri segmentati Elenco/Da fare/Urgenti/Mappa, righe da 64 px con indicatore colorato e pulsante flottante per aggiungere.
+- Uniformati titoli, riquadri, righe e controlli delle altre schermate tramite i token e lo stile condiviso. Versione aggiornata a 2.64.0 e cache offline rigenerata.
+- Verifiche senza browser: `node --check` sui moduli modificati, JSON traduzioni valido, fase2 motore (35 PASS) e contenuti (1150 PASS, 0 FAIL).
+
+Da fare / limiti:
+- Verifica visuale a 360 px e in tema scuro non eseguita, come richiesto; il direttore la farà sul riferimento visivo.
+- L'eliminazione completa delle regole CSS storiche non è stata fatta: alcune restano necessarie alle schermate legacy e agli elementi riutilizzati.
+
 ## Aggiornamento 02/11/2026 — v2.61.0
 
 Fatto:
@@ -96,3 +112,35 @@ Fatto:
 Da fare:
 - Verifica visuale con browser/telefono (360 px, tema scuro, flussi foto e azioni) non eseguita in questo ambiente.
 - Test browser Playwright non eseguiti perché qui non è disponibile il browser.
+
+## Aggiornamento 05/11/2026 — v2.63.0
+
+Fatto nella Parte 1 del nuovo disegno:
+- Palette chiara/scura, accenti pomodoro/zucca/cielo/terra, scala tipografica, `--tocco` 56 px e `--riga` 48 px.
+- Le tinte verde e rossa usate per il testo sono più scure degli accenti decorativi, per mantenere il contrasto richiesto.
+- Testata terra compatta con titolo schermata, ricerca e impostazioni; barra inferiore a 64 px.
+- Oggi con meteo e avvisi di gelo in alto, massimo tre lavori iniziali con azione Fatto diretta, bustine orizzontali, quattro scorciatoie e sezione Per te ripiegata.
+- Registro colture con filtri, viste Elenco/Mappa, strumenti scorrevoli, aggiunta fissa e stato calcolato con `salute.js`.
+- Bustina pianta riusabile in Oggi e in cima alla pagina pianta; aggiornati i selettori dei test di struttura e aggiunta una prova statica Node.
+- Versione 2.63.0 e cache del service worker rigenerata.
+
+Da fare:
+- Il meteo in Oggi mostra icona SVG, minima/massima e pioggia per oggi; le icone derivano dai codici meteo già disponibili.
+- Le scorciatoie Annaffiato e Appunto portano ai flussi esistenti; non registrano direttamente un evento senza che sia scelta la coltura.
+- Verifica visuale a 360 px, tema scuro e prova in browser/telefono da eseguire dal direttore.
+
+## Rifinitura cliente — v2.65.0 (05/11/2026)
+
+Fatto:
+- Aggiunta la ricerca diretta in Oggi che apre il flusso di ricerca esistente; previsioni a sette giorni dalla cache meteo, selezionabili per leggere i dati del giorno, gelo evidenziato e avviso di pioggia con probabilità almeno 60% oggi/domani nel riquadro Acqua.
+- Aggiunti swipe orizzontali sulle righe pianta (72 px: destra Annaffiato, sinistra Raccolto), `touch-action: pan-y`, vibrazione disponibile e toast Annulla per 5 secondi; le azioni nel menu restano utilizzabili.
+- Aggiunti dati di ultima annaffiatura e raccolto previsto quando disponibili, e azione per segnare tutti i lavori di Oggi completati con annullamento.
+- Aggiunta l’opzione Contrasto alto nelle impostazioni di leggibilità con aiuto «Per il sole forte», bordi marcati, inchiostro ad alto contrasto e indicatore aggiuntivo per gli stati.
+- Aggiunte mascotte compatte nei consigli di gelo, nei consigli giornalieri e nei confronti di fase della foto, riutilizzando testi/dati esistenti.
+- La fase osservata dalla foto può aggiornare l’età calcolata tramite `correzioneEta`, con annullamento nella Storia; `dataSemina` resta invariata. Il campo è normalizzato e compatibile con backup precedenti; schema aggiornato.
+- Aggiunte prove Node pure `fase5-gesto` e `fase5-correzione-eta`. Versione app 2.65.0 e cache offline rigenerata.
+
+Da fare / limiti:
+- La verifica visiva a 360 px e in tema scuro, come la prova su telefono, resta al direttore; non è stato aperto un browser.
+- Le due prove richieste di fase 2 risultano verdi (motore 35 PASS; contenuti 1150 PASS, 0 FAIL). Le prove pure nuove risultano verdi.
+- Rosso compare solo nei punti con battute già presenti; i consigli di fonte o previsione sono attribuiti a Rossella.

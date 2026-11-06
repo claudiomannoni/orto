@@ -124,13 +124,14 @@ check('scheda zona: riassunto del terreno', (await page.locator('li.zona').inner
 
 // Una coltura nella zona
 await vai(page, 'colture');
-await page.getByRole('button', { name: '+ Nuova coltura' }).click();
+await page.locator('button.colture-nuova-fissa').click();
 await page.waitForSelector('dialog select[name=zonaId]');
 await page.fill('dialog input[name=nome]', 'Fave');
 await page.selectOption('dialog select[name=zonaId]', { label: 'Aiuola del pozzo' });
 await page.click('dialog button[type=submit]');
 await page.waitForSelector('dialog', { state: 'detached' });
-check('coltura: mostra il nome della zona', (await page.locator('li.coltura').innerText()).includes('Aiuola del pozzo'));
+// Aspetto nuovo: il nome della zona non sta più nella riga della coltura ma nella sezione «Il tuo orto dall'alto» in cima alla schermata.
+check('coltura: mostra il nome della zona (nel orto dall\'alto)', (await page.locator('.aiuole').innerText()).includes('Aiuola del pozzo') && (await page.locator('li.coltura').count()) === 1);
 await vai(page, 'zone');
 check('zona: «1 coltura qui»', (await page.locator('li.zona').innerText()).includes('1 coltura qui'));
 

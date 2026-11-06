@@ -32,7 +32,7 @@ const png = async () => Buffer.from(await page.evaluate(async () => {
   const blob = await new Promise((ok) => t.toBlob(ok, 'image/png'));
   return Array.from(new Uint8Array(await blob.arrayBuffer()));
 }));
-const apriNuova = async () => { await page.getByRole('button', { name: '+ Nuova coltura' }).click(); await page.waitForSelector('dialog[open] #leggi-bustina'); };
+const apriNuova = async () => { await page.locator('button.colture-nuova-fissa').click(); await page.waitForSelector('dialog[open] #leggi-bustina'); };
 const dallaFoto = async () => { await page.setInputFiles('dialog[open] input[name=bustina]', { name: 'bustina.png', mimeType: 'image/png', buffer: await png() }); };
 
 await vai(page, 'colture');

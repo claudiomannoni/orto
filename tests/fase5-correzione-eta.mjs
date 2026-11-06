@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { calcolaCorrezioneEta, normalizzaCorrezioneEta } from '../js/motore/correzione-eta.js';
+const fasi = [{ id: 'seme', da_giorno: 0 }, { id: 'fiore', da_giorno: 45 }, { id: 'frutto', da_giorno: 70 }];
+const base = { eta: 45, faseOsservata: 'fiore', fasi, data: '2026-11-05' };
+assert.equal(calcolaCorrezioneEta(base), null);
+assert.deepEqual(calcolaCorrezioneEta({ ...base, eta: 30 }), { giorni: 15, data: base.data, fonte: 'foto' });
+assert.deepEqual(calcolaCorrezioneEta({ ...base, eta: 80 }), { giorni: -35, data: base.data, fonte: 'foto' });
+assert.equal(calcolaCorrezioneEta({ ...base, faseOsservata: 'x' }), null);
+assert.equal(calcolaCorrezioneEta({ ...base, eta: 9000 }), null);
+assert.equal(calcolaCorrezioneEta({ ...base, faseOsservata: 'seme', fasi: [{ id: 'seme', da_giorno: -1 }] }), null);
+assert.equal(normalizzaCorrezioneEta({ giorni: 800, data: base.data, fonte: 'foto' }), null);
+console.log('fase5-correzione-eta: PASS');

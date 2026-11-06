@@ -1,4 +1,4 @@
-// Struttura dell'app: «Il mio orto» a sezioni, «Impara» a linguette, freccia indietro, indice delle impostazioni. Uso: node tests/37-struttura.mjs http://localhost:8101
+// Struttura dell'app: nuovo registro, barra principale e indice delle impostazioni. Uso: node tests/37-struttura.mjs http://localhost:8101
 import { chromium, nuovoContesto, check, osserva, finale, vai } from './lib.mjs';
 const browser = await chromium.launch();
 const problemi = [];
@@ -11,25 +11,21 @@ osserva(page, problemi);
 // è proprio sullo stato iniziale, quindi si ricarica (i pannelli tornano chiusi).
 await vai(page, 'colture', '?oggi=2026-06-30');
 await page.reload();
-await page.waitForSelector('details.contenuto-secondario');
-check('Il mio orto mostra subito nuova coltura e i tre filtri', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 3 && await page.locator('button').filter({ hasText: 'Nuova coltura' }).count() === 1);
-check('le nove tessere sono dentro Altro, chiuso inizialmente', (await page.locator('details.contenuto-secondario .tessera-azione').count()) === 9 && !(await page.locator('details.contenuto-secondario').evaluate((x) => x.open)));
+await page.waitForSelector('.colture-strumenti');
+check('Il mio orto mostra aggiunta fissa e i filtri (ora quattro, con Mappa)', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 4 && (await page.locator('.filtri-colture').innerText()).includes('Mappa') && await page.locator('button.colture-nuova-fissa').count() === 1);
+check('i nove strumenti sono nella riga scorrevole', (await page.locator('.colture-strumenti .tessera-azione').count()) === 9);
 
-// Freccia indietro
-const indietro = page.locator('.testata .indietro');
-check('nelle schermate principali la freccia indietro non c\'è', !(await indietro.isVisible()));
-await page.locator('details.contenuto-secondario > summary').click();
+// La testata mantiene solo titolo, ricerca e impostazioni anche nelle sottoschermate.
+check('testata essenziale: titolo, ricerca e impostazioni', await page.locator('.testata h1').count() === 1 && await page.locator('.testata .ricerca-apri').count() === 1 && await page.locator('.testata .ingranaggio').count() === 1 && await page.locator('.testata a, .testata button').count() === 2);
 await page.click('a.tessera-azione[href="#/semi"]');
 await page.waitForSelector('#semi-nuova');
-check('in una schermata secondaria compare la freccia e porta a «Il mio orto»', (await indietro.isVisible()) && (await indietro.getAttribute('href')) === '#/colture');
-const box = await indietro.boundingBox();
-check('la freccia è abbastanza grande per il dito (48 px)', box.width >= 44 && box.height >= 44, JSON.stringify(box));
-await indietro.click();
+check('la testata essenziale resta senza tasto indietro nelle pagine secondarie', await page.locator('.testata .indietro').count() === 0);
+await page.locator('#barra a[data-rotta="colture"]').click();
 await page.waitForSelector('main > h2.titolo-schermata');
-check('toccandola si torna a «Il mio orto»', /#\/colture/.test(page.url()));
+check('la barra principale torna al mio orto', /#\/colture/.test(page.url()));
 await vai(page, 'coltura', '?id=pomodori');
 await page.waitForTimeout(500);
-check('dalla scheda di una coltura la freccia porta a «Impara»', (await indietro.getAttribute('href')) === '#/impara');
+check('la pagina coltura mantiene testata essenziale', await page.locator('.testata .ingranaggio').count() === 1 && await page.locator('.testata .indietro').count() === 0);
 
 // Impara a linguette
 await vai(page, 'impara', '?oggi=2026-06-30');

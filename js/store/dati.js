@@ -1,6 +1,7 @@
 // Colture ed eventi dell'utente. Formato in docs/schema-dati.md.
 import { tutte, salva, elimina } from './db.js';
 import { nuovoId } from '../util.js';
+import { normalizzaCorrezioneEta } from '../motore/correzione-eta.js';
 
 export const SCHEMA = 2;
 
@@ -16,6 +17,7 @@ export function normalizzaColtura(c) {
     dove: c.dove === 'orto' ? 'orto' : 'semenzaio',
     posizione: c.posizione && Number.isFinite(c.posizione.x) && Number.isFinite(c.posizione.y) ? { x: Math.min(1, Math.max(0, c.posizione.x)), y: Math.min(1, Math.max(0, c.posizione.y)) } : null, // dove sta nell'aiuola (piano visivo), frazioni 0..1
     partenza: c.partenza === 'piantina' ? 'piantina' : 'seme', // da seme (data = semina) o da piantina (data = trapianto)
+    correzioneEta: normalizzaCorrezioneEta(c.correzioneEta),
     note: testo(c.note).trim(),
     creata: testo(c.creata) || new Date().toISOString(),
     schedaId: testo(c.schedaId) || null,

@@ -62,7 +62,7 @@ const misure = (page) => page.evaluate(() => {
   await zonaSenzaDati(page);
   await page.goto(`${BASE}/?oggi=2026-07-15`); await page.waitForSelector('.vuoto'); await page.waitForTimeout(200);
   // «Mostra tutto» si richiude a ogni navigazione: con l'elenco vuoto la conversazione dei vermetti sta dietro, si riapre.
-  await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
+  await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; const a = document.querySelector('details.altri-lavori'); if (a) a.open = true; });
   t = await titoli(page);
   check('15/07: elenco vuoto + stato vuoto con pulsante "Vai alle colture"', t.length === 0 && await page.locator('.vuoto a.btn.primario').count() === 1);
   check('15/07: Rosso e Rossella dicono la frase "niente"', (await page.locator('body').innerText()).includes('Oggi niente da fare'));
@@ -158,7 +158,7 @@ const misure = (page) => page.evaluate(() => {
     await page.selectOption('select[name=metodo]', metodo); await page.waitForTimeout(250);
     await page.goto(`${BASE}/?oggi=2026-11-10#/oggi`); await page.waitForSelector('li.lavoro'); await page.waitForTimeout(250);
     // I lavori oltre il terzo stanno dietro «Mostra tutto»: dopo la navigazione si richiude, si riapre.
-    await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
+    await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; const a = document.querySelector('details.altri-lavori'); if (a) a.open = true; });
     // aprire tutti i lavori e verificare su ciascuno con quel metodo
     const n = await page.locator('li.lavoro').count(); let bad = [], con = 0;
     for (let i = 0; i < n; i++) {
@@ -211,7 +211,7 @@ const misure = (page) => page.evaluate(() => {
   // Chiudi tutti
   await page.goto(`${BASE}/?oggi=2026-11-10`); await page.waitForSelector('li.lavoro, .vuoto'); await page.waitForTimeout(200);
   // «Mostra tutto» si richiude a ogni navigazione: i lavori oltre il terzo stanno dietro, si riapre per chiuderli tutti.
-  await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; });
+  await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; const a = document.querySelector('details.altri-lavori'); if (a) a.open = true; });
   let giri = 0; while (await page.locator('li.lavoro').count() && giri++ < 10) { await page.locator('li.lavoro').first().locator('.btn.primario').click(); await page.waitForTimeout(250); if (await page.locator('dialog[open]').count()) { await page.keyboard.press('Escape'); await page.waitForTimeout(150); } }
   const txt = await page.locator('body').innerText();
   check('tutti chiusi: messaggio "Fatto tutto!" di Rosso e Rossella', /Fatto tutto/.test(txt) && /Per oggi basta/.test(txt), txt.slice(0, 200));

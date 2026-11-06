@@ -17,7 +17,7 @@ await page.route('**/generativelanguage.googleapis.com/**', async (route) => {
 });
 
 await vai(page, 'colture', '?oggi=2026-06-30');
-await page.click('button:has-text("+ Nuova coltura")');
+await page.click('button.colture-nuova-fissa');
 await page.waitForSelector('dialog[open] input[name=nome]');
 await page.fill('dialog input[name=nome]', 'Pomodori');
 await page.check('dialog input[name=partenza][value=piantina]');
@@ -50,7 +50,7 @@ await page.setInputFiles('input[name=dottore-foto]', { name: 'p.png', mimeType: 
 await page.waitForSelector('.dottore-risultato .diagnosi');
 const esito = await page.locator('.dottore-risultato').innerText();
 check('la richiesta a Gemini contiene l\'età e le fasi possibili', richieste.length === 1 && /67 giorni/.test(richieste[0]) && /germinazione/.test(richieste[0]) && /fioritura/.test(richieste[0]), richieste[0]?.slice(0, 120));
-check('il risultato confronta fase attesa e osservata (in ritardo: sembra «Crescita vegetativa»)', /Fase di crescita/.test(esito) && /Fioritura/.test(esito) && /Crescita vegetativa/.test(esito) && /indietro/.test(esito), esito);
+check('il risultato confronta fase attesa e osservata (in ritardo: sembra la fase precedente)', /dovrebbe essere in/.test(esito) && /Fioritura/.test(esito) && /Crescita vegetativa/.test(esito) && /indietro/.test(esito), esito);
 const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked/.test(p));
 check('nessun errore in console', veri.length === 0, veri.join(' | '));
 await browser.close();
