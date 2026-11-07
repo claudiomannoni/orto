@@ -134,7 +134,7 @@ check('indirizzo #/diario?zona=...: parte già filtrato (zona B, 1 foto)', (awai
 await page.goto(`${BASE}/?oggi=2026-11-10#/diario?zona=inesistente`);
 await page.waitForSelector('.foto-voce');
 check('filtro con una zona che non esiste: ignorato (4 foto)', (await page.locator('.foto-voce').count()) === 4);
-check('la barra resta su «Colture»', (await page.locator('#barra a[aria-current=page]').getAttribute('data-rotta')) === 'colture');
+check('la barra resta su «Scopri»', (await page.locator('#barra a[aria-current=page]').getAttribute('data-rotta')) === 'scopri');
 const sc = await scroll(page);
 check('nessuno scroll orizzontale', sc.sw <= sc.iw && sc.bw <= sc.iw, JSON.stringify(sc));
 check('le foto in griglia sono bersagli grandi (almeno 56 px)', (await bersagli(page)).filter((b) => /foto-voce/.test(b.cls) && b.h < 56).length === 0);
@@ -248,7 +248,7 @@ check('importare un backup CON foto le ripristina (JPEG, immagini intere)', ripr
 check('foto rovinate nel file: scartate, quelle buone restano (1 su 5)', ripristino.scartate === 1, String(ripristino.scartate));
 
 // Zone e colture: collegamenti
-await vai(page, 'colture', '?oggi=2026-11-10');
+await vai(page, 'scopri', '?oggi=2026-11-10');
 check('Colture: c\'è il pulsante «Diario fotografico»', (await page.getByRole('link', { name: 'Diario fotografico' }).count()) === 1);
 await vai(page, 'zone', '?oggi=2026-11-10');
 await page.getByRole('link', { name: 'Foto della zona' }).first().click();

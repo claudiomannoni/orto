@@ -7,12 +7,12 @@ const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
 const page = await ctx.newPage();
 osserva(page, problemi);
 
-await vai(page, 'colture', '?oggi=2026-06-20');
-check('Colture ha il link «Il mio raccolto»', (await page.getByRole('link', { name: 'Il mio raccolto' }).count()) === 1);
+await vai(page, 'scopri', '?oggi=2026-06-20');
+check('Scopri ha il link «Il mio raccolto»', (await page.getByRole('link', { name: 'Il mio raccolto' }).count()) === 1);
 await page.getByRole('link', { name: 'Il mio raccolto' }).click();
 await page.waitForSelector('#raccolto-vuoto');
 check('all\'inizio: messaggio vuoto che invita a segnare', /Segna il primo raccolto/.test(await page.locator('#raccolto-vuoto').innerText()));
-check('la barra evidenzia Il mio orto', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Il mio orto'));
+check('la barra evidenzia Scopri', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Scopri'));
 
 // Una coltura per scegliere nell'elenco
 await page.evaluate(() => new Promise((ok) => {

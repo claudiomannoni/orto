@@ -197,3 +197,12 @@ li.lavoro > .riga .btn { min-height: 56px; }
 .opzione-sopravvivenza h4 { margin: 0 0 4px; font-size: 14px; }
 .passi-sopravvivenza { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
 .colture-registro .coltura .link-sopravvivenza { margin-top: 8px; min-height: 56px; display: flex; align-items: center; justify-content: center; border: 0; background: var(--carta); color: var(--verde); font-weight: 800; }
+
+/* Scopri: tre gruppi di tessere */
+.gruppo-scopri { display: grid; gap: 8px; }
+.gruppo-scopri > h3 { font-size: 15px; padding: 0 2px; }
+.tessere-scopri { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tessera-scopri { display: grid; align-content: start; gap: 3px; min-height: 84px; padding: 12px 14px; border-radius: 20px; background: var(--carta); color: var(--inchiostro); text-decoration: none; }
+.tessera-scopri strong { font-size: 15px; font-weight: 850; line-height: 1.2; }
+.tessera-scopri .aiuto { font-size: 12.5px; line-height: 1.3; }
+.tessera-scopri:focus-visible { outline: 3px solid var(--verde); outline-offset: 2px; }

@@ -1136,5 +1136,12 @@
   "piano.senza_zona_testo": "Le zone sono i posti del tuo orto: aiuole, terrazzo, vasi. Quando la pianta è in una zona, qui vedi la sua aiuola dall'alto.",
   "piano.scegli_zona": "Scegli la zona",
   "piano.metti_in_zona": "Metti in questa zona",
-  "piano.crea_zona": "Crea la prima zona"
+  "piano.crea_zona": "Crea la prima zona",
+  "nav.scopri": "Scopri",
+  "scopri.titolo": "Scopri",
+  "scopri.orto": "Il tuo orto",
+  "scopri.impara": "Impara e gioca",
+  "scopri.oltre": "Oltre l'orto",
+  "scopri.schede": "Schede delle piante",
+  "scopri.schede.spiega": "Come si coltiva ogni pianta, con le parole dell'orto"
 }

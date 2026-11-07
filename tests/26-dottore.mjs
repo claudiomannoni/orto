@@ -30,7 +30,7 @@ const png = async () => Buffer.from(await page.evaluate(async () => {
 await vai(page, 'oggi');
 // La barra: cinque voci, chiara (non verde!), con la fotocamera al centro e grande
 const voci = await page.locator('#barra a').allInnerTexts();
-check('barra: Oggi, Il mio orto, Fotografa, Calendario, Impara', voci.join('|') === 'Oggi|Il mio orto|Fotografa|Calendario|Impara', voci.join('|'));
+check('barra: Oggi, Il mio orto, Fotografa, Calendario, Scopri', voci.join('|') === 'Oggi|Il mio orto|Fotografa|Calendario|Scopri', voci.join('|'));
 const sfondo = await page.evaluate(() => getComputedStyle(document.getElementById('barra')).backgroundColor);
 check('la barra ha lo sfondo chiaro della carta (non verde)', sfondo === 'rgb(255, 255, 255)' || sfondo === 'rgb(36, 29, 23)' || /^rgb\((2[3-5]\d|3[0-9]|[0-9]{2}), (2[3-5]\d|[0-9]{2}), /.test(sfondo) && !/rgb\(4[0-9], 1[0-9]{2}/.test(sfondo), sfondo);
 const centro = await page.evaluate(() => { const a = document.querySelector('#barra a[data-rotta=dottore] .icona'); const r = a.getBoundingClientRect(); const b = document.getElementById('barra').getBoundingClientRect(); return { w: r.width, sporge: r.top < b.top }; });
@@ -80,7 +80,7 @@ check('le ultime analisi compaiono in fondo', (await page.getByText('Le ultime a
 
 // Il mio orto: ordinato a sezioni
 await vai(page, 'colture');
-check('Il mio orto: titolo e nove strumenti scorrevoli', (await page.locator('h2.titolo-schermata').innerText()) === 'Il mio orto' && (await page.locator('.colture-strumenti .tessera-azione').count()) === 9);
+check('Il mio orto: solo le piante, gli strumenti stanno in Scopri', (await page.locator('h2.titolo-schermata').innerText()) === 'Il mio orto' && (await page.locator('.colture-strumenti').count()) === 0);
 check('Il mio orto: aggiunta fissa, filtri (ora anche Mappa) e lista subito in cima', await page.locator('button.colture-nuova-fissa').count() === 1 && (await page.locator('button.colture-nuova-fissa').innerText()).includes('Pianta') && await page.locator('.filtri-colture button').count() === 4 && (await page.locator('.filtri-colture').innerText()).includes('Mappa') && await page.locator('li.coltura').count() >= 1);
 
 const veri = problemi.filter((p) => !/generativelanguage|Failed to load resource|Service Worker registration blocked|\b(404|429)\b/.test(p));

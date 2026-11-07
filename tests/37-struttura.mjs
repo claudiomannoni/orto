@@ -11,13 +11,15 @@ osserva(page, problemi);
 // è proprio sullo stato iniziale, quindi si ricarica (i pannelli tornano chiusi).
 await vai(page, 'colture', '?oggi=2026-06-30');
 await page.reload();
-await page.waitForSelector('.colture-strumenti');
+await page.waitForSelector('.filtri-colture');
 check('Il mio orto mostra aggiunta fissa e i filtri (ora quattro, con Mappa)', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 4 && (await page.locator('.filtri-colture').innerText()).includes('Mappa') && await page.locator('button.colture-nuova-fissa').count() === 1);
-check('i nove strumenti sono nella riga scorrevole', (await page.locator('.colture-strumenti .tessera-azione').count()) === 9);
+check('Il mio orto non ha più gli strumenti: stanno in Scopri', (await page.locator('.colture-strumenti').count()) === 0);
+await vai(page, 'scopri', '?oggi=2026-06-30');
+check('Scopri raccoglie gli strumenti in tre gruppi', (await page.locator('.gruppo-scopri').count()) === 3 && (await page.locator('.tessera-scopri').count()) === 14, String(await page.locator('.tessera-scopri').count()));
 
 // La testata mantiene solo titolo, ricerca e impostazioni anche nelle sottoschermate.
 check('testata essenziale: titolo, ricerca e impostazioni', await page.locator('.testata h1').count() === 1 && await page.locator('.testata .ricerca-apri').count() === 1 && await page.locator('.testata .ingranaggio').count() === 1 && await page.locator('.testata a, .testata button').count() === 2);
-await page.click('a.tessera-azione[href="#/semi"]');
+await page.click('a.tessera-scopri[href="#/semi"]');
 await page.waitForSelector('#semi-nuova');
 check('la testata essenziale resta senza tasto indietro nelle pagine secondarie', await page.locator('.testata .indietro').count() === 0);
 await page.locator('#barra a[data-rotta="colture"]').click();

@@ -14,7 +14,7 @@ const imp = async () => Object.fromEntries((await leggiDb(page, 'impostazioni'))
 // ---------- Barra e ingranaggio ----------
 await vai(page, 'oggi', '?oggi=2026-11-10');
 const voci = await page.locator('#barra a').allInnerTexts();
-check('barra: cinque voci (Oggi, Il mio orto, Fotografa, Calendario, Impara)', voci.length === 5 && /Fotografa/.test(voci.join('|')) && /Impara/.test(voci.join('|')) && !/Impostazioni/.test(voci.join('|')), JSON.stringify(voci));
+check('barra: cinque voci (Oggi, Il mio orto, Fotografa, Calendario, Scopri)', voci.length === 5 && /Fotografa/.test(voci.join('|')) && /Scopri/.test(voci.join('|')) && !/Impostazioni/.test(voci.join('|')), JSON.stringify(voci));
 check('ingranaggio nella testata con nome accessibile', (await page.locator('a.ingranaggio[aria-label]').count()) === 1);
 await page.locator('a.ingranaggio').click();
 await page.waitForSelector('h2.titolo-schermata:has-text("Impostazioni")');

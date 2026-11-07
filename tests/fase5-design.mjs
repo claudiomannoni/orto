@@ -19,7 +19,7 @@ const check = (nome, valido) => { valido ? ok++ : ko++; console.log(`${valido ? 
 check('token: dimensioni tocco e riga', /--tocco:\s*56px/.test(tokens) && /--riga:\s*48px/.test(tokens));
 check('token: palette chiara/scura e quattro nuovi accenti', ['#EEF4EA', '#101A13', '#6B4430', '--pomodoro', '--zucca', '--cielo'].every((v) => tokens.includes(v)));
 check('testata: non rende motto né icona vermi', !nav.includes("t('app.slogan')") && !nav.includes("class: 'gioco-vermi'"));
-check('barra: cinque voci con etichetta visibile', nav.includes("export const ROTTE = ['oggi', 'colture', 'dottore', 'calendario', 'impara']") && /el\(['"]span['"], \{\}, t\(`nav\.\$\{rotta\}`\)\)/.test(nav));
+check('barra: cinque voci con etichetta visibile', nav.includes("export const ROTTE = ['oggi', 'colture', 'dottore', 'calendario', 'scopri']") && /el\(['"]span['"], \{\}, t\(`nav\.\$\{rotta\}`\)\)/.test(nav));
 check('Oggi: lavori, meteo, bustine, scorciatoie e Per te', ['oggi.da_fare', 'cartaMeteo()', 'bustinaPianta(', 'oggi.scorciatoia.foto', 'oggi.per_te'].every((v) => oggi.includes(v)) && read('js/ui/meteo.js').includes('meteo-icona'));
 check('colture: filtri, viste, registro e aggiunta fissa', ['colture-registro', 'colture.elenco', 'colture.mappa', 'colture-nuova-fissa', 'valutaSalute'].every((v) => colture.includes(v)));
 check('bustina: fascia di stato, icona, nome e fase/età', ['bustina-pianta-fascia', "class: 'anello'", 'bustina-pianta-nome', 'bustina-pianta-meta'].every((v) => bustina.includes(v)) && pianta.includes('bustinaPianta('));

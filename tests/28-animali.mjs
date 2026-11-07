@@ -5,12 +5,12 @@ const problemi = [];
 const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
 const page = await ctx.newPage();
 osserva(page, problemi);
-await vai(page, 'colture');
-await page.click('a.tessera-azione[href="#/animali"]');
+await vai(page, 'scopri');
+await page.click('a.tessera-scopri[href="#/animali"]');
 await page.waitForSelector('a[data-scheda]');
 const ids = await page.locator('a[data-scheda]').evaluateAll((a) => a.map((x) => x.dataset.scheda));
 check('tre schede: lombricoltura, api, pollaio', ids.join() === 'lombricoltura,api,pollaio', ids.join());
-check('la barra tiene acceso «Il mio orto»', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Il mio orto'));
+check('la barra tiene acceso «Scopri»', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Scopri'));
 for (const id of ids) {
   await page.goto(`${page.url().split('#')[0]}#/animali?scheda=${id}`);
   await page.waitForSelector('h3');

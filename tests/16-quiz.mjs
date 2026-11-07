@@ -20,7 +20,7 @@ check('Impara ha il pulsante del quiz', (await page.getByRole('link', { name: 'G
 await page.getByRole('link', { name: 'Gioca al quiz del giorno' }).click();
 await page.waitForSelector('.quiz h3');
 check('prima domanda: 1 di 5, tre risposte', (await page.locator('.quiz .passo').innerText()) === 'Domanda 1 di 5' && (await page.locator('.quiz .opzioni .btn').count()) >= 2);
-check('la barra evidenzia Impara', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Impara'));
+check('la barra evidenzia Scopri', (await page.locator('#barra a[aria-current=page]').innerText()).includes('Scopri'));
 
 let giuste = 0;
 for (let i = 0; i < 5; i++) {

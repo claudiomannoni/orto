@@ -33,8 +33,8 @@ await page.route('**/data/it/terreno.json', (r) => r.fulfill({ contentType: 'app
 
 await vai(page, 'zone');
 check('zone: titolo e stato vuoto', (await page.locator('h2.titolo-schermata').innerText()).startsWith('Le mie zone') && await page.isVisible('#zone-vuoto'));
-check('barra: resta evidenziata «Colture»', (await page.locator('#barra a[aria-current=page]').getAttribute('data-rotta')) === 'colture');
-check('colture: c\'è il link «Le mie zone»', (await vai(page, 'colture'), await page.getByRole('link', { name: 'Le mie zone' }).count()) === 1);
+check('barra: resta evidenziata «Scopri»', (await page.locator('#barra a[aria-current=page]').getAttribute('data-rotta')) === 'scopri');
+check('colture: c\'è il link «Le mie zone»', (await vai(page, 'scopri'), await page.getByRole('link', { name: 'Le mie zone' }).count()) === 1);
 await page.getByRole('link', { name: 'Le mie zone' }).click();
 await page.waitForSelector('#zone-vuoto');
 

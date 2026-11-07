@@ -251,8 +251,6 @@ export async function monta(contenitore) {
   lista = el('ul', { class: 'lista colture-registro' });
   riquadro = el('div', { hidden: true });
   const filtri = el('div', { class: 'filtri-colture segmentato', role: 'group', 'aria-label': t('colture.viste') }, ...['tutte','oggi','urgenti','mappa'].map((val) => el('button', { class: 'btn', type: 'button', 'aria-pressed': String(filtro === val), onclick: (e) => { filtro = val; if (val === 'mappa') { lista.hidden = true; riquadro.hidden = false; } else { lista.hidden = false; riquadro.hidden = true; } filtri.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === e.currentTarget))); mostraLista(); } }, t(val === 'mappa' ? 'colture.mappa' : `colture.filtro.${val}`))));
-  const altro = el('section', { class: 'colture-strumenti', 'aria-label': t('colture.strumenti') },
-    tessera('#/zone', t('colture.hub.zone'), t('colture.hub.zone.spiega')), tessera('#/diario', t('colture.hub.diario'), t('colture.hub.diario.spiega')), tessera('#/storia', t('colture.hub.storia'), t('colture.hub.storia.spiega')), tessera('#/raccolto', t('colture.hub.raccolto'), t('colture.hub.raccolto.spiega')), tessera('#/eccesso', t('colture.hub.eccesso'), t('colture.hub.eccesso.spiega')), tessera('#/semi', t('colture.hub.semi'), t('colture.hub.semi.spiega')), tessera('#/animali', t('colture.hub.animali'), t('colture.hub.animali.spiega')), tessera('#/alberi', t('colture.hub.alberi'), t('colture.hub.alberi.spiega')), tessera('#/rendita', t('colture.hub.rendita'), t('colture.hub.rendita.spiega')));
   const tabElenco = el('button', { class: 'linguetta', type: 'button', role: 'tab', 'aria-selected': 'true', onclick: () => { lista.hidden = false; riquadro.hidden = true; tabElenco.setAttribute('aria-selected', 'true'); tabMappa.setAttribute('aria-selected', 'false'); } }, t('colture.elenco'));
   const tabMappa = el('button', { class: 'linguetta', type: 'button', role: 'tab', 'aria-selected': 'false', onclick: () => { lista.hidden = true; riquadro.hidden = false; tabMappa.setAttribute('aria-selected', 'true'); tabElenco.setAttribute('aria-selected', 'false'); } }, t('colture.mappa'));
   const vista = el('nav', { class: 'linguette', role: 'tablist', 'aria-label': t('colture.viste') }, tabElenco, tabMappa);
@@ -261,7 +259,7 @@ export async function monta(contenitore) {
     el('button', { class: 'btn primario fab colture-nuova-fissa', type: 'button', onclick: apriNuova }, `+ ${t('colture.piu_pianta')}`),
     filtri,
     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
-    lista, riquadro, altro,
+    lista, riquadro,
   );
   mostraLista();
   previsioni().then(({ giorni }) => {

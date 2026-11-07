@@ -25,6 +25,7 @@ const schermate = {
   benvenuto: () => import('./screens/benvenuto.js'),
   zone: () => import('./screens/zone.js'),
   impara: () => import('./screens/impara.js'),
+  scopri: () => import('./screens/scopri.js'),
   quiz: () => import('./screens/quiz.js'),
   chiedi: () => import('./screens/chiedi.js'),
   raccolto: () => import('./screens/raccolto.js'),
