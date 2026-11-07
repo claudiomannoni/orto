@@ -37,8 +37,9 @@ check('tocco: il vermetto salta', await page.$eval('.avatar.rosso:visible', (a) 
 await page.waitForSelector('.avatar .sbuffo', { timeout: 4000 });
 const testo = await page.$eval('.avatar .sbuffo', (s) => s.textContent);
 check('tocco: compare una battuta (non vuota, entro 90 caratteri)', testo.length > 5 && testo.length <= 90, testo);
-const dentro = await page.$$eval('.sbuffo', (b) => b.every((x) => { const r = x.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth; }));
-check('la battuta sta dentro lo schermo', dentro);
+const misureBuffo = await page.$$eval('.sbuffo', (b) => b.map((x) => { const r = x.getBoundingClientRect(); return { l: Math.round(r.left), r: Math.round(r.right), w: innerWidth, t: x.textContent.length, av: x.parentElement.className }; }));
+const dentro = misureBuffo.every((r) => r.l >= 0 && r.r <= r.w);
+check('la battuta sta dentro lo schermo', dentro, JSON.stringify(misureBuffo));
 await page.waitForSelector('.sbuffo', { state: 'detached', timeout: 12000 });
 check('la battuta sparisce da sola', true);
 

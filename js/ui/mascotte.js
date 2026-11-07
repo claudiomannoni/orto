@@ -54,6 +54,12 @@ function parla(avatar, testo) {
   avatar.querySelector('.sbuffo')?.remove();
   const sbuffo = el('div', { class: 'sbuffo', role: 'status' }, testo);
   avatar.append(sbuffo);
+  // La battuta resta sempre dentro lo schermo, anche se il vermetto sta vicino al bordo.
+  const base = avatar.getBoundingClientRect().left + sbuffo.offsetLeft;
+  const fine = base + sbuffo.offsetWidth;
+  const margine = 20; // un po' di respiro: anche durante il saltello del vermetto la battuta resta dentro
+  const dx = fine > window.innerWidth - margine ? window.innerWidth - margine - fine : base < margine ? margine - base : 0;
+  if (dx) sbuffo.style.translate = `${dx}px 0`;
   setTimeout(() => sbuffo.remove(), Math.min(6000, 2600 + testo.length * 35));
 }
 
