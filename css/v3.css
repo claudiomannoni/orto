@@ -232,3 +232,21 @@ li.lavoro > .riga .btn { padding: 0 4px; font-size: 12px; min-width: 56px; }
 .striscia-bustine .bustina-pianta-nome { font-size: 14px; }
 .striscia-bustine .bustina-pianta-meta, .striscia-bustine .bustina-pianta-dettaglio { font-size: 12px; }
 li.lavoro > .lavoro-riga > .lavoro-spunta { z-index: 3; }
+
+/* Erbe aromatiche e frutta */
+.elenco-erbe { display: grid; gap: 8px; }
+.pianta-erbe { background: var(--carta); border-radius: 20px; overflow: hidden; }
+.pianta-erbe > summary { list-style: none; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; cursor: pointer; }
+.pianta-erbe > summary::-webkit-details-marker { display: none; }
+.pianta-erbe > summary .opzione-titolo { display: grid; gap: 2px; }
+.pianta-erbe > summary strong { font-size: 16px; font-weight: 850; }
+.pianta-erbe > summary .aiuto { font-size: 13px; }
+.pianta-erbe > summary::after { content: ""; flex: none; width: 9px; height: 9px; border-right: 2.5px solid var(--inchiostro-2); border-bottom: 2.5px solid var(--inchiostro-2); transform: rotate(45deg); }
+.pianta-erbe[open] > summary::after { transform: rotate(-135deg); }
+.pianta-erbe > .corpo { display: grid; gap: 12px; padding: 0 14px 14px; }
+.dati-erbe { display: grid; gap: 8px; margin: 0; }
+.dato-erbe { display: grid; gap: 2px; }
+.dato-erbe dt { font-size: 12.5px; font-weight: 800; color: var(--inchiostro-2); }
+.dato-erbe dd { margin: 0; }
+.metodo-erbe { margin-bottom: 6px; }
+.pianta-erbe h4 { margin: 0 0 4px; font-size: 14px; }

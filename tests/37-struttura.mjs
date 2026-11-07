@@ -15,7 +15,7 @@ await page.waitForSelector('.filtri-colture');
 check('Il mio orto mostra aggiunta fissa e i filtri (ora quattro, con Mappa)', await page.locator('main > h2.titolo-schermata').innerText() === 'Il mio orto' && (await page.locator('.filtri-colture button').count()) === 4 && (await page.locator('.filtri-colture').innerText()).includes('Mappa') && await page.locator('button.colture-nuova-fissa').count() === 1);
 check('Il mio orto non ha più gli strumenti: stanno in Scopri', (await page.locator('.colture-strumenti').count()) === 0);
 await vai(page, 'scopri', '?oggi=2026-06-30');
-check('Scopri raccoglie gli strumenti in tre gruppi', (await page.locator('.gruppo-scopri').count()) === 3 && (await page.locator('.tessera-scopri').count()) === 14, String(await page.locator('.tessera-scopri').count()));
+check('Scopri raccoglie gli strumenti in tre gruppi', (await page.locator('.gruppo-scopri').count()) === 3 && (await page.locator('.tessera-scopri').count()) === 15, String(await page.locator('.tessera-scopri').count()));
 
 // La testata mantiene solo titolo, ricerca e impostazioni anche nelle sottoschermate.
 check('testata essenziale: titolo, ricerca e impostazioni', await page.locator('.testata h1').count() === 1 && await page.locator('.testata .ricerca-apri').count() === 1 && await page.locator('.testata .ingranaggio').count() === 1 && await page.locator('.testata a, .testata button').count() === 2);

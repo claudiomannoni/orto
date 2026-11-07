@@ -22,7 +22,7 @@ const ICONE = {
 export const ROTTE = ['oggi', 'colture', 'dottore', 'calendario', 'scopri'];
 // Schermate che non hanno una voce propria nella barra: si evidenzia quella da cui si arriva
 // (stringa vuota = nessuna voce: le impostazioni si aprono dall'ingranaggio).
-export const SOTTOROTTE = { impara: 'scopri', coltura: 'scopri', quiz: 'scopri', chiedi: 'scopri', zone: 'scopri', diario: 'scopri', storia: 'scopri', raccolto: 'scopri', animali: 'scopri', semi: 'scopri', eccesso: 'scopri', alberi: 'scopri', rendita: 'scopri', cucina: 'scopri', pianta: 'colture', piano: 'colture', vermi: '', impostazioni: '' };
+export const SOTTOROTTE = { impara: 'scopri', coltura: 'scopri', quiz: 'scopri', chiedi: 'scopri', zone: 'scopri', diario: 'scopri', storia: 'scopri', raccolto: 'scopri', animali: 'scopri', semi: 'scopri', eccesso: 'scopri', alberi: 'scopri', rendita: 'scopri', erbe: 'scopri', cucina: 'scopri', pianta: 'colture', piano: 'colture', vermi: '', impostazioni: '' };
 
 function icona(nome) {
   const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -67,7 +67,7 @@ export async function apriRicerca() {
 
 // Evidenzia l'ingranaggio quando si è nelle impostazioni.
 export function aggiornaTestata(rotta, schermata = null) {
-  const titoli = { oggi: 'oggi.titolo', colture: 'colture.hub', dottore: 'nav.dottore', calendario: 'nav.calendario', impara: 'nav.impara', scopri: 'nav.scopri', impostazioni: 'nav.impostazioni', pianta: 'pianta.titolo', zone: 'colture.hub.zone', diario: 'colture.hub.diario', raccolto: 'raccolta.titolo' };
+  const titoli = { oggi: 'oggi.titolo', colture: 'colture.hub', dottore: 'nav.dottore', calendario: 'nav.calendario', impara: 'nav.impara', scopri: 'nav.scopri', erbe: 'erbe.titolo', impostazioni: 'nav.impostazioni', pianta: 'pianta.titolo', zone: 'colture.hub.zone', diario: 'colture.hub.diario', raccolto: 'raccolta.titolo' };
   const titolo = document.querySelector('.testata h1');
   const titoloSchermata = schermata?.querySelector('h2.titolo-schermata');
   if (titolo) titolo.textContent = titoloSchermata?.textContent?.trim() || t(titoli[rotta] ?? 'app.nome');

@@ -22,6 +22,7 @@ export async function monta(contenitore) {
       tessera('#/quiz', t('quiz.invito'), t('quiz.invito.spiega')),
       tessera('#/vermi', t('impara.pausa'), t('impara.pausa.spiega'))),
     gruppo('scopri.oltre',
+      tessera('#/erbe', t('scopri.erbe'), t('scopri.erbe.spiega')),
       tessera('#/animali', t('colture.hub.animali'), t('colture.hub.animali.spiega')),
       tessera('#/alberi', t('colture.hub.alberi'), t('colture.hub.alberi.spiega')),
       tessera('#/rendita', t('colture.hub.rendita'), t('colture.hub.rendita.spiega'))));

@@ -26,6 +26,7 @@ const schermate = {
   zone: () => import('./screens/zone.js'),
   impara: () => import('./screens/impara.js'),
   scopri: () => import('./screens/scopri.js'),
+  erbe: () => import('./screens/erbe.js'),
   quiz: () => import('./screens/quiz.js'),
   chiedi: () => import('./screens/chiedi.js'),
   raccolto: () => import('./screens/raccolto.js'),

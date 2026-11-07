@@ -111,3 +111,8 @@ export async function stagione() {
 export async function sopravvivenza() {
   return json(`data/${lingua}/sopravvivenza.json`);
 }
+
+// Erbe aromatiche e frutta: schede essenziali con fonti (data/it/erbe-frutta.json), o null.
+export async function erbeFrutta() {
+  return json(`data/${lingua}/erbe-frutta.json`);
+}
