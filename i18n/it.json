@@ -138,7 +138,7 @@
   "pianta.storia": "Apri la pianta",
   "piano.titolo": "Il piano dell'orto",
   "piano.senza_zona": "Non trovo questa zona.",
-  "piano.vai_zone": "Vai alle zone",
+  "piano.vai_zone": "Le mie zone",
   "piano.senza_misure": "Per disegnare il piano servono le misure della zona (larghezza e lunghezza in metri). Aggiungile dalle zone.",
   "piano.spiega": "Aiuola di {l} x {w} metri vista dall'alto. Trascina le colture dove le vuoi: ti dico chi sta bene vicino a chi.",
   "piano.vuoto": "In questa zona non ci sono ancora colture.",
@@ -1130,5 +1130,11 @@
   "sopravvivenza.esito.si": "Si può",
   "sopravvivenza.esito.dipende": "Dipende",
   "sopravvivenza.esito.no": "No",
-  "sopravvivenza.apri": "Come farla sopravvivere"
+  "sopravvivenza.apri": "Come farla sopravvivere",
+  "piano.spiega_breve": "La pianta vista dall'alto nella sua zona: trascina le colture dove le vuoi e ti dico chi sta bene vicino a chi.",
+  "piano.senza_zona_titolo": "Questa pianta non è ancora in una zona",
+  "piano.senza_zona_testo": "Le zone sono i posti del tuo orto: aiuole, terrazzo, vasi. Quando la pianta è in una zona, qui vedi la sua aiuola dall'alto.",
+  "piano.scegli_zona": "Scegli la zona",
+  "piano.metti_in_zona": "Metti in questa zona",
+  "piano.crea_zona": "Crea la prima zona"
 }

@@ -2,6 +2,7 @@
 import { el, aggiungi, formattaData, oggiISO, parametriRotta, aggiungiGiorni } from '../util.js';
 import { t } from '../i18n.js';
 import { elencoColture, salvaColtura } from '../store/dati.js';
+import { elencoZone } from '../store/zone.js';
 import { elencoFoto } from '../store/foto.js';
 import { fasi, catalogo, stagione, raccolta, sopravvivenza } from '../contenuti.js';
 import { bloccoSopravvivenza } from '../ui/sopravvivenza.js';
@@ -77,8 +78,20 @@ export async function monta(contenitore) {
       scheda.fonti ? el('details', { class: 'meteo-dettagli', open: true }, el('summary', {}, t('scheda.fonti')), el('p', { class: 'aiuto' }, t('scheda.fonti.spiega')), Object.values(scheda.fonti).map((f) => el('p', { class: 'aiuto' }, el('a', { href: f.url, target: '_blank', rel: 'noopener noreferrer' }, f.titolo ?? f.url), f.ente ? ' (' + f.ente + ')' : ''))) : null) : el('p', { class: 'aiuto' }, t('scheda.non_trovata')),
       scheda ? el('a', { class: 'btn', href: `#/coltura?id=${encodeURIComponent(scheda.id)}` }, t('scheda.quando')) : null];
   } else {
-    contenuto = [el('p', { class: 'aiuto' }, t('piano.spiega', { l: '', w: '' })),
-      coltura.zonaId ? el('a', { class: 'btn primario grande', href: `#/piano?zona=${encodeURIComponent(coltura.zonaId)}` }, t('piano.titolo')) : el('p', { class: 'aiuto' }, t('piano.senza_zona'))];
+    if (coltura.zonaId) {
+      contenuto = [el('p', { class: 'aiuto' }, t('piano.spiega_breve')),
+        el('a', { class: 'btn primario grande', href: `#/piano?zona=${encodeURIComponent(coltura.zonaId)}` }, t('piano.titolo'))];
+    } else {
+      // La pianta non è ancora in nessuna zona: si può sceglierla qui, oppure andare a crearne una.
+      const zone = await elencoZone();
+      const scelta = el('select', { name: 'zona', 'aria-label': t('piano.scegli_zona') }, zone.map((z) => el('option', { value: z.id }, z.nome)));
+      contenuto = [el('section', { class: 'card piano-senza-zona' },
+        el('h3', {}, t('piano.senza_zona_titolo')),
+        el('p', {}, t('piano.senza_zona_testo')),
+        zone.length ? el('label', {}, t('piano.scegli_zona'), scelta) : null,
+        zone.length ? el('button', { class: 'btn primario', type: 'button', onclick: async () => { coltura.zonaId = scelta.value; await salvaColtura(coltura); location.reload(); } }, t('piano.metti_in_zona')) : null,
+        el('a', { class: zone.length ? 'btn' : 'btn primario', href: '#/zone' }, t(zone.length ? 'piano.vai_zone' : 'piano.crea_zona')))];
+    }
   }
   pannello.append(...contenuto.filter(Boolean));
   aggiungi(contenitore, el('h2', { class: 'titolo-schermata' }, nome), bustina, nav, pannello);
