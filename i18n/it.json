@@ -1170,5 +1170,13 @@
   "erbe.tipo.stoloni": "Con gli stoloni",
   "erbe.tipo.innesto": "Con l'innesto",
   "scopri.erbe": "Erbe aromatiche e frutta",
-  "scopri.erbe.spiega": "Rosmarino, salvia, menta, fragole, limone e altre"
+  "scopri.erbe.spiega": "Rosmarino, salvia, menta, fragole, limone e altre",
+  "cura.titolo": "Come curarla",
+  "cura.luce": "Luce",
+  "cura.acqua": "Acqua",
+  "cura.terreno": "Terreno",
+  "cura.vaso": "In vaso",
+  "cura.sostegni": "Sostegni e potatura",
+  "cura.errori": "Errori da evitare",
+  "cura.dettagli": "Altri dettagli"
 }

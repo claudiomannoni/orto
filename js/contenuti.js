@@ -116,3 +116,8 @@ export async function sopravvivenza() {
 export async function erbeFrutta() {
   return json(`data/${lingua}/erbe-frutta.json`);
 }
+
+// Consigli di cura di ogni coltura: luce, acqua, terreno, vaso, sostegni, errori (data/it/cura.json), o null.
+export async function cura() {
+  return json(`data/${lingua}/cura.json`);
+}

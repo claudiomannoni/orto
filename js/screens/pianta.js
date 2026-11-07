@@ -4,7 +4,8 @@ import { t } from '../i18n.js';
 import { elencoColture, salvaColtura } from '../store/dati.js';
 import { elencoZone } from '../store/zone.js';
 import { elencoFoto } from '../store/foto.js';
-import { fasi, catalogo, stagione, raccolta, sopravvivenza } from '../contenuti.js';
+import { fasi, catalogo, stagione, raccolta, sopravvivenza, cura } from '../contenuti.js';
+import { bloccoCura } from '../ui/cura.js';
 import { bloccoSopravvivenza } from '../ui/sopravvivenza.js';
 import { lineaDelTempo, andamentoSalute, giorniFraFoto } from '../motore/linea-tempo.js';
 import { statoFase, bloccoFase } from '../ui/fasi-pianta.js';
@@ -22,7 +23,7 @@ export async function monta(contenitore) {
   const p = parametriRotta();
   const id = p.get('id');
   const selezionata = ['oggi', 'storia', 'scheda', 'piano'].includes(p.get('scheda')) ? p.get('scheda') : 'oggi';
-  const [colture, tutteFoto, dFasi, schede, dStagione, impostazioni, dRaccolta, eventi, dSopravvivenza] = await Promise.all([elencoColture(), elencoFoto(), fasi(), catalogo(), stagione(), leggi(), raccolta(), elencoEventi(), sopravvivenza()]);
+  const [colture, tutteFoto, dFasi, schede, dStagione, impostazioni, dRaccolta, eventi, dSopravvivenza, dCura] = await Promise.all([elencoColture(), elencoFoto(), fasi(), catalogo(), stagione(), leggi(), raccolta(), elencoEventi(), sopravvivenza(), cura()]);
   const coltura = colture.find((c) => c.id === id);
   if (!coltura) {
     aggiungi(contenitore, el('h2', { class: 'titolo-schermata' }, t('pianta.titolo')), el('p', { class: 'aiuto' }, t('pianta.non_trovata')), el('a', { class: 'btn', href: '#/colture' }, t('pianta.torna')));
@@ -72,7 +73,7 @@ export async function monta(contenitore) {
           v.foto?.nota ? el('p', { class: 'aiuto' }, v.foto.nota) : null)))) : el('p', { class: 'vuoto-testo' }, t('pianta.nessuna_foto')),
       el('p', { class: 'aiuto' }, t('diagnosi.avvertenza'))];
   } else if (selezionata === 'scheda') {
-    contenuto = [scheda ? el('section', { class: 'card' }, el('h3', {}, scheda.nome), scheda.descrizione ? el('p', {}, scheda.descrizione) : null,
+    contenuto = [bloccoCura(coltura.schedaId ?? scheda?.id, dCura), scheda ? el('section', { class: 'card' }, el('h3', {}, scheda.nome), scheda.descrizione ? el('p', {}, scheda.descrizione) : null,
       (scheda.avvisi ?? []).map((a) => el('p', { class: 'avviso' }, a)),
       scheda.giorni_alla_raccolta?.min && scheda.giorni_alla_raccolta?.max ? el('p', {}, t('scheda.raccolta', { min: scheda.giorni_alla_raccolta.min, max: scheda.giorni_alla_raccolta.max })) : null,
       scheda.fonti ? el('details', { class: 'meteo-dettagli', open: true }, el('summary', {}, t('scheda.fonti')), el('p', { class: 'aiuto' }, t('scheda.fonti.spiega')), Object.values(scheda.fonti).map((f) => el('p', { class: 'aiuto' }, el('a', { href: f.url, target: '_blank', rel: 'noopener noreferrer' }, f.titolo ?? f.url), f.ente ? ' (' + f.ente + ')' : ''))) : null) : el('p', { class: 'aiuto' }, t('scheda.non_trovata')),

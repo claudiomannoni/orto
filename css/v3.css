@@ -250,3 +250,14 @@ li.lavoro > .lavoro-riga > .lavoro-spunta { z-index: 3; }
 .dato-erbe dd { margin: 0; }
 .metodo-erbe { margin-bottom: 6px; }
 .pianta-erbe h4 { margin: 0 0 4px; font-size: 14px; }
+
+/* Come curarla */
+.dati-cura { display: grid; gap: 10px; margin: 0; }
+.consiglio-cura { display: grid; gap: 2px; }
+.consiglio-cura dt { font-size: 12.5px; font-weight: 800; color: var(--inchiostro-2); }
+.consiglio-cura dd { margin: 0; }
+.cura-errori dt { color: var(--rosso); }
+
+.altri-dettagli { margin-top: 4px; }
+.altri-dettagli > summary { min-height: 44px; display: flex; align-items: center; color: var(--verde); font-weight: 800; font-size: 14px; cursor: pointer; }
+.altri-dettagli p { font-size: 14px; color: var(--inchiostro-2); }
