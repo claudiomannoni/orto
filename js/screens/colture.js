@@ -49,18 +49,29 @@ function icona(coltura) {
 
 // L'avviso di stagione sotto la pianta: fuori stagione, gelo in arrivo, fine stagione (riempito subito col calendario e poi con le previsioni).
 function riquadroStagione(coltura) {
-  const dentro = el('div', { class: 'stagione-posto' });
+  // Nella riga si vede una frase sola («Fine stagione: raccogli...»); il riquadro completo si apre con un tocco.
+  const interno = el('div', { class: 'stagione-interno' });
+  const etichetta = el('strong', {});
+  const frase = el('span', { class: 'stagione-frase' });
+  const pannello = el('details', { class: 'stagione-riga' }, el('summary', {}, etichetta, frase), interno);
+  const dentro = el('div', { class: 'stagione-posto', hidden: true }, pannello);
   const sc = schede.find((s) => s.id === coltura.schedaId) ?? trovaScheda(schede, coltura.nome);
-  if (sc) riempiStagione(dentro, { coltura: { ...coltura, schedaId: coltura.schedaId ?? sc.id }, scheda: sc, zonaId: zonaClimatica, dati: datiStagione });
-  // Se per questa coltura ci sono consigli per l'inverno (talee, riparo...), sotto l'avviso c'è il tasto per aprirli.
-  if (sc && datiSopravvivenza?.colture?.[sc.id]?.opzioni?.length) {
-    const aggiungiTasto = () => {
-      const blocco = dentro.querySelector('.stagione');
-      if (blocco && !dentro.querySelector('.link-sopravvivenza')) blocco.append(el('a', { class: 'btn piccolo link-sopravvivenza', href: `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=oggi` }, t('sopravvivenza.apri')));
-    };
-    new MutationObserver(aggiungiTasto).observe(dentro, { childList: true });
-    aggiungiTasto();
-  }
+  const haConsigli = Boolean(sc && datiSopravvivenza?.colture?.[sc.id]?.opzioni?.length);
+  const aggiorna = () => {
+    const blocco = interno.querySelector('.stagione');
+    dentro.hidden = !blocco;
+    if (!blocco) return;
+    const stato = blocco.classList.contains('gelo-in-arrivo') ? 'gelo' : blocco.classList.contains('fuori-stagione') ? 'fuori' : 'fine';
+    const cosa = [...blocco.querySelectorAll('p')].find((x) => x.querySelector('strong')?.textContent.startsWith(t('stagione.cosa')));
+    pannello.dataset.stato = stato;
+    etichetta.textContent = t(`stagione.breve.${stato}`);
+    frase.textContent = cosa ? cosa.textContent.replace(/^[^:]+:\s*/, '') : '';
+    // Se per questa coltura ci sono consigli per l'inverno (talee, riparo...), sotto l'avviso c'è il tasto per aprirli.
+    if (haConsigli && !blocco.querySelector('.link-sopravvivenza')) blocco.append(el('a', { class: 'btn piccolo link-sopravvivenza', href: `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=oggi` }, t('sopravvivenza.apri')));
+  };
+  new MutationObserver(aggiorna).observe(interno, { childList: true });
+  if (sc) riempiStagione(interno, { coltura: { ...coltura, schedaId: coltura.schedaId ?? sc.id }, scheda: sc, zonaId: zonaClimatica, dati: datiStagione });
+  aggiorna();
   return dentro;
 }
 

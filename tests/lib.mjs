@@ -86,8 +86,8 @@ export async function vai(page, rotta, query = '') {
   await page.goto(`${BASE}/${query}#/${rotta}`);
   await attendiApp(page);
   // I test che cercano i contenuti secondari li aprono; «corta» controlla la schermata iniziale compatta.
-  if (rotta === 'colture') await page.evaluate(() => { document.querySelectorAll('details.coltura-azioni').forEach((d) => { d.open = true; }); });
-  if (rotta === 'oggi' && !query.includes('corta')) await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; const altri = document.querySelector('details.altri-lavori'); if (altri) altri.open = true; });
+  if (rotta === 'colture') await page.evaluate(() => { document.querySelectorAll('details.coltura-azioni, details.stagione-riga').forEach((d) => { d.open = true; }); });
+  if (rotta === 'oggi' && !query.includes('corta')) await page.evaluate(() => { const d = document.querySelector('details.oggi-altri'); if (d) d.open = true; const mese = document.querySelector('details.lavori-mese'); if (mese) mese.open = true; const altri = document.querySelector('details.altri-lavori'); if (altri) altri.open = true; });
 }
 
 export async function scroll(page) {

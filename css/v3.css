@@ -261,3 +261,40 @@ li.lavoro > .lavoro-riga > .lavoro-spunta { z-index: 3; }
 .altri-dettagli { margin-top: 4px; }
 .altri-dettagli > summary { min-height: 44px; display: flex; align-items: center; color: var(--verde); font-weight: 800; font-size: 14px; cursor: pointer; }
 .altri-dettagli p { font-size: 14px; color: var(--inchiostro-2); }
+
+/* Le tue piante hanno bisogno di te */
+.bisogni { background: var(--carta); border-radius: 22px; padding: 12px 14px; display: grid; gap: 4px; }
+.bisogni > h3 { font-size: 15px; }
+.bisogni-lista { list-style: none; margin: 0; padding: 0; }
+.bisogno { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 4px; min-height: 60px; border-top: 1px solid var(--bordo); }
+.bisogni-lista > .bisogno:first-child { border-top: 0; }
+.bisogno-spunta { width: 48px; height: 56px; border: 0; background: transparent; display: grid; place-items: center; cursor: pointer; }
+.bisogno-spunta > span { width: 26px; height: 26px; border: 2.5px solid var(--verde); border-radius: 9px; }
+.bisogno-spunta:focus-visible { outline: 3px solid var(--verde); outline-offset: -3px; border-radius: 12px; }
+.bisogno-testi { display: grid; gap: 1px; padding: 8px 0; color: var(--inchiostro); text-decoration: none; min-width: 0; }
+.bisogno-testi strong { font-size: 15.5px; font-weight: 800; line-height: 1.2; }
+.bisogno-testi .aiuto { font-size: 13px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.tag-urgenza { font-size: 11.5px; font-weight: 850; border-radius: 9px; padding: 4px 8px; white-space: nowrap; background: var(--zucca); color: #3a2600; }
+.tag-urgenza.urgente { background: var(--pomodoro); color: #fff; }
+.bisogni-extra > summary { min-height: 48px; display: flex; align-items: center; font-weight: 800; color: var(--verde); cursor: pointer; }
+.lavori-mese { background: var(--carta); border-radius: 22px; }
+.lavori-mese > summary { list-style: none; min-height: 60px; display: grid; gap: 1px; align-content: center; padding: 8px 40px 8px 14px; position: relative; cursor: pointer; font-weight: 800; }
+.lavori-mese > summary::-webkit-details-marker { display: none; }
+.lavori-mese > summary .aiuto { font-size: 13px; font-weight: 600; }
+.lavori-mese > summary::after { content: ""; position: absolute; right: 18px; top: 50%; width: 9px; height: 9px; margin-top: -7px; border-right: 2.5px solid var(--inchiostro-2); border-bottom: 2.5px solid var(--inchiostro-2); transform: rotate(45deg); }
+.lavori-mese[open] > summary::after { transform: rotate(-135deg); margin-top: -2px; }
+.lavori-mese > .sezione-da-fare { padding-top: 0; }
+main { grid-template-columns: minmax(0, 1fr); }
+.bisogni { grid-template-columns: minmax(0, 1fr); }
+
+/* Il mio orto: l'avviso di stagione è una riga; il dettaglio si apre */
+.colture-registro .coltura .stagione-posto[hidden] { display: none; }
+.stagione-riga > summary { list-style: none; min-height: 48px; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 14px; background: var(--giallo-chiaro); cursor: pointer; font-size: 13.5px; }
+.stagione-riga > summary::-webkit-details-marker { display: none; }
+.stagione-riga > summary strong { flex: none; font-weight: 850; }
+.stagione-riga[data-stato="gelo"] > summary { background: var(--rosso-chiaro); color: var(--rosso); }
+.stagione-frase { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--inchiostro); }
+.stagione-riga > summary::after { content: ""; flex: none; margin-left: auto; width: 8px; height: 8px; border-right: 2.5px solid var(--inchiostro-2); border-bottom: 2.5px solid var(--inchiostro-2); transform: rotate(45deg); }
+.stagione-riga[open] > summary::after { transform: rotate(-135deg); }
+.stagione-riga[open] > summary { margin-bottom: 6px; }
+@media (prefers-color-scheme: dark) { .stagione-frase { color: var(--inchiostro); } }

@@ -38,6 +38,7 @@ import { bloccoStagione } from '../ui/stagione-blocco.js';
 import { bustinaPianta } from '../ui/bustina-pianta.js';
 import { statoFase } from '../ui/fasi-pianta.js';
 import { valutaSalute, giorniDaAnnaffiatura } from '../motore/salute.js';
+import { bisogniPiante } from '../motore/bisogni.js';
 
 function testoMotivo({ motivo, n }) {
   if (motivo === 'in_finestra') return t('lavoro.motivo.in_finestra', { n });
@@ -285,6 +286,40 @@ export async function monta(contenitore) {
     const giudizio = giudizioStagione({ coltura: c, scheda: sc, zonaId: impostazioni.zona, dati: datiStagione, oggi, minime });
     if (giudizio.stato === 'gelo-in-arrivo') avvisiGelo.append(bloccoStagione(giudizio, datiStagione));
   }
+  // Le tue piante hanno bisogno di te: una voce per pianta, in ordine di urgenza (gelo, fine stagione, fase).
+  const bisogni = bisogniPiante({ oggi, eventi, piante: colture.map((c) => {
+    const sc = schede.find((x) => x.id === c.schedaId);
+    const st = statoFase(c, dFasi, oggi);
+    const max = sc?.giorni_alla_raccolta?.max;
+    return { coltura: c, giudizio: giudizioStagione({ coltura: c, scheda: sc, zonaId: impostazioni.zona, dati: datiStagione, oggi, minime }), fase: st?.fase ?? null,
+      cicloFinito: datiStagione?.colture?.[c.schedaId]?.ciclo === 'annuale' && Number.isFinite(max) && Number.isFinite(st?.eta) && st.eta > max };
+  }) });
+  const titoloBisogno = (b) => t(`bisogni.${b.tipo}.${b.azione}`, { nome: b.nome });
+  const sottoBisogno = (b) => (b.tipo === 'gelo' && b.minima !== null ? t('bisogni.gelo.minima', { minima: String(Math.round(b.minima * 10) / 10).replace('.', ',') })
+    : b.tipo === 'fuori-stagione' ? t('bisogni.fuori-stagione.sotto') : b.tipo === 'ciclo' ? t('bisogni.ciclo.sotto') : b.dettaglio);
+  const listaBisogni = el('ul', { class: 'bisogni-lista' });
+  const bisogniExtra = el('ul', { class: 'bisogni-lista' });
+  const bisogniVuoto = el('p', { class: 'aiuto bisogni-vuoto', hidden: bisogni.length > 0 }, t(colture.length ? 'bisogni.vuoto' : 'bisogni.senza_piante'));
+  bisogni.forEach((b, i) => {
+    const titolo = titoloBisogno(b);
+    const sotto = sottoBisogno(b);
+    const riga = el('li', { class: `bisogno urgenza-${b.urgenza}`, 'data-bisogno': b.id },
+      el('button', { class: 'bisogno-spunta', type: 'button', 'aria-label': `${t('lavoro.fatto')}: ${titolo}`, onclick: async () => {
+        await registraEvento(nuovoEvento({ tipo: 'lavoro_fatto', zonaId: impostazioni.zona, colturaId: b.colturaId, schedaId: b.schedaId, lavoroId: b.lavoroId, data: oggi, esito: 'ok', note: titolo }));
+        riga.remove();
+        toast(t('lavoro.fatto.toast'));
+        if (!listaBisogni.children.length && !bisogniExtra.children.length) { bisogniVuoto.textContent = t('bisogni.finito'); bisogniVuoto.hidden = false; }
+      } }, el('span', { 'aria-hidden': 'true' })),
+      el('a', { class: 'bisogno-testi', href: `#/pianta?id=${encodeURIComponent(b.colturaId)}&scheda=oggi` }, el('strong', {}, titolo), sotto ? el('span', { class: 'aiuto' }, sotto) : null),
+      b.urgenza === 'normale' ? null : el('span', { class: `tag-urgenza ${b.urgenza}` }, t(`bisogni.urgenza.${b.urgenza}`)));
+    (i < 3 ? listaBisogni : bisogniExtra).append(riga);
+  });
+  const cartaBisogni = el('section', { class: 'bisogni', 'aria-label': t('bisogni.titolo') },
+    el('h3', {}, t('bisogni.titolo')),
+    bisogniVuoto,
+    !colture.length ? el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')) : null,
+    listaBisogni,
+    bisogni.length > 3 ? el('details', { class: 'bisogni-extra' }, el('summary', {}, t('bisogni.ancora', { n: bisogni.length - 3 })), bisogniExtra) : null);
   // «I tuoi primi passi»: una breve lista di cose da provare, finché non sono fatte (o l'utente la chiude).
   let cartaPassi = null;
   if (!impostazioni.primi_passi_chiusi) {
@@ -307,14 +342,15 @@ export async function monta(contenitore) {
     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
     el('button', { class: 'ricerca-oggi', type: 'button', onclick: apriRicerca }, t('ricerca.campo')),
     el('div', { class: 'striscia-giorno' }, el('div', { class: 'giorno-condizioni' }, el('span', { class: 'giorno-data' }, formattaDataLunga(oggi)), cartaMeteo()), avvisiGelo),
-    el('section', { class: 'sezione-da-fare' },
+    cartaBisogni,
+    el('details', { class: 'lavori-mese', open: bisogni.length === 0 }, el('summary', {}, el('span', {}, t('oggi.mese.titolo')), el('span', { class: 'aiuto' }, tn('oggi.mese.lavori', lavori.length))), el('section', { class: 'sezione-da-fare' },
     el('h3', { class: 'titolo-lavori' }, t('oggi.da_fare')),
     lavori.length ? el('button', { class: 'btn', type: 'button', onclick: async (e) => { const create = lavori.map((v) => nuovoEvento({ tipo: 'lavoro_fatto', zonaId: impostazioni.zona, colturaId: v.coltura?.id ?? null, schedaId: v.scheda.id, lavoroId: v.lavoro.id, data: oggi, esito: 'ok' })); for (const ev of create) await registraEvento(ev); e.currentTarget.disabled = true; toast(t('oggi.annulla_fatto'), { testo: t('azione.annulla'), esegui: async () => { for (const ev of create) await (await import('../store/dati.js')).eliminaEvento(ev.id); location.reload(); } }, 5000); } }, t('oggi.tutto_fatto')) : null,
     lavori.length ? lista : el('section', { class: 'card vuoto' },
       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
     ),
-    lavori.length > 3 ? el('details', { class: 'altri-lavori' }, el('summary', {}, t('oggi.altri_lavori', { n: lavori.length - 3 })), listaExtra) : null),
+    lavori.length > 3 ? el('details', { class: 'altri-lavori' }, el('summary', {}, t('oggi.altri_lavori', { n: lavori.length - 3 })), listaExtra) : null)),
     cartaPiante,
     el('section', { class: 'scorciatoie' }, el('h3', {}, t('oggi.scorciatoie')), el('div', { class: 'scorciatoie-griglia' },
       ...[['dottore','oggi.scorciatoia.foto','#/dottore'],['acqua','oggi.scorciatoia.acqua','#/colture'],['raccolto','oggi.scorciatoia.raccolto','#/raccolto'],['appunto','oggi.scorciatoia.appunto','#/diario']].map(([ic, key, href]) => el('a', { class: 'scorciatoia', href }, iconaScorciatoia(ic), t(key))))),

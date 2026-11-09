@@ -11,6 +11,8 @@ const problemi = [];
 const nuova = async (extra = {}) => {
   const ctx = await browser.newContext({ ...PIXEL9, ...extra });
   await simulaMeteo(ctx);
+  // Il calendario del mese sta in un pannello (chiuso quando le piante chiedono qualcosa): questa prova riguarda proprio quei lavori, quindi lo tiene aperto.
+  await ctx.addInitScript(() => { new MutationObserver(() => { const d = document.querySelector('details.lavori-mese:not([open])'); if (d && !d.dataset.provato) { d.dataset.provato = '1'; d.open = true; } }).observe(document, { childList: true, subtree: true }); });
   const page = await ctx.newPage(); osserva(page, problemi); return { ctx, page };
 };
 const pronta = async (page, url) => { await page.goto(`${BASE}/${url}`); await attendiApp(page); await page.waitForSelector('#schermata h2.titolo-schermata'); await page.waitForTimeout(250); };

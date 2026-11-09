@@ -33,7 +33,7 @@ const nomeMese = (mese) => new Date(`${mese}-01T12:00:00`).toLocaleDateString(lo
 function titoloLavoro(e) {
   const scheda = schede.find((s) => s.id === e.schedaId);
   const lavoro = [...Object.values(scheda?.calendario ?? {}).flat(), ...(scheda?.lavori ?? [])].find((l) => l.id === e.lavoroId);
-  return lavoro?.titolo ?? e.lavoroId ?? t('storia.lavoro');
+  return lavoro?.titolo ?? (String(e.lavoroId ?? '').startsWith('bisogno-') && e.note ? e.note : e.lavoroId) ?? t('storia.lavoro');
 }
 
 // Righe uniche e ordinate: dal più recente; a parità di data, l'ultimo aggiunto.

@@ -1,0 +1,62 @@
+<!doctype html><html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<style>
+:root{--sf:#E9F1E4;--ca:#fff;--ink:#12231A;--ink2:#455A4B;--v:#1F7A36;--vv:#5BBE4B;--po:#E0402F;--zu:#F0A21A;--ci:#CFEAF8;--te:#173A28;--fi:#D3E0CD}
+*{box-sizing:border-box;margin:0}
+body{background:#cfd6cc;font:500 15px/1.4 system-ui,"Segoe UI",Roboto,sans-serif;color:var(--ink);padding:22px}
+.riga{display:flex;gap:24px;justify-content:center;align-items:flex-start}
+.col{width:390px}
+.et{font-weight:850;font-size:20px;margin:0 0 10px 6px}.et small{display:block;font-size:14px;font-weight:600;color:var(--ink2)}
+.tel{width:390px;height:800px;background:var(--sf);border-radius:34px;overflow:hidden;position:relative;box-shadow:0 12px 44px #0005}
+.sc{padding:18px 14px 0}
+h1{font-size:26px;font-weight:850;letter-spacing:-.02em;line-height:1.05}
+.sub{font-size:13.5px;color:var(--ink2);font-weight:600;margin:2px 0 12px}
+.c{background:var(--ca);border-radius:22px;padding:12px 14px;margin-bottom:10px}
+.k{font-size:12.5px;color:var(--ink2);font-weight:800;margin-bottom:6px}
+.it{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--fi)}
+.it:first-of-type{border:0}
+.cb{width:26px;height:26px;border-radius:9px;border:2.5px solid var(--v);flex:none}
+.it b{display:block;font-weight:800;font-size:15.5px;line-height:1.2}.it small{display:block;font-size:13px;color:var(--ink2);font-weight:600}
+.tag{margin-left:auto;font-size:11.5px;font-weight:850;border-radius:9px;padding:4px 8px;color:#fff;background:var(--po);white-space:nowrap}
+.tag.z{background:var(--zu);color:#3a2600}.tag.g{background:var(--vv);color:#0d2a14}
+.meteo{background:linear-gradient(160deg,#CFEAF8,#E7F5FC);display:flex;align-items:center;gap:12px}
+.meteo b{font-size:26px;font-weight:850;letter-spacing:-.03em}.meteo span{font-weight:700;font-size:13.5px;line-height:1.3}
+.mese{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px}.mese i{margin-left:auto;font-style:normal;font-size:20px;color:var(--ink2)}
+.pl{display:flex;gap:8px}.p{flex:1;background:var(--sf);border-radius:16px;padding:8px 4px;text-align:center;font-weight:800;font-size:12.5px}
+.dot{width:38px;height:38px;border-radius:50%;margin:0 auto 4px;border:4px solid var(--c);background:#fff}
+.dock{position:absolute;left:14px;right:14px;bottom:14px;height:64px;border-radius:24px;background:#12231Af5;display:flex;align-items:center;justify-content:space-around;color:#fff}
+.dock span{font-size:12px;font-weight:700;opacity:.7;width:76px;text-align:center}.dock .on{opacity:1}
+.dock .cam{opacity:1;width:60px;height:60px;border-radius:50%;background:var(--vv);color:var(--ink);display:grid;place-items:center;margin-top:-28px;border:4px solid var(--sf);font-size:11px;font-weight:850}
+.stato{display:flex;gap:12px;align-items:center}.stato .dot{width:64px;height:64px;margin:0;border-width:6px;flex:none}
+.stato b{font-size:17px;font-weight:850;line-height:1.2;display:block}.stato small{font-size:13.5px;color:var(--ink2);font-weight:600}
+.btn{display:block;background:var(--v);color:#fff;border-radius:18px;text-align:center;font-weight:850;padding:15px;margin-top:12px;font-size:15.5px}
+.voce{display:flex;align-items:center;background:var(--ca);border-radius:18px;padding:15px 14px;margin-bottom:8px;font-weight:800;font-size:15px}
+.voce small{font-weight:600;color:var(--ink2);margin-left:8px;font-size:13px}.voce i{margin-left:auto;font-style:normal;color:var(--ink2);font-size:18px}
+</style><body><div class="riga">
+
+<div class="col"><p class="et">Oggi<small>Tre cose, sulle tue piante</small></p>
+<div class="tel"><div class="sc">
+<h1>Oggi</h1><p class="sub">lunedì 9 novembre</p>
+<div class="c meteo"><b>6° / 16°</b><span>Sereno, niente pioggia<br>Gelo previsto giovedì notte</span></div>
+<div class="c"><div class="k">Le tue piante hanno bisogno di te</div>
+<div class="it"><div class="cb"></div><div><b>Raccogli i pomodori rimasti</b><small>Fine ciclo, giovedì gela</small></div><span class="tag">Urgente</span></div>
+<div class="it"><div class="cb"></div><div><b>Salva il basilico</b><small>Raccogli le foglie o fai le talee</small></div><span class="tag">Urgente</span></div>
+<div class="it"><div class="cb"></div><div><b>Copri la lattuga la sera</b><small>Telo leggero nelle notti fredde</small></div><span class="tag z">Presto</span></div></div>
+<div class="c mese"><div><div class="k" style="margin:0">Questo mese puoi piantare</div>Aglio, fave, piselli, spinaci</div><i>&rsaquo;</i></div>
+<div class="c"><div class="k">Il tuo orto</div><div class="pl">
+<div class="p"><div class="dot" style="--c:#E0402F"></div>Pomodori</div><div class="p"><div class="dot" style="--c:#E0402F"></div>Basilico</div><div class="p"><div class="dot" style="--c:#F0A21A"></div>Lattuga</div><div class="p"><div class="dot" style="--c:#5BBE4B"></div>Fave</div><div class="p"><div class="dot" style="--c:#5BBE4B"></div>Carciofo</div></div></div>
+</div><div class="dock"><span class="on">Oggi</span><span>Il mio orto</span><span class="cam">Foto</span><span>Scopri</span></div></div></div>
+
+<div class="col"><p class="et">La pianta<small>Una frase, un pulsante, poi apri tu</small></p>
+<div class="tel"><div class="sc">
+<h1>Pomodori</h1><p class="sub">Trapiantati il 6 giugno, 156 giorni fa</p>
+<div class="c"><div class="stato"><div class="dot" style="--c:#E0402F"></div><div><b>Ha finito il suo ciclo</b><small>Giovedì gela: raccogli quello che resta, anche i frutti verdi sani.</small></div></div>
+<div class="btn">Ho raccolto tutto</div></div>
+<div class="voce">Dopo cosa pianto?<small>Aglio o fave</small><i>&rsaquo;</i></div>
+<div class="voce">Può passare l'inverno?<small>No, ma puoi fare talee</small><i>&rsaquo;</i></div>
+<div class="voce">Come curarla<i>&rsaquo;</i></div>
+<div class="voce">Problemi comuni<i>&rsaquo;</i></div>
+<div class="voce">Foto e storia<small>Nessuna foto</small><i>&rsaquo;</i></div>
+<div class="voce">Dove sta<small>Nessuna zona</small><i>&rsaquo;</i></div>
+</div><div class="dock"><span>Oggi</span><span class="on">Il mio orto</span><span class="cam">Foto</span><span>Scopri</span></div></div></div>
+
+</div></body></html>
