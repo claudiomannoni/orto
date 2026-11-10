@@ -1,0 +1,1115 @@
+{
+  "versione": 1,
+  "ambito": "Bozze per l'orto in Italia centrale (Castelli Romani, circa 340 m); mesi, distanze e temperature provengono solo da fonti aperte e vanno adattati al microclima locale.",
+  "note_struttura": "Stile schede di data/it/colture/peperoni.json e prezzemolo.json per i gruppi di dati; campo inverno in stile data/it/sopravvivenza.json. I gruppi con valore null e fonti vuote indicano voci senza fonti, da completare.",
+  "fonti": {
+    "b1": {
+      "titolo": "Rosmarino - Rosmarinus officinalis L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee - Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/rosmarino.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: semina all'inizio della primavera in luogo protetto a circa 20 gradi con germinazione in 1-2 settimane; talea da prelevare dopo la fioritura o propaggine; piante in zone soleggiate, terreno acido e ben drenato; cresce bene in vaso; proteggere le piante dai freddi invernali."
+    },
+    "b2": {
+      "titolo": "Salvia - Salvia officinalis L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee - Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/salvia.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: pianta suffruticosa perenne alta fino a 70 cm, con foglie persistenti in inverno; semina coperta a 18 gradi (germinazione in 1-2 settimane) oppure in campo in tarda primavera quando la temperatura resta sopra i 7 gradi (germinazione in 2-3 settimane); riproduzione principalmente per talea erbacea su terriccio sabbioso; trapianto in posizione soleggiata, substrato leggermente calcareo e ben drenato."
+    },
+    "b3": {
+      "titolo": "Menta piperita - Mentha x piperita L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee - Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/mentapiperita.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: pianta erbacea perenne con fusti stoloniferi; si riproduce facilmente per talea di punta o mettendo a dimora pezzi di stoloni radicati; coltivabile in vaso o in piena terra."
+    },
+    "b4": {
+      "titolo": "Timo maggiore - Thymus vulgaris L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee - Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/timomaggiore.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: semina su terriccio leggero e sabbioso; trapianto in vasi o in piena terra in zone soleggiate e prive di ristagni idrici; le varietà orticole si riproducono per talea o divisione dei cespi; raccolta asportando foglie e fusti fioriti."
+    },
+    "b5": {
+      "titolo": "Origano comune - Origanum vulgare L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee - Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/origanocomune.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: erbacea perenne alta fino a 80 cm; si propaga per semina in primavera o per divisione delle piante accestite in primavera o dopo la fioritura; raccolta di foglie e estremità fiorite."
+    },
+    "b6": {
+      "titolo": "Sedano - Apium graveolens L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee - Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/sedano.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: semina in semenzaio con 1-2 g di seme per metro quadrato, anche a fine gennaio in serra riscaldata o letto caldo; trapianto alla fine di aprile con produzioni utili già a giugno; a giugno-luglio si trapiantano i sedani a produzione invernale; sesto di 70 cm tra le file e 25-30 cm sulla fila; imbianchimento rincalzando le piante e legando le foglie."
+    },
+    "b7": {
+      "titolo": "Fragola - Fragaria spp.",
+      "ente": "Agraria.org, Atlante delle coltivazioni arboree - Alberi da frutto",
+      "url": "https://www.agraria.org/coltivazioniarboree/fragola.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: terreno subacido con pH ottimale 5,5-6,5 (tollera fino a 7,5); acqua in quantità moderate ma costanti durante tutto il ciclo, in particolare nel post-trapianto; distanza delle file circa 125 cm, sulla fila 35-35 cm se doppia e 15-20 cm se singola; varietà unifere, bifere e day-neutral; produzione di piantine in vivaio con piante madri dedicate agli stoloni."
+    },
+    "b8": {
+      "titolo": "Limone - Citrus limon (L.) Burm.",
+      "ente": "Agraria.org, Atlante delle coltivazioni arboree - Alberi da frutto",
+      "url": "https://www.agraria.org/coltivazioniarboree/limone.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana: sensibile al freddo, si defoglia completamente con temperature di -4/-5 gradi e a temperature inferiori si danneggia anche il legno; fiori e frutti reggono fino a -2 gradi; sensibile al vento (servono frangivento); irrigazione nei periodi prolungati di siccità; cresce bene anche in terreni poveri con pH ottimale intorno a 5,5-6,5; si innesta su diversi portinnesti, dal franco al limone Volkameriano; specie rifiorente."
+    },
+    "b9": {
+      "titolo": "Cavoli - Brassica oleracea L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/cavoli.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda italiana sui cavoli in generale: terreni profondi, ben aerati e freschi, con pH intorno alla neutralità; climi temperato-freddi, tollerano il freddo ma non il gelo; per il cavolo cappuccio distanza tra file 60-80 cm e sulla fila 40-70 cm, con raccolta a 60-70 giorni dal trapianto per le precoci, 70-90 per le medio-precoci e oltre 90 per le tardive; il cavolo nero crespo è elencato come Brassica oleracea L. var. acephala sabellica."
+    },
+    "b10": {
+      "titolo": "Cavolo nero toscano - Brassica oleracea var. palmifolia",
+      "ente": "Orto da Coltivare",
+      "url": "https://www.ortodacoltivare.it/ortaggi/cavolo-nero-toscano/",
+      "consultata": "2026-11-07",
+      "nota": "Guida divulgativa: Brassica oleracea var. palmifolia (piante crucifere); semina in semenzaio da marzo ad agosto e diretta in orto da aprile a ottobre; trapianto da aprile a ottobre; raccolta da giugno a febbraio; mezzo metro tra le piante e un metro tra le file (la scheda riporta anche 80x50 cm); tra le piante da orto più resistenti al gelo, le foglie non temono le temperature sotto zero; suolo drenante e non esigente, con letame maturo o compost e concimazione azotata all'impianto nei terreni poveri; preferisce posizioni ben esposte al sole; pianta biennale che al secondo anno va a seme."
+    },
+    "b11": {
+      "titolo": "Barbabietola - Beta vulgaris",
+      "ente": "Orto da Coltivare",
+      "url": "https://www.ortodacoltivare.it/ortaggi/barbabietola/",
+      "consultata": "2026-11-07",
+      "nota": "Guida divulgativa: Beta vulgaris (piante chenopodiacee); semina diretta in pieno campo preferibilmente, con file distanti 25 cm e semi ogni 10 cm da diradare poi; seme a 2-3 cm di profondità; semina in semenzaio da febbraio a marzo, in orto da marzo a giugno, trapianto da marzo a luglio, raccolta da aprile a settembre; raccolta dopo circa un paio di mesi dalla semina; pianta biennale: se messa in campo troppo presto e incontra il gelo va in pre-fioritura rovinando il raccolto; la radice oltre 10 cm di diametro indurisce; distanza di trapianto 25x10 cm."
+    },
+    "b12": {
+      "titolo": "Lo svernamento del timo comune",
+      "ente": "Gardentopia",
+      "url": "https://gardentopia.eu/it/lo-svernamento-del-timo-comune/",
+      "consultata": "2026-11-07",
+      "nota": "Guida divulgativa sul solo svernamento: nelle regioni con temperature che scendono regolarmente sotto i dieci gradi sotto zero serve protezione fisica per radici e base, con pacciamatura leggera di aghi di pino o paglia; i vasi si avvolgono con pluriball, feltro o tessuto non tessuto e si avvicinano ai muri della casa in zone riparate dal vento; mai portare il timo in abitazioni riscaldate; pulizia autunnale del terreno circostante; la prima potatura di pulizia si fa solo quando la pianta riprende attivamente la vegetazione."
+    },
+    "b13": {
+      "titolo": "Lo svernamento della menta romana",
+      "ente": "Gardentopia",
+      "url": "https://gardentopia.eu/it/lo-svernamento-della-menta-romana/",
+      "consultata": "2026-11-07",
+      "nota": "Guida divulgativa sul solo svernamento, riferita alla menta romana (specie affine alla menta piperita): prima del gelo intenso si tagliano i fusti secchi a pochi centimetri dal suolo; pacciamatura di almeno cinque o dieci centimetri per proteggere il cuore della pianta; irrigazioni ridotte gradualmente e concimazione sospesa; per i vasi: spostamento vicino a un muro rivolto a sud, avvolgimento con pluriball, juta o cartone, sollevamento da terra con piedini o mattoni; evitare l'interno di abitazioni riscaldate."
+    }
+  },
+  "colture": [
+    {
+      "id": "rosmarino",
+      "nome": "Rosmarino",
+      "alias": ["rosmarino comune", "ramerino"],
+      "nome_scientifico": "Rosmarinus officinalis L.",
+      "famiglia": "Lamiaceae (Labiatae)",
+      "descrizione": "Pianta aromatica rustica da pieno sole, coltivabile anche in vaso.",
+      "ciclo": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "esposizione": {
+        "valore": "Pieno sole: la scheda dice di collocare le piante in zone soleggiate.",
+        "certezza": "alta",
+        "fonti": ["b1"]
+      },
+      "acqua": {
+        "valore": "Teme l'acqua in eccesso: la scheda segnala che le piante tendono ad appassire se il terreno è troppo umido.",
+        "certezza": "alta",
+        "fonti": ["b1"]
+      },
+      "terreno": {
+        "valore": "Acido e ben drenato, secondo la scheda.",
+        "certezza": "alta",
+        "fonti": ["b1"]
+      },
+      "in_vaso": {
+        "valore": "si",
+        "come": "La scheda dice che cresce bene in vaso; vale poi la cura di non lasciare il terreno umido in modo persistente.",
+        "certezza": "alta",
+        "fonti": ["b1"]
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda non indica tempi numerici dalla semina.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": null,
+        "distanza_piante_cm": null,
+        "nota": "Non documentata: la scheda indica le condizioni di semina ma non la profondità e i sesti.",
+        "certezza": null,
+        "fonti": []
+      },
+      "calendario_mesi": {
+        "semina": [],
+        "trapianto": [],
+        "raccolta": [],
+        "nota": "Voci senza fonti: nessuna delle schede consultate indica mesi operativi per il rosmarino.",
+        "certezza": null,
+        "fonti": []
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "seme",
+            "come": [
+              "Semina all'inizio della primavera in luogo protetto, a circa 20 gradi.",
+              "I semi germinano dopo 1-2 settimane."
+            ],
+            "certezza": "alta",
+            "fonti": ["b1"]
+          },
+          {
+            "tipo": "talea",
+            "come": [
+              "Talee da prelevare dopo la fioritura.",
+              "La scheda segnala anche la propaggine come metodo facile."
+            ],
+            "certezza": "alta",
+            "fonti": ["b1"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [
+          {
+            "id": "sul-posto",
+            "titolo": "Può sopravvivere all'aperto?",
+            "esito": "dipende",
+            "riassunto": "Dipende: la scheda dice in modo esplicito di proteggere le piante dai freddi invernali, ma non dà temperature limite né tecniche.",
+            "passi": [
+              "Ripara le piante durante i mesi freddi, come chiede la scheda."
+            ],
+            "attenzione": [
+              "La scheda non precisa quanto gelo la pianta tolleri, né con quali materiali proteggerla: voce da completare con fonti dedicate al rosmarino."
+            ],
+            "certezza": "alta",
+            "fonti": ["b1"]
+          }
+        ]
+      },
+      "da_verificare": [
+        "Adattare mesi e protezioni alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Mesi di semina, trapianto e raccolta: nessuna fonte li indica.",
+        "Profondità di semina e sesti di impianto: nessuna fonte li indica.",
+        "Protezione invernale: come proteggere la pianta e fino a che temperatura resiste."
+      ]
+    },
+    {
+      "id": "salvia",
+      "nome": "Salvia",
+      "alias": ["salvia officinale"],
+      "nome_scientifico": "Salvia officinalis L.",
+      "famiglia": "Lamiaceae (Labiatae)",
+      "descrizione": "Pianta aromatica perenne a suffrutice, con foglie persistenti anche in inverno.",
+      "ciclo": {
+        "valore": "perenne",
+        "nota": "La scheda la descrive come pianta suffruticosa perenne alta fino a 70 cm.",
+        "certezza": "alta",
+        "fonti": ["b2"]
+      },
+      "esposizione": {
+        "valore": "Posizione soleggiata, indicazione della scheda per il trapianto.",
+        "certezza": "alta",
+        "fonti": ["b2"]
+      },
+      "acqua": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "terreno": {
+        "valore": "Substrato leggermente calcareo e ben drenato, secondo la scheda.",
+        "certezza": "alta",
+        "fonti": ["b2"]
+      },
+      "in_vaso": {
+        "valore": "si",
+        "come": "La scheda dice di trapiantare in vasi o in piena terra.",
+        "certezza": "alta",
+        "fonti": ["b2"]
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda non indica tempi numerici.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": null,
+        "distanza_piante_cm": null,
+        "nota": "Non documentata: la scheda indica temperature e tempi di germinazione ma non profondità e sesti.",
+        "certezza": null,
+        "fonti": []
+      },
+      "calendario_mesi": {
+        "semina": [],
+        "trapianto": [],
+        "raccolta": [],
+        "nota": "Voci senza fonti: la scheda indica solo periodi generici (inizio primavera al coperto, tarda primavera in campo) ma non elenca mesi operativi.",
+        "certezza": null,
+        "fonti": []
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "seme",
+            "come": [
+              "Semina all'inizio della primavera al coperto, a 18 gradi, con germinazione in 1-2 settimane.",
+              "In alternativa semina in campo aperto in tarda primavera, quando la temperatura resta sopra i 7 gradi, con germinazione in 2-3 settimane.",
+              "Diradare successivamente i germogli."
+            ],
+            "certezza": "alta",
+            "fonti": ["b2"]
+          },
+          {
+            "tipo": "talea",
+            "come": [
+              "Talea erbacea fatta radicare in terriccio sabbioso: è il metodo di riproduzione più usato secondo la scheda."
+            ],
+            "certezza": "alta",
+            "fonti": ["b2"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [],
+        "nota": "Voci senza fonti: nessuna delle schede consultate indica la protezione invernale della salvia officinale (la scheda dice solo che le foglie sono persistenti in inverno).",
+        "certezza": null,
+        "fonti": []
+      },
+      "da_verificare": [
+        "Adattare mesi e protezioni alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Protezione invernale: nessuna fonte dedicata alla salvia officinale è stata trovata (le pagine trovate riguardano la salvia ananas, specie diversa, non importata).",
+        "Mesi di raccolta e sesti di impianto non documentati."
+      ]
+    },
+    {
+      "id": "menta",
+      "nome": "Menta",
+      "alias": ["menta piperita"],
+      "nome_scientifico": "Mentha x piperita L.",
+      "famiglia": "Lamiaceae (Labiatae)",
+      "descrizione": "Pianta aromatica erbacea perenne che si moltiplica con facilità, in vaso o in piena terra.",
+      "ciclo": {
+        "valore": "perenne",
+        "nota": "La scheda la descrive come pianta erbacea perenne con fusti stoloniferi.",
+        "certezza": "alta",
+        "fonti": ["b3"]
+      },
+      "esposizione": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "acqua": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "terreno": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "in_vaso": {
+        "valore": "si",
+        "come": "La scheda dice che può essere coltivata in vaso o in piena terra.",
+        "certezza": "alta",
+        "fonti": ["b3"]
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda non indica tempi numerici.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": null,
+        "distanza_piante_cm": null,
+        "nota": "Non documentata: la scheda consiglia la moltiplicazione vegetativa e non indica sesti di semina.",
+        "certezza": null,
+        "fonti": []
+      },
+      "calendario_mesi": {
+        "semina": [],
+        "trapianto": [],
+        "raccolta": [],
+        "nota": "Voci senza fonti: nessuna delle schede consultate indica mesi operativi.",
+        "certezza": null,
+        "fonti": []
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "talea",
+            "come": [
+              "Talea di punta, come si fa per tutte le menthe secondo la scheda."
+            ],
+            "certezza": "alta",
+            "fonti": ["b3"]
+          },
+          {
+            "tipo": "divisione",
+            "come": [
+              "Mettere a dimora pezzi di stoloni radicati per moltiplicare la pianta."
+            ],
+            "certezza": "alta",
+            "fonti": ["b3"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [
+          {
+            "id": "sul-posto",
+            "titolo": "Può sopravvivere all'aperto?",
+            "esito": "dipende",
+            "riassunto": "Dipende: una guida di svernamento, riferita alla menta romana (specie affine), segnala possibili danni del gelo intenso e descrive le protezioni.",
+            "passi": [
+              "Prima del gelo intenso e persistente taglia i fusti secchi o danneggiati a pochi centimetri dal suolo.",
+              "Fai una pacciamatura di almeno cinque o dieci centimetri per proteggere il cuore della pianta.",
+              "Riduci gradualmente le irrigazioni e sospendi la concimazione."
+            ],
+            "attenzione": [
+              "La fonte parla della menta romana, specie affine ma non identica alla menta piperita: passi da applicare con cautela.",
+              "Per le piante in vaso: sposta i vasi vicino a un muro rivolto a sud, avvolgili con pluriball, juta o cartone e solleva i vasi da terra con piedini o mattoni.",
+              "Non portare le piante in abitazioni riscaldate: la fonte segnala lo shock termico e la mancanza di luce."
+            ],
+            "certezza": "bassa",
+            "fonti": ["b13"]
+          }
+        ]
+      },
+      "da_verificare": [
+        "Adattare mesi e protezioni alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Inverno: serve una fonte che parli della menta piperita, non solo della menta romana.",
+        "Semina, sesti, tempi di raccolta e requisiti di terreno: non documentati."
+      ]
+    },
+    {
+      "id": "timo",
+      "nome": "Timo",
+      "alias": ["timo maggiore"],
+      "nome_scientifico": "Thymus vulgaris L.",
+      "famiglia": "Lamiaceae (Labiatae)",
+      "descrizione": "Pianta aromatica che chiede zone soleggiate e suolo leggero, sabbioso e senza ristagni.",
+      "ciclo": {
+        "valore": null,
+        "nota": "Non documentato: la scheda non usa il termine.",
+        "certezza": null,
+        "fonti": []
+      },
+      "esposizione": {
+        "valore": "Pieno sole: la scheda indica trapianto in zone soleggiate.",
+        "certezza": "alta",
+        "fonti": ["b4"]
+      },
+      "acqua": {
+        "valore": "Teme i ristagni idrici, secondo la scheda.",
+        "certezza": "alta",
+        "fonti": ["b4"]
+      },
+      "terreno": {
+        "valore": "Leggero e sabbioso: la scheda parla di terriccio leggero e sabbioso per la semina.",
+        "certezza": "alta",
+        "fonti": ["b4"]
+      },
+      "in_vaso": {
+        "valore": "si",
+        "come": "La scheda dice di trapiantare in vasi o in piena terra.",
+        "certezza": "alta",
+        "fonti": ["b4"]
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda non indica tempi numerici.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": null,
+        "distanza_piante_cm": null,
+        "nota": "Non documentata: la scheda indica il tipo di terriccio ma non profondità e sesti.",
+        "certezza": null,
+        "fonti": []
+      },
+      "calendario_mesi": {
+        "semina": [],
+        "trapianto": [],
+        "raccolta": [],
+        "nota": "Voci senza fonti: nessuna delle schede consultate indica mesi operativi.",
+        "certezza": null,
+        "fonti": []
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "seme",
+            "come": [
+              "Semina su terriccio leggero e sabbioso.",
+              "Trapianta quando le piantine sono sufficientemente sviluppate."
+            ],
+            "certezza": "alta",
+            "fonti": ["b4"]
+          },
+          {
+            "tipo": "talea",
+            "come": [
+              "Le varietà orticole si riproducono per talea, secondo la scheda."
+            ],
+            "certezza": "alta",
+            "fonti": ["b4"]
+          },
+          {
+            "tipo": "divisione",
+            "come": [
+              "Divisione dei cespi, secondo la scheda."
+            ],
+            "certezza": "alta",
+            "fonti": ["b4"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [
+          {
+            "id": "sul-posto",
+            "titolo": "Può sopravvivere all'aperto?",
+            "esito": "si",
+            "riassunto": "Sì: il timo comune passa l'inverno all'aperto nel nostro clima; la guida suggerisce protezioni extra solo sotto freddo molto intenso (temperature che scendono regolarmente sotto i dieci gradi sotto zero).",
+            "passi": [
+              "In autunno pulisci il terreno circostante la pianta.",
+              "Se il freddo scende regolarmente sotto i dieci gradi sotto zero, proteggi radici e base con una pacciamatura leggera di aghi di pino o paglia.",
+              "Se la pianta è in vaso, avvolgi il vaso con pluriball, feltro o tessuto non tessuto e avvicinalo ai muri della casa, al riparo dal vento.",
+              "Fai la prima potatura di pulizia solo quando in primavera la pianta riprende attivamente la vegetazione."
+            ],
+            "attenzione": [
+              "Non portare il timo in abitazioni riscaldate: la guida segnala aria secca e luce insufficiente, che lo porterebbero a una morte rapida.",
+              "Fonte solo divulgativa."
+            ],
+            "certezza": "bassa",
+            "fonti": ["b12"]
+          }
+        ]
+      },
+      "da_verificare": [
+        "Adattare mesi e protezioni alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Mesi di semina, trapianto e raccolta: nessuna fonte li indica.",
+        "Sesti, profondità e tempi di raccolta non documentati."
+      ]
+    },
+    {
+      "id": "origano",
+      "nome": "Origano",
+      "alias": ["origano comune"],
+      "nome_scientifico": "Origanum vulgare L.",
+      "famiglia": "Lamiaceae (Labiatae)",
+      "descrizione": "Pianta aromatica perenne che si moltiplica facilmente e si raccoglie quando porta foglie e fiori.",
+      "ciclo": {
+        "valore": "perenne",
+        "nota": "La scheda la descrive come erbacea perenne alta fino a 80 cm.",
+        "certezza": "alta",
+        "fonti": ["b5"]
+      },
+      "esposizione": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "acqua": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "terreno": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "in_vaso": {
+        "valore": null,
+        "come": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda non indica tempi numerici.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": null,
+        "distanza_piante_cm": null,
+        "nota": "Non documentata: la scheda indica solo il periodo (primavera) ma non profondità e sesti.",
+        "certezza": null,
+        "fonti": []
+      },
+      "calendario_mesi": {
+        "semina": [],
+        "trapianto": [],
+        "raccolta": [],
+        "nota": "Voci senza fonti: nessuna delle schede consultate indica mesi operativi.",
+        "certezza": null,
+        "fonti": []
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "seme",
+            "come": [
+              "Semina in primavera, come indicato dalla scheda."
+            ],
+            "certezza": "alta",
+            "fonti": ["b5"]
+          },
+          {
+            "tipo": "divisione",
+            "come": [
+              "Divisione delle piante accestite, in primavera o dopo la fioritura."
+            ],
+            "certezza": "alta",
+            "fonti": ["b5"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [],
+        "nota": "Voci senza fonti: nessuna delle schede consultate indica come passa l'inverno o come proteggerlo.",
+        "certezza": null,
+        "fonti": []
+      },
+      "da_verificare": [
+        "Adattare mesi e protezioni alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Requisiti di terreno, esposizione, acqua e in vaso: non documentati.",
+        "Mesi di semina e raccolta: nessuna fonte li indica."
+      ]
+    },
+    {
+      "id": "fragola",
+      "nome": "Fragola",
+      "alias": ["fragole"],
+      "nome_scientifico": "Fragaria spp.",
+      "famiglia": "Rosaceae",
+      "descrizione": "Piccolo frutto che chiede terreno subacido e acqua costante, e che si moltiplica per stoloni.",
+      "ciclo": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "esposizione": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "acqua": {
+        "valore": "Acqua in quantità moderate ma costanti durante tutto il ciclo, in particolare nel post-trapianto, secondo la scheda.",
+        "certezza": "alta",
+        "fonti": ["b7"]
+      },
+      "terreno": {
+        "valore": "Subacido: la scheda dà pH ottimale 5,5-6,5 e tolleranza fino a pH 7,5 in un buon terreno agrario.",
+        "certezza": "alta",
+        "fonti": ["b7"]
+      },
+      "in_vaso": {
+        "valore": null,
+        "come": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda non indica tempi numerici dalla semina.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": 125,
+        "distanza_piante_cm": null,
+        "nota": "La scheda dà la distanza delle file di circa 125 cm; sulla fila 35-35 cm se doppia, 15-20 cm se singola (il campo resta null perché la misura dipende dal sistema scelto); la fragola si impianta con piantine, non con i semi.",
+        "certezza": "alta",
+        "fonti": ["b7"]
+      },
+      "calendario_mesi": {
+        "semina": [],
+        "trapianto": [],
+        "raccolta": [],
+        "nota": "Voci senza fonti: nessuna delle schede consultate indica mesi operativi.",
+        "certezza": null,
+        "fonti": []
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "stoloni",
+            "come": [
+              "La scheda descrive il materiale di impianto proveniente da un vivaio con piante madri dedicate alla produzione degli stoloni."
+            ],
+            "certezza": "alta",
+            "fonti": ["b7"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [],
+        "nota": "Voci senza fonti: le pagine di svernamento trovate riguardano la fragola dorata di bosco, specie diversa dalla fragola coltivata, quindi non importate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "da_verificare": [
+        "Adattare mesi e sesti alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Inverno: serve una fonte dedicata alla fragola coltivata (quella trovata parla solo della fragola di bosco).",
+        "Mesi di trapianto e raccolta non documentati.",
+        "In vaso: nessuna fonte consultata lo affronta."
+      ]
+    },
+    {
+      "id": "sedano",
+      "nome": "Sedano",
+      "alias": ["sedano"],
+      "nome_scientifico": "Apium graveolens L.",
+      "famiglia": "Apiaceae (Ombrelliferae)",
+      "descrizione": "Ortaggio da trapianto: seminato in semenzaio alla fine di gennaio, da produzioni utili già a giugno.",
+      "ciclo": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "esposizione": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "acqua": {
+        "valore": "Dopo il trapianto la coltura deve essere subito irrigata, secondo la scheda, che segnala anche la necessità del diserbo.",
+        "certezza": "alta",
+        "fonti": ["b6"]
+      },
+      "terreno": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "in_vaso": {
+        "valore": null,
+        "come": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda indica i mesi ma non i giorni (trapianto a fine aprile, produzioni utili già a giugno).",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": 70,
+        "distanza_piante_cm": 25,
+        "nota": "Distanze di trapianto in coltura specializzata: 70 cm tra le file e 25-30 cm sulla fila (nel campo è riportato il limite più basso della fascia); il seme va invece in semenzaio con 1-2 g per metro quadrato; profondità di semina non indicata.",
+        "certezza": "alta",
+        "fonti": ["b6"]
+      },
+      "calendario_mesi": {
+        "semina": [1],
+        "trapianto": [4, 6, 7],
+        "raccolta": [6],
+        "nota": "La scheda indica: semina in semenzaio anche a fine gennaio in serra riscaldata; trapianto alla fine di aprile per produzioni utili a giugno; a giugno-luglio trapianto dei sedani a produzione invernale (tempi della raccolta invernale non precisati).",
+        "certezza": "alta",
+        "fonti": ["b6"]
+      },
+      "potatura_cura": {
+        "valore": "Imbianchimento: quando la pianta ha raggiunto uno sviluppo sufficiente si rincalzano le piante e si legano le foglie, secondo la scheda.",
+        "certezza": "alta",
+        "fonti": ["b6"]
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "seme",
+            "come": [
+              "Semina in semenzaio con 1-2 g di seme per metro quadrato, anche a fine gennaio in serra riscaldata o letto caldo.",
+              "Trapianta le piantine in pieno campo quando sono pronte: fine aprile per la produzione estiva, giugno-luglio per quella invernale."
+            ],
+            "certezza": "alta",
+            "fonti": ["b6"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [],
+        "nota": "Voci senza fonti: la scheda cita solo i sedani trapiantati a giugno-luglio per la produzione invernale, ma non dice se e come sopravvivono alle gelate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "da_verificare": [
+        "Adattare mesi e sesti alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Inverno: la sopravvivenza alla gelata non è documentata.",
+        "Profondità di semina e terreno: non documentati."
+      ]
+    },
+    {
+      "id": "cavolo-nero",
+      "nome": "Cavolo nero",
+      "alias": ["cavolo toscano", "cavolo nero di Toscana", "nero di toscana"],
+      "nome_scientifico": "Brassica oleracea L. var. acephala sabellica",
+      "famiglia": "Brassicaceae (Cruciferae)",
+      "descrizione": "Cavolo da foglia molto resistente al gelo, che si lascia in orto fino a tutto l'inverno.",
+      "ciclo": {
+        "valore": "biennale",
+        "nota": "La guida divulgativa dice che è pianta biennale e al secondo anno va a seme.",
+        "certezza": "bassa",
+        "fonti": ["b10"]
+      },
+      "esposizione": {
+        "valore": "Ben esposto al sole: la guida dice che la specie preferisce orti esposti al sole.",
+        "certezza": "bassa",
+        "fonti": ["b10"]
+      },
+      "acqua": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate (la guida usa solo una scala generica del fabbisogno idrico).",
+        "certezza": null,
+        "fonti": []
+      },
+      "terreno": {
+        "valore": "Suolo drenante e non esigente; nei terreni poveri la guida consiglia letame maturo o compost e una concimazione azotata all'impianto.",
+        "certezza": "bassa",
+        "fonti": ["b10"]
+      },
+      "in_vaso": {
+        "valore": null,
+        "come": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti per il cavolo nero: la scheda agraria sui cavoli dà i giorni solo per il cavolo cappuccio.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": 100,
+        "distanza_piante_cm": 50,
+        "nota": "La guida indica mezzo metro tra le piante e un metro tra le file; la stessa scheda riporta anche una distanza di trapianto 80x50 cm. Profondità di semina non documentata.",
+        "certezza": "bassa",
+        "fonti": ["b10"]
+      },
+      "calendario_mesi": {
+        "semina": [3, 4, 5, 6, 7, 8, 9, 10],
+        "trapianto": [4, 5, 6, 7, 8, 9, 10],
+        "raccolta": [6, 7, 8, 9, 10, 11, 12, 1, 2],
+        "nota": "La guida distingue: semina in semenzaio marzo-agosto e diretta in orto aprile-ottobre (il campo unisce le due finestre); trapianto aprile-ottobre; raccolta giugno-febbraio.",
+        "certezza": "bassa",
+        "fonti": ["b10"]
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate (la guida parla solo di terreno e concimazione).",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "seme",
+            "come": [
+              "Semina in semenzaio da marzo ad agosto, oppure in diretta in orto da aprile a ottobre.",
+              "Trapianta in orto da aprile a ottobre, nel sesto indicato."
+            ],
+            "certezza": "bassa",
+            "fonti": ["b10"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [
+          {
+            "id": "sul-posto",
+            "titolo": "Può sopravvivere all'aperto?",
+            "esito": "si",
+            "riassunto": "Sì: la guida lo conta tra le piante da orto più resistenti al gelo e dice che le foglie non temono le temperature sotto zero, con raccolta da giugno a febbraio.",
+            "passi": [],
+            "attenzione": [
+              "La scheda agraria sui cavoli in generale dice che tollerano il freddo ma non il gelo: le due indicazioni vanno riconciliate; la resistenza dichiarata è comunque da una sola fonte divulgativa.",
+              "La guida non dà consigli tecnici per le gelate molto forti."
+            ],
+            "certezza": "bassa",
+            "fonti": ["b10"]
+          }
+        ]
+      },
+      "da_verificare": [
+        "Adattare mesi e sesti alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Resistenza al gelo: conciliare l'affermazione della guida con l'avvertenza generale di agraria.org sui cavoli con una fonte più autorevole.",
+        "Giorni alla raccolta, profondità di semina e coltivazione in vaso: non documentate.",
+        "Nome scientifico: agraria.org scrive Brassica oleracea var. acephala sabellica, la guida divulgativa var. palmifolia: scegliere la convenzione."
+      ]
+    },
+    {
+      "id": "barbabietola",
+      "nome": "Barbabietola",
+      "alias": ["barbabietola rossa", "rapa rossa"],
+      "nome_scientifico": "Beta vulgaris",
+      "famiglia": "Amaranthaceae (Chenopodiaceae)",
+      "descrizione": "Ortaggio da radice che si semina direttamente in campo e si raccoglie dopo circa due mesi.",
+      "ciclo": {
+        "valore": "biennale",
+        "nota": "La guida la chiama pianta biennale e avverte che, se messa in campo troppo presto e quando incontra il gelo, va in pre-fioritura.",
+        "certezza": "bassa",
+        "fonti": ["b11"]
+      },
+      "esposizione": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate (la guida usa solo una scala generica dell'esposizione solare).",
+        "certezza": null,
+        "fonti": []
+      },
+      "acqua": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate (la guida usa solo una scala generica del fabbisogno idrico).",
+        "certezza": null,
+        "fonti": []
+      },
+      "terreno": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "in_vaso": {
+        "valore": null,
+        "come": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti in giorni: la guida parla di circa un paio di mesi dalla semina.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": 2,
+        "distanza_file_cm": 25,
+        "distanza_piante_cm": 10,
+        "nota": "La guida indica seme a 2-3 cm di profondità (nel campo è usato il valore più basso); file distanti 25 cm; semi ogni 10 cm lungo la fila, poi da diradare a piantine cresciute; la scheda riporta anche distanza di trapianto 25x10 cm.",
+        "certezza": "bassa",
+        "fonti": ["b11"]
+      },
+      "calendario_mesi": {
+        "semina": [2, 3, 4, 5, 6],
+        "trapianto": [3, 4, 5, 6, 7],
+        "raccolta": [4, 5, 6, 7, 8, 9],
+        "nota": "La guida distingue: semina in semenzaio febbraio-marzo e diretta in orto marzo-giugno (il campo unisce le due finestre); trapianto marzo-luglio; raccolta aprile-settembre.",
+        "certezza": "bassa",
+        "fonti": ["b11"]
+      },
+      "potatura_cura": {
+        "valore": "Pianta da non potare; interviene invece la fase di raccolto: la radice che supera i 10 cm di diametro indurisce e diventa meno buona, secondo la guida.",
+        "certezza": "bassa",
+        "fonti": ["b11"]
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "seme",
+            "come": [
+              "Semina diretta in pieno campo preferibilmente, con seme a 2-3 cm di profondità.",
+              "Metti le file a 25 cm e i semi ogni 10 cm lungo la fila; poi dirada a piantine cresciute.",
+              "Attenzione al periodo: se messa in campo troppo presto e quando le piantine incontrano il gelo, la pianta va in pre-fioritura e il raccolto si rovina."
+            ],
+            "certezza": "bassa",
+            "fonti": ["b11"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [],
+        "nota": "Voci senza fonti: la guida documenta solo il rischio di pre-fioritura delle piantine giovani che incontrano il gelo, non la sopravvivenza in inverno.",
+        "certezza": null,
+        "fonti": []
+      },
+      "da_verificare": [
+        "Adattare mesi e sesti alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Inverno: sopravvivenza della radice nel terreno e eventuali protezioni non documentate.",
+        "Terreno, esposizione, acqua e in vaso: non documentati."
+      ]
+    },
+    {
+      "id": "limone",
+      "nome": "Limone",
+      "alias": ["limoni"],
+      "nome_scientifico": "Citrus limon (L.) Burm.",
+      "famiglia": "Rutaceae",
+      "descrizione": "Agrume che matura anche senza grande caldo estivo, ma che teme molto il gelo: con -4/-5 gradi perde completamente le foglie.",
+      "ciclo": {
+        "valore": "rifiorente",
+        "nota": "La scheda lo definisce specie rifiorente; non usa il termine ciclo.",
+        "certezza": "alta",
+        "fonti": ["b8"]
+      },
+      "esposizione": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate; la scheda segnala solo la sensibilità al vento e il bisogno di frangivento.",
+        "certezza": null,
+        "fonti": []
+      },
+      "acqua": {
+        "valore": "Nei periodi prolungati di siccità serve l'irrigazione, secondo la scheda.",
+        "certezza": "alta",
+        "fonti": ["b8"]
+      },
+      "terreno": {
+        "valore": "Cresce bene anche in terreni poveri; la scheda dà pH ottimale intorno a 5,5-6,5.",
+        "certezza": "alta",
+        "fonti": ["b8"]
+      },
+      "in_vaso": {
+        "valore": "dipende",
+        "come": null,
+        "nota": "Voci senza fonti: nessuna delle schede consultate descrive la coltivazione in vaso del limone.",
+        "certezza": null,
+        "fonti": []
+      },
+      "giorni_alla_raccolta": {
+        "min": null,
+        "max": null,
+        "nota": "Non inseriti: la scheda non indica tempi numerici.",
+        "certezza": null,
+        "fonti": []
+      },
+      "semina": {
+        "profondita_cm": null,
+        "distanza_file_cm": null,
+        "distanza_piante_cm": null,
+        "nota": "Non documentata: la fonte non passa dalla semina ma dall'innesto.",
+        "certezza": null,
+        "fonti": []
+      },
+      "calendario_mesi": {
+        "semina": [],
+        "trapianto": [],
+        "raccolta": [],
+        "nota": "Voci senza fonti: la scheda dice che le fioriture principali si hanno in primavera e che la specie è rifiorente, ma non indica mesi operativi.",
+        "certezza": null,
+        "fonti": []
+      },
+      "potatura_cura": {
+        "valore": null,
+        "nota": "Non documentato nelle fonti consultate.",
+        "certezza": null,
+        "fonti": []
+      },
+      "propagazione": {
+        "metodi": [
+          {
+            "tipo": "innesto",
+            "come": [
+              "Il limone si moltiplica per innesto su diversi portinnesti, dal franco al limone Volkameriano, secondo la scheda."
+            ],
+            "certezza": "alta",
+            "fonti": ["b8"]
+          }
+        ]
+      },
+      "inverno": {
+        "opzioni": [
+          {
+            "id": "sul-posto",
+            "titolo": "Può sopravvivere all'aperto?",
+            "esito": "dipende",
+            "riassunto": "Dipende: con temperature di -4/-5 gradi la pianta si defoglia completamente e a temperature inferiori si danneggia anche il legno; fiori e frutti reggono fino a -2 gradi.",
+            "passi": [],
+            "attenzione": [
+              "La scheda non descrive tecniche di protezione invernale né lo svernamento in vaso.",
+              "La scheda segnala la sensibilità al vento: nei posti ventosi servono frangivento."
+            ],
+            "certezza": "alta",
+            "fonti": ["b8"]
+          }
+        ]
+      },
+      "da_verificare": [
+        "Adattare le indicazioni alla quota 340 m (Castelli Romani) e al microclima locale.",
+        "Coltivazione in vaso: nessuna fonte consultata la tratta; va cercato materiale specifico.",
+        "Svernamento in vaso e mesi operativi: non documentati."
+      ]
+    }
+  ]
+}

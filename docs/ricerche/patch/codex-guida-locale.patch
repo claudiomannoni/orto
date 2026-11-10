@@ -1,0 +1,414 @@
+diff --git a/data/it/raccolta.json b/data/it/raccolta.json
+index 1f16fed..0910c02 100644
+--- a/data/it/raccolta.json
++++ b/data/it/raccolta.json
+@@ -35,6 +35,27 @@
+       "url": "https://www.iss.it/-/vademecum-per-le-conserve-casalinghe-sicure",
+       "consultata": "2026-11-01",
+       "nota": "Indicazioni ufficiali di sicurezza per conserve domestiche."
++    },
++    "f6": {
++      "titolo": "Growing asparagus in home gardens",
++      "ente": "University of Minnesota Extension",
++      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-asparagus",
++      "consultata": "2026-11-02",
++      "nota": "Soglie orientative di raccolta e cautela nelle prime stagioni; le date stagionali sono riferite al Minnesota e non trasferite."
++    },
++    "f7": {
++      "titolo": "Harvesting asparagus",
++      "ente": "University of Minnesota Extension",
++      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/harvesting-asparagus",
++      "consultata": "2026-11-02",
++      "nota": "Lunghezza, raccolta manuale e rischio di danneggiare corona e turioni vicini; calendario riferito al Minnesota."
++    },
++    "f8": {
++      "titolo": "Harvest and Storage of Vegetables and Fruits",
++      "ente": "Utah State University Extension",
++      "url": "https://extension.usu.edu/yardandgarden/research/harvest-and-storage-of-vegetables-and-fruits",
++      "consultata": "2026-11-02",
++      "nota": "Indicazioni generali di raccolta e conservazione in frigorifero; durata solo orientativa."
+     }
+   },
+   "colture": {
+@@ -230,15 +251,15 @@
+       "fonti": ["f1", "f2"]
+     },
+     "asparagi": {
+-      "quando_raccogliere": "Raccogli i turioni quando sono ancora teneri; evita che le brattee si aprano, segno che sono troppo sviluppati.",
+-      "come_raccogliere": "Recidi i turioni senza danneggiare la corona; tecnica e profondità del taglio: da verificare.",
++      "quando_raccogliere": "Raccogli i turioni quando sono teneri e con la punta ancora chiusa; circa 15–25 cm è un riferimento, non una regola rigida. Per le piante giovani privilegia la formazione della chioma e delle riserve: una scelta prudente è rimandare la raccolta fino al terzo anno, valutando vigore e condizioni della pianta. Le stagioni di raccolta dipendono dalla zona e non si trasferiscono da altri climi.",
++      "come_raccogliere": "Per un piccolo orto, spezza il turione vicino al terreno senza scavare. Se usi un coltello, procedi con cautela: un taglio profondo può ferire la corona o i turioni vicini.",
+       "conservazione": [
+-        { "dove": "frigorifero", "quanto": "dieci giorni", "come": "Per brevi periodi, il disciplinare indica circa 10 giorni a 0-2 °C e umidità elevata.", "certezza": "media", "fonti": ["f2"] },
+-        { "dove": "congelatore", "quanto": "da verificare", "come": "L'Università di Bologna include gli asparagi tra gli ortaggi adatti al congelamento.", "certezza": "media", "fonti": ["f3"] }
++        { "dove": "frigorifero", "quanto": "pochi giorni, indicativamente", "come": "Raffredda presto e conserva in un sacchetto forato; consumalo quanto prima. La durata reale dipende da freschezza e condizioni di conservazione.", "certezza": "media", "fonti": ["f7", "f8"] },
++        { "dove": "congelatore", "quanto": "da verificare", "come": "È indicato tra gli ortaggi che si possono congelare; per preparazione e durata segui indicazioni specifiche affidabili.", "certezza": "media", "fonti": ["f3"] }
+       ],
+       "sicurezza": "",
+       "certezza": "media",
+-      "fonti": ["f2", "f3"]
++      "fonti": ["f2", "f3", "f6", "f7", "f8"]
+     }
+   }
+ }
+diff --git a/docs/ASSISTENZA-LOCALE.md b/docs/ASSISTENZA-LOCALE.md
+new file mode 100644
+index 0000000..5ce02f3
+--- /dev/null
++++ b/docs/ASSISTENZA-LOCALE.md
+@@ -0,0 +1,9 @@
++# Guida locale senza chiave
++
++La schermata “Chiedi a Rossella” mostra una guida locale anche quando non è configurata una chiave Gemini. L’utente può selezionare una coltura già registrata oppure una voce del catalogo.
++
++La guida usa soltanto contenuti già presenti nell’app: fasi di crescita e, quando disponibile, raccolta e conservazione. Il catalogo attuale copre 22/27 colture con fasi, 20/27 con raccolta e 27/27 con dati stagionali; le lacune sono da colmare per priorità, senza inventare contenuti. Per le colture registrate calcola l’età e la fase solo se origine e data consentono una stima; con data approssimativa lo dichiara, con origine/data sconosciuta non inventa una fase. Per una coltura non registrata mostra le fasi generali. Le fonti restano nei dati interni, non nella vista utente.
++
++La modalità locale non invia richieste e non richiede consenso cloud. Gemini resta facoltativo per domande libere e diagnosi fotografiche; queste continuano a richiedere una chiave e il consenso già previsto. Non cambia IndexedDB né il formato dei backup.
++
++Verifiche: test puro guida locale, sintassi dei moduli e test i18n/CSS/motore/contenuti verdi. La suite completa ha 49 verdi e 40 rossi: i test browser richiedono Playwright, non disponibile in questo ambiente. La prova browser di Chiedi a Rossella va eseguita prima di integrare e aggiornare versione/cache.
+diff --git a/i18n/it.json b/i18n/it.json
+index 4c53cc3..d1c3cef 100644
+--- a/i18n/it.json
++++ b/i18n/it.json
+@@ -589,6 +589,23 @@
+   "chiedi.rimaste": "Domande rimaste oggi: {n}",
+   "chiedi.serve_chiave": "Per fare domande a Rossella serve la chiave gratuita di Google Gemini. Si mette una volta sola nelle impostazioni.",
+   "chiedi.vai_impostazioni": "Vai alle impostazioni",
++  "chiedi.locale.titolo": "Guida passo passo",
++  "chiedi.locale.spiega": "Scegli una pianta. Ti mostro le informazioni già nell’app; se l’hai registrata, calcolo la fase solo quando origine e data lo consentono. Questa guida non invia i tuoi dati.",
++  "chiedi.locale.scegli": "Pianta",
++  "chiedi.locale.segnata": "{nome} (nel mio orto)",
++  "chiedi.locale.catalogo": "{nome} (guida generale)",
++  "chiedi.locale.svuoto": "Scegli una pianta",
++  "chiedi.locale.scegli_per_iniziare": "Scegli una pianta dal tuo orto o dal catalogo.",
++  "chiedi.locale.non_segnata": "Non risulta registrata nel tuo orto: mostro le fasi generali, senza stimare quella attuale.",
++  "chiedi.locale.eta_sconosciuta": "Non ho una data o un’origine sufficientemente precisa per stimare l’età e la fase. Mostro il percorso generale.",
++  "chiedi.locale.eta_approssimativa": "Età stimata: circa {n} giorni (la data è approssimativa).",
++  "chiedi.locale.eta_seme": "Giorni dalla semina: {n}.",
++  "chiedi.locale.eta_piantina": "Età stimata includendo il vivaio: {n} giorni.",
++  "chiedi.locale.tutte_fasi": "Vedi tutte le fasi",
++  "chiedi.locale.no_dati": "Per questa coltura non ci sono ancora istruzioni locali sufficienti. Non stimo tempi o cure.",
++  "chiedi.locale.scheda": "Apri la scheda completa",
++  "chiedi.locale.gemini_facoltativa": "Per una domanda libera o l’analisi di una foto puoi attivare Gemini: è facoltativo.",
++  "chiedi.locale.rossella": "Anche senza Gemini puoi consultare le fasi e i consigli presenti nell’app. Le indicazioni dipendono dai dati disponibili.",
+   "chiedi.consenso": "La tua domanda e un riassunto del tuo orto (zona, mese, colture, tempo) vanno a Google Gemini per avere la risposta. Niente nomi, niente foto. Va bene?",
+   "chiedi.errore.tetto": "Per oggi le domande bastano: il piano gratuito ha un tetto. Riprova domani.",
+   "chiedi.errore.risposta": "Rossella ha risposto in modo confuso. Riprova con parole diverse.",
+diff --git a/js/ai/guida-locale.js b/js/ai/guida-locale.js
+new file mode 100644
+index 0000000..cafb42e
+--- /dev/null
++++ b/js/ai/guida-locale.js
+@@ -0,0 +1,53 @@
++import { etaDellaPianta, faseAttuale } from '../motore/fasi.js';
++
++function dataValida(data) {
++  if (typeof data !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(data)) return false;
++  const valore = new Date(data + 'T00:00:00Z');
++  return !Number.isNaN(valore.getTime()) && valore.toISOString().slice(0, 10) === data;
++}
++
++// Crea una guida soltanto dai dati locali presenti. Non deduce date o cure mancanti.
++export function guidaLocale({ coltura = null, scheda, datiFasi, datiRaccolta, oggi } = {}) {
++  if (!scheda?.id) return { disponibile: false, motivo: 'scheda' };
++  const dati = datiFasi?.colture?.[scheda.id];
++  const fasi = Array.isArray(dati?.fasi) ? dati.fasi : [];
++  const raccolta = datiRaccolta?.colture?.[scheda.id] ?? null;
++  if (!fasi.length && !raccolta) return { disponibile: false, motivo: 'dati', nome: scheda.nome };
++
++  const origine = coltura?.origine;
++  const origineCompatibile = origine
++    ? ['seme', 'piantina'].includes(origine)
++    : ['seme', 'piantina'].includes(coltura?.partenza);
++  const data = coltura?.dataSemina;
++  const dataInIntervallo = dataValida(data) && data <= oggi && dataValida(oggi);
++  const tracciabile = Boolean(coltura && origineCompatibile && dataInIntervallo);
++  const daPiantina = origine ? origine === 'piantina' : coltura?.partenza === 'piantina';
++  const eta = tracciabile
++    ? etaDellaPianta({ partenza: daPiantina ? 'piantina' : 'seme', data, piantinaEta: coltura.piantinaEta }, oggi)
++    : null;
++  const stato = eta == null ? null : faseAttuale(fasi, eta);
++
++  return {
++    disponibile: true,
++    nome: scheda.nome,
++    schedaId: scheda.id,
++    varieta: coltura?.varieta || '',
++    tracciata: Boolean(coltura),
++    origine,
++    daPiantina,
++    dataApprossimativa: coltura?.dataApprossimativa === true,
++    eta,
++    fase: stato?.fase ?? null,
++    giorniAllaProssima: stato?.giorniAllaProssima ?? null,
++    prossima: stato ? fasi[stato.indice + 1] ?? null : null,
++    fasi: fasi.map((f) => ({
++      id: f.id,
++      nome: f.nome,
++      da_giorno: f.da_giorno,
++      cosa_fare: Array.isArray(f.cosa_fare) ? f.cosa_fare : [],
++      accortezze: Array.isArray(f.accortezze) ? f.accortezze : [],
++      certezza: ['alta', 'media', 'bassa'].includes(f.certezza) ? f.certezza : 'bassa',
++    })),
++    raccolta,
++  };
++}
+diff --git a/js/screens/chiedi.js b/js/screens/chiedi.js
+index fb3ac63..8ff39d1 100644
+--- a/js/screens/chiedi.js
++++ b/js/screens/chiedi.js
+@@ -1,14 +1,15 @@
+ // «Chiedi a Rossella»: domanda libera sull'orto. La risposta arriva da Gemini (con la chiave dell'utente) ed è sempre un consiglio da verificare.
+-import { el, oggiISO, meseDi, aggiungi, sostituisci } from '../util.js';
++import { el, oggiISO, aggiungi, sostituisci } from '../util.js';
+ import { t, locale } from '../i18n.js';
+ import { leggi, imposta } from '../store/impostazioni.js';
+ import { disponibile } from '../ai/ai.js';
+ import { chiediARossella, restantiOggi, LUNGHEZZA_MASSIMA } from '../ai/consiglio.js';
+ import { elencoColture } from '../store/dati.js';
+-import { zone } from '../contenuti.js';
++import { zone, catalogo, fasi, raccolta, trovaScheda } from '../contenuti.js';
+ import { previsioni } from '../meteo.js';
+ import { conversazione } from '../ui/mascotte.js';
+ import { pulsanteAscolta } from '../ui/voce.js';
++import { guidaLocale } from '../ai/guida-locale.js';
+ 
+ const ESEMPI = ['chiedi.esempio.1', 'chiedi.esempio.2', 'chiedi.esempio.3'];
+ 
+@@ -27,7 +28,9 @@ function messaggioErrore(e) {
+ }
+ 
+ export async function monta(contenitore) {
+-  const [impostazioni, elencoZone, colture] = await Promise.all([leggi(), zone(), elencoColture()]);
++  const [impostazioni, elencoZone, colture, schede, datiFasi, datiRaccolta] = await Promise.all([
++    leggi(), zone(), elencoColture(), catalogo(), fasi(), raccolta(),
++  ]);
+   const haChiave = await disponibile();
+   const area = el('div', { class: 'chiedi-risposta', 'aria-live': 'polite' });
+   const campo = el('textarea', { name: 'domanda', rows: 3, maxlength: LUNGHEZZA_MASSIMA, placeholder: t('chiedi.placeholder'), 'aria-label': t('chiedi.placeholder') });
+@@ -49,7 +52,7 @@ export async function monta(contenitore) {
+       const zona = elencoZone.find((z) => z.id === impostazioni.zona);
+       const r = await chiediARossella(campo.value, {
+         zona: zona?.nome,
+-        mese: new Date(2026, meseDi(oggiISO()) - 1, 1).toLocaleDateString(locale(), { month: 'long' }),
++        mese: new Date().toLocaleDateString(locale(), { month: 'long' }),
+         metodo: impostazioni.metodo,
+         colture: colture.map((c) => c.nome),
+         tempo: await tempoDiOggi(),
+@@ -58,9 +61,9 @@ export async function monta(contenitore) {
+         el('section', { class: 'card' },
+           el('p', {}, r.risposta),
+           pulsanteAscolta(r.risposta),
+-          r.da_controllare ? el('p', { class: 'aiuto' }, el('strong', {}, `${t('chiedi.controlla')}: `), r.da_controllare) : null,
++          r.da_controllare ? el('p', { class: 'aiuto' }, el('strong', {}, t('chiedi.controlla') + ': '), r.da_controllare) : null,
+           r.chiedi_a_un_tecnico ? el('p', { class: 'avviso' }, t('chiedi.tecnico')) : null,
+-          el('p', {}, el('span', { class: `etichetta certezza ${r.certezza}` }, t(`lavoro.certezza.${r.certezza}`))),
++          el('p', {}, el('span', { class: 'etichetta certezza ' + r.certezza }, t('lavoro.certezza.' + r.certezza))),
+           el('p', { class: 'aiuto' }, t('chiedi.nota_ia'))));
+     } catch (errore) {
+       sostituisci(area, el('p', { class: 'avviso', role: 'alert' }, messaggioErrore(errore)));
+@@ -69,19 +72,101 @@ export async function monta(contenitore) {
+     }
+   });
+ 
+-  const rimasteTesto = el('p', { class: 'aiuto' });
+-  restantiOggi().then((n) => { rimasteTesto.textContent = t('chiedi.rimaste', { n }); });
++  const opzioniGuida = [];
++  const schedeUsate = new Set();
++  for (const coltura of colture) {
++    const scheda = schede.find((x) => x.id === coltura.schedaId) ?? trovaScheda(schede, coltura.nome);
++    if (!scheda) continue;
++    const varieta = coltura.varieta ? ' · ' + coltura.varieta : '';
++    opzioniGuida.push({ valore: 'orto:' + coltura.id, coltura, scheda, testo: t('chiedi.locale.segnata', { nome: coltura.nome + varieta }) });
++    schedeUsate.add(scheda.id);
++  }
++  for (const scheda of schede) {
++    if (!schedeUsate.has(scheda.id)) opzioniGuida.push({ valore: 'scheda:' + scheda.id, coltura: null, scheda, testo: t('chiedi.locale.catalogo', { nome: scheda.nome }) });
++  }
++  const valoreIniziale = opzioniGuida.find((x) => x.coltura)?.valore ?? '';
++  const selezioneGuida = el('select', { name: 'guida-locale', 'aria-label': t('chiedi.locale.scegli') },
++    [el('option', { value: '', selected: !valoreIniziale }, t('chiedi.locale.svuoto')),
++      ...opzioniGuida.map((x) => el('option', { value: x.valore, selected: x.valore === valoreIniziale }, x.testo))]);
++  const contenutoGuida = el('div', { class: 'chiedi-guida-output', 'aria-live': 'polite' });
++
++  const rendiLista = (voci) => voci?.length
++    ? el('ul', { class: 'elenco-semplice' }, voci.map((voce) => el('li', {}, voce)))
++    : null;
++
++  const mostraGuida = () => {
++    const scelta = opzioniGuida.find((x) => x.valore === selezioneGuida.value);
++    if (!scelta) {
++      contenutoGuida.replaceChildren(el('p', { class: 'aiuto' }, t('chiedi.locale.scegli_per_iniziare')));
++      return;
++    }
++    const guida = guidaLocale({ coltura: scelta.coltura, scheda: scelta.scheda, datiFasi, datiRaccolta, oggi: oggiISO() });
++    const parti = [el('h3', {}, guida.nome + (guida.varieta ? ' · ' + guida.varieta : ''))];
++    if (!guida.disponibile) {
++      parti.push(el('p', { class: 'aiuto' }, t('chiedi.locale.no_dati')));
++      contenutoGuida.replaceChildren(...parti);
++      return;
++    }
++    if (!guida.tracciata) parti.push(el('p', { class: 'aiuto' }, t('chiedi.locale.non_segnata')));
++    else if (guida.eta == null) parti.push(el('p', { class: 'aiuto' }, t('chiedi.locale.eta_sconosciuta')));
++    else {
++      const chiaveEta = guida.dataApprossimativa ? 'chiedi.locale.eta_approssimativa' : guida.daPiantina ? 'chiedi.locale.eta_piantina' : 'chiedi.locale.eta_seme';
++      parti.push(el('p', { class: 'meta' }, t(chiaveEta, { n: guida.eta })));
++    }
++
++    if (guida.fase) {
++      parti.push(el('h4', {}, guida.fase.nome, ' ', el('span', { class: 'etichetta certezza ' + guida.fase.certezza }, t('lavoro.certezza.' + guida.fase.certezza))));
++      parti.push(el('h5', {}, t('fase.cosa_fare')), rendiLista(guida.fase.cosa_fare));
++      parti.push(el('h5', {}, t('fase.accortezze')), rendiLista(guida.fase.accortezze));
++      if (guida.prossima && guida.giorniAllaProssima != null) parti.push(el('p', { class: 'aiuto' }, t('fase.prossima', { n: guida.giorniAllaProssima, nome: guida.prossima.nome })));
++      const voce = [guida.fase.nome, ...guida.fase.cosa_fare, ...guida.fase.accortezze].join('. ');
++      if (voce) parti.push(pulsanteAscolta(voce));
++    }
++
++    if (guida.fasi.length) {
++      const fasiGenerali = guida.fasi.map((fase) => el('section', {},
++        el('h4', {}, fase.nome, ' ', el('span', { class: 'etichetta certezza ' + fase.certezza }, t('lavoro.certezza.' + fase.certezza))),
++        rendiLista(fase.cosa_fare),
++        fase.accortezze.length ? el('p', { class: 'aiuto' }, el('strong', {}, t('fase.accortezze') + ': '), fase.accortezze.join(' ')) : null));
++      parti.push(el('details', { class: 'meteo-dettagli chiedi-guida-fasi' },
++        el('summary', {}, t('chiedi.locale.tutte_fasi')), ...fasiGenerali));
++    }
++
++    if (guida.raccolta) {
++      const r = guida.raccolta;
++      const conservazione = Array.isArray(r.conservazione) ? r.conservazione : [];
++      parti.push(el('details', { class: 'meteo-dettagli' },
++        el('summary', {}, t('raccolta.titolo')),
++        r.quando_raccogliere ? el('p', {}, el('strong', {}, t('raccolta.quando') + ': '), r.quando_raccogliere) : null,
++        r.come_raccogliere ? el('p', {}, el('strong', {}, t('raccolta.come') + ': '), r.come_raccogliere) : null,
++        conservazione.length ? el('div', {}, el('h4', {}, t('raccolta.conservare')),
++          el('ul', { class: 'elenco-semplice' }, conservazione.map((c) => el('li', {}, el('strong', {}, (c.dove || '') + ': '), c.quanto === 'da verificare' ? t('raccolta.da_verificare') : (c.quanto || ''), c.come ? '. ' + c.come : '')))) : null));
++    }
++
++    if (scelta.coltura) parti.push(el('a', { class: 'btn piccolo', href: '#/pianta?id=' + encodeURIComponent(scelta.coltura.id) }, t('chiedi.locale.scheda')));
++    contenutoGuida.replaceChildren(...parti);
++  };
++  selezioneGuida.addEventListener('change', mostraGuida);
++  if (valoreIniziale) mostraGuida();
++
++  const guida = el('section', { class: 'card chiedi-guida-locale' },
++    el('h3', {}, t('chiedi.locale.titolo')),
++    el('p', { class: 'aiuto' }, t('chiedi.locale.spiega')),
++    el('label', {}, t('chiedi.locale.scegli'), selezioneGuida),
++    !haChiave ? el('p', { class: 'aiuto' }, t('chiedi.locale.gemini_facoltativa'), ' ', el('a', { href: '#/impostazioni' }, t('chiedi.vai_impostazioni'))) : null,
++    contenutoGuida);
++
++  const rimasteTesto = haChiave ? el('p', { class: 'aiuto' }) : null;
++  if (haChiave) restantiOggi().then((n) => { rimasteTesto.textContent = t('chiedi.rimaste', { n }); });
+ 
+   aggiungi(contenitore,
+     el('a', { class: 'btn', href: '#/impara' }, t('scheda.indietro')),
+     el('h2', { class: 'titolo-schermata' }, t('chiedi.titolo')),
+     conversazione([
+       { chi: 'rosso', testo: t('chiedi.rosso'), variante: 'ride' },
+-      { chi: 'rossella', testo: t('chiedi.rossella'), variante: 'pensa' },
++      { chi: 'rossella', testo: t(haChiave ? 'chiedi.rossella' : 'chiedi.locale.rossella'), variante: 'pensa' },
+     ]),
+-    haChiave ? form : el('section', { class: 'card' },
+-      el('p', {}, t('chiedi.serve_chiave')),
+-      el('a', { class: 'btn primario', href: '#/impostazioni' }, t('chiedi.vai_impostazioni'))),
+-    area,
+-    haChiave ? rimasteTesto : null);
++    haChiave ? form : null,
++    haChiave ? rimasteTesto : null,
++    guida);
+ }
+diff --git a/tests/17-chiedi.mjs b/tests/17-chiedi.mjs
+index 7e5ad8a..b9af5c9 100644
+--- a/tests/17-chiedi.mjs
++++ b/tests/17-chiedi.mjs
+@@ -33,7 +33,10 @@ await vai(page, 'impara');
+ check('Impara: pulsante «Chiedi a Rossella»', (await page.getByRole('link', { name: 'Chiedi a Rossella' }).count()) === 1);
+ await page.getByRole('link', { name: 'Chiedi a Rossella' }).click();
+ await page.waitForSelector('h2.titolo-schermata:has-text("Chiedi a Rossella")');
+-check('senza chiave: spiega cosa fare e non mostra il modulo', (await page.locator('textarea[name=domanda]').count()) === 0 && (await page.getByRole('link', { name: 'Vai alle impostazioni' }).count()) === 1);
++check('senza chiave: guida locale disponibile, chiave facoltativa e niente chat cloud', (await page.locator('textarea[name=domanda]').count()) === 0 && (await page.locator('select[name=guida-locale]').count()) === 1 && (await page.getByRole('link', { name: 'Vai alle impostazioni' }).count()) === 1);
++await page.locator('select[name=guida-locale]').selectOption('scheda:fave');
++await page.waitForSelector('.chiedi-guida-fasi');
++check('guida senza registrazione: fasi generali visibili senza richieste esterne', /fasi generali/i.test(await page.locator('.chiedi-guida-output').innerText()) && richieste.length === 0);
+ 
+ // Con la chiave
+ await impostaDb('ai_chiave', CHIAVE);
+diff --git a/tests/guida-locale.mjs b/tests/guida-locale.mjs
+new file mode 100644
+index 0000000..494f4aa
+--- /dev/null
++++ b/tests/guida-locale.mjs
+@@ -0,0 +1,73 @@
++import assert from 'node:assert/strict';
++import { readFileSync } from 'node:fs';
++import { join, resolve } from 'node:path';
++import { guidaLocale } from '../js/ai/guida-locale.js';
++
++const root = resolve(import.meta.dirname, '..');
++
++const oggi = '2026-11-02';
++const scheda = { id: 'fave', nome: 'Fave' };
++const datiFasi = { colture: { fave: { fasi: [
++  { id: 'semina', nome: 'Semina', da_giorno: 0, a_giorno: 9, cosa_fare: ['Controlla il terreno'], accortezze: ['Evita i ristagni'], certezza: 'media' },
++  { id: 'crescita', nome: 'Crescita', da_giorno: 10, a_giorno: null, cosa_fare: ['Osserva le foglie'], accortezze: [], certezza: 'alta' },
++] } } };
++const datiRaccolta = { colture: { fave: { quando_raccogliere: 'Quando i baccelli sono pieni', come_raccogliere: 'Stacca con cura', conservazione: [] } } };
++const contenutoRaccolta = JSON.parse(readFileSync(join(root, 'data/it/raccolta.json'), 'utf8'));
++const testoRaccolta = readFileSync(join(root, 'data/it/raccolta.json'), 'utf8');
++assert.equal(testoRaccolta.split('"asparagi":').length - 1, 1);
++const guidaAsparagi = contenutoRaccolta.colture.asparagi;
++assert.ok(guidaAsparagi?.quando_raccogliere && guidaAsparagi?.come_raccogliere);
++assert.ok(guidaAsparagi.fonti.every((id) => contenutoRaccolta.fonti[id]));
++assert.ok(guidaAsparagi.conservazione.every((c) => c.fonti.every((id) => contenutoRaccolta.fonti[id])));
++const seme = { id: 'c1', schedaId: 'fave', dataSemina: '2026-11-01', partenza: 'seme', nome: 'Fave' };
++
++const guida = guidaLocale({ coltura: seme, scheda, datiFasi, datiRaccolta, oggi });
++assert.equal(guida.disponibile, true);
++assert.equal(guida.tracciata, true);
++assert.equal(guida.eta, 1);
++assert.equal(guida.fase.id, 'semina');
++assert.equal(guida.prossima.id, 'crescita');
++assert.equal(guida.giorniAllaProssima, 9);
++assert.equal(guida.raccolta.quando_raccogliere, 'Quando i baccelli sono pieni');
++
++const trapianto = guidaLocale({
++  coltura: { ...seme, partenza: 'piantina', dataSemina: '2026-10-20', piantinaEta: 14, dataApprossimativa: true },
++  scheda, datiFasi, oggi,
++});
++assert.equal(trapianto.eta, 27);
++assert.equal(trapianto.daPiantina, true);
++assert.equal(trapianto.dataApprossimativa, true);
++assert.equal(trapianto.fase.id, 'crescita');
++
++const nonRegistrata = guidaLocale({ scheda, datiFasi, oggi });
++assert.equal(nonRegistrata.disponibile, true);
++assert.equal(nonRegistrata.tracciata, false);
++assert.equal(nonRegistrata.eta, null);
++assert.equal(nonRegistrata.fase, null);
++assert.equal(nonRegistrata.fasi.length, 2);
++
++const spontanea = guidaLocale({
++  coltura: { ...seme, origine: 'spontanea', dataSemina: '2026-11-01' },
++  scheda, datiFasi, oggi,
++});
++assert.equal(spontanea.tracciata, true);
++assert.equal(spontanea.eta, null);
++assert.equal(spontanea.fase, null);
++
++const dataFutura = guidaLocale({
++  coltura: { ...seme, dataSemina: '2026-11-03' },
++  scheda, datiFasi, oggi,
++});
++assert.equal(dataFutura.eta, null);
++
++assert.equal(guidaLocale({ scheda, datiFasi: { colture: {} }, oggi }).disponibile, false);
++assert.equal(guidaLocale({ scheda, datiFasi: { colture: {} }, datiRaccolta, oggi }).disponibile, true);
++assert.equal(guidaLocale({ datiFasi, oggi }).disponibile, false);
++
++console.log('PASS guida locale: fase, trapianto, origine incerta, date future, raccolta e dati mancanti');
++const ids = JSON.parse(readFileSync(join(root, 'data/it/colture/indice.json'), 'utf8')).colture;
++const coperture = ['fasi', 'raccolta', 'stagione'].map((nome) => {
++  const contenuti = JSON.parse(readFileSync(join(root, 'data/it/' + nome + '.json'), 'utf8')).colture;
++  return nome + ' ' + ids.filter((id) => contenuti[id]).length + '/' + ids.length;
++});
++console.log('Copertura catalogo (' + ids.length + ' colture): ' + coperture.join(', '));

@@ -138,9 +138,9 @@ for (const [id, coltura] of Object.entries(colture)) {
   const dettaglioPiantina = piantinaFontiOk ? '' : !Array.isArray(piantina?.fonti) ? 'fonti non è un array' : `id sconosciuti: ${piantinaMancanti.join(', ')}`;
   check(`${et}: piantina_eta_giorni.fonti è un array di id presenti in fonti`, piantinaFontiOk, dettaglioPiantina);
 
-  // Ultima fase allineata ai giorni alla raccolta della scheda
+  // Ultima fase allineata ai giorni alla raccolta della scheda (solo se la scheda li dichiara)
   const raccolta = scheda?.giorni_alla_raccolta;
-  if (raccolta && typeof raccolta === 'object' && 'min' in raccolta && 'max' in raccolta) {
+  if (raccolta && typeof raccolta === 'object' && Number.isInteger(raccolta.min) && Number.isInteger(raccolta.max)) {
     const inizio = fasi[fasi.length - 1]?.da_giorno;
     const minimoAmmesso = raccolta.min - 5;
     const allineata = Number.isInteger(inizio) && Number.isInteger(raccolta.min) && Number.isInteger(raccolta.max) &&
@@ -148,6 +148,28 @@ for (const [id, coltura] of Object.entries(colture)) {
     check(`${et}: ultima fase inizia tra ${minimoAmmesso} e ${raccolta.max} giorni (giorni_alla_raccolta ${raccolta.min}-${raccolta.max})`, allineata, `da_giorno ultima fase = ${JSON.stringify(inizio)}`);
   }
 }
+
+// Asparago: prima guida di una perenne, deve spiegare il ciclo dalla zampa al raccolto
+const asparagi = colture.asparagi;
+const fasiAsparagi = Array.isArray(asparagi?.fasi) ? asparagi.fasi : [];
+const testiAsparagi = fasiAsparagi
+  .flatMap(f => [
+    f?.nome,
+    f?.come_riconoscerla,
+    ...(Array.isArray(f?.cosa_fare) ? f.cosa_fare : []),
+    ...(Array.isArray(f?.accortezze) ? f.accortezze : []),
+  ])
+  .filter(v => typeof v === 'string')
+  .join(' ')
+  .toLowerCase();
+
+check('asparagi: la coltura ha da 3 a 8 fasi', fasiAsparagi.length >= 3 && fasiAsparagi.length <= 8, `trovate ${fasiAsparagi.length}`);
+check('asparagi: le fasi parlano della zampa', testiAsparagi.includes('zampa'));
+check('asparagi: le fasi parlano dei turioni', testiAsparagi.includes('turion'));
+check('asparagi: le fasi spiegano chioma e riserve', testiAsparagi.includes('chioma') && testiAsparagi.includes('riserv'));
+check('asparagi: la raccolta è presentata con prudenza', testiAsparagi.includes('non raccogliere') || testiAsparagi.includes('prudente') || testiAsparagi.includes('attendere'));
+const fontiVisibili = /https?:|extension|universit|illinois|minnesota/;
+check('asparagi: nessun riferimento a fonti nei testi delle fasi', !fontiVisibili.test(testiAsparagi));
 
 console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);
 process.exit(ko ? 1 : 0);

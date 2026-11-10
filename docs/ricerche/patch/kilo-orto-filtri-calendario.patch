@@ -1,0 +1,155 @@
+diff --git a/css/app.css b/css/app.css
+index 66a3cfa..e80cc61 100644
+--- a/css/app.css
++++ b/css/app.css
+@@ -436,6 +436,11 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
+ .btn.mese.oggi { border-color: var(--giallo-chiaro); background: var(--giallo-chiaro); color: var(--terra); }
+ .btn.mese[aria-pressed="true"] { background: var(--pulsante); border-color: var(--pulsante); color: var(--pulsante-testo); }
+ .titolo-mese::first-letter { text-transform: uppercase; }
++.filtri { display: flex; gap: 8px; flex-wrap: wrap; }
++.btn.filtro { padding: 0 14px; box-shadow: none; }
++.btn.filtro[aria-pressed="true"] { background: var(--pulsante); border-color: var(--pulsante); color: var(--pulsante-testo); }
++.btn.filtro.vuoto { opacity: .4; cursor: not-allowed; }
++.btn.filtro .conteggio { margin-left: 6px; }
+ .gruppi { display: grid; gap: 18px; }
+ .gruppo { display: grid; gap: 10px; }
+ .gruppo h3 { font-size: 1.1rem; }
+diff --git a/i18n/it.json b/i18n/it.json
+index 4c53cc3..2f3014a 100644
+--- a/i18n/it.json
++++ b/i18n/it.json
+@@ -423,6 +423,14 @@
+   "mese.operazione.lavorazione": "Lavorazioni",
+   "mese.operazione.raccolta": "Raccolte",
+   "mese.operazione.altro": "Altri lavori",
++  "calendario.filtri.aria": "Filtra per tipo di lavoro",
++  "calendario.filtro.tutti": "Tutti",
++  "calendario.filtro.semina": "Semine",
++  "calendario.filtro.trapianto": "Trapianti",
++  "calendario.filtro.cura": "Cure",
++  "calendario.filtro.lavorazione": "Lavorazioni",
++  "calendario.filtro.raccolta": "Raccolte",
++  "calendario.filtro.vuoto": "Nessun lavoro di tipo «{filtro}» in questo mese.",
+   "luna.titolo": "La luna",
+   "luna.certezza": "Tradizione, nessuna prova solida",
+   "luna.stato.crescente": "Luna crescente",
+diff --git a/js/screens/calendario.js b/js/screens/calendario.js
+index 8417137..d6dd266 100644
+--- a/js/screens/calendario.js
++++ b/js/screens/calendario.js
+@@ -14,6 +14,7 @@ import { faseLunare, fasiDelMese } from '../motore/luna.js';
+ import { disegnaLuna } from '../ui/luna.js';
+ 
+ const OPERAZIONI = ['semina', 'trapianto', 'cura', 'lavorazione', 'raccolta'];
++const FILTRI = ['tutti', ...OPERAZIONI];
+ 
+ const nomeMese = (mese, formato) => new Date(2026, mese - 1, 1).toLocaleDateString(locale(), { month: formato });
+ 
+@@ -34,6 +35,19 @@ export function lavoriDelMese(schede, zonaId, mese) {
+     || a.lavoro.titolo.localeCompare(b.lavoro.titolo, locale()));
+ }
+ 
++function filtraLavori(lavori, filtro) {
++  if (filtro === 'tutti') return lavori;
++  return lavori.filter((v) => v.lavoro.operazione === filtro);
++}
++
++function contaPerFiltro(lavori) {
++  const conteggio = { tutti: lavori.length };
++  for (const op of OPERAZIONI) {
++    conteggio[op] = lavori.filter((v) => v.lavoro.operazione === op).length;
++  }
++  return conteggio;
++}
++
+ export function apriLavoro(voce, mese, metodoPreferito = null) {
+   const { lavoro } = voce;
+   const foglio = apriFoglio({
+@@ -111,12 +125,28 @@ export async function monta(contenitore) {
+   const oggi = oggiISO();
+   const meseOggi = meseDi(oggi);
+   let mese = meseOggi;
++  let filtroAttivo = 'tutti';
+ 
+   const titolo = el('h2', { class: 'titolo-schermata titolo-mese' });
+   const sottotitolo = el('p', { class: 'data-lunga' });
+   const elenco = el('div', { class: 'gruppi' });
+   const mesi = el('div', { class: 'mesi', role: 'group', 'aria-label': t('mese.scegli') });
+   const luna = el('div', {});
++  const filtri = el('div', { class: 'filtri', role: 'group', 'aria-label': t('calendario.filtri.aria') });
++
++  function aggiornaFiltri(conteggio) {
++    filtri.replaceChildren(...FILTRI.map((f) => {
++      const count = conteggio[f] ?? 0;
++      const vuoto = f !== 'tutti' && count === 0;
++      return el('button', {
++        class: `btn filtro ${f === filtroAttivo ? 'attivo' : ''} ${vuoto ? 'vuoto' : ''}`,
++        type: 'button',
++        'aria-pressed': String(f === filtroAttivo),
++        disabled: vuoto,
++        onclick: () => { if (!vuoto) { filtroAttivo = f; disegna(); } },
++      }, el('span', {}, t(`calendario.filtro.${f}`)), count > 0 ? el('span', { class: 'conteggio' }, String(count)) : null);
++    }));
++  }
+ 
+   function disegna() {
+     titolo.textContent = nomeMese(mese, 'long');
+@@ -129,9 +159,17 @@ export async function monta(contenitore) {
+     }, nomeMese(m, 'short'))));
+ 
+     luna.replaceChildren(sezioneLuna(Number(oggi.slice(0, 4)), mese, oggi, meseOggi));
+-    const lavori = lavoriDelMese(schede, impostazioni.zona, mese);
++    const tuttiLavori = lavoriDelMese(schede, impostazioni.zona, mese);
++    const conteggio = contaPerFiltro(tuttiLavori);
++    const lavori = filtraLavori(tuttiLavori, filtroAttivo);
++    aggiornaFiltri(conteggio);
++
+     if (!lavori.length) {
+-      elenco.replaceChildren(el('p', { class: 'card vuoto-testo' }, t('mese.vuoto')));
++      if (filtroAttivo === 'tutti') {
++        elenco.replaceChildren(el('p', { class: 'card vuoto-testo' }, t('mese.vuoto')));
++      } else {
++        elenco.replaceChildren(el('p', { class: 'card vuoto-testo' }, t('calendario.filtro.vuoto', { filtro: t(`calendario.filtro.${filtroAttivo}`) })));
++      }
+       return;
+     }
+     const gruppi = [];
+@@ -157,5 +195,5 @@ export async function monta(contenitore) {
+       disegna();
+     },
+   }, soloMie ? t('calendario.solo_mie', { n: seguite.length }) : t('calendario.tutte')) : null;
+-  aggiungi(contenitore, mesi, interruttore, titolo, sottotitolo, elenco, luna);
++  aggiungi(contenitore, mesi, interruttore, filtri, titolo, sottotitolo, elenco, luna);
+ }
+diff --git a/tests/07-calendario.mjs b/tests/07-calendario.mjs
+index 42fba1e..f7c02f6 100644
+--- a/tests/07-calendario.mjs
++++ b/tests/07-calendario.mjs
+@@ -28,6 +28,27 @@ const nov = await page.locator('.voce').count();
+ check('novembre: tanti lavori quanti ne dicono i dati', nov > 0 && nov === await attesi(11), `${nov} vs ${await attesi(11)}`);
+ check('barra in basso: Calendario evidenziato', (await page.locator('#barra a[aria-current=page]').getAttribute('data-rotta')) === 'calendario');
+ 
++// Filtri rapidi
++const filtriBtn = page.locator('.filtri .btn.filtro');
++check('6 pulsanti filtro (Tutti + 5 tipi)', (await filtriBtn.count()) === 6);
++check('filtro "Tutti" attivo di default', (await page.locator('.filtri .btn.filtro[aria-pressed=true]').innerText()).includes('Tutti'));
++const conteggioTutti = await page.locator('.filtri .btn.filtro[aria-pressed=true] .conteggio').innerText();
++check('conteggio "Tutti" corrisponde alle voci', parseInt(conteggioTutti) === nov, `${conteggioTutti} vs ${nov}`);
++
++// Cambio filtro: seleziona "Semine"
++await page.locator('.filtri .btn.filtro', { hasText: 'Semine' }).click();
++await page.waitForTimeout(100);
++const vociSemine = await page.locator('.voce').count();
++const conteggioSemine = await page.locator('.filtri .btn.filtro[aria-pressed=true] .conteggio').innerText();
++check('filtro "Semine" attivo', (await page.locator('.filtri .btn.filtro[aria-pressed=true]').innerText()).includes('Semine'));
++check('conteggio "Semine" corrisponde alle voci filtrate', parseInt(conteggioSemine) === vociSemine, `${conteggioSemine} vs ${vociSemine}`);
++check('tutte le voci visibili sono semine', (await page.locator('.voce .etichetta.motivo, .voce .etichetta:has-text("Semina")').count()) === vociSemine || vociSemine === 0);
++
++// Torna a "Tutti"
++await page.locator('.filtri .btn.filtro', { hasText: 'Tutti' }).click();
++await page.waitForTimeout(100);
++check('torna a "Tutti": conteggio ripristinato', (await page.locator('.filtri .btn.filtro[aria-pressed=true] .conteggio').innerText()) === String(nov));
++
+ // Misure Pixel 9
+ const s = await scroll(page);
+ check('nessuno scroll orizzontale', s.sw <= s.iw && s.bw <= s.iw, JSON.stringify(s));

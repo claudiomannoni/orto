@@ -1,0 +1,1471 @@
+{
+  "versione": 1,
+  "fonti": {
+    "c1": {
+      "titolo": "Zucca e Zucchine - Cucurbita spp.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/zucca.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: esigenze termiche elevate, terreno fertile e fresco, concimazione con letame maturo 400-600 q/ha, sesti 1 m per cespugliose, irrigazioni abbondanti, cimatura per zucche invernali, diradamento a una pianta per buchetta."
+    },
+    "c2": {
+      "titolo": "Pomodoro - Lycopersicon esculentum Mill.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/pomodoro.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: pH 5,5-8, temperature ottime 24-26°C giorno e 14-16°C notte, concimazione fosfo-potassica interrata e azotata frazionata, sostegni per indeterminati, scacchiatura e cimatura, irrigazione a goccia preferibile, pacciamatura con film nero."
+    },
+    "c3": {
+      "titolo": "Carota - Daucus carota L. ssp. sativus",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/carota.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: pH ottimale 6,5, terreni sciolti e freschi, diradamento a 50-100 piante/m² a 3-4 foglie, concimazione abbondante con letame decomposto, fosforo e potassio in presemina, azoto in copertura, rotazione biennale."
+    },
+    "c4": {
+      "titolo": "Melanzana - Solanum melongena L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/melanzana.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: zero vitale 9-10°C notte, pH 5,6-7,5, terreni medio impasto sciolti, concimazione frazionata con equilibrio N-P-K, irrigazione abbondante (8-9000 mc/ha), sesto 90x60 cm, in serra fredda va in riposo vegetativo invernale."
+    },
+    "c5": {
+      "titolo": "Patata - Solanum tuberosum L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/patata.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: tuberi congelano a -2°C, zero vegetazione 6-8°C, terreni silicei leggeri acidi, rincalzatura a porca 20 cm, concimazione fosfo-potassica interrata e azoto frazionato, pre-germogliazione tuberi-seme 4-6 settimane a 12-16°C, rotazione 4-6 anni."
+    },
+    "c6": {
+      "titolo": "Cetriolo - Cucumis sativus L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/cetriolo.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: terreni fertili freschi irrigui, lavorazione 35-40 cm, concimazione fosfo-potassica presemina e azoto in copertura, cimatura sopra 4a foglia, sostegni per frutti diritti, irrigazioni abbondanti, semina aprile-maggio, diradamento a una piantina per buchetta."
+    },
+    "c7": {
+      "titolo": "Pisello - Pisum sativum Asch. et Gr.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/pisello.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: microterma, resiste a -8°C a 4-5 foglie, pH 6,5-7,5, concimazione fosfatica 60-80 kg/ha P2O5, azoto max 20-30 kg/ha, semina autunnale Centro-Sud novembre, sostegni per rampicanti, diserbo chimico, rotazione 4-5 anni."
+    },
+    "c8": {
+      "titolo": "Fava, Favino, Favetta - Vicia faba L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/fava.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: germina a 5°C, gelate -6°C fatali a 4-5 foglie, pH subalcalino, terreni argillosi argillo-calcarei, concimazione fosfatica 60-80 kg/ha P2O5, azoto non necessario, semina autunnale ottobre-novembre Centro, semina profonda 60-80 mm, cimatura e rincalzatura leggere."
+    },
+    "c9": {
+      "titolo": "Fagiolo - Phaseolus vulgaris L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/fagiolo.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: muore a 1-2°C, minimo germinazione 13-14°C, terreni sciolti freschi fertili non calcarei, concimazione fosforo e potassio, irrigazione indispensabile in genere, semina aprile-agosto, rullatura post-semina, rotazione triennale."
+    },
+    "c10": {
+      "titolo": "Rucola - Eruca sativa Mill.",
+      "ente": "Agraria.org, Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/rucola.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda botanica: ciclo brevissimo, cresce in pieno sole o leggera ombra al riparo dai venti, substrato sciolto sabbioso, coltivabile in contenitori, taglio foglie per raccolta."
+    },
+    "c11": {
+      "titolo": "Spinacio - Spinacia oleracea L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/spinacio.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: specie a basse esigenze termiche, tollera freddo in fase rosetta, pH >6,5, terreni freschi permeabili drenati, semina agosto-ottobre autunno-invernali, diradamento 35-50 piante/m² mercato, irrigazioni costanti per evitare prefioritura, rotazione 3-4 anni."
+    },
+    "c12": {
+      "titolo": "Cavolfiore e Broccolo - Brassica oleracea L. var. botrytis L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/cavolfiore.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: clima fresco umido, temperatura ottima corimbi 17°C, gelo lessa grumi, piantine 6-8 foglie al freddo diventano cieche, terreni medio impasto elevato livello idrico, concimazione azotata 2-3 volte, irrigazione necessaria estivo-autunnali, sesti 60-100x40-70 cm, legare foglie su infiorescenza cavolfiore."
+    },
+    "c13": {
+      "titolo": "Cavoli - Brassica oleracea L. (verza, cappuccio)",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/cavoli.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: verza tollera freddo non gelo, terreni profondi aerati freschi ricchi sostanza organica pH neutro, irrigazioni trapianto e ingrossamento testa, concimazione organica e calcio, sesti 60-80x40-70 cm, varietà invernali per stagione fredda."
+    },
+    "c14": {
+      "titolo": "Porro - Allium porrum L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/porro.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: biennale ciclo annuale, climi temperato-caldi/freddi, terreni medio impasto pH 6-7, concimazione letame 400-500 q/ha + fosfo-potassica presemina + azoto frazionato 3-4 volte, rincalzatura per parte bianca e resistenza freddo, irrigazione quasi sempre necessaria, trapianto piantine 20-25 cm."
+    },
+    "c15": {
+      "titolo": "Aglio - Allium sativum L.",
+      "ente": "Agraria.org, Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/aglio.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda botanica: perenne rustica coltivata annuale, terreni sciolti fertili drenati, impianto autunno zone mite / primavera zone fredde, bulbilli apice in alto 4-5 cm profondità, sesti 10-15x30-50 cm, concimazione solo minerale (fosforo potassio presemina, azoto copertura), no concime organico, irrigazione solo siccità prolungata, taglio steli fiorali in boccio."
+    },
+    "c16": {
+      "titolo": "Finocchio - Foeniculum vulgare dulce Mill.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/finocchio.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: temperature non troppo basse, terreni medio impasto tendenti sciolto freschi ricchi sostanza organica profondi, se mese sotto 7°C monta a seme, rincalzatura per grumoli bianchi serrati, concimazione letame e fosfo-potassica preimpianto + azoto copertura, sesti 40-50x20-25 cm, semina diretta giugno-luglio o trapianto agosto-ottobre per inverno."
+    },
+    "c17": {
+      "titolo": "Asparago - Asparagus officinalis L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/asparago.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: perenne 10-12 anni, aratura 60 cm con letame 500 q/ha, impianto zampe 1-2 anni in fosse 20-30 cm con letame, concimazione annuale metà pre-ripresa metà post-raccolta, taglio fusti secchi autunno-inverno e rincalzo 4-5 cm, no rotazione con patata medica carota barbabietola, irrigazione estate se asciutto."
+    },
+    "c18": {
+      "titolo": "Prezzemolo - Petroselinum sativum Hoffm.",
+      "ente": "Agraria.org, Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/prezzemolo.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda botanica: biennale fittonante, semina inizio primavera protetto 18°C o campo aperto sopra 7°C, posizione soleggiata o semiombrosa, terreno ben concimato, annaffiare e pulire da infestanti, taglio steli fiorali per conservare pianta più anni, raccolta foglie fresche o congelate."
+    },
+    "c19": {
+      "titolo": "Lattuga - Lactuca sativa L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/lattuga.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: annuale con cespo/grumolo, tipi cappuccio romana taglio, semenzaio agosto-settembre invernali / gennaio-febbraio primaverili / aprile-maggio estive, tecnica simile indivia, avversità: funghi colletto/radici (Pythium, Rhizoctonia, Sclerotinia), peronospora (Bremia), virosi mosaico, afidi elateridi nottue."
+    },
+    "c20": {
+      "titolo": "Cipolla - Allium cepa L.",
+      "ente": "Agraria.org, Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/cipolla.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda botanica: biennale, germina 0-1°C, resiste basse temperature, esigenze luce: brevidiurne 10-12h / neutrodiurne 12-14h / longidiurne 14-16h, terreni medio impasto sciolti profondi ricchi sostanza organica pH 6-7, rotazione 4-5 anni, concimazione solo minerale (organica su coltura precedente), azoto germinazione-bulbificazione, P-K 20 giorni pre-raccolta, irrigazioni frequenti limitate, stop 25-30 giorni pre-raccolta, erbicidi per infestanti."
+    },
+    "c21": {
+      "titolo": "Ravanello - Raphanus sativus L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/ravanello.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: cicli 3 settimane estate - 2-3 mesi inverno, terreni sciolti ricchi sostanza organica, medio impasto tendenzialmente calcarei irrigui, concimazione fosfo-potassica presemina + azoto frazionato, semina superficiale 1-2 cm, sesti 10-15x3-4 cm, irrigazioni frequenti, rotazione essenziale no crucifere, avversità altica cavolo."
+    },
+    "c22": {
+      "titolo": "Bietola da coste - Beta vulgaris L. var. cycla",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/bietoladacoste.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: biennale annuale in coltura, tollera -2 -3°C, terreni profondi freschi drenati sostanza organica pH neutro/subalcalino, tollera salinità, esigenze idriche elevate, concimazione letame 300-400 q/ha + N 180 P2O5 90 K2O 180 kg/ha per 300 q/ha, azoto ripetuto ciclo lungo, semina/trapianto file 30-40 cm diradamento 15-20 cm, diserbo chimico fondamentale, no successione spinacio barbabietola mais."
+    },
+    "c23": {
+      "titolo": "Peperone - Capsicum annuum L.",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/peperone.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: molto sensibile al freddo, semina febbraio cassone riscaldato, piantagione fine aprile-primi maggio, terreni fertilissimi facili scolo, aratura 35-40 cm, concimazione fosfo-potassica 120-150 P2O5 + 250 K2O presemina + azoto 140-150 nitroammoniacale copertura, sesti 40-60x60-90 cm, irrigazioni alternate a sarchiature, per sottaceti raccolta 2-3 volte/settimana con annaffiatura post-raccolta."
+    },
+    "c24": {
+      "titolo": "Peperoncino - Capsicum annuum L.",
+      "ente": "Agraria.org, Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/peperoncino.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda botanica: annuale, semina semenzaio protetto, trapianto temperature stabilmente sopra 15°C, terreni sciolti no ristagni posizione soleggiata, rincalzatura e pulizia infestanti, tutori se necessario, coltivabile in grandi vasi, raccolta frutti maturi essiccazione ombroso aerato."
+    },
+    "c25": {
+      "titolo": "Basilico - Ocimum basilicum L.",
+      "ente": "Agraria.org, Piante aromatiche",
+      "url": "https://www.agraria.org/coltivazionierbacee/aromatiche/basilico.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda botanica: annuale esotica Asia tropicale, semina marzo-aprile protetto vaso/terrine substrato leggero, trapianto vasi grandi o terra piena luoghi soleggiati, innaffiare abbondantemente, cimare per favorire accestimento e ritardare fioritura precoce, raccolta foglie e apici fiorali estate, conservazione fresche essiccate sott'olio congelate."
+    },
+    "c26": {
+      "titolo": "Carciofo - Cynara cardunculus L. scolymus",
+      "ente": "Agraria.org, Atlante delle coltivazioni erbacee",
+      "url": "https://www.agraria.org/coltivazionierbacee/carciofo.htm",
+      "consultata": "2026-11-07",
+      "nota": "Scheda tecnica: perenne mediterraneo, resiste a 0°C, sotto -10°C compromettono gemme rizoma, clima mite umido ciclo autunno-primaverile, terreni profondi freschi medio impasto struttura neutri, elevate esigenze idriche (aspersione turno 8-10 giorni estate), concimazione 250-300 N + 350-400 K2O + 50-100 P2O5 kg/ha, fosfo-potassica impianto/risveglio + azoto frazionato copertura, impianto carducci autunno-primavera / ovuli estate, sesti 100x100 o 120x120 (oggi 170-200x60-80), scarducciatura 1-3 carducci/pianta, diserbo pre-emergenza, avversità: atrofia capolino >25°C transizione, gelate, arvicola, lepidotteri capolini, afidi, marciumi colletto terreni mal drenati."
+    }
+  },
+  "colture": {
+    "zucchine": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Richiede pieno sole per una buona produzione.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Abbisogna di irrigazioni abbondanti e regolari; evitare ristagni idrici che favoriscono malattie fungine.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni fertili, freschi, ben preparati con lavorazione profonda 30-35 cm; pH non specificato ma concimazione abbondante richiesta.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Concimazione completa: letame maturo 400-600 q/ha, fosfoazotati 4-5 q/ha, solfato potassico 1-2 q/ha; in copertura azotati o fosfoazotati 20-30 g/pianta a più riprese.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari per varietà cespugliose (zucchine); per zucche a tralcio si possono usare sostegni.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Possibile per zucchine cespugliose; serve vaso capiente e spazio sufficiente.",
+          "certezza": "media",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Seminare troppo presto quando c'è rischio gelate; non diradare a una pianta per buchetta; mancare di irrigazione in fase produttiva.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        }
+      ]
+    },
+    "melanzane": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Richiede pieno sole e temperature elevate; zero vitale notturno 9-10°C.",
+          "certezza": "alta",
+          "fonti": ["c4"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Elevate esigenze idriche (8-9000 mc/ha); stress idrico causa frutti piccoli, piccanti, stopposi; migliori risultati con 5 irrigazioni/settimana.",
+          "certezza": "alta",
+          "fonti": ["c4"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni di medio impasto, tendenzialmente sciolti, buona freschezza di fondo; pH ottimale 5,6-7,5; tollera salinità.",
+          "certezza": "alta",
+          "fonti": ["c4"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Evitare eccessi azoto tra trapianto e primi frutti; frazionare azoto mantenendo equilibrio con fosforo e potassio; in serra fertirrigazione frequente soluzione 1,5-2‰.",
+          "certezza": "alta",
+          "fonti": ["c4"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non indicati esplicitamente; in serra si usano tutori per sostenere la pianta.",
+          "certezza": "media",
+          "fonti": ["c4"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Possibile; in serra si coltiva in contenitori o fuori suolo su lana di roccia.",
+          "certezza": "media",
+          "fonti": ["c4"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Eccesso azoto all'inizio riduce fioritura e allegagione; mancanza irrigazione in ingrossamento frutti; trapianto con temperature notturne sotto 10°C.",
+          "certezza": "alta",
+          "fonti": ["c4"]
+        }
+      ]
+    },
+    "patate": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; coltura temperato-fredda, in montagna ciclo primaverile-estivo.",
+          "certezza": "media",
+          "fonti": ["c5"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Esigenze idriche elevate in fase ingrossamento tuberi (20 giorni prima a 20 giorni dopo inizioantesi); teme ristagni idrici che favoriscono malattie e irregolare sviluppo tuberi; sistemi: infiltrazione solchi e aspersione.",
+          "certezza": "alta",
+          "fonti": ["c5"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Ideali terreni silicei o siliceo-argillosi, leggermente acidi, leggeri, sciolti, permeabili, profondi; rifugge terreni alcalini; si adatta a grana fina se ben strutturati e drenanti.",
+          "certezza": "alta",
+          "fonti": ["c5"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Per tonnellata tuberi: 4 kg N, 1,5 kg P2O5, 6 kg K2O; fosforo 70-100 kg/ha, potassio 200-300 kg/ha (solfato potassico) interrati; azoto frazionato 50% pre-interramento, resto localizzato semina e copertura post-emergenza; letame prima inverno.",
+          "certezza": "alta",
+          "fonti": ["c5"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Rincalzatura obbligatoria: addossare terra interfila a formare porca 20 cm altezza in 1-2 passaggi a 2-3 foglie; favorisce radicamento, tuberizzazione, evita inverdimento tuberi, protegge da peronospora.",
+          "certezza": "alta",
+          "fonti": ["c5"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente; coltura da pieno campo per estensione apparato radicale.",
+          "certezza": "bassa",
+          "fonti": ["c5"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Rotazioni corte (<4-5 anni) favoriscono patogeni terricoli; eccesso azoto ritarda maturazione e riduce sostanza secca; mancanza acqua in fase critica ingrossamento tuberi; semina tuberi non pre-germogliati.",
+          "certezza": "alta",
+          "fonti": ["c5"]
+        }
+      ]
+    },
+    "cetrioli": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; coltura normale semina aprile-maggio all'aperto.",
+          "certezza": "media",
+          "fonti": ["c6"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Richiede abbondanti irrigazioni seguite da concimazioni localizzate in copertura; in serra 300-400 m³/ha a turno in fruttificazione intensa.",
+          "certezza": "alta",
+          "fonti": ["c6"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni molto fertili, freschi, irrigui; lavorazione profonda 35-40 cm; in terreni carenti calcio aggiungere 150-200 unità CaO o fosfati naturali.",
+          "certezza": "alta",
+          "fonti": ["c6"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Presemina: 90-100 P2O5 + 200-250 K2O; copertura: 130-150 N + PK; in serra concimazione fogliari integrate ai trattamenti.",
+          "certezza": "alta",
+          "fonti": ["c6"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Getti si lasciano distendere sul terreno o attaccare a sostegni (filo ferro a 2 m o rete nylon); con sostegni frutti più diritti e colorati, evita cimatura.",
+          "certezza": "alta",
+          "fonti": ["c6"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Possibile; coltura fuori suolo praticata.",
+          "certezza": "media",
+          "fonti": ["c6"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Non cimare (alcune cultivar risentono negativamente); mancare irrigazioni in fruttificazione; semina troppo precoce senza protezione.",
+          "certezza": "media",
+          "fonti": ["c6"]
+        }
+      ]
+    },
+    "piselli": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Pianta microterma; rifugge forti calori e siccità; temperatura ottima ciclo 15-18°C.",
+          "certezza": "alta",
+          "fonti": ["c7"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Teme ristagni umidità che rendono terreno freddo e asfittico; irrigazione non esplicitamente citata ma drenaggio essenziale.",
+          "certezza": "alta",
+          "fonti": ["c7"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni piuttosto sciolti, caldi, ben areati, moderato contenuto calce, pH 6,5-7,5, buona capacità idrica; spianamento perfetto per mietitrebbiatura.",
+          "certezza": "alta",
+          "fonti": ["c7"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Fosfatica 60-80 kg/ha P2O5 sempre necessaria; potassio solo se terreno povero; azoto max 20-30 kg/ha alla semina (leguminosa autosufficiente).",
+          "certezza": "alta",
+          "fonti": ["c7"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Necessari per varietà rampicanti (frasche, reti); nani e seminani a sviluppo determinato non richiedono sostegni.",
+          "certezza": "alta",
+          "fonti": ["c7"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c7"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Semina autunnale troppo tardiva (piantine non a 3-4 foglie prima freddi); ristagni idrici; rotazioni corte (<4-5 anni); alte temperature in riempimento semi (indurimento rapido).",
+          "certezza": "alta",
+          "fonti": ["c7"]
+        }
+      ]
+    },
+    "fave": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; semina autunnale per sfruttare mesi miti.",
+          "certezza": "media",
+          "fonti": ["c8"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Forte consumatrice d'acqua; deficienza idrica in granigione è fattore limitante rese, specialmente semine primaverili; siccità causa colatura fiori e riduzione semi/baccello.",
+          "certezza": "alta",
+          "fonti": ["c8"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Si adatta bene a terreni pesanti, argillosi, argillo-calcarei; rifugge sciolti poveri humus soggetti a ristagni; pH subalcalino.",
+          "certezza": "alta",
+          "fonti": ["c8"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Fosforo 60-80 kg/ha P2O5 (leguminosa sensibile e reattiva); potassio abbonda in terreni argillosi; azoto non necessario (simbiosi Bacillus radicicola).",
+          "certezza": "alta",
+          "fonti": ["c8"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non indicati; pianta eretta fistolosa fino 1,5 m, limitatissimo accestimento.",
+          "certezza": "media",
+          "fonti": ["c8"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c8"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Semina autunnale troppo tardiva (gelate -6°C fatali a 4-5 foglie); fioritura a temperature >25°C causa colatura fiori; terreni sciolti con ristagni; semina poco profonda.",
+          "certezza": "alta",
+          "fonti": ["c8"]
+        }
+      ]
+    },
+    "rucola": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Cresce bene in pieno sole come in leggera ombra, purché al riparo dai venti.",
+          "certezza": "alta",
+          "fonti": ["c10"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Non specificato; ciclo brevissimo (poche settimane).",
+          "certezza": "bassa",
+          "fonti": ["c10"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Substrato prediletto ben sciolto e sabbioso.",
+          "certezza": "alta",
+          "fonti": ["c10"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Non specificato.",
+          "certezza": "bassa",
+          "fonti": ["c10"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "La coltivazione può venir effettuata anche in contenitori.",
+          "certezza": "alta",
+          "fonti": ["c10"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Esposizione a venti forti; terreni compatti non sciolti.",
+          "certezza": "media",
+          "fonti": ["c10"]
+        }
+      ]
+    },
+    "spinaci": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Pianta longidiurna; rapida induzione a fiore a lunghezze giorno >14 ore (maggio-agosto); cultivar autunno-invernali per giorno corto.",
+          "certezza": "alta",
+          "fonti": ["c11"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Per rapida crescita richiede condizioni umidità elevate e costanti; irrigazione in caso clima avverso a semina e prime fasi per evitare prefioritura.",
+          "certezza": "alta",
+          "fonti": ["c11"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreno fresco, permeabile, ben drenato, pH superiore a 6,5; buona tolleranza salinità; porche (aiuole rilevate 15-20 cm) per evitare ristagni autunno-vernini.",
+          "certezza": "alta",
+          "fonti": ["c11"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Esigenze nutritive media entità: asportazioni per quintale 0,475 kg N, 0,175 kg P2O5, 0,500 kg K2O; concimazioni in copertura durante ciclo.",
+          "certezza": "alta",
+          "fonti": ["c11"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; portamento a rosetta.",
+          "certezza": "alta",
+          "fonti": ["c11"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c11"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Semina cultivar autunno-invernali in giorno lungo (montano a seme); mancanza irrigazione in fase iniziale; rotazioni corte (<3-4 anni); terreni con ristagni.",
+          "certezza": "alta",
+          "fonti": ["c11"]
+        }
+      ]
+    },
+    "zucche": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Richiede pieno sole; specie esigente in temperatura, originaria paesi caldi.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Abbondanti irrigazioni se necessario; siccità danneggia la coltura; terreni freschi richiesti.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni fertili e freschi, lavorazione profonda 30-35 cm seguita da sminuzzamento e spianamento.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Concimazione completa: letame maturo 400-600 q/ha, fosfoazotati 4-5 q/ha, solfato potassico 1-2 q/ha; in copertura azotati/fosfoazotati 20-30 g/pianta a più riprese; cimatura per zucche invernali.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari per varietà cespugliose; zucche a tralcio di grande sviluppo si lasciano distendere (sesti fino 2 m).",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non indicato per zucche a tralcio per ingombro; possibile solo varietà cespugliose in vasi molto grandi.",
+          "certezza": "media",
+          "fonti": ["c1"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Seminare troppo presto con rischio gelate tardive; non diradare a una pianta per buchetta; mancare irrigazione in siccità; non cimare zucche invernali.",
+          "certezza": "alta",
+          "fonti": ["c1"]
+        }
+      ]
+    },
+    "broccoli": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Clima fresco umido; temperatura ottima formazione corimbi 17°C; >20°C ritarda transizione riproduttiva e scadente qualità.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Necessita costante disponibilità acqua; irrigazione necessaria in colture estivo-autunnali; elevata evapotraspirazione per superficie fogliare.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni medio impasto con elevato livello idrico strato radici; pH non specificato ma concimazione ricca.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Per 10 t corimbi: 130 N, 40 P, 140 K, 50 CaO, 7 Mg kg/ha; azoto 2-3 volte: trapianto, 20 giorni dopo, mese dopo (precoci) o più tardi (tardive).",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non indicati esplicitamente; pianta eretta con foglie che coprono infiorescenza.",
+          "certezza": "media",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Temperature >20°C in formazione corimbi; piantine 6-8 foglie esposte a freddo diventano cieche (senza infiorescenza); gelo lessa grumi; mancanza irrigazione estivo-autunnale; monosuccessione senza eliminare residui malati.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        }
+      ]
+    },
+    "cavolfiori": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Clima fresco umido; temperatura ottima corimbi 17°C; >20°C ritarda e scadente qualità.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Costante disponibilità acqua; irrigazione necessaria estivo-autunnali; elevata evapotraspirazione.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni medio impasto elevato livello idrico; concimazione ricca.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Per 10 t: 130 N, 40 P, 140 K, 50 CaO, 7 Mg kg/ha; azoto 2-3 volte trapianto/diradamento e a seguire.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non indicati; legare foglie sull'infiorescenza per proteggerla dal gelo e sole.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c12"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Piantine 6-8 foglie al freddo diventano cieche; gelo lessa grumi; temperature >20°C in formazione corimbi; mancanza acqua; non legare foglie su infiorescenza.",
+          "certezza": "alta",
+          "fonti": ["c12"]
+        }
+      ]
+    },
+    "verze": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Preferisce climi temperato-freddi ed umidi; tollera freddo ma non gelo.",
+          "certezza": "alta",
+          "fonti": ["c13"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Irrigazioni al trapianto e in fase ingrossamento testa/palla.",
+          "certezza": "alta",
+          "fonti": ["c13"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni profondi, ben aerati, freschi, ben dotati sostanza organica, pH intorno neutralità.",
+          "certezza": "alta",
+          "fonti": ["c13"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Si avvantaggia notevolmente concimazione organica; specie mediamente esigente, particolare importanza calcio.",
+          "certezza": "alta",
+          "fonti": ["c13"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; palla meno compatta del cappuccio ma pianta eretta.",
+          "certezza": "alta",
+          "fonti": ["c13"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c13"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Gelo danneggia la pianta; terreni compatti non aerati; mancanza calcio; rotazioni corte; mancanza irrigazione trapianto e ingrossamento.",
+          "certezza": "alta",
+          "fonti": ["c13"]
+        }
+      ]
+    },
+    "porri": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Si adatta a climi temperato-caldi e temperato-freddi con varietà e cicli differenti.",
+          "certezza": "alta",
+          "fonti": ["c14"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Irrigazione quasi sempre necessaria, ad esclusione del periodo invernale.",
+          "certezza": "alta",
+          "fonti": ["c14"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni medio impasto, buona capacità idrica ritenuta, no problemi drenaggio, ben dotati sostanza organica, pH 6-7; scarsa tolleranza salinità.",
+          "certezza": "alta",
+          "fonti": ["c14"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Letame maturo 400-500 q/ha interrato lavorazione 30-40 cm; P2O5 80-100 + K2O 100-150 kg/ha presemina; azoto 100-120 kg/ha frazionato 3-4 volte durante ciclo.",
+          "certezza": "alta",
+          "fonti": ["c14"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Rincalzatura nelle colture tardive: addossare terra per aumentare parte bianca fusto e resistenza al freddo.",
+          "certezza": "alta",
+          "fonti": ["c14"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente; trapianto piantine 20-25 cm suggerisce possibile in contenitori profondi.",
+          "certezza": "media",
+          "fonti": ["c14"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Terreni con ristagni o salini; mancanza rincalzatura in varietà invernali; mancanza irrigazione periodo estivo; semina diretta (pezzatura non omogenea, difficile controllo infestanti).",
+          "certezza": "alta",
+          "fonti": ["c14"]
+        }
+      ]
+    },
+    "aglio": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; impianto autunno zone mite / primavera zone fredde.",
+          "certezza": "media",
+          "fonti": ["c15"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Non richiede interventi irrigui (pioggia sufficiente); solo in caso siccità prolungata.",
+          "certezza": "alta",
+          "fonti": ["c15"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni sciolti, dotati buona fertilità, tessitura e struttura, rapido smaltimento acque piovane (coltura autunno-inizio estate).",
+          "certezza": "alta",
+          "fonti": ["c15"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Esclusivamente minerale (organica causa problemi, va fatta su coltura precedente); per 10 t/ha bulbi: 100 N, 28 P2O5, 130 K2O, 25 Ca, 18 Mg kg/ha; fosforo e potassio preparazione terreno, azoto copertura 2 interventi.",
+          "certezza": "alta",
+          "fonti": ["c15"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; taglio steli fiorali in boccio per evitare uso riserve bulbo.",
+          "certezza": "alta",
+          "fonti": ["c15"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Possibile; bulbilli interrati apice in alto 4-5 cm, sesti 10-15x30-50 cm.",
+          "certezza": "media",
+          "fonti": ["c15"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Concimazione organica su coltura (causa problemi); mancanza drenaggio; non tagliare steli fiorali; conservazione bulbilli a temperature 5-10°C (abbrevia dormienza) se si vuole prolungarla servono 0°C o >18°C.",
+          "certezza": "alta",
+          "fonti": ["c15"]
+        }
+      ]
+    },
+    "finocchi": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Condizioni migliori lungo litorali (collina e piano); temperature non troppo basse durante ciclo vegetativo.",
+          "certezza": "alta",
+          "fonti": ["c16"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Irrigazioni necessarie (adacquature durante ciclo); rincalzatura favorisce grumoli bianchi serrati.",
+          "certezza": "alta",
+          "fonti": ["c16"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreno medio impasto tendente sciolto, fresco, ricco sostanza organica, profondo; terreni compatti fanno sviluppare grumolo fuori terra (inverdisce, germogli tra guaine).",
+          "certezza": "alta",
+          "fonti": ["c16"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Pre-semina/pre-impianto: letame + concimi fosfatici e potassici; azoto abbondante in copertura; rincalzatura accurata per grumoli bianchi serrati.",
+          "certezza": "alta",
+          "fonti": ["c16"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non indicati; rincalzatura è l'intervento principale per qualità grumolo.",
+          "certezza": "media",
+          "fonti": ["c16"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente; trapianto suggerisce possibile in contenitori.",
+          "certezza": "bassa",
+          "fonti": ["c16"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Semina/trapianto troppo anticipato (pianta monta a seme se mese sotto 7°C); terreni compatti; mancanza rincalzatura; mancanza azoto in copertura; mancanza irrigazione.",
+          "certezza": "alta",
+          "fonti": ["c16"]
+        }
+      ]
+    },
+    "asparagi": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; turioni emergono quando temperatura arriva ~10°C; fotosintesi fa diventare verdi.",
+          "certezza": "media",
+          "fonti": ["c17"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Irrigazione in periodo estivo se stagione asciutta, dopo completamento raccolta, per stimolare ripresa vegetativa e formazione nuove gemme e radici.",
+          "certezza": "alta",
+          "fonti": ["c17"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Lavorazione fondamentale aratura 60 cm con incorporazione letame 500 q/ha; no rotazione con patata, medica, carota, barbabietola da zucchero (rizottoniosi); preferibili cereali vernini o mais come precedenti.",
+          "certezza": "alta",
+          "fonti": ["c17"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Impianto: letame o pollina; concimazione annuale: metà pre-ripresa vegetativa, metà post-raccolta turioni con apporti differenziati per sviluppo piante.",
+          "certezza": "alta",
+          "fonti": ["c17"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; taglio fusti disseccati autunno-inverno lasciando piccolo pezzo come segnale fila; rincalzo 4-5 cm terreno da cumulo interfilare per evitare abbassamento temperatura suolo.",
+          "certezza": "alta",
+          "fonti": ["c17"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato; coltura poliennale 10-12 anni richiede spazio pieno campo.",
+          "certezza": "bassa",
+          "fonti": ["c17"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Rotazione con patata/medica/carota/barbabietola (rizottoniosi); mancare concimazione annuale; non tagliare/bruciare fusti secchi (rischio reinfezioni); mancare rincalzo autunno-inverno; raccogliere turioni oltre 10-12 cm emersi.",
+          "certezza": "alta",
+          "fonti": ["c17"]
+        }
+      ]
+    },
+    "prezzemolo": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Posizione soleggiata o semiombrosa.",
+          "certezza": "alta",
+          "fonti": ["c18"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Annaffiare regolarmente.",
+          "certezza": "alta",
+          "fonti": ["c18"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreno ben concimato; pianta fittonante biennale.",
+          "certezza": "alta",
+          "fonti": ["c18"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Terreno ben concimato alla semina; non specificati tipi o tempi ulteriori.",
+          "certezza": "media",
+          "fonti": ["c18"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; taglio steli fiorali man mano che si sviluppano per conservare pianta più anni (biennale).",
+          "certezza": "alta",
+          "fonti": ["c18"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Semina in vaso o terrine protette; trapianto in vasi più grandi possibile.",
+          "certezza": "alta",
+          "fonti": ["c18"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Non tagliare steli fiorali (pianta muore dopo fioritura biennale); semina in campo aperto sotto 7°C; mancanza annaffiature; terreno non concimato.",
+          "certezza": "alta",
+          "fonti": ["c18"]
+        }
+      ]
+    },
+    "fagiolini": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; coltura primaverile-estiva per esigenze calore.",
+          "certezza": "media",
+          "fonti": ["c9"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Irrigazione indispensabile in generalità dei casi (varietà ciclo lungo o semine ritardate); teme siccità (appassimento, aborto baccelli, semi non sviluppati).",
+          "certezza": "alta",
+          "fonti": ["c9"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni sciolti, freschi, fertili; non troppo calcarei (semi duri, difficile cottura); si adatta a pesanti se non formano crosta (ostacolo nascite); intolleranza spiccata salinità.",
+          "certezza": "alta",
+          "fonti": ["c9"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Basata su fosforo e, se scarseggia, potassio; azoto non necessario (leguminosa).",
+          "certezza": "alta",
+          "fonti": ["c9"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Varietà nane (fagiolini) non richiedono sostegni; rampicanti per orto con raccolta manuale scalare necessitano sostegni.",
+          "certezza": "alta",
+          "fonti": ["c9"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Possibile per varietà nane; non trattato esplicitamente.",
+          "certezza": "media",
+          "fonti": ["c9"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Semina prima che temperatura raggiunga 13-14°C (nascite irregolari); terreni calcarei o salini; mancanza irrigazione in siccità; letto semina con crosta (ostacolo emergenza cotiledoni); rotazioni corte (<3 anni).",
+          "certezza": "alta",
+          "fonti": ["c9"]
+        }
+      ]
+    },
+    "lattuga": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; tipi cappuccio, romana, taglio; semenzaio agosto-settembre invernali / gennaio-febbraio primaverili / aprile-maggio estive.",
+          "certezza": "media",
+          "fonti": ["c19"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Non specificato esplicitamente; avversità includono marciumi colletto/radici da eccesso umidità (Pythium, Rhizoctonia, Sclerotinia).",
+          "certezza": "media",
+          "fonti": ["c19"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Non specificato esplicitamente; tecnica simile indivia; avversità fungine colletto/radici suggeriscono bisogno buon drenaggio.",
+          "certezza": "media",
+          "fonti": ["c19"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Non specificato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c19"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; pianta bassa a cespo/grumolo.",
+          "certezza": "alta",
+          "fonti": ["c19"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c19"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Eccesso umidità causa marciumi colletto/radici e peronospora (Bremia); rotazioni corte favoriscono virosi (mosaico, imbianchimento nervale); mancanza controllo afidi (vettori virosi).",
+          "certezza": "alta",
+          "fonti": ["c19"]
+        }
+      ]
+    },
+    "carote": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; pH ottimale 6,5 indica terreni aperti.",
+          "certezza": "media",
+          "fonti": ["c3"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Non specificato esplicitamente; terreni freschi richiesti; evitare ristagni che causano marciumi radicali e biforcazioni.",
+          "certezza": "media",
+          "fonti": ["c3"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni leggermente acidi (pH ottimale 6,5), freschi, fertili, sciolti; terreni compatti o scheletro causano radici biforcate, legnose, pallide; rotazione biennale, no successione barbabietola, cipolla, altre ombrellifere.",
+          "certezza": "alta",
+          "fonti": ["c3"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Abbondante perché molto avida nutrienti; letame ben decomposto (fresco causa biforcazioni); fosforo e potassio presemina, azoto copertura.",
+          "certezza": "alta",
+          "fonti": ["c3"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; diradamento a 50-100 piante/m² a 3-4 foglie (2-3 cm altezza) è l'intervento principale.",
+          "certezza": "alta",
+          "fonti": ["c3"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente; radice fittonante richiede profondità.",
+          "certezza": "bassa",
+          "fonti": ["c3"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Letame non decomposto (biforcazioni radici); terreni compatti o con scheletro; mancanza diradamento; rotazione con ombrellifere/barbabietola/cipolla; semina troppo fitta senza diradamento.",
+          "certezza": "alta",
+          "fonti": ["c3"]
+        }
+      ]
+    },
+    "cipolla": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Esigenze luce per varietà: brevidiurne 10-12h (precoci), neutrodiurne 12-14h (medio-precoci), longidiurne 14-16h (tardive); germina 0-1°C, resiste basse temperature.",
+          "certezza": "alta",
+          "fonti": ["c20"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Apparato radicale superficiale: molto sensibile a stress idrici; irrigazioni frequenti ma limitate; sospendere 25-30 giorni pre-raccolta.",
+          "certezza": "alta",
+          "fonti": ["c20"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni medio impasto tendenzialmente sciolti, profondi, ricchi sostanza organica, buona disponibilità acqua, pH 6-7; rotazione 4-5 anni; no successione barbabietola zucchero, patata, cavolo.",
+          "certezza": "alta",
+          "fonti": ["c20"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Solo minerale (organica pregiudica conservazione bulbi e favorisce funghi/nematodi; organica su coltura precedente); azoto germinazione-bulbificazione; P e K nei 20 giorni pre-raccolta; azoto tardivo riduce conservabilità.",
+          "certezza": "alta",
+          "fonti": ["c20"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; rullatura leggera post-semina per aderenza terreno-seme.",
+          "certezza": "alta",
+          "fonti": ["c20"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente; semina diretta o trapianto piantine alveolari.",
+          "certezza": "bassa",
+          "fonti": ["c20"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Concimazione organica su coltura; azoto tardivo; mancanza irrigazione (radici superficiali); irrigazione pre-raccolta; rotazioni corte; semina poco profonda; non rullare post-semina.",
+          "certezza": "alta",
+          "fonti": ["c20"]
+        }
+      ]
+    },
+    "ravanelli": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; cicli 3 settimane estate - 2-3 mesi inverno.",
+          "certezza": "media",
+          "fonti": ["c21"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Abbisogna di frequenti irrigazioni.",
+          "certezza": "alta",
+          "fonti": ["c21"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni sciolti ricchi sostanza organica; medio impasto tendenzialmente calcarei, irrigui; rotazione essenziale, no crucifere.",
+          "certezza": "alta",
+          "fonti": ["c21"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Fosfo-potassica presemina; azoto frazionato presemina e copertura.",
+          "certezza": "alta",
+          "fonti": ["c21"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; ciclo brevissimo.",
+          "certezza": "alta",
+          "fonti": ["c21"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Possibile; coltivazione fuori suolo praticata.",
+          "certezza": "media",
+          "fonti": ["c21"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Rotazione con crucifere; mancanza irrigazioni frequenti; semina troppo profonda (>1-2 cm); mancanza rullatura pre-semina; terreni compatti non sciolti.",
+          "certezza": "alta",
+          "fonti": ["c21"]
+        }
+      ]
+    },
+    "bietola": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Non specificato esplicitamente; tollera -2 -3°C, ciclo autunno-vernino o primaverile.",
+          "certezza": "media",
+          "fonti": ["c22"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Esigenze idriche elevate; irrigazioni necessarie.",
+          "certezza": "alta",
+          "fonti": ["c22"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni profondi, freschi, ben drenati, dotati sostanza organica, pH neutro o subalcalino; tollera bene salinità; no successione spinacio, barbabietola, mais.",
+          "certezza": "alta",
+          "fonti": ["c22"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Letame 300-400 q/ha; per 300 q/ha: N 180, P2O5 90, K2O 180 kg/ha; azoto ripetuto in copertura durante ciclo lungo autunno-invernale.",
+          "certezza": "alta",
+          "fonti": ["c22"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non necessari; sfalciatura/raccolta a taglio per bietola da taglio.",
+          "certezza": "alta",
+          "fonti": ["c22"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c22"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Successione spinacio/barbabietola/mais; mancanza diserbo chimico (fondamentale); mancanza azoto in copertura ciclo lungo; terreni con ristagni; eccesso umidità favorisce Cercospora (vaiolatura) e Peronospora.",
+          "certezza": "alta",
+          "fonti": ["c22"]
+        }
+      ]
+    },
+    "pomodori": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Elevate esigenze termiche; temperature ottime ingrossamento frutti 24-26°C giorno e 14-16°C notte; >30°C causano difetti allegazione/colorazione/consistenza; molto sensibile al gelo.",
+          "certezza": "alta",
+          "fonti": ["c2"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Fabbisogno idrico ~400 mm/ciclo; irrigazioni frequenti e leggere per pomodori da mensa; meno frequenti e più abbondanti per industria; ultimo irrigazione con anticipo su raccolta; evitare bagnare vegetazione (favorisce malattie fungine e cancro batterico); preferibile goccia o infiltrazione laterale.",
+          "certezza": "alta",
+          "fonti": ["c2"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Ampia gamma tipi purché ben drenati, buona struttura, pH 5,5-8; no ambienti umidi (favoriscono malattie e marciumi); preparazione curata: aratura 40-50 cm estate precedente, affinamento autunno-inverno.",
+          "certezza": "alta",
+          "fonti": ["c2"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Serra: 100-150 P2O5, 200-250 K2O, 250-300 N kg/ha; pieno campo irriguo: 100-120 P2O5, 150-200 K2O, 180-200 N kg/ha; fosfo-potassici interrati preparazione, azoto 1/2-1/3 semina/trapianto (urea) + resto copertura (urea/nitrato ammonico); pacciamatura film nero + goccia vantaggi agronomici e qualitativi.",
+          "certezza": "alta",
+          "fonti": ["c2"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Necessari per varietà indeterminate (serra, San Marzano): tutori, canne, fili, reti; file binate vantaggiose per ombreggiamento frutti, minor ramificazione, minor costo goccia, facilità raccolta; scacchiatura (eliminazione germogli ascellari) per monostelo; cimatura 3-6 palchi fruttiferi per favorire maturazione.",
+          "certezza": "alta",
+          "fonti": ["c2"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Possibile; semenzaio in contenitori (fitocelle, alveolari, cubetti terriccio) per trapianto con pane terra.",
+          "certezza": "media",
+          "fonti": ["c2"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Rotazione corta (<3-4 anni) o con solanacee (patata, peperone, melanzana) favorisce Verticillium, Fusarium, nematodi; irrigazione a pioggia favorisce malattie fungine; gestione impropria acqua causa marciume apicale, spaccatura frutti, scottatura; mancanza sostegni su indeterminate; non scacchiare/cimare; serra senza disinfezione terreno.",
+          "certezza": "alta",
+          "fonti": ["c2"]
+        }
+      ]
+    },
+    "peperoni": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Molto sensibile al freddo; semina febbraio cassone riscaldato; piantagione fine aprile-primi maggio (passato rischio forti abbassamenti temperatura).",
+          "certezza": "alta",
+          "fonti": ["c23"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Irrigazioni alternate a sarchiature per distruggere infestanti in terreno fertile tenuto fresco e aerato; per sottaceti annaffiare dopo ogni raccolta (giorno stesso o 48h prima successiva) per evitare costipamento terreno.",
+          "certezza": "alta",
+          "fonti": ["c23"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni fertilissimi e soprattutto di facile scolo; aratura 35-40 cm ben sminuzzati; per sottaceti ripetute annaffiature richiedono buon drenaggio.",
+          "certezza": "alta",
+          "fonti": ["c23"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Presemina: 120-150 P2O5 + 250 K2O; copertura: azoto 140-150 nitroammoniacale; in serra extrastagionale: concimazioni fogliari 20-20-20 + stimolanti, rincalzatura, palatura con fili ferro.",
+          "certezza": "alta",
+          "fonti": ["c23"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Palatura con fili ferro tesi ai lati bine per costruire gabbia dove piante si mantengono erette (serra extrastagionale).",
+          "certezza": "media",
+          "fonti": ["c23"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato esplicitamente; semenzaio in cassone riscaldato, ripicchettamento in cubetti/fertil-pot.",
+          "certezza": "bassa",
+          "fonti": ["c23"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Piantagione prima fine aprile (freddo); terreni non fertilissimi o con ristagni; mancare irrigazioni/sarchiature; per sottaceti non annaffiare post-raccolta; mancare concimazione azoto copertura; serra senza arieggiamento (temperature >28-30°C).",
+          "certezza": "alta",
+          "fonti": ["c23"]
+        }
+      ]
+    },
+    "peperoncino": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Posizione soleggiata; trapianto all'aperto quando temperature stabilmente sopra 15°C.",
+          "certezza": "alta",
+          "fonti": ["c24"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Terreni privi di ristagni idrici; non specificate frequenze irrigazione.",
+          "certezza": "media",
+          "fonti": ["c24"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni sciolti, privi di ristagni idrici.",
+          "certezza": "alta",
+          "fonti": ["c24"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Non specificata esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c24"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Legare a tutori se necessario.",
+          "certezza": "media",
+          "fonti": ["c24"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Può essere coltivato anche in grandi vasi.",
+          "certezza": "alta",
+          "fonti": ["c24"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Trapianto temperature sotto 15°C; terreni compatti con ristagni; mancanza tutori se pianta si sdraia; vasi troppo piccoli.",
+          "certezza": "media",
+          "fonti": ["c24"]
+        }
+      ]
+    },
+    "basilico": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Luoghi soleggiati per trapianto; semina protetta marzo-aprile.",
+          "certezza": "alta",
+          "fonti": ["c25"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Innaffiare abbondantemente.",
+          "certezza": "alta",
+          "fonti": ["c25"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Substrato leggero per semina; terreno ben preparato per trapianto.",
+          "certezza": "media",
+          "fonti": ["c25"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Non specificata esplicitamente.",
+          "certezza": "bassa",
+          "fonti": ["c25"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Cimare per favorire accestimento e ritardare fioritura precoce; non necessari tutori.",
+          "certezza": "alta",
+          "fonti": ["c25"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Semina in vaso o terrine; trapianto in vasi più grandi possibile; adatto a contenitori.",
+          "certezza": "alta",
+          "fonti": ["c25"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Non cimare (fioritura precoce riduce produzione foglie); mancanza annaffiature abbondanti; semina diretta in campo aperto troppo presto (freddo); non raccogliere foglie/apici regolarmente estate.",
+          "certezza": "alta",
+          "fonti": ["c25"]
+        }
+      ]
+    },
+    "carciofi": {
+      "consigli": [
+        {
+          "argomento": "luce",
+          "testo": "Clima mite e sufficientemente umido; ciclo normale autunno-primaverile; resiste a 0°C, sotto -10°C compromettono gemme rizoma; riposo vegetativo fine primavera-estate per temperature elevate.",
+          "certezza": "alta",
+          "fonti": ["c26"]
+        },
+        {
+          "argomento": "acqua",
+          "testo": "Elevate esigenze idriche; aspersione turno medio 8-10 giorni estate, qualche intervento autunno se siccitoso; disponibilità idrica carente ritarda risveglio seconda metà agosto.",
+          "certezza": "alta",
+          "fonti": ["c26"]
+        },
+        {
+          "argomento": "terreno",
+          "testo": "Terreni profondi, freschi, medio impasto, buona struttura, reazione intorno neutralità; adattabili a diverse caratteristiche; lavorazione profonda 40-50 cm impianto.",
+          "certezza": "alta",
+          "fonti": ["c26"]
+        },
+        {
+          "argomento": "concimazione",
+          "testo": "Fondamentale: asporta 250-300 N, 350-400 K2O, 50-100 P2O5 kg/ha; fosfo-potassica impianto/risveglio + azoto frazionato 2 volte copertura periodo max accrescimento; letame lavorazione profonda.",
+          "certezza": "alta",
+          "fonti": ["c26"]
+        },
+        {
+          "argomento": "sostegni",
+          "testo": "Non indicati; scarducciatura (eliminazione carducci in eccesso, lasciare 1-3 per pianta) è intervento principale gestione vegetazione.",
+          "certezza": "alta",
+          "fonti": ["c26"]
+        },
+        {
+          "argomento": "vaso",
+          "testo": "Non trattato; impianto carducci/ovoli in pieno campo, sesti 100x100 o 120x120 (oggi 170-200x60-80).",
+          "certezza": "bassa",
+          "fonti": ["c26"]
+        },
+        {
+          "argomento": "errori",
+          "testo": "Temperature >25°C in transizione apice caulinare vegetativo-riproduttivo (atrofia capolino); gelate <0°C danneggiano infiorescenze/foglie, <-10°C compromettono gemme; terreni mal drenati (marciumi colletto); diserbanti ormonici (2,4-D) sensibile; mancare scarducciatura; mancare irrigazione estate risveglio precoce; non controllare arvicola (topo campagnolo) e lepidotteri capolini.",
+          "certezza": "alta",
+          "fonti": ["c26"]
+        }
+      ]
+    }
+  }
+}

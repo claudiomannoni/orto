@@ -70,6 +70,27 @@
       "url": "https://www.regione.lazio.it/sites/default/files/documentazione/AGC_DD_G02644_11_03_2021_Allegato_2.pdf",
       "consultata": "2026-11-01",
       "nota": "Per pomodoro da industria indica sensibilità a carenza e ristagno e fasi critiche; indicazioni professionali da adattare all’orto familiare."
+    },
+    "f22": {
+      "titolo": "Planting asparagus",
+      "ente": "University of Minnesota Extension",
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/planting-asparagus",
+      "consultata": "2026-11-02",
+      "nota": "Zampa con gemme e radici, turioni e chioma; impianto da zampe e cure delle prime estati. Condizioni del Minnesota, non trasferibili al Lazio."
+    },
+    "f23": {
+      "titolo": "Growing asparagus in home gardens",
+      "ente": "University of Minnesota Extension",
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-asparagus",
+      "consultata": "2026-11-02",
+      "nota": "Prima raccolta dalla seconda primavera, breve, oppure dal terzo anno; la chioma accumula riserve. Condizioni del Minnesota."
+    },
+    "f24": {
+      "titolo": "Asparagus",
+      "ente": "University of Illinois Extension",
+      "url": "https://extension.illinois.edu/gardening/asparagus",
+      "consultata": "2026-11-02",
+      "nota": "Raccolta dal terzo anno dopo l'impianto delle zampe, breve la prima volta; la chioma nutre le riserve. Condizioni dell'Illinois."
     }
   },
   "colture": {
@@ -3082,6 +3103,207 @@
         }
       ],
       "nota_allineamento": "L'inizio della fase di raccolto è stato allineato ai giorni alla raccolta della scheda della coltura (minimo 114), perché la fonte della fase dava un valore più basso."
+    },
+    "asparagi": {
+      "piantina_eta_giorni": {
+        "valore": null,
+        "certezza": "alta",
+        "fonti": [
+          "f22"
+        ]
+      },
+      "fasi": [
+        {
+          "id": "impianto",
+          "nome": "Impianto della zampa",
+          "da_giorno": 0,
+          "a_giorno": 30,
+          "cosa_fare": [
+            "Metti a dimora le zampe in primavera, quando il terreno si può lavorare.",
+            "Copri subito le radici con terra fine e annaffia: non devono asciugare.",
+            "Lascia spazio tra le file: la zampa resta in posto per molti anni."
+          ],
+          "accortezze": [
+            "Non raccogliere nulla nell'anno d'impianto.",
+            "Scegli un posto soleggiato e ben drenato: l'asparago teme i ristagni.",
+            "I giorni contano dalla messa a dimora e sono solo un riferimento."
+          ],
+          "come_riconoscerla": "Dopo qualche settimana spuntano turioni sottili: la zampa ha attecchito.",
+          "certezza": "media",
+          "fonti": [
+            "f22",
+            "f23",
+            "f24"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Tieni il terreno umido ma non fradicio dopo l'impianto.",
+            "certezza": "media",
+            "fonti": [
+              "f22",
+              "f23"
+            ]
+          }
+        },
+        {
+          "id": "prima_estate",
+          "nome": "Prima estate: chioma e riserve",
+          "da_giorno": 31,
+          "a_giorno": 180,
+          "cosa_fare": [
+            "Lascia crescere i turioni: diventano fusti alti con foglie piumose.",
+            "Riempi la trincea poco alla volta con la terra messa da parte.",
+            "Tieni pulite le file a mano e annaffia quando il terreno asciuga."
+          ],
+          "accortezze": [
+            "La chioma deve restare sana: produce le riserve per gli anni dopo.",
+            "Non tagliare né raccogliere i turioni di quest'anno.",
+            "Non zappare in profondità: le radici si allargano sotto la fila."
+          ],
+          "come_riconoscerla": "La chioma si allunga e resta verde fino alla fine dell'estate.",
+          "certezza": "media",
+          "fonti": [
+            "f22",
+            "f23",
+            "f24"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Annaffia con regolarità se il terreno asciuga in profondità.",
+            "certezza": "media",
+            "fonti": [
+              "f22",
+              "f23"
+            ]
+          }
+        },
+        {
+          "id": "riposo",
+          "nome": "Riposo invernale",
+          "da_giorno": 181,
+          "a_giorno": 330,
+          "cosa_fare": [
+            "Lascia seccare la chioma in piedi; tagliala solo dopo il gelo, se serve.",
+            "Togli le erbe infestanti prima che ricrescano in primavera.",
+            "Evita di calpestare la zona e controlla che l'acqua non ristagni."
+          ],
+          "accortezze": [
+            "In inverno la zampa è viva sotto terra, con gemme e radici di riserva.",
+            "Non concimare alla cieca: osserva prima la chioma dell'anno passato.",
+            "Il freddo non è un problema; l'acqua ferma sì."
+          ],
+          "come_riconoscerla": "La chioma è gialla o secca e non spuntano turioni.",
+          "certezza": "media",
+          "fonti": [
+            "f22",
+            "f23"
+          ],
+          "acqua": {
+            "livello": "poca",
+            "nota": "Il terreno può restare più asciutto; evita solo i ristagni.",
+            "certezza": "media",
+            "fonti": [
+              "f22"
+            ]
+          }
+        },
+        {
+          "id": "seconda_primavera",
+          "nome": "Seconda primavera: prima prudenza",
+          "da_giorno": 331,
+          "a_giorno": 420,
+          "cosa_fare": [
+            "Aspetta che il terreno si scaldi: i turioni spuntano con il calore, non a una data fissa.",
+            "Se le piante sono state molto vigorose, raccogli al massimo due settimane.",
+            "Lascia poi crescere tutti i turioni che restano."
+          ],
+          "accortezze": [
+            "La scelta prudente è non raccogliere e attendere il terzo anno.",
+            "Non raccogliere turioni sottili o deboli: la zampa è ancora giovane.",
+            "Ogni turione raccolto toglie energia alla chioma e alle riserve."
+          ],
+          "come_riconoscerla": "Spuntano turioni turgidi; se la chioma dell'anno prima era folta, la zampa è più forte.",
+          "certezza": "media",
+          "fonti": [
+            "f22",
+            "f23",
+            "f24"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Mantieni umidità regolare durante la ripresa primaverile.",
+            "certezza": "media",
+            "fonti": [
+              "f22",
+              "f23"
+            ]
+          }
+        },
+        {
+          "id": "seconda_estate",
+          "nome": "Seconda estate: costruire le riserve",
+          "da_giorno": 421,
+          "a_giorno": 700,
+          "cosa_fare": [
+            "Smetti di raccogliere e lascia crescere la chioma per tutta l'estate.",
+            "Annaffia con regolarità se manca la pioggia e tieni pulite le file.",
+            "Osserva la chioma: deve restare verde e folta fino all'autunno."
+          ],
+          "accortezze": [
+            "Questa è l'estate che decide la raccolta degli anni successivi.",
+            "Non tagliare la chioma prima che sia seccata.",
+            "Un impianto sano produce per molti anni; uno indebolito produce poco."
+          ],
+          "come_riconoscerla": "La chioma è alta e fitta, con fusti robusti.",
+          "certezza": "media",
+          "fonti": [
+            "f23",
+            "f24"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "La chioma consuma acqua: non lasciare asciugare troppo il terreno.",
+            "certezza": "media",
+            "fonti": [
+              "f22",
+              "f23"
+            ]
+          }
+        },
+        {
+          "id": "raccolta",
+          "nome": "Raccolta negli anni successivi",
+          "da_giorno": 701,
+          "a_giorno": null,
+          "cosa_fare": [
+            "Dal terzo anno raccogli i turioni turgidi e chiusi in punta, lunghi circa 15-20 cm.",
+            "Taglia alla base o spezza con delicatezza, senza ferire i turioni vicini.",
+            "Ferma la raccolta quando i turioni diventano sottili e lascia crescere la chioma."
+          ],
+          "accortezze": [
+            "La prima raccolta vera dura poche settimane; allungala solo negli anni successivi.",
+            "Non raccogliere tutto: una parte dei turioni deve diventare chioma.",
+            "Le date cambiano con il clima: osserva il terreno e la pianta, non il calendario."
+          ],
+          "come_riconoscerla": "I turioni sono grossi, turgidi e con la punta compatta; poi diminuiscono e si assottigliano.",
+          "certezza": "media",
+          "fonti": [
+            "f22",
+            "f23",
+            "f24"
+          ],
+          "acqua": {
+            "livello": "media",
+            "nota": "Annaffia anche durante la raccolta se il terreno resta asciutto.",
+            "certezza": "media",
+            "fonti": [
+              "f22",
+              "f23"
+            ]
+          }
+        }
+      ],
+      "nota_allineamento": "La scheda non indica giorni alla raccolta perché la prima raccolta dipende dall'età dell'impianto. I giorni delle fasi contano dalla messa a dimora delle zampe e sono un riferimento, non una data di germogliazione."
     }
   }
 }

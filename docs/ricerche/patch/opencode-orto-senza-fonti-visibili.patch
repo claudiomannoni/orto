@@ -1,0 +1,509 @@
+diff --git a/i18n/it.json b/i18n/it.json
+index 4c53cc3..ac72434 100644
+--- a/i18n/it.json
++++ b/i18n/it.json
+@@ -67,9 +67,6 @@
+   "scheda.rotazione": "Rotazione",
+   "scheda.rotazione.dopo": "Dopo: {elenco}",
+   "scheda.rotazione.prima": "Prima di: {elenco}",
+-  "scheda.fonti": "Da dove vengono i dati",
+-  "scheda.fonti.spiega": "Ogni informazione ha il suo livello di certezza. Queste sono le fonti che abbiamo letto.",
+-  "scheda.consultata": "consultata il {data}",
+   "scheda.da_verificare": "Ancora da verificare",
+   "scheda.aggiungi": "Aggiungi al mio orto",
+   "scheda.meglio": "meglio",
+@@ -133,7 +130,7 @@
+   "piano.nemica": "{a} e {b}: non vanno d'accordo, meglio distanziarle.",
+   "piano.nessun_vicinato": "Nessuna coppia vicina con una relazione conosciuta.",
+   "piano.sposta": "Sposta {nome} nell'aiuola (frecce per muoverla)",
+-  "piano.avvertenza": "Le consociazioni sono indicazioni da fonti di divulgazione, spesso estere: il beneficio non è garantito. Ogni coppia dice quanto è certa.",
++  "piano.avvertenza": "Le consociazioni sono indicazioni di divulgazione, spesso estere: il beneficio non è garantito. Ogni coppia dice quanto è certa.",
+   "piano.apri": "Piano visivo",
+   "aggiornamento.pronto": "C'è una versione nuova dell'app.",
+   "aggiornamento.ora": "Aggiorna ora",
+@@ -179,7 +176,7 @@
+   "raccolta.come": "Come raccogliere",
+   "raccolta.conservare": "Come conservare",
+   "raccolta.da_verificare": "durata da verificare",
+-  "raccolta.avvertenza": "Indicazioni generali da fonti di divulgazione: controlla sempre la tua pianta. Per le conserve fatte in casa segui le regole ufficiali.",
++  "raccolta.avvertenza": "Indicazioni generali: controlla sempre la tua pianta. Per le conserve fatte in casa segui le regole ufficiali.",
+   "colture.hub.eccesso": "Il tuo eccesso",
+   "colture.hub.eccesso.spiega": "Il raccolto che avanza: regala, scambia, vendi",
+   "eccesso.titolo": "Il tuo eccesso",
+@@ -329,7 +326,7 @@
+   "lavoro.certezza.alta": "Verificato",
+   "lavoro.certezza.media": "Abbastanza sicuro",
+   "lavoro.certezza.bassa": "Da verificare",
+-  "lavoro.certezza.nota": "Questo consiglio non è ancora confermato da fonti controllate: usalo come indicazione, non come regola.",
++  "lavoro.certezza.nota": "Questo consiglio non è ancora confermato: usalo come indicazione, non come regola.",
+   "lavoro.avviso": "Attenzione",
+   "lavoro.perche": "Perché si fa così",
+   "lavoro.metodi": "Come si può fare",
+@@ -342,7 +339,7 @@
+   "lavoro.saltato.toast": "Va bene, lo rivedi domani",
+   "calendario.titolo": "Orto: {titolo}",
+   "foglio.chiudi": "Ho capito",
+-  "oggi.rossella.lavori_prova": "In ordine di importanza: parti dal primo. «Da verificare» vuol dire che la fonte è debole: è un'indicazione, non una regola.",
++  "oggi.rossella.lavori_prova": "In ordine di importanza: parti dal primo. «Da verificare» vuol dire che l'indicazione non è ancora confermata: non è una regola.",
+   "backup.esportato.uno": "Backup esportato (1 coltura)",
+   "backup.esportato.altri": "Backup esportato ({n} colture)",
+   "backup.importato.uno": "Importata 1 coltura",
+@@ -517,7 +514,7 @@
+   "terreno.risultato.vuoto": "Rispondi a qualche domanda per vedere i consigli.",
+   "terreno.nonso": "Non so ancora",
+   "terreno.salva": "Salva il profilo",
+-  "terreno.da_verificare": "Alcuni contenuti sono ancora da verificare con fonti migliori.",
++  "terreno.da_verificare": "Alcuni contenuti sono ancora da verificare.",
+   "terreno.asse.tessitura": "Tessitura",
+   "terreno.asse.drenaggio": "Acqua",
+   "terreno.asse.humus": "Sostanza organica",
+@@ -535,8 +532,8 @@
+   "meteo.non_disponibile": "Il meteo non è disponibile adesso: serve internet.",
+   "meteo.senza_posizione": "Per il meteo scegli dove sei in Impostazioni.",
+   "meteo.vecchio": "Previsioni di {ore} ore fa, perché adesso non c'è connessione.",
+-  "meteo.fonte_zona": "Previsioni indicative per la zona «{zona}». Dati: Open-Meteo.com. Per quelle del tuo orto: Impostazioni.",
+-  "meteo.fonte_telefono": "Previsioni per la posizione scelta. Dati: Open-Meteo.com.",
++  "meteo.prev_zona": "Previsioni indicative per la zona «{zona}». Per quelle del tuo orto: Impostazioni.",
++  "meteo.prev_telefono": "Previsioni per la posizione scelta.",
+   "meteo.quando.oggi": "Oggi",
+   "meteo.quando.domani": "Domani",
+   "meteo.quando.dopodomani": "Dopodomani",
+@@ -572,7 +569,7 @@
+   "quiz.rosso.tutte": "Tutte giuste! Sei un vero ortolano.",
+   "quiz.rosso.bene": "Bravo! Si vede che l'orto lo conosci.",
+   "quiz.rosso.poco": "Non importa: ogni domanda è una cosa nuova imparata.",
+-  "quiz.rossella": "Le risposte vengono da fonti che abbiamo letto: le trovi nelle schede delle colture.",
++  "quiz.rossella": "Le risposte sono tratte dalle schede delle colture: le riguardi lì.",
+   "chiedi.titolo": "Chiedi a Rossella",
+   "chiedi.invito": "Chiedi a Rossella",
+   "chiedi.rosso": "Hai un dubbio sull'orto? Chiedi pure, anche le domande che sembrano sciocche.",
+@@ -619,7 +616,6 @@
+   "aiuola.fase.futura": "Ancora da seminare",
+   "aiuola.fase.sconosciuta": "Seminata da {n} giorni",
+   "sapevi.titolo": "Lo sapevi?",
+-  "sapevi.fonte": "Fonte",
+   "oggi.gioca.foto": "Come stanno le tue piante?",
+   "oggi.gioca.foto.spiega": "Fotografa una pianta: Rossella dice come sta e cosa controllare.",
+   "saluto.mattina": "Buongiorno",
+@@ -729,13 +725,11 @@
+   "animali.allarmi": "Segnali di allarme",
+   "animali.obblighi": "Obblighi e regole",
+   "animali.obblighi.avviso": "Verifica sempre con la tua ASL e il tuo Comune: le regole cambiano.",
+-  "animali.fonte": "Vedi la fonte",
+-  "animali.fonti": "Fonti",
+   "animali.con_orto": "Come si lega al tuo orto",
+   "animali.avvertenza": "Sono informazioni generali, non il parere di un veterinario o di un tecnico. Per malattie e trattamenti chiedi a un professionista.",
+   "animali.non_disponibile": "Le schede non sono ancora disponibili.",
+-  "animali.certezza.alta": "fonte ufficiale",
+-  "animali.certezza.media": "fonte seria",
++  "animali.certezza.alta": "affidabile",
++  "animali.certezza.media": "abbastanza affidabile",
+   "animali.certezza.bassa": "da verificare",
+   "colture.hub.rendita": "Colture speciali",
+   "colture.hub.rendita.spiega": "Zafferano, funghi, fiori edibili e varietà rare",
+@@ -759,8 +753,8 @@
+   "guida.calendario.rossella": "Qui c'è il calendario dell'orto: cosa fare mese per mese, per le colture che segui.",
+   "guida.impara.rossella": "Qui si impara: schede delle colture, parole dell'orto, quiz e domande da fare a me.",
+   "guida.impara.rosso": "Ogni quiz giocato fa strada verso i traguardi!",
+-  "guida.animali.rossella": "Sono informazioni generali con le loro fonti. Prima di partire controlla sempre le regole con la tua ASL e il tuo Comune.",
+-  "guida.rendita.rossella": "Qui ci sono colture particolari. Nessuna promessa di guadagno: guarda sempre le fonti e le regole per vendere.",
++  "guida.animali.rossella": "Sono informazioni generali. Prima di partire controlla sempre le regole con la tua ASL e il tuo Comune.",
++  "guida.rendita.rossella": "Qui ci sono colture particolari. Nessuna promessa di guadagno: guarda sempre le regole per vendere.",
+   "impostazioni.guida": "Rivedi i suggerimenti dei vermetti",
+   "impostazioni.guida.fatto": "Rivedrai i suggerimenti",
+   "verme.consiglio.lavori": "Oggi hai {n} lavori da fare. Comincia da: {primo}. Tocca per vederli.",
+@@ -808,7 +802,6 @@
+   "vermi.fumetto.lombricoltura": "Lombricoltura",
+   "vermi.fumetto.consiglio": "Consiglio da lombricoltore",
+   "vermi.fumetto.errore": "Errore da evitare:",
+-  "vermi.fumetto.fonte": "Fonte",
+   "vermi.foglia": "Una foglia",
+   "vermi.compost": "Un po' di compost",
+   "vermi.relax.oggi": "Oggi: {n} min di relax",
+@@ -860,7 +853,7 @@
+   "dottore.diario": "Foto per il diario",
+   "dottore.diario.spiega": "Solo una foto, senza analisi",
+   "dottore.recenti": "Le ultime analisi",
+-  "meteo.dettagli": "Dettagli e fonte",
++  "meteo.dettagli": "Dettagli",
+   "resoconto.spiega": "Cosa hai fatto in 7 giorni",
+   "cucina.spiega": "Ricette con quello che raccogli",
+   "oggi.gioca.chiedi.spiega": "Una domanda sull'orto, risposta subito",
+diff --git a/js/screens/animali.js b/js/screens/animali.js
+index c4b71de..9b6a7c0 100644
+--- a/js/screens/animali.js
++++ b/js/screens/animali.js
+@@ -1,5 +1,5 @@
+-// Lombricoltura, api e pollaio: una scheda per ognuno, con cosa serve, come si parte, il calendario del mese, gli obblighi e le fonti.
+-// I contenuti stanno in data/it/animali.json: ogni dato ha la sua fonte e la sua certezza. Mai trattamenti o dosi.
++// Lombricoltura, api e pollaio: una scheda per ognuno, con cosa serve, come si parte, il calendario del mese e gli obblighi.
++// I contenuti stanno in data/it/animali.json: ogni dato ha la sua fonte e la sua certezza (le fonti restano nei dati, fuori dallo schermo). Mai trattamenti o dosi.
+ import { el, aggiungi, meseDi, oggiISO, parametriRotta } from '../util.js';
+ import { t, locale } from '../i18n.js';
+ import { animali } from '../contenuti.js';
+@@ -23,10 +23,8 @@ function disegnaScheda(s) {
+     s.segnali_di_allarme?.length ? sezione(t('animali.allarmi'), el('div', { class: 'elenco-proposte' }, s.segnali_di_allarme.map((a) => el('div', { class: 'problema' }, el('strong', {}, a.segno), el('p', {}, a.cosa_fare))))) : null,
+     s.obblighi?.length ? sezione(t('animali.obblighi'),
+       el('p', { class: 'avviso' }, t('animali.obblighi.avviso')),
+-      el('div', { class: 'elenco-proposte' }, s.obblighi.map((o) => el('div', { class: 'problema' }, o.testo, ' ', certezza(o.certezza), o.fonte_url ? el('p', { class: 'aiuto' }, el('a', { href: o.fonte_url, target: '_blank', rel: 'noopener noreferrer' }, t('animali.fonte'))) : null)))) : null,
++      el('div', { class: 'elenco-proposte' }, s.obblighi.map((o) => el('div', { class: 'problema' }, o.testo, ' ', certezza(o.certezza)))))) : null,
+     s.collegamento_orto ? sezione(t('animali.con_orto'), el('p', {}, s.collegamento_orto)) : null,
+-    s.fonti?.length ? el('details', { class: 'meteo-dettagli' }, el('summary', {}, t('animali.fonti')),
+-      el('ul', { class: 'elenco-semplice' }, s.fonti.map((f) => el('li', {}, el('a', { href: f.url, target: '_blank', rel: 'noopener noreferrer' }, f.titolo), f.ente ? ` (${f.ente})` : '')))) : null,
+   ];
+ }
+ 
+diff --git a/js/screens/oggi.js b/js/screens/oggi.js
+index 79bc8ba..566addc 100644
+--- a/js/screens/oggi.js
++++ b/js/screens/oggi.js
+@@ -186,14 +186,13 @@ export async function monta(contenitore) {
+       tessera('#/cucina', t('cucina.apri'), t('cucina.spiega')),
+       tessera('#/chiedi', t('oggi.gioca.chiedi'), t('oggi.gioca.chiedi.spiega'))));
+ 
+-  // «Lo sapevi?»: una curiosità al giorno, con la sua fonte e i commenti dei vermetti.
++  // «Lo sapevi?»: una curiosità al giorno, con i commenti dei vermetti.
+   const cur = curiositaDelGiorno((await curiosita())?.curiosita, oggi);
+   const cartaSapevi = cur ? el('section', { class: 'card sapevi' },
+     el('h3', {}, t('sapevi.titolo')),
+     el('p', {}, cur.testo),
+     cur.rosso ? el('p', { class: 'aiuto' }, el('strong', {}, `${t('mascotte.rosso')}: `), String(cur.rosso).replace(/^Rosso:\s*/, '')) : null,
+-    cur.rossella ? el('p', { class: 'aiuto' }, el('strong', {}, `${t('mascotte.rossella')}: `), String(cur.rossella).replace(/^Rossella:\s*/, '')) : null,
+-    cur.fonte && /^https:/.test(cur.fonte) ? el('p', { class: 'aiuto' }, el('a', { class: 'btn piccolo', href: cur.fonte, target: '_blank', rel: 'noopener noreferrer' }, t('sapevi.fonte'))) : null) : null;
++    cur.rossella ? el('p', { class: 'aiuto' }, el('strong', {}, `${t('mascotte.rossella')}: `), String(cur.rossella).replace(/^Rossella:\s*/, '')) : null) : null;
+ 
+   const lista = el('ol', { class: 'lavori' });
+   const listaExtra = el('ol', { class: 'lavori' });
+diff --git a/js/screens/pianta.js b/js/screens/pianta.js
+index b209369..f506b52 100644
+--- a/js/screens/pianta.js
++++ b/js/screens/pianta.js
+@@ -49,8 +49,7 @@ export async function monta(contenitore) {
+   } else if (selezionata === 'scheda') {
+     contenuto = [scheda ? el('section', { class: 'card' }, el('h3', {}, scheda.nome), scheda.descrizione ? el('p', {}, scheda.descrizione) : null,
+       (scheda.avvisi ?? []).map((a) => el('p', { class: 'avviso' }, a)),
+-      scheda.giorni_alla_raccolta?.min && scheda.giorni_alla_raccolta?.max ? el('p', {}, t('scheda.raccolta', { min: scheda.giorni_alla_raccolta.min, max: scheda.giorni_alla_raccolta.max })) : null,
+-      (scheda.fonti ? Object.values(scheda.fonti) : []).map((f) => el('p', { class: 'aiuto' }, el('a', { href: f.url, target: '_blank', rel: 'noopener noreferrer' }, f.titolo ?? f.url)))) : el('p', { class: 'aiuto' }, t('scheda.non_trovata')),
++      scheda.giorni_alla_raccolta?.min && scheda.giorni_alla_raccolta?.max ? el('p', {}, t('scheda.raccolta', { min: scheda.giorni_alla_raccolta.min, max: scheda.giorni_alla_raccolta.max })) : null) : el('p', { class: 'aiuto' }, t('scheda.non_trovata')),
+       scheda ? el('a', { class: 'btn', href: `#/coltura?id=${encodeURIComponent(scheda.id)}` }, t('scheda.quando')) : null];
+   } else {
+     contenuto = [el('p', { class: 'aiuto' }, t('piano.spiega', { l: '', w: '' })),
+diff --git a/js/screens/rendita.js b/js/screens/rendita.js
+index 99db644..7185dc4 100644
+--- a/js/screens/rendita.js
++++ b/js/screens/rendita.js
+@@ -1,5 +1,5 @@
+-// Colture speciali e da rendita: zafferano, funghi, fiori edibili, varietà rare. Ogni dato ha la sua fonte e la sua certezza.
+-// Nessuna promessa di guadagno: si riportano solo cifre con una fonte. Contenuti in data/it/rendita.json.
++// Colture speciali e da rendita: zafferano, funghi, fiori edibili, varietà rare. Ogni dato ha la sua fonte e la sua certezza (le fonti restano nei dati, fuori dallo schermo).
++// Nessuna promessa di guadagno: si riportano solo cifre verificate. Contenuti in data/it/rendita.json.
+ import { el, aggiungi, meseDi, oggiISO, parametriRotta } from '../util.js';
+ import { t, locale } from '../i18n.js';
+ import { rendita, alberi } from '../contenuti.js';
+@@ -7,7 +7,6 @@ import { rendita, alberi } from '../contenuti.js';
+ const lista = (voci) => el('ul', { class: 'elenco-semplice' }, voci.map((v) => el('li', {}, v)));
+ const sezione = (titolo, ...figli) => el('section', { class: 'card' }, el('h3', {}, titolo), ...figli);
+ const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
+-const link = (url, testo) => (url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, testo) : null);
+ 
+ function disegnaScheda(s) {
+   const mese = String(meseDi(oggiISO()));
+@@ -21,14 +20,12 @@ function disegnaScheda(s) {
+     s.potatura ? sezione(t('alberi.potatura'), el('p', {}, s.potatura)) : null,
+     s.impollinazione ? sezione(t('alberi.impollinazione'), el('p', {}, s.impollinazione)) : null,
+     s.cosa_serve?.length ? sezione(t('animali.cosa_serve'), lista(s.cosa_serve.map(testoVoce))) : null,
+-    s.resa_realistica ? sezione(t('rendita.resa'), el('p', {}, s.resa_realistica.testo, ' ', certezza(s.resa_realistica.certezza), ' ', link(s.resa_realistica.fonte_url, t('animali.fonte')))) : null,
++    s.resa_realistica ? sezione(t('rendita.resa'), el('p', {}, s.resa_realistica.testo, ' ', certezza(s.resa_realistica.certezza))) : null,
+     s.come_si_vende_o_si_usa?.length ? sezione(t('rendita.usi'), lista(s.come_si_vende_o_si_usa)) : null,
+     s.vendita_e_legge?.length ? sezione(t('rendita.vendita'), el('p', { class: 'avviso' }, t('rendita.avviso')),
+-      el('div', { class: 'elenco-proposte' }, s.vendita_e_legge.map((o) => el('div', { class: 'problema' }, o.testo, ' ', certezza(o.certezza), ' ', link(o.fonte_url, t('animali.fonte')))))) : null,
++      el('div', { class: 'elenco-proposte' }, s.vendita_e_legge.map((o) => el('div', { class: 'problema' }, o.testo, ' ', certezza(o.certezza)))))) : null,
+     s.rischi?.length ? sezione(t('rendita.rischi'), el('div', { class: 'elenco-proposte' }, s.rischi.map((r) => el('div', { class: 'problema' }, el('strong', {}, r.cosa), el('p', {}, r.cosa_fare))))) : null,
+     s.errori_comuni?.length ? sezione(t('animali.errori'), lista(s.errori_comuni)) : null,
+-    s.fonti?.length ? el('details', { class: 'meteo-dettagli' }, el('summary', {}, t('animali.fonti')),
+-      el('ul', { class: 'elenco-semplice' }, s.fonti.map((f) => el('li', {}, link(f.url, f.titolo), f.ente ? ` (${f.ente})` : '')))) : null,
+   ];
+ }
+ 
+diff --git a/js/screens/scheda.js b/js/screens/scheda.js
+index 0b7c330..e542b3a 100644
+--- a/js/screens/scheda.js
++++ b/js/screens/scheda.js
+@@ -1,6 +1,6 @@
+-// La scheda di una coltura: in breve, quando si fa (mesi), cosa si fa, amiche e nemiche, rotazione, fonti.
+-// Tutto con il suo livello di certezza e le fonti che abbiamo letto: l'utente deve potersi fidare, e controllare.
+-import { el, oggiISO, meseDi, formattaData, parametriRotta, aggiungi } from '../util.js';
++// La scheda di una coltura: in breve, quando si fa (mesi), cosa si fa, amiche e nemiche, rotazione.
++// Tutto con il suo livello di certezza in parole scempie (le fonti restano nei dati, fuori dallo schermo).
++import { el, oggiISO, meseDi, parametriRotta, aggiungi } from '../util.js';
+ import { t, locale } from '../i18n.js';
+ import { leggi, imposta } from '../store/impostazioni.js';
+ import { alternaSeguita, seguita } from '../motore/seguite.js';
+@@ -65,7 +65,7 @@ export async function monta(contenitore) {
+   if (s?.distanza_file_cm) fatti.push(el('li', {}, t('scheda.distanza_file', { cm: s.distanza_file_cm }), ' ', certezza(s.certezza)));
+   if (s?.distanza_piante_cm) fatti.push(el('li', {}, t('scheda.distanza_piante', { cm: s.distanza_piante_cm }), ' ', certezza(s.certezza)));
+ 
+-  // Amiche e nemiche: dal file delle consociazioni (con fonti) e, se manca, da quello che dice la scheda
++  // Amiche e nemiche: dal file delle consociazioni e, se manca, da quello che dice la scheda
+   const relazioni = (consoc?.relazioni ?? []).filter((r) => r.a === scheda.id || r.b === scheda.id)
+     .map((r) => ({ altra: r.a === scheda.id ? r.b : r.a, tipo: r.tipo, perche: r.perche, certezza: r.certezza }));
+   const amiche = relazioni.filter((r) => r.tipo === 'amica');
+@@ -88,7 +88,7 @@ export async function monta(contenitore) {
+   });
+ 
+   const rotazione = scheda.rotazione;
+-  const fonti = Object.values(scheda.fonti ?? {});
++  const daVerificare = scheda.da_verificare ?? [];
+ 
+   aggiungi(contenitore,
+     indietro,
+@@ -135,13 +135,8 @@ export async function monta(contenitore) {
+       rotazione.note ? el('p', { class: 'aiuto' }, rotazione.note) : null,
+       certezza(rotazione.certezza)) : null,
+ 
+-    el('section', { class: 'card' },
+-      el('h3', {}, t('scheda.fonti')),
+-      el('p', { class: 'aiuto' }, t('scheda.fonti.spiega')),
+-      fonti.length ? el('ul', { class: 'elenco-semplice' }, fonti.map((f) => el('li', {},
+-        el('a', { href: f.url, target: '_blank', rel: 'noopener noreferrer' }, f.titolo ?? f.url),
+-        f.ente ? ` · ${f.ente}` : '',
+-        f.consultata ? ` · ${t('scheda.consultata', { data: formattaData(f.consultata) })}` : ''))) : null,
+-      (scheda.da_verificare ?? []).length ? [el('h4', {}, t('scheda.da_verificare')), el('ul', { class: 'elenco-semplice' }, scheda.da_verificare.map((d) => el('li', {}, d)))] : null),
++    daVerificare.length ? el('section', { class: 'card' },
++      el('h3', {}, t('scheda.da_verificare')),
++      el('ul', { class: 'elenco-semplice' }, daVerificare.map((d) => el('li', {}, d)))) : null,
+   );
+ }
+diff --git a/js/screens/vermi.js b/js/screens/vermi.js
+index 07f4c46..165525a 100644
+--- a/js/screens/vermi.js
++++ b/js/screens/vermi.js
+@@ -361,13 +361,13 @@ export async function monta(contenitore) {
+ 
+   const bottone = (tipo, chiave) => el('button', { class: 'btn', type: 'button', id: `cibo-${tipo}`, onclick: () => dai(tipo) }, t(chiave));
+   const esci = el('button', { class: 'btn', type: 'button', id: 'vermi-esci', onclick: () => { salva(); if (history.length > 1) history.back(); else location.hash = '#/oggi'; } }, t('vermi.esci'));
+-  // Ogni tanto un fumetto con una nozione sui lombrichi o sulla lombricoltura (dalle curiosità con fonte e dalla scheda «Lombricoltura»)
++  // Ogni tanto un fumetto con una nozione sui lombrichi o sulla lombricoltura (dalle curiosità e dalla scheda «Lombricoltura»)
+   const lomb = dAnimali?.schede?.find((x) => x.id === 'lombricoltura');
+   const fumetti = [
+-    ...(dCuriosita?.curiosita ?? []).filter((x) => x.tema === 'lombrichi' && x.testo).map((x) => ({ testo: x.testo, fonte: x.fonte ?? null, titolo: t('vermi.fumetto.sapevi') })),
+-    ...(lomb?.perche ?? []).map((x) => ({ testo: x, fonte: lomb.fonti?.[0]?.url ?? null, titolo: t('vermi.fumetto.lombricoltura') })),
+-    ...(lomb?.ogni_giorno_o_settimana ?? []).map((x) => ({ testo: x, fonte: lomb.fonti?.[0]?.url ?? null, titolo: t('vermi.fumetto.consiglio') })),
+-    ...(lomb?.errori_comuni ?? []).map((x) => ({ testo: `${t('vermi.fumetto.errore')} ${x}`, fonte: lomb.fonti?.[0]?.url ?? null, titolo: t('vermi.fumetto.lombricoltura') })),
++    ...(dCuriosita?.curiosita ?? []).filter((x) => x.tema === 'lombrichi' && x.testo).map((x) => ({ testo: x.testo, titolo: t('vermi.fumetto.sapevi') })),
++    ...(lomb?.perche ?? []).map((x) => ({ testo: x, titolo: t('vermi.fumetto.lombricoltura') })),
++    ...(lomb?.ogni_giorno_o_settimana ?? []).map((x) => ({ testo: x, titolo: t('vermi.fumetto.consiglio') })),
++    ...(lomb?.errori_comuni ?? []).map((x) => ({ testo: `${t('vermi.fumetto.errore')} ${x}`, titolo: t('vermi.fumetto.lombricoltura') })),
+   ];
+   let indiceFumetto = Math.floor(Math.random() * Math.max(1, fumetti.length));
+   const fumettoNodo = el('div', { class: 'fumetto-gioco', hidden: true, role: 'status' });
+@@ -377,7 +377,7 @@ export async function monta(contenitore) {
+     if (!fumetti.length || !fumettoNodo.isConnected) return;
+     const f = fumetti[indiceFumetto % fumetti.length];
+     indiceFumetto += 1;
+-    fumettoNodo.replaceChildren(el('strong', {}, f.titolo), el('p', {}, f.testo), f.fonte ? el('a', { href: f.fonte, target: '_blank', rel: 'noopener noreferrer' }, t('vermi.fumetto.fonte')) : null);
++    fumettoNodo.replaceChildren(el('strong', {}, f.titolo), el('p', {}, f.testo));
+     fumettoNodo.hidden = false;
+     clearTimeout(nascondiFumetto);
+     nascondiFumetto = setTimeout(() => { fumettoNodo.hidden = true; }, Math.min(12000, 5000 + f.testo.length * 45));
+diff --git a/js/ui/fasi-pianta.js b/js/ui/fasi-pianta.js
+index 3c4ce9b..37a51a8 100644
+--- a/js/ui/fasi-pianta.js
++++ b/js/ui/fasi-pianta.js
+@@ -23,7 +23,6 @@ export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true, raccoltaDa
+   if (!st) return null;
+   const f = st.fase;
+   const prossima = st.dati.fasi[st.indice + 1];
+-  const fonti = (f.fonti ?? []).map((id) => fasiDati.fonti?.[id]).filter(Boolean);
+   return el('section', { class: 'card fase-pianta', 'data-coltura': coltura.id },
+     el('h3', {}, coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome),
+     el('p', { class: 'meta' }, t(coltura.partenza === 'piantina' ? 'fase.eta.piantina' : 'fase.eta', { n: st.eta }), ' · ', el('strong', {}, f.nome), ' ', certezza(f.certezza)),
+@@ -36,8 +35,6 @@ export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true, raccoltaDa
+     bloccoRaccoltaConservazione(coltura.schedaId, raccoltaDati),
+     f.come_riconoscerla ? el('p', { class: 'aiuto' }, t('fase.riconoscerla', { testo: f.come_riconoscerla })) : null,
+     conFoto ? el('div', { class: 'riga' }, el('a', { class: 'btn', href: `#/dottore?coltura=${encodeURIComponent(coltura.id)}` }, t('fase.esamina')), el('a', { class: 'btn', href: `#/pianta?id=${encodeURIComponent(coltura.id)}&scheda=storia` }, t('pianta.storia'))) : null,
+-    fonti.length ? el('details', { class: 'meteo-dettagli' }, el('summary', {}, t('animali.fonti')),
+-      el('ul', { class: 'elenco-semplice' }, fonti.map((x) => el('li', {}, el('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer' }, x.titolo), x.ente ? ` (${x.ente})` : '')))) : null,
+     el('p', { class: 'aiuto' }, t('fase.avvertenza')));
+ }
+ 
+@@ -50,11 +47,10 @@ export function aggiornaAcqua(radice, annaffia) {
+   });
+ }
+ 
+-// «Raccolta e conservazione» di una coltura (data/it/raccolta.json): quando e come si raccoglie, come si conserva, con certezza e fonti.
++// «Raccolta e conservazione» di una coltura (data/it/raccolta.json): quando e come si raccoglie, come si conserva, con certezza (le fonti restano nei dati).
+ export function bloccoRaccoltaConservazione(schedaId, dati) {
+   const r = dati?.colture?.[schedaId];
+   if (!r) return null;
+-  const fonti = (r.fonti ?? []).map((id) => dati.fonti?.[id]).filter(Boolean);
+   return el('details', { class: 'meteo-dettagli raccolta-conservazione' },
+     el('summary', {}, t('raccolta.titolo')),
+     r.quando_raccogliere ? el('p', {}, el('strong', {}, `${t('raccolta.quando')}: `), r.quando_raccogliere) : null,
+@@ -62,6 +58,5 @@ export function bloccoRaccoltaConservazione(schedaId, dati) {
+     (r.conservazione ?? []).length ? el('div', {}, el('h4', {}, t('raccolta.conservare')),
+       el('ul', { class: 'elenco-semplice' }, r.conservazione.map((c) => el('li', {}, el('strong', {}, `${c.dove}: `), c.quanto === 'da verificare' ? t('raccolta.da_verificare') : c.quanto, c.come ? `. ${c.come}` : '', ' ', certezza(c.certezza))))) : null,
+     r.sicurezza ? el('p', { class: 'avviso' }, r.sicurezza) : null,
+-    fonti.length ? el('ul', { class: 'elenco-semplice' }, fonti.map((x) => el('li', {}, el('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer' }, x.titolo), x.ente ? ` (${x.ente})` : ''))) : null,
+     el('p', { class: 'aiuto' }, t('raccolta.avvertenza')));
+ }
+diff --git a/js/ui/meteo.js b/js/ui/meteo.js
+index ca70f42..30f868f 100644
+--- a/js/ui/meteo.js
++++ b/js/ui/meteo.js
+@@ -37,13 +37,13 @@ export function cartaMeteo() {
+         el('span', { class: 'aiuto' }, g.pioggia >= 0.5 ? t('meteo.pioggia_mm', { mm: g.pioggia.toFixed(g.pioggia < 10 ? 1 : 0).replace('.', ',') }) : t('meteo.asciutto'))))),
+       ...avvisi.map((a) => el('p', { class: `avviso avviso-${a.tipo}`, role: 'alert' }, testoAvviso(a))),
+       acqua ? el('div', { class: 'acqua' }, el('p', {}, el('strong', {}, `${t('acqua.titolo')}: `), t(`acqua.${acqua.annaffia}`))) : null,
+-      // I dettagli (quanta pioggia, da dove vengono i dati) stanno dietro un tocco: la scheda resta corta.
++      // I dettagli (quanta pioggia, da dove arrivano le previsioni) stanno dietro un tocco: la scheda resta corta.
+       el('details', { class: 'meteo-dettagli' },
+         el('summary', {}, t('meteo.dettagli')),
+         acqua ? el('p', { class: 'aiuto' }, t(`acqua.livello.${acqua.livello}`, { mm: String(acqua.mm7).replace('.', ',') }), acqua.previsti > 0 ? ` ${t('acqua.in_arrivo', { mm: String(acqua.previsti).replace('.', ',') })}` : '') : null,
+         acqua ? el('p', { class: 'aiuto' }, t('acqua.nota')) : null,
+         vecchio ? el('p', { class: 'aiuto' }, t('meteo.vecchio', { ore })) : null,
+-        el('p', { class: 'aiuto' }, posizione.origine === 'telefono' ? t('meteo.fonte_telefono') : t('meteo.fonte_zona', { zona: posizione.nome ?? '' }))),
++        el('p', { class: 'aiuto' }, posizione.origine === 'telefono' ? t('meteo.prev_telefono') : t('meteo.prev_zona', { zona: posizione.nome ?? '' }))),
+     );
+   }).catch((errore) => {
+     carta.replaceChildren(el('h3', {}, t('meteo.titolo')), el('p', { class: 'aiuto' }, errore?.codice === 'posizione' ? t('meteo.senza_posizione') : t('meteo.non_disponibile')));
+diff --git a/js/ui/stagione-blocco.js b/js/ui/stagione-blocco.js
+index b554eb5..e5eb077 100644
+--- a/js/ui/stagione-blocco.js
++++ b/js/ui/stagione-blocco.js
+@@ -1,5 +1,5 @@
+ // «Stagione»: l'avviso sotto una pianta quando è fuori stagione, sta arrivando il gelo o la stagione finisce, con cosa fare, come e perché.
+-// I dati vengono dal calendario della scheda (fuori stagione) e da data/it/stagione.json (freddo e fine stagione, con fonti e certezza).
++// I dati vengono dal calendario della scheda (fuori stagione) e da data/it/stagione.json (freddo e fine stagione, con certezza; le fonti restano nei dati).
+ import { el, oggiISO } from '../util.js';
+ import { t, locale } from '../i18n.js';
+ import { previsioni } from '../meteo.js';
+@@ -11,9 +11,6 @@ const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ?
+ // Costruisce il riquadro per un giudizio già calcolato; null se non c'è niente da dire.
+ export function bloccoStagione(g, dati) {
+   if (!g || g.stato === 'ok') return null;
+-  const fonti = (g.fonti ?? []).map((id) => dati?.fonti?.[id]).filter(Boolean);
+-  const elencoFonti = fonti.length ? el('details', { class: 'meteo-dettagli' }, el('summary', {}, t('animali.fonti')),
+-    el('ul', { class: 'elenco-semplice' }, fonti.map((x) => el('li', {}, el('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer' }, x.titolo), x.ente ? ` (${x.ente})` : '')))) : null;
+   if (g.stato === 'fuori-stagione') {
+     const mesi = g.consigliati.map(nomeMese).join(', ');
+     return el('div', { class: 'stagione fuori-stagione', role: 'note' },
+@@ -28,8 +25,7 @@ export function bloccoStagione(g, dati) {
+     el('strong', {}, g.stato === 'gelo-in-arrivo' ? t('stagione.gelo.titolo', { minima: String(Math.round(g.minima * 10) / 10).replace('.', ',') }) : t('stagione.fine.titolo')),
+     g.freddo?.nota ? el('p', { class: 'aiuto' }, g.freddo.nota) : null,
+     riga('stagione.cosa', f.cosa_fare), riga('stagione.come', f.come), riga('stagione.perche', f.perche),
+-    el('p', {}, certezza(g.certezza)),
+-    elencoFonti);
++    el('p', {}, certezza(g.certezza)));
+ }
+ 
+ // Calcola il giudizio di stagione per una coltura e riempie il contenitore: subito con il calendario, poi di nuovo quando arrivano le previsioni.
+diff --git a/tests/12-meteo.mjs b/tests/12-meteo.mjs
+index 728a924..6e8eae2 100644
+--- a/tests/12-meteo.mjs
++++ b/tests/12-meteo.mjs
+@@ -21,7 +21,7 @@ check('meteo: tre giorni (Oggi, Domani, Dopodomani)', (await page.locator('.mete
+ const primo = await page.locator('.meteo-giorno').first().innerText();
+ check('meteo: sereno, 6° / 16°, asciutto', primo.includes('Sereno') && primo.includes('6° / 16°') && primo.includes('Asciutto'), primo.replace(/\n+/g, ' | '));
+ check('meteo: nessun avviso', (await page.locator('.meteo .avviso').count()) === 0);
+-check('meteo: dichiara la fonte e che usa il centro della zona', (await page.locator('.meteo').textContent()).includes('Open-Meteo.com') && (await page.locator('.meteo').textContent()).includes('Castelli Romani'));
++check('meteo: previsioni indicative per la zona, senza citare le fonti', (await page.locator('.meteo').textContent()).includes('Castelli Romani') && !(await page.locator('.meteo').textContent()).includes('Open-Meteo'));
+ check('vermetti in estate (non piove)', (await vestiti(page)).every((v) => v.endsWith('-estate.svg')), (await vestiti(page)).join());
+ check('la richiesta usa le coordinate della zona e 7 giorni', ctx.richiesteMeteo.length === 1 && ctx.richiesteMeteo[0].includes('latitude=41.81') && ctx.richiesteMeteo[0].includes('longitude=12.68') && ctx.richiesteMeteo[0].includes('forecast_days=7'), ctx.richiesteMeteo[0]);
+ check('nessuna chiave o dato personale nella richiesta', !/key|token|nome|orto=/i.test(ctx.richiesteMeteo[0].replace('open-meteo', '')));
+diff --git a/tests/15-impara-storia.mjs b/tests/15-impara-storia.mjs
+index feb555f..99961a1 100644
+--- a/tests/15-impara-storia.mjs
++++ b/tests/15-impara-storia.mjs
+@@ -55,7 +55,7 @@ check('Impara: glossario presente', (await page.locator('details.termine').count
+ await vai(page, 'coltura?id=fave');
+ await page.waitForSelector('.scheda-testa');
+ const testo = await page.locator('#schermata').innerText();
+-check('scheda: nome, mesi, fonti', /Fave/i.test(testo) && (await page.locator('.striscia-riga').count()) >= 2 && /Fonti/i.test(testo));
++check('scheda: nome e mesi, senza fonti in vista', /Fave/i.test(testo) && (await page.locator('.striscia-riga').count()) >= 2 && !/Fonti/i.test(testo));
+ check('scheda: striscia mesi con testo per chi non vede i colori', /:.*(ottobre|novembre)/i.test(await page.locator('.striscia-mesi[role=img]').first().getAttribute('aria-label')));
+ await vai(page, 'coltura?id=pomodori');
+ await page.waitForSelector('.scheda-testa');
+diff --git a/tests/16-quiz.mjs b/tests/16-quiz.mjs
+index 799baac..648c68a 100644
+--- a/tests/16-quiz.mjs
++++ b/tests/16-quiz.mjs
+@@ -11,7 +11,7 @@ const imp = async () => Object.fromEntries((await leggiDb(page, 'impostazioni'))
+ await vai(page, 'oggi');
+ await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
+ check('Oggi invita al quiz del giorno', (await page.locator('.gioca a[href="#/quiz"]').count()) === 1 && /Giorni di fila: 0/.test(await page.locator('.gioca').innerText()));
+-check('Oggi ha «Lo sapevi?» con la fonte e senza doppio nome davanti ai commenti', /Lo sapevi\?/.test(await page.locator('.sapevi').innerText()) && (await page.locator('.sapevi a[href^="https://"]').count()) === 1 && !/Rosso: Rosso:|Rossella: Rossella:/.test(await page.locator('.sapevi').innerText()));
++check('Oggi ha «Lo sapevi?» senza link alla fonte e senza doppio nome davanti ai commenti', /Lo sapevi\?/.test(await page.locator('.sapevi').innerText()) && (await page.locator('.sapevi a[href^="https://"]').count()) === 0 && !/Rosso: Rosso:|Rossella: Rossella:/.test(await page.locator('.sapevi').innerText()));
+ check('Oggi saluta (Buongiorno, Buon pomeriggio, Buonasera, Ancora in piedi o Buone feste)', /^(Buongiorno|Buon pomeriggio|Buonasera|Ancora in piedi|Buone feste|Ciao)/.test(await page.locator('.saluto').innerText()));
+ check('Oggi invita a Rossella', (await page.locator('.gioca a[href="#/chiedi"]').count()) === 1);
+ check('Oggi invita a controllare le piante con la foto', (await page.locator('#fotografa').count()) === 1 && /Come stanno le tue piante/.test(await page.locator('#fotografa').innerText()) && (await page.locator('#fotografa').getAttribute('href')) === '#/dottore');
+diff --git a/tests/28-animali.mjs b/tests/28-animali.mjs
+index 638fca8..033567d 100644
+--- a/tests/28-animali.mjs
++++ b/tests/28-animali.mjs
+@@ -16,7 +16,7 @@ for (const id of ids) {
+   await page.waitForSelector('h3');
+   const testo = await page.locator('main, #app, body').first().innerText();
+   const collegamenti = await page.locator('a[href^="http"]').count();
+-  check(`${id}: cosa serve, come si parte e almeno una fonte`, /Cosa serve/.test(testo) && /Come si parte/.test(testo) && collegamenti >= 1, `link ${collegamenti}`);
++  check(`${id}: cosa serve, come si parte e nessun link alle fonti`, /Cosa serve/.test(testo) && /Come si parte/.test(testo) && collegamenti === 0, `link ${collegamenti}`);
+ }
+ await page.goto(`${page.url().split('#')[0]}#/rendita`);
+ await page.waitForSelector('a[data-scheda]');
+@@ -25,7 +25,7 @@ check('colture speciali: zafferano, funghi, fiori, varietà rare, aromatiche', i
+ for (const id of ids2) {
+   await page.goto(`${page.url().split('#')[0]}#/rendita?scheda=${id}`);
+   await page.waitForSelector('h3');
+-  check(`${id}: si apre con almeno una fonte`, (await page.locator('a[href^="http"]').count()) >= 1);
++  check(`${id}: si apre senza link alle fonti`, (await page.locator('a[href^="http"]').count()) === 0);
+ }
+ await page.goto(`${page.url().split('#')[0]}#/alberi`);
+ await page.waitForSelector('a[data-scheda]');
+@@ -34,7 +34,7 @@ check('alberi da frutto: dieci schede (olivo, vite, fico...)', ids3.length === 1
+ await page.goto(`${page.url().split('#')[0]}#/alberi?scheda=olivo`);
+ await page.waitForSelector('h3');
+ const olivo = await page.locator('main').innerText();
+-check('olivo: potatura, fonte e avviso «verifica con la tua ASL»', /Potatura/.test(olivo) && (await page.locator('a[href^="http"]').count()) >= 1);
++check('olivo: potatura e avviso «verifica con la tua ASL», senza fonti', /Potatura/.test(olivo) && /ASL/.test(olivo) && (await page.locator('a[href^="http"]').count()) === 0);
+ const veri = problemi.filter((p) => !/Service Worker registration blocked/.test(p));
+ check('nessun errore in console', veri.length === 0, veri.join(' | '));
+ await browser.close();
+diff --git a/tests/31-vermi-gioco.mjs b/tests/31-vermi-gioco.mjs
+index 702c66a..a12571f 100644
+--- a/tests/31-vermi-gioco.mjs
++++ b/tests/31-vermi-gioco.mjs
+@@ -50,7 +50,7 @@ check('un tocco sulla terra manda un verme a scavare', dopo.some(([, y, dentro],
+ 
+ await page.waitForSelector('.fumetto-gioco:not([hidden])', { timeout: 12000 });
+ const fumetto = await page.locator('.fumetto-gioco').innerText();
+-check('ogni tanto compare un fumetto con una nozione sui lombrichi e la fonte', fumetto.length > 30 && (await page.locator('.fumetto-gioco a').count()) === 1, fumetto.slice(0, 100));
++check('ogni tanto compare un fumetto con una nozione sui lombrichi, senza link alla fonte', fumetto.length > 30 && (await page.locator('.fumetto-gioco a').count()) === 0, fumetto.slice(0, 100));
+ // cibo
+ await page.click('#cibo-foglia');
+ await page.waitForTimeout(1000);
+diff --git a/tests/32-fasi.mjs b/tests/32-fasi.mjs
+index 93a87ec..b327db3 100644
+--- a/tests/32-fasi.mjs
++++ b/tests/32-fasi.mjs
+@@ -35,7 +35,7 @@ await page.locator('details.oggi-altri').evaluate((x) => { x.open = true; });
+ await page.waitForSelector('.fase-pianta');
+ const blocco = await page.locator('.fase-pianta').first().innerText();
+ check('Oggi: età stimata di 67 giorni e fase «Fioritura»', /67 giorni/.test(blocco) && /Fioritura/i.test(blocco), blocco.slice(0, 200));
+-check('«Cosa fare adesso» e accortezze del periodo, con la fonte', /Cosa fare adesso/.test(blocco) && /Accortezze/.test(blocco) && (await page.locator('.fase-pianta details a').count()) >= 1);
++check('«Cosa fare adesso» e accortezze del periodo, senza fonti', /Cosa fare adesso/.test(blocco) && /Accortezze/.test(blocco) && !/Fonti/.test(blocco) && (await page.locator('.fase-pianta details a').count()) === 0);
+ check('dice fra quanti giorni cambia fase', /Fra circa \d+ giorni passa alla fase/.test(blocco));
+ 
+ check('la fase mostra l acqua e la raccolta con conservazione', (await page.locator('.fase-pianta .acqua-fase').count()) >= 1 && (await page.locator('.fase-pianta .raccolta-conservazione').count()) >= 1);
+diff --git a/tests/38-stagione.mjs b/tests/38-stagione.mjs
+index 443e2ca..060be2e 100644
+--- a/tests/38-stagione.mjs
++++ b/tests/38-stagione.mjs
+@@ -29,7 +29,7 @@ const carta = (nome) => page.locator('li.coltura', { hasText: nome }).first();
+ const nuovo = await carta('Basilico').innerText();
+ check('basilico trapiantato il 2 novembre: «Fuori stagione» con i mesi giusti (maggio...settembre)', /Fuori stagione/.test(await page.locator('li.coltura:has-text("Trapiantata il 2 novembre") .stagione').innerText()) && /maggio/i.test(await page.locator('li.coltura:has-text("Trapiantata il 2 novembre") .stagione').innerText()) && /settembre/i.test(await page.locator('li.coltura:has-text("Trapiantata il 2 novembre") .stagione').innerText()), nuovo.slice(0, 120));
+ const vecchio = page.locator('li.coltura:has-text("Basilico vecchio") .stagione');
+-check('basilico di settembre: «Fine stagione» con cosa fare, come, perché e la fonte', /Fine stagione/.test(await vecchio.innerText()) && /Raccogli tutte le foglie/.test(await vecchio.innerText()) && /Taglia i rami/.test(await vecchio.innerText()) && /Il gelo distrugge/.test(await vecchio.innerText()) && (await vecchio.locator('a[href^="https://example.com"]').count()) === 1, (await vecchio.innerText()).slice(0, 200));
++check('basilico di settembre: «Fine stagione» con cosa fare, come, perché, senza la fonte', /Fine stagione/.test(await vecchio.innerText()) && /Raccogli tutte le foglie/.test(await vecchio.innerText()) && /Taglia i rami/.test(await vecchio.innerText()) && /Il gelo distrugge/.test(await vecchio.innerText()) && (await vecchio.locator('a[href^="https://example.com"]').count()) === 0, (await vecchio.innerText()).slice(0, 200));
+ check('i pomodori (nessun dato sul freddo nel file di prova) non hanno avvisi inventati', (await page.locator('li.coltura:has-text("Pomodori") .stagione').count()) === 0);
+ const largo = await page.evaluate(() => { const s = document.querySelector('li.coltura .stagione'); const c = s.closest('li.coltura'); return s.getBoundingClientRect().width / c.getBoundingClientRect().width; });
+ check('il riquadro occupa tutta la larghezza della carta (non una colonna stretta)', largo > 0.85, String(largo));

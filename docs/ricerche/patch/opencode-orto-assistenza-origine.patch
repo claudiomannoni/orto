@@ -1,0 +1,373 @@
+diff --git a/i18n/it.json b/i18n/it.json
+index 4c53cc3..fe2e169 100644
+--- a/i18n/it.json
++++ b/i18n/it.json
+@@ -92,13 +92,32 @@
+   "form.note.esempio": "3 semi per vasetto",
+   "form.aggiungi": "Aggiungi coltura",
+   "form.annulla": "Annulla",
+-  "form.partenza": "Come parti",
++  "form.partenza": "Come è arrivata la pianta",
+   "form.partenza.seme": "Da seme",
+   "form.partenza.piantina": "Da piantina",
++  "form.partenza.organo": "Da organo o radice (bulbo, tubero, zampa)",
++  "form.partenza.spontanea": "Compaarsa da sola",
++  "form.partenza.sconosciuta": "Origine non conosciuta",
+   "form.data.trapianto": "Data di trapianto",
++  "form.data.organo": "Data di messa a dimora",
++  "form.data.spontanea": "Data della prima osservazione",
++  "form.data.approssimativa": "Data approssimativa",
+   "coltura.trapiantata_il": "Trapiantata il {data}",
++  "coltura.messa_il": "Messa a dimora il {data}",
++  "coltura.vista_il": "Vista per la prima volta il {data}",
++  "coltura.seminata_circa": "Seminata circa il {data}",
++  "coltura.trapiantata_circa": "Trapiantata circa il {data}",
++  "coltura.messa_circa": "Messa a dimora circa il {data}",
++  "coltura.vista_circa": "Vista per la prima volta circa il {data}",
++  "coltura.circa": "circa",
+   "fase.eta": "Seminata da {n} giorni",
+   "fase.eta.piantina": "Pianta di circa {n} giorni (con l'età della piantina al trapianto)",
++  "fase.eta.circa": "Seminata da circa {n} giorni",
++  "fase.eta.piantina.circa": "Pianta trapiantata da circa {n} giorni (con l'età della piantina al trapianto)",
++  "fase.eta.organo": "Messa a dimora da {n} giorni",
++  "fase.eta.organo.circa": "Messa a dimora da circa {n} giorni",
++  "fase.eta.osservata": "Osservata da {n} giorni",
++  "fase.eta.osservata.circa": "Osservata da circa {n} giorni",
+   "fase.prossima": "Fra circa {n} giorni passa alla fase «{nome}».",
+   "fase.ultima": "È l'ultima fase: ora si raccoglie.",
+   "fase.cosa_fare": "Cosa fare adesso",
+@@ -249,6 +268,14 @@
+   "coltura.giorni.dopo.altri": "giorni dalla semina",
+   "coltura.giorni.prima.uno": "giorno alla semina",
+   "coltura.giorni.prima.altri": "giorni alla semina",
++  "coltura.giorni.organo.dopo.uno": "giorno dalla messa a dimora",
++  "coltura.giorni.organo.dopo.altri": "giorni dalla messa a dimora",
++  "coltura.giorni.organo.prima.uno": "giorno alla messa a dimora",
++  "coltura.giorni.organo.prima.altri": "giorni alla messa a dimora",
++  "coltura.giorni.osservata.dopo.uno": "giorno dalla prima osservazione",
++  "coltura.giorni.osservata.dopo.altri": "giorni dalla prima osservazione",
++  "coltura.giorni.osservata.prima.uno": "giorno alla prima osservazione",
++  "coltura.giorni.osservata.prima.altri": "giorni alla prima osservazione",
+   "coltura.promemoria": "Aggiungi promemoria",
+   "coltura.elimina": "Elimina",
+   "coltura.elimina.conferma": "Eliminare {nome}?",
+@@ -262,6 +289,7 @@
+   "promemoria.titolo_evento": "Orto: controllare {nome}",
+   "promemoria.coltura": "Coltura: {nome}",
+   "promemoria.seminata": "Seminata il {data} in {dove}",
++  "promemoria.dal": "{frase} in {dove}",
+   "promemoria.note": "Note: {note}",
+   "impostazioni.titolo": "Impostazioni",
+   "impostazioni.orto": "Il mio orto",
+diff --git a/js/screens/colture.js b/js/screens/colture.js
+index b13e2ec..496f1c6 100644
+--- a/js/screens/colture.js
++++ b/js/screens/colture.js
+@@ -1,7 +1,7 @@
+ // Le colture dell'utente: elenco, aggiunta, promemoria, eliminazione.
+ import { el, sostituisci, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi, parametriRotta } from '../util.js';
+ import { t, tn } from '../i18n.js';
+-import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura, nuovoEvento, registraEvento, eliminaEvento } from '../store/dati.js';
++import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura, ORIGINI, nuovoEvento, registraEvento, eliminaEvento } from '../store/dati.js';
+ import { elencoZone } from '../store/zone.js';
+ import { controllaProgressi } from '../store/progressi.js';
+ import { catalogo, trovaScheda, animali, rendita, alberi, stagione } from '../contenuti.js';
+@@ -22,10 +22,22 @@ let lista;
+ let riquadro; // «il tuo orto dall'alto»: si ridisegna a ogni modifica
+ let conteggio;
+ 
+-function testoGiorni(giorni) {
+-  return giorni >= 0
+-    ? { numero: giorni, etichetta: tn('coltura.giorni.dopo', giorni) }
+-    : { numero: -giorni, etichetta: tn('coltura.giorni.prima', -giorni) };
++// La frase della data nell'elenco: cambia con l'origine (semina, trapianto, messa a dimora,
++// prima osservazione) e dice «circa» quando la data è una stima. Le colture vecchie restano come prima.
++function fraseData(coltura) {
++  const base = coltura.origine === 'organo' ? 'coltura.messa'
++    : coltura.origine === 'spontanea' || coltura.origine === 'sconosciuta' ? 'coltura.vista'
++    : coltura.origine === 'piantina' ? 'coltura.trapiantata' : 'coltura.seminata';
++  return t(base + (coltura.dataApprossimativa ? '_circa' : '_il'), { data: formattaData(coltura.dataSemina) });
++}
++
++function testoGiorni(coltura) {
++  const g = giorniDa(coltura.dataSemina);
++  const base = coltura.origine === 'organo' ? 'coltura.giorni.organo'
++    : coltura.origine === 'spontanea' || coltura.origine === 'sconosciuta' ? 'coltura.giorni.osservata'
++    : 'coltura.giorni';
++  const giorni = g >= 0 ? { numero: g, etichetta: tn(`${base}.dopo`, g) } : { numero: -g, etichetta: tn(`${base}.prima`, -g) };
++  return { ...giorni, circa: !!coltura.dataApprossimativa };
+ }
+ 
+ function icona(coltura) {
+@@ -42,7 +54,7 @@ function riquadroStagione(coltura) {
+ }
+ 
+ function scheda(coltura) {
+-  const { numero, etichetta } = testoGiorni(giorniDa(coltura.dataSemina));
++  const testo = testoGiorni(coltura);
+   const nomeCompleto = coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome;
+   return el('li', { class: 'card coltura' },
+     icona(coltura),
+@@ -50,11 +62,13 @@ function scheda(coltura) {
+       el('h3', {}, nomeCompleto),
+       el('p', { class: 'meta' },
+         el('span', { class: `etichetta ${coltura.dove}` }, t(`form.dove.${coltura.dove}`)),
+-        ' ', t(coltura.partenza === 'piantina' ? 'coltura.trapiantata_il' : 'coltura.seminata_il', { data: formattaData(coltura.dataSemina) }),
++        ' ', fraseData(coltura),
+         zone.find((z) => z.id === coltura.zonaId) ? ` · ${zone.find((z) => z.id === coltura.zonaId).nome}` : '',
+       ),
+     ),
+-    el('div', { class: 'giorni' }, el('strong', {}, String(numero)), el('span', {}, etichetta)),
++    el('div', { class: 'giorni' },
++      testo.circa ? el('span', { class: 'aiuto' }, t('coltura.circa')) : null,
++      el('strong', {}, String(testo.numero)), el('span', {}, testo.etichetta)),
+     coltura.note ? el('p', { class: 'note' }, coltura.note) : null,
+     riquadroStagione(coltura),
+     el('div', { class: 'azioni-rapide' },
+@@ -86,7 +100,7 @@ function promemoria(coltura) {
+   const nome = coltura.varieta ? `${coltura.nome} (${coltura.varieta})` : coltura.nome;
+   const righe = [
+     t('promemoria.coltura', { nome }),
+-    t('promemoria.seminata', { data: formattaData(coltura.dataSemina), dove: t(`form.dove.${coltura.dove}`).toLowerCase() }),
++    t('promemoria.dal', { frase: fraseData(coltura), dove: t(`form.dove.${coltura.dove}`).toLowerCase() }),
+     coltura.note ? t('promemoria.note', { note: coltura.note }) : '',
+   ].filter(Boolean);
+   apriPromemoria({
+@@ -128,10 +142,10 @@ function apriNuova(nomeIniziale = '') {
+     el('label', {}, t('form.varieta'), campoVarieta),
+     el('fieldset', { class: 'scelte' },
+       el('legend', {}, t('form.partenza')),
+-      el('label', {}, el('input', { type: 'radio', name: 'partenza', value: 'seme', checked: true }), t('form.partenza.seme')),
+-      el('label', {}, el('input', { type: 'radio', name: 'partenza', value: 'piantina' }), t('form.partenza.piantina')),
++      ORIGINI.map((o, i) => el('label', {}, el('input', { type: 'radio', name: 'origine', value: o, checked: i === 0 }), t(`form.partenza.${o}`))),
+     ),
+     el('label', {}, el('span', { class: 'etichetta-data' }, t('form.data')), el('input', { name: 'dataSemina', type: 'date', required: true, value: oggiISO() })),
++    el('label', {}, el('input', { type: 'checkbox', name: 'dataApprossimativa' }), t('form.data.approssimativa')),
+     el('fieldset', { class: 'scelte' },
+       el('legend', {}, t('form.dove')),
+       el('label', {}, el('input', { type: 'radio', name: 'dove', value: 'semenzaio', checked: true }), t('form.dove.semenzaio')),
+@@ -146,9 +160,16 @@ function apriNuova(nomeIniziale = '') {
+     ),
+   );
+   const foglio = apriFoglio({ titolo: t('colture.nuova'), contenuto: form });
+-  // La data è quella di semina o di trapianto, a seconda di come si parte.
+-  form.querySelectorAll('input[name=partenza]').forEach((r) => r.addEventListener('change', () => {
+-    form.querySelector('.etichetta-data').textContent = t(form.elements.partenza.value === 'piantina' ? 'form.data.trapianto' : 'form.data');
++  // La data cambia nome con l'origine: semina, trapianto, messa a dimora o prima osservazione.
++  const ETICHETTA_DATA = {
++    seme: 'form.data',
++    piantina: 'form.data.trapianto',
++    organo: 'form.data.organo',
++    spontanea: 'form.data.spontanea',
++    sconosciuta: 'form.data.spontanea',
++  };
++  form.querySelectorAll('input[name=origine]').forEach((r) => r.addEventListener('change', () => {
++    form.querySelector('.etichetta-data').textContent = t(ETICHETTA_DATA[form.elements.origine.value]);
+   }));
+   form.addEventListener('submit', async (e) => {
+     e.preventDefault();
+@@ -159,7 +180,8 @@ function apriNuova(nomeIniziale = '') {
+       varieta: dati.get('varieta'),
+       dataSemina: dati.get('dataSemina'),
+       dove: dati.get('dove'),
+-      partenza: dati.get('partenza'),
++      origine: form.elements.origine.value,
++      dataApprossimativa: form.elements.dataApprossimativa.checked,
+       note: dati.get('note'),
+       schedaId: trovaScheda(schede, nome)?.id,
+       zonaId: dati.get('zonaId'),
+diff --git a/js/screens/pianta.js b/js/screens/pianta.js
+index b209369..33f4535 100644
+--- a/js/screens/pianta.js
++++ b/js/screens/pianta.js
+@@ -5,7 +5,7 @@ import { elencoColture } from '../store/dati.js';
+ import { elencoFoto } from '../store/foto.js';
+ import { fasi, catalogo, stagione, raccolta } from '../contenuti.js';
+ import { lineaDelTempo, andamentoSalute, giorniFraFoto } from '../motore/linea-tempo.js';
+-import { statoFase, bloccoFase } from '../ui/fasi-pianta.js';
++import { statoFase, bloccoFase, testoEta } from '../ui/fasi-pianta.js';
+ import { riempiStagione } from '../ui/stagione-blocco.js';
+ import { leggi } from '../store/impostazioni.js';
+ 
+@@ -33,7 +33,7 @@ export async function monta(contenitore) {
+   if (selezionata === 'oggi') {
+     const stagione = el('div', { class: 'stagione-posto' });
+     if (scheda) riempiStagione(stagione, { coltura, scheda, zonaId: impostazioni.zona, dati: dStagione });
+-    contenuto = [st ? el('p', { class: 'meta' }, t(coltura.partenza === 'piantina' ? 'fase.eta.piantina' : 'fase.eta', { n: st.eta }), ' · ', el('strong', {}, st.fase.nome)) : null,
++    contenuto = [st ? el('p', { class: 'meta' }, testoEta(coltura, st.eta), ' · ', el('strong', {}, st.fase.nome)) : null,
+       bloccoFase(coltura, dFasi, oggiISO(), { conFoto: true, raccoltaDati: dRaccolta }), stagione];
+   } else if (selezionata === 'storia') {
+     contenuto = [linea.length > 1 ? el('p', { class: andamento === 'peggiora' ? 'avviso' : 'aiuto' }, t(`pianta.andamento.${andamento}`)) : null,
+diff --git a/js/store/dati.js b/js/store/dati.js
+index b90c5df..f8c8fca 100644
+--- a/js/store/dati.js
++++ b/js/store/dati.js
+@@ -4,10 +4,18 @@ import { nuovoId } from '../util.js';
+ 
+ export const SCHEMA = 2;
+ 
++// Come la coltura è arrivata. I campi sono generici: valgono per qualunque specie.
++export const ORIGINI = ['seme', 'piantina', 'organo', 'spontanea', 'sconosciuta'];
++
+ const testo = (v) => (typeof v === 'string' ? v : '');
+ 
+ // Rende una coltura (nuova, vecchia o importata) nel formato attuale.
+ export function normalizzaColtura(c) {
++  // Origine: chi ce l'ha la conserva; i record vecchi non la avevano e restano come prima
++  // (partenza 'seme'/'piantina' -> 'seme'/'piantina', nessuna informazione inventata).
++  const origine = ORIGINI.includes(c.origine) ? c.origine : c.partenza === 'piantina' ? 'piantina' : 'seme';
++  // partenza resta per il motore delle fasi: solo 'seme' e 'piantina' cambiano il conteggio dell'età.
++  const partenza = c.partenza === 'seme' ? 'seme' : c.partenza === 'piantina' ? 'piantina' : origine === 'piantina' ? 'piantina' : 'seme';
+   return {
+     id: testo(c.id) || nuovoId(),
+     nome: testo(c.nome).trim(),
+@@ -15,7 +23,9 @@ export function normalizzaColtura(c) {
+     dataSemina: c.dataSemina,
+     dove: c.dove === 'orto' ? 'orto' : 'semenzaio',
+     posizione: c.posizione && Number.isFinite(c.posizione.x) && Number.isFinite(c.posizione.y) ? { x: Math.min(1, Math.max(0, c.posizione.x)), y: Math.min(1, Math.max(0, c.posizione.y)) } : null, // dove sta nell'aiuola (piano visivo), frazioni 0..1
+-    partenza: c.partenza === 'piantina' ? 'piantina' : 'seme', // da seme (data = semina) o da piantina (data = trapianto)
++    partenza, // da seme (data = semina) o da piantina (data = trapianto); le altre origini si contano come da seme
++    origine, // una di ORIGINI: come la pianta è arrivata davvero
++    dataApprossimativa: c.dataApprossimativa === true, // true solo se l'utente ha detto che la data è una stima
+     note: testo(c.note).trim(),
+     creata: testo(c.creata) || new Date().toISOString(),
+     schedaId: testo(c.schedaId) || null,
+diff --git a/js/ui/fasi-pianta.js b/js/ui/fasi-pianta.js
+index 3c4ce9b..229f77f 100644
+--- a/js/ui/fasi-pianta.js
++++ b/js/ui/fasi-pianta.js
+@@ -15,6 +15,19 @@ export function statoFase(coltura, fasiDati, oggi) {
+   return att ? { ...att, eta, dati } : null;
+ }
+ 
++// L'età detta bene: cambia con l'origine (semina, trapianto, messa a dimora, prima osservazione)
++// e dice «circa» quando la data è una stima. Le colture vecchie restano come prima.
++export function testoEta(coltura, eta) {
++  const circa = coltura?.dataApprossimativa ? '.circa' : '';
++  const chiave = ({
++    piantina: 'fase.eta.piantina',
++    organo: 'fase.eta.organo',
++    spontanea: 'fase.eta.osservata',
++    sconosciuta: 'fase.eta.osservata',
++  }[coltura?.origine] ?? 'fase.eta') + circa;
++  return t(chiave, { n: eta });
++}
++
+ const certezza = (c) => el('span', { class: `etichetta certezza ${c === 'alta' ? 'media' : 'bassa'}` }, t(`animali.certezza.${c ?? 'bassa'}`));
+ const lista = (voci) => el('ul', { class: 'elenco-semplice' }, voci.map((v) => el('li', {}, v)));
+ 
+@@ -26,7 +39,7 @@ export function bloccoFase(coltura, fasiDati, oggi, { conFoto = true, raccoltaDa
+   const fonti = (f.fonti ?? []).map((id) => fasiDati.fonti?.[id]).filter(Boolean);
+   return el('section', { class: 'card fase-pianta', 'data-coltura': coltura.id },
+     el('h3', {}, coltura.varieta ? `${coltura.nome} · ${coltura.varieta}` : coltura.nome),
+-    el('p', { class: 'meta' }, t(coltura.partenza === 'piantina' ? 'fase.eta.piantina' : 'fase.eta', { n: st.eta }), ' · ', el('strong', {}, f.nome), ' ', certezza(f.certezza)),
++    el('p', { class: 'meta' }, testoEta(coltura, st.eta), ' · ', el('strong', {}, f.nome), ' ', certezza(f.certezza)),
+     prossima && st.giorniAllaProssima != null
+       ? el('p', { class: 'aiuto' }, t('fase.prossima', { n: st.giorniAllaProssima, nome: prossima.nome }))
+       : el('p', { class: 'aiuto' }, t('fase.ultima')),
+diff --git a/tests/origine-colture.mjs b/tests/origine-colture.mjs
+new file mode 100644
+index 0000000..da5821c
+--- /dev/null
++++ b/tests/origine-colture.mjs
+@@ -0,0 +1,100 @@
++// Origine della coltura e data approssimativa: normalizzazione e retrocompatibilità (Node, nessun server).
++// Uso: node tests/origine-colture.mjs <cartella-app>
++import { pathToFileURL } from 'node:url';
++import path from 'node:path';
++import fs from 'node:fs';
++const cartella = path.resolve(process.argv[2] || '.');
++let ok = 0, ko = 0;
++const check = (n, c, d = '') => { c ? ok++ : ko++; console.log(`${c ? 'PASS' : 'FAIL'}  ${n}${d ? '  -> ' + d : ''}`); };
++
++const dati = await import(pathToFileURL(path.join(cartella, 'js/store/dati.js')).href);
++const fasiPianta = await import(pathToFileURL(path.join(cartella, 'js/ui/fasi-pianta.js')).href);
++const { normalizzaColtura, ORIGINI } = dati;
++const { testoEta } = fasiPianta;
++
++// Una coltura vecchia: come le versioni precedenti dell'app la salvavano (senza i nuovi campi).
++const vecchia = (extra = {}) => ({
++  id: 'v1', nome: 'Fave', varieta: 'Vola', dataSemina: '2026-10-20', dove: 'orto',
++  partenza: 'seme', note: 'vecchia', creata: '2026-10-20T08:00:00.000Z', schedaId: null, zonaId: 'z1', schemaVersion: 2,
++  ...extra,
++});
++
++// 1. Record vecchio senza i nuovi campi: occupa un posto e non cambia le cose.
++{
++  const n = normalizzaColtura(vecchia());
++  check('vecchio record: campi intatti', n.nome === 'Fave' && n.dataSemina === '2026-10-20' && n.creata === '2026-10-20T08:00:00.000Z' && n.zonaId === 'z1' && n.schemaVersion === 2, JSON.stringify(n));
++  check('vecchio record: origine derivata seme (nessuna informazione inventata)', n.origine === 'seme');
++  check('vecchio record: dataApprossimativa false', n.dataApprossimativa === false);
++  const p = normalizzaColtura(vecchia({ partenza: 'piantina' }));
++  check('vecchio record piantina: origine e partenza restano piantina', p.origine === 'piantina' && p.partenza === 'piantina');
++  const vuota = normalizzaColtura({ nome: 'Z', dataSemina: '2026-10-20' });
++  check('nessuna origine né partenza: come prima (seme)', vuota.origine === 'seme' && vuota.partenza === 'seme');
++}
++
++// 2. Le origini nuove si salvano e restano nella forma giusta.
++for (const o of ORIGINI) {
++  const n = normalizzaColtura({ nome: 'Asparago', dataSemina: '2026-10-01', origine: o });
++  check(`origine ${o}: raccontata com'è`, n.origine === o, n.origine);
++  check(`origine ${o}: partenza per il motore fasi resta seme o piantina`, n.partenza === 'seme' || n.partenza === 'piantina', n.partenza);
++}
++{
++  const n = normalizzaColtura({ nome: 'Cipoletta', dataSemina: '2026-10-01', origine: 'piantina' });
++  check('origine piantina: partenza diventa piantina', n.partenza === 'piantina');
++  const s = normalizzaColtura({ nome: 'Zampa di asparago', dataSemina: '2026-10-01', origine: 'organo', partenza: 'piantina' });
++  check('organo con partenza piantina contraddittoria: sopravvive qualcosa di sensato', (s.partenza === 'piantina' || s.partenza === 'seme') && s.origine === 'organo', `${s.origine}/${s.partenza}`);
++}
++
++// 3. Origine sbagliata/vecchia non fa perdere il record.
++{
++  const n = normalizzaColtura({ nome: 'Ravanelli', dataSemina: '2026-10-01', origine: 'da_spazio_esterno', partenza: 'seme' });
++  check('origine inventata: si parte dai valori sicuri (seme)', n.origine === 'seme' && n.partenza === 'seme');
++  const p = normalizzaColtura({ nome: 'Basilico', dataSemina: '2026-10-01', origine: null, partenza: 'piantina' });
++  check('origine null con partenza piantina: si mantiene il dato piantina', p.origine === 'piantina' && p.partenza === 'piantina');
++}
++
++// 4. La trattazione della data: approssimativa solo con true esplicito.
++{
++  const a = normalizzaColtura({ nome: 'Cavolo', dataSemina: '2026-10-01', origine: 'sconosciuta', dataApprossimativa: true });
++  check('dataApprossimativa true si conserva', a.dataApprossimativa === true);
++  const b = normalizzaColtura({ nome: 'Cavolo', dataSemina: '2026-10-01' });
++  check('senza il campo: false (data precisa, come le vecchie)', b.dataApprossimativa === false);
++  const c = normalizzaColtura({ nome: 'Cavolo', dataSemina: '2026-10-01', dataApprossimativa: 'true' });
++  check('dataApprossimativa fatta stringa: si torna su false', c.dataApprossimativa === false, String(c.dataApprossimativa));
++}
++
++// 5. testoEta: porta alla chiave giusta per origine e data approssimativa.
++// (senza testi caricati t() restituisce la chiave: la usiamo per vedere qual è stata scelta)
++const attese = {
++  seme: ['fase.eta', 'fase.eta.circa'],
++  piantina: ['fase.eta.piantina', 'fase.eta.piantina.circa'],
++  organo: ['fase.eta.organo', 'fase.eta.organo.circa'],
++  spontanea: ['fase.eta.osservata', 'fase.eta.osservata.circa'],
++  sconosciuta: ['fase.eta.osservata', 'fase.eta.osservata.circa'],
++};
++for (const [o, [semplice, circa]] of Object.entries(attese)) {
++  check(`testoEta ${o}: chiave ${semplice}`, testoEta({ origine: o }, 5) === semplice, testoEta({ origine: o }, 5));
++  check(`testoEta ${o} con data stimata: chiave ${circa}`, testoEta({ origine: o, dataApprossimativa: true }, 5) === circa, testoEta({ origine: o, dataApprossimativa: true }, 5));
++}
++{
++  const v = testoEta({}, 5);
++  check('testoEta con coltura vecchia (nessun campo): chiave come prima (fase.eta)', v === 'fase.eta', v);
++}
++
++// 6. Tutte le chiavi che la rotta può toccare ci sono davvero in i18n/it.json.
++const testi = JSON.parse(fs.readFileSync(path.join(cartella, 'i18n/it.json'), 'utf8'));
++const chiaviOrigine = [
++  ...ORIGINI.map((o) => `form.partenza.${o}`),
++  'form.data', 'form.data.trapianto', 'form.data.organo', 'form.data.spontanea', 'form.data.approssimativa',
++  'coltura.seminata_il', 'coltura.trapiantata_il', 'coltura.messa_il', 'coltura.vista_il',
++  'coltura.seminata_circa', 'coltura.trapiantata_circa', 'coltura.messa_circa', 'coltura.vista_circa',
++  'coltura.circa', 'promemoria.dal',
++  'coltura.giorni.dopo.uno', 'coltura.giorni.dopo.altri', 'coltura.giorni.prima.uno', 'coltura.giorni.prima.altri',
++  'coltura.giorni.organo.dopo.uno', 'coltura.giorni.organo.dopo.altri', 'coltura.giorni.organo.prima.uno', 'coltura.giorni.organo.prima.altri',
++  'coltura.giorni.osservata.dopo.uno', 'coltura.giorni.osservata.dopo.altri', 'coltura.giorni.osservata.prima.uno', 'coltura.giorni.osservata.prima.altri',
++  ...new Set(Object.values(attese).flat()),
++];
++const mancanti = chiaviOrigine.filter((k) => !(k in testi));
++check('chiavi di origine e data presenti in i18n/it.json', mancanti.length === 0, mancanti.join('; '));
++
++console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);
++process.exit(ko ? 1 : 0);

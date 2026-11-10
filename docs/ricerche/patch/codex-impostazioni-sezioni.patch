@@ -1,0 +1,111 @@
+diff --git a/docs/IMPOSTAZIONI-ESPANDIBILI.md b/docs/IMPOSTAZIONI-ESPANDIBILI.md
+new file mode 100644
+index 0000000..a890f96
+--- /dev/null
++++ b/docs/IMPOSTAZIONI-ESPANDIBILI.md
+@@ -0,0 +1,9 @@
++# Impostazioni espandibili
++
++Lavoro isolato nel ramo codex/impostazioni-sezioni, basato su Orto AI 2.60.0.
++
++La schermata Impostazioni è stata raggruppata in quattro pannelli nativi details/summary: Il mio orto, Aspetto e mascotte, Assistenza e meteo, Backup e informazioni. Il primo pannello è aperto all’ingresso; l’indice in cima apre il pannello selezionato prima di scorrervi. Le funzioni e i controlli esistenti restano nei rispettivi moduli, senza modifiche al salvataggio.
++
++Verifiche: sintassi JavaScript, test dedicato dei quattro gruppi, chiavi i18n (7/7), CSS bilanciato (3/3), motore (35) e contenuti (1150), tutti verdi. La suite completa ha riportato 49 test verdi e 40 rossi; i 40 test d’interfaccia richiedono Playwright, non disponibile in questo ambiente. Il browser di anteprima CUA non è abilitato.
++
++Da completare prima dell’integrazione: prova visiva browser/mobile. Non aggiornare versione/cache, integrare o pubblicare finché i test browser e la revisione dei worktree paralleli non sono conclusi.
+diff --git a/i18n/it.json b/i18n/it.json
+index 4c53cc3..1b9cf75 100644
+--- a/i18n/it.json
++++ b/i18n/it.json
+@@ -264,6 +264,10 @@
+   "promemoria.seminata": "Seminata il {data} in {dove}",
+   "promemoria.note": "Note: {note}",
+   "impostazioni.titolo": "Impostazioni",
++  "impostazioni.gruppo.orto": "Il mio orto",
++  "impostazioni.gruppo.personalizza": "Aspetto e mascotte",
++  "impostazioni.gruppo.assistenza": "Assistenza e meteo",
++  "impostazioni.gruppo.dati": "Backup e informazioni",
+   "impostazioni.orto": "Il mio orto",
+   "impostazioni.zona": "Zona climatica",
+   "impostazioni.metodo": "Metodo preferito",
+diff --git a/js/screens/impostazioni.js b/js/screens/impostazioni.js
+index bb0af43..0da73f8 100644
+--- a/js/screens/impostazioni.js
++++ b/js/screens/impostazioni.js
+@@ -264,22 +264,36 @@ function sezioneBackup() {
+ 
+ export async function monta(contenitore) {
+   const s = await leggi();
+-  const sezioni = [
+-    await sezioneOrto(s), sezioneSeguite(s), sezioneAccessibilita(s), sezioneVermetti(s), sezioneMeteo(s), sezioneIA(s), sezioneBackup(),
+-    el('section', { class: 'card' },
+-      el('h3', {}, t('info.titolo')),
+-      el('p', {}, t('info.testo')),
+-      el('p', { class: 'aiuto' }, t('info.versione', { v: APP_VERSIONE })),
+-    ),
++  const gruppi = [
++    { id: 'imp-orto', titolo: 'impostazioni.gruppo.orto', aperto: true, sezioni: [await sezioneOrto(s), sezioneSeguite(s)] },
++    { id: 'imp-personalizza', titolo: 'impostazioni.gruppo.personalizza', sezioni: [sezioneAccessibilita(s), sezioneVermetti(s)] },
++    { id: 'imp-assistenza', titolo: 'impostazioni.gruppo.assistenza', sezioni: [sezioneMeteo(s), sezioneIA(s)] },
++    { id: 'imp-dati', titolo: 'impostazioni.gruppo.dati', sezioni: [
++      sezioneBackup(),
++      el('section', { class: 'card' },
++        el('h3', {}, t('info.titolo')),
++        el('p', {}, t('info.testo')),
++        el('p', { class: 'aiuto' }, t('info.versione', { v: APP_VERSIONE })),
++      ),
++    ] },
+   ];
+-  // Un indice in cima: ogni voce porta alla sua sezione (le impostazioni sono lunghe).
+-  sezioni.forEach((sez, i) => { sez.id = `imp-${i}`; sez.style.scrollMarginTop = '12px'; });
++  // Gruppi richiudibili: tutte le funzioni restano disponibili senza allungare la pagina.
++  const dettagli = gruppi.map(({ id, titolo, aperto, sezioni }) => {
++    const gruppo = el('details', { class: 'contenuto-secondario impostazioni-gruppo', id, open: Boolean(aperto) },
++      el('summary', {}, t(titolo)), ...sezioni);
++    gruppo.style.scrollMarginTop = '12px';
++    return gruppo;
++  });
++  // L'indice apre il gruppo selezionato prima di portarlo in vista.
+   const indice = el('nav', { class: 'vai-a', 'aria-label': t('impostazioni.vai_a') },
+-    sezioni.map((sez) => el('button', { class: 'btn piccolo', type: 'button', onclick: () => sez.scrollIntoView({ behavior: document.documentElement.dataset.movimento === 'ridotto' ? 'auto' : 'smooth', block: 'start' }) }, sez.querySelector('h3')?.textContent ?? '')));
++    dettagli.map((gruppo, i) => el('button', { class: 'btn piccolo', type: 'button', onclick: () => {
++      gruppo.open = true;
++      gruppo.scrollIntoView({ behavior: document.documentElement.dataset.movimento === 'ridotto' ? 'auto' : 'smooth', block: 'start' });
++    } }, t(gruppi[i].titolo))));
+   aggiungi(contenitore,
+     el('h2', { class: 'titolo-schermata' }, t('impostazioni.titolo')),
+     bloccoInstalla(),
+     indice,
+-    ...sezioni,
++    ...dettagli,
+   );
+ }
+diff --git a/tests/impostazioni-sezioni.mjs b/tests/impostazioni-sezioni.mjs
+new file mode 100644
+index 0000000..752a351
+--- /dev/null
++++ b/tests/impostazioni-sezioni.mjs
+@@ -0,0 +1,22 @@
++import { readFileSync } from 'node:fs';
++import { join, resolve } from 'node:path';
++
++const root = resolve(process.argv[2] || '.');
++const source = readFileSync(join(root, 'js/screens/impostazioni.js'), 'utf8');
++const i18n = JSON.parse(readFileSync(join(root, 'i18n/it.json'), 'utf8'));
++const gruppi = ['orto', 'personalizza', 'assistenza', 'dati'];
++const fallimenti = [];
++const verifica = (condizione, messaggio) => { if (!condizione) fallimenti.push(messaggio); };
++
++verifica(source.includes("class: 'contenuto-secondario impostazioni-gruppo'"), 'I gruppi devono usare il contenitore espandibile standard.');
++verifica(source.includes('open: Boolean(aperto)'), 'Il gruppo iniziale deve poter essere aperto senza script aggiuntivi.');
++verifica(source.includes('gruppo.open = true'), 'L’indice deve aprire il gruppo prima di raggiungerlo.');
++verifica(source.includes('sezioneOrto(s)') && source.includes('sezioneSeguite(s)'), 'Le impostazioni dell’orto e delle colture seguite devono restare raggiungibili.');
++verifica(source.includes('sezioneAccessibilita(s)') && source.includes('sezioneVermetti(s)'), 'Accessibilità e mascotte devono restare raggiungibili.');
++verifica(source.includes('sezioneMeteo(s)') && source.includes('sezioneIA(s)'), 'Meteo e configurazione IA devono restare raggiungibili.');
++verifica(source.includes('sezioneBackup()') && source.includes("t('info.versione'"), 'Backup e informazioni versione devono restare raggiungibili.');
++for (const gruppo of gruppi) verifica(typeof i18n['impostazioni.gruppo.' + gruppo] === 'string', 'Manca la traduzione del gruppo ' + gruppo + '.');
++
++console.log((fallimenti.length ? 'FAIL' : 'PASS') + ' impostazioni espandibili: ' + gruppi.length + ' gruppi, ' + fallimenti.length + ' errori');
++for (const errore of fallimenti) console.log('FAIL ' + errore);
++process.exit(fallimenti.length ? 1 : 0);
+\ No newline at end of file

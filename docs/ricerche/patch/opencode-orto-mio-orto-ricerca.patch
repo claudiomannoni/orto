@@ -1,0 +1,244 @@
+diff --git a/css/app.css b/css/app.css
+index 66a3cfa..bd21e67 100644
+--- a/css/app.css
++++ b/css/app.css
+@@ -284,6 +284,9 @@ textarea { padding: 12px 14px; resize: vertical; }
+ 
+ /* ---------- Colture ---------- */
+ .lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
++.filtri-colture { display: grid; gap: 10px; }
++@media (min-width: 480px) { .filtri-colture { grid-template-columns: 1fr 1fr; align-items: end; } }
++.card.vuoto .vuoto-testo { margin: 0; }
+ .coltura { grid-template-columns: 64px 1fr auto; align-items: center; }
+ .coltura .icona-coltura { width: 64px; height: 64px; }
+ .coltura-testi h3 { overflow-wrap: anywhere; }
+diff --git a/i18n/it.json b/i18n/it.json
+index 4c53cc3..18e18b0 100644
+--- a/i18n/it.json
++++ b/i18n/it.json
+@@ -824,6 +824,13 @@
+   "colture.hub.raccolto": "Il mio raccolto",
+   "colture.hub.raccolto.spiega": "Quanto raccogli, per coltura e mese",
+   "colture.elenco": "Le mie colture",
++  "colture.cerca": "Cerca una pianta",
++  "colture.cerca.esempio": "Nome, varietà o zona",
++  "colture.filtro.zona": "Zona",
++  "colture.filtro.zona.tutte": "Tutte le zone",
++  "colture.conteggio.visibili": "{v} di {totale} visibili",
++  "colture.ricerca.vuoto": "Nessuna pianta corrisponde a quello che hai scritto. Svuota le caselle qui sopra o torna su «Tutte le zone» per rivedere tutte le tue colture.",
++  "colture.ricerca.azzera": "Mostra tutte le colture",
+   "nuova.titolo": "Aggiungila al tuo orto",
+   "nuova.spiega": "Ho riconosciuto la pianta: controlla i dati e salva, la coltura si compila da sola.",
+   "nuova.data": "Da quando è nata (o trapiantata)",
+diff --git a/js/screens/colture.js b/js/screens/colture.js
+index b13e2ec..3ea54ee 100644
+--- a/js/screens/colture.js
++++ b/js/screens/colture.js
+@@ -1,5 +1,5 @@
+ // Le colture dell'utente: elenco, aggiunta, promemoria, eliminazione.
+-import { el, sostituisci, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi, parametriRotta } from '../util.js';
++import { el, sostituisci, oggiISO, giorniDa, aggiungiGiorni, formattaData, aggiungi, parametriRotta, normalizza } from '../util.js';
+ import { t, tn } from '../i18n.js';
+ import { elencoColture, salvaColtura, eliminaColtura, normalizzaColtura, nuovoEvento, registraEvento, eliminaEvento } from '../store/dati.js';
+ import { elencoZone } from '../store/zone.js';
+@@ -21,6 +21,12 @@ let zone = [];
+ let lista;
+ let riquadro; // «il tuo orto dall'alto»: si ridisegna a ogni modifica
+ let conteggio;
++let filtri; // ricerca e filtro zona: solo lettura, non toccano niente
++let campoRicerca;
++let selectZona;
++let ricercaVuoto;
++let testoRicerca = '';
++let zonaFiltro = '';
+ 
+ function testoGiorni(giorni) {
+   return giorni >= 0
+@@ -74,12 +80,41 @@ function scheda(coltura) {
+ 
+ const tessera = (href, titolo, spiega) => el('a', { class: 'tessera-azione', href }, el('strong', {}, titolo), el('span', { class: 'aiuto' }, spiega));
+ 
++// Le colture che corrispondono a ricerca e filtro zona. Serve solo per l'elenco:
++// nessun dato cambia mai per via dei filtri.
++function coltureVisibili() {
++  const testo = normalizza(testoRicerca);
++  if (!testo && !zonaFiltro) return [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina));
++  return colture
++    .filter((c) => {
++      const nomeZona = c.zonaId ? (zone.find((z) => z.id === c.zonaId)?.nome ?? '') : '';
++      const cercabile = normalizza(`${c.nome} ${c.varieta ?? ''} ${nomeZona}`);
++      return (!testo || cercabile.includes(testo)) && (!zonaFiltro || c.zonaId === zonaFiltro);
++    })
++    .sort((a, b) => b.dataSemina.localeCompare(a.dataSemina));
++}
++
++// Rientra nella lista piena: svuota i due campi e ridisegna.
++function azzeraFiltri() {
++  testoRicerca = '';
++  zonaFiltro = '';
++  campoRicerca.value = '';
++  selectZona.value = '';
++  mostraLista();
++}
++
+ function mostraLista() {
+-  const ordinate = [...colture].sort((a, b) => b.dataSemina.localeCompare(a.dataSemina));
+-  lista.replaceChildren(...ordinate.map(scheda));
++  const visibili = coltureVisibili();
++  const totale = colture.length;
++  const filtrato = testoRicerca.trim() !== '' || zonaFiltro !== '';
++  lista.replaceChildren(...visibili.map(scheda));
+   sostituisci(riquadro, aiuole(colture, zone, schede));
+-  conteggio.textContent = String(colture.length);
+-  document.getElementById('colture-vuoto').hidden = colture.length > 0;
++  conteggio.textContent = filtrato
++    ? t('colture.conteggio.visibili', { v: visibili.length, totale })
++    : String(totale);
++  filtri.hidden = totale === 0;
++  document.getElementById('colture-vuoto').hidden = totale > 0;
++  ricercaVuoto.hidden = !(totale > 0 && visibili.length === 0);
+ }
+ 
+ function promemoria(coltura) {
+@@ -182,6 +217,19 @@ export async function monta(contenitore) {
+   conteggio = el('span', { class: 'conteggio' }, '0');
+   lista = el('ul', { class: 'lista' });
+   riquadro = el('div', {});
++  // Ricerca e filtro della lista (una sola cosa per volta, mai mutazioni): reagiscono mentre si scrive.
++  campoRicerca = el('input', { type: 'search', autocomplete: 'off', enterkeyhint: 'search', placeholder: t('colture.cerca.esempio') });
++  campoRicerca.addEventListener('input', () => { testoRicerca = campoRicerca.value; mostraLista(); });
++  selectZona = el('select', {},
++    el('option', { value: '' }, t('colture.filtro.zona.tutte')),
++    ...zone.map((z) => el('option', { value: z.id }, z.nome)));
++  selectZona.addEventListener('change', () => { zonaFiltro = selectZona.value; mostraLista(); });
++  filtri = el('div', { class: 'filtri-colture' },
++    el('label', {}, t('colture.cerca'), campoRicerca),
++    zone.length ? el('label', {}, t('colture.filtro.zona'), selectZona) : null);
++  ricercaVuoto = el('div', { class: 'card vuoto', id: 'colture-ricerca-vuoto', hidden: true },
++    el('p', { class: 'vuoto-testo' }, t('colture.ricerca.vuoto')),
++    el('button', { class: 'btn', type: 'button', onclick: azzeraFiltri }, t('colture.ricerca.azzera')));
+   aggiungi(contenitore, 
+     el('h2', { class: 'titolo-schermata' }, t('colture.hub')),
+     el('button', { class: 'btn primario grande', type: 'button', onclick: apriNuova }, `+ ${t('colture.nuova')}`),
+@@ -203,7 +251,9 @@ export async function monta(contenitore) {
+       dRendita?.schede?.length ? tessera('#/rendita', t('colture.hub.rendita'), t('colture.hub.rendita.spiega')) : null) : null,
+     riquadro,
+     el('h3', {}, t('colture.elenco'), ' ', conteggio),
++    filtri,
+     el('p', { class: 'vuoto-testo', id: 'colture-vuoto' }, t('colture.vuoto')),
++    ricercaVuoto,
+     lista,
+   );
+   mostraLista();
+diff --git a/tests/41-mio-orto-ricerca.mjs b/tests/41-mio-orto-ricerca.mjs
+new file mode 100644
+index 0000000..437b856
+--- /dev/null
++++ b/tests/41-mio-orto-ricerca.mjs
+@@ -0,0 +1,106 @@
++// Ricerca per nome/varietà/zona e filtro zona nell'elenco de «Il mio orto».
++// I filtri esplorano la lista: non muovono né tolgono dati. Uso: node tests/41-mio-orto-ricerca.mjs http://localhost:8101
++import { chromium, nuovoContesto, check, osserva, finale, vai, scroll } from './lib.mjs';
++
++const browser = await chromium.launch();
++const problemi = [];
++const ctx = await nuovoContesto(browser, { serviceWorkers: 'block' });
++const page = await ctx.newPage();
++osserva(page, problemi);
++
++// Due zone e tre colture: una senza zona, una con varietà, ognuna con data diversa.
++await vai(page, 'colture', '?oggi=2026-06-20');
++await page.evaluate(() => new Promise((ok) => {
++  const r = indexedDB.open('orto');
++  r.onsuccess = () => {
++    const db = r.result; const tx = db.transaction(['zone', 'colture'], 'readwrite');
++    tx.objectStore('zone').put({ id: 'z-sole', nome: 'Aiuola sole', creata: '2026-05-01T08:00:00.000Z', schemaVersion: 2 });
++    tx.objectStore('zone').put({ id: 'z-vasi', nome: 'Vasi terrazzo', creata: '2026-05-01T08:00:00.000Z', schemaVersion: 2 });
++    const base = { varieta: '', dove: 'orto', zonaId: null, note: '', creata: '2026-05-01T08:00:00.000Z', schemaVersion: 2 };
++    tx.objectStore('colture').put({ ...base, id: 'c-carote', nome: 'Carote', schedaId: 'carote', dataSemina: '2026-05-21', zonaId: 'z-sole' });
++    tx.objectStore('colture').put({ ...base, id: 'c-pomodoro', nome: 'Pomodoro', varieta: 'San Marzano', schedaId: 'pomodoro', dataSemina: '2026-05-15', zonaId: null });
++    tx.objectStore('colture').put({ ...base, id: 'c-cipolla', nome: 'Cipolla', schedaId: 'cipolla', dataSemina: '2026-06-10', zonaId: 'z-vasi' });
++    tx.oncomplete = () => { db.close(); ok(); };
++  };
++}));
++await page.reload();
++await vai(page, 'colture', '?oggi=2026-06-20');
++await page.waitForSelector('.filtri-colture input');
++const nomi = () => page.locator('.lista .coltura h3').allInnerTexts();
++
++// Senza filtri tutto visibile, conteggio col totale e nessun messaggio di vuoto
++check('senza filtri ci sono tutte e tre le colture', (await nomi()).join('|') === 'Cipolla|Carote|Pomodoro · San Marzano', (await nomi()).join('|'));
++check('senza filtri il conteggio è il totale', (await page.locator('.conteggio').innerText()) === '3');
++check('senza filtri niente messaggi di vuoto', await page.locator('#colture-vuoto').isHidden() && await page.locator('main > .card.vuoto').isHidden());
++
++// La ricerca trova con maiuscole/minuscole qualunque e guarda anche nome, varietà e zona
++const campo = page.locator('.filtri-colture input');
++await campo.fill('SAn MARZ');
++await page.waitForTimeout(50);
++check('la ricerca ignora maiuscole e cerca nella varietà', (await nomi()).join('|') === 'Pomodoro · San Marzano');
++check('con la ricerca il conteggio mostra visibili e totale', (await page.locator('.conteggio').innerText()) === '1 di 3 visibili', await page.locator('.conteggio').innerText());
++await campo.fill('aiuola');
++await page.waitForTimeout(50);
++check('la ricerca trova anche nel nome della zona', (await nomi()).join('|') === 'Carote');
++check('cambiando filtro l\'ordine della lista resta per data', (await nomi()).join('|') === 'Carote');
++
++// Il filtro zona vede anche le colture senza zona quando vale «Tutte le zone»
++const zona = page.locator('.filtri-colture select');
++await campo.fill('');
++await page.waitForTimeout(50);
++await zona.selectOption('z-vasi');
++await page.waitForTimeout(50);
++check('il filtro zona lascia solo le colture di quella zona', (await nomi()).join('|') === 'Cipolla');
++check('col count con filtro zona: 1 di 3', (await page.locator('.conteggio').innerText()) === '1 di 3 visibili');
++await zona.selectOption('');
++await page.waitForTimeout(50);
++check('tornando su «Tutte le zone» ricompaiono anche le colture senza zona', (await nomi()).length === 3, (await nomi()).join('|'));
++
++// Nessun match: messaggio proprio, distinto dall'orto senza colture, e modo facile per azzerare
++await campo.fill('xyzk');
++await page.waitForTimeout(50);
++const vuotoRicerca = page.locator('main > .card.vuoto');
++check('nessuna corrispondenza mostra il messaggio per la ricerca', !(await vuotoRicerca.isHidden()) && /Nessuna pianta corrisponde/.test(await vuotoRicerca.innerText()));
++await vuotoRicerca.getByRole('button').click();
++await page.waitForTimeout(50);
++check('il pulsante del messaggio azzera campi e filtri', (await nomi()).length === 3 && (await campo.inputValue()) === '' && (await zona.inputValue()) === '');
++
++// I filtri non toccano i dati e l'ordine è quello di prima
++const dati = await page.evaluate(() => new Promise((ok) => {
++  const r = indexedDB.open('orto');
++  r.onsuccess = () => { const tx = r.result.transaction('colture'); const q = tx.objectStore('colture').getAll(); q.onsuccess = () => { r.result.close(); ok(q.result.length); }; };
++}));
++check('filtrare non cambia le colture salvate', dati === 3);
++check('dopo l\'azzeramento l\'ordine è quello iniziale', (await nomi()).join('|') === 'Cipolla|Carote|Pomodoro · San Marzano');
++
++// Eliminazione: il conteggio si aggiorna, i filtri restano puliti
++page.on('dialog', (d) => d.accept());
++await campo.fill('carote');
++await page.waitForTimeout(50);
++await page.locator('.lista button', { hasText: 'Elimina' }).click();
++await page.waitForTimeout(400);
++check('dopo l\'eliminazione il conteggio segue i filtri attivi', (await page.locator('.conteggio').innerText()).startsWith('0 di 2'), await page.locator('.conteggio').innerText());
++
++// Aggiunta: il conteggio torna su col totale aggiornato
++check('il messaggio di ricerca vuoto indica come rivedere tutte', !(await vuotoRicerca.isHidden()));
++await vuotoRicerca.getByRole('button').click();
++await page.waitForTimeout(50);
++const aggiungi = page.locator('main .btn.primario.grande');
++await aggiungi.click();
++await page.waitForSelector('dialog.foglio[open]');
++await page.locator('dialog.foglio input[name=nome]').fill('Zucca');
++await page.locator('dialog.foglio input[type=date]').fill('2026-06-01');
++await page.locator('dialog.foglio button[type=submit]').click();
++await page.waitForTimeout(400);
++check('dopo l\'aggiunta il conteggio conta anche la nuova coltura', (await page.locator('.conteggio').innerText()) === '3', await page.locator('.conteggio').innerText());
++
++// Accessibilità e schermo
++check('il campo di ricerca ha un\'etichetta accessibile', (await campo.evaluate((e) => e.labels.length)) > 0);
++check('il filtro zona ha un\'etichetta accessibile', (await zona.evaluate((e) => e.labels.length)) > 0);
++const misure = await scroll(page);
++check('nessuno scroll orizzontale', misure.sw <= misure.iw, JSON.stringify(misure));
++const veri = problemi.filter((p) => !/Service Worker registration blocked/.test(p));
++check('nessun errore in console / rete', veri.length === 0, veri.join(' | '));
++await page.screenshot({ path: process.env.SCATTO || 'tests/schermate/mio-orto-ricerca.png' });
++await browser.close();
++process.exit(finale() ? 1 : 0);

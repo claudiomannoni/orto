@@ -1,0 +1,110 @@
+diff --git a/js/motore/avviso-gelo.js b/js/motore/avviso-gelo.js
+new file mode 100644
+index 0000000..bfda359
+--- /dev/null
++++ b/js/motore/avviso-gelo.js
+@@ -0,0 +1,71 @@
++// «Sta per arrivare il gelo sulle mie colture?»: guarda tutte le colture dell'utente, chiede al motore
++// della stagione chi è a rischio gelo e raggruppa le risposte in un unico avviso. Funzioni purissime:
++// niente DOM, niente fetch, niente effetti collaterali. Moduli ES, commenti in italiano.
++
++import { giudizioStagione } from './stagione.js';
++
++// Risultato vuoto: nessuna coltura a rischio, nessuna minima da mostrare.
++const VUOTO = () => ({ minima: null, colture: [] });
++
++// Ricava le stringhe dell'avviso dall'oggetto `fine` del giudizio (la fine stagione dei dati);
++// se `fine` manca, o manca un campo, usa una stringa vuota. Accetta chiavi in camelCase e snake_case.
++function campiDiFine(fine) {
++  const f = fine && typeof fine === 'object' ? fine : {};
++  const testo = (v) => (typeof v === 'string' ? v : '');
++  return {
++    azione: testo(f.azione),
++    cosaFare: testo(f.cosaFare ?? f.cosa_fare),
++    come: testo(f.come),
++    perche: testo(f.perche ?? f.perché),
++    certezza: testo(f.certezza),
++  };
++}
++
++// Dato un elemento dell'array colture, trova la scheda corrispondente per `schedaId`; null se non c'è.
++function schedaDi(coltura, schede) {
++  if (!coltura || typeof coltura !== 'object') return null;
++  const id = coltura.schedaId;
++  if (typeof id !== 'string' && typeof id !== 'number') return null;
++  return schede.find((s) => s && (s.id === id)) ?? null;
++}
++
++// `colture`: colture dell'utente (id, nome, schedaId, dataSemina, partenza); `schede`: schede delle
++// piante (id); `dati`: contenuto di data/it/stagione.json; `oggi`: 'YYYY-MM-DD'; `minime`: temperature
++// minime previste dei prossimi giorni. Torna { minima, colture: [...] } con solo le colture in gelo
++// in arrivo, ordinate per nome, oppure il risultato vuoto se nessuna è a rischio (o l'input non è valido).
++export function coltureDaProteggere(argomenti) {
++  const { colture, schede, zonaId, dati, oggi, minime } = argomenti && typeof argomenti === 'object' ? argomenti : {};
++  if (!Array.isArray(colture) || !Array.isArray(schede)) return VUOTO();
++
++  const rischio = [];
++  let minima = null; // la minima più bassa fra i giudizi tenuti
++
++  for (const coltura of colture) {
++    if (!coltura || typeof coltura !== 'object') continue; // voce nulla o invalida: si salta
++    const scheda = schedaDi(coltura, schede);
++    if (!scheda) continue; // scheda mancante: si salta la coltura
++
++    const giudizio = giudizioStagione({ coltura, scheda, zonaId, dati, oggi, minime });
++    if (!giudizio || giudizio.stato !== 'gelo-in-arrivo') continue;
++
++    // La minima del giudizio è la più fredda fra le previste; la confronto con quelle già trovate.
++    const g = giudizio.minima;
++    if (typeof g === 'number' && Number.isFinite(g)) minima = minima === null ? g : Math.min(minima, g);
++
++    const campi = campiDiFine(giudizio.fine);
++    const certezza = campi.certezza || (typeof giudizio.certezza === 'string' ? giudizio.certezza : '');
++    rischio.push({
++      id: coltura.id ?? null,
++      nome: typeof coltura.nome === 'string' ? coltura.nome : '',
++      azione: campi.azione,
++      cosaFare: campi.cosaFare,
++      come: campi.come,
++      perche: campi.perche,
++      certezza,
++    });
++  }
++
++  if (!rischio.length) return VUOTO();
++  rischio.sort((a, b) => a.nome.localeCompare(b.nome));
++  return { minima, colture: rischio };
++}
+diff --git a/tests/fase5-avviso-gelo.mjs b/tests/fase5-avviso-gelo.mjs
+new file mode 100644
+index 0000000..23acf11
+--- /dev/null
++++ b/tests/fase5-avviso-gelo.mjs
+@@ -0,0 +1,27 @@
++// Quali colture proteggere stasera (Node). Uso: node tests/fase5-avviso-gelo.mjs <cartella-app>
++import path from 'node:path';
++import fs from 'node:fs';
++import { pathToFileURL } from 'node:url';
++const radice = path.resolve(process.argv[2] || '.');
++const { coltureDaProteggere } = await import(pathToFileURL(path.join(radice, 'js/motore/avviso-gelo.js')).href);
++let ok = 0, ko = 0;
++const check = (n, c, d = '') => { c ? ok++ : ko++; console.log(`${c ? 'PASS' : 'FAIL'}  ${n}${d ? '  -> ' + d : ''}`); };
++const rd = (f) => JSON.parse(fs.readFileSync(path.join(radice, f), 'utf8'));
++const dati = { colture: {
++  basilico: { freddo: { tolleranza: 'muore-col-gelo', soglia_c: null }, fine_stagione: { azione: 'raccogliere-tutto', cosa_fare: 'Raccogli.', come: 'Taglia.', perche: 'Gelo.', certezza: 'media' } },
++  fave: { freddo: { tolleranza: 'resiste-al-gelo', soglia_c: -8 }, fine_stagione: { azione: 'lasciare-in-campo', cosa_fare: 'x', come: 'y', perche: 'z', certezza: 'media' } },
++} };
++const schede = ['basilico', 'fave'].map((id) => rd(`data/it/colture/${id}.json`));
++const colt = [
++  { id: 'b', nome: 'Basilico', schedaId: 'basilico', dataSemina: '2026-09-10', partenza: 'piantina' },
++  { id: 'f', nome: 'Fave', schedaId: 'fave', dataSemina: '2026-09-10', partenza: 'seme' },
++  { id: 's', nome: 'Senza scheda', schedaId: 'nonesiste', dataSemina: '2026-09-10' },
++];
++const base = { colture: colt, schede, zonaId: 'castelli-romani', dati, oggi: '2026-11-02' };
++let r = coltureDaProteggere({ ...base, minime: [8, 1, 4] });
++check('con minima 1: solo il basilico, con cosa fare e minima', r.minima === 1 && r.colture.length === 1 && r.colture[0].id === 'b' && r.colture[0].cosaFare === 'Raccogli.' && r.colture[0].azione === 'raccogliere-tutto', JSON.stringify(r));
++r = coltureDaProteggere({ ...base, minime: [8, 6] });
++check('senza gelo: niente', r.minima === null && r.colture.length === 0);
++check('input strani non lanciano', [undefined, null, {}, { colture: [null] }, { ...base, colture: null }, { ...base, minime: 'x' }].every((x) => { const v = coltureDaProteggere(x); return v.minima === null && v.colture.length === 0; }));
++console.log(`\nTotale: ${ok} PASS, ${ko} FAIL`);
++process.exit(ko ? 1 : 0);

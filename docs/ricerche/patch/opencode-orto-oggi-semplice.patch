@@ -1,0 +1,134 @@
+diff --git a/css/app.css b/css/app.css
+index 66a3cfa..e9f2981 100644
+--- a/css/app.css
++++ b/css/app.css
+@@ -376,7 +376,11 @@ dialog.foglio::backdrop { background: rgba(0, 0, 0, .5); }
+ 
+ /* ---------- Oggi in campagna: i lavori ---------- */
+ .lavori { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
++.titolo-sezione { font-size: 1.15rem; }
+ .lavoro { position: relative; padding-top: 20px; }
++/* Un lavoro in ritardo si vede subito: bordo e etichetta in rosso, il resto resta nella tinta pacata. */
++.lavoro.urgente { border-left: 6px solid var(--rosso); }
++.lavoro.urgente .etichetta.motivo { background: var(--rosso-chiaro); color: var(--rosso); }
+ .lavoro .numero {
+   position: absolute;
+   top: -12px;
+diff --git a/i18n/it.json b/i18n/it.json
+index 4c53cc3..4fef392 100644
+--- a/i18n/it.json
++++ b/i18n/it.json
+@@ -16,7 +16,8 @@
+   "coltura.azione.raccolto": "Ho raccolto",
+   "coltura.azione.innaffiato.toast": "Annaffiatura segnata",
+   "coltura.azione.raccolto.toast": "Raccolta segnata",
+-  "oggi.mostra_tutto": "Mostra tutto",
++  "oggi.oltre": "Tutto il resto, quando vuoi",
++  "oggi.da_fare": "Da fare oggi ({n})",
+   "pianta.tab.scheda": "Scheda",
+   "pianta.tab.oggi": "Oggi",
+   "pianta.tab.storia": "Storia",
+diff --git a/js/screens/oggi.js b/js/screens/oggi.js
+index 79bc8ba..cf2d8e4 100644
+--- a/js/screens/oggi.js
++++ b/js/screens/oggi.js
+@@ -144,7 +144,7 @@ function scheda(voce, indice, { termini, impostazioni, alChiudere }) {
+     if (chiave) { consiglio.textContent = t(`meteo.consiglio.${chiave}`); consiglio.hidden = false; }
+   }).catch(() => {});
+ 
+-  const carta = el('li', { class: 'card lavoro' },
++  const carta = el('li', { class: `card lavoro${voce.motivo === 'ritardo' ? ' urgente' : ''}` },
+     el('span', { class: 'numero', 'aria-hidden': 'true' }, String(indice + 1)),
+     dettagli,
+     consiglio,
+@@ -196,7 +196,8 @@ export async function monta(contenitore) {
+     cur.fonte && /^https:/.test(cur.fonte) ? el('p', { class: 'aiuto' }, el('a', { class: 'btn piccolo', href: cur.fonte, target: '_blank', rel: 'noopener noreferrer' }, t('sapevi.fonte'))) : null) : null;
+ 
+   const lista = el('ol', { class: 'lavori' });
+-  const listaExtra = el('ol', { class: 'lavori' });
++  // Titolo dell'elenco, col numero dei lavori: rende la pagina scansionabile (sparisce quando è tutto fatto).
++  const intestazioneLavori = el('h3', { class: 'titolo-sezione' }, t('oggi.da_fare', { n: lavori.length }));
+   const zonaConversazione = el('div', {});
+ 
+   const mostraConversazione = (chiave, chiaveRossella = chiave) => zonaConversazione.replaceChildren(conversazione([
+@@ -224,10 +225,11 @@ export async function monta(contenitore) {
+     if (tipo === 'lavoro_fatto' && voce.lavoro.operazione === 'raccolta') {
+       apriRaccolto(colture, { colturaId: voce.coltura?.id ?? null, nome: voce.scheda.nome, data: dataFatto });
+     }
+-    if (!lista.children.length && !listaExtra.children.length) mostraConversazione('finito');
++    if (!lista.children.length) { intestazioneLavori.remove(); mostraConversazione('finito'); }
+   };
+ 
+-  lavori.forEach((voce, i) => (i < 3 ? lista : listaExtra).append(scheda(voce, i, { termini, impostazioni, alChiudere })));
++  // Tutti i lavori del giorno in un solo elenco, in ordine di importanza (i numeri già guidano la mano).
++  lavori.forEach((voce, i) => lista.append(scheda(voce, i, { termini, impostazioni, alChiudere })));
+ 
+   if (lavori.length) {
+     // Se qualche consiglio non è verificato, Rossella lo dice subito, prima dell'elenco.
+@@ -281,15 +283,14 @@ export async function monta(contenitore) {
+     el('p', { class: 'data-lunga' }, formattaDataLunga(oggi)),
+     etichettaOrto(impostazioni) ? el('p', { class: 'nome-orto' }, etichettaOrto(impostazioni)) : null,
+     cartaMeteo(),
+-    lavori.length ? lista : el('section', { class: 'card vuoto' },
++    lavori.length ? [zonaConversazione, intestazioneLavori, lista] : [el('section', { class: 'card vuoto' },
+       el('img', { class: 'illustrazione', src: 'assets/illustrazioni/vuoto.svg', alt: '' }),
+       el('a', { class: 'btn primario', href: '#/colture' }, t('oggi.vai_colture')),
+-    ),
++    ), zonaConversazione],
+     avvisiGelo,
+     el('details', { class: 'contenuto-secondario oggi-altri' },
+-      el('summary', {}, t('oggi.mostra_tutto')),
+-      lavori.length > 3 ? listaExtra : null,
+-      cartaPassi, cartaPiante, cartaConsiglio, cartaGioca, cartaSapevi, zonaConversazione, carta, bloccoInstalla({ rimandabile: true })),
++      el('summary', {}, t('oggi.oltre')),
++      cartaPassi, cartaPiante, cartaConsiglio, cartaGioca, cartaSapevi, carta, bloccoInstalla({ rimandabile: true })),
+   );
+   // L'acqua di ogni fase, unita al tempo: cosa fare oggi.
+   previsioni().then(({ giorni }) => {
+diff --git a/tests/fase2-oggi.mjs b/tests/fase2-oggi.mjs
+index 2243e37..23aa9f2 100644
+--- a/tests/fase2-oggi.mjs
++++ b/tests/fase2-oggi.mjs
+@@ -45,6 +45,10 @@ const misure = (page) => page.evaluate(() => {
+   console.log('   10/11 vuoto:', t.join(' | '));
+   check('10/11 senza colture: 5 lavori (6 candidati, tagliato a 5)', t.length === 5, t.length);
+   check('10/11: tutti con etichetta motivo', (await page.$$eval('li.lavoro .motivo', (e) => e.length)) === 5);
++  check('10/11: tutti i lavori a vista subito, niente di nascosto dietro «Tutto il resto»', (await page.locator('ol.lavori > li.lavoro').count()) === 5 && (await page.locator('details.oggi-altri li.lavoro').count()) === 0);
++  check('10/11: titolo dell\'elenco col numero «Da fare oggi (5)»', /Da fare oggi \(5\)/.test(await page.locator('h3.titolo-sezione').innerText()), await page.locator('h3.titolo-sezione').innerText());
++  const intro = await page.locator('body').innerText();
++  check('10/11: i vermetti presentano i lavori anche senza aprire «Tutto il resto»', /c'è da sporcarsi le mani/.test(intro) && /In ordine di importanza: parti dal primo/.test(intro));
+   const mot = await page.$$eval('li.lavoro', (l) => l.map((x) => x.querySelector('h3').textContent + ' = ' + x.querySelector('.motivo').textContent));
+   console.log('   ', mot.join('\n    '));
+   const ult = mot.slice(0, 3).every((m) => /Ultimo mese utile/.test(m)); check('i 3 con ultimo mese utile sono in cima', ult, mot.join(' ; '));
+@@ -209,6 +213,7 @@ const misure = (page) => page.evaluate(() => {
+   let giri = 0; while (await page.locator('li.lavoro').count() && giri++ < 10) { await page.locator('li.lavoro').first().locator('.btn.primario').click(); await page.waitForTimeout(250); if (await page.locator('dialog[open]').count()) { await page.keyboard.press('Escape'); await page.waitForTimeout(150); } }
+   const txt = await page.locator('body').innerText();
+   check('tutti chiusi: messaggio "Fatto tutto!" di Rosso e Rossella', /Fatto tutto/.test(txt) && /Per oggi basta/.test(txt), txt.slice(0, 200));
++  check('tutti chiusi: il titolo «Da fare oggi» non resta a vuoto', (await page.locator('h3.titolo-sezione').count()) === 0);
+   check('tutti chiusi: la lista non resta con ossatura vuota (nessuna <ol> visibile con bordo/margini)', true, '');
+   await page.screenshot({ path: path.join(SHOT, 'oggi-finito-chiaro.png'), fullPage: true });
+   const r = await page.locator('ol.lavori').count() ? await page.locator('ol.lavori').boundingBox() : null;
+@@ -258,6 +263,23 @@ const misure = (page) => page.evaluate(() => {
+   await ctx.close();
+ }
+ 
++// ---------- 7. Lavoro urgente ben visibile ----------
++{
++  const { ctx, page } = await nuova();
++  await pronta(page, '?oggi=2026-11-10');
++  // Fave seminate 40 giorni fa: «Controlla che siano nate» è in ritardo di 5 giorni
++  await put(page, 'colture', { id: 'c-fave', nome: 'Fave', varieta: '', dataSemina: '2026-10-01', dove: 'orto', note: '', creata: '2026-10-01T08:00:00.000Z', schedaId: 'fave', zonaId: 'castelli-romani', schemaVersion: 2 });
++  await page.reload(); await page.waitForSelector('li.lavoro'); await page.waitForTimeout(250);
++  const urg = page.locator('li.lavoro.urgente');
++  check('lavoro in ritardo: la scheda porta l\'etichetta «In ritardo di 5 giorni»', await urg.count() >= 1 && /In ritardo di 5 giorni/.test(await urg.first().locator('.etichetta.motivo').innerText()), await urg.first().locator('.etichetta.motivo').innerText());
++  check('la scheda urgente è subito in vista (non dietro «Tutto il resto»)', await urg.first().evaluate((e) => e.closest('details.oggi-altri') === null));
++  check('l\'urgente sta nei primi (in ritardo pesa più del calendario)', (await titoli(page)).findIndex((x) => /In ritardo/.test(x)) < 3);
++  await page.screenshot({ path: path.join(SHOT, 'oggi-urgente-chiaro.png'), fullPage: true });
++  const mu = await misure(page);
++  check('urgente: nessuno scroll orizzontale e bersagli ok', !mu.scrollX && !mu.piccoli.length, mu.piccoli.join(' ; '));
++  await ctx.close();
++}
++
+ console.log('\n--- problemi di console/rete ---'); console.log(problemi.length ? problemi.join('\n') : 'nessuno');
+ check('nessun errore di console, eccezione o richiesta fallita', problemi.length === 0, problemi.join(' ;; '));
+ await browser.close();
