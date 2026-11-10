@@ -298,3 +298,27 @@ main { grid-template-columns: minmax(0, 1fr); }
 .stagione-riga[open] > summary::after { transform: rotate(-135deg); }
 .stagione-riga[open] > summary { margin-bottom: 6px; }
 @media (prefers-color-scheme: dark) { .stagione-frase { color: var(--inchiostro); } }
+
+/* Pagina della pianta: stato in alto, voci che si aprono */
+.stato-pianta { gap: 6px; }
+.stato-titolo { font-size: 19px; font-weight: 850; line-height: 1.15; }
+.stato-titolo.urgenza-urgente { color: var(--rosso); }
+.stato-frase { font-size: 15px; }
+.stato-azioni { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-top: 6px; }
+.voci-pianta { display: grid; gap: 8px; }
+.voce-pianta { background: var(--carta); border-radius: 18px; overflow: hidden; }
+.voce-pianta[hidden] { display: none; }
+.voce-pianta > summary { list-style: none; min-height: 56px; display: flex; align-items: center; gap: 8px; padding: 8px 14px; cursor: pointer; }
+.voce-pianta > summary::-webkit-details-marker { display: none; }
+.voce-titolo { font-weight: 850; font-size: 15.5px; }
+.voce-accenno { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--inchiostro-2); font-size: 13.5px; font-weight: 600; }
+.voce-pianta > summary::after { content: ""; flex: none; margin-left: auto; width: 9px; height: 9px; border-right: 2.5px solid var(--inchiostro-2); border-bottom: 2.5px solid var(--inchiostro-2); transform: rotate(45deg); }
+.voce-pianta[open] > summary::after { transform: rotate(-135deg); }
+.voce-corpo { display: grid; gap: 10px; padding: 0 14px 14px; grid-template-columns: minmax(0, 1fr); }
+.voce-corpo > .card { padding: 0; background: transparent; }
+.voce-corpo .sopravvivenza > h3, .voce-corpo .cura > h3 { display: none; }
+.voce-corpo .opzione-sopravvivenza { background: var(--sfondo); }
+.bustina-pianta-ampia { border: 0; border-radius: 22px; }
+.bustina-pianta-ampia .anello { width: 64px; height: 64px; }
+.bustina-pianta-ampia .anello img { width: 44px; height: 44px; }
+.bustina-pianta-ampia .bustina-pianta-contenuto { grid-template-columns: 72px minmax(0, 1fr); }
